@@ -70,7 +70,7 @@ Install and try it
 
 .. code-block:: bash
 
-   pip install -e ".[dev]"   # from a clone; see the quick start
+   pip install blockchainkit
 
 ``import blockchainkit`` loads only the standard library. Matplotlib and NumPy
 are installed with the package for each subpackage's plotting helpers in

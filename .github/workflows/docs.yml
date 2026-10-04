@@ -1,0 +1,31 @@
+name: Docs
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    # sphinx-gallery re-executes every examples/*/*/plot_*.py, and the doctest
+    # build runs every line of the tutorials and exercise solutions, so these
+    # are the only checks that catch a broken example, solution, or
+    # ".. minigallery::" path in docs/source/history/.
+    name: Build Sphinx docs (HTML and doctest)
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e ".[docs]"
+      - run: cd docs && make html
+      - run: cd docs && make doctest
+      - uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: docs/build/html

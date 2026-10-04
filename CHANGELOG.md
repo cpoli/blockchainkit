@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased
+## [0.2.0] - 2026-10-04
+
+The package is aligned with its kit-family siblings, and every subpackage now
+follows its field through at least 15 breakthroughs, each with its own
+experiment.
 
 ### Added
 
@@ -121,7 +125,9 @@
 - `eventual_catch_up` rejects non-numeric fractions, and `StakeSampler` and
   `SimulatedNetwork` reject non-integer seeds.
 
-## 0.1.0 — initial local release
+## [0.1.0] - 2026-10-04
+
+Initial local release, never published.
 
 - Five typed subpackages for cryptography, authenticated structures, consensus
   experiments, peer simulation, and bounded execution.

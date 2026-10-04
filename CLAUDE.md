@@ -37,7 +37,7 @@ cd docs && MPLBACKEND=Agg make html && MPLBACKEND=Agg make doctest
 python -m build
 ```
 
-CI (`.github/workflows/ci.yml`) runs tests on Python 3.10-3.14, the quality checks, and the docs build (HTML and doctest).
+CI: `.github/workflows/ci.yml` runs lint, tests on Python 3.10-3.15 on Linux and macOS, the package build (`twine check`, no tests in the wheel), and mypy; `docs.yml` runs the HTML and doctest builds. `release.yml` runs on a `vX.Y.Z` tag: the tag must match `__version__`, CITATION.cff's `version` and a `## [X.Y.Z] - date` CHANGELOG section; it publishes to PyPI (trusted publisher, environment `pypi`), creates the GitHub Release, and deploys the docs to gh-pages.
 
 ## Architecture
 

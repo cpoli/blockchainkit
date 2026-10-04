@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use blockchainkit in your research or teaching, please cite it as below."
 title: "blockchainkit: cryptography and blockchain breakthroughs, explained through reproducible Python experiments"
 type: software
-version: 0.1.0
+version: 0.2.0
 # Add `doi:` with this release's own Zenodo version DOI (not the concept DOI)
 # once the first release is archived.
 license: MIT

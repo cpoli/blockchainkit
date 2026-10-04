@@ -7,6 +7,6 @@
 
 from blockchainkit import consensus, constants, crypto, network, structures, vm
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = ["__version__", "consensus", "constants", "crypto", "network", "structures", "vm"]

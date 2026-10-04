@@ -34,7 +34,7 @@ all, each linked to the code and the gallery example that reproduce it.
 are used only by each subpackage's `visualizers`.
 
 ```bash
-pip install -e ".[dev]"   # from a clone; Python 3.10+
+pip install blockchainkit   # Python 3.10+
 ```
 
 Conventionally imported as `bk`:

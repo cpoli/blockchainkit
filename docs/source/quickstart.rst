@@ -5,24 +5,21 @@ We will give Alice 100 imaginary units, have her pay Bob 25, and check the
 result. You need basic Python, but no prior cryptography knowledge. Read
 :doc:`/start_here` first if blocks, keys, or signatures are unfamiliar.
 
-Install locally
----------------
+Install
+-------
 
-Open a terminal in the package directory (the one containing ``pyproject.toml``),
-with Python 3.10 or newer:
+With Python 3.10 or newer, in a virtual environment:
 
 .. code-block:: bash
 
    python -m venv .venv
-   source .venv/bin/activate
-   python -m pip install -e . jupyterlab
+   source .venv/bin/activate          # on Windows: .venv\Scripts\activate
+   python -m pip install blockchainkit jupyterlab
 
-The virtual environment keeps this project's dependencies together. The
-``-e`` option makes edits to the local package available without reinstalling.
-JupyterLab runs the notebooks.
-
-Use ``pip install -e .`` for the package with its plotting helpers alone. No published
-PyPI package is assumed. On Windows, activate with ``.venv\Scripts\activate``.
+The virtual environment keeps this project's dependencies together, and
+JupyterLab runs the notebooks. To work on the package itself, clone the
+repository and install it in editable mode with ``pip install -e ".[dev]"``
+instead.
 
 Authorize a transfer
 --------------------

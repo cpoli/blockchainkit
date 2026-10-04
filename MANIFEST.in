@@ -2,6 +2,7 @@
 # downstream packagers; the wheel does not, via exclude-package-data in
 # pyproject.toml.
 graft blockchainkit
+include conftest.py
 include LICENSE README.md CONTRIBUTING.md CHANGELOG.md CITATION.cff CODE_OF_CONDUCT.md SECURITY.md ROADMAP.md
 recursive-include examples *.py *.rst
 include notebooks/quickstart.ipynb
