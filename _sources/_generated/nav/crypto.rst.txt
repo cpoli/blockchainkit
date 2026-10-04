@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.crypto hub </_generated/subpackages/crypto>` · :doc:`History </history/crypto_breakthroughs>` · :doc:`Examples </api/gallery/crypto/index>` · :doc:`API reference </api/crypto>`

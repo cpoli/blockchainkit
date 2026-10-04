@@ -1,0 +1,105 @@
+
+
+.. _sphx_glr_api_gallery_network_relay:
+
+Block and transaction relay
+---------------------------
+
+Announcing instead of flooding, why propagation delay causes forks, compact
+blocks, and hiding where a transaction came from.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The simplest relay floods: every peer forwards a new block over each of its links, so a peer with eight neighbors may receive it eight times. The first Bitcoin client instead announces: it sends a small inv message carrying the block&#x27;s hash, and sends the block only to peers that ask for it with getdata. Each peer downloads each block once.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_01_inv_getdata_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_01_inv_getdata`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Announce, then fetch: Bitcoin's inv/getdata relay (Nakamoto 2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decker and Wattenhofer measured how long Bitcoin blocks took to reach the network&#x27;s peers, and found that this delay alone explains most forks: while a block is still propagating, miners that have not seen it keep working on the old tip, and one of them may find a competing block. Since blocks are found as a Poisson process, the chance of a fork per block is about 1 - exp(-delay / interval).">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_02_propagation_and_forks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_02_propagation_and_forks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Propagation delay causes forks (Decker and Wattenhofer 2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="By the time a block is found, peers have usually already received most of its transactions as they were broadcast. Matt Corallo&#x27;s compact blocks (BIP 152) send only the header and a 6-byte short ID per transaction; the receiver rebuilds the block from its mempool and asks for the few it lacks. Short IDs are salted per block, so an attacker cannot craft transactions whose IDs collide in every block.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_03_compact_blocks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_03_compact_blocks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Compact blocks: send what the peer lacks (Corallo, BIP 152, 2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When a peer broadcasts its own transaction by diffusion, it is usually the first to send it, so spy nodes that connect widely can guess the origin by noting which peer delivered each transaction to them first. Bojja Venkatakrishnan, Fanti and Viswanath proposed Dandelion: first pass the transaction along a random path (the stem), each hop continuing with a fixed probability, and only then diffuse it (the fluff). Spies then see the end of the stem.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_04_dandelion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_04_dandelion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dandelion: hiding where a transaction came from (Bojja Venkatakrishnan et al. 2017)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/network/relay/plot_01_inv_getdata
+   /api/gallery/network/relay/plot_02_propagation_and_forks
+   /api/gallery/network/relay/plot_03_compact_blocks
+   /api/gallery/network/relay/plot_04_dandelion
+

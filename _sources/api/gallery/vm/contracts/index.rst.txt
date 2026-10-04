@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_vm_contracts:
+
+Contracts and verification
+--------------------------
+
+A contract enforced by code, and checking code before running it.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Nick Szabo coined smart contract for terms of an agreement enforced by a mechanism rather than by courts, and gave the vending machine as the primordial example: anyone who inserts enough money gets the item and the change, and nobody can take the goods without paying. A blockchain contract is such a machine whose code and state every node can check.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/contracts/images/thumb/sphx_glr_plot_01_vending_machine_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/contracts/plot_01_vending_machine`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Smart contracts: the vending machine (Szabo 1994)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Java let browsers download and run code from strangers. Its virtual machine first verifies the bytecode: by following every path through the program without running it, it proves that no instruction can pop from an empty stack and that every instruction is always reached with the same stack height. Verified code needs no run-time stack checks and its maximum stack size is known in advance. Ethereum&#x27;s EOF format brings similar validation at deployment.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/contracts/images/thumb/sphx_glr_plot_02_bytecode_verification_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/contracts/plot_02_bytecode_verification`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bytecode verification: check before you run (Gosling 1995)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/vm/contracts/plot_01_vending_machine
+   /api/gallery/vm/contracts/plot_02_bytecode_verification
+

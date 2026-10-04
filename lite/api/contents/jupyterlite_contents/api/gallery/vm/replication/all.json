@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.184519Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.754257Z",
+      "mimetype": null,
+      "name": "plot_02_atomic_transactions.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/replication/plot_02_atomic_transactions.ipynb",
+      "size": 3893,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.184187Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.753812Z",
+      "mimetype": null,
+      "name": "plot_01_state_machine_replication.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/replication/plot_01_state_machine_replication.ipynb",
+      "size": 3882,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.184519Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.184519Z",
+  "mimetype": null,
+  "name": "replication",
+  "path": "jupyterlite_contents/api/gallery/vm/replication",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

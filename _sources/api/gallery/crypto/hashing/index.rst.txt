@@ -1,0 +1,105 @@
+
+
+.. _sphx_glr_api_gallery_crypto_hashing:
+
+Hashing
+-------
+
+Attacks on hash functions and the constructions that answer them: the
+birthday bound, Merkle-Damgard and length extension, HMAC, and SHA-256.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In a room of 23 people, two probably share a birthday. Yuval turned this into an attack: to find any two messages with the same n-bit hash takes about 2(n/2) trials, not the 2n needed to match one given hash. A signer tricked into signing one of a colliding pair has signed both.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_01_birthday_attack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_01_birthday_attack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The birthday attack on hash functions (Yuval 1979)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Merkle and Damgard independently showed how to build a hash for messages of any length from a fixed-size compression function: pad the message, append its length, and chain the blocks through the function. SHA-256 is built this way. The digest is the final chaining state, which has a famous consequence.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_02_merkle_damgard_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_02_merkle_damgard`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Merkle-Damgard construction and length extension (1989)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bellare, Canetti and Krawczyk defined HMAC to turn any Merkle-Damgard hash into a message authentication code with a security proof: HMAC(k, m) = H((k XOR opad) || H((k XOR ipad) || m)). The outer hash hides the inner chaining state, so an attacker has nothing to extend.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_03_hmac_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_03_hmac`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">HMAC: keyed hashing that resists length extension (1996)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SHA-256 became the standardized hash behind Bitcoin&#x27;s block hashes, addresses, and Merkle trees. A good hash behaves like a random function: flipping one input bit flips each output bit with probability one half.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_04_sha256_avalanche_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_04_sha256_avalanche`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SHA-256 and the avalanche effect (FIPS 180-2, 2002)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/hashing/plot_01_birthday_attack
+   /api/gallery/crypto/hashing/plot_02_merkle_damgard
+   /api/gallery/crypto/hashing/plot_03_hmac
+   /api/gallery/crypto/hashing/plot_04_sha256_avalanche
+

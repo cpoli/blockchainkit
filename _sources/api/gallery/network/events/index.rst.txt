@@ -1,0 +1,87 @@
+
+
+.. _sphx_glr_api_gallery_network_events:
+
+Simulated and logical time
+--------------------------
+
+An event queue in place of a wall clock, and the clocks peers can build from
+their messages alone.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A discrete-event simulator keeps a queue of future events ordered by time. It pops the earliest, jumps the clock straight to it, and lets it schedule new events. Nothing happens between events, so no time is wasted waiting, and with a seeded random source every run is exactly reproducible. SimulatedNetwork simulates gossip this way: a message sent on a link becomes a delivery event a random number of ticks later.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/events/images/thumb/sphx_glr_plot_01_discrete_event_simulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/events/plot_01_discrete_event_simulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Discrete-event simulation: a network on an event queue (GPSS 1961, Simula 1965)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Peers&#x27; clocks drift, so wall-clock timestamps cannot say which of two events came first. Lamport replaced physical time with happened before: an event precedes the later events at its own process, a message&#x27;s send precedes its receive, and the relation is transitive. A counter that ticks at every event and jumps past every timestamp it receives respects that order.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/events/images/thumb/sphx_glr_plot_02_lamport_clocks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/events/plot_02_lamport_clocks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lamport clocks: ordering events without a shared clock (Lamport 1978)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Lamport timestamp orders events but cannot tell whether two events are causally related. Fidge and Mattern independently gave each process a vector of counters, one per process. Entry q of an event&#x27;s vector counts the events at process q that happened before or at it, so comparing two vectors entry by entry answers exactly whether one event caused the other or the two are concurrent.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/events/images/thumb/sphx_glr_plot_03_vector_clocks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/events/plot_03_vector_clocks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Vector clocks: detecting concurrency (Fidge and Mattern 1988)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/network/events/plot_01_discrete_event_simulation
+   /api/gallery/network/events/plot_02_lamport_clocks
+   /api/gallery/network/events/plot_03_vector_clocks
+

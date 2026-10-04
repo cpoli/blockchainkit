@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.156534Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.730077Z",
+      "mimetype": null,
+      "name": "plot_02_ghost.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/nakamoto/plot_02_ghost.ipynb",
+      "size": 3648,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.156181Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.729817Z",
+      "mimetype": null,
+      "name": "plot_01_longest_chain.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/nakamoto/plot_01_longest_chain.ipynb",
+      "size": 6015,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.156534Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.156534Z",
+  "mimetype": null,
+  "name": "nakamoto",
+  "path": "jupyterlite_contents/api/gallery/consensus/nakamoto",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

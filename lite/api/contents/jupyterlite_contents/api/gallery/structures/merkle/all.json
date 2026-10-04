@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.176554Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.746261Z",
+      "mimetype": null,
+      "name": "plot_03_consistency_proofs.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/merkle/plot_03_consistency_proofs.ipynb",
+      "size": 3933,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.175902Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.745453Z",
+      "mimetype": null,
+      "name": "plot_01_merkle_proofs.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/merkle/plot_01_merkle_proofs.ipynb",
+      "size": 4834,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.176861Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.746745Z",
+      "mimetype": null,
+      "name": "plot_04_mountain_ranges.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/merkle/plot_04_mountain_ranges.ipynb",
+      "size": 3687,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.176213Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.745744Z",
+      "mimetype": null,
+      "name": "plot_02_duplicate_leaf.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/merkle/plot_02_duplicate_leaf.ipynb",
+      "size": 3622,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.176861Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.176861Z",
+  "mimetype": null,
+  "name": "merkle",
+  "path": "jupyterlite_contents/api/gallery/structures/merkle",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

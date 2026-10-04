@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.179199Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.749816Z",
+      "mimetype": null,
+      "name": "plot_02_replay_protection.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/transactions/plot_02_replay_protection.ipynb",
+      "size": 3758,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.178885Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.749264Z",
+      "mimetype": null,
+      "name": "plot_01_malleability.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/transactions/plot_01_malleability.ipynb",
+      "size": 4346,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.179199Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.179199Z",
+  "mimetype": null,
+  "name": "transactions",
+  "path": "jupyterlite_contents/api/gallery/structures/transactions",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

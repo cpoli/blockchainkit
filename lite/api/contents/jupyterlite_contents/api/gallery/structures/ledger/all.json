@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.175497Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.745023Z",
+      "mimetype": null,
+      "name": "plot_02_account_nonces.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/ledger/plot_02_account_nonces.ipynb",
+      "size": 4161,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.175160Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.744734Z",
+      "mimetype": null,
+      "name": "plot_01_double_entry.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/ledger/plot_01_double_entry.ipynb",
+      "size": 4678,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.175497Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.175497Z",
+  "mimetype": null,
+  "name": "ledger",
+  "path": "jupyterlite_contents/api/gallery/structures/ledger",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

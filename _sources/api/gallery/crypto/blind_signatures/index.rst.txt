@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_crypto_blind_signatures:
+
+Blind signatures
+----------------
+
+Chaum's RSA blinding: authorization without seeing the message.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Chaum&#x27;s construction separates authorization from knowledge of a message. This experiment exposes RSA&#x27;s multiplicative blinding identity with tiny integers; a usable payment system needs encoding, issuance, and spent-token rules.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/blind_signatures/images/thumb/sphx_glr_plot_01_blind_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/blind_signatures/plot_01_blind_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Chaum's blind signatures: authenticate a message the signer cannot see (1982)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/blind_signatures/plot_01_blind_signatures
+

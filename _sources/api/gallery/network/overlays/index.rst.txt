@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_network_overlays:
+
+Overlays and their attacks
+--------------------------
+
+Kademlia routing, and the Sybil and eclipse attacks on who a peer talks to.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A distributed hash table stores each key at the nodes whose identifiers are closest to it, and lets any node find them without a central index. Kademlia measures closeness as the XOR of two identifiers. Each node keeps a k-bucket of contacts at every distance scale: a few nodes that share none of its leading bits, a few that share exactly one, and so on. Every hop toward a key at least fixes the next differing bit, so a lookup among n nodes takes about log2 n hops at most and far fewer on average. Ethereum&#x27;s discovery protocol and IPFS use Kademlia.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/overlays/images/thumb/sphx_glr_plot_01_kademlia_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/overlays/plot_01_kademlia`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kademlia: routing by XOR distance (Maymounkov and Mazières 2002)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In an open network, nothing stops one person from running many nodes. Douceur showed that without a trusted authority to certify identities, an attacker can always present as many as its resources allow, and any protocol that counts identities, such as voting or choosing which nodes store a key, can be taken over. Proof of work is one answer: it makes influence cost computation instead of counting identities.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/overlays/images/thumb/sphx_glr_plot_02_sybil_attack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/overlays/plot_02_sybil_attack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Sybil attack: identities are cheap (Douceur 2002)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Bitcoin node chooses its outbound connections from a table of addresses it has heard about. Heilman, Kendler, Zohar and Goldberg showed that an attacker who floods that table with its own addresses, and waits for a restart, can own every connection. The eclipsed node then sees only what the attacker shows it: it can be fed a fake chain or have its blocks withheld. Bitcoin&#x27;s defense is bucketing, which the paper&#x27;s countermeasures strengthened: an address&#x27;s bucket depends on its network group, and each group can reach only a few buckets.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/overlays/images/thumb/sphx_glr_plot_03_eclipse_attack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/overlays/plot_03_eclipse_attack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Eclipse attacks on Bitcoin's peer table (Heilman et al. 2015)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/network/overlays/plot_01_kademlia
+   /api/gallery/network/overlays/plot_02_sybil_attack
+   /api/gallery/network/overlays/plot_03_eclipse_attack
+

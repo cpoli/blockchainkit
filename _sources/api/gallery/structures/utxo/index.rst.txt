@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structures_utxo:
+
+Unspent outputs
+---------------
+
+Bitcoin's coin-based ledger.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin keeps no balances. Value lives in coins, the outputs of earlier transactions, each locked to an owner. A payment consumes whole coins as inputs and creates new outputs: one to the payee, usually one back to the payer as change. Whatever is not assigned to an output goes to the miner as a fee. A coin can be spent once; a double spend is two transactions consuming the same coin.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/utxo/images/thumb/sphx_glr_plot_01_utxo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/utxo/plot_01_utxo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Coins, not accounts: the unspent-output model (Nakamoto 2008)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/utxo/plot_01_utxo
+

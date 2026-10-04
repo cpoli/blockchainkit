@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Exercises: networking &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/network';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercises: execution" href="vm.html" />
+    <link rel="prev" title="Exercises: consensus" href="consensus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">Exercises: cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">Exercises: ledgers and data structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">Exercises: consensus</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Exercises: networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm.html">Exercises: execution</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Exercises</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Exercises: networking</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="exercises-networking">
+<h1>Exercises: networking<a class="headerlink" href="#exercises-networking" title="Link to this heading">#</a></h1>
+<p>Each problem comes from the exercise at the end of a gallery example. Try it
+in the example’s notebook first, then open the solution. Every solution is
+run by the documentation build, so its code is known to work.</p>
+<section id="gossip-redundant-routes-and-broken-links">
+<h2>1. Gossip: redundant routes and broken links<a class="headerlink" href="#gossip-redundant-routes-and-broken-links" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/events/plot_01_discrete_event_simulation.html"><span class="doc">Discrete-event simulation: a network on an event queue (GPSS 1961, Simula 1965)</span></a>.
+Connect a triangle, disconnect a link while a message is in flight, and
+check that duplicate paths do not duplicate receipts.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">net</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">SimulatedNetwork</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">],</span> <span class="n">seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)]:</span>
+<span class="gp">... </span>    <span class="n">net</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">latency</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">broadcast</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"news"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">net</span><span class="o">.</span><span class="n">disconnect</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">net</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">recipient</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">net</span><span class="o">.</span><span class="n">deliveries</span><span class="p">)</span>
+<span class="go">['a', 'b', 'c']</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The direct message to <code class="docutils literal notranslate"><span class="pre">b</span></code> is dropped with its link, but the route through
+<code class="docutils literal notranslate"><span class="pre">c</span></code> remains, and each peer accepts the payload once. The same seed
+reproduces every time; a different seed can change delays without
+changing who is reached.</p>
+</div>
+</details></section>
+<section id="lamport-clocks-making-two-events-causal">
+<h2>2. Lamport clocks: making two events causal<a class="headerlink" href="#lamport-clocks-making-two-events-causal" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/events/plot_02_lamport_clocks.html"><span class="doc">Lamport clocks: ordering events without a shared clock (Lamport 1978)</span></a>. Add a message
+from P0 to P2 sent right after <code class="docutils literal notranslate"><span class="pre">a</span></code> and received before <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">history</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="p">[(</span><span class="s2">"send"</span><span class="p">,</span> <span class="s2">"m1"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"local"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"send"</span><span class="p">,</span> <span class="s2">"m4"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"receive"</span><span class="p">,</span> <span class="s2">"m3"</span><span class="p">)],</span>
+<span class="gp">... </span>    <span class="p">[(</span><span class="s2">"receive"</span><span class="p">,</span> <span class="s2">"m1"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"send"</span><span class="p">,</span> <span class="s2">"m2"</span><span class="p">)],</span>
+<span class="gp">... </span>    <span class="p">[(</span><span class="s2">"receive"</span><span class="p">,</span> <span class="s2">"m4"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"local"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"receive"</span><span class="p">,</span> <span class="s2">"m2"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"send"</span><span class="p">,</span> <span class="s2">"m3"</span><span class="p">)],</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">lamport_timestamps</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+<span class="go">((1, 2, 3, 8), (2, 3), (4, 5, 6, 7))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vectors</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">vector_timestamps</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">happened_before</span><span class="p">(</span><span class="n">vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">vectors</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">b</span></code> jumps from time 1 to 5, and the later events at P2 follow. Now a
+chain of events leads from <code class="docutils literal notranslate"><span class="pre">a</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span></code>, so they are no longer
+concurrent. The receipt of <code class="docutils literal notranslate"><span class="pre">m3</span></code> at P0 moves from 6 to 8, past the time
+at which P2 sent it.</p>
+</div>
+</details></section>
+<section id="vector-clocks-why-no-single-number-captures-concurrency">
+<h2>3. Vector clocks: why no single number captures concurrency<a class="headerlink" href="#vector-clocks-why-no-single-number-captures-concurrency" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/events/plot_03_vector_clocks.html"><span class="doc">Vector clocks: detecting concurrency (Fidge and Mattern 1988)</span></a>. Find events
+<span class="math notranslate nohighlight">\(x, y, z\)</span> with <span class="math notranslate nohighlight">\(x\)</span> concurrent to <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(y\)</span> concurrent
+to <span class="math notranslate nohighlight">\(z\)</span>, but <span class="math notranslate nohighlight">\(x\)</span> before <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">history</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="p">[(</span><span class="s2">"send"</span><span class="p">,</span> <span class="s2">"m1"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"local"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"receive"</span><span class="p">,</span> <span class="s2">"m3"</span><span class="p">)],</span>
+<span class="gp">... </span>    <span class="p">[(</span><span class="s2">"receive"</span><span class="p">,</span> <span class="s2">"m1"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"send"</span><span class="p">,</span> <span class="s2">"m2"</span><span class="p">)],</span>
+<span class="gp">... </span>    <span class="p">[(</span><span class="s2">"local"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"receive"</span><span class="p">,</span> <span class="s2">"m2"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"send"</span><span class="p">,</span> <span class="s2">"m3"</span><span class="p">)],</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">v</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">vector_timestamps</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">send_m1</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">concurrent</span><span class="p">(</span><span class="n">send_m1</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">concurrent</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="go">(True, True)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">happened_before</span><span class="p">(</span><span class="n">send_m1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p class="sd-card-text">If “concurrent” meant “equal timestamps”, it would be transitive like
+equality, so sending <code class="docutils literal notranslate"><span class="pre">m1</span></code> would be concurrent with <code class="docutils literal notranslate"><span class="pre">a</span></code>. It is not.
+And any other scalar encoding orders all events linearly, which loses the
+distinction. Exact concurrency needs as many counters as processes.</p>
+</div>
+</details></section>
+<section id="rumor-spreading-the-ring">
+<h2>4. Rumor spreading: the ring<a class="headerlink" href="#rumor-spreading-the-ring" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/gossip/plot_02_rumor_spreading.html"><span class="doc">Rumor spreading in log2 n + ln n rounds (Frieze and Grimmett 1985, Pittel 1987)</span></a>. Run push on a
+ring instead of the complete graph. How do the rounds grow with <span class="math notranslate nohighlight">\(n\)</span>?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rounds</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="n">n</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">spread_rumor</span><span class="p">(</span><span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">ring_lattice</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">seed</span><span class="o">=</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">rounds</span>
+<span class="gp">... </span>           <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="o">/</span> <span class="mi">5</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">1.6</span> <span class="o">&lt;</span> <span class="n">rounds</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span> <span class="o">/</span> <span class="n">rounds</span><span class="p">[</span><span class="mi">32</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">2.4</span> <span class="ow">and</span> <span class="mf">1.6</span> <span class="o">&lt;</span> <span class="n">rounds</span><span class="p">[</span><span class="mi">128</span><span class="p">]</span> <span class="o">/</span> <span class="n">rounds</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mf">2.4</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Doubling <span class="math notranslate nohighlight">\(n\)</span> roughly doubles the rounds: growth is linear, not
+logarithmic. On a ring the rumor can only advance one hop per round on
+each side, and an informed peer calls the uninformed neighbor only half
+the time, so it takes about <span class="math notranslate nohighlight">\(n\)</span> rounds. Fast gossip needs a graph
+with short paths, which random links provide.</p>
+</div>
+</details></section>
+<section id="bracha-broadcast-the-echo-quorum">
+<h2>5. Bracha broadcast: the echo quorum<a class="headerlink" href="#bracha-broadcast-the-echo-quorum" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/gossip/plot_03_reliable_broadcast.html"><span class="doc">Byzantine reliable broadcast: echo, then ready (Bracha 1987)</span></a>. Show that
+two echo quorums of size <span class="math notranslate nohighlight">\(\lceil (n + t + 1)/2 \rceil\)</span> share at least
+<span class="math notranslate nohighlight">\(t + 1\)</span> processes. What goes wrong with a simple majority?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">overlap</span><span class="p">(</span><span class="n">quorum</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">quorum</span> <span class="o">-</span> <span class="n">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">all</span><span class="p">(</span><span class="n">overlap</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">n</span><span class="p">,</span> <span class="n">overlap</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+<span class="go">[(4, 2), (7, 1), (10, 2)]</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Since <span class="math notranslate nohighlight">\(2\lceil (n + t + 1)/2 \rceil \ge n + t + 1\)</span>, the overlap is at
+least <span class="math notranslate nohighlight">\(t + 1\)</span>, so it contains a correct process, which echoes one
+value only. A majority quorum overlaps in one or two processes, which can
+all be faulty when <span class="math notranslate nohighlight">\(t \ge 2\)</span>, so two values could both gather a
+quorum.</p>
+</div>
+</details></section>
+<section id="random-graphs-where-the-threshold-comes-from">
+<h2>6. Random graphs: where the threshold comes from<a class="headerlink" href="#random-graphs-where-the-threshold-comes-from" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/graphs/plot_01_random_graphs.html"><span class="doc">Random graphs and the connectivity threshold (Erdős and Rényi 1959)</span></a>. Evaluate the
+expected number of isolated peers at <span class="math notranslate nohighlight">\(p = c \ln n / n\)</span>, and derive the
+limit law.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The expected number of isolated peers is <span class="math notranslate nohighlight">\(n(1-p)^{n-1} \approx n
+e^{-pn} = n^{1-c}\)</span>: it tends to infinity for <span class="math notranslate nohighlight">\(c &lt; 1\)</span> and to 0 for
+<span class="math notranslate nohighlight">\(c &gt; 1\)</span>. If their number is roughly Poisson with that mean, the
+chance of none is <span class="math notranslate nohighlight">\(\exp(-n^{1-c})\)</span>, and isolated peers are the last
+obstacle to connectivity.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">exp</span><span class="p">,</span> <span class="n">log</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span> <span class="mf">1.2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">c</span> <span class="o">*</span> <span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">3</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">n</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">c</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">(0.288, 0.302)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">isolated</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="nb">sum</span><span class="p">(</span><span class="n">d</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">bk</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">erdos_renyi</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">degrees</span><span class="p">())</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">isolated</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.15</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">n</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">c</span><span class="p">))),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">0.74</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="eclipse-attacks-picking-a-bucket-first">
+<h2>7. Eclipse attacks: picking a bucket first<a class="headerlink" href="#eclipse-attacks-picking-a-bucket-first" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/overlays/plot_03_eclipse_attack.html"><span class="doc">Eclipse attacks on Bitcoin’s peer table (Heilman et al. 2015)</span></a>. If the
+attacker owns 16 of 64 buckets outright, what is the probability that all
+eight picks land in its buckets?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="p">(</span><span class="mi">16</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">64</span><span class="p">)</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="mi">8</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">"</span>
+<span class="go">'1.5e-05'</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Each pick first chooses a random bucket, so the attacker’s chance per
+pick is the fraction of buckets it holds, <span class="math notranslate nohighlight">\(1/4\)</span>, however many
+addresses it crammed into them. Eight independent picks all succeed with
+probability <span class="math notranslate nohighlight">\(4^{-8}\)</span>, one in 65,536. The simulation, with 2000
+trials, saw none.</p>
+</div>
+</details></section>
+<section id="compact-blocks-short-id-collisions">
+<h2>8. Compact blocks: short-ID collisions<a class="headerlink" href="#compact-blocks-short-id-collisions" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/network/relay/plot_03_compact_blocks.html"><span class="doc">Compact blocks: send what the peer lacks (Corallo, BIP 152, 2016)</span></a>. With 6-byte
+short IDs, 2000 block transactions and a 300,000-transaction mempool,
+estimate the expected number of colliding pairs.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pairs</span> <span class="o">=</span> <span class="mi">2000</span> <span class="o">*</span> <span class="mi">300_000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">pairs</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="o">**</span><span class="mi">48</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">"</span>
+<span class="go">'2.1e-06'</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Each block transaction is compared with each mempool entry, and a pair
+collides with probability <span class="math notranslate nohighlight">\(2^{-48}\)</span>. About one block in 470,000 has a
+collision, and it costs only an extra round trip. Eight bytes would make
+collisions rarer still but add a third more to the short IDs of every
+block; BIP 152 accepts the rare fallback.</p>
+</div>
+</details></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="consensus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Exercises: consensus</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="vm.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercises: execution</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gossip-redundant-routes-and-broken-links">1. Gossip: redundant routes and broken links</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lamport-clocks-making-two-events-causal">2. Lamport clocks: making two events causal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-clocks-why-no-single-number-captures-concurrency">3. Vector clocks: why no single number captures concurrency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumor-spreading-the-ring">4. Rumor spreading: the ring</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bracha-broadcast-the-echo-quorum">5. Bracha broadcast: the echo quorum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-graphs-where-the-threshold-comes-from">6. Random graphs: where the threshold comes from</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eclipse-attacks-picking-a-bucket-first">7. Eclipse attacks: picking a bucket first</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compact-blocks-short-id-collisions">8. Compact blocks: short-ID collisions</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/exercises/network.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

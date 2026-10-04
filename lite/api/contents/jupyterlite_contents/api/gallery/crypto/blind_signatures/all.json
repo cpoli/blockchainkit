@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.159460Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.732468Z",
+      "mimetype": null,
+      "name": "plot_01_blind_signatures.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/blind_signatures/plot_01_blind_signatures.ipynb",
+      "size": 3841,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.159460Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.159460Z",
+  "mimetype": null,
+  "name": "blind_signatures",
+  "path": "jupyterlite_contents/api/gallery/crypto/blind_signatures",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

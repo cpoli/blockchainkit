@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_crypto_public_keys:
+
+Public-key exchange
+-------------------
+
+Merkle's puzzles, Diffie-Hellman key agreement, and RSA.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="As a student, Ralph Merkle asked whether two strangers could agree on a key over a public channel. His answer used only a symmetric cipher. Alice publishes many puzzles, each a session key locked by a deliberately weak key. Bob solves one at random and announces only its label. An eavesdropper does not know which puzzle Bob picked, and must open about half of them.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/public_keys/images/thumb/sphx_glr_plot_01_merkle_puzzles_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/public_keys/plot_01_merkle_puzzles`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Merkle's puzzles: the first public-key exchange (1974-1978)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Diffie and Hellman showed that two people can reach the same secret by exchanging only public values: each raises the other&#x27;s public element to their own private exponent, and both arrive at g(a*b). An eavesdropper sees ga and gb but would need a discrete logarithm to continue.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/public_keys/images/thumb/sphx_glr_plot_02_diffie_hellman_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/public_keys/plot_02_diffie_hellman`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Diffie-Hellman: agreeing on a secret over a public channel (1976)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="RSA publishes n = p*q and an exponent e; only the holder of p and q can compute the inverse exponent d. Anyone can raise a message to e; only the key holder can undo it. The same inverse pair gives digital signatures.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/public_keys/images/thumb/sphx_glr_plot_03_rsa_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/public_keys/plot_03_rsa`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/public_keys/plot_01_merkle_puzzles
+   /api/gallery/crypto/public_keys/plot_02_diffie_hellman
+   /api/gallery/crypto/public_keys/plot_03_rsa
+

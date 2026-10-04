@@ -1,0 +1,469 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.consensus``, one experiment per
+breakthrough on the :doc:`consensus history page
+</history/consensus_breakthroughs>`: Byzantine agreement, randomized and
+partially synchronous consensus and the FLP impossibility, PBFT, pricing
+functions and proof of work, Nakamoto consensus and GHOST, the attacker's
+odds and selfish mining, and proof of stake with sortition, slashing and
+finality.
+
+Each script is self-contained and runs with
+``python examples/consensus/<section>/<script>.py``.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Agreement protocols
+-------------------
+
+Byzantine generals, randomized and partially synchronous consensus, and PBFT.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Generals surrounding a city must agree to attack or retreat, communicating by messenger, while some of them are traitors who tell different generals different things. Lamport, Shostak and Pease proved agreement possible if and only if more than two thirds of the generals are loyal, and gave the oral-messages algorithm OM(m): every lieutenant relays what it heard, and everyone takes a majority.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_01_byzantine_generals_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_01_byzantine_generals`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Byzantine generals problem (Lamport, Shostak and Pease 1982)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Michael Ben-Or showed that asynchronous processes can reach agreement despite crashes if they may flip coins. In each round they exchange values, propose any value held by a strict majority, and adopt a proposal they see, or flip a coin if they see none. A decision follows once enough processes propose the same value.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_02_ben_or_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_02_ben_or`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Randomized consensus: agreeing by flipping coins (Ben-Or 1983)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fischer, Lynch and Paterson proved that no deterministic protocol can always reach agreement in an asynchronous system where even one process may crash. The adversary does not need to crash anyone: it only chooses the order in which messages arrive, and can keep the system undecided forever.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_03_flp_impossibility_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_03_flp_impossibility`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FLP: no deterministic consensus in an asynchronous network (1985)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Real networks are usually fast but sometimes not. Dwork, Lynch and Stockmeyer modelled this as partial synchrony: message delays are unbounded until an unknown Global Stabilization Time (GST), and bounded by an unknown Delta afterwards. A leader-based protocol keeps safety at all times and waits out each leader with a timeout. Doubling the timeout every failed view guarantees it eventually exceeds Delta, whatever Delta is.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_04_partial_synchrony_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_04_partial_synchrony`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Partial synchrony: timeouts that eventually work (Dwork, Lynch and Stockmeyer 1988)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Castro and Liskov made Byzantine agreement fast enough for real services. With n = 3f + 1 replicas, every quorum of 2f + 1 overlaps every other in at least f + 1 replicas, so in at least one honest replica. A replica prepares a value after 2f matching prepares and commits after 2f + 1 matching commits; no two honest replicas can commit different values in one view.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_05_pbft_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_05_pbft`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Practical Byzantine Fault Tolerance (Castro and Liskov 1999)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Attacks and their probabilities
+-------------------------------
+
+Catching up from behind, double spending, and selfish mining.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pascal posed, and Huygens published, the problem of a gambler who wins each round with probability q and stops when ruined or ahead. The chance of ever recovering a deficit of z is (q/p)z when q &lt; p. Nakamoto used exactly this random walk for an attacker trying to overtake the honest chain from z blocks behind.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/attacks/images/thumb/sphx_glr_plot_01_gamblers_ruin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/attacks/plot_01_gamblers_ruin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The gambler's ruin: catching up from behind (Pascal, Fermat and Huygens 1656)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Section 11 of the Bitcoin whitepaper asks how long a merchant should wait. While the honest chain adds z blocks, the attacker&#x27;s secret chain grows by a Poisson-distributed amount with mean z q/p; from each possible lead the gambler&#x27;s ruin gives the chance to catch up. The whitepaper tabulates the result, and concludes that the risk drops exponentially with z.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/attacks/images/thumb/sphx_glr_plot_02_double_spend_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/attacks/plot_02_double_spend`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">How many confirmations? Nakamoto's double-spend calculation (2008)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin was thought incentive-compatible: a miner earns its share of blocks by publishing them. Eyal and Sirer showed a pool can earn more by keeping blocks secret and releasing them only to overtake or tie the honest chain, wasting honest work. Above a threshold hashrate, between 0 and 1/3 depending on how ties break, selfish mining pays.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/attacks/images/thumb/sphx_glr_plot_03_selfish_mining_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/attacks/plot_03_selfish_mining`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Selfish mining: majority is not enough (Eyal and Sirer 2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Nakamoto consensus
+------------------
+
+Cumulative-work fork choice and GHOST.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is the full teaching chain: keys authorize a transfer, a Merkle root commits to it, proof of work secures a header, and peers compare valid forks. The example uses an account ledger, not Bitcoin&#x27;s UTXO model.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/nakamoto/images/thumb/sphx_glr_plot_01_longest_chain_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nakamoto consensus: a payment, a fork, and a reorganization (2008)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When blocks are fast relative to network delay, honest miners often extend the same parent at once, and the longest chain discards their side blocks. That wasted work no longer protects the chain. GHOST (Greedy Heaviest Observed SubTree) counts it: at each fork, follow the child whose whole subtree carries the most work.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/nakamoto/images/thumb/sphx_glr_plot_02_ghost_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/nakamoto/plot_02_ghost`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GHOST: follow the heaviest subtree (Sompolinsky and Zohar 2013)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Proof of stake
+--------------
+
+Stake-weighted selection, nothing at stake, sortition, and finality.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Weighting proposer selection by stake changes the resource used to allocate influence. This sampler isolates that one mechanism; it has no voting, slashing, randomness beacon, or finality and is not a full PoS protocol.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_01_stake_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_01_stake`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Proof of stake: a stake-weighted proposer lottery (Peercoin 2012)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A proof-of-work miner must divide its hashrate between competing forks; a proof-of-stake validator can sign every fork at no cost and collect the reward whichever one wins. If everyone does that, forks never resolve. Buterin&#x27;s Slasher proposal made such double-signing punishable: evidence of two conflicting signatures destroys the validator&#x27;s deposit.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_02_nothing_at_stake_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_02_nothing_at_stake`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nothing at stake: why proof of stake needs penalties (Buterin 2014)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Algorand chooses a small committee each round by lottery: every unit of stake is a ticket, and each user privately evaluates a verifiable random function on the round seed to learn how many of their tickets won. Nobody can target the committee in advance, because members reveal themselves only when they vote.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_03_sortition_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_03_sortition`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cryptographic sortition: a secret, stake-weighted committee (Algorand 2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Casper the Friendly Finality Gadget overlays finality on a block chain. Validators vote for links between checkpoints; a checkpoint is justified when two thirds of the stake link to it from a justified checkpoint, and finalized when its direct child is justified. Two slashing rules (no two votes for one height; no vote surrounding another) guarantee that two conflicting finalized checkpoints cost at least a third of all stake. Ethereum&#x27;s proof of stake uses it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_04_casper_ffg_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_04_casper_ffg`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Casper FFG: finality by two-thirds votes and slashing (Buterin and Griffith 2017)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Proof of work
+-------------
+
+Pricing functions, Hashcash, and difficulty retargeting.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Dwork and Naor proposed that a sender attach to each message the answer to a puzzle that is moderately hard to solve but easy to check. One of their pricing functions is a square root modulo a prime: computing it takes a full modular exponentiation, checking it a single multiplication. The idea of a cost asymmetry became proof of work.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pow/images/thumb/sphx_glr_plot_01_pricing_via_processing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pow/plot_01_pricing_via_processing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pricing via processing: making junk mail expensive (Dwork and Naor 1992)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="With d leading zero bits, a uniform hash succeeds with probability 2(-d). The expected search is 2d trials, but any one run can finish much earlier or later. Nonce search changes a commitment without changing the payload.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pow/images/thumb/sphx_glr_plot_02_hashcash_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pow/plot_02_hashcash`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hashcash: proof of work you can verify in one hash (Back 1997)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Proof of work is only a clock if its speed is controlled. Bitcoin adjusts its target every 2016 blocks by the ratio of the actual to the expected time, clamped to a factor of four, so blocks return to ten minutes after hashrate rises or falls.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pow/images/thumb/sphx_glr_plot_03_difficulty_retargeting_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pow/plot_03_difficulty_retargeting`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Difficulty retargeting: keeping ten-minute blocks (Bitcoin 2009)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/consensus/agreement/index.rst
+   /api/gallery/consensus/attacks/index.rst
+   /api/gallery/consensus/nakamoto/index.rst
+   /api/gallery/consensus/pos/index.rst
+   /api/gallery/consensus/pow/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: consensus_python.zip </api/gallery/consensus/consensus_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: consensus_jupyter.zip </api/gallery/consensus/consensus_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

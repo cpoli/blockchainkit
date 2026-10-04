@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_crypto_sharing:
+
+Secret sharing
+--------------
+
+Shamir's threshold scheme and Feldman's verifiable variant.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The secret is the constant coefficient of a random polynomial. Any threshold number of evaluations determines it; fewer evaluations leave it undetermined. Arithmetic takes place in a prime field, not over floating-point reals.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/sharing/images/thumb/sphx_glr_plot_01_secret_sharing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/sharing/plot_01_secret_sharing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shamir's secret sharing: reconstruct a secret without storing it whole (1979)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In Shamir&#x27;s scheme every share holder must trust the dealer: nothing stops a dealer from handing out shares that do not lie on one polynomial. Feldman had the dealer publish ga_j for each coefficient a_j. Each holder checks gy == product of C_j(xj), which holds only for points on the committed polynomial.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/sharing/images/thumb/sphx_glr_plot_02_feldman_vss_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/sharing/plot_02_feldman_vss`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Feldman's verifiable secret sharing (1987)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/sharing/plot_01_secret_sharing
+   /api/gallery/crypto/sharing/plot_02_feldman_vss
+

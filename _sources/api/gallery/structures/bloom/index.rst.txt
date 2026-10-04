@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structures_bloom:
+
+Bloom filters
+-------------
+
+Compact, approximate set membership for light clients.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Burton Bloom traded accuracy for space: set k bit positions per item in an m-bit array, and report an item present if all its positions are set. Items added are always found; others are occasionally found by mistake. Bitcoin light wallets (BIP 37, 2012) sent full nodes a Bloom filter of their addresses instead of the addresses themselves.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/bloom/images/thumb/sphx_glr_plot_01_bloom_filter_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/bloom/plot_01_bloom_filter`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bloom filters: membership with false positives (Bloom 1970)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/bloom/plot_01_bloom_filter
+

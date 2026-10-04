@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Breakthroughs in Consensus &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'history/consensus_breakthroughs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Breakthroughs in Peer-to-Peer Networking" href="network_breakthroughs.html" />
+    <link rel="prev" title="Breakthroughs in Authenticated Data Structures" href="structures_breakthroughs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crypto_breakthroughs.html">Breakthroughs in Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures_breakthroughs.html">Breakthroughs in Authenticated Data Structures</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Breakthroughs in Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_breakthroughs.html">Breakthroughs in Peer-to-Peer Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_breakthroughs.html">Breakthroughs in Replicated Execution</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">History</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Breakthroughs in Consensus</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="breakthroughs-in-consensus">
+<h1>Breakthroughs in Consensus<a class="headerlink" href="#breakthroughs-in-consensus" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/consensus.html"><span class="doc">blockchainkit.consensus hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/consensus/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/consensus.html"><span class="doc">API reference</span></a></p>
+</div>
+<p>Signatures say who authorized a payment; they cannot say which of two
+conflicting payments came first. Consensus mechanisms answer that question by
+making some resource scarce: computation, or stake. This chronology traces the
+ideas behind <a class="reference internal" href="../api/consensus.html#module-blockchainkit.consensus" title="blockchainkit.consensus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.consensus</span></code></a>, from the
+gambler’s ruin to Casper finality. Each entry has its own experiment in the
+<a class="reference internal" href="../api/gallery/consensus/index.html"><span class="doc">gallery</span></a>.</p>
+<p>All snippets use the package’s conventional import: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">blockchainkit</span> <span class="pre">as</span> <span class="pre">bk</span></code>.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-gambler-s-ruin-catching-up-from-behind" id="id1">1656 — The gambler’s ruin: catching up from behind</a></p></li>
+<li><p><a class="reference internal" href="#the-byzantine-generals-problem" id="id2">1982 — The Byzantine generals problem</a></p></li>
+<li><p><a class="reference internal" href="#ben-or-s-randomized-consensus" id="id3">1983 — Ben-Or’s randomized consensus</a></p></li>
+<li><p><a class="reference internal" href="#flp-no-deterministic-consensus-in-an-asynchronous-network" id="id4">1985 — FLP: no deterministic consensus in an asynchronous network</a></p></li>
+<li><p><a class="reference internal" href="#partial-synchrony-progress-after-an-unknown-stabilization-time" id="id5">1988 — Partial synchrony: progress after an unknown stabilization time</a></p></li>
+<li><p><a class="reference internal" href="#pricing-via-processing" id="id6">1992 — Pricing via processing</a></p></li>
+<li><p><a class="reference internal" href="#hashcash-and-proofs-of-computational-effort" id="id7">1997–2002 — Hashcash and proofs of computational effort</a></p></li>
+<li><p><a class="reference internal" href="#practical-byzantine-fault-tolerance" id="id8">1999 — Practical Byzantine Fault Tolerance</a></p></li>
+<li><p><a class="reference internal" href="#bitcoin-combines-the-ingredients" id="id9">2008–2009 — Bitcoin combines the ingredients</a></p></li>
+<li><p><a class="reference internal" href="#how-many-confirmations-nakamoto-s-double-spend-calculation" id="id10">2008 — How many confirmations? Nakamoto’s double-spend calculation</a></p></li>
+<li><p><a class="reference internal" href="#difficulty-retargeting" id="id11">2009 — Difficulty retargeting</a></p></li>
+<li><p><a class="reference internal" href="#stake-as-an-alternative-participation-weight" id="id12">2012 — Stake as an alternative participation weight</a></p></li>
+<li><p><a class="reference internal" href="#ghost-the-heaviest-observed-subtree" id="id13">2013 — GHOST: the heaviest observed subtree</a></p></li>
+<li><p><a class="reference internal" href="#nothing-at-stake-and-slashing" id="id14">2014 — Nothing at stake, and slashing</a></p></li>
+<li><p><a class="reference internal" href="#selfish-mining-majority-is-not-enough" id="id15">2014 — Selfish mining: majority is not enough</a></p></li>
+<li><p><a class="reference internal" href="#casper-ffg-finality-from-two-thirds-votes" id="id16">2017 — Casper FFG: finality from two-thirds votes</a></p></li>
+<li><p><a class="reference internal" href="#cryptographic-sortition" id="id17">2017 — Cryptographic sortition</a></p></li>
+</ul>
+</nav>
+<section id="the-gambler-s-ruin-catching-up-from-behind">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1656 — The gambler’s ruin: catching up from behind</a><a class="headerlink" href="#the-gambler-s-ruin-catching-up-from-behind" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A player who wins each round slightly less often than they
+lose, and starts some rounds behind, is ever less likely to draw level the further
+behind they start. An attacker mining a secret chain is that player.</p>
+<p><strong>Reading the experiment.</strong> q is the attacker’s chance of finding the next block and
+p = 1 − q the honest network’s; z is how many blocks behind the attacker starts.
+Simulated races are compared with the formula.</p>
+<p>In 1656 Pascal posed to Fermat, and Huygens published the next year, the problem of
+two gamblers playing until one is ruined. For a walk that steps toward the goal with
+probability <span class="math notranslate nohighlight">\(q\)</span> and away with <span class="math notranslate nohighlight">\(p = 1 - q\)</span>, the chance of ever making up a
+deficit of <span class="math notranslate nohighlight">\(z\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}P_z = \begin{cases} 1 &amp; q \ge p, \\ (q/p)^{z} &amp; q &lt; p. \end{cases}\end{split}\]</div>
+<p>Section 11 of the Bitcoin whitepaper applies this result directly to an attacker
+racing the honest chain: below half the hashrate, the attacker’s chances fall
+exponentially with every block of lead.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.catch_up.eventual_catch_up" title="blockchainkit.consensus.systems.catch_up.eventual_catch_up"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.catch_up.eventual_catch_up()</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example simulates thousands of races for three attacker
+shares and compares them with <span class="math notranslate nohighlight">\((q/p)^z\)</span>.</p>
+<p><em>References:</em> C. Huygens, <em>De ratiociniis in ludo aleae</em> (1657), problem 5; the
+problem was posed in the Pascal–Fermat correspondence of 1656.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Pascal posed, and Huygens published, the problem of a gambler who wins each round with probability q and stops when ruined or ahead. The chance of ever recovering a deficit of z is (q/p)z when q &lt; p. Nakamoto used exactly this random walk for an attacker trying to overtake the honest chain from z blocks behind."><img alt="" src="../_images/sphx_glr_plot_01_gamblers_ruin_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/attacks/plot_01_gamblers_ruin.html"><span class="doc">The gambler’s ruin: catching up from behind (Pascal, Fermat and Huygens 1656)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The gambler's ruin: catching up from behind (Pascal, Fermat and Huygens 1656)</div>
+</div></div></section>
+<section id="the-byzantine-generals-problem">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1982 — The Byzantine generals problem</a><a class="headerlink" href="#the-byzantine-generals-problem" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Generals surrounding a city must all attack or all retreat,
+but some of them are traitors who tell different generals different things. The
+loyal generals can still agree, but only if fewer than a third of all generals are
+traitors.</p>
+<p><strong>Reading the experiment.</strong> General 0 commands; the others are lieutenants. OM(m)
+is the oral-messages algorithm with m rounds of relaying. IC1 is agreement among
+the loyal; IC2 says a loyal commander is obeyed.</p>
+<p>Lamport, Shostak and Pease gave the problem its name and its answer: with oral
+(unsigned) messages, agreement despite <span class="math notranslate nohighlight">\(m\)</span> traitors is possible if and only if</p>
+<div class="math notranslate nohighlight">
+\[n \ge 3m + 1.\]</div>
+<p>Their algorithm OM(<span class="math notranslate nohighlight">\(m\)</span>) has each lieutenant relay the order it received,
+recursively for <span class="math notranslate nohighlight">\(m\)</span> rounds, and decide by majority. With three generals and
+one traitor, a loyal lieutenant cannot tell a traitorous commander from a
+traitorous peer. The <span class="math notranslate nohighlight">\(3f + 1\)</span> bound reappears in every Byzantine
+fault-tolerant blockchain protocol.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.byzantine.oral_messages" title="blockchainkit.consensus.systems.byzantine.oral_messages"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.byzantine.oral_messages()</span></code></a>
+runs OM(<span class="math notranslate nohighlight">\(m\)</span>) with a configurable traitor strategy.</p>
+<p><strong>Experiment:</strong> the gallery example checks every traitor position for four generals,
+shows the three-general failure, and maps which sizes survive one traitor.</p>
+<p><em>References:</em> L. Lamport, R. Shostak, and M. Pease, <em>The Byzantine Generals
+Problem</em>, ACM Transactions on Programming Languages and Systems 4(3), 382–401
+(1982). <a class="reference external" href="https://doi.org/10.1145/357172.357176">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Generals surrounding a city must agree to attack or retreat, communicating by messenger, while some of them are traitors who tell different generals different things. Lamport, Shostak and Pease proved agreement possible if and only if more than two thirds of the generals are loyal, and gave the oral-messages algorithm OM(m): every lieutenant relays what it heard, and everyone takes a majority."><img alt="" src="../_images/sphx_glr_plot_01_byzantine_generals_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/agreement/plot_01_byzantine_generals.html"><span class="doc">The Byzantine generals problem (Lamport, Shostak and Pease 1982)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Byzantine generals problem (Lamport, Shostak and Pease 1982)</div>
+</div></div></section>
+<section id="ben-or-s-randomized-consensus">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1983 — Ben-Or’s randomized consensus</a><a class="headerlink" href="#ben-or-s-randomized-consensus" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Processes that cannot agree on timing can still agree on a
+value by occasionally flipping coins. Each round they compare values; when no clear
+majority exists, they flip, and sooner or later everyone’s coins land the same way.</p>
+<p><strong>Reading the experiment.</strong> Four processes start split two against two. A
+scheduler chooses which messages each process hears, trying to keep them split.
+The histogram shows how many rounds a decision takes.</p>
+<p>Michael Ben-Or gave the first asynchronous consensus protocol that tolerates
+crashes, for <span class="math notranslate nohighlight">\(n &gt; 2f\)</span>. In each round, a process proposes <span class="math notranslate nohighlight">\(v\)</span> if it saw a
+strict majority <span class="math notranslate nohighlight">\(&gt; n/2\)</span> for <span class="math notranslate nohighlight">\(v\)</span>; it decides <span class="math notranslate nohighlight">\(v\)</span> after seeing
+<span class="math notranslate nohighlight">\(f + 1\)</span> proposals of <span class="math notranslate nohighlight">\(v\)</span>, adopts <span class="math notranslate nohighlight">\(v\)</span> after seeing one, and otherwise
+flips a coin. Against any scheduler, termination has probability one; with
+<span class="math notranslate nohighlight">\(n\)</span> independent coins the expected number of rounds can be exponential in
+<span class="math notranslate nohighlight">\(n\)</span>, which later common-coin protocols reduced to a constant.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.randomized.ben_or" title="blockchainkit.consensus.systems.randomized.ben_or"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.randomized.ben_or()</span></code></a>, with
+an adversarial or random message scheduler.</p>
+<p><strong>Experiment:</strong> the gallery example decides against the adversarial scheduler and
+plots the distribution of rounds.</p>
+<p><em>References:</em> M. Ben-Or, <em>Another Advantage of Free Choice: Completely
+Asynchronous Agreement Protocols</em>, PODC ‘83, 27–30 (1983). <a class="reference external" href="https://doi.org/10.1145/800221.806707">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Michael Ben-Or showed that asynchronous processes can reach agreement despite crashes if they may flip coins. In each round they exchange values, propose any value held by a strict majority, and adopt a proposal they see, or flip a coin if they see none. A decision follows once enough processes propose the same value."><img alt="" src="../_images/sphx_glr_plot_02_ben_or_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/agreement/plot_02_ben_or.html"><span class="doc">Randomized consensus: agreeing by flipping coins (Ben-Or 1983)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Randomized consensus: agreeing by flipping coins (Ben-Or 1983)</div>
+</div></div></section>
+<section id="flp-no-deterministic-consensus-in-an-asynchronous-network">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1985 — FLP: no deterministic consensus in an asynchronous network</a><a class="headerlink" href="#flp-no-deterministic-consensus-in-an-asynchronous-network" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> If messages can be delayed arbitrarily and even one process
+might crash, no fixed, coin-free recipe can guarantee that everyone eventually
+agrees. An adversary who only chooses the order of delivery can keep the system
+undecided forever.</p>
+<p><strong>Reading the experiment.</strong> The same protocol runs twice against the same
+scheduler: once with a fixed rule in place of the coin, once with real coins.</p>
+<p>Fischer, Lynch and Paterson proved that every deterministic protocol has an
+admissible schedule, with at most one crash, in which it never decides. The proof
+finds a <em>bivalent</em> configuration, one from which both decisions are still
+reachable, and shows the adversary can always deliver the next message so as to
+stay bivalent. Every practical consensus protocol escapes by weakening an
+assumption: randomization (Ben-Or), partial synchrony (Dwork, Lynch and
+Stockmeyer), or probabilistic finality (Nakamoto).</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.randomized.ben_or" title="blockchainkit.consensus.systems.randomized.ben_or"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.randomized.ben_or()</span></code></a> with
+a deterministic <code class="docutils literal notranslate"><span class="pre">coin</span></code> shows one such stalling schedule.</p>
+<p><strong>Experiment:</strong> the gallery example stalls a deterministic variant for 500 rounds
+and lets a randomized one decide under the same schedule.</p>
+<p><em>References:</em> M. J. Fischer, N. A. Lynch, and M. S. Paterson, <em>Impossibility of
+Distributed Consensus with One Faulty Process</em>, Journal of the ACM 32(2), 374–382
+(1985). <a class="reference external" href="https://doi.org/10.1145/3149.214121">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Fischer, Lynch and Paterson proved that no deterministic protocol can always reach agreement in an asynchronous system where even one process may crash. The adversary does not need to crash anyone: it only chooses the order in which messages arrive, and can keep the system undecided forever."><img alt="" src="../_images/sphx_glr_plot_03_flp_impossibility_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/agreement/plot_03_flp_impossibility.html"><span class="doc">FLP: no deterministic consensus in an asynchronous network (1985)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">FLP: no deterministic consensus in an asynchronous network (1985)</div>
+</div></div></section>
+<section id="partial-synchrony-progress-after-an-unknown-stabilization-time">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1988 — Partial synchrony: progress after an unknown stabilization time</a><a class="headerlink" href="#partial-synchrony-progress-after-an-unknown-stabilization-time" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Networks are usually fast, sometimes slow. Assume only that
+they become well-behaved at some unknown moment. A protocol that stays safe all the
+time, and waits each leader out with a timeout that doubles after every failure,
+will eventually give a leader enough time.</p>
+<p><strong>Reading the experiment.</strong> GST is the global stabilization time, after which every
+message arrives within Δ. A view is one leader’s turn; it succeeds when it starts
+after GST and its timeout is at least Δ.</p>
+<p>Dwork, Lynch and Stockmeyer introduced partially synchronous models in which delay
+bounds exist but are unknown, or hold only after an unknown GST, and showed
+consensus is then solvable for <span class="math notranslate nohighlight">\(n \ge 3f + 1\)</span> Byzantine faults. With timeouts
+<span class="math notranslate nohighlight">\(T_v = T_0\,2^{v}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\exists\, v:\ t_v \ge \text{GST} \ \wedge\ T_v \ge \Delta,\]</div>
+<p>so progress is guaranteed without knowing Δ. PBFT, Tendermint and HotStuff all
+assume this model.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.synchrony.view_changes" title="blockchainkit.consensus.systems.synchrony.view_changes"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.synchrony.view_changes()</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example finds the first successful view, shows a fixed
+timeout below Δ never succeeding, and plots decision time against GST.</p>
+<p><em>References:</em> C. Dwork, N. Lynch, and L. Stockmeyer, <em>Consensus in the Presence of
+Partial Synchrony</em>, Journal of the ACM 35(2), 288–323 (1988). <a class="reference external" href="https://doi.org/10.1145/42282.42283">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Real networks are usually fast but sometimes not. Dwork, Lynch and Stockmeyer modelled this as partial synchrony: message delays are unbounded until an unknown Global Stabilization Time (GST), and bounded by an unknown Delta afterwards. A leader-based protocol keeps safety at all times and waits out each leader with a timeout. Doubling the timeout every failed view guarantees it eventually exceeds Delta, whatever Delta is."><img alt="" src="../_images/sphx_glr_plot_04_partial_synchrony_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/agreement/plot_04_partial_synchrony.html"><span class="doc">Partial synchrony: timeouts that eventually work (Dwork, Lynch and Stockmeyer 1988)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Partial synchrony: timeouts that eventually work (Dwork, Lynch and Stockmeyer 1988)</div>
+</div></div></section>
+<section id="pricing-via-processing">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1992 — Pricing via processing</a><a class="headerlink" href="#pricing-via-processing" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Make every email cost its sender a little computation: too
+little to bother an ordinary user, too much for someone sending millions. The
+recipient must be able to check the payment instantly.</p>
+<p><strong>Reading the experiment.</strong> The puzzle is a square root modulo a prime <span class="math notranslate nohighlight">\(p\)</span>. The
+sender’s work grows with the size of <span class="math notranslate nohighlight">\(p\)</span>; the recipient’s check is one
+multiplication.</p>
+<p>Dwork and Naor proposed <em>pricing functions</em>: moderately hard to compute, easy to
+verify, and with no amortization across messages. One of their examples is the
+modular square root, for <span class="math notranslate nohighlight">\(p \equiv 3 \pmod 4\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[r = x^{(p+1)/4} \bmod p \quad (\approx 1.5 \log_2 p \text{ multiplications}),
+\qquad r^2 \equiv x \pmod p \quad (1 \text{ multiplication}).\]</div>
+<p>The asymmetry is only logarithmic, which is why later designs moved to puzzles with
+tunable, exponential cost. The idea of attaching verifiable computational cost
+is the root of proof of work.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pricing.modular_square_root" title="blockchainkit.consensus.systems.pricing.modular_square_root"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pricing.modular_square_root()</span></code></a>
+counts its multiplications.</p>
+<p><strong>Experiment:</strong> the gallery example prices a message and plots computing against
+checking cost.</p>
+<p><em>References:</em> C. Dwork and M. Naor, <em>Pricing via Processing or Combatting Junk
+Mail</em>, CRYPTO ‘92, LNCS 740, 139–147 (1993). <a class="reference external" href="https://doi.org/10.1007/3-540-48071-4_10">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Dwork and Naor proposed that a sender attach to each message the answer to a puzzle that is moderately hard to solve but easy to check. One of their pricing functions is a square root modulo a prime: computing it takes a full modular exponentiation, checking it a single multiplication. The idea of a cost asymmetry became proof of work."><img alt="" src="../_images/sphx_glr_plot_01_pricing_via_processing_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/pow/plot_01_pricing_via_processing.html"><span class="doc">Pricing via processing: making junk mail expensive (Dwork and Naor 1992)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pricing via processing: making junk mail expensive (Dwork and Naor 1992)</div>
+</div></div></section>
+<section id="hashcash-and-proofs-of-computational-effort">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1997–2002 — Hashcash and proofs of computational effort</a><a class="headerlink" href="#hashcash-and-proofs-of-computational-effort" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Make someone search for a rare hash result, then check their
+answer with one hash calculation. Searching can take many attempts even though checking
+the finished result is quick.</p>
+<p><strong>Reading the experiment.</strong> Difficulty d sets the rarity. The probability of success on
+each trial is 1 divided by 2 to the power d; the expected number of trials T is 2 to the
+power d. At difficulty 5 that means 32 attempts on average, not a guarantee of success
+within 32.</p>
+<p>Back’s Hashcash proposal used a computational puzzle to impose a cost on
+requests while keeping verification cheap; the 2002 paper describes the
+construction. A sender varies a nonce until a hash meets a target.</p>
+<div class="math notranslate nohighlight">
+\[H(\mathrm{header})\leq 2^{256-d}-1,\qquad
+\Pr[\mathrm{success}]=2^{-d},\qquad \mathbb{E}[T]=2^d.\]</div>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pow.mine" title="blockchainkit.consensus.systems.pow.mine"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pow.mine()</span></code></a> searches a bounded
+nonce interval; <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pow.valid_pow" title="blockchainkit.consensus.systems.pow.valid_pow"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pow.valid_pow()</span></code></a> checks one hash.
+The header encoding is blockchainkit’s, not a Hashcash token format.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>Difficulty here is a count of leading zero bits of SHA-256 over this package’s
+header. Bitcoin compares double SHA-256 of an 80-byte header with a full
+256-bit target. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/consensus/pow/plot_02_hashcash.html"><span class="doc">Hashcash: proof of work you can verify in one hash (Back 1997)</span></a> compares measured trial
+counts with the expected exponential cost. Search is random-looking, so a
+mean is not a deadline. An exhausted attempt budget raises <code class="docutils literal notranslate"><span class="pre">TimeoutError</span></code>.
+Computational effort becomes a consensus ingredient only when combined with
+validation rules, a network, and a rule for comparing histories.</p>
+<p><em>References:</em> A. Back, <em>Hashcash — A Denial of Service Counter-Measure</em> (2002),
+describing the earlier 1997 proposal. <a class="reference external" href="http://www.hashcash.org/papers/hashcash.pdf">Author’s paper</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="With d leading zero bits, a uniform hash succeeds with probability 2(-d). The expected search is 2d trials, but any one run can finish much earlier or later. Nonce search changes a commitment without changing the payload."><img alt="" src="../_images/sphx_glr_plot_02_hashcash_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/pow/plot_02_hashcash.html"><span class="doc">Hashcash: proof of work you can verify in one hash (Back 1997)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hashcash: proof of work you can verify in one hash (Back 1997)</div>
+</div></div></section>
+<section id="practical-byzantine-fault-tolerance">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1999 — Practical Byzantine Fault Tolerance</a><a class="headerlink" href="#practical-byzantine-fault-tolerance" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A group of servers keeps one consistent log even if up to a
+third of them lie, by voting in two rounds and only acting on votes from more than
+two thirds of the group. Any two such supermajorities share an honest member.</p>
+<p><strong>Reading the experiment.</strong> n replicas tolerate f faults when n = 3f + 1. A replica
+prepares after 2f matching prepare votes and commits after 2f + 1 matching commit
+votes. The leader may equivocate.</p>
+<p>Castro and Liskov made Byzantine fault tolerance practical, with a three-phase
+protocol (pre-prepare, prepare, commit) and view changes for faulty leaders. Its
+safety rests on quorum intersection:</p>
+<div class="math notranslate nohighlight">
+\[|Q_1 \cap Q_2| \ \ge\ 2(2f + 1) - (3f + 1) = f + 1,\]</div>
+<p>so two quorums share at least one honest replica, who never votes for two values in
+one view. With more than <span class="math notranslate nohighlight">\(f\)</span> faults that guarantee disappears. Tendermint,
+HotStuff and many proof-of-stake chains descend from PBFT.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pbft.pbft_round" title="blockchainkit.consensus.systems.pbft.pbft_round"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pbft.pbft_round()</span></code></a> runs the
+normal-case exchange; <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pbft.quorum_size" title="blockchainkit.consensus.systems.pbft.quorum_size"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pbft.quorum_size()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">pbft_round</span></code> runs one round with a fixed leader and synchronous delivery. It
+has no view changes, checkpoints, request batching or message authentication.
+See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example stays safe under an equivocating leader with one
+fault among four, breaks with two, and plots quorum overlap.</p>
+<p><em>References:</em> M. Castro and B. Liskov, <em>Practical Byzantine Fault Tolerance</em>, 3rd
+Symposium on Operating Systems Design and Implementation (OSDI), 173–186 (1999).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Castro and Liskov made Byzantine agreement fast enough for real services. With n = 3f + 1 replicas, every quorum of 2f + 1 overlaps every other in at least f + 1 replicas, so in at least one honest replica. A replica prepares a value after 2f matching prepares and commits after 2f + 1 matching commits; no two honest replicas can commit different values in one view."><img alt="" src="../_images/sphx_glr_plot_05_pbft_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/agreement/plot_05_pbft.html"><span class="doc">Practical Byzantine Fault Tolerance (Castro and Liskov 1999)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Practical Byzantine Fault Tolerance (Castro and Liskov 1999)</div>
+</div></div></section>
+<section id="bitcoin-combines-the-ingredients">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">2008–2009 — Bitcoin combines the ingredients</a><a class="headerlink" href="#bitcoin-combines-the-ingredients" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Alice could sign two payments that each spend her entire balance.
+Both signatures could be valid, but both payments cannot be accepted together. Bitcoin
+combined earlier tools into rules for ordering payments across a network.</p>
+<p><strong>Reading the experiment.</strong> Follow the balances as a competing history wins. A payment
+can leave the selected history even though its signature and its membership proof for
+the old block remain valid. This package uses account balances; Bitcoin instead tracks
+individual unspent transaction outputs (UTXOs).</p>
+<p>Nakamoto’s 2008 proposal combined signatures, hash-linked blocks, proof of work,
+and peer-to-peer dissemination into an electronic cash design.
+The key systems question is double spending: two individually authorized
+payments may conflict, so participants need a shared ordering rule.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/structures.html#blockchainkit.structures.systems.chain.Blockchain" title="blockchainkit.structures.systems.chain.Blockchain"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.structures.systems.chain.Blockchain</span></code></a> validates
+account transfers and selects greatest cumulative work. Each fork retains its
+own <a class="reference internal" href="../api/structures.html#blockchainkit.structures.systems.ledger.Ledger" title="blockchainkit.structures.systems.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.structures.systems.ledger.Ledger</span></code></a>, so a reorganization also
+restores the appropriate balances and account nonces. Difficulty is fixed by
+genesis; this model does not implement Bitcoin’s adjustment schedule or UTXOs.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>Blocks here have no coinbase reward or fees, no scripts, and no peer-to-peer
+protocol; fork choice by cumulative work is the part reproduced. See
+<a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/consensus/nakamoto/plot_01_longest_chain.html"><span class="doc">Nakamoto consensus: a payment, a fork, and a reorganization (2008)</span></a> mines and gossips a signed
+payment, then removes its confirmation when a competing fork wins. The
+payment’s signature and original Merkle proof still verify. Cryptographic
+validity, inclusion, and finality are three different properties.</p>
+<p>Equal-work ties use a deterministic hash ordering for reproducible experiments.
+No finite confirmation count is presented as unconditional finality.</p>
+<p><em>References:</em> S. Nakamoto, <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em>
+(2008). <a class="reference external" href="https://www.metzdowd.com/pipermail/cryptography/2008-October/014810.html">Original announcement</a>;
+<a class="reference external" href="https://bitcoin.org/bitcoin.pdf">paper</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="This is the full teaching chain: keys authorize a transfer, a Merkle root commits to it, proof of work secures a header, and peers compare valid forks. The example uses an account ledger, not Bitcoin&#x27;s UTXO model."><img alt="" src="../_images/sphx_glr_plot_01_longest_chain_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/nakamoto/plot_01_longest_chain.html"><span class="doc">Nakamoto consensus: a payment, a fork, and a reorganization (2008)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nakamoto consensus: a payment, a fork, and a reorganization (2008)</div>
+</div></div></section>
+<section id="how-many-confirmations-nakamoto-s-double-spend-calculation">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">2008 — How many confirmations? Nakamoto’s double-spend calculation</a><a class="headerlink" href="#how-many-confirmations-nakamoto-s-double-spend-calculation" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A merchant who waits for more blocks on top of a payment is
+safer, because an attacker must secretly build a longer chain. How much safer can
+be calculated exactly, and the risk falls exponentially with each block.</p>
+<p><strong>Reading the experiment.</strong> z is the number of confirmations the merchant waits for;
+q the attacker’s share of hashrate. The curve is the whitepaper’s formula, the dots
+a simulated race.</p>
+<p>Section 11 of the whitepaper models the attacker’s progress during the <span class="math notranslate nohighlight">\(z\)</span>
+honest blocks as Poisson with mean <span class="math notranslate nohighlight">\(\lambda = zq/p\)</span>, and applies the gambler’s
+ruin from each possible position:</p>
+<div class="math notranslate nohighlight">
+\[P(q, z) = 1 - \sum_{k=0}^{z} \frac{\lambda^k e^{-\lambda}}{k!}
+\left(1 - (q/p)^{z-k}\right).\]</div>
+<p>The whitepaper tabulates <span class="math notranslate nohighlight">\(P\)</span> (for example 0.0009137 at <span class="math notranslate nohighlight">\(q = 0.1\)</span>,
+<span class="math notranslate nohighlight">\(z = 5\)</span>) and the <span class="math notranslate nohighlight">\(z\)</span> needed for <span class="math notranslate nohighlight">\(P &lt; 0.1\%\)</span>. Later work refined the
+model (Rosenfeld 2014; Grunspan and Pérez-Marco 2017), but the exponential decay
+remains.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.catch_up.attacker_success_probability" title="blockchainkit.consensus.systems.catch_up.attacker_success_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.catch_up.attacker_success_probability()</span></code></a>
+reproduces the whitepaper’s table.</p>
+<p><strong>Experiment:</strong> the gallery example checks the table and compares the formula with a
+Monte-Carlo race for two attacker shares.</p>
+<p><em>References:</em> S. Nakamoto, <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em>
+(2008), section 11. <a class="reference external" href="https://bitcoin.org/bitcoin.pdf">Paper</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Section 11 of the Bitcoin whitepaper asks how long a merchant should wait. While the honest chain adds z blocks, the attacker&#x27;s secret chain grows by a Poisson-distributed amount with mean z q/p; from each possible lead the gambler&#x27;s ruin gives the chance to catch up. The whitepaper tabulates the result, and concludes that the risk drops exponentially with z."><img alt="" src="../_images/sphx_glr_plot_02_double_spend_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/attacks/plot_02_double_spend.html"><span class="doc">How many confirmations? Nakamoto’s double-spend calculation (2008)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">How many confirmations? Nakamoto's double-spend calculation (2008)</div>
+</div></div></section>
+<section id="difficulty-retargeting">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">2009 — Difficulty retargeting</a><a class="headerlink" href="#difficulty-retargeting" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> If more miners join, blocks come faster. Bitcoin measures how
+long the last batch of blocks took and adjusts the puzzle so blocks return to about
+ten minutes.</p>
+<p><strong>Reading the experiment.</strong> The target is the threshold a block hash must not exceed;
+a larger target is easier. Every window of blocks it is scaled by actual over
+expected time.</p>
+<p>The whitepaper says the difficulty is set by a moving average targeting an average
+number of blocks per hour. Bitcoin’s first release (January 2009) retargets every
+2016 blocks:</p>
+<div class="math notranslate nohighlight">
+\[T' = T \cdot \frac{\min\!\bigl(\max(t_{\text{actual}}, t_{\text{expected}}/4),\
+4\,t_{\text{expected}}\bigr)}{t_{\text{expected}}}.\]</div>
+<p>The clamp limits manipulation and shocks. Retargeting turns proof of work into a
+clock, and is also what lets selfish mining become profitable in absolute terms.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.difficulty.retarget" title="blockchainkit.consensus.systems.difficulty.retarget"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.difficulty.retarget()</span></code></a> and
+<a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.difficulty.simulate_difficulty" title="blockchainkit.consensus.systems.difficulty.simulate_difficulty"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.difficulty.simulate_difficulty()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">retarget</span></code> uses Bitcoin’s factor-of-four clamp, but on an integer target in a
+simulation with fixed hashrates; it does not reproduce the off-by-one in
+Bitcoin’s interval count. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact
+conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example quadruples and then halves the hashrate and
+watches the block interval return to ten minutes.</p>
+<p><em>References:</em> S. Nakamoto, <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em>
+(2008), section 4; Bitcoin v0.1 source code (2009), <code class="docutils literal notranslate"><span class="pre">GetNextWorkRequired</span></code>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Proof of work is only a clock if its speed is controlled. Bitcoin adjusts its target every 2016 blocks by the ratio of the actual to the expected time, clamped to a factor of four, so blocks return to ten minutes after hashrate rises or falls."><img alt="" src="../_images/sphx_glr_plot_03_difficulty_retargeting_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/pow/plot_03_difficulty_retargeting.html"><span class="doc">Difficulty retargeting: keeping ten-minute blocks (Bitcoin 2009)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Difficulty retargeting: keeping ten-minute blocks (Bitcoin 2009)</div>
+</div></div></section>
+<section id="stake-as-an-alternative-participation-weight">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">2012 — Stake as an alternative participation weight</a><a class="headerlink" href="#stake-as-an-alternative-participation-weight" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A weighted lottery can give someone with twice as much stake
+twice the chance of being selected. This demonstrates one building block used in some
+consensus designs, rather than a whole agreement process.</p>
+<p><strong>Reading the experiment.</strong> The weight w for participant i is divided by the sum of
+everybody’s weights. Weights 1 and 3 give probabilities one quarter and three quarters.
+Repeated draws approach those proportions without guaranteeing them in a short run. PRNG
+means pseudorandom number generator.</p>
+<p>King and Nadal’s Peercoin proposal explored proof of stake alongside proof of
+work. The broader design question is how participants earn influence
+over proposing or confirming state changes without weighting every decision
+by newly performed computation.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pos.StakeSampler" title="blockchainkit.consensus.systems.pos.StakeSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pos.StakeSampler</span></code></a> isolates
+a simple stake-proportional lottery:</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">StakeSampler</span></code> draws proposers from a fixed seed. Deployed protocols derive
+randomness with RANDAO or verifiable random functions, and must resist
+validators grinding it. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact
+conventions.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[\Pr[\text{proposer}=i]=\frac{w_i}{\sum_j w_j}.\]</div>
+<p>It samples integer weights without floating-point rounding and uses a private,
+seeded PRNG for reproducible experiments. This is not Peercoin’s protocol and
+does not model coin age, voting, slashing, finality, or an unbiasable beacon.</p>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/consensus/pos/plot_01_stake.html"><span class="doc">Proof of stake: a stake-weighted proposer lottery (Peercoin 2012)</span></a> compares observed proposer
+frequencies to stake fractions. Splitting one stake across many names preserves
+its combined expected weight. Fair proposer sampling alone does not resolve
+equivocation or competing chains; those require additional protocol rules.</p>
+<p><em>References:</em> S. King and S. Nadal, <em>PPCoin: Peer-to-Peer Crypto-Currency with
+Proof-of-Stake</em> (2012). <a class="reference external" href="https://www.peercoin.net/assets/paper/peercoin-paper.pdf">Project paper</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Weighting proposer selection by stake changes the resource used to allocate influence. This sampler isolates that one mechanism; it has no voting, slashing, randomness beacon, or finality and is not a full PoS protocol."><img alt="" src="../_images/sphx_glr_plot_01_stake_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/pos/plot_01_stake.html"><span class="doc">Proof of stake: a stake-weighted proposer lottery (Peercoin 2012)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Proof of stake: a stake-weighted proposer lottery (Peercoin 2012)</div>
+</div></div></section>
+<section id="ghost-the-heaviest-observed-subtree">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">2013 — GHOST: the heaviest observed subtree</a><a class="headerlink" href="#ghost-the-heaviest-observed-subtree" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> When blocks are frequent, honest miners often build on the
+same parent at once, and the longest-chain rule throws their extra blocks away.
+GHOST counts that discarded honest work when choosing between forks.</p>
+<p><strong>Reading the experiment.</strong> Branch A is a single chain of three blocks; branch B is
+one block with three children. Subtree work counts a block and all its descendants.</p>
+<p>Sompolinsky and Zohar showed that at high block rates the longest chain’s security
+degrades, because honest blocks off the main chain no longer protect it. GHOST
+descends from genesis, at each fork choosing</p>
+<div class="math notranslate nohighlight">
+\[\text{child} = \arg\max_{c} \sum_{b \in \text{subtree}(c)} \text{work}(b).\]</div>
+<p>Ethereum’s proof-of-work chain used a variant with uncle rewards, and LMD-GHOST
+became the fork-choice rule of Ethereum’s proof of stake.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.fork_choice.ghost_tip" title="blockchainkit.consensus.systems.fork_choice.ghost_tip"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.fork_choice.ghost_tip()</span></code></a>
+and <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.fork_choice.subtree_work" title="blockchainkit.consensus.systems.fork_choice.subtree_work"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.fork_choice.subtree_work()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">ghost_tip</span></code> applies GHOST to a static block tree. Ethereum’s proof-of-work
+chain rewarded uncles but kept heaviest-chain selection; a GHOST variant (LMD-
+GHOST) became its fork choice only with proof of stake. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a>
+for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example builds a fork where the longest chain and GHOST
+disagree and draws the block tree.</p>
+<p><em>References:</em> Y. Sompolinsky and A. Zohar, <em>Secure High-Rate Transaction Processing
+in Bitcoin</em>, Financial Cryptography 2015, LNCS 8975, 507–527 (2015); preprint IACR
+ePrint 2013/881. <a class="reference external" href="https://doi.org/10.1007/978-3-662-47854-7_32">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="When blocks are fast relative to network delay, honest miners often extend the same parent at once, and the longest chain discards their side blocks. That wasted work no longer protects the chain. GHOST (Greedy Heaviest Observed SubTree) counts it: at each fork, follow the child whose whole subtree carries the most work."><img alt="" src="../_images/sphx_glr_plot_02_ghost_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/nakamoto/plot_02_ghost.html"><span class="doc">GHOST: follow the heaviest subtree (Sompolinsky and Zohar 2013)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">GHOST: follow the heaviest subtree (Sompolinsky and Zohar 2013)</div>
+</div></div></section>
+<section id="nothing-at-stake-and-slashing">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">2014 — Nothing at stake, and slashing</a><a class="headerlink" href="#nothing-at-stake-and-slashing" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Proof-of-work miners must spend electricity on one fork or
+another. Proof-of-stake validators can sign every fork for free, so they have no
+reason to choose, and forks never settle. The fix is to confiscate the deposit of
+anyone caught signing two conflicting blocks.</p>
+<p><strong>Reading the experiment.</strong> Fork A wins with probability 0.6. The payoff of voting
+for A, for B, or for both is plotted as the penalty for double-signing grows.</p>
+<p>In early 2014 the “nothing at stake” objection was raised against proof of stake.
+Buterin’s Slasher proposal answered with penalties: evidence of two signatures at
+the same height destroys a deposit. With reward <span class="math notranslate nohighlight">\(R\)</span>, fork probability
+<span class="math notranslate nohighlight">\(p_A\)</span>, and penalty <span class="math notranslate nohighlight">\(S\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[E[\text{vote } A] = p_A R, \qquad E[\text{vote both}] = R - S,\]</div>
+<p>so honest voting is the best response once <span class="math notranslate nohighlight">\(S &gt; (1 - p_A) R\)</span>. Slashing is now
+part of every major proof-of-stake protocol; its limit is the <em>long-range attack</em>
+by keys whose deposits were already withdrawn.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.stake_games.fork_voting_payoffs" title="blockchainkit.consensus.systems.stake_games.fork_voting_payoffs"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.stake_games.fork_voting_payoffs()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">fork_voting_payoffs</span></code> is a payoff table, not a protocol. Real slashing needs
+on-chain evidence, deposits that are still locked, and rules against long-range
+attacks. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example plots the three strategies’ payoffs against the
+penalty.</p>
+<p><em>References:</em> V. Buterin, <em>Slasher: A Punitive Proof-of-Stake Algorithm</em>, Ethereum
+blog (January 2014). <a class="reference external" href="https://blog.ethereum.org/2014/01/15/slasher-a-punitive-proof-of-stake-algorithm">Post</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A proof-of-work miner must divide its hashrate between competing forks; a proof-of-stake validator can sign every fork at no cost and collect the reward whichever one wins. If everyone does that, forks never resolve. Buterin&#x27;s Slasher proposal made such double-signing punishable: evidence of two conflicting signatures destroys the validator&#x27;s deposit."><img alt="" src="../_images/sphx_glr_plot_02_nothing_at_stake_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/pos/plot_02_nothing_at_stake.html"><span class="doc">Nothing at stake: why proof of stake needs penalties (Buterin 2014)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nothing at stake: why proof of stake needs penalties (Buterin 2014)</div>
+</div></div></section>
+<section id="selfish-mining-majority-is-not-enough">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">2014 — Selfish mining: majority is not enough</a><a class="headerlink" href="#selfish-mining-majority-is-not-enough" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A large mining pool can earn more than its fair share by
+hiding the blocks it finds and releasing them just in time to make honest miners’
+blocks worthless. Honest miners then gain by joining the pool.</p>
+<p><strong>Reading the experiment.</strong> α is the pool’s share of hashrate; γ is the share of
+honest miners who build on the pool’s block when two blocks tie. Revenue is the
+pool’s share of blocks in the final chain.</p>
+<p>Eyal and Sirer modelled the strategy as a Markov chain on the pool’s private lead
+and derived its relative revenue:</p>
+<div class="math notranslate nohighlight">
+\[R(\alpha, \gamma) = \frac{\alpha(1-\alpha)^2\bigl(4\alpha + \gamma(1-2\alpha)\bigr)
+- \alpha^3}{1 - \alpha\bigl(1 + (2-\alpha)\alpha\bigr)},\]</div>
+<p>which exceeds <span class="math notranslate nohighlight">\(\alpha\)</span> whenever <span class="math notranslate nohighlight">\(\alpha &gt; (1-\gamma)/(3-2\gamma)\)</span>: a third
+of the hashrate when ties go to honest blocks, and any share when the pool wins
+every tie. Bitcoin’s incentive argument therefore needs more than an honest
+majority.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.selfish.selfish_mining_revenue" title="blockchainkit.consensus.systems.selfish.selfish_mining_revenue"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.selfish.selfish_mining_revenue()</span></code></a>,
+<a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.selfish.selfish_mining_threshold" title="blockchainkit.consensus.systems.selfish.selfish_mining_threshold"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.selfish.selfish_mining_threshold()</span></code></a>, and the
+state-machine simulation
+<a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.selfish.simulate_selfish_mining" title="blockchainkit.consensus.systems.selfish.simulate_selfish_mining"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.selfish.simulate_selfish_mining()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>The simulation follows Eyal and Sirer’s idealized model: propagation is instant
+apart from the tie-breaking share gamma, and difficulty does not adjust. See
+<a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example plots revenue against hashrate for three values
+of γ, with simulations on the curves.</p>
+<p><em>References:</em> I. Eyal and E. G. Sirer, <em>Majority Is Not Enough: Bitcoin Mining Is
+Vulnerable</em>, Financial Cryptography 2014, LNCS 8437, 436–454 (2014). <a class="reference external" href="https://doi.org/10.1007/978-3-662-45472-5_28">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Bitcoin was thought incentive-compatible: a miner earns its share of blocks by publishing them. Eyal and Sirer showed a pool can earn more by keeping blocks secret and releasing them only to overtake or tie the honest chain, wasting honest work. Above a threshold hashrate, between 0 and 1/3 depending on how ties break, selfish mining pays."><img alt="" src="../_images/sphx_glr_plot_03_selfish_mining_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/attacks/plot_03_selfish_mining.html"><span class="doc">Selfish mining: majority is not enough (Eyal and Sirer 2014)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Selfish mining: majority is not enough (Eyal and Sirer 2014)</div>
+</div></div></section>
+<section id="casper-ffg-finality-from-two-thirds-votes">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">2017 — Casper FFG: finality from two-thirds votes</a><a class="headerlink" href="#casper-ffg-finality-from-two-thirds-votes" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Validators vote to make checkpoints of the chain permanent.
+Once two thirds of the stake vote for a checkpoint and then for its successor, the
+checkpoint is final: reverting it would require at least a third of all stake to
+break rules that are detected and punished.</p>
+<p><strong>Reading the experiment.</strong> A vote is a link from a source checkpoint to a target.
+Justified checkpoints have a two-thirds link from a justified source; a justified
+checkpoint is finalized when its direct child is justified. Offenses are detected by
+comparing a validator’s votes.</p>
+<p>Buterin and Griffith’s Casper the Friendly Finality Gadget overlays finality on any
+block-proposal mechanism. Its two slashing conditions forbid, for one validator,</p>
+<div class="math notranslate nohighlight">
+\[h(t_1) = h(t_2) \ \text{for distinct votes}, \qquad
+h(s_1) &lt; h(s_2) &lt; h(t_2) &lt; h(t_1).\]</div>
+<p>They prove <em>accountable safety</em>: two conflicting finalized checkpoints imply that
+validators with at least a third of the stake violated a condition. Ethereum’s proof
+of stake combines Casper FFG with LMD-GHOST.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.finality.FinalityGadget" title="blockchainkit.consensus.systems.finality.FinalityGadget"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.finality.FinalityGadget</span></code></a>
+tracks justification, finality and offenses.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">FinalityGadget</span></code> checks votes on a given checkpoint tree with a fixed
+validator set; it has no deposits, rewards, inactivity leak or fork choice. See
+<a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example finalizes checkpoints, lets one height miss its
+quorum, and catches a double vote and a surround vote.</p>
+<p><em>References:</em> V. Buterin and V. Griffith, <em>Casper the Friendly Finality Gadget</em>,
+arXiv:1710.09437 (2017). <a class="reference external" href="https://arxiv.org/abs/1710.09437">Preprint</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Casper the Friendly Finality Gadget overlays finality on a block chain. Validators vote for links between checkpoints; a checkpoint is justified when two thirds of the stake link to it from a justified checkpoint, and finalized when its direct child is justified. Two slashing rules (no two votes for one height; no vote surrounding another) guarantee that two conflicting finalized checkpoints cost at least a third of all stake. Ethereum&#x27;s proof of stake uses it."><img alt="" src="../_images/sphx_glr_plot_04_casper_ffg_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/pos/plot_04_casper_ffg.html"><span class="doc">Casper FFG: finality by two-thirds votes and slashing (Buterin and Griffith 2017)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Casper FFG: finality by two-thirds votes and slashing (Buterin and Griffith 2017)</div>
+</div></div></section>
+<section id="cryptographic-sortition">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">2017 — Cryptographic sortition</a><a class="headerlink" href="#cryptographic-sortition" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Each round, pick a small committee by a lottery in which every
+coin is a ticket, so richer participants hold more tickets. Each participant checks
+their own tickets privately, so nobody knows who is on the committee until its
+members speak, and attacking them in advance is impossible.</p>
+<p><strong>Reading the experiment.</strong> τ is the expected committee size and W the total stake.
+Each user’s seats are drawn from a binomial distribution with their stake as the
+number of trials.</p>
+<p>Gilad, Hemo, Micali, Vlachos and Zeldovich built Algorand around cryptographic
+sortition: a user with stake <span class="math notranslate nohighlight">\(w\)</span> evaluates a verifiable random function on the
+round seed, and reads off <span class="math notranslate nohighlight">\(j\)</span> selected sub-users with</p>
+<div class="math notranslate nohighlight">
+\[j \sim \text{Binomial}\!\left(w, \frac{\tau}{W}\right), \qquad
+E[j] = \tau\,\frac{w}{W}.\]</div>
+<p>Because the binomial is additive, splitting stake across accounts leaves expected
+seats unchanged: there is no Sybil advantage.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.sortition.sortition" title="blockchainkit.consensus.systems.sortition.sortition"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.sortition.sortition()</span></code></a>. As a
+teaching simplification, a hash of a secret replaces the verifiable random
+function.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>A hash of the user’s secret replaces Algorand’s verifiable random function, so
+others cannot check a claimed draw. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s
+exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example runs 300 rounds, compares seats with stake,
+splits one account into ten, and plots committee sizes.</p>
+<p><em>References:</em> Y. Gilad, R. Hemo, S. Micali, G. Vlachos, and N. Zeldovich, <em>Algorand:
+Scaling Byzantine Agreements for Cryptocurrencies</em>, 26th Symposium on Operating
+Systems Principles (SOSP), 51–68 (2017). <a class="reference external" href="https://doi.org/10.1145/3132747.3132757">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Algorand chooses a small committee each round by lottery: every unit of stake is a ticket, and each user privately evaluates a verifiable random function on the round seed to learn how many of their tickets won. Nobody can target the committee in advance, because members reveal themselves only when they vote."><img alt="" src="../_images/sphx_glr_plot_03_sortition_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/consensus/pos/plot_03_sortition.html"><span class="doc">Cryptographic sortition: a secret, stake-weighted committee (Algorand 2017)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Cryptographic sortition: a secret, stake-weighted committee (Algorand 2017)</div>
+</div></div></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="structures_breakthroughs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Breakthroughs in Authenticated Data Structures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="network_breakthroughs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Breakthroughs in Peer-to-Peer Networking</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gambler-s-ruin-catching-up-from-behind">1656 — The gambler’s ruin: catching up from behind</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-byzantine-generals-problem">1982 — The Byzantine generals problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ben-or-s-randomized-consensus">1983 — Ben-Or’s randomized consensus</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flp-no-deterministic-consensus-in-an-asynchronous-network">1985 — FLP: no deterministic consensus in an asynchronous network</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-synchrony-progress-after-an-unknown-stabilization-time">1988 — Partial synchrony: progress after an unknown stabilization time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pricing-via-processing">1992 — Pricing via processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hashcash-and-proofs-of-computational-effort">1997–2002 — Hashcash and proofs of computational effort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-byzantine-fault-tolerance">1999 — Practical Byzantine Fault Tolerance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bitcoin-combines-the-ingredients">2008–2009 — Bitcoin combines the ingredients</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-confirmations-nakamoto-s-double-spend-calculation">2008 — How many confirmations? Nakamoto’s double-spend calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difficulty-retargeting">2009 — Difficulty retargeting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stake-as-an-alternative-participation-weight">2012 — Stake as an alternative participation weight</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ghost-the-heaviest-observed-subtree">2013 — GHOST: the heaviest observed subtree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nothing-at-stake-and-slashing">2014 — Nothing at stake, and slashing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selfish-mining-majority-is-not-enough">2014 — Selfish mining: majority is not enough</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#casper-ffg-finality-from-two-thirds-votes">2017 — Casper FFG: finality from two-thirds votes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cryptographic-sortition">2017 — Cryptographic sortition</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/history/consensus_breakthroughs.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+
+
+.. _sphx_glr_api_gallery_crypto_signatures:
+
+Proofs and signatures
+---------------------
+
+Zero knowledge, the Fiat-Shamir transform, Schnorr signatures, nonce reuse
+and deterministic nonces, and MuSig multi-signatures.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Goldwasser, Micali and Rackoff asked how much knowledge a proof conveys. In the Schnorr identification protocol the prover sends R = kG, the verifier replies with a random challenge c, and the prover answers s = k + cx. The verifier checks sG = R + cQ and learns that the prover knows x, but nothing else: a simulator* can produce transcripts that look identical without x.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_01_zero_knowledge_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_01_zero_knowledge`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fiat and Shamir removed the live verifier: compute the challenge as a hash of the commitment and the message, c = H(R, Q, m). If the hash behaves like a random function, the prover cannot choose R after knowing c, and the transcript becomes a non-interactive proof bound to the message: a signature.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_02_fiat_shamir_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_02_fiat_shamir`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Fiat-Shamir heuristic: from interaction to signatures (1986)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Schnorr applied Fiat-Shamir to his identification protocol in a group of prime order, giving signatures (R, s) with s = k + H(R, Q, m) * x. They were shorter and faster than the alternatives, and their linearity (signatures add when keys add) later enabled multi-signatures. A patent kept them out of standards until 2008; Bitcoin adopted them in 2021 (BIP-340).">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_03_schnorr_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_03_schnorr_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Schnorr signatures: short, fast, and linear (1989-1991)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Schnorr or ECDSA signature hides the private key behind a one-time nonce. Reuse the nonce for two messages and two equations in one unknown give the key away. In 2010 the fail0verflow team recovered Sony&#x27;s PlayStation 3 signing key this way: the console&#x27;s ECDSA used a constant nonce. RFC 6979 (2013) removed the random number generator from signing: derive the nonce deterministically from the key and the message with HMAC.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_04_nonce_reuse_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_04_nonce_reuse`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nonce reuse in practice, and deterministic nonces (2010-2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Because Schnorr signatures are linear, n signers can produce one ordinary signature for the sum of their keys. Summing keys naively is unsafe: an attacker who announces Q_rogue = xG - Q_honest controls the sum alone. Maxwell, Poelstra, Seurin and Wuille&#x27;s MuSig weights each key by a hash of the whole key list, a_i = H(L, Q_i), so no key can cancel the others.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_05_musig_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_05_musig`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MuSig: Schnorr multi-signatures and the rogue-key attack (2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/signatures/plot_01_zero_knowledge
+   /api/gallery/crypto/signatures/plot_02_fiat_shamir
+   /api/gallery/crypto/signatures/plot_03_schnorr_signatures
+   /api/gallery/crypto/signatures/plot_04_nonce_reuse
+   /api/gallery/crypto/signatures/plot_05_musig
+

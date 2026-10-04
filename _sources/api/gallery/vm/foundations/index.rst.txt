@@ -1,0 +1,141 @@
+
+
+.. _sphx_glr_api_gallery_vm_foundations:
+
+Foundations of stack machines
+-----------------------------
+
+Reverse Polish notation, the halting problem and busy beavers, hardware
+stacks, structured control flow, and Forth.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Łukasiewicz wrote logic with operators before their operands, which needs no parentheses. Hamblin reversed it for computers: in reverse Polish notation, (1 + 2)  3 is 1 2 + 3 , and a machine evaluates it by pushing each number and letting each operator replace the top two values with the result. Dijkstra&#x27;s shunting-yard algorithm (1961) translates ordinary notation into that order. Every stack virtual machine, from Forth to the EVM, runs programs in this form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_01_reverse_polish_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_01_reverse_polish`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reverse Polish notation: the stack's natural order (Łukasiewicz 1924, Hamblin 1957)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Turing defined computation with a machine that reads and writes a tape, and proved that no program can decide, for every machine and input, whether it eventually halts. Running a machine longer never settles the question: a machine that has not halted yet may halt later, or never. A blockchain that lets anyone submit programs therefore cannot check in advance that they terminate. It bounds them instead, with a step budget.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_02_halting_problem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_02_halting_problem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The halting problem: why every call needs a budget (Turing 1936)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robert Barton designed the Burroughs B5000 around a hardware stack: programs compiled from Algol were sequences of stack operations, with no general registers to allocate. A real stack has finite size, so the machine must know how deep a computation goes. The EVM limits its stack to 1024 words for the same reason.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_03_hardware_stack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_03_hardware_stack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stack hardware: a bounded stack (Burroughs B5000, Barton 1961)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Radó asked: among all Turing machines with n states that halt when started on a blank tape, which runs longest? Call that number of steps S(n). For n = 2, a search over every machine gives S(2) = 6. But S grows faster than any computable function: S(3) = 21, S(4) = 107, and S(5) = 47,176,870, proved only in 2024. Knowing S(n) would solve the halting problem for n-state machines, so no algorithm computes it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_04_busy_beaver_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_04_busy_beaver`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The busy beaver: the longest a small machine can run (Radó 1962)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Böhm and Jacopini proved that any flowchart can be rewritten using only three constructs: doing things in sequence, choosing between two branches, and repeating while a condition holds. On a stack machine those are simply straight-line code, a conditional jump (``JZ``) and a backward jump (``JMP``). The assembler lets us write them with labels instead of addresses.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_05_structured_programming_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_05_structured_programming`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Structured programming: sequence, selection, iteration (Böhm and Jacopini 1966)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Charles Moore&#x27;s Forth has no named variables in expressions: words such as DUP, DROP, SWAP, OVER and ROT rearrange the stack, and each word is documented by its stack diagram: OVER ( a b -- a b a ). Small, fast and easy to implement, Forth ran telescopes and spacecraft. Bitcoin Script is described as Forth-like, and the EVM&#x27;s DUP and SWAP families serve the same purpose.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_06_forth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_06_forth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Forth: programming with stack words (Moore 1970)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/vm/foundations/plot_01_reverse_polish
+   /api/gallery/vm/foundations/plot_02_halting_problem
+   /api/gallery/vm/foundations/plot_03_hardware_stack
+   /api/gallery/vm/foundations/plot_04_busy_beaver
+   /api/gallery/vm/foundations/plot_05_structured_programming
+   /api/gallery/vm/foundations/plot_06_forth
+

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.crypto.systems.merkle_damgard &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/crypto/systems/merkle_damgard';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.crypto.systems.merkle_damgard</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.crypto.systems.merkle_damgard</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""SHA-256 written out as a Merkle-Damgard iteration, and its length-extension flaw.</span>
+
+<span class="sd">Merkle and Damgard (1989) showed how to hash messages of any length with a</span>
+<span class="sd">fixed-size compression function: pad the message to whole blocks, ending with</span>
+<span class="sd">its length, then chain ``state = compress(state, block)`` from a fixed initial</span>
+<span class="sd">value. The digest *is* the final state. So anyone who knows ``H(m)`` and</span>
+<span class="sd">``len(m)`` can keep compressing from it and compute ``H(m || pad || suffix)``</span>
+<span class="sd">without knowing ``m``: the length-extension attack. HMAC exists to stop it.</span>
+
+<span class="sd">This is a readable implementation for study. Use :func:`hashlib.sha256` (or</span>
+<span class="sd">:func:`blockchainkit.crypto.systems.hashing.sha256`) for real hashing.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span>
+
+<span class="n">SHA256_IV</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mh">0x6A09E667</span><span class="p">,</span>
+    <span class="mh">0xBB67AE85</span><span class="p">,</span>
+    <span class="mh">0x3C6EF372</span><span class="p">,</span>
+    <span class="mh">0xA54FF53A</span><span class="p">,</span>
+    <span class="mh">0x510E527F</span><span class="p">,</span>
+    <span class="mh">0x9B05688C</span><span class="p">,</span>
+    <span class="mh">0x1F83D9AB</span><span class="p">,</span>
+    <span class="mh">0x5BE0CD19</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="sd">"""tuple of int: The initial chaining value (FIPS 180-4, section 5.3.3)."""</span>
+
+<span class="c1"># Round constants: the first 32 bits of the fractional parts of the cube</span>
+<span class="c1"># roots of the first 64 primes (FIPS 180-4, section 4.2.2).</span>
+<span class="n">_K</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mh">0x428A2F98</span><span class="p">,</span> <span class="mh">0x71374491</span><span class="p">,</span> <span class="mh">0xB5C0FBCF</span><span class="p">,</span> <span class="mh">0xE9B5DBA5</span><span class="p">,</span> <span class="mh">0x3956C25B</span><span class="p">,</span> <span class="mh">0x59F111F1</span><span class="p">,</span> <span class="mh">0x923F82A4</span><span class="p">,</span> <span class="mh">0xAB1C5ED5</span><span class="p">,</span>
+    <span class="mh">0xD807AA98</span><span class="p">,</span> <span class="mh">0x12835B01</span><span class="p">,</span> <span class="mh">0x243185BE</span><span class="p">,</span> <span class="mh">0x550C7DC3</span><span class="p">,</span> <span class="mh">0x72BE5D74</span><span class="p">,</span> <span class="mh">0x80DEB1FE</span><span class="p">,</span> <span class="mh">0x9BDC06A7</span><span class="p">,</span> <span class="mh">0xC19BF174</span><span class="p">,</span>
+    <span class="mh">0xE49B69C1</span><span class="p">,</span> <span class="mh">0xEFBE4786</span><span class="p">,</span> <span class="mh">0x0FC19DC6</span><span class="p">,</span> <span class="mh">0x240CA1CC</span><span class="p">,</span> <span class="mh">0x2DE92C6F</span><span class="p">,</span> <span class="mh">0x4A7484AA</span><span class="p">,</span> <span class="mh">0x5CB0A9DC</span><span class="p">,</span> <span class="mh">0x76F988DA</span><span class="p">,</span>
+    <span class="mh">0x983E5152</span><span class="p">,</span> <span class="mh">0xA831C66D</span><span class="p">,</span> <span class="mh">0xB00327C8</span><span class="p">,</span> <span class="mh">0xBF597FC7</span><span class="p">,</span> <span class="mh">0xC6E00BF3</span><span class="p">,</span> <span class="mh">0xD5A79147</span><span class="p">,</span> <span class="mh">0x06CA6351</span><span class="p">,</span> <span class="mh">0x14292967</span><span class="p">,</span>
+    <span class="mh">0x27B70A85</span><span class="p">,</span> <span class="mh">0x2E1B2138</span><span class="p">,</span> <span class="mh">0x4D2C6DFC</span><span class="p">,</span> <span class="mh">0x53380D13</span><span class="p">,</span> <span class="mh">0x650A7354</span><span class="p">,</span> <span class="mh">0x766A0ABB</span><span class="p">,</span> <span class="mh">0x81C2C92E</span><span class="p">,</span> <span class="mh">0x92722C85</span><span class="p">,</span>
+    <span class="mh">0xA2BFE8A1</span><span class="p">,</span> <span class="mh">0xA81A664B</span><span class="p">,</span> <span class="mh">0xC24B8B70</span><span class="p">,</span> <span class="mh">0xC76C51A3</span><span class="p">,</span> <span class="mh">0xD192E819</span><span class="p">,</span> <span class="mh">0xD6990624</span><span class="p">,</span> <span class="mh">0xF40E3585</span><span class="p">,</span> <span class="mh">0x106AA070</span><span class="p">,</span>
+    <span class="mh">0x19A4C116</span><span class="p">,</span> <span class="mh">0x1E376C08</span><span class="p">,</span> <span class="mh">0x2748774C</span><span class="p">,</span> <span class="mh">0x34B0BCB5</span><span class="p">,</span> <span class="mh">0x391C0CB3</span><span class="p">,</span> <span class="mh">0x4ED8AA4A</span><span class="p">,</span> <span class="mh">0x5B9CCA4F</span><span class="p">,</span> <span class="mh">0x682E6FF3</span><span class="p">,</span>
+    <span class="mh">0x748F82EE</span><span class="p">,</span> <span class="mh">0x78A5636F</span><span class="p">,</span> <span class="mh">0x84C87814</span><span class="p">,</span> <span class="mh">0x8CC70208</span><span class="p">,</span> <span class="mh">0x90BEFFFA</span><span class="p">,</span> <span class="mh">0xA4506CEB</span><span class="p">,</span> <span class="mh">0xBEF9A3F7</span><span class="p">,</span> <span class="mh">0xC67178F2</span><span class="p">,</span>
+<span class="p">)</span>  <span class="c1"># fmt: skip</span>
+<span class="n">_MASK</span> <span class="o">=</span> <span class="mh">0xFFFFFFFF</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_rotr</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">32</span> <span class="o">-</span> <span class="n">n</span><span class="p">)))</span> <span class="o">&amp;</span> <span class="n">_MASK</span>
+
+
+<div class="viewcode-block" id="sha256_compress">
+<a class="viewcode-back" href="../../../../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.sha256_compress">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sha256_compress</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">block</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Apply SHA-256's compression function to one 64-byte block.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    state : tuple of int</span>
+<span class="sd">        Eight 32-bit words: :data:`SHA256_IV` or the previous output.</span>
+<span class="sd">    block : bytes</span>
+<span class="sd">        Exactly 64 bytes.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of int</span>
+<span class="sd">        The next chaining state.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">block</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">block</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">64</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"a SHA-256 block is 64 bytes"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"a SHA-256 state is eight 32-bit words"</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">"big"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">64</span><span class="p">):</span>
+        <span class="n">s0</span> <span class="o">=</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">15</span><span class="p">],</span> <span class="mi">7</span><span class="p">)</span> <span class="o">^</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">15</span><span class="p">],</span> <span class="mi">18</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">15</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">17</span><span class="p">)</span> <span class="o">^</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">19</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">w</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">16</span><span class="p">]</span> <span class="o">+</span> <span class="n">s0</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">7</span><span class="p">]</span> <span class="o">+</span> <span class="n">s1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">_MASK</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">state</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">64</span><span class="p">):</span>
+        <span class="n">t1</span> <span class="o">=</span> <span class="n">h</span> <span class="o">+</span> <span class="p">(</span><span class="n">_rotr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="o">^</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="o">^</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="mi">25</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="n">e</span> <span class="o">&amp;</span> <span class="n">f</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">~</span><span class="n">e</span> <span class="o">&amp;</span> <span class="n">g</span><span class="p">))</span> <span class="o">+</span> <span class="n">_K</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="p">(</span><span class="n">_rotr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">^</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="o">^</span> <span class="n">_rotr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">22</span><span class="p">))</span> <span class="o">+</span> <span class="p">((</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">c</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="n">b</span> <span class="o">&amp;</span> <span class="n">c</span><span class="p">))</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="p">(</span><span class="n">t1</span> <span class="o">+</span> <span class="n">t2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">_MASK</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span> <span class="o">+</span> <span class="n">t1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">_MASK</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">_MASK</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="sha256_padding">
+<a class="viewcode-back" href="../../../../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.sha256_padding">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sha256_padding</span><span class="p">(</span><span class="n">message_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return the Merkle-Damgard strengthening for a message of that many bytes.</span>
+
+<span class="sd">    A 0x80 byte, zeros up to 56 bytes modulo 64, then the bit length as a</span>
+<span class="sd">    64-bit big-endian integer. Encoding the length is what makes the</span>
+<span class="sd">    construction collision-resistant whenever the compression function is.</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">message_length</span><span class="p">,</span> <span class="s2">"message_length"</span><span class="p">)</span>
+    <span class="n">zeros</span> <span class="o">=</span> <span class="p">(</span><span class="mi">55</span> <span class="o">-</span> <span class="n">message_length</span><span class="p">)</span> <span class="o">%</span> <span class="mi">64</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s2">"</span><span class="se">\x80</span><span class="s2">"</span> <span class="o">+</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">zeros</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">message_length</span><span class="p">)</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">"big"</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_iterate</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">64</span><span class="p">):</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">sha256_compress</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="n">start</span> <span class="p">:</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">64</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">state</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_digest</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"big"</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">state</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="merkle_damgard_sha256">
+<a class="viewcode-back" href="../../../../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">merkle_damgard_sha256</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Hash by padding, then chaining the compression function from the IV.</span>
+
+<span class="sd">    &gt;&gt;&gt; import hashlib</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.crypto import merkle_damgard_sha256</span>
+<span class="sd">    &gt;&gt;&gt; merkle_damgard_sha256(b"abc") == hashlib.sha256(b"abc").digest()</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"data must be bytes"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_digest</span><span class="p">(</span><span class="n">_iterate</span><span class="p">(</span><span class="n">SHA256_IV</span><span class="p">,</span> <span class="n">data</span> <span class="o">+</span> <span class="n">sha256_padding</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))))</span></div>
+
+
+
+<div class="viewcode-block" id="length_extension">
+<a class="viewcode-back" href="../../../../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.length_extension">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">length_extension</span><span class="p">(</span><span class="n">digest</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">original_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">suffix</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Extend ``H(original)`` to ``H(original || glue || suffix)`` without knowing ``original``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    digest : bytes</span>
+<span class="sd">        SHA-256 of the unknown original message.</span>
+<span class="sd">    original_length : int</span>
+<span class="sd">        Its length in bytes (for a secret-prefix MAC, key plus message).</span>
+<span class="sd">    suffix : bytes</span>
+<span class="sd">        Data the attacker wants to append.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple of bytes</span>
+<span class="sd">        ``(glue, forged)``: the original message's padding, which becomes</span>
+<span class="sd">        part of the forged message, and ``SHA-256(original || glue || suffix)``.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">32</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"a SHA-256 digest is 32 bytes"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"suffix must be bytes"</span><span class="p">)</span>
+    <span class="n">glue</span> <span class="o">=</span> <span class="n">sha256_padding</span><span class="p">(</span><span class="n">original_length</span><span class="p">)</span>
+    <span class="n">state</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">digest</span><span class="p">[</span><span class="mi">4</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">"big"</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">original_length</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">glue</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">suffix</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">glue</span><span class="p">,</span> <span class="n">_digest</span><span class="p">(</span><span class="n">_iterate</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">suffix</span> <span class="o">+</span> <span class="n">sha256_padding</span><span class="p">(</span><span class="n">total</span><span class="p">)))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

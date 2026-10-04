@@ -1,0 +1,122 @@
+
+
+.. _sphx_glr_api_gallery_consensus_agreement:
+
+Agreement protocols
+-------------------
+
+Byzantine generals, randomized and partially synchronous consensus, and PBFT.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Generals surrounding a city must agree to attack or retreat, communicating by messenger, while some of them are traitors who tell different generals different things. Lamport, Shostak and Pease proved agreement possible if and only if more than two thirds of the generals are loyal, and gave the oral-messages algorithm OM(m): every lieutenant relays what it heard, and everyone takes a majority.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_01_byzantine_generals_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_01_byzantine_generals`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Byzantine generals problem (Lamport, Shostak and Pease 1982)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Michael Ben-Or showed that asynchronous processes can reach agreement despite crashes if they may flip coins. In each round they exchange values, propose any value held by a strict majority, and adopt a proposal they see, or flip a coin if they see none. A decision follows once enough processes propose the same value.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_02_ben_or_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_02_ben_or`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Randomized consensus: agreeing by flipping coins (Ben-Or 1983)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fischer, Lynch and Paterson proved that no deterministic protocol can always reach agreement in an asynchronous system where even one process may crash. The adversary does not need to crash anyone: it only chooses the order in which messages arrive, and can keep the system undecided forever.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_03_flp_impossibility_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_03_flp_impossibility`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FLP: no deterministic consensus in an asynchronous network (1985)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Real networks are usually fast but sometimes not. Dwork, Lynch and Stockmeyer modelled this as partial synchrony: message delays are unbounded until an unknown Global Stabilization Time (GST), and bounded by an unknown Delta afterwards. A leader-based protocol keeps safety at all times and waits out each leader with a timeout. Doubling the timeout every failed view guarantees it eventually exceeds Delta, whatever Delta is.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_04_partial_synchrony_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_04_partial_synchrony`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Partial synchrony: timeouts that eventually work (Dwork, Lynch and Stockmeyer 1988)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Castro and Liskov made Byzantine agreement fast enough for real services. With n = 3f + 1 replicas, every quorum of 2f + 1 overlaps every other in at least f + 1 replicas, so in at least one honest replica. A replica prepares a value after 2f matching prepares and commits after 2f + 1 matching commits; no two honest replicas can commit different values in one view.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/agreement/images/thumb/sphx_glr_plot_05_pbft_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/agreement/plot_05_pbft`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Practical Byzantine Fault Tolerance (Castro and Liskov 1999)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/consensus/agreement/plot_01_byzantine_generals
+   /api/gallery/consensus/agreement/plot_02_ben_or
+   /api/gallery/consensus/agreement/plot_03_flp_impossibility
+   /api/gallery/consensus/agreement/plot_04_partial_synchrony
+   /api/gallery/consensus/agreement/plot_05_pbft
+

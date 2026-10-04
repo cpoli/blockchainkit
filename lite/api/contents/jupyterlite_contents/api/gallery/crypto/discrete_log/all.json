@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.161365Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.733915Z",
+      "mimetype": null,
+      "name": "plot_02_pohlig_hellman.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/discrete_log/plot_02_pohlig_hellman.ipynb",
+      "size": 4303,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.161052Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.733629Z",
+      "mimetype": null,
+      "name": "plot_01_baby_step_giant_step.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/discrete_log/plot_01_baby_step_giant_step.ipynb",
+      "size": 3805,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.161365Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.161365Z",
+  "mimetype": null,
+  "name": "discrete_log",
+  "path": "jupyterlite_contents/api/gallery/crypto/discrete_log",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

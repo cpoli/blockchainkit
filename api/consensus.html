@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>blockchainkit.consensus &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/consensus';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="blockchainkit.network" href="network.html" />
+    <link rel="prev" title="blockchainkit.structures" href="structures.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">blockchainkit.crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">blockchainkit.structures</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">blockchainkit.consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">blockchainkit.network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm.html">blockchainkit.vm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">blockchainkit.constants</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.consensus</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="blockchainkit-consensus">
+<h1>blockchainkit.consensus<a class="headerlink" href="#blockchainkit-consensus" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/consensus.html"><span class="doc">blockchainkit.consensus hub</span></a> · <a class="reference internal" href="../history/consensus_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/consensus/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
+</div>
+<p id="module-blockchainkit.consensus">Consensus: agreement protocols, proof of work and stake, and the attacks they resist.</p>
+<p>Proof-of-work search and its expected cost, catch-up probabilities, and stake-weighted proposer selection.</p>
+<p>Every public name below is re-exported by the subpackage: import it as
+<code class="docutils literal notranslate"><span class="pre">bk.consensus.&lt;name&gt;</span></code>. The plotting helpers are the exception: import them
+explicitly from <code class="docutils literal notranslate"><span class="pre">blockchainkit.consensus.visualizers</span></code>, which loads Matplotlib.</p>
+<section id="module-blockchainkit.consensus.core.base">
+<span id="types-and-results"></span><h2>Types and results<a class="headerlink" href="#module-blockchainkit.consensus.core.base" title="Link to this heading">#</a></h2>
+<p>Result containers for blockchainkit.consensus.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.MiningResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">MiningResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attempts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#MiningResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.MiningResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A successful mined block and the number of hashes attempted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block</strong> (<a class="reference internal" href="structures.html#blockchainkit.structures.systems.block.Block" title="blockchainkit.structures.systems.block.Block"><em>Block</em></a>)</p></li>
+<li><p><strong>attempts</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.MiningResult.block">
+<span class="sig-name descname"><span class="pre">block</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="structures.html#blockchainkit.structures.systems.block.Block" title="blockchainkit.structures.systems.block.Block"><span class="pre">Block</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.MiningResult.block" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.MiningResult.attempts">
+<span class="sig-name descname"><span class="pre">attempts</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.MiningResult.attempts" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.GeneralsResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">GeneralsResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decisions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">agreement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validity</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#GeneralsResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.GeneralsResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Outcome of an oral-messages run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decisions</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Each loyal lieutenant’s decision.</p></li>
+<li><p><strong>agreement</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – All loyal lieutenants decided the same (condition IC1).</p></li>
+<li><p><strong>validity</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – If the commander is loyal, every loyal lieutenant followed its order
+(condition IC2); vacuously true for a traitorous commander.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>decisions</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>)</p></li>
+<li><p><strong>agreement</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+<li><p><strong>validity</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.GeneralsResult.decisions">
+<span class="sig-name descname"><span class="pre">decisions</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.GeneralsResult.decisions" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.GeneralsResult.agreement">
+<span class="sig-name descname"><span class="pre">agreement</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.GeneralsResult.agreement" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.GeneralsResult.validity">
+<span class="sig-name descname"><span class="pre">validity</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.GeneralsResult.validity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ConsensusRun">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">ConsensusRun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decisions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decided</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#ConsensusRun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.ConsensusRun" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Outcome of a randomized-consensus run: who decided what, after how many rounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decisions</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+<li><p><strong>rounds</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>decided</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ConsensusRun.decisions">
+<span class="sig-name descname"><span class="pre">decisions</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.ConsensusRun.decisions" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ConsensusRun.rounds">
+<span class="sig-name descname"><span class="pre">rounds</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.ConsensusRun.rounds" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ConsensusRun.decided">
+<span class="sig-name descname"><span class="pre">decided</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.ConsensusRun.decided" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ViewChangeRun">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">ViewChangeRun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view_starts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeouts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decided_view</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decision_time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#ViewChangeRun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.ViewChangeRun" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Views tried under partial synchrony, until the first one that made progress.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>view_starts</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+<li><p><strong>timeouts</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+<li><p><strong>decided_view</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>decision_time</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ViewChangeRun.view_starts">
+<span class="sig-name descname"><span class="pre">view_starts</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.ViewChangeRun.view_starts" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ViewChangeRun.timeouts">
+<span class="sig-name descname"><span class="pre">timeouts</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.ViewChangeRun.timeouts" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ViewChangeRun.decided_view">
+<span class="sig-name descname"><span class="pre">decided_view</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.ViewChangeRun.decided_view" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.ViewChangeRun.decision_time">
+<span class="sig-name descname"><span class="pre">decision_time</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.ViewChangeRun.decision_time" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.SquareRootResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">SquareRootResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">multiplications</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#SquareRootResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.SquareRootResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A modular square root and the multiplications spent computing it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>multiplications</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.SquareRootResult.root">
+<span class="sig-name descname"><span class="pre">root</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.SquareRootResult.root" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.SquareRootResult.multiplications">
+<span class="sig-name descname"><span class="pre">multiplications</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.SquareRootResult.multiplications" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.PBFTResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">PBFTResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prepared</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commits</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#PBFTResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.PBFTResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Values each honest replica prepared and committed (None if it did not).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prepared</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em><em>]</em>)</p></li>
+<li><p><strong>commits</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.PBFTResult.prepared">
+<span class="sig-name descname"><span class="pre">prepared</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.PBFTResult.prepared" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.PBFTResult.commits">
+<span class="sig-name descname"><span class="pre">commits</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.PBFTResult.commits" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.DifficultyRun">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">DifficultyRun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">targets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#DifficultyRun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.DifficultyRun" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Simulated block intervals and the target in force for each block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>block_times</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+<li><p><strong>targets</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.DifficultyRun.block_times">
+<span class="sig-name descname"><span class="pre">block_times</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.DifficultyRun.block_times" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.DifficultyRun.targets">
+<span class="sig-name descname"><span class="pre">targets</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.DifficultyRun.targets" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.SelfishMiningResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">SelfishMiningResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selfish_blocks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">honest_blocks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">revenue</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#SelfishMiningResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.SelfishMiningResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Blocks each side contributed to the final chain, and the pool’s share.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>selfish_blocks</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>honest_blocks</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>revenue</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.SelfishMiningResult.selfish_blocks">
+<span class="sig-name descname"><span class="pre">selfish_blocks</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.SelfishMiningResult.selfish_blocks" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.SelfishMiningResult.honest_blocks">
+<span class="sig-name descname"><span class="pre">honest_blocks</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.SelfishMiningResult.honest_blocks" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.SelfishMiningResult.revenue">
+<span class="sig-name descname"><span class="pre">revenue</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><span class="pre">float</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.SelfishMiningResult.revenue" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.Offense">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.core.base.</span></span><span class="sig-name descname"><span class="pre">Offense</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">second</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/core/base.html#Offense"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.core.base.Offense" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Two votes by one validator that violate a Casper slashing condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>validator</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+<li><p><strong>kind</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+<li><p><strong>first</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a><em>]</em>)</p></li>
+<li><p><strong>second</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.Offense.validator">
+<span class="sig-name descname"><span class="pre">validator</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.Offense.validator" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.Offense.kind">
+<span class="sig-name descname"><span class="pre">kind</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#blockchainkit.consensus.core.base.Offense.kind" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.Offense.first">
+<span class="sig-name descname"><span class="pre">first</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.Offense.first" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.consensus.core.base.Offense.second">
+<span class="sig-name descname"><span class="pre">second</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.core.base.Offense.second" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-blockchainkit.consensus.systems.byzantine">
+<span id="constructions-and-protocols"></span><h2>Constructions and protocols<a class="headerlink" href="#module-blockchainkit.consensus.systems.byzantine" title="Link to this heading">#</a></h2>
+<p>The Byzantine generals problem and the oral-messages algorithm (1982).</p>
+<p>Lamport, Shostak and Pease asked how loyal generals can agree on a plan when
+some generals, possibly including the commander, are traitors who send
+different messages to different recipients. Their algorithm OM(m) has every
+lieutenant relay what it heard, recursively, and take a majority. It
+succeeds whenever there are more than three times as many generals as
+traitors: n &gt; 3m. With three generals and one traitor no algorithm can.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.byzantine.oral_messages">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.byzantine.</span></span><span class="sig-name descname"><span class="pre">oral_messages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traitors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lie</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">_default_lie&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/byzantine.html#oral_messages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.byzantine.oral_messages" title="Link to this definition">#</a></dt>
+<dd><p>Run OM(rounds) with general 0 as commander.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>generals</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Total number of generals n, at least 3; general 0 commands.</p></li>
+<li><p><strong>traitors</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#set" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Traitorous generals; they send <code class="docutils literal notranslate"><span class="pre">lie(sender,</span> <span class="pre">receiver,</span> <span class="pre">value)</span></code>
+instead of the true value.</p></li>
+<li><p><strong>order</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The commander’s order, <code class="docutils literal notranslate"><span class="pre">&quot;attack&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;retreat&quot;</span></code>.</p></li>
+<li><p><strong>rounds</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The recursion depth m: OM(m) tolerates m traitors when n &gt; 3m.</p></li>
+<li><p><strong>lie</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Callable</span></code></a>) – The traitors’ strategy.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Loyal lieutenants’ decisions and whether IC1 and IC2 hold.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.GeneralsResult" title="blockchainkit.consensus.core.base.GeneralsResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.core.base.GeneralsResult</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">oral_messages</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">oral_messages</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="p">{</span><span class="mi">3</span><span class="p">},</span> <span class="s2">"attack"</span><span class="p">,</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">decisions</span>
+<span class="go">{1: 'attack', 2: 'attack'}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.randomized">Ben-Or’s randomized consensus (1983), and the FLP impossibility (1985) it sidesteps.</p>
+<p>Fischer, Lynch and Paterson proved that no <em>deterministic</em> protocol can
+guarantee agreement in an asynchronous network if even one process may
+crash: an adversary scheduling message delivery can keep it undecided
+forever. Ben-Or’s protocol escapes by tossing coins. In each round processes
+exchange values, propose a strong majority if they see one, and adopt a
+proposal or flip a coin. Whatever the schedule, the coins eventually line up.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.randomized.ben_or">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.randomized.</span></span><span class="sig-name descname"><span class="pre">ben_or</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faults</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">coin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adversarial</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/randomized.html#ben_or"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.randomized.ben_or" title="Link to this definition">#</a></dt>
+<dd><p>Run Ben-Or’s binary consensus for crash faults (n &gt; 2f).</p>
+<p>Each process waits for <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">f</span></code> messages per phase, the most it can
+wait for when f processes may have crashed; the scheduler chooses which.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initial</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Each process’s input bit.</p></li>
+<li><p><strong>faults</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The number of crashes f the protocol is sized for.</p></li>
+<li><p><strong>coin</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Callable</span></code></a>, <em>optional</em>) – <code class="docutils literal notranslate"><span class="pre">coin(process,</span> <span class="pre">round)</span> <span class="pre">-&gt;</span> <span class="pre">0</span> <span class="pre">or</span> <span class="pre">1</span></code>. Defaults to a seeded fair coin.
+Pass a deterministic function to see the FLP adversary win.</p></li>
+<li><p><strong>adversarial</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – If True, the scheduler delivers the messages most likely to delay a
+decision; otherwise a random <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">f</span></code> subset.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Seed for the coin and the random scheduler.</p></li>
+<li><p><strong>max_rounds</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Give up after this many rounds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Decisions so far, rounds run, and whether every process decided.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.ConsensusRun" title="blockchainkit.consensus.core.base.ConsensusRun"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.core.base.ConsensusRun</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">ben_or</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ben_or</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">faults</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">decisions</span>
+<span class="go">{0: 1, 1: 1, 2: 1}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.synchrony">Partial synchrony (Dwork, Lynch and Stockmeyer 1988): progress after an unknown GST.</p>
+<p>Real networks are neither synchronous (known delay bound) nor fully
+asynchronous (FLP applies). Partial synchrony assumes a bound Delta holds
+after some unknown Global Stabilization Time (GST). Protocols stay safe
+always, and make progress once a leader’s view lasts long enough: doubling
+the timeout each view guarantees that eventually it exceeds Delta.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.synchrony.view_changes">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.synchrony.</span></span><span class="sig-name descname"><span class="pre">view_changes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_timeout</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">growth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_views</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">64</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/synchrony.html#view_changes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.synchrony.view_changes" title="Link to this definition">#</a></dt>
+<dd><p>Simulate leader views with growing timeouts until one makes progress.</p>
+<p>Before GST the adversary delays the leader’s message past every timeout;
+from GST on it arrives after <code class="docutils literal notranslate"><span class="pre">delta</span></code> ticks. View v lasts
+<code class="docutils literal notranslate"><span class="pre">base_timeout</span> <span class="pre">*</span> <span class="pre">growth**v</span></code> and succeeds when it starts at or after GST
+and its timeout is at least <code class="docutils literal notranslate"><span class="pre">delta</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#TimeoutError" title="(in Python v3.14)"><strong>TimeoutError</strong></a> – No view succeeded within <code class="docutils literal notranslate"><span class="pre">max_views</span></code> (for example, timeouts that
+    never grow past delta).</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>gst</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>delta</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>base_timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>growth</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>max_views</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.ViewChangeRun" title="blockchainkit.consensus.core.base.ViewChangeRun"><em>ViewChangeRun</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">view_changes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">view_changes</span><span class="p">(</span><span class="n">gst</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">base_timeout</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">decided_view</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.pricing">Pricing via processing (Dwork and Naor 1992): make each message cost computation.</p>
+<p>To fight junk mail, Dwork and Naor proposed that a sender compute a
+<em>pricing function</em>, moderately hard to evaluate but easy to check, for each
+message. One of their examples is a square root modulo a prime: computing
+it takes an exponentiation, checking it takes one multiplication.
+Back’s Hashcash later used hash preimages for the same purpose, and
+Bitcoin’s proof of work descends from that.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pricing.modular_square_root">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pricing.</span></span><span class="sig-name descname"><span class="pre">modular_square_root</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pricing.html#modular_square_root"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pricing.modular_square_root" title="Link to this definition">#</a></dt>
+<dd><p>Compute a square root modulo a prime <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">3</span> <span class="pre">(mod</span> <span class="pre">4)</span></code>, counting multiplications.</p>
+<p>For such primes, <code class="docutils literal notranslate"><span class="pre">value**((p</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">/</span> <span class="pre">4)</span></code> is a square root of any
+quadratic residue. Square-and-multiply needs about <code class="docutils literal notranslate"><span class="pre">1.5</span> <span class="pre">log2</span> <span class="pre">p</span></code>
+multiplications; checking the answer needs one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – <code class="docutils literal notranslate"><span class="pre">prime</span></code> is not a prime congruent to 3 modulo 4, or <code class="docutils literal notranslate"><span class="pre">value</span></code> has no
+    square root (it is not a quadratic residue).</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>prime</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.SquareRootResult" title="blockchainkit.consensus.core.base.SquareRootResult"><em>SquareRootResult</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">modular_square_root</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">modular_square_root</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">root</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">%</span> <span class="mi">7</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.pow">Bounded proof-of-work experiments with explicit success probabilities.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pow.target">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pow.</span></span><span class="sig-name descname"><span class="pre">target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">difficulty</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pow.html#target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pow.target" title="Link to this definition">#</a></dt>
+<dd><p>Return the inclusive target for a leading-zero-bit difficulty.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">target</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="mi">256</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>difficulty</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pow.expected_trials">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pow.</span></span><span class="sig-name descname"><span class="pre">expected_trials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">difficulty</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pow.html#expected_trials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pow.expected_trials" title="Link to this definition">#</a></dt>
+<dd><p>Return 2**difficulty, assuming independent uniform 256-bit hashes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>difficulty</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pow.valid_pow">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pow.</span></span><span class="sig-name descname"><span class="pre">valid_pow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pow.html#valid_pow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pow.valid_pow" title="Link to this definition">#</a></dt>
+<dd><p>Check that the block hash, interpreted big-endian, is at most its target.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>block</strong> (<a class="reference internal" href="structures.html#blockchainkit.structures.systems.block.Block" title="blockchainkit.structures.systems.block.Block"><em>Block</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pow.mine">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pow.</span></span><span class="sig-name descname"><span class="pre">mine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_attempts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pow.html#mine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pow.mine" title="Link to this definition">#</a></dt>
+<dd><p>Search sequential nonces starting at block.nonce, with a strict bound.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#TimeoutError" title="(in Python v3.14)"><strong>TimeoutError</strong></a> – No solution was found within max_attempts (not evidence of no solution).</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.14)"><strong>ValueError</strong></a> – The search would exceed the 64-bit nonce space.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>block</strong> (<a class="reference internal" href="structures.html#blockchainkit.structures.systems.block.Block" title="blockchainkit.structures.systems.block.Block"><em>Block</em></a>)</p></li>
+<li><p><strong>max_attempts</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.MiningResult" title="blockchainkit.consensus.core.base.MiningResult"><em>MiningResult</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.pbft">Practical Byzantine Fault Tolerance (Castro and Liskov 1999): the normal-case round.</p>
+<p>With n = 3f + 1 replicas, any two quorums of 2f + 1 overlap in at least f + 1
+replicas, so at least one honest replica is in both. A replica <em>prepares</em> a
+value after 2f matching prepare messages and <em>commits</em> it after 2f + 1
+matching commits. Two honest replicas can then never commit different values
+in one view, even if the leader equivocates, as long as at most f replicas
+are faulty.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pbft.quorum_size">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pbft.</span></span><span class="sig-name descname"><span class="pre">quorum_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pbft.html#quorum_size"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pbft.quorum_size" title="Link to this definition">#</a></dt>
+<dd><p>Return 2f + 1 for the largest f with n &gt;= 3f + 1.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">quorum_size</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">quorum_size</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">quorum_size</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">(3, 5)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>replicas</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pbft.pbft_round">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pbft.</span></span><span class="sig-name descname"><span class="pre">pbft_round</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">replicas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">faulty</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">equivocate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'B'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pbft.html#pbft_round"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pbft.pbft_round" title="Link to this definition">#</a></dt>
+<dd><p>Run one PBFT pre-prepare / prepare / commit exchange with leader 0.</p>
+<p>Faulty replicas send prepare and commit messages for <em>both</em> values to
+everyone, the most confusing thing they can do. A faulty leader with
+<code class="docutils literal notranslate"><span class="pre">equivocate=True</span></code> pre-prepares <code class="docutils literal notranslate"><span class="pre">value</span></code> to the first half of the honest
+replicas and <code class="docutils literal notranslate"><span class="pre">other</span></code> to the rest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>replicas</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of replicas n, at least 4.</p></li>
+<li><p><strong>faulty</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#set" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Faulty replica numbers. The protocol is sized for f = (n - 1) // 3;
+pass more to see safety fail.</p></li>
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The leader’s value, and the conflicting one an equivocating leader
+also sends.</p></li>
+<li><p><strong>other</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The leader’s value, and the conflicting one an equivocating leader
+also sends.</p></li>
+<li><p><strong>equivocate</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>What each honest replica prepared and committed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.PBFTResult" title="blockchainkit.consensus.core.base.PBFTResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.core.base.PBFTResult</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.catch_up">Idealized models of an attacker catching up with the honest chain.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.catch_up.eventual_catch_up">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.catch_up.</span></span><span class="sig-name descname"><span class="pre">eventual_catch_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attacker_fraction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deficit</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/catch_up.html#eventual_catch_up"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.catch_up.eventual_catch_up" title="Link to this definition">#</a></dt>
+<dd><p>Return eventual catch-up probability in an ideal infinite random walk.</p>
+<p>For q&lt;1/2 this is (q/(1-q))**deficit. This is NOT Nakamoto’s finite-
+confirmation Poisson model: there is no propagation delay or time bound.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">eventual_catch_up</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">eventual_catch_up</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="go">0.1111111111111111</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attacker_fraction</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>deficit</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.catch_up.attacker_success_probability">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.catch_up.</span></span><span class="sig-name descname"><span class="pre">attacker_success_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attacker_fraction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confirmations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/catch_up.html#attacker_success_probability"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.catch_up.attacker_success_probability" title="Link to this definition">#</a></dt>
+<dd><p>Return Nakamoto’s probability that an attacker ever overtakes <code class="docutils literal notranslate"><span class="pre">z</span></code> confirmations.</p>
+<p>While the honest chain gains z blocks, the attacker’s progress is
+approximately Poisson with mean <code class="docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">=</span> <span class="pre">z</span> <span class="pre">q</span> <span class="pre">/</span> <span class="pre">p</span></code>. From each possible
+lead k, the attacker still needs to make up <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">-</span> <span class="pre">k</span></code> blocks, which by
+<a class="reference internal" href="#blockchainkit.consensus.systems.catch_up.eventual_catch_up" title="blockchainkit.consensus.systems.catch_up.eventual_catch_up"><code class="xref py py-func docutils literal notranslate"><span class="pre">eventual_catch_up()</span></code></a> happens with probability <code class="docutils literal notranslate"><span class="pre">(q/p)**(z-k)</span></code>
+(whitepaper, section 11):</p>
+<p><code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">-</span> <span class="pre">sum_{k=0}^{z}</span> <span class="pre">e^(-lambda)</span> <span class="pre">lambda^k</span> <span class="pre">/</span> <span class="pre">k!</span> <span class="pre">*</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">(q/p)^(z-k))</span></code>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">attacker_success_probability</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">attacker_success_probability</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+<span class="go">0.0009137</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>attacker_fraction</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>confirmations</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.difficulty">Difficulty retargeting (Bitcoin 2009): hold the block interval steady as hashrate changes.</p>
+<p>The whitepaper (section 4) says proof-of-work difficulty is set by a moving
+average targeting an average number of blocks per hour. Bitcoin’s first
+release recomputes the target every 2016 blocks, scaling it by the ratio of
+actual to expected time, clamped to a factor of four in either direction.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.difficulty.retarget">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.difficulty.</span></span><span class="sig-name descname"><span class="pre">retarget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/difficulty.html#retarget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.difficulty.retarget" title="Link to this definition">#</a></dt>
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">target</span> <span class="pre">*</span> <span class="pre">actual</span> <span class="pre">/</span> <span class="pre">expected</span></code>, clamped to <code class="docutils literal notranslate"><span class="pre">[target/4,</span> <span class="pre">4*target]</span></code>.</p>
+<p>A larger target is easier. Blocks that came too fast shrink it.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">retarget</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">retarget</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">actual_time</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">expected_time</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span>
+<span class="go">500</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>actual_time</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>expected_time</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.difficulty.simulate_difficulty">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.difficulty.</span></span><span class="sig-name descname"><span class="pre">simulate_difficulty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hashrates</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">600</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2016</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/difficulty.html#simulate_difficulty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.difficulty.simulate_difficulty" title="Link to this definition">#</a></dt>
+<dd><p>Simulate block discovery with exponential waiting times and periodic retargets.</p>
+<p>With target T, a block needs about <code class="docutils literal notranslate"><span class="pre">2**48</span> <span class="pre">/</span> <span class="pre">T</span></code> hashes on average, so at
+hashrate h its waiting time is exponential with mean <code class="docutils literal notranslate"><span class="pre">2**48</span> <span class="pre">/</span> <span class="pre">(T</span> <span class="pre">h)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hashrates</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – The network hashrate while each successive block is mined.</p></li>
+<li><p><strong>interval</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The target block time, in seconds.</p></li>
+<li><p><strong>window</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Blocks between retargets.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Seed for the waiting times.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Each block’s waiting time and the target it was mined under.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.DifficultyRun" title="blockchainkit.consensus.core.base.DifficultyRun"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.core.base.DifficultyRun</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.pos">Stake-weighted proposer sampling, not a complete PoS consensus protocol.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pos.StakeSampler">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.pos.</span></span><span class="sig-name descname"><span class="pre">StakeSampler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stakes</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pos.html#StakeSampler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pos.StakeSampler" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Select proposers with exact integer weights and reproducible randomness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stakes</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>) – Nonnegative weights with a positive total. Names are sorted so mapping
+insertion order does not alter results.</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Simulation seed, not an unpredictable consensus randomness beacon.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">StakeSampler</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">StakeSampler</span><span class="p">({</span><span class="s2">"alice"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"bob"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="n">seed</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">('alice', 'alice', 'alice')</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pos.StakeSampler.choose">
+<span class="sig-name descname"><span class="pre">choose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pos.html#StakeSampler.choose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pos.StakeSampler.choose" title="Link to this definition">#</a></dt>
+<dd><p>Select one validator with probability stake / total stake.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.pos.StakeSampler.sample">
+<span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rounds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/pos.html#StakeSampler.sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.pos.StakeSampler.sample" title="Link to this definition">#</a></dt>
+<dd><p>Return proposers for a bounded number of rounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rounds</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.fork_choice">GHOST fork choice (Sompolinsky and Zohar 2013): follow the heaviest subtree.</p>
+<p>When blocks are frequent, many honest blocks end up off the longest chain,
+and that wasted work no longer protects it. GHOST (Greedy Heaviest Observed
+SubTree) walks from genesis and at each fork picks the child whose whole
+subtree carries the most work, counting the honest side branches too.
+Ethereum’s proof-of-work chain used a variant through uncle rewards.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.fork_choice.subtree_work">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.fork_choice.</span></span><span class="sig-name descname"><span class="pre">subtree_work</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_hash</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/fork_choice.html#subtree_work"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.fork_choice.subtree_work" title="Link to this definition">#</a></dt>
+<dd><p>Return the expected work of a block and all its descendants.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chain</strong> (<a class="reference internal" href="structures.html#blockchainkit.structures.systems.chain.Blockchain" title="blockchainkit.structures.systems.chain.Blockchain"><em>Blockchain</em></a>)</p></li>
+<li><p><strong>block_hash</strong> (<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.fork_choice.ghost_tip">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.fork_choice.</span></span><span class="sig-name descname"><span class="pre">ghost_tip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/fork_choice.html#ghost_tip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.fork_choice.ghost_tip" title="Link to this definition">#</a></dt>
+<dd><p>Return the tip chosen by GHOST: descend into the heaviest subtree at every fork.</p>
+<p>Ties go to the smaller hash, matching
+<a class="reference internal" href="structures.html#blockchainkit.structures.systems.chain.Blockchain" title="blockchainkit.structures.systems.chain.Blockchain"><code class="xref py py-class docutils literal notranslate"><span class="pre">Blockchain</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chain</strong> (<a class="reference internal" href="structures.html#blockchainkit.structures.systems.chain.Blockchain" title="blockchainkit.structures.systems.chain.Blockchain"><em>Blockchain</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="structures.html#blockchainkit.structures.systems.block.Block" title="blockchainkit.structures.systems.block.Block"><em>Block</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.selfish">Selfish mining (Eyal and Sirer 2014): majority is not enough.</p>
+<p>A pool that withholds the blocks it finds, and publishes them only to
+overtake or tie the honest chain, wastes the honest miners’ work. Above a
+threshold hashrate its share of the chain exceeds its share of the hashrate,
+so honest miners gain by joining it. <code class="docutils literal notranslate"><span class="pre">gamma</span></code> is the fraction of honest
+miners who build on the pool’s block during a tie.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.selfish.selfish_mining_revenue">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.selfish.</span></span><span class="sig-name descname"><span class="pre">selfish_mining_revenue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/selfish.html#selfish_mining_revenue"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.selfish.selfish_mining_revenue" title="Link to this definition">#</a></dt>
+<dd><p>Return the selfish pool’s long-run share of blocks (Eyal and Sirer, eq. 8).</p>
+<p><code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">=</span> <span class="pre">(alpha</span> <span class="pre">(1-alpha)**2</span> <span class="pre">(4</span> <span class="pre">alpha</span> <span class="pre">+</span> <span class="pre">gamma</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">alpha))</span> <span class="pre">-</span> <span class="pre">alpha**3)</span>
+<span class="pre">/</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">alpha</span> <span class="pre">(1</span> <span class="pre">+</span> <span class="pre">(2</span> <span class="pre">-</span> <span class="pre">alpha)</span> <span class="pre">alpha))</span></code></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">selfish_mining_revenue</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="n">selfish_mining_revenue</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">0.484</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.selfish.selfish_mining_threshold">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.selfish.</span></span><span class="sig-name descname"><span class="pre">selfish_mining_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/selfish.html#selfish_mining_threshold"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.selfish.selfish_mining_threshold" title="Link to this definition">#</a></dt>
+<dd><p>Return the hashrate above which selfish mining pays: <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">-</span> <span class="pre">gamma)</span> <span class="pre">/</span> <span class="pre">(3</span> <span class="pre">-</span> <span class="pre">2</span> <span class="pre">gamma)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.selfish.simulate_selfish_mining">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.selfish.</span></span><span class="sig-name descname"><span class="pre">simulate_selfish_mining</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/selfish.html#simulate_selfish_mining"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.selfish.simulate_selfish_mining" title="Link to this definition">#</a></dt>
+<dd><p>Simulate the selfish-mining state machine (Eyal and Sirer, Algorithm 1).</p>
+<p>Each event, the pool finds a block with probability alpha, otherwise the
+honest network does. The state is the pool’s private lead, plus a tie
+state after the pool publishes to match an honest block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>gamma</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><em>float</em></a>)</p></li>
+<li><p><strong>blocks</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>seed</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#blockchainkit.consensus.core.base.SelfishMiningResult" title="blockchainkit.consensus.core.base.SelfishMiningResult"><em>SelfishMiningResult</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.stake_games">The nothing-at-stake problem (Buterin 2014): voting on every fork is free.</p>
+<p>A proof-of-work miner must split its hashrate between forks. A proof-of-stake
+validator can sign blocks on every fork at no cost, and collect the reward
+whichever fork wins. If everyone does, forks never resolve. The remedy,
+first proposed in Buterin’s Slasher, is a penalty: evidence of signing two
+conflicting blocks destroys the validator’s deposit.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.stake_games.fork_voting_payoffs">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.stake_games.</span></span><span class="sig-name descname"><span class="pre">fork_voting_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fork_a_probability</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reward</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">penalty</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/stake_games.html#fork_voting_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.stake_games.fork_voting_payoffs" title="Link to this definition">#</a></dt>
+<dd><p>Expected payoff of voting for fork A, fork B, or both.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fork_a_probability</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Chance that fork A becomes canonical.</p></li>
+<li><p><strong>reward</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Reward for having voted on the winning fork.</p></li>
+<li><p><strong>penalty</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>) – Deposit destroyed when a validator is caught voting on both (slashing).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Expected payoff of the strategies <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;B&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;both&quot;</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">fork_voting_payoffs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fork_voting_payoffs</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="go">{'A': 0.5, 'B': 0.5, 'both': 1.0}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.sortition">Cryptographic sortition (Algorand 2017): secret, stake-weighted committee selection.</p>
+<p>Algorand picks each round’s committee by lottery. Every unit of stake is a
+ticket; a user hashes a round seed with their private key (in Algorand a
+verifiable random function, so others can check the result) and maps the
+hash to a number of selected tickets that is Binomial(stake, tau / W).
+Nobody, not even the user, knows who is on the committee before they speak,
+and splitting stake across accounts does not change the expected seats.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.sortition.sortition">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.sortition.</span></span><span class="sig-name descname"><span class="pre">sortition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">secret</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stake</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_stake</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_seed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/sortition.html#sortition"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.sortition.sortition" title="Link to this definition">#</a></dt>
+<dd><p>Return how many of a user’s stake units are selected this round.</p>
+<p>The hash of <code class="docutils literal notranslate"><span class="pre">secret</span> <span class="pre">||</span> <span class="pre">round_seed</span></code>, read as a uniform number in [0, 1),
+is located in the cumulative Binomial(stake, expected / total_stake)
+distribution. Teaching simplification: a hash of the secret replaces
+the verifiable random function, so others cannot verify the draw.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">sortition</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sortition</span><span class="p">(</span><span class="sa">b</span><span class="s2">"my key"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">round_seed</span><span class="o">=</span><span class="sa">b</span><span class="s2">"r1"</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>secret</strong> (<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a>)</p></li>
+<li><p><strong>stake</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>total_stake</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>expected</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>round_seed</strong> (<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.consensus.systems.finality">Casper the Friendly Finality Gadget (Buterin and Griffith 2017).</p>
+<p>Validators with deposits vote for links between checkpoints, <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">-&gt;</span>
+<span class="pre">target</span></code>. A checkpoint becomes <em>justified</em> when two thirds of the stake vote
+for a link to it from a justified source, and its source becomes <em>finalized</em>
+when the target is the very next checkpoint. Two slashing conditions make
+conflicting finality cost at least a third of all stake: never cast two
+different votes for the same target height, and never cast a vote that
+surrounds another.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.finality.FinalityGadget">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.systems.finality.</span></span><span class="sig-name descname"><span class="pre">FinalityGadget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stakes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/finality.html#FinalityGadget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.finality.FinalityGadget" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Track Casper FFG votes, justification, finality, and slashable offenses.</p>
+<p>Checkpoint 0 (genesis) starts justified and finalized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stakes</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>) – Each validator’s deposit.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus</span><span class="w"> </span><span class="kn">import</span> <span class="n">FinalityGadget</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ffg</span> <span class="o">=</span> <span class="n">FinalityGadget</span><span class="p">({</span><span class="s2">"a"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="s2">"abc"</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ffg</span><span class="o">.</span><span class="n">vote</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sorted</span><span class="p">(</span><span class="n">ffg</span><span class="o">.</span><span class="n">justified</span><span class="p">)</span>
+<span class="go">[0, 1]</span>
+</pre></div>
+</div>
+<dl class="py property">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.finality.FinalityGadget.justified">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">justified</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.systems.finality.FinalityGadget.justified" title="Link to this definition">#</a></dt>
+<dd><p>Heights of justified checkpoints.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.finality.FinalityGadget.finalized">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">finalized</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#frozenset" title="(in Python v3.14)"><span class="pre">frozenset</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.systems.finality.FinalityGadget.finalized" title="Link to this definition">#</a></dt>
+<dd><p>Heights of finalized checkpoints.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.finality.FinalityGadget.slashable">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">slashable</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#blockchainkit.consensus.core.base.Offense" title="blockchainkit.consensus.core.base.Offense"><span class="pre">Offense</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.consensus.systems.finality.FinalityGadget.slashable" title="Link to this definition">#</a></dt>
+<dd><p>Every pair of votes that breaks a slashing condition, in detection order.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="blockchainkit.consensus.systems.finality.FinalityGadget.vote">
+<span class="sig-name descname"><span class="pre">vote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checkpoint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/systems/finality.html#FinalityGadget.vote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.systems.finality.FinalityGadget.vote" title="Link to this definition">#</a></dt>
+<dd><p>Record a vote for the link <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">-&gt;</span> <span class="pre">target</span></code> and update finality.</p>
+<p><code class="docutils literal notranslate"><span class="pre">checkpoint</span></code> distinguishes conflicting blocks at the same height.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>validator</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+<li><p><strong>source</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>target</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>checkpoint</strong> (<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-blockchainkit.consensus.visualizers.plots">
+<span id="plotting"></span><h2>Plotting<a class="headerlink" href="#module-blockchainkit.consensus.visualizers.plots" title="Link to this heading">#</a></h2>
+<p>Plotting helpers for blockchainkit.consensus: mining effort and stake weighting.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.visualizers.plots.plot_mining_trials">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.visualizers.plots.</span></span><span class="sig-name descname"><span class="pre">plot_mining_trials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">difficulties</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attempts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/visualizers/plots.html#plot_mining_trials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.visualizers.plots.plot_mining_trials" title="Link to this definition">#</a></dt>
+<dd><p>Compare measured hash attempts with the expected 2**difficulty.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>difficulties</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Difficulty of each mined block.</p></li>
+<li><p><strong>attempts</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Hash attempts each search needed (<code class="docutils literal notranslate"><span class="pre">MiningResult.attempts</span></code>).</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>, <em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.consensus.visualizers.plots.plot_stake_shares">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.consensus.visualizers.plots.</span></span><span class="sig-name descname"><span class="pre">plot_stake_shares</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stakes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proposers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/consensus/visualizers/plots.html#plot_stake_shares"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.consensus.visualizers.plots.plot_stake_shares" title="Link to this definition">#</a></dt>
+<dd><p>Compare each validator’s stake fraction with its observed proposer fraction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stakes</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>) – Validator weights, as given to <a class="reference internal" href="#blockchainkit.consensus.systems.pos.StakeSampler" title="blockchainkit.consensus.systems.pos.StakeSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">StakeSampler</span></code></a>.</p></li>
+<li><p><strong>proposers</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Sampled proposers, e.g. from <code class="docutils literal notranslate"><span class="pre">StakeSampler.sample</span></code>.</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>, <em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="structures.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">blockchainkit.structures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="network.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">blockchainkit.network</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-blockchainkit.consensus.core.base">Types and results</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.MiningResult"><code class="docutils literal notranslate"><span class="pre">MiningResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.MiningResult.block"><code class="docutils literal notranslate"><span class="pre">MiningResult.block</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.MiningResult.attempts"><code class="docutils literal notranslate"><span class="pre">MiningResult.attempts</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.GeneralsResult"><code class="docutils literal notranslate"><span class="pre">GeneralsResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.GeneralsResult.decisions"><code class="docutils literal notranslate"><span class="pre">GeneralsResult.decisions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.GeneralsResult.agreement"><code class="docutils literal notranslate"><span class="pre">GeneralsResult.agreement</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.GeneralsResult.validity"><code class="docutils literal notranslate"><span class="pre">GeneralsResult.validity</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ConsensusRun"><code class="docutils literal notranslate"><span class="pre">ConsensusRun</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ConsensusRun.decisions"><code class="docutils literal notranslate"><span class="pre">ConsensusRun.decisions</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ConsensusRun.rounds"><code class="docutils literal notranslate"><span class="pre">ConsensusRun.rounds</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ConsensusRun.decided"><code class="docutils literal notranslate"><span class="pre">ConsensusRun.decided</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ViewChangeRun"><code class="docutils literal notranslate"><span class="pre">ViewChangeRun</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ViewChangeRun.view_starts"><code class="docutils literal notranslate"><span class="pre">ViewChangeRun.view_starts</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ViewChangeRun.timeouts"><code class="docutils literal notranslate"><span class="pre">ViewChangeRun.timeouts</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ViewChangeRun.decided_view"><code class="docutils literal notranslate"><span class="pre">ViewChangeRun.decided_view</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.ViewChangeRun.decision_time"><code class="docutils literal notranslate"><span class="pre">ViewChangeRun.decision_time</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.SquareRootResult"><code class="docutils literal notranslate"><span class="pre">SquareRootResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.SquareRootResult.root"><code class="docutils literal notranslate"><span class="pre">SquareRootResult.root</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.SquareRootResult.multiplications"><code class="docutils literal notranslate"><span class="pre">SquareRootResult.multiplications</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.PBFTResult"><code class="docutils literal notranslate"><span class="pre">PBFTResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.PBFTResult.prepared"><code class="docutils literal notranslate"><span class="pre">PBFTResult.prepared</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.PBFTResult.commits"><code class="docutils literal notranslate"><span class="pre">PBFTResult.commits</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.DifficultyRun"><code class="docutils literal notranslate"><span class="pre">DifficultyRun</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.DifficultyRun.block_times"><code class="docutils literal notranslate"><span class="pre">DifficultyRun.block_times</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.DifficultyRun.targets"><code class="docutils literal notranslate"><span class="pre">DifficultyRun.targets</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.SelfishMiningResult"><code class="docutils literal notranslate"><span class="pre">SelfishMiningResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.SelfishMiningResult.selfish_blocks"><code class="docutils literal notranslate"><span class="pre">SelfishMiningResult.selfish_blocks</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.SelfishMiningResult.honest_blocks"><code class="docutils literal notranslate"><span class="pre">SelfishMiningResult.honest_blocks</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.SelfishMiningResult.revenue"><code class="docutils literal notranslate"><span class="pre">SelfishMiningResult.revenue</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.Offense"><code class="docutils literal notranslate"><span class="pre">Offense</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.Offense.validator"><code class="docutils literal notranslate"><span class="pre">Offense.validator</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.Offense.kind"><code class="docutils literal notranslate"><span class="pre">Offense.kind</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.Offense.first"><code class="docutils literal notranslate"><span class="pre">Offense.first</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.core.base.Offense.second"><code class="docutils literal notranslate"><span class="pre">Offense.second</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-blockchainkit.consensus.systems.byzantine">Constructions and protocols</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.byzantine.oral_messages"><code class="docutils literal notranslate"><span class="pre">oral_messages()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.randomized.ben_or"><code class="docutils literal notranslate"><span class="pre">ben_or()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.synchrony.view_changes"><code class="docutils literal notranslate"><span class="pre">view_changes()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pricing.modular_square_root"><code class="docutils literal notranslate"><span class="pre">modular_square_root()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pow.target"><code class="docutils literal notranslate"><span class="pre">target()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pow.expected_trials"><code class="docutils literal notranslate"><span class="pre">expected_trials()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pow.valid_pow"><code class="docutils literal notranslate"><span class="pre">valid_pow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pow.mine"><code class="docutils literal notranslate"><span class="pre">mine()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pbft.quorum_size"><code class="docutils literal notranslate"><span class="pre">quorum_size()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pbft.pbft_round"><code class="docutils literal notranslate"><span class="pre">pbft_round()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.catch_up.eventual_catch_up"><code class="docutils literal notranslate"><span class="pre">eventual_catch_up()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.catch_up.attacker_success_probability"><code class="docutils literal notranslate"><span class="pre">attacker_success_probability()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.difficulty.retarget"><code class="docutils literal notranslate"><span class="pre">retarget()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.difficulty.simulate_difficulty"><code class="docutils literal notranslate"><span class="pre">simulate_difficulty()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pos.StakeSampler"><code class="docutils literal notranslate"><span class="pre">StakeSampler</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pos.StakeSampler.choose"><code class="docutils literal notranslate"><span class="pre">StakeSampler.choose()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.pos.StakeSampler.sample"><code class="docutils literal notranslate"><span class="pre">StakeSampler.sample()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.fork_choice.subtree_work"><code class="docutils literal notranslate"><span class="pre">subtree_work()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.fork_choice.ghost_tip"><code class="docutils literal notranslate"><span class="pre">ghost_tip()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.selfish.selfish_mining_revenue"><code class="docutils literal notranslate"><span class="pre">selfish_mining_revenue()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.selfish.selfish_mining_threshold"><code class="docutils literal notranslate"><span class="pre">selfish_mining_threshold()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.selfish.simulate_selfish_mining"><code class="docutils literal notranslate"><span class="pre">simulate_selfish_mining()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.stake_games.fork_voting_payoffs"><code class="docutils literal notranslate"><span class="pre">fork_voting_payoffs()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.sortition.sortition"><code class="docutils literal notranslate"><span class="pre">sortition()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.finality.FinalityGadget"><code class="docutils literal notranslate"><span class="pre">FinalityGadget</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.finality.FinalityGadget.justified"><code class="docutils literal notranslate"><span class="pre">FinalityGadget.justified</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.finality.FinalityGadget.finalized"><code class="docutils literal notranslate"><span class="pre">FinalityGadget.finalized</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.finality.FinalityGadget.slashable"><code class="docutils literal notranslate"><span class="pre">FinalityGadget.slashable</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.systems.finality.FinalityGadget.vote"><code class="docutils literal notranslate"><span class="pre">FinalityGadget.vote()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-blockchainkit.consensus.visualizers.plots">Plotting</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.visualizers.plots.plot_mining_trials"><code class="docutils literal notranslate"><span class="pre">plot_mining_trials()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.consensus.visualizers.plots.plot_stake_shares"><code class="docutils literal notranslate"><span class="pre">plot_stake_shares()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/consensus.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

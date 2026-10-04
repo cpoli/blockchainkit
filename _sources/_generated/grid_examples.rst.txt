@@ -1,0 +1,54 @@
+.. rubric:: Cryptography
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: blockchainkit.crypto
+      :link: /api/gallery/crypto/index
+      :link-type: doc
+
+      Hashing and commitments, Diffie-Hellman and RSA, blind signatures, secret sharing, elliptic curves, and Schnorr proofs and signatures.
+
+
+.. rubric:: Ledgers
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: blockchainkit.structures
+      :link: /api/gallery/structures/index
+      :link-type: doc
+
+      Merkle trees and proofs, signed transfers, blocks, ledger state, and cumulative-work fork selection.
+
+
+.. rubric:: Agreement
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: blockchainkit.consensus
+      :link: /api/gallery/consensus/index
+      :link-type: doc
+
+      Proof-of-work search and its expected cost, catch-up probabilities, and stake-weighted proposer selection.
+
+   .. grid-item-card:: blockchainkit.network
+      :link: /api/gallery/network/index
+      :link-type: doc
+
+      Peer graphs, logical clocks, gossip and reliable broadcast, Kademlia and its attacks, block relay, forks, and transaction privacy.
+
+
+.. rubric:: Execution
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: blockchainkit.vm
+      :link: /api/gallery/vm/index
+      :link-type: doc
+
+      A deterministic 256-bit stack machine with gas and atomic failure, Turing machines, Bitcoin Script, and smart contracts and their attacks.
+
+

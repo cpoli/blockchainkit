@@ -1,0 +1,46 @@
+
+:orphan:
+
+.. _sphx_glr_api_gallery_vm_ethereum_sg_execution_times:
+
+
+Computation times
+=================
+**00:01.072** total execution time for 4 files **from api/gallery/vm/ethereum**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_02_gas_repricing.py` (``plot_02_gas_repricing.py``)
+     - 00:00.464
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_03_reentrancy.py` (``plot_03_reentrancy.py``)
+     - 00:00.267
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_01_gas.py` (``plot_01_gas.py``)
+     - 00:00.251
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_04_integer_overflow.py` (``plot_04_integer_overflow.py``)
+     - 00:00.091
+     - 0.0

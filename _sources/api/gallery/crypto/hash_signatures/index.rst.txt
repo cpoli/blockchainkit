@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_crypto_hash_signatures:
+
+Hash-based signatures
+---------------------
+
+Signatures built from nothing but a one-way function.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lamport built a signature from nothing but a one-way function. The private key is 256 pairs of random strings; the public key is their hashes. To sign, reveal one string from each pair, chosen by the bits of the message digest.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hash_signatures/images/thumb/sphx_glr_plot_01_lamport_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hash_signatures/plot_01_lamport_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lamport one-time signatures: signing with only a hash (1979)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/hash_signatures/plot_01_lamport_signatures
+

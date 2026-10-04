@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Examples &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/gallery/crypto/index';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Blind signatures" href="blind_signatures/index.html" />
+    <link rel="prev" title="Examples" href="../../../examples/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../history/index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a aria-current="page" class="current reference internal" href="#">blockchainkit.crypto</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="blind_signatures/index.html">Blind signatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commitments/index.html">Commitments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curves/index.html">Elliptic curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discrete_log/index.html">Discrete logarithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hash_signatures/index.html">Hash-based signatures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hashing/index.html">Hashing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="one_time_pad/index.html">One-time pad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="public_keys/index.html">Public-key exchange</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing/index.html">Secret sharing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signatures/index.html">Proofs and signatures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../structures/index.html">blockchainkit.structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../structures/bloom/index.html">Bloom filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/chain/index.html">Chains and payments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/hash_chains/index.html">Hash chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/ledger/index.html">Ledgers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/merkle/index.html">Merkle trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/spv/index.html">Light clients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/state/index.html">State commitments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/timestamps/index.html">Timestamping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/transactions/index.html">Transaction identity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../structures/utxo/index.html">Unspent outputs</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../consensus/index.html">blockchainkit.consensus</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../consensus/agreement/index.html">Agreement protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../consensus/attacks/index.html">Attacks and their probabilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../consensus/nakamoto/index.html">Nakamoto consensus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../consensus/pos/index.html">Proof of stake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../consensus/pow/index.html">Proof of work</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../network/index.html">blockchainkit.network</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../network/events/index.html">Simulated and logical time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/gossip/index.html">Gossip and broadcast</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/graphs/index.html">Peer graphs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/overlays/index.html">Overlays and their attacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/relay/index.html">Block and transaction relay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/replication/index.html">Replication under partitions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vm/index.html">blockchainkit.vm</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vm/contracts/index.html">Contracts and verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/ethereum/index.html">Ethereum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/foundations/index.html">Foundations of stack machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/replication/index.html">Replicated and atomic execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vm/script/index.html">Bitcoin Script</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../examples/index.html" class="nav-link">Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
+<p>This gallery walks through <code class="docutils literal notranslate"><span class="pre">blockchainkit.crypto</span></code>, one experiment per
+breakthrough on the <a class="reference internal" href="../../../history/crypto_breakthroughs.html"><span class="doc">cryptography history page</span></a>: the one-time pad, Merkle’s puzzles,
+Diffie-Hellman and RSA, discrete-log attacks, hash attacks and HMAC,
+commitments, Lamport signatures, secret sharing, blind signatures, elliptic
+curves, zero knowledge, Fiat-Shamir, and Schnorr signatures with their
+pitfalls and multi-signatures.</p>
+<p>Each script is self-contained and runs with
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">examples/crypto/&lt;section&gt;/&lt;script&gt;.py</span></code>. Explicit keys and nonces are
+teaching fixtures; never reuse them for real secrets.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"></div><section id="blind-signatures">
+<h2>Blind signatures<a class="headerlink" href="#blind-signatures" title="Link to this heading">#</a></h2>
+<p>Chaum’s RSA blinding: authorization without seeing the message.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Chaum&#x27;s construction separates authorization from knowledge of a message. This experiment exposes RSA&#x27;s multiplicative blinding identity with tiny integers; a usable payment system needs encoding, issuance, and spent-token rules."><img alt="" src="../../../_images/sphx_glr_plot_01_blind_signatures_thumb.png" />
+<p><a class="reference internal" href="blind_signatures/plot_01_blind_signatures.html"><span class="doc">Chaum’s blind signatures: authenticate a message the signer cannot see (1982)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Chaum's blind signatures: authenticate a message the signer cannot see (1982)</div>
+</div></div></section>
+<section id="commitments">
+<h2>Commitments<a class="headerlink" href="#commitments" title="Link to this heading">#</a></h2>
+<p>Sealed envelopes made of hashes and group elements.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Alice and Bob, on the phone, want a fair coin toss. If Alice calls first, Bob can lie. Blum&#x27;s fix: Alice commits to her call, Bob announces the coin, then Alice opens the commitment. A commitment must be binding (Alice cannot change her call) and hiding (Bob cannot read it early)."><img alt="" src="../../../_images/sphx_glr_plot_01_coin_flipping_thumb.png" />
+<p><a class="reference internal" href="commitments/plot_01_coin_flipping.html"><span class="doc">Coin flipping by telephone: hash commitments (Blum 1981)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Coin flipping by telephone: hash commitments (Blum 1981)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Pedersen committed to a value v as C = gv  h*r, with a random blinding factor r and a second generator h whose logarithm nobody knows. For any other value there is a blinding factor giving the same C, so the commitment hides v perfectly; opening it to a different value would reveal log_g(h). And commitments multiply to a commitment of the sum."><img alt="" src="../../../_images/sphx_glr_plot_02_pedersen_thumb.png" />
+<p><a class="reference internal" href="commitments/plot_02_pedersen.html"><span class="doc">Pedersen commitments: perfectly hiding and additive (1991)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pedersen commitments: perfectly hiding and additive (1991)</div>
+</div></div></section>
+<section id="elliptic-curves">
+<h2>Elliptic curves<a class="headerlink" href="#elliptic-curves" title="Link to this heading">#</a></h2>
+<p>The group law on a small curve and scalar multiplication.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Replace modular exponentiation with repeated addition of curve points. The public key Q=xG is easy to compute; recovering x is the discrete-log problem. Our 19-element example is small enough to solve exhaustively."><img alt="" src="../../../_images/sphx_glr_plot_01_elliptic_curves_thumb.png" />
+<p><a class="reference internal" href="curves/plot_01_elliptic_curves.html"><span class="doc">Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)</div>
+</div></div></section>
+<section id="discrete-logarithms">
+<h2>Discrete logarithms<a class="headerlink" href="#discrete-logarithms" title="Link to this heading">#</a></h2>
+<p>Generic attacks on the problem behind Diffie-Hellman and Schnorr.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Diffie-Hellman and Schnorr are safe only if recovering x from gx is hard. Trying every exponent costs n steps in a group of order n. Shanks showed a time-memory trade-off that costs about 2sqrt(n): store m = sqrt(n) &quot;baby steps&quot; gj, then take &quot;giant steps&quot; target  g(-m*i) until one matches."><img alt="" src="../../../_images/sphx_glr_plot_01_baby_step_giant_step_thumb.png" />
+<p><a class="reference internal" href="discrete_log/plot_01_baby_step_giant_step.html"><span class="doc">Baby-step giant-step: square-root discrete logs (Shanks 1971)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Baby-step giant-step: square-root discrete logs (Shanks 1971)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Pohlig and Hellman noticed that a discrete log in a group of order n = p1e1  p2e2  ... splits into small problems, one per prime power, recombined with the Chinese Remainder Theorem. The cost depends on the largest prime factor of n, not on n. A huge group with a smooth order is weak."><img alt="" src="../../../_images/sphx_glr_plot_02_pohlig_hellman_thumb.png" />
+<p><a class="reference internal" href="discrete_log/plot_02_pohlig_hellman.html"><span class="doc">Pohlig-Hellman: why the group order must have a large prime factor (1978)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pohlig-Hellman: why the group order must have a large prime factor (1978)</div>
+</div></div></section>
+<section id="hash-based-signatures">
+<h2>Hash-based signatures<a class="headerlink" href="#hash-based-signatures" title="Link to this heading">#</a></h2>
+<p>Signatures built from nothing but a one-way function.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Lamport built a signature from nothing but a one-way function. The private key is 256 pairs of random strings; the public key is their hashes. To sign, reveal one string from each pair, chosen by the bits of the message digest."><img alt="" src="../../../_images/sphx_glr_plot_01_lamport_signatures_thumb.png" />
+<p><a class="reference internal" href="hash_signatures/plot_01_lamport_signatures.html"><span class="doc">Lamport one-time signatures: signing with only a hash (1979)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lamport one-time signatures: signing with only a hash (1979)</div>
+</div></div></section>
+<section id="hashing">
+<h2>Hashing<a class="headerlink" href="#hashing" title="Link to this heading">#</a></h2>
+<p>Attacks on hash functions and the constructions that answer them: the
+birthday bound, Merkle-Damgard and length extension, HMAC, and SHA-256.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In a room of 23 people, two probably share a birthday. Yuval turned this into an attack: to find any two messages with the same n-bit hash takes about 2(n/2) trials, not the 2n needed to match one given hash. A signer tricked into signing one of a colliding pair has signed both."><img alt="" src="../../../_images/sphx_glr_plot_01_birthday_attack_thumb.png" />
+<p><a class="reference internal" href="hashing/plot_01_birthday_attack.html"><span class="doc">The birthday attack on hash functions (Yuval 1979)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The birthday attack on hash functions (Yuval 1979)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Merkle and Damgard independently showed how to build a hash for messages of any length from a fixed-size compression function: pad the message, append its length, and chain the blocks through the function. SHA-256 is built this way. The digest is the final chaining state, which has a famous consequence."><img alt="" src="../../../_images/sphx_glr_plot_02_merkle_damgard_thumb.png" />
+<p><a class="reference internal" href="hashing/plot_02_merkle_damgard.html"><span class="doc">The Merkle-Damgard construction and length extension (1989)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Merkle-Damgard construction and length extension (1989)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Bellare, Canetti and Krawczyk defined HMAC to turn any Merkle-Damgard hash into a message authentication code with a security proof: HMAC(k, m) = H((k XOR opad) || H((k XOR ipad) || m)). The outer hash hides the inner chaining state, so an attacker has nothing to extend."><img alt="" src="../../../_images/sphx_glr_plot_03_hmac_thumb.png" />
+<p><a class="reference internal" href="hashing/plot_03_hmac.html"><span class="doc">HMAC: keyed hashing that resists length extension (1996)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">HMAC: keyed hashing that resists length extension (1996)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="SHA-256 became the standardized hash behind Bitcoin&#x27;s block hashes, addresses, and Merkle trees. A good hash behaves like a random function: flipping one input bit flips each output bit with probability one half."><img alt="" src="../../../_images/sphx_glr_plot_04_sha256_avalanche_thumb.png" />
+<p><a class="reference internal" href="hashing/plot_04_sha256_avalanche.html"><span class="doc">SHA-256 and the avalanche effect (FIPS 180-2, 2002)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">SHA-256 and the avalanche effect (FIPS 180-2, 2002)</div>
+</div></div></section>
+<section id="one-time-pad">
+<h2>One-time pad<a class="headerlink" href="#one-time-pad" title="Link to this heading">#</a></h2>
+<p>Vernam’s cipher and Shannon’s proof of perfect secrecy.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Vernam&#x27;s teleprinter cipher added a key tape to the message, character by character. Shannon later proved that if the key is truly random, as long as the message, and used once, the ciphertext reveals nothing: every plaintext of that length is equally consistent with it."><img alt="" src="../../../_images/sphx_glr_plot_01_one_time_pad_thumb.png" />
+<p><a class="reference internal" href="one_time_pad/plot_01_one_time_pad.html"><span class="doc">The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)</div>
+</div></div></section>
+<section id="public-key-exchange">
+<h2>Public-key exchange<a class="headerlink" href="#public-key-exchange" title="Link to this heading">#</a></h2>
+<p>Merkle’s puzzles, Diffie-Hellman key agreement, and RSA.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="As a student, Ralph Merkle asked whether two strangers could agree on a key over a public channel. His answer used only a symmetric cipher. Alice publishes many puzzles, each a session key locked by a deliberately weak key. Bob solves one at random and announces only its label. An eavesdropper does not know which puzzle Bob picked, and must open about half of them."><img alt="" src="../../../_images/sphx_glr_plot_01_merkle_puzzles_thumb.png" />
+<p><a class="reference internal" href="public_keys/plot_01_merkle_puzzles.html"><span class="doc">Merkle’s puzzles: the first public-key exchange (1974-1978)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Merkle's puzzles: the first public-key exchange (1974-1978)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Diffie and Hellman showed that two people can reach the same secret by exchanging only public values: each raises the other&#x27;s public element to their own private exponent, and both arrive at g(a*b). An eavesdropper sees ga and gb but would need a discrete logarithm to continue."><img alt="" src="../../../_images/sphx_glr_plot_02_diffie_hellman_thumb.png" />
+<p><a class="reference internal" href="public_keys/plot_02_diffie_hellman.html"><span class="doc">Diffie-Hellman: agreeing on a secret over a public channel (1976)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Diffie-Hellman: agreeing on a secret over a public channel (1976)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="RSA publishes n = p*q and an exponent e; only the holder of p and q can compute the inverse exponent d. Anyone can raise a message to e; only the key holder can undo it. The same inverse pair gives digital signatures."><img alt="" src="../../../_images/sphx_glr_plot_03_rsa_thumb.png" />
+<p><a class="reference internal" href="public_keys/plot_03_rsa.html"><span class="doc">RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)</div>
+</div></div></section>
+<section id="secret-sharing">
+<h2>Secret sharing<a class="headerlink" href="#secret-sharing" title="Link to this heading">#</a></h2>
+<p>Shamir’s threshold scheme and Feldman’s verifiable variant.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The secret is the constant coefficient of a random polynomial. Any threshold number of evaluations determines it; fewer evaluations leave it undetermined. Arithmetic takes place in a prime field, not over floating-point reals."><img alt="" src="../../../_images/sphx_glr_plot_01_secret_sharing_thumb.png" />
+<p><a class="reference internal" href="sharing/plot_01_secret_sharing.html"><span class="doc">Shamir’s secret sharing: reconstruct a secret without storing it whole (1979)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Shamir's secret sharing: reconstruct a secret without storing it whole (1979)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="In Shamir&#x27;s scheme every share holder must trust the dealer: nothing stops a dealer from handing out shares that do not lie on one polynomial. Feldman had the dealer publish ga_j for each coefficient a_j. Each holder checks gy == product of C_j(xj), which holds only for points on the committed polynomial."><img alt="" src="../../../_images/sphx_glr_plot_02_feldman_vss_thumb.png" />
+<p><a class="reference internal" href="sharing/plot_02_feldman_vss.html"><span class="doc">Feldman’s verifiable secret sharing (1987)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Feldman's verifiable secret sharing (1987)</div>
+</div></div></section>
+<section id="proofs-and-signatures">
+<h2>Proofs and signatures<a class="headerlink" href="#proofs-and-signatures" title="Link to this heading">#</a></h2>
+<p>Zero knowledge, the Fiat-Shamir transform, Schnorr signatures, nonce reuse
+and deterministic nonces, and MuSig multi-signatures.</p>
+<div id='sg-tag-list' class='sphx-glr-tag-list'></div><div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Goldwasser, Micali and Rackoff asked how much knowledge a proof conveys. In the Schnorr identification protocol the prover sends R = kG, the verifier replies with a random challenge c, and the prover answers s = k + cx. The verifier checks sG = R + cQ and learns that the prover knows x, but nothing else: a simulator* can produce transcripts that look identical without x."><img alt="" src="../../../_images/sphx_glr_plot_01_zero_knowledge_thumb.png" />
+<p><a class="reference internal" href="signatures/plot_01_zero_knowledge.html"><span class="doc">Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Fiat and Shamir removed the live verifier: compute the challenge as a hash of the commitment and the message, c = H(R, Q, m). If the hash behaves like a random function, the prover cannot choose R after knowing c, and the transcript becomes a non-interactive proof bound to the message: a signature."><img alt="" src="../../../_images/sphx_glr_plot_02_fiat_shamir_thumb.png" />
+<p><a class="reference internal" href="signatures/plot_02_fiat_shamir.html"><span class="doc">The Fiat-Shamir heuristic: from interaction to signatures (1986)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Fiat-Shamir heuristic: from interaction to signatures (1986)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Schnorr applied Fiat-Shamir to his identification protocol in a group of prime order, giving signatures (R, s) with s = k + H(R, Q, m) * x. They were shorter and faster than the alternatives, and their linearity (signatures add when keys add) later enabled multi-signatures. A patent kept them out of standards until 2008; Bitcoin adopted them in 2021 (BIP-340)."><img alt="" src="../../../_images/sphx_glr_plot_03_schnorr_signatures_thumb.png" />
+<p><a class="reference internal" href="signatures/plot_03_schnorr_signatures.html"><span class="doc">Schnorr signatures: short, fast, and linear (1989-1991)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Schnorr signatures: short, fast, and linear (1989-1991)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A Schnorr or ECDSA signature hides the private key behind a one-time nonce. Reuse the nonce for two messages and two equations in one unknown give the key away. In 2010 the fail0verflow team recovered Sony&#x27;s PlayStation 3 signing key this way: the console&#x27;s ECDSA used a constant nonce. RFC 6979 (2013) removed the random number generator from signing: derive the nonce deterministically from the key and the message with HMAC."><img alt="" src="../../../_images/sphx_glr_plot_04_nonce_reuse_thumb.png" />
+<p><a class="reference internal" href="signatures/plot_04_nonce_reuse.html"><span class="doc">Nonce reuse in practice, and deterministic nonces (2010-2013)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nonce reuse in practice, and deterministic nonces (2010-2013)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Because Schnorr signatures are linear, n signers can produce one ordinary signature for the sum of their keys. Summing keys naively is unsafe: an attacker who announces Q_rogue = xG - Q_honest controls the sum alone. Maxwell, Poelstra, Seurin and Wuille&#x27;s MuSig weights each key by a hash of the whole key list, a_i = H(L, Q_i), so no key can cancel the others."><img alt="" src="../../../_images/sphx_glr_plot_05_musig_thumb.png" />
+<p><a class="reference internal" href="signatures/plot_05_musig.html"><span class="doc">MuSig: Schnorr multi-signatures and the rogue-key attack (2018)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">MuSig: Schnorr multi-signatures and the rogue-key attack (2018)</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+<div class="sphx-glr-footer sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../../_downloads/9c3cee69d7a7560aa3e8f37562ae9bea/crypto_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">crypto_python.zip</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../../_downloads/be00a939b2512a671f12ccb22e6ad6fe/crypto_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">crypto_jupyter.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../../examples/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="blind_signatures/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Blind signatures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blind-signatures">Blind signatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commitments">Commitments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elliptic-curves">Elliptic curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-logarithms">Discrete logarithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hash-based-signatures">Hash-based signatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hashing">Hashing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-time-pad">One-time pad</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#public-key-exchange">Public-key exchange</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#secret-sharing">Secret sharing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proofs-and-signatures">Proofs and signatures</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../../../_sources/api/gallery/crypto/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

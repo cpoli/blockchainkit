@@ -1,0 +1,677 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.crypto``, one experiment per
+breakthrough on the :doc:`cryptography history page
+</history/crypto_breakthroughs>`: the one-time pad, Merkle's puzzles,
+Diffie-Hellman and RSA, discrete-log attacks, hash attacks and HMAC,
+commitments, Lamport signatures, secret sharing, blind signatures, elliptic
+curves, zero knowledge, Fiat-Shamir, and Schnorr signatures with their
+pitfalls and multi-signatures.
+
+Each script is self-contained and runs with
+``python examples/crypto/<section>/<script>.py``. Explicit keys and nonces are
+teaching fixtures; never reuse them for real secrets.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Blind signatures
+----------------
+
+Chaum's RSA blinding: authorization without seeing the message.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Chaum&#x27;s construction separates authorization from knowledge of a message. This experiment exposes RSA&#x27;s multiplicative blinding identity with tiny integers; a usable payment system needs encoding, issuance, and spent-token rules.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/blind_signatures/images/thumb/sphx_glr_plot_01_blind_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/blind_signatures/plot_01_blind_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Chaum's blind signatures: authenticate a message the signer cannot see (1982)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Commitments
+-----------
+
+Sealed envelopes made of hashes and group elements.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Alice and Bob, on the phone, want a fair coin toss. If Alice calls first, Bob can lie. Blum&#x27;s fix: Alice commits to her call, Bob announces the coin, then Alice opens the commitment. A commitment must be binding (Alice cannot change her call) and hiding (Bob cannot read it early).">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/commitments/images/thumb/sphx_glr_plot_01_coin_flipping_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/commitments/plot_01_coin_flipping`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Coin flipping by telephone: hash commitments (Blum 1981)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pedersen committed to a value v as C = gv  h*r, with a random blinding factor r and a second generator h whose logarithm nobody knows. For any other value there is a blinding factor giving the same C, so the commitment hides v perfectly; opening it to a different value would reveal log_g(h). And commitments multiply to a commitment of the sum.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/commitments/images/thumb/sphx_glr_plot_02_pedersen_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/commitments/plot_02_pedersen`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pedersen commitments: perfectly hiding and additive (1991)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Elliptic curves
+---------------
+
+The group law on a small curve and scalar multiplication.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Replace modular exponentiation with repeated addition of curve points. The public key Q=xG is easy to compute; recovering x is the discrete-log problem. Our 19-element example is small enough to solve exhaustively.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/curves/images/thumb/sphx_glr_plot_01_elliptic_curves_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/curves/plot_01_elliptic_curves`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Discrete logarithms
+-------------------
+
+Generic attacks on the problem behind Diffie-Hellman and Schnorr.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Diffie-Hellman and Schnorr are safe only if recovering x from gx is hard. Trying every exponent costs n steps in a group of order n. Shanks showed a time-memory trade-off that costs about 2sqrt(n): store m = sqrt(n) &quot;baby steps&quot; gj, then take &quot;giant steps&quot; target  g(-m*i) until one matches.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/discrete_log/images/thumb/sphx_glr_plot_01_baby_step_giant_step_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/discrete_log/plot_01_baby_step_giant_step`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Baby-step giant-step: square-root discrete logs (Shanks 1971)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pohlig and Hellman noticed that a discrete log in a group of order n = p1e1  p2e2  ... splits into small problems, one per prime power, recombined with the Chinese Remainder Theorem. The cost depends on the largest prime factor of n, not on n. A huge group with a smooth order is weak.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/discrete_log/images/thumb/sphx_glr_plot_02_pohlig_hellman_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/discrete_log/plot_02_pohlig_hellman`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pohlig-Hellman: why the group order must have a large prime factor (1978)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Hash-based signatures
+---------------------
+
+Signatures built from nothing but a one-way function.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lamport built a signature from nothing but a one-way function. The private key is 256 pairs of random strings; the public key is their hashes. To sign, reveal one string from each pair, chosen by the bits of the message digest.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hash_signatures/images/thumb/sphx_glr_plot_01_lamport_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hash_signatures/plot_01_lamport_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lamport one-time signatures: signing with only a hash (1979)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Hashing
+-------
+
+Attacks on hash functions and the constructions that answer them: the
+birthday bound, Merkle-Damgard and length extension, HMAC, and SHA-256.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In a room of 23 people, two probably share a birthday. Yuval turned this into an attack: to find any two messages with the same n-bit hash takes about 2(n/2) trials, not the 2n needed to match one given hash. A signer tricked into signing one of a colliding pair has signed both.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_01_birthday_attack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_01_birthday_attack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The birthday attack on hash functions (Yuval 1979)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Merkle and Damgard independently showed how to build a hash for messages of any length from a fixed-size compression function: pad the message, append its length, and chain the blocks through the function. SHA-256 is built this way. The digest is the final chaining state, which has a famous consequence.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_02_merkle_damgard_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_02_merkle_damgard`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Merkle-Damgard construction and length extension (1989)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bellare, Canetti and Krawczyk defined HMAC to turn any Merkle-Damgard hash into a message authentication code with a security proof: HMAC(k, m) = H((k XOR opad) || H((k XOR ipad) || m)). The outer hash hides the inner chaining state, so an attacker has nothing to extend.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_03_hmac_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_03_hmac`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">HMAC: keyed hashing that resists length extension (1996)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="SHA-256 became the standardized hash behind Bitcoin&#x27;s block hashes, addresses, and Merkle trees. A good hash behaves like a random function: flipping one input bit flips each output bit with probability one half.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/hashing/images/thumb/sphx_glr_plot_04_sha256_avalanche_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/hashing/plot_04_sha256_avalanche`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SHA-256 and the avalanche effect (FIPS 180-2, 2002)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+One-time pad
+------------
+
+Vernam's cipher and Shannon's proof of perfect secrecy.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Vernam&#x27;s teleprinter cipher added a key tape to the message, character by character. Shannon later proved that if the key is truly random, as long as the message, and used once, the ciphertext reveals nothing: every plaintext of that length is equally consistent with it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/one_time_pad/images/thumb/sphx_glr_plot_01_one_time_pad_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/one_time_pad/plot_01_one_time_pad`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Public-key exchange
+-------------------
+
+Merkle's puzzles, Diffie-Hellman key agreement, and RSA.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="As a student, Ralph Merkle asked whether two strangers could agree on a key over a public channel. His answer used only a symmetric cipher. Alice publishes many puzzles, each a session key locked by a deliberately weak key. Bob solves one at random and announces only its label. An eavesdropper does not know which puzzle Bob picked, and must open about half of them.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/public_keys/images/thumb/sphx_glr_plot_01_merkle_puzzles_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/public_keys/plot_01_merkle_puzzles`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Merkle's puzzles: the first public-key exchange (1974-1978)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Diffie and Hellman showed that two people can reach the same secret by exchanging only public values: each raises the other&#x27;s public element to their own private exponent, and both arrive at g(a*b). An eavesdropper sees ga and gb but would need a discrete logarithm to continue.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/public_keys/images/thumb/sphx_glr_plot_02_diffie_hellman_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/public_keys/plot_02_diffie_hellman`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Diffie-Hellman: agreeing on a secret over a public channel (1976)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="RSA publishes n = p*q and an exponent e; only the holder of p and q can compute the inverse exponent d. Anyone can raise a message to e; only the key holder can undo it. The same inverse pair gives digital signatures.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/public_keys/images/thumb/sphx_glr_plot_03_rsa_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/public_keys/plot_03_rsa`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Secret sharing
+--------------
+
+Shamir's threshold scheme and Feldman's verifiable variant.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The secret is the constant coefficient of a random polynomial. Any threshold number of evaluations determines it; fewer evaluations leave it undetermined. Arithmetic takes place in a prime field, not over floating-point reals.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/sharing/images/thumb/sphx_glr_plot_01_secret_sharing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/sharing/plot_01_secret_sharing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shamir's secret sharing: reconstruct a secret without storing it whole (1979)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In Shamir&#x27;s scheme every share holder must trust the dealer: nothing stops a dealer from handing out shares that do not lie on one polynomial. Feldman had the dealer publish ga_j for each coefficient a_j. Each holder checks gy == product of C_j(xj), which holds only for points on the committed polynomial.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/sharing/images/thumb/sphx_glr_plot_02_feldman_vss_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/sharing/plot_02_feldman_vss`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Feldman's verifiable secret sharing (1987)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Proofs and signatures
+---------------------
+
+Zero knowledge, the Fiat-Shamir transform, Schnorr signatures, nonce reuse
+and deterministic nonces, and MuSig multi-signatures.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Goldwasser, Micali and Rackoff asked how much knowledge a proof conveys. In the Schnorr identification protocol the prover sends R = kG, the verifier replies with a random challenge c, and the prover answers s = k + cx. The verifier checks sG = R + cQ and learns that the prover knows x, but nothing else: a simulator* can produce transcripts that look identical without x.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_01_zero_knowledge_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_01_zero_knowledge`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fiat and Shamir removed the live verifier: compute the challenge as a hash of the commitment and the message, c = H(R, Q, m). If the hash behaves like a random function, the prover cannot choose R after knowing c, and the transcript becomes a non-interactive proof bound to the message: a signature.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_02_fiat_shamir_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_02_fiat_shamir`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Fiat-Shamir heuristic: from interaction to signatures (1986)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Schnorr applied Fiat-Shamir to his identification protocol in a group of prime order, giving signatures (R, s) with s = k + H(R, Q, m) * x. They were shorter and faster than the alternatives, and their linearity (signatures add when keys add) later enabled multi-signatures. A patent kept them out of standards until 2008; Bitcoin adopted them in 2021 (BIP-340).">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_03_schnorr_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_03_schnorr_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Schnorr signatures: short, fast, and linear (1989-1991)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Schnorr or ECDSA signature hides the private key behind a one-time nonce. Reuse the nonce for two messages and two equations in one unknown give the key away. In 2010 the fail0verflow team recovered Sony&#x27;s PlayStation 3 signing key this way: the console&#x27;s ECDSA used a constant nonce. RFC 6979 (2013) removed the random number generator from signing: derive the nonce deterministically from the key and the message with HMAC.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_04_nonce_reuse_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_04_nonce_reuse`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nonce reuse in practice, and deterministic nonces (2010-2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Because Schnorr signatures are linear, n signers can produce one ordinary signature for the sum of their keys. Summing keys naively is unsafe: an attacker who announces Q_rogue = xG - Q_honest controls the sum alone. Maxwell, Poelstra, Seurin and Wuille&#x27;s MuSig weights each key by a hash of the whole key list, a_i = H(L, Q_i), so no key can cancel the others.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/signatures/images/thumb/sphx_glr_plot_05_musig_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/signatures/plot_05_musig`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MuSig: Schnorr multi-signatures and the rogue-key attack (2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/crypto/blind_signatures/index.rst
+   /api/gallery/crypto/commitments/index.rst
+   /api/gallery/crypto/curves/index.rst
+   /api/gallery/crypto/discrete_log/index.rst
+   /api/gallery/crypto/hash_signatures/index.rst
+   /api/gallery/crypto/hashing/index.rst
+   /api/gallery/crypto/one_time_pad/index.rst
+   /api/gallery/crypto/public_keys/index.rst
+   /api/gallery/crypto/sharing/index.rst
+   /api/gallery/crypto/signatures/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: crypto_python.zip </api/gallery/crypto/crypto_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: crypto_jupyter.zip </api/gallery/crypto/crypto_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

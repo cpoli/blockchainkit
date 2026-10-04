@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Breakthroughs in Cryptography &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'history/crypto_breakthroughs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Breakthroughs in Authenticated Data Structures" href="structures_breakthroughs.html" />
+    <link rel="prev" title="History" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Breakthroughs in Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures_breakthroughs.html">Breakthroughs in Authenticated Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus_breakthroughs.html">Breakthroughs in Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_breakthroughs.html">Breakthroughs in Peer-to-Peer Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_breakthroughs.html">Breakthroughs in Replicated Execution</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">History</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Breakthroughs in Cryptography</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="breakthroughs-in-cryptography">
+<h1>Breakthroughs in Cryptography<a class="headerlink" href="#breakthroughs-in-cryptography" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/crypto.html"><span class="doc">blockchainkit.crypto hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/crypto/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/crypto.html"><span class="doc">API reference</span></a></p>
+</div>
+<p>Every later idea on these pages rests on cryptography: a way to agree on a
+secret in public, to prove who authorized a message, and to commit to data
+without revealing it. This chronology traces the ideas behind
+<a class="reference internal" href="../api/crypto.html#module-blockchainkit.crypto" title="blockchainkit.crypto"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.crypto</span></code></a>, from the one-time pad to Schnorr multi-signatures.
+Each entry has its own experiment in the <a class="reference internal" href="../api/gallery/crypto/index.html"><span class="doc">gallery</span></a>.</p>
+<p>All snippets use the package’s conventional import: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">blockchainkit</span> <span class="pre">as</span> <span class="pre">bk</span></code>.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#the-one-time-pad-and-perfect-secrecy" id="id1">1917–1949 — The one-time pad and perfect secrecy</a></p></li>
+<li><p><a class="reference internal" href="#baby-step-giant-step-square-root-discrete-logs" id="id2">1971 — Baby-step giant-step: square-root discrete logs</a></p></li>
+<li><p><a class="reference internal" href="#merkle-s-puzzles-key-agreement-in-public" id="id3">1974–1978 — Merkle’s puzzles: key agreement in public</a></p></li>
+<li><p><a class="reference internal" href="#agreeing-on-a-secret-over-a-public-channel" id="id4">1976 — Agreeing on a secret over a public channel</a></p></li>
+<li><p><a class="reference internal" href="#rsa-and-the-public-trapdoor" id="id5">1978 — RSA and the public trapdoor</a></p></li>
+<li><p><a class="reference internal" href="#pohlighellman-why-the-group-order-needs-a-large-prime-factor" id="id6">1978 — Pohlig–Hellman: why the group order needs a large prime factor</a></p></li>
+<li><p><a class="reference internal" href="#shamir-s-threshold-secret-sharing" id="id7">1979 — Shamir’s threshold secret sharing</a></p></li>
+<li><p><a class="reference internal" href="#lamport-s-one-time-signatures-from-a-hash" id="id8">1979 — Lamport’s one-time signatures from a hash</a></p></li>
+<li><p><a class="reference internal" href="#yuval-s-birthday-attack" id="id9">1979 — Yuval’s birthday attack</a></p></li>
+<li><p><a class="reference internal" href="#coin-flipping-by-telephone-commitments" id="id10">1981 — Coin flipping by telephone: commitments</a></p></li>
+<li><p><a class="reference internal" href="#chaum-s-blind-signatures-and-private-payments" id="id11">1982–1983 — Chaum’s blind signatures and private payments</a></p></li>
+<li><p><a class="reference internal" href="#elliptic-curves-as-a-cryptographic-group" id="id12">1985 — Elliptic curves as a cryptographic group</a></p></li>
+<li><p><a class="reference internal" href="#zero-knowledge-proofs-that-reveal-nothing" id="id13">1985 — Zero knowledge: proofs that reveal nothing</a></p></li>
+<li><p><a class="reference internal" href="#the-fiatshamir-heuristic-from-interaction-to-signatures" id="id14">1986 — The Fiat–Shamir heuristic: from interaction to signatures</a></p></li>
+<li><p><a class="reference internal" href="#feldman-s-verifiable-secret-sharing" id="id15">1987 — Feldman’s verifiable secret sharing</a></p></li>
+<li><p><a class="reference internal" href="#the-merkledamgard-construction-and-length-extension" id="id16">1989 — The Merkle–Damgård construction and length extension</a></p></li>
+<li><p><a class="reference internal" href="#schnorr-identification-and-compact-signatures" id="id17">1989–1991 — Schnorr identification and compact signatures</a></p></li>
+<li><p><a class="reference internal" href="#pedersen-commitments-perfectly-hiding-and-additive" id="id18">1991 — Pedersen commitments: perfectly hiding and additive</a></p></li>
+<li><p><a class="reference internal" href="#hmac-keyed-hashing-done-right" id="id19">1996 — HMAC: keyed hashing done right</a></p></li>
+<li><p><a class="reference internal" href="#sha-256-as-a-standardized-hash-primitive" id="id20">2002 — SHA-256 as a standardized hash primitive</a></p></li>
+<li><p><a class="reference internal" href="#nonce-reuse-in-practice-and-deterministic-nonces" id="id21">2010–2013 — Nonce reuse in practice, and deterministic nonces</a></p></li>
+<li><p><a class="reference internal" href="#musig-schnorr-multi-signatures-and-the-rogue-key-attack" id="id22">2018 — MuSig: Schnorr multi-signatures and the rogue-key attack</a></p></li>
+</ul>
+</nav>
+<section id="the-one-time-pad-and-perfect-secrecy">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1917–1949 — The one-time pad and perfect secrecy</a><a class="headerlink" href="#the-one-time-pad-and-perfect-secrecy" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Add a random key, as long as the message, to the message
+itself. Without the key, every possible message of that length is equally
+believable. This is the only cipher proven unbreakable, and it is impractical for
+exactly the reason that makes it work: the key is as long as everything you send.</p>
+<p><strong>Reading the experiment.</strong> XOR (exclusive or) adds bits without carrying; doing
+it twice with the same key returns the original. For one ciphertext the
+experiment finds a different key for each candidate message, then reuses a key
+and shows the pad cancelling out.</p>
+<p>Gilbert Vernam built a teleprinter in 1917 that combined each character of the
+message with a character of a key tape. Joseph Mauborgne added the rule that the
+tape must be random and never reused. Claude Shannon’s 1949 information theory of
+secrecy proved the result: with a uniformly random key at least as long as the
+message, used once, the ciphertext is statistically independent of the plaintext.</p>
+<div class="math notranslate nohighlight">
+\[c = m \oplus k, \qquad m = c \oplus k, \qquad
+\Pr[M = m \mid C = c] = \Pr[M = m].\]</div>
+<p>Reusing the key leaks <span class="math notranslate nohighlight">\(c_1 \oplus c_2 = m_1 \oplus m_2\)</span>. Soviet reuse of
+one-time pads let the US Venona project read thousands of messages. Shannon’s
+theorem also says every perfectly secret cipher needs this much key: the key
+distribution problem that public-key cryptography would solve.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.one_time_pad.one_time_pad" title="blockchainkit.crypto.systems.one_time_pad.one_time_pad"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.one_time_pad.one_time_pad()</span></code></a>
+refuses a key of the wrong length; <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.one_time_pad.xor_bytes" title="blockchainkit.crypto.systems.one_time_pad.xor_bytes"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.one_time_pad.xor_bytes()</span></code></a>
+is the underlying operation.</p>
+<p><strong>Experiment:</strong> the gallery example shows that one ciphertext fits every plaintext,
+that ciphertext bytes are uniform, and how a reused pad leaks.</p>
+<p><em>References:</em> G. S. Vernam, <em>Cipher Printing Telegraph Systems for Secret Wire and
+Radio Telegraphic Communications</em>, Journal of the American Institute of
+Electrical Engineers 45, 109–115 (1926). C. E. Shannon, <em>Communication Theory of
+Secrecy Systems</em>, Bell System Technical Journal 28(4), 656–715 (1949). <a class="reference external" href="https://doi.org/10.1002/j.1538-7305.1949.tb00928.x">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Vernam&#x27;s teleprinter cipher added a key tape to the message, character by character. Shannon later proved that if the key is truly random, as long as the message, and used once, the ciphertext reveals nothing: every plaintext of that length is equally consistent with it."><img alt="" src="../_images/sphx_glr_plot_01_one_time_pad_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/one_time_pad/plot_01_one_time_pad.html"><span class="doc">The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)</div>
+</div></div></section>
+<section id="baby-step-giant-step-square-root-discrete-logs">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1971 — Baby-step giant-step: square-root discrete logs</a><a class="headerlink" href="#baby-step-giant-step-square-root-discrete-logs" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Finding the secret exponent behind a public key by trying
+every possibility takes as many steps as the group has elements. A clever
+trade of memory for time needs only about the square root of that.</p>
+<p><strong>Reading the experiment.</strong> n is the group order. The algorithm stores m ≈ √n
+“baby steps” and then takes up to m “giant steps”; the plot compares its work with
+2√n and with n.</p>
+<p>Daniel Shanks described the method while studying class numbers of quadratic
+fields. Write the unknown exponent as <span class="math notranslate nohighlight">\(x = im + j\)</span> with
+<span class="math notranslate nohighlight">\(m = \lceil\sqrt n\,\rceil\)</span>. Store <span class="math notranslate nohighlight">\(g^j\)</span> for every <span class="math notranslate nohighlight">\(j &lt; m\)</span>,
+then compute <span class="math notranslate nohighlight">\(h\,g^{-im}\)</span> for <span class="math notranslate nohighlight">\(i = 0, 1, \dots\)</span> until it appears in
+the table:</p>
+<div class="math notranslate nohighlight">
+\[g^{x} = h \iff g^{j} = h\,(g^{-m})^{i}, \qquad
+\text{cost} \approx 2\sqrt{n}.\]</div>
+<p>Generic algorithms cannot do fundamentally better: Shoup later proved that any
+algorithm that only uses the group operations needs about <span class="math notranslate nohighlight">\(\sqrt n\)</span> steps.
+That is why a 256-bit elliptic-curve group gives about 128-bit security.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.discrete_log.baby_step_giant_step" title="blockchainkit.crypto.systems.discrete_log.baby_step_giant_step"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.discrete_log.baby_step_giant_step()</span></code></a>
+returns the exponent and the number of table multiplications.</p>
+<p><strong>Experiment:</strong> the gallery example measures the work across safe-prime groups and
+compares it with <span class="math notranslate nohighlight">\(2\sqrt n\)</span>.</p>
+<p><em>References:</em> D. Shanks, <em>Class Number, a Theory of Factorization, and Genera</em>,
+Proceedings of Symposia in Pure Mathematics 20, American Mathematical Society,
+415–440 (1971).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Diffie-Hellman and Schnorr are safe only if recovering x from gx is hard. Trying every exponent costs n steps in a group of order n. Shanks showed a time-memory trade-off that costs about 2sqrt(n): store m = sqrt(n) &quot;baby steps&quot; gj, then take &quot;giant steps&quot; target  g(-m*i) until one matches."><img alt="" src="../_images/sphx_glr_plot_01_baby_step_giant_step_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/discrete_log/plot_01_baby_step_giant_step.html"><span class="doc">Baby-step giant-step: square-root discrete logs (Shanks 1971)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Baby-step giant-step: square-root discrete logs (Shanks 1971)</div>
+</div></div></section>
+<section id="merkle-s-puzzles-key-agreement-in-public">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1974–1978 — Merkle’s puzzles: key agreement in public</a><a class="headerlink" href="#merkle-s-puzzles-key-agreement-in-public" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Alice publishes many small locked boxes, each holding a
+key. Bob picks one at random and spends a little effort to open it, then tells
+Alice which one he opened. An eavesdropper does not know which box Bob chose and
+must open many of them.</p>
+<p><strong>Reading the experiment.</strong> Each puzzle hides an identifier and a session key
+under a weak key of a few bits. Bob’s work is one puzzle; the eavesdropper’s work
+grows with the number of puzzles.</p>
+<p>As an undergraduate in 1974, Ralph Merkle proposed the first scheme for two
+parties to agree on a secret over a public channel. The idea was hard to publish:
+his paper appeared in 1978, after Diffie and Hellman’s. With <span class="math notranslate nohighlight">\(N\)</span> puzzles of
+difficulty <span class="math notranslate nohighlight">\(N\)</span>, Alice and Bob each work about <span class="math notranslate nohighlight">\(N\)</span>, while an
+eavesdropper needs about <span class="math notranslate nohighlight">\(N^2/2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[W_{\text{honest}} = O(N), \qquad W_{\text{attacker}} = O(N^2).\]</div>
+<p>The gap is only quadratic, so it is not practical security; Diffie and Hellman’s
+exponential gap replaced it. But the puzzles showed public key exchange was
+possible at all, and the same quadratic barrier was later shown to be the best any
+scheme built only from a random function can achieve.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.puzzles.merkle_puzzles" title="blockchainkit.crypto.systems.puzzles.merkle_puzzles"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.puzzles.merkle_puzzles()</span></code></a>
+creates the puzzles and Alice’s table; <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.puzzles.solve_puzzle" title="blockchainkit.crypto.systems.puzzles.solve_puzzle"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.puzzles.solve_puzzle()</span></code></a>
+opens one by brute force.</p>
+<p><strong>Experiment:</strong> the gallery example runs an exchange, plays the eavesdropper, and
+plots honest work against attack work.</p>
+<p><em>References:</em> R. C. Merkle, <em>Secure Communications over Insecure Channels</em>,
+Communications of the ACM 21(4), 294–299 (1978). <a class="reference external" href="https://doi.org/10.1145/359460.359473">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="As a student, Ralph Merkle asked whether two strangers could agree on a key over a public channel. His answer used only a symmetric cipher. Alice publishes many puzzles, each a session key locked by a deliberately weak key. Bob solves one at random and announces only its label. An eavesdropper does not know which puzzle Bob picked, and must open about half of them."><img alt="" src="../_images/sphx_glr_plot_01_merkle_puzzles_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/public_keys/plot_01_merkle_puzzles.html"><span class="doc">Merkle’s puzzles: the first public-key exchange (1974-1978)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Merkle's puzzles: the first public-key exchange (1974-1978)</div>
+</div></div></section>
+<section id="agreeing-on-a-secret-over-a-public-channel">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1976 — Agreeing on a secret over a public channel</a><a class="headerlink" href="#agreeing-on-a-secret-over-a-public-channel" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Two people publicly exchange specially calculated numbers, then
+each uses their own secret to arrive at the same value. An eavesdropper sees the
+exchange but should find the secret difficult to recover. This alone does not identify
+who is at the other end.</p>
+<p><strong>Reading the experiment.</strong> Here a and b are private numbers; A and B are the public
+results. The shared settings are g and a prime p. “mod p” means keep the remainder after
+dividing by p. The example returns True because both calculations agree.</p>
+<p>Sharing an encryption key used to require a secret channel in advance.
+Diffie and Hellman’s public-key framework changed the question: could two
+people perform different private computations that reach the same secret
+from publicly exchanged information? Their construction uses exponentiation
+in a finite group.</p>
+<div class="math notranslate nohighlight">
+\[A=g^a\bmod p,\qquad B=g^b\bmod p,\qquad
+B^a=A^b=g^{ab}\bmod p.\]</div>
+<p>An observer sees <span class="math notranslate nohighlight">\(g,p,A,B\)</span>, but recovering a private exponent requires
+solving a discrete logarithm in the chosen group. The shared element still
+needs a key derivation function before use as an encryption key.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.DHGroup" title="blockchainkit.crypto.systems.asymmetric.DHGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.DHGroup</span></code></a> validates
+the prime-order subgroup and peer elements.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>Diffie-Hellman here runs in a 62-bit teaching group with no authentication.
+Deployments use 2048-bit groups or X25519, and authenticate the exchange to
+stop a man in the middle. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact
+conventions.</p>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">group</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">DHGroup</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span><span class="o">.</span><span class="n">shared</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="n">group</span><span class="o">.</span><span class="n">shared</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/public_keys/plot_02_diffie_hellman.html"><span class="doc">Diffie-Hellman: agreeing on a secret over a public channel (1976)</span></a> includes a key-substitution
+attack. Agreement on a secret is not authentication of the other person.</p>
+<p><em>References:</em> W. Diffie and M. E. Hellman, <em>New Directions in Cryptography</em>,
+IEEE Transactions on Information Theory 22(6), 644–654 (1976). <a class="reference external" href="https://doi.org/10.1109/TIT.1976.1055638">DOI</a>; <a class="reference external" href="https://ee.stanford.edu/~hellman/publications/24.pdf">author’s copy</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Diffie and Hellman showed that two people can reach the same secret by exchanging only public values: each raises the other&#x27;s public element to their own private exponent, and both arrive at g(a*b). An eavesdropper sees ga and gb but would need a discrete logarithm to continue."><img alt="" src="../_images/sphx_glr_plot_02_diffie_hellman_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/public_keys/plot_02_diffie_hellman.html"><span class="doc">Diffie-Hellman: agreeing on a secret over a public channel (1976)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Diffie-Hellman: agreeing on a secret over a public channel (1976)</div>
+</div></div></section>
+<section id="rsa-and-the-public-trapdoor">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1978 — RSA and the public trapdoor</a><a class="headerlink" href="#rsa-and-the-public-trapdoor" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> RSA separates a public operation from a private operation that
+reverses it. Think of a publicly usable lock with a private unlocking key, while
+remembering that the bare arithmetic here needs additional protections for practical
+use.</p>
+<p><strong>Reading the experiment.</strong> The message m becomes ciphertext c. The public key uses n
+and e; the private operation uses d. The example turns 65 into 2790 and then back into
+65. The primes p and q are used to construct the keys.</p>
+<p>Rivest, Shamir, and Adleman gave a concrete public-key construction based on
+modular exponentiation with a composite modulus. Choose distinct
+primes <span class="math notranslate nohighlight">\(p,q\)</span>, publish <span class="math notranslate nohighlight">\(n=pq\)</span> and an exponent <span class="math notranslate nohighlight">\(e\)</span>, and retain
+the inverse exponent <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[ed\equiv1\pmod{(p-1)(q-1)},\qquad
+c=m^e\bmod n,\qquad m=c^d\bmod n.\]</div>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.rsa_keypair" title="blockchainkit.crypto.systems.asymmetric.rsa_keypair"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.rsa_keypair()</span></code></a>
+exposes the arithmetic, including the familiar <span class="math notranslate nohighlight">\(61\times53\)</span> example.
+The code accepts only small factors for inspectable experiments.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>This is textbook RSA with tiny primes and no padding. Real RSA uses moduli of
+2048 bits or more with OAEP (encryption) or PSS (signatures) padding; unpadded
+RSA is deterministic and malleable. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s
+exact conventions.</p>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">key</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">rsa_keypair</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">key</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="mi">65</span><span class="p">),</span> <span class="n">key</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="mi">2790</span><span class="p">)</span>
+<span class="go">(2790, 65)</span>
+</pre></div>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/public_keys/plot_03_rsa.html"><span class="doc">RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)</span></a> demonstrates multiplicative
+malleability: altering a ciphertext can predictably alter its plaintext.
+Textbook RSA is deterministic and unpadded; this package does not present it
+as a secure encryption or signature interface. Public-key cryptography needs
+a complete encoding and protocol, not just an impressive formula.</p>
+<p><em>References:</em> R. L. Rivest, A. Shamir, and L. Adleman, <em>A Method for Obtaining
+Digital Signatures and Public-Key Cryptosystems</em>, Communications of the ACM
+21(2), 120–126 (1978). <a class="reference external" href="https://doi.org/10.1145/359340.359342">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="RSA publishes n = p*q and an exponent e; only the holder of p and q can compute the inverse exponent d. Anyone can raise a message to e; only the key holder can undo it. The same inverse pair gives digital signatures."><img alt="" src="../_images/sphx_glr_plot_03_rsa_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/public_keys/plot_03_rsa.html"><span class="doc">RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)</div>
+</div></div></section>
+<section id="pohlighellman-why-the-group-order-needs-a-large-prime-factor">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1978 — Pohlig–Hellman: why the group order needs a large prime factor</a><a class="headerlink" href="#pohlighellman-why-the-group-order-needs-a-large-prime-factor" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A discrete-log problem in a big group can secretly be many
+small problems glued together. If the group’s size factors into small primes,
+each small problem is easy, and so is the whole.</p>
+<p><strong>Reading the experiment.</strong> The order of a group is how many elements it has. The
+experiment compares a group whose order is 2²·3⁴·5² with a group of prime order
+of similar size.</p>
+<p>Pohlig and Hellman showed that if <span class="math notranslate nohighlight">\(n = \prod p_i^{e_i}\)</span>, a logarithm modulo
+<span class="math notranslate nohighlight">\(n\)</span> follows from logarithms modulo each <span class="math notranslate nohighlight">\(p_i^{e_i}\)</span>, recombined with the
+Chinese Remainder Theorem. Each of those is computed one base-<span class="math notranslate nohighlight">\(p_i\)</span> digit at
+a time in a subgroup of order <span class="math notranslate nohighlight">\(p_i\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[x \bmod p_i^{e_i}\ \text{from}\ \bigl(h^{n/p_i^{e_i}}\bigr), \qquad
+\text{cost} \approx \sum_i e_i \sqrt{p_i}.\]</div>
+<p>The cost depends on the largest prime factor of <span class="math notranslate nohighlight">\(n\)</span>, not on <span class="math notranslate nohighlight">\(n\)</span>. This is
+why Diffie–Hellman and Schnorr run in a subgroup of large prime order, and why
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP" title="blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP"><code class="xref py py-data docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP</span></code></a> uses a safe prime
+<span class="math notranslate nohighlight">\(p = 2q + 1\)</span>.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.discrete_log.pohlig_hellman" title="blockchainkit.crypto.systems.discrete_log.pohlig_hellman"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.discrete_log.pohlig_hellman()</span></code></a>
+factors the order by trial division, solves each prime-power part with
+baby-step giant-step, and combines the answers.</p>
+<p><strong>Experiment:</strong> the gallery example breaks a smooth-order group with a fraction of
+the work, and shows no gain in a prime-order group.</p>
+<p><em>References:</em> S. Pohlig and M. Hellman, <em>An Improved Algorithm for Computing
+Logarithms over GF(p) and Its Cryptographic Significance</em>, IEEE Transactions on
+Information Theory 24(1), 106–110 (1978). <a class="reference external" href="https://doi.org/10.1109/TIT.1978.1055817">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Pohlig and Hellman noticed that a discrete log in a group of order n = p1e1  p2e2  ... splits into small problems, one per prime power, recombined with the Chinese Remainder Theorem. The cost depends on the largest prime factor of n, not on n. A huge group with a smooth order is weak."><img alt="" src="../_images/sphx_glr_plot_02_pohlig_hellman_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/discrete_log/plot_02_pohlig_hellman.html"><span class="doc">Pohlig-Hellman: why the group order must have a large prime factor (1978)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pohlig-Hellman: why the group order must have a large prime factor (1978)</div>
+</div></div></section>
+<section id="shamir-s-threshold-secret-sharing">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1979 — Shamir’s threshold secret sharing</a><a class="headerlink" href="#shamir-s-threshold-secret-sharing" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Split a secret among five people so any three can recover it,
+while one or two learn nothing about its value under the scheme’s assumptions. Each
+person holds a share, rather than a readable third of the secret.</p>
+<p><strong>Reading the experiment.</strong> The threshold t is the number of shares needed. The secret s
+is the value of a polynomial f at zero. A polynomial is a sum of powers of x; shares are
+points on it. Enough points determine the value at zero, using arithmetic modulo the
+prime p.</p>
+<p>Storing a secret in one place creates a single point of loss or compromise.
+Shamir’s scheme distributes it so that a threshold of participants can
+recover it together. Choose a random degree-at-most-<span class="math notranslate nohighlight">\(t-1\)</span>
+polynomial over a prime field with secret constant term <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[f(x)=s+a_1x+\cdots+a_{t-1}x^{t-1}\pmod p,
+\qquad s=f(0).\]</div>
+<p>Any <span class="math notranslate nohighlight">\(t\)</span> distinct evaluations determine <span class="math notranslate nohighlight">\(f(0)\)</span> by Lagrange
+interpolation. With uniform coefficients, fewer than <span class="math notranslate nohighlight">\(t\)</span> shares are
+compatible with every possible secret; this is an information-theoretic
+property rather than a computational hardness assumption.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.split_secret" title="blockchainkit.crypto.systems.sharing.split_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.split_secret()</span></code></a> and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.recover_secret" title="blockchainkit.crypto.systems.sharing.recover_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.recover_secret()</span></code></a> use integer field arithmetic.</p>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/sharing/plot_01_secret_sharing.html"><span class="doc">Shamir’s secret sharing: reconstruct a secret without storing it whole (1979)</span></a> reconstructs from every
+three-of-five subset and draws several polynomials compatible with two shares.
+Plain sharing does not detect forged shares. Nor does reconstructing a key
+implement a threshold signing protocol: those are separate capabilities.</p>
+<p><em>References:</em> A. Shamir, <em>How to Share a Secret</em>, Communications of the ACM
+22(11), 612–613 (1979). <a class="reference external" href="https://doi.org/10.1145/359168.359176">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The secret is the constant coefficient of a random polynomial. Any threshold number of evaluations determines it; fewer evaluations leave it undetermined. Arithmetic takes place in a prime field, not over floating-point reals."><img alt="" src="../_images/sphx_glr_plot_01_secret_sharing_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/sharing/plot_01_secret_sharing.html"><span class="doc">Shamir’s secret sharing: reconstruct a secret without storing it whole (1979)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Shamir's secret sharing: reconstruct a secret without storing it whole (1979)</div>
+</div></div></section>
+<section id="lamport-s-one-time-signatures-from-a-hash">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1979 — Lamport’s one-time signatures from a hash</a><a class="headerlink" href="#lamport-s-one-time-signatures-from-a-hash" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Publish the fingerprints of 512 secret strings. To sign,
+reveal one secret from each pair, chosen by the bits of the message’s fingerprint.
+Anyone can check that each revealed string has the published fingerprint.</p>
+<p><strong>Reading the experiment.</strong> A preimage is an input that hashes to a given output.
+Each signature reveals 256 of the 512 secrets. The plot shows how many new
+messages become forgeable as one key signs more and more messages.</p>
+<p>Leslie Lamport showed that a one-way function alone suffices for digital
+signatures. For each bit <span class="math notranslate nohighlight">\(b_i\)</span> of <span class="math notranslate nohighlight">\(H(m)\)</span>, the signer reveals
+<span class="math notranslate nohighlight">\(x_{i,b_i}\)</span>, and the verifier checks <span class="math notranslate nohighlight">\(H(x_{i,b_i}) = y_{i,b_i}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{public key } y_{i,b} = H(x_{i,b}), \qquad
+\sigma = (x_{1,b_1}, \dots, x_{256,b_{256}}).\]</div>
+<p>After <span class="math notranslate nohighlight">\(k\)</span> signatures, a random message can be forged with probability about
+<span class="math notranslate nohighlight">\((1 - 2^{-k})^{256}\)</span>, so a key must sign once. Merkle’s trees, invented the
+same year, authenticate many one-time keys under one root. Because they rely only
+on hashing, these signatures resist quantum computers: the standardized SPHINCS+
+(SLH-DSA) descends from them.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.lamport.lamport_keypair" title="blockchainkit.crypto.systems.lamport.lamport_keypair"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.lamport.lamport_keypair()</span></code></a>,
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.lamport.lamport_sign" title="blockchainkit.crypto.systems.lamport.lamport_sign"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.lamport.lamport_sign()</span></code></a>, and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.lamport.lamport_verify" title="blockchainkit.crypto.systems.lamport.lamport_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.lamport.lamport_verify()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>Keys here are full Lamport pairs. Deployed hash-based signatures (XMSS,
+SPHINCS+) shrink them with Winternitz chains and many-time trees. See
+<a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example signs, verifies, and measures how quickly key
+reuse makes forgeries possible.</p>
+<p><em>References:</em> L. Lamport, <em>Constructing Digital Signatures from a One Way
+Function</em>, Technical Report CSL-98, SRI International (1979).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Lamport built a signature from nothing but a one-way function. The private key is 256 pairs of random strings; the public key is their hashes. To sign, reveal one string from each pair, chosen by the bits of the message digest."><img alt="" src="../_images/sphx_glr_plot_01_lamport_signatures_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/hash_signatures/plot_01_lamport_signatures.html"><span class="doc">Lamport one-time signatures: signing with only a hash (1979)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lamport one-time signatures: signing with only a hash (1979)</div>
+</div></div></section>
+<section id="yuval-s-birthday-attack">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1979 — Yuval’s birthday attack</a><a class="headerlink" href="#yuval-s-birthday-attack" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Finding two people with the same birthday in a room is much
+easier than finding someone with <em>your</em> birthday. Finding two documents with the
+same fingerprint is likewise much easier than matching a given fingerprint.</p>
+<p><strong>Reading the experiment.</strong> The hash is cut to n bits so collisions are reachable.
+The plot compares the trials needed with <span class="math notranslate nohighlight">\(\sqrt{2^n}\)</span> and with <span class="math notranslate nohighlight">\(2^n\)</span>.</p>
+<p>Gideon Yuval showed how to exploit this against signatures: prepare many harmless
+and many harmful variants of a contract until one of each shares a hash, have the
+victim sign the harmless one, and the signature also fits the harmful one. Among
+<span class="math notranslate nohighlight">\(q\)</span> random <span class="math notranslate nohighlight">\(n\)</span>-bit values a repeat appears with probability about
+<span class="math notranslate nohighlight">\(q^2/2^{n+1}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\Pr[\text{collision}] \approx 1 - e^{-q^2 / 2^{n+1}}, \qquad
+E[q] \approx \sqrt{\tfrac{\pi}{2}\, 2^{n}}.\]</div>
+<p>So an <span class="math notranslate nohighlight">\(n\)</span>-bit hash gives only <span class="math notranslate nohighlight">\(n/2\)</span> bits of collision resistance. SHA-256’s
+256-bit output is chosen for 128-bit collision security.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.hashing.find_collision" title="blockchainkit.crypto.systems.hashing.find_collision"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.hashing.find_collision()</span></code></a>
+searches truncated SHA-256; <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.hashing.truncated_hash" title="blockchainkit.crypto.systems.hashing.truncated_hash"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.hashing.truncated_hash()</span></code></a>
+does the truncation.</p>
+<p><strong>Experiment:</strong> the gallery example finds collisions from 8 to 32 bits and compares
+the cost with the birthday bound.</p>
+<p><em>References:</em> G. Yuval, <em>How to Swindle Rabin</em>, Cryptologia 3(3), 187–191
+(1979). <a class="reference external" href="https://doi.org/10.1080/0161-117991854025">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In a room of 23 people, two probably share a birthday. Yuval turned this into an attack: to find any two messages with the same n-bit hash takes about 2(n/2) trials, not the 2n needed to match one given hash. A signer tricked into signing one of a colliding pair has signed both."><img alt="" src="../_images/sphx_glr_plot_01_birthday_attack_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/hashing/plot_01_birthday_attack.html"><span class="doc">The birthday attack on hash functions (Yuval 1979)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The birthday attack on hash functions (Yuval 1979)</div>
+</div></div></section>
+<section id="coin-flipping-by-telephone-commitments">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1981 — Coin flipping by telephone: commitments</a><a class="headerlink" href="#coin-flipping-by-telephone-commitments" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Seal your guess in an envelope, let the other person flip
+the coin, then open the envelope. Neither of you can cheat: you cannot change the
+guess, and they cannot read it before flipping.</p>
+<p><strong>Reading the experiment.</strong> A commitment is the sealed envelope; the salt is a
+random value that keeps it from being guessed. Opening means revealing the
+message and salt so anyone can recompute the commitment.</p>
+<p>Manuel Blum asked how two people who do not trust each other can flip a fair coin
+over the telephone. The answer is a commitment scheme: <em>binding</em>, so the committer
+cannot open it to a different value, and <em>hiding</em>, so it reveals nothing before
+opening. With a hash:</p>
+<div class="math notranslate nohighlight">
+\[C = H(\text{domain} \,\|\, |r| \,\|\, r \,\|\, m), \qquad
+\text{open}: (m, r) \ \text{with}\ H(\dots) = C.\]</div>
+<p>Binding rests on collision resistance; hiding rests on the random salt <span class="math notranslate nohighlight">\(r\)</span>.
+Commitments became a basic building block: a Schnorr prover commits to
+<span class="math notranslate nohighlight">\(R\)</span> before seeing a challenge, and a block header commits to its
+transactions.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.commit" title="blockchainkit.crypto.systems.commitments.commit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.commit()</span></code></a> adds
+domain separation and explicit salt framing;
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.verify_commitment" title="blockchainkit.crypto.systems.commitments.verify_commitment"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.verify_commitment()</span></code></a> compares in
+constant time.</p>
+<p><strong>Experiment:</strong> the gallery example plays a coin toss, shows that an unsalted hash
+of a guessable value hides nothing, and checks fairness over a thousand flips.</p>
+<p><em>References:</em> M. Blum, <em>Coin Flipping by Telephone: A Protocol for Solving
+Impossible Problems</em>, CRYPTO ‘81, 11–15 (1981); reprinted in ACM SIGACT News 15(1),
+23–27 (1983). <a class="reference external" href="https://doi.org/10.1145/1008908.1008911">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Alice and Bob, on the phone, want a fair coin toss. If Alice calls first, Bob can lie. Blum&#x27;s fix: Alice commits to her call, Bob announces the coin, then Alice opens the commitment. A commitment must be binding (Alice cannot change her call) and hiding (Bob cannot read it early)."><img alt="" src="../_images/sphx_glr_plot_01_coin_flipping_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/commitments/plot_01_coin_flipping.html"><span class="doc">Coin flipping by telephone: hash commitments (Blum 1981)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Coin flipping by telephone: hash commitments (Blum 1981)</div>
+</div></div></section>
+<section id="chaum-s-blind-signatures-and-private-payments">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">1982–1983 — Chaum’s blind signatures and private payments</a><a class="headerlink" href="#chaum-s-blind-signatures-and-private-payments" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Imagine asking someone to stamp an envelope without seeing the
+message inside, then removing the envelope while retaining a checkable stamp. Blind
+signatures provide a mathematical version of this idea.</p>
+<p><strong>Reading the experiment.</strong> The original message is m and the obscured message is m
+prime. The random factor r hides it during signing; its inverse removes that factor
+afterward. The final s can be checked as a signature on the original message.</p>
+<p>A signer may need to authorize a token without learning the token it signs.
+Chaum introduced blind signatures at CRYPTO ‘82, with proceedings published
+in 1983. RSA’s algebra lets a requester obscure a message with an
+invertible random factor and remove that factor after signing.</p>
+<div class="math notranslate nohighlight">
+\[m'=mr^e\bmod n,\qquad
+s'=(m')^d\bmod n,\qquad
+s=s'r^{-1}\bmod n.\]</div>
+<p>Then <span class="math notranslate nohighlight">\(s^e=m\pmod n\)</span>. The requester obtains an ordinary signature while
+the signer processes the blinded value.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.rsa_blind" title="blockchainkit.crypto.systems.asymmetric.rsa_blind"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.rsa_blind()</span></code></a> and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.rsa_unblind" title="blockchainkit.crypto.systems.asymmetric.rsa_unblind"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.rsa_unblind()</span></code></a> expose this identity.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>Blind signatures here use textbook RSA over a tiny modulus. Standardized blind
+RSA (RFC 9474) hashes and pads the message and uses full-size keys. See
+<a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/blind_signatures/plot_01_blind_signatures.html"><span class="doc">Chaum’s blind signatures: authenticate a message the signer cannot see (1982)</span></a> follows each value
+through the exchange. These bare integer operations are not a complete
+anonymous cash system: issuance policy, message encoding, and a mechanism to
+detect repeated spending remain necessary. Privacy and decentralized agreement
+are different design questions.</p>
+<p><em>References:</em> D. Chaum, <em>Blind Signatures for Untraceable Payments</em>, CRYPTO
+‘82, 199–203 (proceedings 1983). <a class="reference external" href="https://doi.org/10.1007/978-1-4757-0602-4_18">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Chaum&#x27;s construction separates authorization from knowledge of a message. This experiment exposes RSA&#x27;s multiplicative blinding identity with tiny integers; a usable payment system needs encoding, issuance, and spent-token rules."><img alt="" src="../_images/sphx_glr_plot_01_blind_signatures_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/blind_signatures/plot_01_blind_signatures.html"><span class="doc">Chaum’s blind signatures: authenticate a message the signer cannot see (1982)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Chaum's blind signatures: authenticate a message the signer cannot see (1982)</div>
+</div></div></section>
+<section id="elliptic-curves-as-a-cryptographic-group">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">1985 — Elliptic curves as a cryptographic group</a><a class="headerlink" href="#elliptic-curves-as-a-cryptographic-group" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Public keys can be built by repeatedly combining points using a
+special addition rule. Going forward is easy; recovering how many steps were taken
+should be difficult for a carefully chosen large system.</p>
+<p><strong>Reading the experiment.</strong> G is a starting point, x is a secret step count, and Q is
+the resulting public point. In Q=xG, multiplication means repeated group addition. The
+coordinates in the curve equation wrap modulo p, so the plot shows separate points, not
+a continuous curve.</p>
+<p>Miller proposed elliptic curves for public-key cryptography at CRYPTO ‘85;
+Koblitz independently developed elliptic-curve cryptosystems. The relevant object is a finite group of curve points, not a
+smooth curve drawn over the real numbers.</p>
+<div class="math notranslate nohighlight">
+\[y^2=x^3+ax+b\pmod p,\qquad Q=xG.\]</div>
+<p>Repeated addition efficiently computes <span class="math notranslate nohighlight">\(Q\)</span>. Recovering <span class="math notranslate nohighlight">\(x\)</span> from
+<span class="math notranslate nohighlight">\(G,Q\)</span> is an elliptic-curve discrete-log problem. Group and parameter
+selection matter; arbitrary curves do not inherit security merely by name.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.curves.Curve" title="blockchainkit.crypto.systems.curves.Curve"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.curves.Curve</span></code></a>,
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.curves.add" title="blockchainkit.crypto.systems.curves.add"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.curves.add()</span></code></a>, and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.curves.multiply" title="blockchainkit.crypto.systems.curves.multiply"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.curves.multiply()</span></code></a> implement the group law,
+including infinity, inverse points, and doubling. <code class="docutils literal notranslate"><span class="pre">TOY_CURVE</span></code> has 19 points;
+<code class="docutils literal notranslate"><span class="pre">SECP256K1</span></code> supplies a larger, established parameter set.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>Curve arithmetic here is variable-time Python. Production libraries such as
+libsecp256k1 use constant-time code, because timing can leak private scalars.
+See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/curves/plot_01_elliptic_curves.html"><span class="doc">Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)</span></a> plots the tiny group and
+recovers a private scalar by enumeration. The same API handles secp256k1,
+but this readable Python implementation is variable-time and not hardened.</p>
+<p><em>References:</em> V. S. Miller, <em>Use of Elliptic Curves in Cryptography</em>, CRYPTO
+‘85, LNCS 218, 417–426 (proceedings 1986). <a class="reference external" href="https://doi.org/10.1007/3-540-39799-X_31">DOI</a>. N. Koblitz, <em>Elliptic Curve
+Cryptosystems</em>, Mathematics of Computation 48(177), 203–209 (1987). <a class="reference external" href="https://doi.org/10.1090/S0025-5718-1987-0866109-5">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Replace modular exponentiation with repeated addition of curve points. The public key Q=xG is easy to compute; recovering x is the discrete-log problem. Our 19-element example is small enough to solve exhaustively."><img alt="" src="../_images/sphx_glr_plot_01_elliptic_curves_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/curves/plot_01_elliptic_curves.html"><span class="doc">Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)</div>
+</div></div></section>
+<section id="zero-knowledge-proofs-that-reveal-nothing">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">1985 — Zero knowledge: proofs that reveal nothing</a><a class="headerlink" href="#zero-knowledge-proofs-that-reveal-nothing" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A person may prove they know a secret without handing over the
+secret. The important distinction is between responding live to an unpredictable
+challenge and merely displaying a record of a conversation.</p>
+<p><strong>Reading the experiment.</strong> A transcript is that conversation record: commitment R,
+challenge c, and response s. G is a starting curve point and Q is the public key. A
+record constructed after choosing the challenge need not prove that its creator knew the
+secret.</p>
+<p>Goldwasser, Micali, and Rackoff formalized a striking possibility: an interaction
+can convince a verifier while revealing no additional knowledge, in a precise
+simulation-based sense. A proof is <em>zero-knowledge</em> if a simulator, without the
+secret, can produce transcripts indistinguishable from real ones: then the real
+ones cannot have taught the verifier anything.</p>
+<p>Blockchainkit illustrates the idea with Schnorr’s later identification protocol.
+An honest-verifier transcript can be simulated by choosing <span class="math notranslate nohighlight">\(c,s\)</span> first
+and computing <span class="math notranslate nohighlight">\(R=sG-cQ\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R = kG,\quad c \xleftarrow{\$} \mathbb{Z}_n,\quad s = k + cx;
+\qquad \text{simulator: } R = sG - cQ.\]</div>
+<p>An actual prover must commit to <span class="math notranslate nohighlight">\(R\)</span> before receiving an unpredictable
+<span class="math notranslate nohighlight">\(c\)</span>. The order is crucial: it is the only thing separating a proof from a
+simulation.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.verify_transcript" title="blockchainkit.crypto.systems.signatures.verify_transcript"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.verify_transcript()</span></code></a>
+checks the group equation; <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.simulate_transcript" title="blockchainkit.crypto.systems.signatures.simulate_transcript"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.simulate_transcript()</span></code></a>
+is the simulator.</p>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/signatures/plot_01_zero_knowledge.html"><span class="doc">Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)</span></a> runs an honest
+proof and a simulated one, and draws who sends what in which order. It explains
+honest-verifier zero-knowledge intuition; it does not implement a general proof
+system.</p>
+<p><em>References:</em> S. Goldwasser, S. Micali, and C. Rackoff, <em>The Knowledge
+Complexity of Interactive Proof-Systems</em>, STOC ‘85, 291–304 (1985). <a class="reference external" href="https://doi.org/10.1145/22145.22178">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Goldwasser, Micali and Rackoff asked how much knowledge a proof conveys. In the Schnorr identification protocol the prover sends R = kG, the verifier replies with a random challenge c, and the prover answers s = k + cx. The verifier checks sG = R + cQ and learns that the prover knows x, but nothing else: a simulator* can produce transcripts that look identical without x."><img alt="" src="../_images/sphx_glr_plot_01_zero_knowledge_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/signatures/plot_01_zero_knowledge.html"><span class="doc">Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)</div>
+</div></div></section>
+<section id="the-fiatshamir-heuristic-from-interaction-to-signatures">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">1986 — The Fiat–Shamir heuristic: from interaction to signatures</a><a class="headerlink" href="#the-fiatshamir-heuristic-from-interaction-to-signatures" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Instead of waiting for a verifier to pick a random challenge,
+the prover computes it as a fingerprint of everything said so far. The proof no
+longer needs a live conversation, and binding the message into the fingerprint
+turns it into a signature.</p>
+<p><strong>Reading the experiment.</strong> <span class="math notranslate nohighlight">\(H\)</span> is a hash; <span class="math notranslate nohighlight">\(c = H(R, Q, m)\)</span> replaces the
+verifier’s random choice. A forger who picks <span class="math notranslate nohighlight">\(c\)</span> first must then hope the hash
+of the resulting <span class="math notranslate nohighlight">\(R\)</span> equals it.</p>
+<p>Fiat and Shamir proposed replacing the verifier’s random challenge with a hash of
+the transcript so far:</p>
+<div class="math notranslate nohighlight">
+\[c = H(R, Q, m), \qquad \sigma = (R,\ s = k + cx).\]</div>
+<p>If <span class="math notranslate nohighlight">\(H\)</span> behaves like a random function, the prover cannot choose <span class="math notranslate nohighlight">\(R\)</span> after
+knowing <span class="math notranslate nohighlight">\(c\)</span>, so the simulator’s trick no longer works. Pointcheval and Stern
+later proved such signatures secure in the random-oracle model. Schnorr signatures,
+EdDSA, and most zero-knowledge proof systems used by blockchains (SNARKs, STARKs)
+rely on this transform; bugs in what goes into the hash have broken real systems.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.challenge" title="blockchainkit.crypto.systems.signatures.challenge"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.challenge()</span></code></a>
+hashes the message, public key, commitment, and curve domain.</p>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/signatures/plot_02_fiat_shamir.html"><span class="doc">The Fiat-Shamir heuristic: from interaction to signatures (1986)</span></a> shows the
+challenge changing with the message, a simulated forgery failing, and on a
+19-point curve, forgeries succeeding about one time in 19: the forger must guess
+the hash.</p>
+<p><em>References:</em> A. Fiat and A. Shamir, <em>How To Prove Yourself: Practical Solutions
+to Identification and Signature Problems</em>, CRYPTO ‘86, LNCS 263, 186–194
+(proceedings 1987). <a class="reference external" href="https://doi.org/10.1007/3-540-47721-7_12">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Fiat and Shamir removed the live verifier: compute the challenge as a hash of the commitment and the message, c = H(R, Q, m). If the hash behaves like a random function, the prover cannot choose R after knowing c, and the transcript becomes a non-interactive proof bound to the message: a signature."><img alt="" src="../_images/sphx_glr_plot_02_fiat_shamir_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/signatures/plot_02_fiat_shamir.html"><span class="doc">The Fiat-Shamir heuristic: from interaction to signatures (1986)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Fiat-Shamir heuristic: from interaction to signatures (1986)</div>
+</div></div></section>
+<section id="feldman-s-verifiable-secret-sharing">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">1987 — Feldman’s verifiable secret sharing</a><a class="headerlink" href="#feldman-s-verifiable-secret-sharing" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> In plain secret sharing, everyone must trust the person who
+hands out the shares. Feldman’s version lets each share holder check privately
+that their share is consistent with everyone else’s.</p>
+<p><strong>Reading the experiment.</strong> The dealer publishes a commitment <span class="math notranslate nohighlight">\(g^{a_j}\)</span> to each
+polynomial coefficient. A share is <span class="math notranslate nohighlight">\((x, f(x))\)</span>; it passes when it lies on the
+committed polynomial.</p>
+<p>Paul Feldman made Shamir’s scheme verifiable without interaction. The dealer
+publishes <span class="math notranslate nohighlight">\(C_j = g^{a_j}\)</span>; share holder <span class="math notranslate nohighlight">\(i\)</span> checks</p>
+<div class="math notranslate nohighlight">
+\[g^{f(i)} = \prod_{j=0}^{t-1} C_j^{\,i^{j}} \pmod p.\]</div>
+<p>Because exponentiation turns the polynomial’s sum into a product, the check holds
+exactly for points on the committed polynomial. The price is that
+<span class="math notranslate nohighlight">\(C_0 = g^{s}\)</span> is public, so the secret is only computationally hidden.
+Verifiable sharing is the basis of distributed key generation, which threshold
+wallets use to create a key no single party ever holds.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.feldman_split" title="blockchainkit.crypto.systems.sharing.feldman_split"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.feldman_split()</span></code></a> and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.feldman_verify" title="blockchainkit.crypto.systems.sharing.feldman_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.feldman_verify()</span></code></a>, over
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP" title="blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP"><code class="xref py py-data docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>The commitments live in the 62-bit teaching group, where discrete logs are easy
+to compute. Real verifiable secret sharing needs a group of cryptographic size
+and a broadcast channel for complaints. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s
+exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example verifies honest shares, recovers the secret from
+every threshold subset, and catches a corrupted share.</p>
+<p><em>References:</em> P. Feldman, <em>A Practical Scheme for Non-interactive Verifiable Secret
+Sharing</em>, 28th Symposium on Foundations of Computer Science (FOCS), 427–438
+(1987). <a class="reference external" href="https://doi.org/10.1109/SFCS.1987.4">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In Shamir&#x27;s scheme every share holder must trust the dealer: nothing stops a dealer from handing out shares that do not lie on one polynomial. Feldman had the dealer publish ga_j for each coefficient a_j. Each holder checks gy == product of C_j(xj), which holds only for points on the committed polynomial."><img alt="" src="../_images/sphx_glr_plot_02_feldman_vss_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/sharing/plot_02_feldman_vss.html"><span class="doc">Feldman’s verifiable secret sharing (1987)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Feldman's verifiable secret sharing (1987)</div>
+</div></div></section>
+<section id="the-merkledamgard-construction-and-length-extension">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">1989 — The Merkle–Damgård construction and length extension</a><a class="headerlink" href="#the-merkledamgard-construction-and-length-extension" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A hash function chews through a long message one block at
+a time, passing a fixed-size summary from block to block. The final summary is the
+fingerprint. Anyone who has it can keep chewing.</p>
+<p><strong>Reading the experiment.</strong> The compression function mixes one 64-byte block into
+eight 32-bit state words. The padding ends with the message length. The attack
+continues hashing from a published digest.</p>
+<p>Ralph Merkle and Ivan Damgård independently showed at CRYPTO ‘89 that a
+collision-resistant compression function <span class="math notranslate nohighlight">\(f\)</span> yields a collision-resistant hash
+for messages of any length, provided the padding encodes the length:</p>
+<div class="math notranslate nohighlight">
+\[h_0 = IV, \qquad h_i = f(h_{i-1}, m_i), \qquad H(m) = h_\ell.\]</div>
+<p>MD5, SHA-1 and SHA-256 all follow this design. Its side effect: since
+<span class="math notranslate nohighlight">\(H(m)\)</span> <em>is</em> the chaining state, anyone can compute
+<span class="math notranslate nohighlight">\(H(m \,\|\, \text{pad} \,\|\, s)\)</span> from <span class="math notranslate nohighlight">\(H(m)\)</span> and <span class="math notranslate nohighlight">\(|m|\)</span> alone. A
+“MAC” computed as <span class="math notranslate nohighlight">\(H(k \,\|\, m)\)</span> is therefore forgeable.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256" title="blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256()</span></code></a>
+reimplements SHA-256 block by block (checked against the standard library);
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.length_extension" title="blockchainkit.crypto.systems.merkle_damgard.length_extension"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.merkle_damgard.length_extension()</span></code></a> performs the
+attack.</p>
+<p><strong>Experiment:</strong> the gallery example hashes block by block and forges a naive MAC
+without its key.</p>
+<p><em>References:</em> R. C. Merkle, <em>One Way Hash Functions and DES</em>, CRYPTO ‘89, LNCS 435,
+428–446 (1990). <a class="reference external" href="https://doi.org/10.1007/0-387-34805-0_40">DOI</a>. I. B. Damgård,
+<em>A Design Principle for Hash Functions</em>, CRYPTO ‘89, LNCS 435, 416–427 (1990).
+<a class="reference external" href="https://doi.org/10.1007/0-387-34805-0_39">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Merkle and Damgard independently showed how to build a hash for messages of any length from a fixed-size compression function: pad the message, append its length, and chain the blocks through the function. SHA-256 is built this way. The digest is the final chaining state, which has a famous consequence."><img alt="" src="../_images/sphx_glr_plot_02_merkle_damgard_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/hashing/plot_02_merkle_damgard.html"><span class="doc">The Merkle-Damgard construction and length extension (1989)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The Merkle-Damgard construction and length extension (1989)</div>
+</div></div></section>
+<section id="schnorr-identification-and-compact-signatures">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">1989–1991 — Schnorr identification and compact signatures</a><a class="headerlink" href="#schnorr-identification-and-compact-signatures" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A short signature lets others check that a particular key
+authorized a message, and nobody else’s. Its one-time secret must be fresh: the
+2010–2013 entry below shows what happens when it is not.</p>
+<p><strong>Reading the experiment.</strong> Here x is the private key, Q its public key, k the secret
+signing nonce, R a temporary public point, c a challenge, and s the response. G is the
+starting point and n is its group order (the number of points in its cycle). The
+experiment checks the verification equation by hand and tampers with each part.</p>
+<p>Schnorr’s identification and signature work made discrete-log proofs compact
+and efficient. In additive notation, a prover with secret
+<span class="math notranslate nohighlight">\(x\)</span> commits using fresh <span class="math notranslate nohighlight">\(k\)</span>, then responds to challenge <span class="math notranslate nohighlight">\(c\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R=kG,\qquad s=k+cx\pmod n,\qquad sG=R+cQ.\]</div>
+<p>Applying the Fiat–Shamir transform with <span class="math notranslate nohighlight">\(c = H(R, Q, m)\)</span> turns the
+identification protocol into a signature <span class="math notranslate nohighlight">\((R, s)\)</span>. Schnorr signatures are
+linear: when keys add, signatures add, which later enabled multi-signatures (see
+the 2018 entry). A patent kept them out of standards until it expired in 2008;
+Bitcoin adopted them in 2021 as BIP-340.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.sign" title="blockchainkit.crypto.systems.signatures.sign"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.sign()</span></code></a>,
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.verify" title="blockchainkit.crypto.systems.signatures.verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.verify()</span></code></a>, and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.recover_reused_nonce_key" title="blockchainkit.crypto.systems.signatures.recover_reused_nonce_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.recover_reused_nonce_key()</span></code></a> use a
+domain-separated teaching scheme over a prime-order elliptic-curve subgroup.
+The historical paper uses multiplicative groups; this is an additive adaptation.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>The challenge encoding differs from BIP-340 (no x-only keys or its tagged
+hash), so these signatures do not verify in Bitcoin. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for
+this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/signatures/plot_03_schnorr_signatures.html"><span class="doc">Schnorr signatures: short, fast, and linear (1989-1991)</span></a> signs a
+payment, checks <span class="math notranslate nohighlight">\(sG = R + cQ\)</span> step by step, and shows that changing the
+message, key, <span class="math notranslate nohighlight">\(R\)</span>, or <span class="math notranslate nohighlight">\(s\)</span> breaks verification. The scheme is not
+BIP-340.</p>
+<p><em>References:</em> C. P. Schnorr, <em>Efficient Signature Generation by Smart Cards</em>,
+Journal of Cryptology 4, 161–174 (1991); following the CRYPTO ‘89 work. <a class="reference external" href="https://doi.org/10.1007/BF00196725">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Schnorr applied Fiat-Shamir to his identification protocol in a group of prime order, giving signatures (R, s) with s = k + H(R, Q, m) * x. They were shorter and faster than the alternatives, and their linearity (signatures add when keys add) later enabled multi-signatures. A patent kept them out of standards until 2008; Bitcoin adopted them in 2021 (BIP-340)."><img alt="" src="../_images/sphx_glr_plot_03_schnorr_signatures_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/signatures/plot_03_schnorr_signatures.html"><span class="doc">Schnorr signatures: short, fast, and linear (1989-1991)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Schnorr signatures: short, fast, and linear (1989-1991)</div>
+</div></div></section>
+<section id="pedersen-commitments-perfectly-hiding-and-additive">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">1991 — Pedersen commitments: perfectly hiding and additive</a><a class="headerlink" href="#pedersen-commitments-perfectly-hiding-and-additive" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A commitment that hides its contents perfectly, even from
+an attacker with unlimited computing power, and where adding sealed envelopes adds
+the amounts inside them.</p>
+<p><strong>Reading the experiment.</strong> <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> are two generators of the same
+prime-order group; <span class="math notranslate nohighlight">\(r\)</span> is a random blinding factor. Multiplying commitments
+adds both the values and the blinding factors.</p>
+<p>Torben Pedersen introduced the commitment</p>
+<div class="math notranslate nohighlight">
+\[C(v, r) = g^{v} h^{r} \bmod p, \qquad C(a, r)\,C(b, s) = C(a + b,\ r + s).\]</div>
+<p>For any other value <span class="math notranslate nohighlight">\(v'\)</span> there is a blinding <span class="math notranslate nohighlight">\(r'\)</span> with the same <span class="math notranslate nohighlight">\(C\)</span>, so
+hiding is perfect. Opening to two values would reveal <span class="math notranslate nohighlight">\(\log_g h\)</span>, so binding is
+computational, which is why <span class="math notranslate nohighlight">\(h\)</span> is derived by hashing. The additive property
+lets anyone check that hidden inputs equal hidden outputs: the basis of
+confidential transactions in Monero and Mimblewimble.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.pedersen_commit" title="blockchainkit.crypto.systems.commitments.pedersen_commit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.pedersen_commit()</span></code></a> and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.pedersen_generators" title="blockchainkit.crypto.systems.commitments.pedersen_generators"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.pedersen_generators()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>The generators here are in the teaching group, so binding holds only as long as
+its small discrete logarithm stays unknown; production uses 256-bit elliptic-
+curve groups. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example balances hidden transaction amounts, opens one
+commitment as three different values in a tiny group, and shows that commitments
+look the same whatever the value.</p>
+<p><em>References:</em> T. P. Pedersen, <em>Non-Interactive and Information-Theoretic Secure
+Verifiable Secret Sharing</em>, CRYPTO ‘91, LNCS 576, 129–140 (1992). <a class="reference external" href="https://doi.org/10.1007/3-540-46766-1_9">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Pedersen committed to a value v as C = gv  h*r, with a random blinding factor r and a second generator h whose logarithm nobody knows. For any other value there is a blinding factor giving the same C, so the commitment hides v perfectly; opening it to a different value would reveal log_g(h). And commitments multiply to a commitment of the sum."><img alt="" src="../_images/sphx_glr_plot_02_pedersen_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/commitments/plot_02_pedersen.html"><span class="doc">Pedersen commitments: perfectly hiding and additive (1991)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pedersen commitments: perfectly hiding and additive (1991)</div>
+</div></div></section>
+<section id="hmac-keyed-hashing-done-right">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">1996 — HMAC: keyed hashing done right</a><a class="headerlink" href="#hmac-keyed-hashing-done-right" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> To prove a message came from someone who knows a shared
+key, mix the key into the hash twice, in a way that leaves an attacker nothing to
+continue from.</p>
+<p><strong>Reading the experiment.</strong> <code class="docutils literal notranslate"><span class="pre">ipad</span></code> and <code class="docutils literal notranslate"><span class="pre">opad</span></code> are two fixed byte patterns that
+derive an inner and an outer key. The experiment retries the length-extension
+forgery against both MACs.</p>
+<p>Bellare, Canetti and Krawczyk defined HMAC and proved it secure under assumptions
+about the compression function:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{HMAC}(k, m) = H\bigl((k \oplus opad) \,\|\, H((k \oplus ipad) \,\|\, m)\bigr).\]</div>
+<p>The outer hash hides the inner chaining state, so length extension fails. HMAC
+became RFC 2104 in 1997 and is everywhere: TLS, key derivation (HKDF), and the
+deterministic nonces of RFC 6979.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.mac.hmac_sha256" title="blockchainkit.crypto.systems.mac.hmac_sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.mac.hmac_sha256()</span></code></a>, contrasted
+with the broken <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.mac.naive_mac" title="blockchainkit.crypto.systems.mac.naive_mac"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.mac.naive_mac()</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example shows the forgery succeed against
+<span class="math notranslate nohighlight">\(H(k \,\|\, m)\)</span> and fail against HMAC.</p>
+<p><em>References:</em> M. Bellare, R. Canetti, and H. Krawczyk, <em>Keying Hash Functions for
+Message Authentication</em>, CRYPTO ‘96, LNCS 1109, 1–15 (1996). <a class="reference external" href="https://doi.org/10.1007/3-540-68697-5_1">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Bellare, Canetti and Krawczyk defined HMAC to turn any Merkle-Damgard hash into a message authentication code with a security proof: HMAC(k, m) = H((k XOR opad) || H((k XOR ipad) || m)). The outer hash hides the inner chaining state, so an attacker has nothing to extend."><img alt="" src="../_images/sphx_glr_plot_03_hmac_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/hashing/plot_03_hmac.html"><span class="doc">HMAC: keyed hashing that resists length extension (1996)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">HMAC: keyed hashing that resists length extension (1996)</div>
+</div></div></section>
+<section id="sha-256-as-a-standardized-hash-primitive">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">2002 — SHA-256 as a standardized hash primitive</a><a class="headerlink" href="#sha-256-as-a-standardized-hash-primitive" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Different programs need to calculate the same fingerprint for the
+same data. A standardized hash gives them a shared rule and known examples against which
+to check their implementations.</p>
+<p><strong>Reading the experiment.</strong> The displayed result is hexadecimal: two characters
+represent each byte. Changing an input bit usually changes many output bits. A
+scrambled-looking output does not, by itself, establish that a hash is secure.</p>
+<p>NIST’s FIPS 180-2 specified SHA-256 alongside other secure hash algorithms. Hashes became shared building blocks that independent systems
+could implement and test against common vectors. A fixed-size output gives
+a compact fingerprint; it does not encrypt the input.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.hashing.sha256" title="blockchainkit.crypto.systems.hashing.sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.hashing.sha256()</span></code></a> delegates to
+Python’s standard-library implementation;
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256" title="blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256()</span></code></a> is a
+readable reimplementation (see the 1989 entry) that the tests check against it.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="sa">b</span><span class="s2">"abc"</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+<span class="go">'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad'</span>
+</pre></div>
+</div>
+<p><strong>Experiment:</strong> <a class="reference internal" href="../api/gallery/crypto/hashing/plot_04_sha256_avalanche.html"><span class="doc">SHA-256 and the avalanche effect (FIPS 180-2, 2002)</span></a> flips each
+input bit and compares the changed output bits with a Binomial(256, 1/2)
+distribution. This illustrates diffusion, not a proof of security. Earlier
+milestones above use SHA-256 as a modern teaching primitive, not as a historical
+implementation.</p>
+<p><em>References:</em> NIST, <em>Secure Hash Standard</em>, FIPS PUB 180-2 (2002). <a class="reference external" href="https://csrc.nist.gov/pubs/fips/180-2/final">Historical
+standard record</a>. This is cited
+for historical context, not as the latest standards guidance.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="SHA-256 became the standardized hash behind Bitcoin&#x27;s block hashes, addresses, and Merkle trees. A good hash behaves like a random function: flipping one input bit flips each output bit with probability one half."><img alt="" src="../_images/sphx_glr_plot_04_sha256_avalanche_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/hashing/plot_04_sha256_avalanche.html"><span class="doc">SHA-256 and the avalanche effect (FIPS 180-2, 2002)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">SHA-256 and the avalanche effect (FIPS 180-2, 2002)</div>
+</div></div></section>
+<section id="nonce-reuse-in-practice-and-deterministic-nonces">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">2010–2013 — Nonce reuse in practice, and deterministic nonces</a><a class="headerlink" href="#nonce-reuse-in-practice-and-deterministic-nonces" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A signature hides the private key behind a fresh random
+number. If the same number is used twice, the key can be calculated. This happened
+to a games console, and the fix was to stop needing randomness at all.</p>
+<p><strong>Reading the experiment.</strong> <span class="math notranslate nohighlight">\(k\)</span> is the signing nonce; <span class="math notranslate nohighlight">\(s_i\)</span> and
+<span class="math notranslate nohighlight">\(c_i\)</span> are the responses and challenges of two signatures. The deterministic
+nonce is derived with HMAC from the private key and the message.</p>
+<p>With <span class="math notranslate nohighlight">\(s_i = k + c_i x\)</span>, two signatures sharing <span class="math notranslate nohighlight">\(k\)</span> give</p>
+<div class="math notranslate nohighlight">
+\[x = \frac{s_1 - s_2}{c_1 - c_2} \bmod n.\]</div>
+<p>In December 2010 the fail0verflow team showed that Sony’s PlayStation 3 signed
+software with a constant ECDSA nonce, and recovered Sony’s private key. Weak random
+number generators in Android wallets led to Bitcoin thefts in 2013. Thomas Pornin’s
+RFC 6979 derives the nonce as an HMAC-based deterministic random bit generator
+seeded with the private key and the message hash: no randomness needed, distinct
+messages get distinct nonces, and the nonce is unpredictable without the key.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.recover_reused_nonce_key" title="blockchainkit.crypto.systems.signatures.recover_reused_nonce_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.recover_reused_nonce_key()</span></code></a>
+performs the extraction; <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.deterministic_nonce" title="blockchainkit.crypto.systems.signatures.deterministic_nonce"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.deterministic_nonce()</span></code></a>
+implements RFC 6979 section 3.2 with SHA-256 and reproduces the RFC’s test vectors.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">deterministic_nonce</span></code> follows RFC 6979 and matches its test vectors, but it
+feeds this package’s Schnorr signatures, not ECDSA, and adds no protection
+against fault attacks. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact
+conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example recovers a key from a reused nonce and generates
+deterministic nonces, checking one against the RFC.</p>
+<p><em>References:</em> fail0verflow (bushing, marcan, sven), <em>Console Hacking 2010: PS3 Epic
+Fail</em>, 27th Chaos Communication Congress (2010). T. Pornin, <em>Deterministic Usage of
+the Digital Signature Algorithm (DSA) and Elliptic Curve Digital Signature
+Algorithm (ECDSA)</em>, RFC 6979 (2013). <a class="reference external" href="https://doi.org/10.17487/RFC6979">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A Schnorr or ECDSA signature hides the private key behind a one-time nonce. Reuse the nonce for two messages and two equations in one unknown give the key away. In 2010 the fail0verflow team recovered Sony&#x27;s PlayStation 3 signing key this way: the console&#x27;s ECDSA used a constant nonce. RFC 6979 (2013) removed the random number generator from signing: derive the nonce deterministically from the key and the message with HMAC."><img alt="" src="../_images/sphx_glr_plot_04_nonce_reuse_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/signatures/plot_04_nonce_reuse.html"><span class="doc">Nonce reuse in practice, and deterministic nonces (2010-2013)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Nonce reuse in practice, and deterministic nonces (2010-2013)</div>
+</div></div></section>
+<section id="musig-schnorr-multi-signatures-and-the-rogue-key-attack">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">2018 — MuSig: Schnorr multi-signatures and the rogue-key attack</a><a class="headerlink" href="#musig-schnorr-multi-signatures-and-the-rogue-key-attack" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Several people jointly sign so that the result looks like one
+ordinary signature from one key. Done naively, the last person to announce a key
+can make the joint key their own.</p>
+<p><strong>Reading the experiment.</strong> <span class="math notranslate nohighlight">\(Q_i\)</span> are the signers’ public keys and <span class="math notranslate nohighlight">\(a_i\)</span>
+their MuSig coefficients. The rogue key is chosen to cancel the honest key in a
+plain sum.</p>
+<p>Schnorr signatures are linear, so partial signatures for keys <span class="math notranslate nohighlight">\(Q_i\)</span> add up to
+a signature for <span class="math notranslate nohighlight">\(\sum Q_i\)</span>. An attacker announcing
+<span class="math notranslate nohighlight">\(Q_{\text{rogue}} = xG - Q_{\text{honest}}\)</span> controls that sum alone. Maxwell,
+Poelstra, Seurin and Wuille’s MuSig weights every key by a hash of the whole list
+<span class="math notranslate nohighlight">\(L\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[a_i = H(L, Q_i), \qquad Q_{\text{agg}} = \sum_i a_i Q_i, \qquad
+s = \sum_i (k_i + c\, a_i x_i).\]</div>
+<p>No participant can choose a key that cancels the others, because changing any key
+changes every coefficient. Bitcoin’s Taproot upgrade (2021) made such aggregate
+spends indistinguishable from single-signer spends.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.multisig.musig_coefficients" title="blockchainkit.crypto.systems.multisig.musig_coefficients"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.multisig.musig_coefficients()</span></code></a>,
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.multisig.aggregate_public_keys" title="blockchainkit.crypto.systems.multisig.aggregate_public_keys"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.multisig.aggregate_public_keys()</span></code></a>, and
+<a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.multisig.musig_sign" title="blockchainkit.crypto.systems.multisig.musig_sign"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.multisig.musig_sign()</span></code></a>. As a teaching
+simplification, signing runs every signer in one process; real MuSig first
+exchanges nonce commitments.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>All signers run in one process here. Real MuSig needs a round of nonce
+commitments (or MuSig2’s two nonces per signer) to resist attacks across
+concurrent signing sessions. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact
+conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example mounts the rogue-key attack on naive aggregation,
+shows MuSig stopping it, and verifies a three-party signature.</p>
+<p><em>References:</em> G. Maxwell, A. Poelstra, Y. Seurin, and P. Wuille, <em>Simple Schnorr
+Multi-Signatures with Applications to Bitcoin</em>, Designs, Codes and Cryptography 87,
+2139–2164 (2019); preprint IACR ePrint 2018/068. <a class="reference external" href="https://doi.org/10.1007/s10623-019-00608-x">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Because Schnorr signatures are linear, n signers can produce one ordinary signature for the sum of their keys. Summing keys naively is unsafe: an attacker who announces Q_rogue = xG - Q_honest controls the sum alone. Maxwell, Poelstra, Seurin and Wuille&#x27;s MuSig weights each key by a hash of the whole key list, a_i = H(L, Q_i), so no key can cancel the others."><img alt="" src="../_images/sphx_glr_plot_05_musig_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/crypto/signatures/plot_05_musig.html"><span class="doc">MuSig: Schnorr multi-signatures and the rogue-key attack (2018)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">MuSig: Schnorr multi-signatures and the rogue-key attack (2018)</div>
+</div></div></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">History</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="structures_breakthroughs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Breakthroughs in Authenticated Data Structures</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-one-time-pad-and-perfect-secrecy">1917–1949 — The one-time pad and perfect secrecy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#baby-step-giant-step-square-root-discrete-logs">1971 — Baby-step giant-step: square-root discrete logs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merkle-s-puzzles-key-agreement-in-public">1974–1978 — Merkle’s puzzles: key agreement in public</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agreeing-on-a-secret-over-a-public-channel">1976 — Agreeing on a secret over a public channel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rsa-and-the-public-trapdoor">1978 — RSA and the public trapdoor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pohlighellman-why-the-group-order-needs-a-large-prime-factor">1978 — Pohlig–Hellman: why the group order needs a large prime factor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shamir-s-threshold-secret-sharing">1979 — Shamir’s threshold secret sharing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lamport-s-one-time-signatures-from-a-hash">1979 — Lamport’s one-time signatures from a hash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yuval-s-birthday-attack">1979 — Yuval’s birthday attack</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coin-flipping-by-telephone-commitments">1981 — Coin flipping by telephone: commitments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chaum-s-blind-signatures-and-private-payments">1982–1983 — Chaum’s blind signatures and private payments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elliptic-curves-as-a-cryptographic-group">1985 — Elliptic curves as a cryptographic group</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-knowledge-proofs-that-reveal-nothing">1985 — Zero knowledge: proofs that reveal nothing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fiatshamir-heuristic-from-interaction-to-signatures">1986 — The Fiat–Shamir heuristic: from interaction to signatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feldman-s-verifiable-secret-sharing">1987 — Feldman’s verifiable secret sharing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-merkledamgard-construction-and-length-extension">1989 — The Merkle–Damgård construction and length extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schnorr-identification-and-compact-signatures">1989–1991 — Schnorr identification and compact signatures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pedersen-commitments-perfectly-hiding-and-additive">1991 — Pedersen commitments: perfectly hiding and additive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hmac-keyed-hashing-done-right">1996 — HMAC: keyed hashing done right</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sha-256-as-a-standardized-hash-primitive">2002 — SHA-256 as a standardized hash primitive</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nonce-reuse-in-practice-and-deterministic-nonces">2010–2013 — Nonce reuse in practice, and deterministic nonces</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#musig-schnorr-multi-signatures-and-the-rogue-key-attack">2018 — MuSig: Schnorr multi-signatures and the rogue-key attack</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/history/crypto_breakthroughs.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

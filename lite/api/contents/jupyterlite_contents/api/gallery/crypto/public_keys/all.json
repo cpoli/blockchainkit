@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.164070Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.735774Z",
+      "mimetype": null,
+      "name": "plot_01_merkle_puzzles.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/public_keys/plot_01_merkle_puzzles.ipynb",
+      "size": 4281,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.164382Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.736061Z",
+      "mimetype": null,
+      "name": "plot_02_diffie_hellman.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/public_keys/plot_02_diffie_hellman.ipynb",
+      "size": 4568,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.164739Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.736348Z",
+      "mimetype": null,
+      "name": "plot_03_rsa.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/public_keys/plot_03_rsa.ipynb",
+      "size": 3991,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.164739Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.164739Z",
+  "mimetype": null,
+  "name": "public_keys",
+  "path": "jupyterlite_contents/api/gallery/crypto/public_keys",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>blockchainkit.vm &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/vm';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="blockchainkit.constants" href="constants.html" />
+    <link rel="prev" title="blockchainkit.network" href="network.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crypto.html">blockchainkit.crypto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures.html">blockchainkit.structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus.html">blockchainkit.consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network.html">blockchainkit.network</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">blockchainkit.vm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">blockchainkit.constants</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.vm</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="blockchainkit-vm">
+<h1>blockchainkit.vm<a class="headerlink" href="#blockchainkit-vm" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/vm.html"><span class="doc">blockchainkit.vm hub</span></a> · <a class="reference internal" href="../history/vm_breakthroughs.html"><span class="doc">History</span></a> · <a class="reference internal" href="gallery/vm/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="#"><span class="doc">API reference</span></a></p>
+</div>
+<p id="module-blockchainkit.vm">Execution: a deterministic stack machine, its languages, contracts, and attacks.</p>
+<p>A deterministic 256-bit stack machine and the languages, programs, and models built on it: assembly,
+reverse Polish notation, bytecode verification, Turing machines, Bitcoin Script, contracts, and attacks.</p>
+<p>Every public name below is re-exported by the subpackage: import it as
+<code class="docutils literal notranslate"><span class="pre">bk.vm.&lt;name&gt;</span></code>. The plotting helpers are the exception: import them
+explicitly from <code class="docutils literal notranslate"><span class="pre">blockchainkit.vm.visualizers</span></code>, which loads Matplotlib.</p>
+<section id="module-blockchainkit.vm.core.base">
+<span id="types-and-results"></span><h2>Types and results<a class="headerlink" href="#module-blockchainkit.vm.core.base" title="Link to this heading">#</a></h2>
+<p>Instruction type, errors, and result containers for blockchainkit.vm.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.Instruction">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">Instruction</span></span><a class="headerlink" href="#blockchainkit.vm.core.base.Instruction" title="Link to this definition">#</a></dt>
+<dd><p>An <code class="docutils literal notranslate"><span class="pre">(opcode,</span> <span class="pre">operand)</span></code> pair; the operand is <code class="docutils literal notranslate"><span class="pre">None</span></code> for simple opcodes.</p>
+<p>alias of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>]</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TraceStep">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">TraceStep</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_used</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#TraceStep"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.TraceStep" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Machine state just after one executed instruction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pc</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Index of the instruction that ran.</p></li>
+<li><p><strong>opcode</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Its opcode.</p></li>
+<li><p><strong>operand</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Its operand.</p></li>
+<li><p><strong>stack</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Stack after the instruction, bottom first.</p></li>
+<li><p><strong>storage</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>) – Working storage after the instruction (committed only on success).</p></li>
+<li><p><strong>gas_used</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Cumulative gas, including this instruction.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>pc</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>opcode</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+<li><p><strong>operand</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em>)</p></li>
+<li><p><strong>stack</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+<li><p><strong>storage</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+<li><p><strong>gas_used</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TraceStep.pc">
+<span class="sig-name descname"><span class="pre">pc</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.TraceStep.pc" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TraceStep.opcode">
+<span class="sig-name descname"><span class="pre">opcode</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.TraceStep.opcode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TraceStep.operand">
+<span class="sig-name descname"><span class="pre">operand</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.TraceStep.operand" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TraceStep.stack">
+<span class="sig-name descname"><span class="pre">stack</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.TraceStep.stack" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TraceStep.storage">
+<span class="sig-name descname"><span class="pre">storage</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.TraceStep.storage" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TraceStep.gas_used">
+<span class="sig-name descname"><span class="pre">gas_used</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.TraceStep.gas_used" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.VMError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">VMError</span></span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#VMError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.VMError" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ValueError</span></code></a></p>
+<p>Invalid instruction, stack operation, arithmetic operation, or resource limit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference internal" href="#blockchainkit.vm.core.base.TraceStep" title="blockchainkit.vm.core.base.TraceStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.vm.core.base.TraceStep</span></code></a>) – Steps executed before the failure, when <code class="docutils literal notranslate"><span class="pre">execute(...,</span> <span class="pre">trace=True)</span></code>
+was requested; otherwise empty.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.VMError.trace">
+<span class="sig-name descname"><span class="pre">trace</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#blockchainkit.vm.core.base.TraceStep" title="blockchainkit.vm.core.base.TraceStep"><span class="pre">TraceStep</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#blockchainkit.vm.core.base.VMError.trace" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ExecutionResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">ExecutionResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_used</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#ExecutionResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.ExecutionResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Final stack, read-only storage, consumed gas, and optional step trace.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stack</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+<li><p><strong>storage</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+<li><p><strong>gas_used</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference internal" href="#blockchainkit.vm.core.base.TraceStep" title="blockchainkit.vm.core.base.TraceStep"><em>TraceStep</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ExecutionResult.stack">
+<span class="sig-name descname"><span class="pre">stack</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.ExecutionResult.stack" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ExecutionResult.storage">
+<span class="sig-name descname"><span class="pre">storage</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.ExecutionResult.storage" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ExecutionResult.gas_used">
+<span class="sig-name descname"><span class="pre">gas_used</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ExecutionResult.gas_used" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ExecutionResult.trace">
+<span class="sig-name descname"><span class="pre">trace</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#blockchainkit.vm.core.base.TraceStep" title="blockchainkit.vm.core.base.TraceStep"><span class="pre">TraceStep</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">()</span></span><a class="headerlink" href="#blockchainkit.vm.core.base.ExecutionResult.trace" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.VerificationResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">VerificationResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">errors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#VerificationResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.VerificationResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Outcome of static bytecode verification.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The largest stack height any path can reach.</p></li>
+<li><p><strong>errors</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Every problem found; empty if the program is safe.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>errors</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.VerificationResult.max_depth">
+<span class="sig-name descname"><span class="pre">max_depth</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.VerificationResult.max_depth" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.VerificationResult.errors">
+<span class="sig-name descname"><span class="pre">errors</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.VerificationResult.errors" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.VerificationResult.ok">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ok</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.VerificationResult.ok" title="Link to this definition">#</a></dt>
+<dd><p>True if no path can underflow and every join agrees on the stack height.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TuringRun">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">TuringRun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outcome</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ones</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#TuringRun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.TuringRun" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>How a Turing machine run ended.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>outcome</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – <code class="docutils literal notranslate"><span class="pre">&quot;halted&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;looping&quot;</span></code> (a configuration repeated, so it never
+halts), or <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code> (the step budget ran out first).</p></li>
+<li><p><strong>steps</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Steps executed, counting the halting transition.</p></li>
+<li><p><strong>ones</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of 1s on the tape at the end.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>outcome</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+<li><p><strong>steps</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>ones</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TuringRun.outcome">
+<span class="sig-name descname"><span class="pre">outcome</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.TuringRun.outcome" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TuringRun.steps">
+<span class="sig-name descname"><span class="pre">steps</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.TuringRun.steps" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.TuringRun.ones">
+<span class="sig-name descname"><span class="pre">ones</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.TuringRun.ones" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.BusyBeaverResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">BusyBeaverResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">counts</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#BusyBeaverResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.BusyBeaverResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>The longest-running halting machine found by an exhaustive search.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>steps</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Its number of steps: the busy-beaver value S if no unknown machine halts later.</p></li>
+<li><p><strong>ones</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The 1s it leaves on the tape.</p></li>
+<li><p><strong>machine</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Its rules, <code class="docutils literal notranslate"><span class="pre">(state,</span> <span class="pre">symbol)</span> <span class="pre">-&gt;</span> <span class="pre">(write,</span> <span class="pre">move,</span> <span class="pre">next_state)</span></code>.</p></li>
+<li><p><strong>counts</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Machines per outcome: <code class="docutils literal notranslate"><span class="pre">&quot;halted&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;looping&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>steps</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>ones</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>machine</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>]</em>)</p></li>
+<li><p><strong>counts</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.BusyBeaverResult.steps">
+<span class="sig-name descname"><span class="pre">steps</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.BusyBeaverResult.steps" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.BusyBeaverResult.ones">
+<span class="sig-name descname"><span class="pre">ones</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.BusyBeaverResult.ones" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.BusyBeaverResult.machine">
+<span class="sig-name descname"><span class="pre">machine</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.BusyBeaverResult.machine" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.BusyBeaverResult.counts">
+<span class="sig-name descname"><span class="pre">counts</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.BusyBeaverResult.counts" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ScriptResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">ScriptResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">valid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operations</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#ScriptResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.ScriptResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Outcome of validating a Bitcoin-style script pair.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>valid</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Both scripts ran without error and left a true value on top.</p></li>
+<li><p><strong>stack</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>) – The final stack, bottom first.</p></li>
+<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a>) – Why validation failed, if it did.</p></li>
+<li><p><strong>operations</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Opcodes and pushes executed. Scripts have no loops, so this never
+exceeds the combined script length.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>valid</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+<li><p><strong>stack</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+<li><p><strong>error</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>None</em>)</p></li>
+<li><p><strong>operations</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ScriptResult.valid">
+<span class="sig-name descname"><span class="pre">valid</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><span class="pre">bool</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ScriptResult.valid" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ScriptResult.stack">
+<span class="sig-name descname"><span class="pre">stack</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><span class="pre">bytes</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#blockchainkit.vm.core.base.ScriptResult.stack" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ScriptResult.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ScriptResult.error" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ScriptResult.operations">
+<span class="sig-name descname"><span class="pre">operations</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ScriptResult.operations" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ReentrancyResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.core.base.</span></span><span class="sig-name descname"><span class="pre">ReentrancyResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">withdrawn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deposited</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calls</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bank_balance</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/core/base.html#ReentrancyResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.core.base.ReentrancyResult" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>What an attacker withdrew from a bank contract.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>withdrawn</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Total paid out to the attacker.</p></li>
+<li><p><strong>deposited</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – What the attacker had deposited.</p></li>
+<li><p><strong>calls</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Times <code class="docutils literal notranslate"><span class="pre">withdraw</span></code> was entered, including re-entries.</p></li>
+<li><p><strong>bank_balance</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Funds left in the bank afterwards.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>withdrawn</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>deposited</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>calls</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>bank_balance</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ReentrancyResult.withdrawn">
+<span class="sig-name descname"><span class="pre">withdrawn</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ReentrancyResult.withdrawn" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ReentrancyResult.deposited">
+<span class="sig-name descname"><span class="pre">deposited</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ReentrancyResult.deposited" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ReentrancyResult.calls">
+<span class="sig-name descname"><span class="pre">calls</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ReentrancyResult.calls" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ReentrancyResult.bank_balance">
+<span class="sig-name descname"><span class="pre">bank_balance</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ReentrancyResult.bank_balance" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="blockchainkit.vm.core.base.ReentrancyResult.stolen">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">stolen</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a></span><a class="headerlink" href="#blockchainkit.vm.core.base.ReentrancyResult.stolen" title="Link to this definition">#</a></dt>
+<dd><p>Withdrawn beyond the attacker’s own deposit.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-blockchainkit.vm.systems.stack_machine">
+<span id="constructions-and-protocols"></span><h2>Constructions and protocols<a class="headerlink" href="#module-blockchainkit.vm.systems.stack_machine" title="Link to this heading">#</a></h2>
+<p>A bounded deterministic 256-bit stack machine with atomic storage updates.</p>
+<p>Instruction encoding: each instruction is a (opcode, operand) pair. Only
+PUSH, LOAD, STORE, JMP, and JZ take an integer operand. All instructions cost
+one teaching gas unit unless a schedule says otherwise; this is not an EVM
+implementation or cost schedule.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.stack_machine.OPERAND_OPCODES">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.stack_machine.</span></span><span class="sig-name descname"><span class="pre">OPERAND_OPCODES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'JMP',</span> <span class="pre">'JZ',</span> <span class="pre">'LOAD',</span> <span class="pre">'PUSH',</span> <span class="pre">'STORE'})</span></span><a class="headerlink" href="#blockchainkit.vm.systems.stack_machine.OPERAND_OPCODES" title="Link to this definition">#</a></dt>
+<dd><p>Opcodes that take a 256-bit integer operand.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.stack_machine.STACK_EFFECTS">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.stack_machine.</span></span><span class="sig-name descname"><span class="pre">STACK_EFFECTS</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><span class="pre">Mapping</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">mappingproxy({'PUSH':</span> <span class="pre">(0,</span> <span class="pre">1),</span> <span class="pre">'LOAD':</span> <span class="pre">(0,</span> <span class="pre">1),</span> <span class="pre">'STORE':</span> <span class="pre">(1,</span> <span class="pre">0),</span> <span class="pre">'JMP':</span> <span class="pre">(0,</span> <span class="pre">0),</span> <span class="pre">'JZ':</span> <span class="pre">(1,</span> <span class="pre">0),</span> <span class="pre">'ADD':</span> <span class="pre">(2,</span> <span class="pre">1),</span> <span class="pre">'SUB':</span> <span class="pre">(2,</span> <span class="pre">1),</span> <span class="pre">'MUL':</span> <span class="pre">(2,</span> <span class="pre">1),</span> <span class="pre">'DIV':</span> <span class="pre">(2,</span> <span class="pre">1),</span> <span class="pre">'EQ':</span> <span class="pre">(2,</span> <span class="pre">1),</span> <span class="pre">'LT':</span> <span class="pre">(2,</span> <span class="pre">1),</span> <span class="pre">'DUP':</span> <span class="pre">(1,</span> <span class="pre">2),</span> <span class="pre">'DROP':</span> <span class="pre">(1,</span> <span class="pre">0),</span> <span class="pre">'SWAP':</span> <span class="pre">(2,</span> <span class="pre">2),</span> <span class="pre">'OVER':</span> <span class="pre">(2,</span> <span class="pre">3),</span> <span class="pre">'ROT':</span> <span class="pre">(3,</span> <span class="pre">3),</span> <span class="pre">'STOP':</span> <span class="pre">(0,</span> <span class="pre">0),</span> <span class="pre">'REVERT':</span> <span class="pre">(0,</span> <span class="pre">0)})</span></span><a class="headerlink" href="#blockchainkit.vm.systems.stack_machine.STACK_EFFECTS" title="Link to this definition">#</a></dt>
+<dd><p>Values each opcode pops and pushes, as <code class="docutils literal notranslate"><span class="pre">(pops,</span> <span class="pre">pushes)</span></code>.</p>
+<p>Forth writes these as stack diagrams: <code class="docutils literal notranslate"><span class="pre">OVER</span></code> is <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">--</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">a</span> <span class="pre">)</span></code> and
+<code class="docutils literal notranslate"><span class="pre">ROT</span></code> is <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">--</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">a</span> <span class="pre">)</span></code>.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.stack_machine.OPCODES">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.stack_machine.</span></span><span class="sig-name descname"><span class="pre">OPCODES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'ADD',</span> <span class="pre">'DIV',</span> <span class="pre">'DROP',</span> <span class="pre">'DUP',</span> <span class="pre">'EQ',</span> <span class="pre">'JMP',</span> <span class="pre">'JZ',</span> <span class="pre">'LOAD',</span> <span class="pre">'LT',</span> <span class="pre">'MUL',</span> <span class="pre">'OVER',</span> <span class="pre">'PUSH',</span> <span class="pre">'REVERT',</span> <span class="pre">'ROT',</span> <span class="pre">'STOP',</span> <span class="pre">'STORE',</span> <span class="pre">'SUB',</span> <span class="pre">'SWAP'})</span></span><a class="headerlink" href="#blockchainkit.vm.systems.stack_machine.OPCODES" title="Link to this definition">#</a></dt>
+<dd><p>Every opcode the machine accepts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.stack_machine.check_word">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.stack_machine.</span></span><span class="sig-name descname"><span class="pre">check_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/stack_machine.html#check_word"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.stack_machine.check_word" title="Link to this definition">#</a></dt>
+<dd><p>Raise VMError unless <code class="docutils literal notranslate"><span class="pre">value</span></code> is an int in <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">2**256)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.stack_machine.validate_program">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.stack_machine.</span></span><span class="sig-name descname"><span class="pre">validate_program</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/stack_machine.html#validate_program"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.stack_machine.validate_program" title="Link to this definition">#</a></dt>
+<dd><p>Check every instruction’s shape before anything runs; return the program as a tuple.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.vm.core.base.VMError" title="blockchainkit.vm.core.base.VMError"><strong>VMError</strong></a> – An unknown opcode, a missing or extra operand, an operand outside
+    256 bits, or a jump target outside the program.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>program</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><em>Iterable</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em> | </em><em>None</em><em>]</em><em>]</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a> | None], …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.stack_machine.execute">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.stack_machine.</span></span><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">storage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stack_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gas_costs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/stack_machine.html#execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.stack_machine.execute" title="Link to this definition">#</a></dt>
+<dd><p>Execute a program against a copy of storage, committing only on success.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Iterable</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>) – (opcode, operand) pairs. For binary operations the top value is the
+right operand: PUSH 7; PUSH 2; SUB produces 5.</p></li>
+<li><p><strong>storage</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>, <em>optional</em>) – Initial 256-bit integer keys and values. Never mutated by execution.</p></li>
+<li><p><strong>arguments</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Initial stack, bottom first: the call’s inputs, like a contract’s
+call data.</p></li>
+<li><p><strong>gas_limit</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Maximum total gas, including STOP.</p></li>
+<li><p><strong>stack_limit</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Maximum stack depth.</p></li>
+<li><p><strong>gas_costs</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Mapping</span></code></a>, <em>optional</em>) – Per-opcode gas prices overriding the default of one unit each, for
+experiments with a cost schedule. Unlisted opcodes cost one unit;
+every price must be at least one, so gas always bounds the run.</p></li>
+<li><p><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Record a <a class="reference internal" href="#blockchainkit.vm.core.base.TraceStep" title="blockchainkit.vm.core.base.TraceStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">TraceStep</span></code></a> after every
+executed instruction, in <code class="docutils literal notranslate"><span class="pre">ExecutionResult.trace</span></code> on success or
+<code class="docutils literal notranslate"><span class="pre">VMError.trace</span></code> on failure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Deterministic stack, storage, gas used, and the trace if requested.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.vm.core.base.ExecutionResult" title="blockchainkit.vm.core.base.ExecutionResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.vm.core.base.ExecutionResult</span></code></a></p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#blockchainkit.vm.core.base.VMError" title="blockchainkit.vm.core.base.VMError"><strong>VMError</strong></a> – Malformed program, stack underflow or overflow, division by zero,
+    <code class="docutils literal notranslate"><span class="pre">REVERT</span></code>, or running out of gas. Storage is then left unchanged.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">execute</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">execute</span><span class="p">([(</span><span class="s2">"PUSH"</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s2">"PUSH"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"SUB"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)])</span><span class="o">.</span><span class="n">stack</span>
+<span class="go">(5,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">step</span><span class="o">.</span><span class="n">stack</span> <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">execute</span><span class="p">([(</span><span class="s2">"PUSH"</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s2">"DUP"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span> <span class="n">trace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">trace</span><span class="p">]</span>
+<span class="go">[(7,), (7, 7)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">execute</span><span class="p">([(</span><span class="s2">"MUL"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)],</span> <span class="n">arguments</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span><span class="o">.</span><span class="n">stack</span>
+<span class="go">(42,)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="module-blockchainkit.vm.systems.assembler">A two-pass assembler: write programs as text, with labels for jump targets.</p>
+<p>Each line holds one instruction, an opcode with an optional operand, or a
+label ending in <code class="docutils literal notranslate"><span class="pre">:</span></code>. <code class="docutils literal notranslate"><span class="pre">#</span></code> starts a comment. A jump may name a label
+instead of an address; the first pass records where each label points, the
+second replaces label names by those addresses.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sum 1 + 2 + ... + n, with n in slot 0 and the sum in slot 1.</span>
+<span class="n">loop</span><span class="p">:</span>
+    <span class="n">LOAD</span> <span class="mi">0</span>
+    <span class="n">JZ</span> <span class="n">done</span>
+    <span class="n">LOAD</span> <span class="mi">1</span>
+    <span class="n">LOAD</span> <span class="mi">0</span>
+    <span class="n">ADD</span>
+    <span class="n">STORE</span> <span class="mi">1</span>
+    <span class="n">LOAD</span> <span class="mi">0</span>
+    <span class="n">PUSH</span> <span class="mi">1</span>
+    <span class="n">SUB</span>
+    <span class="n">STORE</span> <span class="mi">0</span>
+    <span class="n">JMP</span> <span class="n">loop</span>
+<span class="n">done</span><span class="p">:</span>
+    <span class="n">STOP</span>
+</pre></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.assembler.assemble">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.assembler.</span></span><span class="sig-name descname"><span class="pre">assemble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/assembler.html#assemble"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.assembler.assemble" title="Link to this definition">#</a></dt>
+<dd><p>Translate assembly text into <code class="docutils literal notranslate"><span class="pre">(opcode,</span> <span class="pre">operand)</span></code> instructions.</p>
+<p>Operands are decimal or <code class="docutils literal notranslate"><span class="pre">0x</span></code> hexadecimal integers, or labels for
+<code class="docutils literal notranslate"><span class="pre">JMP</span></code> and <code class="docutils literal notranslate"><span class="pre">JZ</span></code>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">assemble</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">assemble</span><span class="p">(</span><span class="s1">'''</span>
+<span class="gp">... </span><span class="s1">start:</span>
+<span class="gp">... </span><span class="s1">    PUSH 0x10   # sixteen</span>
+<span class="gp">... </span><span class="s1">    JZ start</span>
+<span class="gp">... </span><span class="s1">'''</span><span class="p">)</span>
+<span class="go">(('PUSH', 16), ('JZ', 0))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a> | None], …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.vm.systems.expressions">Reverse Polish notation (Łukasiewicz 1924; Hamblin 1957) and its compilation.</p>
+<p>Łukasiewicz wrote logical formulas with the operator first, which needs no
+parentheses: <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">1</span> <span class="pre">*</span> <span class="pre">2</span> <span class="pre">3</span></code>. Hamblin saw that the reversed form,
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">+</span></code>, is exactly the order in which a stack machine computes: push
+operands, and let each operator replace the top two values by its result.
+Dijkstra’s shunting-yard algorithm (1961) converts ordinary infix notation
+to that order, which is how expressions become stack-machine code.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.expressions.to_rpn">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.expressions.</span></span><span class="sig-name descname"><span class="pre">to_rpn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expression</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/expressions.html#to_rpn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.expressions.to_rpn" title="Link to this definition">#</a></dt>
+<dd><p>Convert an infix expression to reverse Polish notation (shunting yard).</p>
+<p>Supports non-negative integers, <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">/</span></code> with the usual precedence
+and left associativity, and parentheses.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_rpn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">to_rpn</span><span class="p">(</span><span class="s2">"(1 + 2) * 3 - 4"</span><span class="p">)</span>
+<span class="go">('1', '2', '+', '3', '*', '4', '-')</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>expression</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.expressions.compile_expression">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.expressions.</span></span><span class="sig-name descname"><span class="pre">compile_expression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expression</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/expressions.html#compile_expression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.expressions.compile_expression" title="Link to this definition">#</a></dt>
+<dd><p>Compile an infix expression to stack-machine instructions via RPN.</p>
+<p>Each number becomes <code class="docutils literal notranslate"><span class="pre">PUSH</span></code> and each operator its opcode. Arithmetic is
+then the machine’s: modulo <code class="docutils literal notranslate"><span class="pre">2**256</span></code>, with <code class="docutils literal notranslate"><span class="pre">/</span></code> as floor division.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">compile_expression</span><span class="p">,</span> <span class="n">execute</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">execute</span><span class="p">(</span><span class="n">compile_expression</span><span class="p">(</span><span class="s2">"(1 + 2) * 3 - 4"</span><span class="p">))</span><span class="o">.</span><span class="n">stack</span>
+<span class="go">(5,)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>expression</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a> | None], …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.vm.systems.verifier">Static bytecode verification (Gosling 1995; the Java virtual machine).</p>
+<p>Java’s virtual machine checks downloaded code <em>before</em> running it, so the
+interpreter can skip run-time checks. The verifier follows every path
+through the program, tracking how many values are on the stack at each
+instruction, without running anything. It rejects code that could
+underflow the stack on some path, or that reaches the same instruction with
+different stack heights along different paths (as a loop that pushes on
+every turn does). Code that passes has a known maximum stack depth.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.verifier.verify_bytecode">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.verifier.</span></span><span class="sig-name descname"><span class="pre">verify_bytecode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">program</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/verifier.html#verify_bytecode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.verifier.verify_bytecode" title="Link to this definition">#</a></dt>
+<dd><p>Check stack safety on every path and compute the maximum stack depth.</p>
+<p>This is abstract interpretation: the abstract state at an instruction is
+a single number, the stack height on entry. Starting from <code class="docutils literal notranslate"><span class="pre">arguments</span></code>
+at instruction 0, the verifier propagates heights along every edge
+(both outcomes of <code class="docutils literal notranslate"><span class="pre">JZ</span></code>) until nothing changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Iterable</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>) – Instructions, validated for shape first.</p></li>
+<li><p><strong>arguments</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Values on the stack when execution starts.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">max_depth</span></code> and the list of problems found; <code class="docutils literal notranslate"><span class="pre">ok</span></code> if there are none.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#blockchainkit.vm.core.base.VerificationResult" title="blockchainkit.vm.core.base.VerificationResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.vm.core.base.VerificationResult</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">verify_bytecode</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verify_bytecode</span><span class="p">([(</span><span class="s2">"PUSH"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">"ADD"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)])</span><span class="o">.</span><span class="n">errors</span>
+<span class="go">('pc 1: ADD needs 2 values but only 1 can be on the stack',)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verify_bytecode</span><span class="p">([(</span><span class="s2">"PUSH"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">"PUSH"</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">"ADD"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)])</span><span class="o">.</span><span class="n">max_depth</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p id="module-blockchainkit.vm.systems.turing">Turing machines (1936), the halting problem, and Radó’s busy beaver (1962).</p>
+<p>A Turing machine reads one cell of an unbounded tape, and according to its
+state and the symbol there, writes a symbol, moves left or right, and
+changes state. Turing proved that no program can decide, for every machine,
+whether it halts. Radó turned that into numbers: the <em>busy beaver</em> <code class="docutils literal notranslate"><span class="pre">S(n)</span></code>
+is the most steps any halting <code class="docutils literal notranslate"><span class="pre">n</span></code>-state, 2-symbol machine takes from a
+blank tape. <code class="docutils literal notranslate"><span class="pre">S</span></code> grows faster than any computable function, so no
+fixed budget can separate “still running” from “never halts”. Blockchains
+respond the way Radó’s search must: they cap the work (gas) and stop there.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.turing.Rule">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.turing.</span></span><span class="sig-name descname"><span class="pre">Rule</span></span><a class="headerlink" href="#blockchainkit.vm.systems.turing.Rule" title="Link to this definition">#</a></dt>
+<dd><p>move is -1 (left) or +1 (right); state <code class="docutils literal notranslate"><span class="pre">&quot;H&quot;</span></code> halts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">(write,</span> <span class="pre">move,</span> <span class="pre">next_state)</span></code></p>
+</dd>
+</dl>
+<p>alias of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.turing.HALT">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.turing.</span></span><span class="sig-name descname"><span class="pre">HALT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'H'</span></span><a class="headerlink" href="#blockchainkit.vm.systems.turing.HALT" title="Link to this definition">#</a></dt>
+<dd><p>The halting state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.turing.run_turing_machine">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.turing.</span></span><span class="sig-name descname"><span class="pre">run_turing_machine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rules</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'A'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/turing.html#run_turing_machine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.turing.run_turing_machine" title="Link to this definition">#</a></dt>
+<dd><p>Run a 2-symbol machine from a blank tape for at most <code class="docutils literal notranslate"><span class="pre">max_steps</span></code> steps.</p>
+<p>The transition into the halting state counts as a step, as in Radó’s
+definition. If the machine returns to an earlier configuration (same
+state, head position and tape), it provably runs forever. Otherwise,
+when the budget runs out, the outcome is unknown.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_turing_machine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">champion</span> <span class="o">=</span> <span class="p">{(</span><span class="s2">"A"</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">),</span>
+<span class="gp">... </span>            <span class="p">(</span><span class="s2">"B"</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"B"</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"H"</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run</span> <span class="o">=</span> <span class="n">run_turing_machine</span><span class="p">(</span><span class="n">champion</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run</span><span class="o">.</span><span class="n">outcome</span><span class="p">,</span> <span class="n">run</span><span class="o">.</span><span class="n">steps</span><span class="p">,</span> <span class="n">run</span><span class="o">.</span><span class="n">ones</span>
+<span class="go">('halted', 6, 4)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rules</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Mapping" title="(in Python v3.14)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em><em>]</em>)</p></li>
+<li><p><strong>max_steps</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>start</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#blockchainkit.vm.core.base.TuringRun" title="blockchainkit.vm.core.base.TuringRun"><em>TuringRun</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.turing.enumerate_machines">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.turing.</span></span><span class="sig-name descname"><span class="pre">enumerate_machines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">states</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/turing.html#enumerate_machines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.turing.enumerate_machines" title="Link to this definition">#</a></dt>
+<dd><p>Yield every <code class="docutils literal notranslate"><span class="pre">states</span></code>-state, 2-symbol machine: <code class="docutils literal notranslate"><span class="pre">(4</span> <span class="pre">(states</span> <span class="pre">+</span> <span class="pre">1))</span> <span class="pre">**</span> <span class="pre">(2</span> <span class="pre">states)</span></code> of them.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">enumerate_machines</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">enumerate_machines</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">64</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>states</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator" title="(in Python v3.14)"><em>Iterator</em></a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.14)">dict</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a>], <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a>, <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>]]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.turing.busy_beaver">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.turing.</span></span><span class="sig-name descname"><span class="pre">busy_beaver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/turing.html#busy_beaver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.turing.busy_beaver" title="Link to this definition">#</a></dt>
+<dd><p>Search every machine with <code class="docutils literal notranslate"><span class="pre">states</span></code> states for the longest halting run.</p>
+<p>Each machine runs for at most <code class="docutils literal notranslate"><span class="pre">max_steps</span></code> steps. The answer equals
+<code class="docutils literal notranslate"><span class="pre">S(states)</span></code> only if every machine classified as unknown really runs
+forever, which this search cannot prove; that gap is the halting problem.
+Feasible here for 1 or 2 states (20,736 machines for 2).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">busy_beaver</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">busy_beaver</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">steps</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>states</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>max_steps</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#blockchainkit.vm.core.base.BusyBeaverResult" title="blockchainkit.vm.core.base.BusyBeaverResult"><em>BusyBeaverResult</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.vm.systems.script">Bitcoin-style Script (2009): spending conditions as tiny stack programs.</p>
+<p>A coin is locked by a <em>locking script</em>; to spend it, one supplies an
+<em>unlocking script</em>. The unlocking script runs first, then the locking script
+runs on the stack it left, and the spend is valid if no step fails and the
+top of the stack is true. Script deliberately has no loops, so a script of n
+operations runs at most n steps and needs no gas.</p>
+<p>Teaching differences from Bitcoin: stack items are byte strings, but numbers
+are big-endian; <code class="docutils literal notranslate"><span class="pre">OP_HASH256</span></code> (double SHA-256) replaces <code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code> in
+pay-to-public-key-hash; and <code class="docutils literal notranslate"><span class="pre">OP_CHECKSIG</span></code> checks a blockchainkit Schnorr
+signature over an explicit message rather than a transaction digest.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.ScriptItem">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">ScriptItem</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">bytes</span> <span class="pre">|</span> <span class="pre">str</span></span><a class="headerlink" href="#blockchainkit.vm.systems.script.ScriptItem" title="Link to this definition">#</a></dt>
+<dd><p>A data push (bytes) or an opcode name such as <code class="docutils literal notranslate"><span class="pre">&quot;OP_DUP&quot;</span></code> (str).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.OPCODES">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">OPCODES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">frozenset({'OP_CHECKLOCKTIMEVERIFY',</span> <span class="pre">'OP_CHECKSIG',</span> <span class="pre">'OP_DROP',</span> <span class="pre">'OP_DUP',</span> <span class="pre">'OP_ELSE',</span> <span class="pre">'OP_ENDIF',</span> <span class="pre">'OP_EQUAL',</span> <span class="pre">'OP_EQUALVERIFY',</span> <span class="pre">'OP_FALSE',</span> <span class="pre">'OP_HASH256',</span> <span class="pre">'OP_IF',</span> <span class="pre">'OP_RETURN',</span> <span class="pre">'OP_SHA256',</span> <span class="pre">'OP_TRUE',</span> <span class="pre">'OP_VERIFY'})</span></span><a class="headerlink" href="#blockchainkit.vm.systems.script.OPCODES" title="Link to this definition">#</a></dt>
+<dd><p>Every opcode the interpreter accepts.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.encode_public_key">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">encode_public_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">public</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/script.html#encode_public_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.script.encode_public_key" title="Link to this definition">#</a></dt>
+<dd><p>A public key as stack bytes (uncompressed point encoding).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>public</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.encode_signature">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">encode_signature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/script.html#encode_signature"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.script.encode_signature" title="Link to this definition">#</a></dt>
+<dd><p>A signature as stack bytes: the commitment point, then the 32-byte response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>signature</strong> (<a class="reference internal" href="crypto.html#blockchainkit.crypto.core.base.SchnorrSignature" title="blockchainkit.crypto.core.base.SchnorrSignature"><em>SchnorrSignature</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.number">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">number</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/script.html#number"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.script.number" title="Link to this definition">#</a></dt>
+<dd><p>Encode a non-negative integer as minimal big-endian bytes (0 is empty).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.verify_script">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">verify_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unlocking</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locking</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locktime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/script.html#verify_script"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.script.verify_script" title="Link to this definition">#</a></dt>
+<dd><p>Run the unlocking script, then the locking script on its stack, and judge the spend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>unlocking</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Data pushes and opcode names.</p></li>
+<li><p><strong>locking</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a> or <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Data pushes and opcode names.</p></li>
+<li><p><strong>message</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></a>) – What <code class="docutils literal notranslate"><span class="pre">OP_CHECKSIG</span></code> signatures must sign (the spending transaction).</p></li>
+<li><p><strong>locktime</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The spending transaction’s lock time, compared by
+<code class="docutils literal notranslate"><span class="pre">OP_CHECKLOCKTIMEVERIFY</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#blockchainkit.vm.core.base.ScriptResult" title="blockchainkit.vm.core.base.ScriptResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.vm.core.base.ScriptResult</span></code></a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Running the scripts separately matters: until 2010 Bitcoin concatenated
+them, and the unlocking script <code class="docutils literal notranslate"><span class="pre">OP_TRUE</span> <span class="pre">OP_RETURN</span></code> ended execution
+early with true on top, spending any coin (CVE-2010-5141).</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto</span><span class="w"> </span><span class="kn">import</span> <span class="n">sha256</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">verify_script</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">verify_script</span><span class="p">([</span><span class="sa">b</span><span class="s2">"secret"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"OP_SHA256"</span><span class="p">,</span> <span class="n">sha256</span><span class="p">(</span><span class="sa">b</span><span class="s2">"secret"</span><span class="p">),</span> <span class="s2">"OP_EQUAL"</span><span class="p">])</span><span class="o">.</span><span class="n">valid</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.p2pkh_locking">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">p2pkh_locking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">public</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/script.html#p2pkh_locking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.script.p2pkh_locking" title="Link to this definition">#</a></dt>
+<dd><p>Pay to public-key hash: <code class="docutils literal notranslate"><span class="pre">OP_DUP</span> <span class="pre">OP_HASH256</span> <span class="pre">&lt;hash&gt;</span> <span class="pre">OP_EQUALVERIFY</span> <span class="pre">OP_CHECKSIG</span></code>.</p>
+<p>The coin names only the hash of a key; the spender reveals the key and
+a signature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>public</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes">bytes</a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.p2pkh_unlocking">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">p2pkh_unlocking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">public</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/script.html#p2pkh_unlocking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.script.p2pkh_unlocking" title="Link to this definition">#</a></dt>
+<dd><p>The matching unlocking script: <code class="docutils literal notranslate"><span class="pre">&lt;signature&gt;</span> <span class="pre">&lt;public</span> <span class="pre">key&gt;</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signature</strong> (<a class="reference internal" href="crypto.html#blockchainkit.crypto.core.base.SchnorrSignature" title="blockchainkit.crypto.core.base.SchnorrSignature"><em>SchnorrSignature</em></a>)</p></li>
+<li><p><strong>public</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes">bytes</a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.script.htlc_locking">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.script.</span></span><span class="sig-name descname"><span class="pre">htlc_locking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payment_hash</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refund</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/script.html#htlc_locking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.script.htlc_locking" title="Link to this definition">#</a></dt>
+<dd><p>A hash time-locked contract.</p>
+<p>The recipient can claim with a signature and the preimage of
+<code class="docutils literal notranslate"><span class="pre">payment_hash</span></code> (SHA-256); after <code class="docutils literal notranslate"><span class="pre">timeout</span></code>, the sender can take a
+refund with its own signature:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OP_IF</span>
+    <span class="n">OP_SHA256</span> <span class="o">&lt;</span><span class="n">payment_hash</span><span class="o">&gt;</span> <span class="n">OP_EQUALVERIFY</span> <span class="o">&lt;</span><span class="n">recipient</span><span class="o">&gt;</span>
+<span class="n">OP_ELSE</span>
+    <span class="o">&lt;</span><span class="n">timeout</span><span class="o">&gt;</span> <span class="n">OP_CHECKLOCKTIMEVERIFY</span> <span class="n">OP_DROP</span> <span class="o">&lt;</span><span class="n">refund</span><span class="o">&gt;</span>
+<span class="n">OP_ENDIF</span>
+<span class="n">OP_CHECKSIG</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>payment_hash</strong> (<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes"><em>bytes</em></a>)</p></li>
+<li><p><strong>recipient</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+<li><p><strong>refund</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference internal" href="network.html#blockchainkit.network.core.base.RelayCost.bytes" title="blockchainkit.network.core.base.RelayCost.bytes">bytes</a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.vm.systems.programs">Small contracts written for the stack machine.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#blockchainkit.vm.systems.programs.vending_machine" title="blockchainkit.vm.systems.programs.vending_machine"><code class="xref py py-func docutils literal notranslate"><span class="pre">vending_machine()</span></code></a>: Szabo’s (1994) example of a contract enforced by
+a mechanism rather than a court: pay at least the price and an item and
+your change come out; otherwise nothing happens.</p></li>
+<li><p><a class="reference internal" href="#blockchainkit.vm.systems.programs.batch_transfer" title="blockchainkit.vm.systems.programs.batch_transfer"><code class="xref py py-func docutils literal notranslate"><span class="pre">batch_transfer()</span></code></a>: the token function behind the 2018 BeautyChain
+(BEC) exploit, where <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">*</span> <span class="pre">value</span></code> overflowed 256 bits.</p></li>
+</ul>
+<p>Both are assembled with <a class="reference internal" href="#blockchainkit.vm.systems.assembler.assemble" title="blockchainkit.vm.systems.assembler.assemble"><code class="xref py py-func docutils literal notranslate"><span class="pre">assemble()</span></code></a>
+and run with <a class="reference internal" href="#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">execute()</span></code></a>.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.programs.STOCK">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.programs.</span></span><span class="sig-name descname"><span class="pre">STOCK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#blockchainkit.vm.systems.programs.STOCK" title="Link to this definition">#</a></dt>
+<dd><p>Storage slots of the vending machine.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.programs.PRICE">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.programs.</span></span><span class="sig-name descname"><span class="pre">PRICE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#blockchainkit.vm.systems.programs.PRICE" title="Link to this definition">#</a></dt>
+<dd><p>Storage slots of the vending machine.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.programs.REVENUE">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.programs.</span></span><span class="sig-name descname"><span class="pre">REVENUE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#blockchainkit.vm.systems.programs.REVENUE" title="Link to this definition">#</a></dt>
+<dd><p>Storage slots of the vending machine.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.programs.vending_machine">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.programs.</span></span><span class="sig-name descname"><span class="pre">vending_machine</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/programs.html#vending_machine"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.programs.vending_machine" title="Link to this definition">#</a></dt>
+<dd><p>A vending machine: argument <code class="docutils literal notranslate"><span class="pre">payment</span></code>; storage holds stock, price and revenue.</p>
+<p>On success the stock drops by one, the revenue grows by the price, and
+the change <code class="docutils literal notranslate"><span class="pre">payment</span> <span class="pre">-</span> <span class="pre">price</span></code> is left on the stack. Paying too little,
+or buying from an empty machine, reverts, so neither side can be cheated.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">execute</span><span class="p">,</span> <span class="n">vending_machine</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">execute</span><span class="p">(</span><span class="n">vending_machine</span><span class="p">(),</span> <span class="n">arguments</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,),</span> <span class="n">storage</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span><span class="o">.</span><span class="n">stack</span><span class="p">,</span> <span class="nb">dict</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">storage</span><span class="p">)</span>
+<span class="go">((3,), {0: 2, 1: 2, 2: 2})</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a> | None], …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.programs.batch_transfer">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.programs.</span></span><span class="sig-name descname"><span class="pre">batch_transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recipients</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">checked</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/programs.html#batch_transfer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.programs.batch_transfer" title="Link to this definition">#</a></dt>
+<dd><p>Pay <code class="docutils literal notranslate"><span class="pre">value</span></code> (the one argument) from <code class="docutils literal notranslate"><span class="pre">sender</span></code> to each recipient.</p>
+<p>Balances live in storage, one slot per account. Like BeautyChain’s
+<code class="docutils literal notranslate"><span class="pre">batchTransfer</span></code>, the program computes <code class="docutils literal notranslate"><span class="pre">amount</span> <span class="pre">=</span> <span class="pre">count</span> <span class="pre">*</span> <span class="pre">value</span></code>,
+checks the sender’s balance against <code class="docutils literal notranslate"><span class="pre">amount</span></code>, debits <code class="docutils literal notranslate"><span class="pre">amount</span></code> once
+and credits <code class="docutils literal notranslate"><span class="pre">value</span></code> to every recipient. The multiplication wraps
+modulo <code class="docutils literal notranslate"><span class="pre">2**256</span></code>: with two recipients and <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">2**255</span></code>, <code class="docutils literal notranslate"><span class="pre">amount</span></code>
+is 0, every check passes, and each recipient receives <code class="docutils literal notranslate"><span class="pre">2**255</span></code> tokens
+from nothing. <code class="docutils literal notranslate"><span class="pre">checked=True</span></code> adds the SafeMath test
+<code class="docutils literal notranslate"><span class="pre">amount</span> <span class="pre">/</span> <span class="pre">count</span> <span class="pre">==</span> <span class="pre">value</span></code>, which rejects the overflow.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">batch_transfer</span><span class="p">,</span> <span class="n">execute</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">program</span> <span class="o">=</span> <span class="n">batch_transfer</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">(</span><span class="n">execute</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="n">arguments</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,),</span> <span class="n">storage</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span><span class="o">.</span><span class="n">storage</span><span class="p">)</span>
+<span class="go">{1: 80, 2: 10, 3: 10}</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sender</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+<li><p><strong>recipients</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><em>int</em></a><em>]</em>)</p></li>
+<li><p><strong>checked</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.14)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)">str</a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)">int</a> | None], …]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-blockchainkit.vm.systems.reentrancy">Reentrancy: the DAO attack (2016).</p>
+<p>The DAO’s withdrawal code sent ether <em>before</em> zeroing the caller’s balance.
+Sending ether to a contract runs that contract’s code, so the attacker’s
+contract called <code class="docutils literal notranslate"><span class="pre">withdraw</span></code> again from inside the payment, while its
+balance still showed the full deposit, and again, until the funds ran out
+or the call stack’s depth limit stopped it. About 3.6 million ether were
+drained in June 2016.</p>
+<p>The fix is the <em>checks-effects-interactions</em> order: check the conditions,
+update the contract’s own state, and only then call out. A re-entrant call
+then finds a zero balance and gets nothing.</p>
+<p>This module models the two orders directly in Python: the bank’s state is
+two numbers, and “sending” calls the attacker’s fallback.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.systems.reentrancy.drain_bank">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.systems.reentrancy.</span></span><span class="sig-name descname"><span class="pre">drain_bank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other_deposits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attacker_deposit</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">checks_effects_interactions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/systems/reentrancy.html#drain_bank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.systems.reentrancy.drain_bank" title="Link to this definition">#</a></dt>
+<dd><p>Let an attacker that re-enters on every payment withdraw from a bank.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other_deposits</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Funds belonging to everyone else.</p></li>
+<li><p><strong>attacker_deposit</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The attacker’s own deposit, at least 1.</p></li>
+<li><p><strong>checks_effects_interactions</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – False: the vulnerable order (pay, then zero the balance). True: zero
+the balance before paying.</p></li>
+<li><p><strong>max_depth</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Maximum call depth (1024 in Ethereum then), bounding the recursion.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#blockchainkit.vm.core.base.ReentrancyResult" title="blockchainkit.vm.core.base.ReentrancyResult"><em>ReentrancyResult</em></a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm</span><span class="w"> </span><span class="kn">import</span> <span class="n">drain_bank</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">drain_bank</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">stolen</span><span class="p">,</span> <span class="n">drain_bank</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">checks_effects_interactions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">stolen</span>
+<span class="go">(90, 0)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-blockchainkit.vm.visualizers.plots">
+<span id="plotting"></span><h2>Plotting<a class="headerlink" href="#module-blockchainkit.vm.visualizers.plots" title="Link to this heading">#</a></h2>
+<p>Plotting helpers for blockchainkit.vm: execution traces and stack heights.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.visualizers.plots.plot_execution_trace">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.visualizers.plots.</span></span><span class="sig-name descname"><span class="pre">plot_execution_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_rows</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/visualizers/plots.html#plot_execution_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.visualizers.plots.plot_execution_trace" title="Link to this definition">#</a></dt>
+<dd><p>Tabulate the stack, storage, and gas after each executed instruction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference internal" href="#blockchainkit.vm.core.base.TraceStep" title="blockchainkit.vm.core.base.TraceStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.vm.core.base.TraceStep</span></code></a>) – <code class="docutils literal notranslate"><span class="pre">ExecutionResult.trace</span></code> or <code class="docutils literal notranslate"><span class="pre">VMError.trace</span></code> from
+<code class="docutils literal notranslate"><span class="pre">execute(...,</span> <span class="pre">trace=True)</span></code>.</p></li>
+<li><p><strong>max_rows</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Show at most this many steps (the first ones), so loops stay legible.</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>, <em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="blockchainkit.vm.visualizers.plots.plot_stack_height">
+<span class="sig-prename descclassname"><span class="pre">blockchainkit.vm.visualizers.plots.</span></span><span class="sig-name descname"><span class="pre">plot_stack_height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trace</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/blockchainkit/vm/visualizers/plots.html#plot_stack_height"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#blockchainkit.vm.visualizers.plots.plot_stack_height" title="Link to this definition">#</a></dt>
+<dd><p>Plot the stack height after each executed instruction.</p>
+<p>The peak is the stack space the run needed: what a hardware stack must
+provide, and what static verification bounds in advance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trace</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">collections.abc.Sequence</span></code></a> of <a class="reference internal" href="#blockchainkit.vm.core.base.TraceStep" title="blockchainkit.vm.core.base.TraceStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.vm.core.base.TraceStep</span></code></a>) – From <code class="docutils literal notranslate"><span class="pre">execute(...,</span> <span class="pre">trace=True)</span></code>.</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <em>optional</em>) – Legend label, to compare several runs on one axes.</p></li>
+<li><p><strong>ax</strong> (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a>, <em>optional</em>) – Axes to draw on; a new figure is created if omitted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.axes.Axes.html#matplotlib.axes.Axes" title="(in Matplotlib v3.11.2)"><code class="xref py py-class docutils literal notranslate"><span class="pre">matplotlib.axes.Axes</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="network.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">blockchainkit.network</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="constants.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">blockchainkit.constants</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-blockchainkit.vm.core.base">Types and results</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.Instruction"><code class="docutils literal notranslate"><span class="pre">Instruction</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TraceStep"><code class="docutils literal notranslate"><span class="pre">TraceStep</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TraceStep.pc"><code class="docutils literal notranslate"><span class="pre">TraceStep.pc</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TraceStep.opcode"><code class="docutils literal notranslate"><span class="pre">TraceStep.opcode</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TraceStep.operand"><code class="docutils literal notranslate"><span class="pre">TraceStep.operand</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TraceStep.stack"><code class="docutils literal notranslate"><span class="pre">TraceStep.stack</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TraceStep.storage"><code class="docutils literal notranslate"><span class="pre">TraceStep.storage</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TraceStep.gas_used"><code class="docutils literal notranslate"><span class="pre">TraceStep.gas_used</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.VMError"><code class="docutils literal notranslate"><span class="pre">VMError</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.VMError.trace"><code class="docutils literal notranslate"><span class="pre">VMError.trace</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ExecutionResult"><code class="docutils literal notranslate"><span class="pre">ExecutionResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ExecutionResult.stack"><code class="docutils literal notranslate"><span class="pre">ExecutionResult.stack</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ExecutionResult.storage"><code class="docutils literal notranslate"><span class="pre">ExecutionResult.storage</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ExecutionResult.gas_used"><code class="docutils literal notranslate"><span class="pre">ExecutionResult.gas_used</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ExecutionResult.trace"><code class="docutils literal notranslate"><span class="pre">ExecutionResult.trace</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.VerificationResult"><code class="docutils literal notranslate"><span class="pre">VerificationResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.VerificationResult.max_depth"><code class="docutils literal notranslate"><span class="pre">VerificationResult.max_depth</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.VerificationResult.errors"><code class="docutils literal notranslate"><span class="pre">VerificationResult.errors</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.VerificationResult.ok"><code class="docutils literal notranslate"><span class="pre">VerificationResult.ok</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TuringRun"><code class="docutils literal notranslate"><span class="pre">TuringRun</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TuringRun.outcome"><code class="docutils literal notranslate"><span class="pre">TuringRun.outcome</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TuringRun.steps"><code class="docutils literal notranslate"><span class="pre">TuringRun.steps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.TuringRun.ones"><code class="docutils literal notranslate"><span class="pre">TuringRun.ones</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.BusyBeaverResult"><code class="docutils literal notranslate"><span class="pre">BusyBeaverResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.BusyBeaverResult.steps"><code class="docutils literal notranslate"><span class="pre">BusyBeaverResult.steps</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.BusyBeaverResult.ones"><code class="docutils literal notranslate"><span class="pre">BusyBeaverResult.ones</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.BusyBeaverResult.machine"><code class="docutils literal notranslate"><span class="pre">BusyBeaverResult.machine</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.BusyBeaverResult.counts"><code class="docutils literal notranslate"><span class="pre">BusyBeaverResult.counts</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ScriptResult"><code class="docutils literal notranslate"><span class="pre">ScriptResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ScriptResult.valid"><code class="docutils literal notranslate"><span class="pre">ScriptResult.valid</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ScriptResult.stack"><code class="docutils literal notranslate"><span class="pre">ScriptResult.stack</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ScriptResult.error"><code class="docutils literal notranslate"><span class="pre">ScriptResult.error</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ScriptResult.operations"><code class="docutils literal notranslate"><span class="pre">ScriptResult.operations</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ReentrancyResult"><code class="docutils literal notranslate"><span class="pre">ReentrancyResult</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ReentrancyResult.withdrawn"><code class="docutils literal notranslate"><span class="pre">ReentrancyResult.withdrawn</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ReentrancyResult.deposited"><code class="docutils literal notranslate"><span class="pre">ReentrancyResult.deposited</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ReentrancyResult.calls"><code class="docutils literal notranslate"><span class="pre">ReentrancyResult.calls</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ReentrancyResult.bank_balance"><code class="docutils literal notranslate"><span class="pre">ReentrancyResult.bank_balance</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.core.base.ReentrancyResult.stolen"><code class="docutils literal notranslate"><span class="pre">ReentrancyResult.stolen</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-blockchainkit.vm.systems.stack_machine">Constructions and protocols</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.stack_machine.OPERAND_OPCODES"><code class="docutils literal notranslate"><span class="pre">OPERAND_OPCODES</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.stack_machine.STACK_EFFECTS"><code class="docutils literal notranslate"><span class="pre">STACK_EFFECTS</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.stack_machine.OPCODES"><code class="docutils literal notranslate"><span class="pre">OPCODES</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.stack_machine.check_word"><code class="docutils literal notranslate"><span class="pre">check_word()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.stack_machine.validate_program"><code class="docutils literal notranslate"><span class="pre">validate_program()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.stack_machine.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.assembler.assemble"><code class="docutils literal notranslate"><span class="pre">assemble()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.expressions.to_rpn"><code class="docutils literal notranslate"><span class="pre">to_rpn()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.expressions.compile_expression"><code class="docutils literal notranslate"><span class="pre">compile_expression()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.verifier.verify_bytecode"><code class="docutils literal notranslate"><span class="pre">verify_bytecode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.turing.Rule"><code class="docutils literal notranslate"><span class="pre">Rule</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.turing.HALT"><code class="docutils literal notranslate"><span class="pre">HALT</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.turing.run_turing_machine"><code class="docutils literal notranslate"><span class="pre">run_turing_machine()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.turing.enumerate_machines"><code class="docutils literal notranslate"><span class="pre">enumerate_machines()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.turing.busy_beaver"><code class="docutils literal notranslate"><span class="pre">busy_beaver()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.ScriptItem"><code class="docutils literal notranslate"><span class="pre">ScriptItem</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.OPCODES"><code class="docutils literal notranslate"><span class="pre">OPCODES</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.encode_public_key"><code class="docutils literal notranslate"><span class="pre">encode_public_key()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.encode_signature"><code class="docutils literal notranslate"><span class="pre">encode_signature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.number"><code class="docutils literal notranslate"><span class="pre">number()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.verify_script"><code class="docutils literal notranslate"><span class="pre">verify_script()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.p2pkh_locking"><code class="docutils literal notranslate"><span class="pre">p2pkh_locking()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.p2pkh_unlocking"><code class="docutils literal notranslate"><span class="pre">p2pkh_unlocking()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.script.htlc_locking"><code class="docutils literal notranslate"><span class="pre">htlc_locking()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.programs.STOCK"><code class="docutils literal notranslate"><span class="pre">STOCK</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.programs.PRICE"><code class="docutils literal notranslate"><span class="pre">PRICE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.programs.REVENUE"><code class="docutils literal notranslate"><span class="pre">REVENUE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.programs.vending_machine"><code class="docutils literal notranslate"><span class="pre">vending_machine()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.programs.batch_transfer"><code class="docutils literal notranslate"><span class="pre">batch_transfer()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.systems.reentrancy.drain_bank"><code class="docutils literal notranslate"><span class="pre">drain_bank()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-blockchainkit.vm.visualizers.plots">Plotting</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.visualizers.plots.plot_execution_trace"><code class="docutils literal notranslate"><span class="pre">plot_execution_trace()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#blockchainkit.vm.visualizers.plots.plot_stack_height"><code class="docutils literal notranslate"><span class="pre">plot_stack_height()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/vm.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

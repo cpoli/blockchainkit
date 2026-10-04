@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structures_state:
+
+State commitments
+-----------------
+
+Committing to a whole key-value state with one root.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A blockchain&#x27;s state is a map from accounts to balances. A sparse Merkle tree commits to such a map: it is a tree with a leaf for every possible key, almost all empty, so each key has a fixed position. Empty subtrees have precomputed digests, so only paths to stored keys cost anything. Dahlberg, Pulls and Peeters made them efficient and gave non-membership proofs.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/state/images/thumb/sphx_glr_plot_01_sparse_merkle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/state/plot_01_sparse_merkle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Sparse Merkle trees: proofs of absence (Dahlberg, Pulls and Peeters 2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/state/plot_01_sparse_merkle
+

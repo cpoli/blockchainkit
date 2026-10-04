@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.158669Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.731935Z",
+      "mimetype": null,
+      "name": "plot_02_hashcash.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/pow/plot_02_hashcash.ipynb",
+      "size": 3715,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.158325Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.731682Z",
+      "mimetype": null,
+      "name": "plot_01_pricing_via_processing.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/pow/plot_01_pricing_via_processing.ipynb",
+      "size": 3613,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.158975Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.732188Z",
+      "mimetype": null,
+      "name": "plot_03_difficulty_retargeting.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/pow/plot_03_difficulty_retargeting.ipynb",
+      "size": 3376,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.158975Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.158975Z",
+  "mimetype": null,
+  "name": "pow",
+  "path": "jupyterlite_contents/api/gallery/consensus/pow",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

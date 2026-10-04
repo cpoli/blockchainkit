@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_consensus_pow:
+
+Proof of work
+-------------
+
+Pricing functions, Hashcash, and difficulty retargeting.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Dwork and Naor proposed that a sender attach to each message the answer to a puzzle that is moderately hard to solve but easy to check. One of their pricing functions is a square root modulo a prime: computing it takes a full modular exponentiation, checking it a single multiplication. The idea of a cost asymmetry became proof of work.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pow/images/thumb/sphx_glr_plot_01_pricing_via_processing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pow/plot_01_pricing_via_processing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pricing via processing: making junk mail expensive (Dwork and Naor 1992)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="With d leading zero bits, a uniform hash succeeds with probability 2(-d). The expected search is 2d trials, but any one run can finish much earlier or later. Nonce search changes a commitment without changing the payload.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pow/images/thumb/sphx_glr_plot_02_hashcash_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pow/plot_02_hashcash`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hashcash: proof of work you can verify in one hash (Back 1997)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Proof of work is only a clock if its speed is controlled. Bitcoin adjusts its target every 2016 blocks by the ratio of the actual to the expected time, clamped to a factor of four, so blocks return to ten minutes after hashrate rises or falls.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pow/images/thumb/sphx_glr_plot_03_difficulty_retargeting_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pow/plot_03_difficulty_retargeting`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Difficulty retargeting: keeping ten-minute blocks (Bitcoin 2009)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/consensus/pow/plot_01_pricing_via_processing
+   /api/gallery/consensus/pow/plot_02_hashcash
+   /api/gallery/consensus/pow/plot_03_difficulty_retargeting
+

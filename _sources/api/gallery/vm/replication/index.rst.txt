@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_vm_replication:
+
+Replicated and atomic execution
+-------------------------------
+
+Deterministic replicas and all-or-nothing transactions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="If every replica starts in the same state and applies the same commands in the same order, deterministic execution keeps them identical. Lamport introduced the idea; Schneider&#x27;s tutorial made it the standard recipe for fault tolerance. A blockchain is exactly this: consensus agrees on the order of transactions, and every node executes them.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/replication/images/thumb/sphx_glr_plot_01_state_machine_replication_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/replication/plot_01_state_machine_replication`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">State-machine replication: same inputs, same order, same state (Lamport 1978, Schneider 1990)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Jim Gray defined the transaction: a group of actions that is atomic (either all happen or none), consistent, and durable. A bank transfer that debits one account must also credit the other, or do neither, however it fails halfway. Ethereum gives every call this property: if execution fails, every storage write it made is discarded.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/replication/images/thumb/sphx_glr_plot_02_atomic_transactions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/replication/plot_02_atomic_transactions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Atomic transactions: all or nothing (Gray 1981)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/vm/replication/plot_01_state_machine_replication
+   /api/gallery/vm/replication/plot_02_atomic_transactions
+

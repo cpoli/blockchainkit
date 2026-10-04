@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.178110Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.748300Z",
+      "mimetype": null,
+      "name": "plot_01_linked_timestamps.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/timestamps/plot_01_linked_timestamps.ipynb",
+      "size": 4338,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.178450Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.748712Z",
+      "mimetype": null,
+      "name": "plot_02_merkle_batching.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/timestamps/plot_02_merkle_batching.ipynb",
+      "size": 4164,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.178450Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.178450Z",
+  "mimetype": null,
+  "name": "timestamps",
+  "path": "jupyterlite_contents/api/gallery/structures/timestamps",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

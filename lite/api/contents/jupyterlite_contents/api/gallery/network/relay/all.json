@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.171997Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.742354Z",
+      "mimetype": null,
+      "name": "plot_01_inv_getdata.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/relay/plot_01_inv_getdata.ipynb",
+      "size": 4420,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.172664Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.742942Z",
+      "mimetype": null,
+      "name": "plot_03_compact_blocks.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/relay/plot_03_compact_blocks.ipynb",
+      "size": 4610,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.172978Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.743210Z",
+      "mimetype": null,
+      "name": "plot_04_dandelion.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/relay/plot_04_dandelion.ipynb",
+      "size": 3838,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.172321Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.742656Z",
+      "mimetype": null,
+      "name": "plot_02_propagation_and_forks.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/relay/plot_02_propagation_and_forks.ipynb",
+      "size": 4074,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.172978Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.172978Z",
+  "mimetype": null,
+  "name": "relay",
+  "path": "jupyterlite_contents/api/gallery/network/relay",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

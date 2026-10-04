@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.173388Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.743500Z",
+      "mimetype": null,
+      "name": "plot_01_cap_theorem.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/replication/plot_01_cap_theorem.ipynb",
+      "size": 4693,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.173388Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.173388Z",
+  "mimetype": null,
+  "name": "replication",
+  "path": "jupyterlite_contents/api/gallery/network/replication",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

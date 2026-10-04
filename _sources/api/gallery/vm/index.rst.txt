@@ -1,0 +1,454 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.vm``, one experiment per
+breakthrough on the :doc:`execution history page
+</history/vm_breakthroughs>`: reverse Polish notation, Turing machines and
+busy beavers, stack hardware, structured programming and Forth, replicated
+and atomic execution, smart contracts and bytecode verification, Bitcoin
+Script and hash time-locked contracts, and Ethereum's gas, repricing,
+reentrancy and overflow.
+
+Each script is self-contained and runs with
+``python examples/vm/<section>/<script>.py``.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Contracts and verification
+--------------------------
+
+A contract enforced by code, and checking code before running it.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Nick Szabo coined smart contract for terms of an agreement enforced by a mechanism rather than by courts, and gave the vending machine as the primordial example: anyone who inserts enough money gets the item and the change, and nobody can take the goods without paying. A blockchain contract is such a machine whose code and state every node can check.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/contracts/images/thumb/sphx_glr_plot_01_vending_machine_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/contracts/plot_01_vending_machine`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Smart contracts: the vending machine (Szabo 1994)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Java let browsers download and run code from strangers. Its virtual machine first verifies the bytecode: by following every path through the program without running it, it proves that no instruction can pop from an empty stack and that every instruction is always reached with the same stack height. Verified code needs no run-time stack checks and its maximum stack size is known in advance. Ethereum&#x27;s EOF format brings similar validation at deployment.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/contracts/images/thumb/sphx_glr_plot_02_bytecode_verification_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/contracts/plot_02_bytecode_verification`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bytecode verification: check before you run (Gosling 1995)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Ethereum
+--------
+
+Gas, gas repricing, reentrancy, and integer overflow.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ethereum turned a blockchain into a shared computer: every node runs every contract call and must reach the same state. Since no one can predict whether an arbitrary program halts, each call carries a gas budget; every instruction spends some, and running out aborts the call and undoes its effects. Words are 256 bits, wide enough for hashes and keys. This small stack machine uses unit instruction costs, not Ethereum&#x27;s prices.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_01_gas_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_01_gas`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ethereum: a replicated computer metered by gas (Buterin 2014)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gas is meant to be proportional to the work an instruction costs every node. In September 2016 attackers found instructions that were cheap in gas but slow to execute, because they read state from disk, and filled blocks with them, slowing nodes to a crawl. EIP-150 (&quot;Tangerine Whistle&quot;) raised their prices: reading storage went from 50 to 200 gas, and EXTCODESIZE and CALL from 20 and 40 to 700.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_02_gas_repricing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_02_gas_repricing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gas repricing after denial-of-service attacks (EIP-150, 2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The DAO was an Ethereum fund holding about 14% of all ether. Its withdrawal code sent ether before updating the caller&#x27;s balance. Sending ether to a contract runs the contract&#x27;s code, so in June 2016 an attacker&#x27;s contract called back into the withdrawal from inside the payment, again and again, while its balance still showed the original deposit. About 3.6 million ether were drained, and Ethereum hard-forked to return them.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_03_reentrancy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_03_reentrancy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The DAO and reentrancy: checks, effects, interactions (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EVM words wrap modulo 2256. In April 2018 an attacker called the BeautyChain (BEC) token&#x27;s batchTransfer with two recipients and a value of 2255. The contract computed the total as 2 * 2255, which wraps to 0, checked that the sender had at least 0 tokens, and credited each recipient 2255 tokens. Exchanges suspended the token (CVE-2018-10299). The SafeMath library&#x27;s checked arithmetic, and later Solidity 0.8&#x27;s default overflow checks, close the hole.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_04_integer_overflow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_04_integer_overflow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Integer overflow: minting tokens from nothing (BeautyChain, 2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Foundations of stack machines
+-----------------------------
+
+Reverse Polish notation, the halting problem and busy beavers, hardware
+stacks, structured control flow, and Forth.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Łukasiewicz wrote logic with operators before their operands, which needs no parentheses. Hamblin reversed it for computers: in reverse Polish notation, (1 + 2)  3 is 1 2 + 3 , and a machine evaluates it by pushing each number and letting each operator replace the top two values with the result. Dijkstra&#x27;s shunting-yard algorithm (1961) translates ordinary notation into that order. Every stack virtual machine, from Forth to the EVM, runs programs in this form.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_01_reverse_polish_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_01_reverse_polish`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reverse Polish notation: the stack's natural order (Łukasiewicz 1924, Hamblin 1957)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Turing defined computation with a machine that reads and writes a tape, and proved that no program can decide, for every machine and input, whether it eventually halts. Running a machine longer never settles the question: a machine that has not halted yet may halt later, or never. A blockchain that lets anyone submit programs therefore cannot check in advance that they terminate. It bounds them instead, with a step budget.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_02_halting_problem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_02_halting_problem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The halting problem: why every call needs a budget (Turing 1936)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Robert Barton designed the Burroughs B5000 around a hardware stack: programs compiled from Algol were sequences of stack operations, with no general registers to allocate. A real stack has finite size, so the machine must know how deep a computation goes. The EVM limits its stack to 1024 words for the same reason.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_03_hardware_stack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_03_hardware_stack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Stack hardware: a bounded stack (Burroughs B5000, Barton 1961)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Radó asked: among all Turing machines with n states that halt when started on a blank tape, which runs longest? Call that number of steps S(n). For n = 2, a search over every machine gives S(2) = 6. But S grows faster than any computable function: S(3) = 21, S(4) = 107, and S(5) = 47,176,870, proved only in 2024. Knowing S(n) would solve the halting problem for n-state machines, so no algorithm computes it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_04_busy_beaver_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_04_busy_beaver`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The busy beaver: the longest a small machine can run (Radó 1962)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Böhm and Jacopini proved that any flowchart can be rewritten using only three constructs: doing things in sequence, choosing between two branches, and repeating while a condition holds. On a stack machine those are simply straight-line code, a conditional jump (``JZ``) and a backward jump (``JMP``). The assembler lets us write them with labels instead of addresses.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_05_structured_programming_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_05_structured_programming`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Structured programming: sequence, selection, iteration (Böhm and Jacopini 1966)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Charles Moore&#x27;s Forth has no named variables in expressions: words such as DUP, DROP, SWAP, OVER and ROT rearrange the stack, and each word is documented by its stack diagram: OVER ( a b -- a b a ). Small, fast and easy to implement, Forth ran telescopes and spacecraft. Bitcoin Script is described as Forth-like, and the EVM&#x27;s DUP and SWAP families serve the same purpose.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/foundations/images/thumb/sphx_glr_plot_06_forth_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/foundations/plot_06_forth`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Forth: programming with stack words (Moore 1970)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Replicated and atomic execution
+-------------------------------
+
+Deterministic replicas and all-or-nothing transactions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="If every replica starts in the same state and applies the same commands in the same order, deterministic execution keeps them identical. Lamport introduced the idea; Schneider&#x27;s tutorial made it the standard recipe for fault tolerance. A blockchain is exactly this: consensus agrees on the order of transactions, and every node executes them.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/replication/images/thumb/sphx_glr_plot_01_state_machine_replication_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/replication/plot_01_state_machine_replication`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">State-machine replication: same inputs, same order, same state (Lamport 1978, Schneider 1990)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Jim Gray defined the transaction: a group of actions that is atomic (either all happen or none), consistent, and durable. A bank transfer that debits one account must also credit the other, or do neither, however it fails halfway. Ethereum gives every call this property: if execution fails, every storage write it made is discarded.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/replication/images/thumb/sphx_glr_plot_02_atomic_transactions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/replication/plot_02_atomic_transactions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Atomic transactions: all or nothing (Gray 1981)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Bitcoin Script
+--------------
+
+Spending conditions as loop-free stack programs: pay-to-public-key-hash and
+hash time-locked contracts.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin does not record owners. Each coin carries a locking script, and spending it means supplying an unlocking script that makes the pair succeed. The standard lock, pay-to-public-key-hash, says: &quot;show a public key with this hash, and a signature by it over the spending transaction&quot;. Script is a Forth-like stack language with no loops, so a script of n operations runs at most n steps: Bitcoin needs no gas.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/script/images/thumb/sphx_glr_plot_01_p2pkh_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/script/plot_01_p2pkh`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bitcoin Script: pay to public-key hash (Nakamoto 2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A hash time-locked contract (HTLC) pays the recipient if they reveal the preimage of a hash before a deadline, and otherwise lets the sender take the money back. Peter Todd&#x27;s OP_CHECKLOCKTIMEVERIFY (BIP 65, 2015) made the deadline enforceable in Script, and Poon and Dryja&#x27;s Lightning Network (2016) chains HTLCs with the same hash across many channels, so a payment either completes along the whole route or nowhere.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/script/images/thumb/sphx_glr_plot_02_htlc_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/script/plot_02_htlc`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hash time-locked contracts: pay for a secret, or get a refund (2015-2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/vm/contracts/index.rst
+   /api/gallery/vm/ethereum/index.rst
+   /api/gallery/vm/foundations/index.rst
+   /api/gallery/vm/replication/index.rst
+   /api/gallery/vm/script/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: vm_python.zip </api/gallery/vm/vm_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: vm_jupyter.zip </api/gallery/vm/vm_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

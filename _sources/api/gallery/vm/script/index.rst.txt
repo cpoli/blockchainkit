@@ -1,0 +1,69 @@
+
+
+.. _sphx_glr_api_gallery_vm_script:
+
+Bitcoin Script
+--------------
+
+Spending conditions as loop-free stack programs: pay-to-public-key-hash and
+hash time-locked contracts.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin does not record owners. Each coin carries a locking script, and spending it means supplying an unlocking script that makes the pair succeed. The standard lock, pay-to-public-key-hash, says: &quot;show a public key with this hash, and a signature by it over the spending transaction&quot;. Script is a Forth-like stack language with no loops, so a script of n operations runs at most n steps: Bitcoin needs no gas.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/script/images/thumb/sphx_glr_plot_01_p2pkh_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/script/plot_01_p2pkh`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bitcoin Script: pay to public-key hash (Nakamoto 2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A hash time-locked contract (HTLC) pays the recipient if they reveal the preimage of a hash before a deadline, and otherwise lets the sender take the money back. Peter Todd&#x27;s OP_CHECKLOCKTIMEVERIFY (BIP 65, 2015) made the deadline enforceable in Script, and Poon and Dryja&#x27;s Lightning Network (2016) chains HTLCs with the same hash across many channels, so a payment either completes along the whole route or nowhere.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/script/images/thumb/sphx_glr_plot_02_htlc_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/script/plot_02_htlc`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hash time-locked contracts: pay for a secret, or get a refund (2015-2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/vm/script/plot_01_p2pkh
+   /api/gallery/vm/script/plot_02_htlc
+

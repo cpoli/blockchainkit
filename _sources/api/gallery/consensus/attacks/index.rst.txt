@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_consensus_attacks:
+
+Attacks and their probabilities
+-------------------------------
+
+Catching up from behind, double spending, and selfish mining.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pascal posed, and Huygens published, the problem of a gambler who wins each round with probability q and stops when ruined or ahead. The chance of ever recovering a deficit of z is (q/p)z when q &lt; p. Nakamoto used exactly this random walk for an attacker trying to overtake the honest chain from z blocks behind.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/attacks/images/thumb/sphx_glr_plot_01_gamblers_ruin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/attacks/plot_01_gamblers_ruin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The gambler's ruin: catching up from behind (Pascal, Fermat and Huygens 1656)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Section 11 of the Bitcoin whitepaper asks how long a merchant should wait. While the honest chain adds z blocks, the attacker&#x27;s secret chain grows by a Poisson-distributed amount with mean z q/p; from each possible lead the gambler&#x27;s ruin gives the chance to catch up. The whitepaper tabulates the result, and concludes that the risk drops exponentially with z.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/attacks/images/thumb/sphx_glr_plot_02_double_spend_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/attacks/plot_02_double_spend`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">How many confirmations? Nakamoto's double-spend calculation (2008)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin was thought incentive-compatible: a miner earns its share of blocks by publishing them. Eyal and Sirer showed a pool can earn more by keeping blocks secret and releasing them only to overtake or tie the honest chain, wasting honest work. Above a threshold hashrate, between 0 and 1/3 depending on how ties break, selfish mining pays.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/attacks/images/thumb/sphx_glr_plot_03_selfish_mining_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/attacks/plot_03_selfish_mining`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Selfish mining: majority is not enough (Eyal and Sirer 2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/consensus/attacks/plot_01_gamblers_ruin
+   /api/gallery/consensus/attacks/plot_02_double_spend
+   /api/gallery/consensus/attacks/plot_03_selfish_mining
+

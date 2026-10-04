@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.170939Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.741531Z",
+      "mimetype": null,
+      "name": "plot_01_kademlia.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/overlays/plot_01_kademlia.ipynb",
+      "size": 4150,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.171251Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.741806Z",
+      "mimetype": null,
+      "name": "plot_02_sybil_attack.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/overlays/plot_02_sybil_attack.ipynb",
+      "size": 4252,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.171582Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.742085Z",
+      "mimetype": null,
+      "name": "plot_03_eclipse_attack.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/overlays/plot_03_eclipse_attack.ipynb",
+      "size": 5217,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.171582Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.171582Z",
+  "mimetype": null,
+  "name": "overlays",
+  "path": "jupyterlite_contents/api/gallery/network/overlays",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

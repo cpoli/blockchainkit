@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.157256Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.730649Z",
+      "mimetype": null,
+      "name": "plot_02_nothing_at_stake.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/pos/plot_02_nothing_at_stake.ipynb",
+      "size": 3540,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.157892Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.731379Z",
+      "mimetype": null,
+      "name": "plot_04_casper_ffg.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/pos/plot_04_casper_ffg.ipynb",
+      "size": 4233,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.157586Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.730917Z",
+      "mimetype": null,
+      "name": "plot_03_sortition.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/pos/plot_03_sortition.ipynb",
+      "size": 4012,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.156945Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.730353Z",
+      "mimetype": null,
+      "name": "plot_01_stake.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/pos/plot_01_stake.ipynb",
+      "size": 3491,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.157892Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.157892Z",
+  "mimetype": null,
+  "name": "pos",
+  "path": "jupyterlite_contents/api/gallery/consensus/pos",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

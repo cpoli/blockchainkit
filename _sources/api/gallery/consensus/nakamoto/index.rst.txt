@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_consensus_nakamoto:
+
+Nakamoto consensus
+------------------
+
+Cumulative-work fork choice and GHOST.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This is the full teaching chain: keys authorize a transfer, a Merkle root commits to it, proof of work secures a header, and peers compare valid forks. The example uses an account ledger, not Bitcoin&#x27;s UTXO model.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/nakamoto/images/thumb/sphx_glr_plot_01_longest_chain_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nakamoto consensus: a payment, a fork, and a reorganization (2008)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When blocks are fast relative to network delay, honest miners often extend the same parent at once, and the longest chain discards their side blocks. That wasted work no longer protects the chain. GHOST (Greedy Heaviest Observed SubTree) counts it: at each fork, follow the child whose whole subtree carries the most work.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/nakamoto/images/thumb/sphx_glr_plot_02_ghost_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/nakamoto/plot_02_ghost`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GHOST: follow the heaviest subtree (Sompolinsky and Zohar 2013)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/consensus/nakamoto/plot_01_longest_chain
+   /api/gallery/consensus/nakamoto/plot_02_ghost
+

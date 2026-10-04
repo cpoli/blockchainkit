@@ -1,0 +1,87 @@
+
+
+.. _sphx_glr_api_gallery_network_graphs:
+
+Peer graphs
+-----------
+
+Random, small-world, and scale-free topologies, and what each means for a
+peer-to-peer network.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="If each pair of n peers is linked independently with probability p, when is the whole network connected? Erdős and Rényi found a sharp threshold at p = ln n / n: a little below it there are almost surely isolated peers, a little above it the graph is almost surely connected. Each peer then needs only about ln n random links, which is why Bitcoin&#x27;s few random outbound connections per node suffice to hold the network together.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/graphs/images/thumb/sphx_glr_plot_01_random_graphs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/graphs/plot_01_random_graphs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Random graphs and the connectivity threshold (Erdős and Rényi 1959)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A ring lattice, where each peer knows its nearest neighbors, is highly clustered: your neighbors know each other. But messages crawl around it, taking about n / 2k hops. Watts and Strogatz rewired each link to a random peer with a small probability and found that a handful of shortcuts collapses path lengths almost to those of a random graph while clustering barely changes: a small world, like &quot;six degrees of separation&quot;.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/graphs/images/thumb/sphx_glr_plot_02_small_world_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/graphs/plot_02_small_world`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Small-world networks: a few shortcuts (Watts and Strogatz 1998)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Real networks, from the Web to peer-to-peer overlays, have a few huge hubs and many small nodes: their degree distribution follows a power law, unlike the narrow distribution of a random graph. Barabási and Albert explained it with growth plus preferential attachment: newcomers link to existing nodes with probability proportional to their degree, so the rich get richer.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/graphs/images/thumb/sphx_glr_plot_03_scale_free_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/graphs/plot_03_scale_free`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scale-free networks: preferential attachment (Barabási and Albert 1999)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/network/graphs/plot_01_random_graphs
+   /api/gallery/network/graphs/plot_02_small_world
+   /api/gallery/network/graphs/plot_03_scale_free
+

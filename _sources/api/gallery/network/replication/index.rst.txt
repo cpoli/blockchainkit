@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_network_replication:
+
+Replication under partitions
+----------------------------
+
+The CAP trade-off on a replicated register.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Brewer conjectured, and Gilbert and Lynch proved, that a replicated service cannot guarantee both consistency (every read returns the latest write) and availability (every request to a live replica gets an answer) when the network may partition. During a split, each side must either refuse requests or answer without the other side.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/replication/images/thumb/sphx_glr_plot_01_cap_theorem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/replication/plot_01_cap_theorem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The CAP theorem: consistency or availability (Brewer 2000, Gilbert and Lynch 2002)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/network/replication/plot_01_cap_theorem
+

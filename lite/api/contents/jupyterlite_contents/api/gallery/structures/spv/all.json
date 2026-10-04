@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.177262Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.747118Z",
+      "mimetype": null,
+      "name": "plot_01_light_clients.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/spv/plot_01_light_clients.ipynb",
+      "size": 4504,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.177262Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.177262Z",
+  "mimetype": null,
+  "name": "spv",
+  "path": "jupyterlite_contents/api/gallery/structures/spv",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

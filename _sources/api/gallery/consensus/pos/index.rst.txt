@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_consensus_pos:
+
+Proof of stake
+--------------
+
+Stake-weighted selection, nothing at stake, sortition, and finality.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Weighting proposer selection by stake changes the resource used to allocate influence. This sampler isolates that one mechanism; it has no voting, slashing, randomness beacon, or finality and is not a full PoS protocol.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_01_stake_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_01_stake`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Proof of stake: a stake-weighted proposer lottery (Peercoin 2012)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A proof-of-work miner must divide its hashrate between competing forks; a proof-of-stake validator can sign every fork at no cost and collect the reward whichever one wins. If everyone does that, forks never resolve. Buterin&#x27;s Slasher proposal made such double-signing punishable: evidence of two conflicting signatures destroys the validator&#x27;s deposit.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_02_nothing_at_stake_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_02_nothing_at_stake`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nothing at stake: why proof of stake needs penalties (Buterin 2014)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Algorand chooses a small committee each round by lottery: every unit of stake is a ticket, and each user privately evaluates a verifiable random function on the round seed to learn how many of their tickets won. Nobody can target the committee in advance, because members reveal themselves only when they vote.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_03_sortition_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_03_sortition`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cryptographic sortition: a secret, stake-weighted committee (Algorand 2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Casper the Friendly Finality Gadget overlays finality on a block chain. Validators vote for links between checkpoints; a checkpoint is justified when two thirds of the stake link to it from a justified checkpoint, and finalized when its direct child is justified. Two slashing rules (no two votes for one height; no vote surrounding another) guarantee that two conflicting finalized checkpoints cost at least a third of all stake. Ethereum&#x27;s proof of stake uses it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/consensus/pos/images/thumb/sphx_glr_plot_04_casper_ffg_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/consensus/pos/plot_04_casper_ffg`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Casper FFG: finality by two-thirds votes and slashing (Buterin and Griffith 2017)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/consensus/pos/plot_01_stake
+   /api/gallery/consensus/pos/plot_02_nothing_at_stake
+   /api/gallery/consensus/pos/plot_03_sortition
+   /api/gallery/consensus/pos/plot_04_casper_ffg
+

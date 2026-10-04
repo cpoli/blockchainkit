@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_structures_timestamps:
+
+Timestamping
+------------
+
+Proving that a document existed by a given time.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Haber and Stornetta asked how to timestamp a digital document so that not even the timestamping service could backdate it. Their answer: each certificate includes the hash of the previous one. Changing any old record changes its hash, which breaks every later link. A blockchain is this chain of linked timestamps, with blocks as the records.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/timestamps/images/thumb/sphx_glr_plot_01_linked_timestamps_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/timestamps/plot_01_linked_timestamps`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Linked timestamps: tamper evidence by hashing the past (Haber and Stornetta 1991)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Linking every document into a chain costs one record per document. Bayer, Haber and Stornetta batched them: put a round&#x27;s documents in a Merkle tree and timestamp only the root. Each document keeps a short proof linking it to that root. This is exactly how a block commits to its transactions.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/timestamps/images/thumb/sphx_glr_plot_02_merkle_batching_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/timestamps/plot_02_merkle_batching`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Batching timestamps with a Merkle tree (Bayer, Haber and Stornetta 1993)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/timestamps/plot_01_linked_timestamps
+   /api/gallery/structures/timestamps/plot_02_merkle_batching
+

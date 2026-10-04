@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.163195Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.735191Z",
+      "mimetype": null,
+      "name": "plot_04_sha256_avalanche.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/hashing/plot_04_sha256_avalanche.ipynb",
+      "size": 2776,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.162228Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.734438Z",
+      "mimetype": null,
+      "name": "plot_01_birthday_attack.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/hashing/plot_01_birthday_attack.ipynb",
+      "size": 3563,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.162578Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.734725Z",
+      "mimetype": null,
+      "name": "plot_02_merkle_damgard.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/hashing/plot_02_merkle_damgard.ipynb",
+      "size": 4196,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.162889Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.734982Z",
+      "mimetype": null,
+      "name": "plot_03_hmac.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/hashing/plot_03_hmac.ipynb",
+      "size": 4064,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.163195Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.163195Z",
+  "mimetype": null,
+  "name": "hashing",
+  "path": "jupyterlite_contents/api/gallery/crypto/hashing",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

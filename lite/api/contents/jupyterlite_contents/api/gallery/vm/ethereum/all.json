@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.181159Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.751318Z",
+      "mimetype": null,
+      "name": "plot_02_gas_repricing.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/ethereum/plot_02_gas_repricing.ipynb",
+      "size": 4125,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.181802Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.751884Z",
+      "mimetype": null,
+      "name": "plot_04_integer_overflow.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/ethereum/plot_04_integer_overflow.ipynb",
+      "size": 3940,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.180844Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.751051Z",
+      "mimetype": null,
+      "name": "plot_01_gas.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/ethereum/plot_01_gas.ipynb",
+      "size": 5247,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.181497Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.751618Z",
+      "mimetype": null,
+      "name": "plot_03_reentrancy.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/ethereum/plot_03_reentrancy.ipynb",
+      "size": 3908,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.181802Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.181802Z",
+  "mimetype": null,
+  "name": "ethereum",
+  "path": "jupyterlite_contents/api/gallery/vm/ethereum",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

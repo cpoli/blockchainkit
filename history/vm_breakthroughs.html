@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Breakthroughs in Replicated Execution &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'history/vm_breakthroughs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../examples/index.html" />
+    <link rel="prev" title="Breakthroughs in Peer-to-Peer Networking" href="network_breakthroughs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crypto_breakthroughs.html">Breakthroughs in Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures_breakthroughs.html">Breakthroughs in Authenticated Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus_breakthroughs.html">Breakthroughs in Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_breakthroughs.html">Breakthroughs in Peer-to-Peer Networking</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Breakthroughs in Replicated Execution</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">History</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Breakthroughs in Replicated Execution</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="breakthroughs-in-replicated-execution">
+<h1>Breakthroughs in Replicated Execution<a class="headerlink" href="#breakthroughs-in-replicated-execution" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/vm.html"><span class="doc">blockchainkit.vm hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/vm/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/vm.html"><span class="doc">API reference</span></a></p>
+</div>
+<p>When every node must reach the same state, every node must run the same
+program and get the same result, within bounded resources. This chronology
+traces the ideas behind <a class="reference internal" href="../api/vm.html#module-blockchainkit.vm" title="blockchainkit.vm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.vm</span></code></a>, from reverse Polish notation
+to the overflow bugs of token contracts. Each entry has its own experiment in
+the <a class="reference internal" href="../api/gallery/vm/index.html"><span class="doc">gallery</span></a>.</p>
+<p>All snippets use the package’s conventional import: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">blockchainkit</span> <span class="pre">as</span> <span class="pre">bk</span></code>.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#polish-and-reverse-polish-notation" id="id1">1924–1957 — Polish and reverse Polish notation</a></p></li>
+<li><p><a class="reference internal" href="#turing-machines-and-the-halting-problem" id="id2">1936 — Turing machines and the halting problem</a></p></li>
+<li><p><a class="reference internal" href="#a-hardware-stack-the-burroughs-b5000" id="id3">1961 — A hardware stack: the Burroughs B5000</a></p></li>
+<li><p><a class="reference internal" href="#the-busy-beaver" id="id4">1962 — The busy beaver</a></p></li>
+<li><p><a class="reference internal" href="#sequence-selection-iteration" id="id5">1966 — Sequence, selection, iteration</a></p></li>
+<li><p><a class="reference internal" href="#forth-and-stack-words" id="id6">1970 — Forth and stack words</a></p></li>
+<li><p><a class="reference internal" href="#state-machine-replication" id="id7">1978–1990 — State-machine replication</a></p></li>
+<li><p><a class="reference internal" href="#the-transaction-concept" id="id8">1981 — The transaction concept</a></p></li>
+<li><p><a class="reference internal" href="#smart-contracts" id="id9">1994 — Smart contracts</a></p></li>
+<li><p><a class="reference internal" href="#bytecode-verification" id="id10">1995 — Bytecode verification</a></p></li>
+<li><p><a class="reference internal" href="#bitcoin-script-and-pay-to-public-key-hash" id="id11">2009 — Bitcoin Script and pay-to-public-key-hash</a></p></li>
+<li><p><a class="reference internal" href="#ethereum-and-programmable-replicated-state" id="id12">2014 — Ethereum and programmable replicated state</a></p></li>
+<li><p><a class="reference internal" href="#hash-time-locked-contracts" id="id13">2015–2016 — Hash time-locked contracts</a></p></li>
+<li><p><a class="reference internal" href="#the-dao-and-reentrancy" id="id14">2016 — The DAO and reentrancy</a></p></li>
+<li><p><a class="reference internal" href="#gas-repricing-after-denial-of-service-attacks" id="id15">2016 — Gas repricing after denial-of-service attacks</a></p></li>
+<li><p><a class="reference internal" href="#integer-overflow-beautychain" id="id16">2018 — Integer overflow: BeautyChain</a></p></li>
+</ul>
+</nav>
+<section id="polish-and-reverse-polish-notation">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1924–1957 — Polish and reverse Polish notation</a><a class="headerlink" href="#polish-and-reverse-polish-notation" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Writing the operation after its numbers, as in
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">+</span></code>, removes the need for parentheses and gives exactly the order in
+which a machine with a stack of numbers can compute.</p>
+<p><strong>Reading the experiment.</strong> RPN is reverse Polish notation. Each number
+becomes <code class="docutils literal notranslate"><span class="pre">PUSH</span></code>; each operator becomes an instruction that replaces the top
+two stack values by its result.</p>
+<p>Łukasiewicz wrote logical formulas with each operator before its operands,
+so that no parentheses or precedence rules are needed. Hamblin, designing
+compilers for early Australian computers, reversed the order: in <em>reverse</em>
+Polish notation <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">\times</span> <span class="pre">3</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">×</span></code>, evaluated left to right
+with one stack. Dijkstra’s shunting-yard algorithm (1961) converts ordinary
+infix notation to this order. Every stack virtual machine, including Bitcoin
+Script and the EVM, runs code in this form.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.expressions.to_rpn" title="blockchainkit.vm.systems.expressions.to_rpn"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.expressions.to_rpn()</span></code></a> (shunting
+yard) and <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.expressions.compile_expression" title="blockchainkit.vm.systems.expressions.compile_expression"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.expressions.compile_expression()</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example compiles an expression to RPN and to
+instructions, runs it, and traces the stack.</p>
+<p><em>References:</em> J. Łukasiewicz, <em>Elementy logiki matematycznej</em> (1929);
+C. L. Hamblin, <em>Translation to and from Polish notation</em>, The Computer Journal
+5(3), 210–213 (1962). <a class="reference external" href="https://doi.org/10.1093/comjnl/5.3.210">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Łukasiewicz wrote logic with operators before their operands, which needs no parentheses. Hamblin reversed it for computers: in reverse Polish notation, (1 + 2)  3 is 1 2 + 3 , and a machine evaluates it by pushing each number and letting each operator replace the top two values with the result. Dijkstra&#x27;s shunting-yard algorithm (1961) translates ordinary notation into that order. Every stack virtual machine, from Forth to the EVM, runs programs in this form."><img alt="" src="../_images/sphx_glr_plot_01_reverse_polish_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/foundations/plot_01_reverse_polish.html"><span class="doc">Reverse Polish notation: the stack’s natural order (Łukasiewicz 1924, Hamblin 1957)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Reverse Polish notation: the stack's natural order (Łukasiewicz 1924, Hamblin 1957)</div>
+</div></div></section>
+<section id="turing-machines-and-the-halting-problem">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1936 — Turing machines and the halting problem</a><a class="headerlink" href="#turing-machines-and-the-halting-problem" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> No program can look at every other program and say
+whether it will ever finish. A system that runs programs from strangers
+therefore cannot check them in advance; it can only give each one a budget.</p>
+<p><strong>Reading the experiment.</strong> All two-state Turing machines run from a blank
+tape. <em>Halted</em> machines stopped, <em>looping</em> ones repeated a configuration and
+provably never stop, and <em>unknown</em> ones simply used up the step budget.</p>
+<p>Turing modeled computation as a machine reading and writing an unbounded tape
+under a finite table of rules, and proved by diagonalization that no machine
+decides, for every machine and input, whether it halts. Rice’s theorem
+extends this to every nontrivial property of a program’s behavior. For a
+blockchain, this means a node cannot reject non-terminating contracts before
+running them. Ethereum’s answer is gas: every step is paid for, so every call
+ends.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.turing.run_turing_machine" title="blockchainkit.vm.systems.turing.run_turing_machine"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.turing.run_turing_machine()</span></code></a>
+(with exact cycle detection) and
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.turing.enumerate_machines" title="blockchainkit.vm.systems.turing.enumerate_machines"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.turing.enumerate_machines()</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example classifies all 20,736 two-state machines at
+growing budgets and shows that thousands remain unknown at every budget.</p>
+<p><em>References:</em> A. M. Turing, <em>On computable numbers, with an application to the
+Entscheidungsproblem</em>, Proceedings of the London Mathematical Society s2-42(1),
+230–265 (1937; read 1936). <a class="reference external" href="https://doi.org/10.1112/plms/s2-42.1.230">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Turing defined computation with a machine that reads and writes a tape, and proved that no program can decide, for every machine and input, whether it eventually halts. Running a machine longer never settles the question: a machine that has not halted yet may halt later, or never. A blockchain that lets anyone submit programs therefore cannot check in advance that they terminate. It bounds them instead, with a step budget."><img alt="" src="../_images/sphx_glr_plot_02_halting_problem_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/foundations/plot_02_halting_problem.html"><span class="doc">The halting problem: why every call needs a budget (Turing 1936)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The halting problem: why every call needs a budget (Turing 1936)</div>
+</div></div></section>
+<section id="a-hardware-stack-the-burroughs-b5000">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">1961 — A hardware stack: the Burroughs B5000</a><a class="headerlink" href="#a-hardware-stack-the-burroughs-b5000" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A computer can be built to keep its intermediate results
+on a stack instead of in named registers. The stack is finite, so how deeply a
+calculation nests decides whether it fits.</p>
+<p><strong>Reading the experiment.</strong> Two expressions compute the same sum. The plot
+shows the stack height after each instruction; the dashed line is a small
+stack limit.</p>
+<p>Robert Barton designed the Burroughs B5000 around a hardware stack so that
+compiled Algol programs mapped directly onto machine operations. The stack
+needs no register allocation, but it is a finite resource: the depth of an
+expression tree’s evaluation, its Ershov number, determines how much stack
+it needs. The EVM caps its stack at 1024 words, and Bitcoin caps the combined
+stacks at 1000 items.</p>
+<p><strong>Implementation:</strong> the <code class="docutils literal notranslate"><span class="pre">stack_limit</span></code> of
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>;
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.visualizers.plots.plot_stack_height" title="blockchainkit.vm.visualizers.plots.plot_stack_height"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.visualizers.plots.plot_stack_height()</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example evaluates a left-nested and a right-nested
+sum of twelve numbers; one needs 2 stack slots, the other 12.</p>
+<p><em>References:</em> R. S. Barton, <em>A new approach to the functional design of a
+digital computer</em>, Proc. Western Joint Computer Conference, 393–396 (1961).
+<a class="reference external" href="https://doi.org/10.1145/1460690.1460736">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Robert Barton designed the Burroughs B5000 around a hardware stack: programs compiled from Algol were sequences of stack operations, with no general registers to allocate. A real stack has finite size, so the machine must know how deep a computation goes. The EVM limits its stack to 1024 words for the same reason."><img alt="" src="../_images/sphx_glr_plot_03_hardware_stack_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/foundations/plot_03_hardware_stack.html"><span class="doc">Stack hardware: a bounded stack (Burroughs B5000, Barton 1961)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Stack hardware: a bounded stack (Burroughs B5000, Barton 1961)</div>
+</div></div></section>
+<section id="the-busy-beaver">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">1962 — The busy beaver</a><a class="headerlink" href="#the-busy-beaver" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Among all tiny programs that eventually stop, which runs
+longest? The answer grows so fast that no program can compute it, and
+finding it for five-state machines took until 2024.</p>
+<p><strong>Reading the experiment.</strong> <span class="math notranslate nohighlight">\(S(n)\)</span> is the most steps a halting
+<span class="math notranslate nohighlight">\(n\)</span>-state, two-symbol machine takes from a blank tape; <span class="math notranslate nohighlight">\(\Sigma(n)\)</span>
+is the most 1s it can leave.</p>
+<p>Radó defined the busy-beaver functions and proved they grow faster than any
+computable function: if <span class="math notranslate nohighlight">\(S\)</span> were computable, one could decide halting for
+<span class="math notranslate nohighlight">\(n\)</span>-state machines by running each for <span class="math notranslate nohighlight">\(S(n)\)</span> steps. The known
+values are</p>
+<div class="math notranslate nohighlight">
+\[S(1) = 1,\quad S(2) = 6,\quad S(3) = 21,\quad S(4) = 107,\quad
+S(5) = 47{,}176{,}870.\]</div>
+<p>Lin and Radó settled <span class="math notranslate nohighlight">\(S(3)\)</span> by computer in 1965; <span class="math notranslate nohighlight">\(S(5)\)</span> was proved by
+the bbchallenge collaboration in 2024. A gas limit is a busy-beaver bound
+chosen by policy rather than computed.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.turing.busy_beaver" title="blockchainkit.vm.systems.turing.busy_beaver"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.turing.busy_beaver()</span></code></a> searches
+every machine of a given size.</p>
+<p><strong>Experiment:</strong> the gallery example searches all two-state machines and finds
+<span class="math notranslate nohighlight">\(S(2) = 6\)</span> and <span class="math notranslate nohighlight">\(\Sigma(2) = 4\)</span>; the tests also run the 21-step
+three-state champion.</p>
+<p><em>References:</em> T. Radó, <em>On non-computable functions</em>, Bell System Technical
+Journal 41(3), 877–884 (1962). <a class="reference external" href="https://doi.org/10.1002/j.1538-7305.1962.tb00480.x">DOI</a>; S. Lin and T. Radó,
+<em>Computer studies of Turing machine problems</em>, Journal of the ACM 12(2),
+196–212 (1965). <a class="reference external" href="https://doi.org/10.1145/321264.321270">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Radó asked: among all Turing machines with n states that halt when started on a blank tape, which runs longest? Call that number of steps S(n). For n = 2, a search over every machine gives S(2) = 6. But S grows faster than any computable function: S(3) = 21, S(4) = 107, and S(5) = 47,176,870, proved only in 2024. Knowing S(n) would solve the halting problem for n-state machines, so no algorithm computes it."><img alt="" src="../_images/sphx_glr_plot_04_busy_beaver_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/foundations/plot_04_busy_beaver.html"><span class="doc">The busy beaver: the longest a small machine can run (Radó 1962)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The busy beaver: the longest a small machine can run (Radó 1962)</div>
+</div></div></section>
+<section id="sequence-selection-iteration">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">1966 — Sequence, selection, iteration</a><a class="headerlink" href="#sequence-selection-iteration" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Every program, however tangled, can be rewritten using
+three building blocks: do this then that, choose between two paths, and repeat
+while a condition holds.</p>
+<p><strong>Reading the experiment.</strong> The program is written in assembly with labels;
+<code class="docutils literal notranslate"><span class="pre">JZ</span></code> jumps when the top of the stack is zero, <code class="docutils literal notranslate"><span class="pre">JMP</span></code> always jumps.</p>
+<p>Böhm and Jacopini proved that sequence, selection and iteration suffice to
+express any flowchart. Dijkstra’s <em>Go To Statement Considered Harmful</em> (1968)
+turned the result into a discipline. On a stack machine the three constructs
+are straight-line code, a conditional jump and a backward jump. Iteration is
+also what makes running time depend on the input, and therefore what makes
+gas necessary: Bitcoin Script leaves out backward jumps entirely.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.assembler.assemble" title="blockchainkit.vm.systems.assembler.assemble"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.assembler.assemble()</span></code></a>, a
+two-pass assembler that resolves labels to addresses.</p>
+<p><strong>Experiment:</strong> the gallery example sums <span class="math notranslate nohighlight">\(1 + \dots + n\)</span> with a loop,
+checks Gauss’s formula, and shows gas growing linearly with <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p><em>References:</em> C. Böhm and G. Jacopini, <em>Flow diagrams, Turing machines and
+languages with only two formation rules</em>, Communications of the ACM 9(5),
+366–371 (1966). <a class="reference external" href="https://doi.org/10.1145/355592.365646">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Böhm and Jacopini proved that any flowchart can be rewritten using only three constructs: doing things in sequence, choosing between two branches, and repeating while a condition holds. On a stack machine those are simply straight-line code, a conditional jump (``JZ``) and a backward jump (``JMP``). The assembler lets us write them with labels instead of addresses."><img alt="" src="../_images/sphx_glr_plot_05_structured_programming_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/foundations/plot_05_structured_programming.html"><span class="doc">Structured programming: sequence, selection, iteration (Böhm and Jacopini 1966)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Structured programming: sequence, selection, iteration (Böhm and Jacopini 1966)</div>
+</div></div></section>
+<section id="forth-and-stack-words">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">1970 — Forth and stack words</a><a class="headerlink" href="#forth-and-stack-words" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Instead of naming variables, a program can shuffle the
+values on its stack with a few small words: duplicate the top, drop it, swap
+the top two, copy the second, rotate three.</p>
+<p><strong>Reading the experiment.</strong> A stack diagram <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">before</span> <span class="pre">--</span> <span class="pre">after</span> <span class="pre">)</span></code> lists the
+stack from bottom to top before and after a word.</p>
+<p>Charles Moore developed Forth around 1970 to control radio telescopes. Its
+programs are sequences of words acting on a data stack, documented by stack
+diagrams such as <code class="docutils literal notranslate"><span class="pre">OVER</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">--</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">a</span> <span class="pre">)</span></code> and <code class="docutils literal notranslate"><span class="pre">ROT</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">--</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">a</span> <span class="pre">)</span></code>. The
+language is tiny, fast, and easy to implement on small machines. Bitcoin’s
+Script is explicitly Forth-like, and the EVM has whole families of <code class="docutils literal notranslate"><span class="pre">DUP</span></code> and
+<code class="docutils literal notranslate"><span class="pre">SWAP</span></code> instructions.</p>
+<p><strong>Implementation:</strong> the <code class="docutils literal notranslate"><span class="pre">DUP</span></code>, <code class="docutils literal notranslate"><span class="pre">DROP</span></code>, <code class="docutils literal notranslate"><span class="pre">SWAP</span></code>, <code class="docutils literal notranslate"><span class="pre">OVER</span></code> and <code class="docutils literal notranslate"><span class="pre">ROT</span></code> opcodes of
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>, whose stack effects are
+listed in <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.STACK_EFFECTS" title="blockchainkit.vm.systems.stack_machine.STACK_EFFECTS"><code class="xref py py-data docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.STACK_EFFECTS</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example checks every word against its stack diagram
+and evaluates a polynomial by Horner’s rule with stack words only.</p>
+<p><em>References:</em> E. D. Rather, D. R. Colburn and C. H. Moore, <em>The evolution of
+Forth</em>, HOPL-II, 177–199 (1993). <a class="reference external" href="https://doi.org/10.1145/154766.155369">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Charles Moore&#x27;s Forth has no named variables in expressions: words such as DUP, DROP, SWAP, OVER and ROT rearrange the stack, and each word is documented by its stack diagram: OVER ( a b -- a b a ). Small, fast and easy to implement, Forth ran telescopes and spacecraft. Bitcoin Script is described as Forth-like, and the EVM&#x27;s DUP and SWAP families serve the same purpose."><img alt="" src="../_images/sphx_glr_plot_06_forth_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/foundations/plot_06_forth.html"><span class="doc">Forth: programming with stack words (Moore 1970)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Forth: programming with stack words (Moore 1970)</div>
+</div></div></section>
+<section id="state-machine-replication">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">1978–1990 — State-machine replication</a><a class="headerlink" href="#state-machine-replication" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Copies of a program that start alike and process the same
+requests in the same order stay identical. Agreeing on the order is the hard
+part; that is what consensus is for.</p>
+<p><strong>Reading the experiment.</strong> Each command is a small program updating a counter
+in storage. A <em>log</em> is the order in which commands are applied.</p>
+<p>Lamport’s 1978 paper showed how a total order of commands lets distributed
+processes simulate one state machine; Schneider’s 1990 tutorial made <em>state
+machine replication</em> the general recipe for fault-tolerant services. It needs
+two things: agreement on the order of inputs, and deterministic execution.
+A blockchain supplies the first with consensus and the second with a virtual
+machine that has no access to clocks, randomness or the network.</p>
+<p><strong>Implementation:</strong> determinism of
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>: the same program,
+storage and arguments always give the same result.</p>
+<p><strong>Experiment:</strong> the gallery example replays one log on three replicas, applies
+the same commands in all six orders, and lets each replica read its own clock.</p>
+<p><em>References:</em> L. Lamport, <em>Time, clocks, and the ordering of events in a
+distributed system</em>, Communications of the ACM 21(7), 558–565 (1978);
+F. B. Schneider, <em>Implementing fault-tolerant services using the state machine
+approach: a tutorial</em>, ACM Computing Surveys 22(4), 299–319 (1990). <a class="reference external" href="https://doi.org/10.1145/98163.98167">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="If every replica starts in the same state and applies the same commands in the same order, deterministic execution keeps them identical. Lamport introduced the idea; Schneider&#x27;s tutorial made it the standard recipe for fault tolerance. A blockchain is exactly this: consensus agrees on the order of transactions, and every node executes them."><img alt="" src="../_images/sphx_glr_plot_01_state_machine_replication_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/replication/plot_01_state_machine_replication.html"><span class="doc">State-machine replication: same inputs, same order, same state (Lamport 1978, Schneider 1990)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">State-machine replication: same inputs, same order, same state (Lamport 1978, Schneider 1990)</div>
+</div></div></section>
+<section id="the-transaction-concept">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">1981 — The transaction concept</a><a class="headerlink" href="#the-transaction-concept" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A transfer must either fully happen or not happen at all.
+If it fails halfway, everything it already changed is undone.</p>
+<p><strong>Reading the experiment.</strong> The trace shows <em>working</em> storage after each
+instruction. Committed storage changes only if the whole program succeeds.</p>
+<p>Jim Gray defined transactions as units of work that are atomic, consistent and
+durable (isolation was added to make the ACID properties). Atomicity means a
+failure at any point leaves no partial effects. Every Ethereum call is a
+transaction in this sense: when execution reverts or runs out of gas, all of its
+storage writes are discarded, although the gas spent is still paid.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a> runs
+on a copy of storage and returns it only on success; <code class="docutils literal notranslate"><span class="pre">REVERT</span></code> aborts
+deliberately.</p>
+<p><strong>Experiment:</strong> the gallery example writes a debit, then reverts the transfer, and
+checks that the debit was never committed.</p>
+<p><em>References:</em> J. Gray, <em>The transaction concept: virtues and limitations</em>, Proc.
+7th International Conference on Very Large Data Bases, 144–154 (1981).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Jim Gray defined the transaction: a group of actions that is atomic (either all happen or none), consistent, and durable. A bank transfer that debits one account must also credit the other, or do neither, however it fails halfway. Ethereum gives every call this property: if execution fails, every storage write it made is discarded."><img alt="" src="../_images/sphx_glr_plot_02_atomic_transactions_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/replication/plot_02_atomic_transactions.html"><span class="doc">Atomic transactions: all or nothing (Gray 1981)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Atomic transactions: all or nothing (Gray 1981)</div>
+</div></div></section>
+<section id="smart-contracts">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">1994 — Smart contracts</a><a class="headerlink" href="#smart-contracts" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Some agreements can be enforced by a machine instead of a
+court: a vending machine sells to anyone who pays, and nobody can take the goods
+without paying.</p>
+<p><strong>Reading the experiment.</strong> Storage holds the stock, the price and the revenue;
+each customer’s payment is the call’s argument; the change is the result.</p>
+<p>Nick Szabo coined <em>smart contract</em> for computerized protocols that execute the
+terms of a contract, and gave the vending machine as their ancestor. He argued
+they could reduce the need for trusted intermediaries. Ethereum made the idea
+practical by putting contract code and state on a blockchain, where every node
+executes it and anyone can check the result.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.programs.vending_machine" title="blockchainkit.vm.systems.programs.vending_machine"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.programs.vending_machine()</span></code></a>,
+run with the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> of
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>.</p>
+<p><strong>Experiment:</strong> the gallery example serves 25 customers and checks after each one
+that revenue equals price times items sold.</p>
+<p><em>References:</em> N. Szabo, <em>Smart contracts</em> (1994); N. Szabo, <em>Formalizing and
+securing relationships on public networks</em>, First Monday 2(9) (1997). <a class="reference external" href="https://doi.org/10.5210/fm.v2i9.548">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Nick Szabo coined smart contract for terms of an agreement enforced by a mechanism rather than by courts, and gave the vending machine as the primordial example: anyone who inserts enough money gets the item and the change, and nobody can take the goods without paying. A blockchain contract is such a machine whose code and state every node can check."><img alt="" src="../_images/sphx_glr_plot_01_vending_machine_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/contracts/plot_01_vending_machine.html"><span class="doc">Smart contracts: the vending machine (Szabo 1994)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Smart contracts: the vending machine (Szabo 1994)</div>
+</div></div></section>
+<section id="bytecode-verification">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">1995 — Bytecode verification</a><a class="headerlink" href="#bytecode-verification" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Before running code from a stranger, check that it cannot
+misuse the machine on any path, without running it.</p>
+<p><strong>Reading the experiment.</strong> The verifier follows every path and tracks how many
+values the stack holds at each instruction. <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> is the most it can
+ever hold.</p>
+<p>Gosling’s design of the Java virtual machine verified downloaded bytecode before
+execution, by a data-flow analysis over all paths: no instruction may pop more
+values than are present, and paths that meet must agree on the stack’s shape.
+Verified code runs without run-time stack checks, with stack size known in
+advance. The same idea of validating code once, at deployment, is behind
+Ethereum’s EVM Object Format.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.verifier.verify_bytecode" title="blockchainkit.vm.systems.verifier.verify_bytecode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.verifier.verify_bytecode()</span></code></a>, an
+abstract interpretation of stack heights.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">verify_bytecode</span></code> tracks stack heights only. The JVM verifier also infers the
+type of every stack slot and local variable. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this
+package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example verifies the package’s contracts, catches an
+underflow on a path a test run does not take, and rejects a loop that grows the
+stack.</p>
+<p><em>References:</em> J. Gosling, <em>Java intermediate bytecodes</em>, ACM SIGPLAN Workshop on
+Intermediate Representations, 111–118 (1995). <a class="reference external" href="https://doi.org/10.1145/202529.202541">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Java let browsers download and run code from strangers. Its virtual machine first verifies the bytecode: by following every path through the program without running it, it proves that no instruction can pop from an empty stack and that every instruction is always reached with the same stack height. Verified code needs no run-time stack checks and its maximum stack size is known in advance. Ethereum&#x27;s EOF format brings similar validation at deployment."><img alt="" src="../_images/sphx_glr_plot_02_bytecode_verification_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/contracts/plot_02_bytecode_verification.html"><span class="doc">Bytecode verification: check before you run (Gosling 1995)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bytecode verification: check before you run (Gosling 1995)</div>
+</div></div></section>
+<section id="bitcoin-script-and-pay-to-public-key-hash">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">2009 — Bitcoin Script and pay-to-public-key-hash</a><a class="headerlink" href="#bitcoin-script-and-pay-to-public-key-hash" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A Bitcoin coin is locked by a tiny program. To spend it,
+you supply the inputs that make the program succeed: usually a public key with
+the right fingerprint and a signature by it.</p>
+<p><strong>Reading the experiment.</strong> The <em>locking</em> script sits on the coin; the
+<em>unlocking</em> script comes with the spending transaction. The operation count is
+the number of steps executed.</p>
+<p>Bitcoin’s first release validated spends with Script, a stack language with
+no loops: <code class="docutils literal notranslate"><span class="pre">OP_DUP</span> <span class="pre">OP_HASH160</span> <span class="pre">&lt;hash&gt;</span> <span class="pre">OP_EQUALVERIFY</span> <span class="pre">OP_CHECKSIG</span></code> pays to whoever
+shows a key with that hash and a valid signature. Without loops, execution time
+is bounded by script length, so Bitcoin needs no gas. Until 2010 the unlocking
+and locking scripts were concatenated and run as one; a script ending in
+<code class="docutils literal notranslate"><span class="pre">OP_TRUE</span> <span class="pre">OP_RETURN</span></code> could then skip the lock’s checks (CVE-2010-5141), and the
+two are now run separately.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.verify_script()</span></code></a>,
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.p2pkh_locking" title="blockchainkit.vm.systems.script.p2pkh_locking"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.p2pkh_locking()</span></code></a> and
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.p2pkh_unlocking" title="blockchainkit.vm.systems.script.p2pkh_unlocking"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.p2pkh_unlocking()</span></code></a>. Teaching differences:
+<code class="docutils literal notranslate"><span class="pre">OP_HASH256</span></code> replaces <code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code>, and signatures are this package’s
+Schnorr signatures over an explicit message.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>This interpreter supports a small opcode subset on big-endian numbers, uses
+<code class="docutils literal notranslate"><span class="pre">OP_HASH256</span></code> for <code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code>, and checks this package’s Schnorr signatures
+over an explicit message, not a transaction digest. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for
+this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example spends a coin with the right key, the wrong
+key, and a signature over a different transaction.</p>
+<p><em>References:</em> S. Nakamoto, Bitcoin v0.1 source code, <code class="docutils literal notranslate"><span class="pre">script.cpp</span></code> (2009);
+<a class="reference external" href="https://developer.bitcoin.org/devguide/transactions.html">Bitcoin Script documentation</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Bitcoin does not record owners. Each coin carries a locking script, and spending it means supplying an unlocking script that makes the pair succeed. The standard lock, pay-to-public-key-hash, says: &quot;show a public key with this hash, and a signature by it over the spending transaction&quot;. Script is a Forth-like stack language with no loops, so a script of n operations runs at most n steps: Bitcoin needs no gas."><img alt="" src="../_images/sphx_glr_plot_01_p2pkh_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/script/plot_01_p2pkh.html"><span class="doc">Bitcoin Script: pay to public-key hash (Nakamoto 2009)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bitcoin Script: pay to public-key hash (Nakamoto 2009)</div>
+</div></div></section>
+<section id="ethereum-and-programmable-replicated-state">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">2014 — Ethereum and programmable replicated state</a><a class="headerlink" href="#ethereum-and-programmable-replicated-state" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Participants can agree on program results as well as payments if
+they all execute the same rules. A work budget stops one program from consuming
+unlimited computation.</p>
+<p><strong>Reading the experiment.</strong> S is the state before execution and S prime is the state
+afterward. In this experiment, a successful program returns updated storage; an error
+leaves the original storage untouched. This small virtual machine is separate from the
+payment ledger, rather than an Ethereum implementation.</p>
+<p>Ethereum’s whitepaper describes a blockchain as a state-transition system
+whose rules can include programmable contracts. Replication
+requires deterministic execution, while bounded execution cost limits the
+resources an individual program can demand.</p>
+<div class="math notranslate nohighlight">
+\[(S,\mathrm{program},\mathrm{input})\longrightarrow S'
+\quad\text{or an execution error}.\]</div>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a> provides a
+256-bit stack machine, integer storage, branches, a stack bound, and an
+instruction budget. It works on a storage copy and returns a new state only
+after success; errors leave the caller’s state unchanged.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>Every instruction costs one gas unit here, and there is no memory, contract
+calls, logs or refunds. This is not the EVM. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this
+package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example compares successful execution, out-of-gas
+failure, and a bounded infinite loop. Costs are one unit per instruction, not
+an EVM gas schedule. The VM is independent of the transfer-only ledger:
+connecting arbitrary contract transactions would require a further consensus
+specification.</p>
+<p><em>References:</em> V. Buterin, <em>A Next-Generation Smart Contract and Decentralized
+Application Platform</em> (2014). <a class="reference external" href="https://ethereum.org/en/whitepaper/">Original whitepaper maintained by Ethereum</a>. The historical design is not a
+specification of the present-day Ethereum network.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Ethereum turned a blockchain into a shared computer: every node runs every contract call and must reach the same state. Since no one can predict whether an arbitrary program halts, each call carries a gas budget; every instruction spends some, and running out aborts the call and undoes its effects. Words are 256 bits, wide enough for hashes and keys. This small stack machine uses unit instruction costs, not Ethereum&#x27;s prices."><img alt="" src="../_images/sphx_glr_plot_01_gas_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/ethereum/plot_01_gas.html"><span class="doc">Ethereum: a replicated computer metered by gas (Buterin 2014)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ethereum: a replicated computer metered by gas (Buterin 2014)</div>
+</div></div></section>
+<section id="hash-time-locked-contracts">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">2015–2016 — Hash time-locked contracts</a><a class="headerlink" href="#hash-time-locked-contracts" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> “Bob gets this money if he reveals the secret behind this
+fingerprint; if he does not by a deadline, Alice gets it back.” Chaining such
+promises with the same secret lets payments hop across many people safely.</p>
+<p><strong>Reading the experiment.</strong> The <em>lock time</em> is the block height at which the
+spending transaction becomes valid; <code class="docutils literal notranslate"><span class="pre">OP_CHECKLOCKTIMEVERIFY</span></code> fails if it is
+earlier than the script’s deadline.</p>
+<p>Peter Todd’s <code class="docutils literal notranslate"><span class="pre">OP_CHECKLOCKTIMEVERIFY</span></code> (BIP 65, activated in 2015) let a script
+refuse a spend before a given time. Combined with a hash lock it gives the
+hash time-locked contract: pay on revealing a preimage, or refund after a
+timeout. Poon and Dryja’s Lightning Network chains HTLCs sharing one hash along
+a route of payment channels, so that revealing the preimage at the last hop
+lets every earlier hop claim too, and timeouts that grow toward the sender
+protect each intermediary.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.htlc_locking" title="blockchainkit.vm.systems.script.htlc_locking"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.htlc_locking()</span></code></a> and the
+<code class="docutils literal notranslate"><span class="pre">locktime</span></code> argument of <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.verify_script()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">OP_CHECKLOCKTIMEVERIFY</span></code> compares heights only. Lightning also uses relative
+timelocks (<code class="docutils literal notranslate"><span class="pre">OP_CHECKSEQUENCEVERIFY</span></code>) and penalty transactions, which are not
+modeled. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example claims an HTLC with the secret, fails with a
+guess, refunds only from the deadline on, and settles a two-hop route.</p>
+<p><em>References:</em> P. Todd, <em>BIP 65: OP_CHECKLOCKTIMEVERIFY</em> (2014).
+<a class="reference external" href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki">Specification</a>;
+J. Poon and T. Dryja, <em>The Bitcoin Lightning Network: scalable off-chain instant
+payments</em> (2016).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A hash time-locked contract (HTLC) pays the recipient if they reveal the preimage of a hash before a deadline, and otherwise lets the sender take the money back. Peter Todd&#x27;s OP_CHECKLOCKTIMEVERIFY (BIP 65, 2015) made the deadline enforceable in Script, and Poon and Dryja&#x27;s Lightning Network (2016) chains HTLCs with the same hash across many channels, so a payment either completes along the whole route or nowhere."><img alt="" src="../_images/sphx_glr_plot_02_htlc_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/script/plot_02_htlc.html"><span class="doc">Hash time-locked contracts: pay for a secret, or get a refund (2015-2016)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hash time-locked contracts: pay for a secret, or get a refund (2015-2016)</div>
+</div></div></section>
+<section id="the-dao-and-reentrancy">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">2016 — The DAO and reentrancy</a><a class="headerlink" href="#the-dao-and-reentrancy" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> A contract paid out before writing down that it had paid.
+The recipient, itself a program, asked to be paid again during the payment, and
+again, and again.</p>
+<p><strong>Reading the experiment.</strong> “Pay, then update” is the vulnerable order; “update,
+then pay” is the checks-effects-interactions order. Each nested call is one
+re-entry into <code class="docutils literal notranslate"><span class="pre">withdraw</span></code>.</p>
+<p>The DAO was a crowdfunded investment contract holding about 14% of all ether.
+Its split function sent ether before zeroing the caller’s balance, and sending
+ether to a contract runs that contract’s code. In June 2016 an attacker
+re-entered the function from that code and drained about 3.6 million ether;
+Ethereum hard-forked to reverse the theft, and the dissenting chain continues as
+Ethereum Classic. <em>Reentrancy</em> became the canonical smart-contract bug, avoided
+by updating state before any external call.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.reentrancy.drain_bank" title="blockchainkit.vm.systems.reentrancy.drain_bank"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.reentrancy.drain_bank()</span></code></a>, a
+Python model of a bank contract and an attacker whose fallback re-enters.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">drain_bank</span></code> is a Python model of the call pattern, not EVM execution; the
+DAO’s real split function also involved token balances and a waiting period.
+See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example drains a bank with both orders and shows how
+the call-depth limit of 1024 bounds the attack for small deposits.</p>
+<p><em>References:</em> N. Atzei, M. Bartoletti and T. Cimoli, <em>A survey of attacks on
+Ethereum smart contracts (SoK)</em>, POST 2017, LNCS 10204, 164–186 (2017). <a class="reference external" href="https://doi.org/10.1007/978-3-662-54455-6_8">DOI</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The DAO was an Ethereum fund holding about 14% of all ether. Its withdrawal code sent ether before updating the caller&#x27;s balance. Sending ether to a contract runs the contract&#x27;s code, so in June 2016 an attacker&#x27;s contract called back into the withdrawal from inside the payment, again and again, while its balance still showed the original deposit. About 3.6 million ether were drained, and Ethereum hard-forked to return them."><img alt="" src="../_images/sphx_glr_plot_03_reentrancy_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/ethereum/plot_03_reentrancy.html"><span class="doc">The DAO and reentrancy: checks, effects, interactions (2016)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The DAO and reentrancy: checks, effects, interactions (2016)</div>
+</div></div></section>
+<section id="gas-repricing-after-denial-of-service-attacks">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">2016 — Gas repricing after denial-of-service attacks</a><a class="headerlink" href="#gas-repricing-after-denial-of-service-attacks" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> If an operation costs little gas but a lot of real work,
+an attacker can fill blocks with it and slow every node down. The fix is to
+charge what the work really costs.</p>
+<p><strong>Reading the experiment.</strong> <em>Real work</em> is a teaching estimate in units of one
+arithmetic instruction, with a storage read counting 100. Both programs loop
+until a block’s worth of gas runs out.</p>
+<p>In September 2016 attackers spammed Ethereum with transactions that called
+underpriced, disk-heavy instructions such as <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code>, making blocks take
+far longer to process. EIP-150 (the <em>Tangerine Whistle</em> fork, October 2016)
+raised their prices: <code class="docutils literal notranslate"><span class="pre">SLOAD</span></code> from 50 to 200 gas, <code class="docutils literal notranslate"><span class="pre">BALANCE</span></code> from 20 to 400,
+<code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> and <code class="docutils literal notranslate"><span class="pre">CALL</span></code> to 700. Gas prices are security parameters: an
+attacker always picks the instruction with the most work per unit of gas.</p>
+<p><strong>Implementation:</strong> the <code class="docutils literal notranslate"><span class="pre">gas_costs</span></code> schedule of
+<a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p>The real-work costs are teaching estimates in arithmetic units, not
+measurements of any Ethereum client. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s
+exact conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example compares the real work done by a block of
+storage reads and a block of arithmetic, before and after repricing.</p>
+<p><em>References:</em> V. Buterin, <em>EIP-150: Gas cost changes for IO-heavy operations</em>
+(2016). <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-150">Specification</a>.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Gas is meant to be proportional to the work an instruction costs every node. In September 2016 attackers found instructions that were cheap in gas but slow to execute, because they read state from disk, and filled blocks with them, slowing nodes to a crawl. EIP-150 (&quot;Tangerine Whistle&quot;) raised their prices: reading storage went from 50 to 200 gas, and EXTCODESIZE and CALL from 20 and 40 to 700."><img alt="" src="../_images/sphx_glr_plot_02_gas_repricing_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/ethereum/plot_02_gas_repricing.html"><span class="doc">Gas repricing after denial-of-service attacks (EIP-150, 2016)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gas repricing after denial-of-service attacks (EIP-150, 2016)</div>
+</div></div></section>
+<section id="integer-overflow-beautychain">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">2018 — Integer overflow: BeautyChain</a><a class="headerlink" href="#integer-overflow-beautychain" title="Link to this heading">#</a></h2>
+<p><strong>In plain language.</strong> Machine numbers wrap around like a car’s odometer. A
+token contract multiplied two numbers, the product wrapped to zero, and its
+balance check passed for a sender who had nothing.</p>
+<p><strong>Reading the experiment.</strong> Balances live in storage, one slot per account.
+<code class="docutils literal notranslate"><span class="pre">value</span></code> is paid to each of two recipients; the contract checks the sender’s
+balance against <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">×</span> <span class="pre">value</span></code> computed modulo <span class="math notranslate nohighlight">\(2^{256}\)</span>.</p>
+<p>In April 2018 an attacker called the BeautyChain token’s <code class="docutils literal notranslate"><span class="pre">batchTransfer</span></code> with
+two recipients and <code class="docutils literal notranslate"><span class="pre">value</span></code> <span class="math notranslate nohighlight">\(= 2^{255}\)</span>, so that</p>
+<div class="math notranslate nohighlight">
+\[2 \times 2^{255} \equiv 0 \pmod{2^{256}},\]</div>
+<p>passed the balance check, and created <span class="math notranslate nohighlight">\(2^{256}\)</span> tokens (CVE-2018-10299).
+Exchanges suspended the token. Checked arithmetic, through the SafeMath library
+and since Solidity 0.8 by default, reverts on overflow instead.</p>
+<p><strong>Implementation:</strong> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.programs.batch_transfer" title="blockchainkit.vm.systems.programs.batch_transfer"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.programs.batch_transfer()</span></code></a>,
+with <code class="docutils literal notranslate"><span class="pre">checked=True</span></code> for the SafeMath test <code class="docutils literal notranslate"><span class="pre">amount</span> <span class="pre">/</span> <span class="pre">count</span> <span class="pre">==</span> <span class="pre">value</span></code>.</p>
+<div class="note admonition">
+<p class="admonition-title">Teaching vs production</p>
+<p><code class="docutils literal notranslate"><span class="pre">batch_transfer</span></code> is a stack-machine program with storage slots as accounts,
+not the Solidity contract. See <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> for this package’s exact
+conventions.</p>
+</div>
+<p><strong>Experiment:</strong> the gallery example mints tokens from an empty account with the
+unchecked contract, and shows the checked one reverting while agreeing on every
+ordinary transfer.</p>
+<p><em>References:</em> <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2018-10299">CVE-2018-10299</a>
+(2018).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="EVM words wrap modulo 2256. In April 2018 an attacker called the BeautyChain (BEC) token&#x27;s batchTransfer with two recipients and a value of 2255. The contract computed the total as 2 * 2255, which wraps to 0, checked that the sender had at least 0 tokens, and credited each recipient 2255 tokens. Exchanges suspended the token (CVE-2018-10299). The SafeMath library&#x27;s checked arithmetic, and later Solidity 0.8&#x27;s default overflow checks, close the hole."><img alt="" src="../_images/sphx_glr_plot_04_integer_overflow_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/vm/ethereum/plot_04_integer_overflow.html"><span class="doc">Integer overflow: minting tokens from nothing (BeautyChain, 2018)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Integer overflow: minting tokens from nothing (BeautyChain, 2018)</div>
+</div></div></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="network_breakthroughs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Breakthroughs in Peer-to-Peer Networking</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../examples/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polish-and-reverse-polish-notation">1924–1957 — Polish and reverse Polish notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turing-machines-and-the-halting-problem">1936 — Turing machines and the halting problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-hardware-stack-the-burroughs-b5000">1961 — A hardware stack: the Burroughs B5000</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-busy-beaver">1962 — The busy beaver</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequence-selection-iteration">1966 — Sequence, selection, iteration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#forth-and-stack-words">1970 — Forth and stack words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-machine-replication">1978–1990 — State-machine replication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-transaction-concept">1981 — The transaction concept</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-contracts">1994 — Smart contracts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bytecode-verification">1995 — Bytecode verification</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bitcoin-script-and-pay-to-public-key-hash">2009 — Bitcoin Script and pay-to-public-key-hash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethereum-and-programmable-replicated-state">2014 — Ethereum and programmable replicated state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hash-time-locked-contracts">2015–2016 — Hash time-locked contracts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dao-and-reentrancy">2016 — The DAO and reentrancy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gas-repricing-after-denial-of-service-attacks">2016 — Gas repricing after denial-of-service attacks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integer-overflow-beautychain">2018 — Integer overflow: BeautyChain</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/history/vm_breakthroughs.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

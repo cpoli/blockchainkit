@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.161812Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.734167Z",
+      "mimetype": null,
+      "name": "plot_01_lamport_signatures.ipynb",
+      "path": "jupyterlite_contents/api/gallery/crypto/hash_signatures/plot_01_lamport_signatures.ipynb",
+      "size": 4350,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.161812Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.161812Z",
+  "mimetype": null,
+  "name": "hash_signatures",
+  "path": "jupyterlite_contents/api/gallery/crypto/hash_signatures",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

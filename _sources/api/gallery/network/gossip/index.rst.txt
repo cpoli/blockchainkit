@@ -1,0 +1,87 @@
+
+
+.. _sphx_glr_api_gallery_network_gossip:
+
+Gossip and broadcast
+--------------------
+
+Epidemic dissemination, how many rounds a rumor needs, and broadcast that
+survives a lying sender.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Demers and colleagues at Xerox PARC kept the replicas of a database consistent by letting each replica periodically call a random other one and exchange updates, like an infection passing between people. They compared push (the caller sends what it knows), pull (the caller asks for what it lacks), and both together.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/gossip/images/thumb/sphx_glr_plot_01_epidemic_algorithms_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/gossip/plot_01_epidemic_algorithms`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Epidemic algorithms: push, pull and push-pull (Demers et al. 1987)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How long does push gossip take to reach everyone? On the complete graph, Frieze and Grimmett, and then Pittel more precisely, showed it takes log2 n + ln n + O(1) rounds. The first term is the doubling phase, while almost every call reaches someone new; the second is a coupon-collector phase, while the last few peers wait to be called.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/gossip/images/thumb/sphx_glr_plot_02_rumor_spreading_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/gossip/plot_02_rumor_spreading`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rumor spreading in log2 n + ln n rounds (Frieze and Grimmett 1985, Pittel 1987)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sender broadcasts a value, but it may be Byzantine and tell different peers different things. Bracha&#x27;s protocol makes delivery consistent anyway: peers echo what they received, become ready for a value once a large quorum echoed it (or once t + 1 peers are ready for it), and deliver once 2t + 1 peers are ready. With n &gt; 3t, all correct peers deliver the same value, or none delivers at all.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/gossip/images/thumb/sphx_glr_plot_03_reliable_broadcast_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/gossip/plot_03_reliable_broadcast`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Byzantine reliable broadcast: echo, then ready (Bracha 1987)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/network/gossip/plot_01_epidemic_algorithms
+   /api/gallery/network/gossip/plot_02_rumor_spreading
+   /api/gallery/network/gossip/plot_03_reliable_broadcast
+

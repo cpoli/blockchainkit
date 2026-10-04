@@ -1,0 +1,496 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.network``, one experiment per
+breakthrough on the :doc:`network history page
+</history/network_breakthroughs>`: discrete-event simulation and logical
+clocks, epidemic gossip and reliable broadcast, random, small-world and
+scale-free peer graphs, Kademlia with its Sybil and eclipse attacks, block
+relay and forks, transaction privacy, and the CAP trade-off.
+
+Each script is self-contained and runs with
+``python examples/network/<section>/<script>.py``.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Simulated and logical time
+--------------------------
+
+An event queue in place of a wall clock, and the clocks peers can build from
+their messages alone.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A discrete-event simulator keeps a queue of future events ordered by time. It pops the earliest, jumps the clock straight to it, and lets it schedule new events. Nothing happens between events, so no time is wasted waiting, and with a seeded random source every run is exactly reproducible. SimulatedNetwork simulates gossip this way: a message sent on a link becomes a delivery event a random number of ticks later.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/events/images/thumb/sphx_glr_plot_01_discrete_event_simulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/events/plot_01_discrete_event_simulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Discrete-event simulation: a network on an event queue (GPSS 1961, Simula 1965)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Peers&#x27; clocks drift, so wall-clock timestamps cannot say which of two events came first. Lamport replaced physical time with happened before: an event precedes the later events at its own process, a message&#x27;s send precedes its receive, and the relation is transitive. A counter that ticks at every event and jumps past every timestamp it receives respects that order.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/events/images/thumb/sphx_glr_plot_02_lamport_clocks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/events/plot_02_lamport_clocks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Lamport clocks: ordering events without a shared clock (Lamport 1978)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Lamport timestamp orders events but cannot tell whether two events are causally related. Fidge and Mattern independently gave each process a vector of counters, one per process. Entry q of an event&#x27;s vector counts the events at process q that happened before or at it, so comparing two vectors entry by entry answers exactly whether one event caused the other or the two are concurrent.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/events/images/thumb/sphx_glr_plot_03_vector_clocks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/events/plot_03_vector_clocks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Vector clocks: detecting concurrency (Fidge and Mattern 1988)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Gossip and broadcast
+--------------------
+
+Epidemic dissemination, how many rounds a rumor needs, and broadcast that
+survives a lying sender.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Demers and colleagues at Xerox PARC kept the replicas of a database consistent by letting each replica periodically call a random other one and exchange updates, like an infection passing between people. They compared push (the caller sends what it knows), pull (the caller asks for what it lacks), and both together.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/gossip/images/thumb/sphx_glr_plot_01_epidemic_algorithms_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/gossip/plot_01_epidemic_algorithms`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Epidemic algorithms: push, pull and push-pull (Demers et al. 1987)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How long does push gossip take to reach everyone? On the complete graph, Frieze and Grimmett, and then Pittel more precisely, showed it takes log2 n + ln n + O(1) rounds. The first term is the doubling phase, while almost every call reaches someone new; the second is a coupon-collector phase, while the last few peers wait to be called.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/gossip/images/thumb/sphx_glr_plot_02_rumor_spreading_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/gossip/plot_02_rumor_spreading`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rumor spreading in log2 n + ln n rounds (Frieze and Grimmett 1985, Pittel 1987)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A sender broadcasts a value, but it may be Byzantine and tell different peers different things. Bracha&#x27;s protocol makes delivery consistent anyway: peers echo what they received, become ready for a value once a large quorum echoed it (or once t + 1 peers are ready for it), and deliver once 2t + 1 peers are ready. With n &gt; 3t, all correct peers deliver the same value, or none delivers at all.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/gossip/images/thumb/sphx_glr_plot_03_reliable_broadcast_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/gossip/plot_03_reliable_broadcast`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Byzantine reliable broadcast: echo, then ready (Bracha 1987)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Peer graphs
+-----------
+
+Random, small-world, and scale-free topologies, and what each means for a
+peer-to-peer network.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="If each pair of n peers is linked independently with probability p, when is the whole network connected? Erdős and Rényi found a sharp threshold at p = ln n / n: a little below it there are almost surely isolated peers, a little above it the graph is almost surely connected. Each peer then needs only about ln n random links, which is why Bitcoin&#x27;s few random outbound connections per node suffice to hold the network together.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/graphs/images/thumb/sphx_glr_plot_01_random_graphs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/graphs/plot_01_random_graphs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Random graphs and the connectivity threshold (Erdős and Rényi 1959)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A ring lattice, where each peer knows its nearest neighbors, is highly clustered: your neighbors know each other. But messages crawl around it, taking about n / 2k hops. Watts and Strogatz rewired each link to a random peer with a small probability and found that a handful of shortcuts collapses path lengths almost to those of a random graph while clustering barely changes: a small world, like &quot;six degrees of separation&quot;.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/graphs/images/thumb/sphx_glr_plot_02_small_world_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/graphs/plot_02_small_world`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Small-world networks: a few shortcuts (Watts and Strogatz 1998)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Real networks, from the Web to peer-to-peer overlays, have a few huge hubs and many small nodes: their degree distribution follows a power law, unlike the narrow distribution of a random graph. Barabási and Albert explained it with growth plus preferential attachment: newcomers link to existing nodes with probability proportional to their degree, so the rich get richer.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/graphs/images/thumb/sphx_glr_plot_03_scale_free_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/graphs/plot_03_scale_free`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Scale-free networks: preferential attachment (Barabási and Albert 1999)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Overlays and their attacks
+--------------------------
+
+Kademlia routing, and the Sybil and eclipse attacks on who a peer talks to.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A distributed hash table stores each key at the nodes whose identifiers are closest to it, and lets any node find them without a central index. Kademlia measures closeness as the XOR of two identifiers. Each node keeps a k-bucket of contacts at every distance scale: a few nodes that share none of its leading bits, a few that share exactly one, and so on. Every hop toward a key at least fixes the next differing bit, so a lookup among n nodes takes about log2 n hops at most and far fewer on average. Ethereum&#x27;s discovery protocol and IPFS use Kademlia.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/overlays/images/thumb/sphx_glr_plot_01_kademlia_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/overlays/plot_01_kademlia`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kademlia: routing by XOR distance (Maymounkov and Mazières 2002)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In an open network, nothing stops one person from running many nodes. Douceur showed that without a trusted authority to certify identities, an attacker can always present as many as its resources allow, and any protocol that counts identities, such as voting or choosing which nodes store a key, can be taken over. Proof of work is one answer: it makes influence cost computation instead of counting identities.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/overlays/images/thumb/sphx_glr_plot_02_sybil_attack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/overlays/plot_02_sybil_attack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Sybil attack: identities are cheap (Douceur 2002)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Bitcoin node chooses its outbound connections from a table of addresses it has heard about. Heilman, Kendler, Zohar and Goldberg showed that an attacker who floods that table with its own addresses, and waits for a restart, can own every connection. The eclipsed node then sees only what the attacker shows it: it can be fed a fake chain or have its blocks withheld. Bitcoin&#x27;s defense is bucketing, which the paper&#x27;s countermeasures strengthened: an address&#x27;s bucket depends on its network group, and each group can reach only a few buckets.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/overlays/images/thumb/sphx_glr_plot_03_eclipse_attack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/overlays/plot_03_eclipse_attack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Eclipse attacks on Bitcoin's peer table (Heilman et al. 2015)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Block and transaction relay
+---------------------------
+
+Announcing instead of flooding, why propagation delay causes forks, compact
+blocks, and hiding where a transaction came from.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The simplest relay floods: every peer forwards a new block over each of its links, so a peer with eight neighbors may receive it eight times. The first Bitcoin client instead announces: it sends a small inv message carrying the block&#x27;s hash, and sends the block only to peers that ask for it with getdata. Each peer downloads each block once.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_01_inv_getdata_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_01_inv_getdata`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Announce, then fetch: Bitcoin's inv/getdata relay (Nakamoto 2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Decker and Wattenhofer measured how long Bitcoin blocks took to reach the network&#x27;s peers, and found that this delay alone explains most forks: while a block is still propagating, miners that have not seen it keep working on the old tip, and one of them may find a competing block. Since blocks are found as a Poisson process, the chance of a fork per block is about 1 - exp(-delay / interval).">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_02_propagation_and_forks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_02_propagation_and_forks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Propagation delay causes forks (Decker and Wattenhofer 2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="By the time a block is found, peers have usually already received most of its transactions as they were broadcast. Matt Corallo&#x27;s compact blocks (BIP 152) send only the header and a 6-byte short ID per transaction; the receiver rebuilds the block from its mempool and asks for the few it lacks. Short IDs are salted per block, so an attacker cannot craft transactions whose IDs collide in every block.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_03_compact_blocks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_03_compact_blocks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Compact blocks: send what the peer lacks (Corallo, BIP 152, 2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When a peer broadcasts its own transaction by diffusion, it is usually the first to send it, so spy nodes that connect widely can guess the origin by noting which peer delivered each transaction to them first. Bojja Venkatakrishnan, Fanti and Viswanath proposed Dandelion: first pass the transaction along a random path (the stem), each hop continuing with a fixed probability, and only then diffuse it (the fluff). Spies then see the end of the stem.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/relay/images/thumb/sphx_glr_plot_04_dandelion_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/relay/plot_04_dandelion`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dandelion: hiding where a transaction came from (Bojja Venkatakrishnan et al. 2017)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Replication under partitions
+----------------------------
+
+The CAP trade-off on a replicated register.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Brewer conjectured, and Gilbert and Lynch proved, that a replicated service cannot guarantee both consistency (every read returns the latest write) and availability (every request to a live replica gets an answer) when the network may partition. During a split, each side must either refuse requests or answer without the other side.">
+
+.. only:: html
+
+  .. image:: /api/gallery/network/replication/images/thumb/sphx_glr_plot_01_cap_theorem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/network/replication/plot_01_cap_theorem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The CAP theorem: consistency or availability (Brewer 2000, Gilbert and Lynch 2002)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/network/events/index.rst
+   /api/gallery/network/gossip/index.rst
+   /api/gallery/network/graphs/index.rst
+   /api/gallery/network/overlays/index.rst
+   /api/gallery/network/relay/index.rst
+   /api/gallery/network/replication/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: network_python.zip </api/gallery/network/network_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: network_jupyter.zip </api/gallery/network/network_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

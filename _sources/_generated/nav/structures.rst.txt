@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.structures hub </_generated/subpackages/structures>` · :doc:`History </history/structures_breakthroughs>` · :doc:`Examples </api/gallery/structures/index>` · :doc:`API reference </api/structures>`

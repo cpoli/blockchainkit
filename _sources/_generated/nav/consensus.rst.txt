@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.consensus hub </_generated/subpackages/consensus>` · :doc:`History </history/consensus_breakthroughs>` · :doc:`Examples </api/gallery/consensus/index>` · :doc:`API reference </api/consensus>`

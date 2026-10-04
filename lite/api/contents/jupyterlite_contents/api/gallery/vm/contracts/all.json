@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.180084Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.750357Z",
+      "mimetype": null,
+      "name": "plot_01_vending_machine.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/contracts/plot_01_vending_machine.ipynb",
+      "size": 3494,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.180399Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.750733Z",
+      "mimetype": null,
+      "name": "plot_02_bytecode_verification.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/contracts/plot_02_bytecode_verification.ipynb",
+      "size": 3981,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.180399Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.180399Z",
+  "mimetype": null,
+  "name": "contracts",
+  "path": "jupyterlite_contents/api/gallery/vm/contracts",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

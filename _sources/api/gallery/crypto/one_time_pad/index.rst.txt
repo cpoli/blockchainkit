@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_crypto_one_time_pad:
+
+One-time pad
+------------
+
+Vernam's cipher and Shannon's proof of perfect secrecy.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Vernam&#x27;s teleprinter cipher added a key tape to the message, character by character. Shannon later proved that if the key is truly random, as long as the message, and used once, the ciphertext reveals nothing: every plaintext of that length is equally consistent with it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/one_time_pad/images/thumb/sphx_glr_plot_01_one_time_pad_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/one_time_pad/plot_01_one_time_pad`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/one_time_pad/plot_01_one_time_pad
+

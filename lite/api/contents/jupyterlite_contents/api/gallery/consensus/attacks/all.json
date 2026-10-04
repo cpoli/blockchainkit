@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.155765Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.729482Z",
+      "mimetype": null,
+      "name": "plot_03_selfish_mining.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/attacks/plot_03_selfish_mining.ipynb",
+      "size": 3480,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.155444Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.729198Z",
+      "mimetype": null,
+      "name": "plot_02_double_spend.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/attacks/plot_02_double_spend.ipynb",
+      "size": 4042,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.155098Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.728919Z",
+      "mimetype": null,
+      "name": "plot_01_gamblers_ruin.ipynb",
+      "path": "jupyterlite_contents/api/gallery/consensus/attacks/plot_01_gamblers_ruin.ipynb",
+      "size": 3419,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.155765Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.155765Z",
+  "mimetype": null,
+  "name": "attacks",
+  "path": "jupyterlite_contents/api/gallery/consensus/attacks",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

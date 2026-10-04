@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.vm hub </_generated/subpackages/vm>` · :doc:`History </history/vm_breakthroughs>` · :doc:`Examples </api/gallery/vm/index>` · :doc:`API reference </api/vm>`

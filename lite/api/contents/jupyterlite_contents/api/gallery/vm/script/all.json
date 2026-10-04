@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.185229Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.754894Z",
+      "mimetype": null,
+      "name": "plot_02_htlc.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/script/plot_02_htlc.ipynb",
+      "size": 4709,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.184925Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.754627Z",
+      "mimetype": null,
+      "name": "plot_01_p2pkh.ipynb",
+      "path": "jupyterlite_contents/api/gallery/vm/script/plot_01_p2pkh.ipynb",
+      "size": 3596,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.185229Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.185229Z",
+  "mimetype": null,
+  "name": "script",
+  "path": "jupyterlite_contents/api/gallery/vm/script",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

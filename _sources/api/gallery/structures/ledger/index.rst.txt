@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_structures_ledger:
+
+Ledgers
+-------
+
+Account balances: conservation of value and per-account sequence numbers.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Luca Pacioli&#x27;s Summa de arithmetica gave the first printed account of Venetian double-entry bookkeeping: every transaction is recorded twice, as a debit in one account and a credit in another, so the books always balance. A blockchain ledger enforces the same invariant mechanically: transfers move value between accounts, so the total supply never changes.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/ledger/images/thumb/sphx_glr_plot_01_double_entry_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/ledger/plot_01_double_entry`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Double-entry bookkeeping: value is moved, never created (Pacioli 1494)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ethereum replaced Bitcoin&#x27;s coins with accounts: a balance per address, and a nonce counting the transactions each account has sent. A transaction must carry the next expected nonce, so it can be applied once and only in order. Without it, anyone could replay a signed payment again and again.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/ledger/images/thumb/sphx_glr_plot_02_account_nonces_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/ledger/plot_02_account_nonces`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The account model and nonces (Ethereum 2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/ledger/plot_01_double_entry
+   /api/gallery/structures/ledger/plot_02_account_nonces
+

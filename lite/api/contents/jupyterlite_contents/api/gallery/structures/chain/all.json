@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.174302Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.744113Z",
+      "mimetype": null,
+      "name": "plot_02_payment_lifecycle.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/chain/plot_02_payment_lifecycle.ipynb",
+      "size": 8571,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.174302Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.174302Z",
+  "mimetype": null,
+  "name": "chain",
+  "path": "jupyterlite_contents/api/gallery/structures/chain",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

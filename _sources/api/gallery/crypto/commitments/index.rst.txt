@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_crypto_commitments:
+
+Commitments
+-----------
+
+Sealed envelopes made of hashes and group elements.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Alice and Bob, on the phone, want a fair coin toss. If Alice calls first, Bob can lie. Blum&#x27;s fix: Alice commits to her call, Bob announces the coin, then Alice opens the commitment. A commitment must be binding (Alice cannot change her call) and hiding (Bob cannot read it early).">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/commitments/images/thumb/sphx_glr_plot_01_coin_flipping_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/commitments/plot_01_coin_flipping`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Coin flipping by telephone: hash commitments (Blum 1981)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pedersen committed to a value v as C = gv  h*r, with a random blinding factor r and a second generator h whose logarithm nobody knows. For any other value there is a blinding factor giving the same C, so the commitment hides v perfectly; opening it to a different value would reveal log_g(h). And commitments multiply to a commitment of the sum.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/commitments/images/thumb/sphx_glr_plot_02_pedersen_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/commitments/plot_02_pedersen`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pedersen commitments: perfectly hiding and additive (1991)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/commitments/plot_01_coin_flipping
+   /api/gallery/crypto/commitments/plot_02_pedersen
+

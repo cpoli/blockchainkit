@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_structures_merkle:
+
+Merkle trees
+------------
+
+Inclusion proofs, ambiguity attacks, append-only logs, and mountain ranges.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A root commits to an ordered collection. An inclusion proof reveals the sibling digests needed to recompute that root, rather than the full dataset. The verifier must already trust the root by some independent mechanism.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/merkle/images/thumb/sphx_glr_plot_01_merkle_proofs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/merkle/plot_01_merkle_proofs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Merkle trees: authenticate one item with a short proof (Merkle 1979)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin&#x27;s Merkle tree pairs an odd node with a copy of itself. So the lists [a, b, c] and [a, b, c, c] have the same root. In 2012 this let an attacker send a block with a duplicated transaction: nodes rejected it as invalid and remembered its hash as bad, so they later refused the valid block with the same hash. The bug was fixed by checking for the duplication.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/merkle/images/thumb/sphx_glr_plot_02_duplicate_leaf_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/merkle/plot_02_duplicate_leaf`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Two lists, one root: the duplicated-leaf ambiguity (CVE-2012-2459)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="After certificate authorities were compromised in 2011, Google proposed Certificate Transparency: every certificate goes into a public Merkle-tree log. Auditors need to know the log only ever appends: that today&#x27;s tree contains yesterday&#x27;s as a prefix. A consistency proof shows it with a logarithmic number of hashes.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/merkle/images/thumb/sphx_glr_plot_03_consistency_proofs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/merkle/plot_03_consistency_proofs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Append-only logs: consistency proofs (Certificate Transparency 2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Peter Todd described a structure for logs that only grow, designed for OpenTimestamps: a list of perfect Merkle trees (&quot;peaks&quot;) of decreasing size. Appending adds a one-leaf peak and merges equal-sized neighbours, like carrying in binary addition. Old peaks are never rewritten, so an append costs about two hashes, however long the range is.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/merkle/images/thumb/sphx_glr_plot_04_mountain_ranges_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/merkle/plot_04_mountain_ranges`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Merkle mountain ranges: an append-only accumulator (Todd 2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/merkle/plot_01_merkle_proofs
+   /api/gallery/structures/merkle/plot_02_duplicate_leaf
+   /api/gallery/structures/merkle/plot_03_consistency_proofs
+   /api/gallery/structures/merkle/plot_04_mountain_ranges
+

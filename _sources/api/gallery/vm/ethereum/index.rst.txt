@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_vm_ethereum:
+
+Ethereum
+--------
+
+Gas, gas repricing, reentrancy, and integer overflow.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ethereum turned a blockchain into a shared computer: every node runs every contract call and must reach the same state. Since no one can predict whether an arbitrary program halts, each call carries a gas budget; every instruction spends some, and running out aborts the call and undoes its effects. Words are 256 bits, wide enough for hashes and keys. This small stack machine uses unit instruction costs, not Ethereum&#x27;s prices.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_01_gas_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_01_gas`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ethereum: a replicated computer metered by gas (Buterin 2014)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gas is meant to be proportional to the work an instruction costs every node. In September 2016 attackers found instructions that were cheap in gas but slow to execute, because they read state from disk, and filled blocks with them, slowing nodes to a crawl. EIP-150 (&quot;Tangerine Whistle&quot;) raised their prices: reading storage went from 50 to 200 gas, and EXTCODESIZE and CALL from 20 and 40 to 700.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_02_gas_repricing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_02_gas_repricing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gas repricing after denial-of-service attacks (EIP-150, 2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The DAO was an Ethereum fund holding about 14% of all ether. Its withdrawal code sent ether before updating the caller&#x27;s balance. Sending ether to a contract runs the contract&#x27;s code, so in June 2016 an attacker&#x27;s contract called back into the withdrawal from inside the payment, again and again, while its balance still showed the original deposit. About 3.6 million ether were drained, and Ethereum hard-forked to return them.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_03_reentrancy_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_03_reentrancy`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The DAO and reentrancy: checks, effects, interactions (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="EVM words wrap modulo 2256. In April 2018 an attacker called the BeautyChain (BEC) token&#x27;s batchTransfer with two recipients and a value of 2255. The contract computed the total as 2 * 2255, which wraps to 0, checked that the sender had at least 0 tokens, and credited each recipient 2255 tokens. Exchanges suspended the token (CVE-2018-10299). The SafeMath library&#x27;s checked arithmetic, and later Solidity 0.8&#x27;s default overflow checks, close the hole.">
+
+.. only:: html
+
+  .. image:: /api/gallery/vm/ethereum/images/thumb/sphx_glr_plot_04_integer_overflow_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/vm/ethereum/plot_04_integer_overflow`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Integer overflow: minting tokens from nothing (BeautyChain, 2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/vm/ethereum/plot_01_gas
+   /api/gallery/vm/ethereum/plot_02_gas_repricing
+   /api/gallery/vm/ethereum/plot_03_reentrancy
+   /api/gallery/vm/ethereum/plot_04_integer_overflow
+

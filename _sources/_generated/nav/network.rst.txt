@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.network hub </_generated/subpackages/network>` · :doc:`History </history/network_breakthroughs>` · :doc:`Examples </api/gallery/network/index>` · :doc:`API reference </api/network>`

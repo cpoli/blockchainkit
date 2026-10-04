@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structures_hash_chains:
+
+Hash chains
+-----------
+
+Repeated hashing as a source of one-time secrets.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lamport proposed logging in without ever sending a reusable password. Hash a secret seed n times and give the server only the last value. Each login reveals the value before it: the server hashes it once and compares. A captured password is useless, because the next one is its preimage. This became S/KEY (1995), and hash chains reappear in blockchains as commit-reveal randomness and in Lamport-style signatures.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/hash_chains/images/thumb/sphx_glr_plot_01_lamport_hash_chain_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/hash_chains/plot_01_lamport_hash_chain`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hash chains and one-time passwords (Lamport 1981)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/hash_chains/plot_01_lamport_hash_chain
+

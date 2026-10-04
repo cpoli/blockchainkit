@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.177701Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.747818Z",
+      "mimetype": null,
+      "name": "plot_01_sparse_merkle.ipynb",
+      "path": "jupyterlite_contents/api/gallery/structures/state/plot_01_sparse_merkle.ipynb",
+      "size": 4253,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.177701Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.177701Z",
+  "mimetype": null,
+  "name": "state",
+  "path": "jupyterlite_contents/api/gallery/structures/state",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

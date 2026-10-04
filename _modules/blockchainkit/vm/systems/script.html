@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.vm.systems.script &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/vm/systems/script';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.vm.systems.script</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.vm.systems.script</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Bitcoin-style Script (2009): spending conditions as tiny stack programs.</span>
+
+<span class="sd">A coin is locked by a *locking script*; to spend it, one supplies an</span>
+<span class="sd">*unlocking script*. The unlocking script runs first, then the locking script</span>
+<span class="sd">runs on the stack it left, and the spend is valid if no step fails and the</span>
+<span class="sd">top of the stack is true. Script deliberately has no loops, so a script of n</span>
+<span class="sd">operations runs at most n steps and needs no gas.</span>
+
+<span class="sd">Teaching differences from Bitcoin: stack items are byte strings, but numbers</span>
+<span class="sd">are big-endian; ``OP_HASH256`` (double SHA-256) replaces ``OP_HASH160`` in</span>
+<span class="sd">pay-to-public-key-hash; and ``OP_CHECKSIG`` checks a blockchainkit Schnorr</span>
+<span class="sd">signature over an explicit message rather than a transaction digest.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SchnorrSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.curves</span><span class="w"> </span><span class="kn">import</span> <span class="n">SECP256K1</span><span class="p">,</span> <span class="n">encode_point</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.hashing</span><span class="w"> </span><span class="kn">import</span> <span class="n">hash256</span><span class="p">,</span> <span class="n">sha256</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.signatures</span><span class="w"> </span><span class="kn">import</span> <span class="n">verify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.vm.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScriptResult</span>
+
+<span class="n">ScriptItem</span> <span class="o">=</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="nb">str</span>
+<span class="sd">"""A data push (bytes) or an opcode name such as ``"OP_DUP"`` (str)."""</span>
+
+<span class="n">OPCODES</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">"OP_TRUE"</span><span class="p">,</span>
+        <span class="s2">"OP_FALSE"</span><span class="p">,</span>
+        <span class="s2">"OP_DUP"</span><span class="p">,</span>
+        <span class="s2">"OP_DROP"</span><span class="p">,</span>
+        <span class="s2">"OP_EQUAL"</span><span class="p">,</span>
+        <span class="s2">"OP_EQUALVERIFY"</span><span class="p">,</span>
+        <span class="s2">"OP_VERIFY"</span><span class="p">,</span>
+        <span class="s2">"OP_SHA256"</span><span class="p">,</span>
+        <span class="s2">"OP_HASH256"</span><span class="p">,</span>
+        <span class="s2">"OP_CHECKSIG"</span><span class="p">,</span>
+        <span class="s2">"OP_CHECKLOCKTIMEVERIFY"</span><span class="p">,</span>
+        <span class="s2">"OP_IF"</span><span class="p">,</span>
+        <span class="s2">"OP_ELSE"</span><span class="p">,</span>
+        <span class="s2">"OP_ENDIF"</span><span class="p">,</span>
+        <span class="s2">"OP_RETURN"</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="sd">"""Every opcode the interpreter accepts."""</span>
+
+<span class="n">_WIDTH</span> <span class="o">=</span> <span class="mi">32</span>
+
+
+<div class="viewcode-block" id="encode_public_key">
+<a class="viewcode-back" href="../../../../api/vm.html#blockchainkit.vm.systems.script.encode_public_key">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_public_key</span><span class="p">(</span><span class="n">public</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A public key as stack bytes (uncompressed point encoding)."""</span>
+    <span class="k">return</span> <span class="n">encode_point</span><span class="p">(</span><span class="n">public</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="encode_signature">
+<a class="viewcode-back" href="../../../../api/vm.html#blockchainkit.vm.systems.script.encode_signature">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_signature</span><span class="p">(</span><span class="n">signature</span><span class="p">:</span> <span class="n">SchnorrSignature</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A signature as stack bytes: the commitment point, then the 32-byte response."""</span>
+    <span class="k">return</span> <span class="n">encode_point</span><span class="p">(</span><span class="n">signature</span><span class="o">.</span><span class="n">commitment</span><span class="p">)</span> <span class="o">+</span> <span class="n">signature</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="n">_WIDTH</span><span class="p">,</span> <span class="s2">"big"</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_point</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">_WIDTH</span> <span class="ow">or</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"not an encoded point"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">_WIDTH</span><span class="p">],</span> <span class="s2">"big"</span><span class="p">),</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="n">_WIDTH</span> <span class="p">:],</span> <span class="s2">"big"</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="number">
+<a class="viewcode-back" href="../../../../api/vm.html#blockchainkit.vm.systems.script.number">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">number</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Encode a non-negative integer as minimal big-endian bytes (0 is empty)."""</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">((</span><span class="n">value</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">//</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"big"</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_true</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">_Fail</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run</span><span class="p">(</span>
+    <span class="n">script</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">ScriptItem</span><span class="p">],</span>
+    <span class="n">stack</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">],</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span>
+    <span class="n">locktime</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">operations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">executing</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># One entry per open OP_IF.</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">script</span><span class="p">:</span>
+        <span class="n">active</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">executing</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+            <span class="n">operations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">active</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">OPCODES</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="sa">f</span><span class="s2">"unknown opcode </span><span class="si">{</span><span class="n">item</span><span class="si">!r}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"OP_IF"</span><span class="p">,</span> <span class="s2">"OP_ELSE"</span><span class="p">,</span> <span class="s2">"OP_ENDIF"</span><span class="p">):</span>
+            <span class="n">operations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_IF"</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">active</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">stack</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="s2">"OP_IF on an empty stack"</span><span class="p">)</span>
+                    <span class="n">executing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_true</span><span class="p">(</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">executing</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="n">executing</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2"> without OP_IF"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_ELSE"</span><span class="p">:</span>
+                <span class="n">executing</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">executing</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">executing</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">executing</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">active</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">operations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_RETURN"</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="s2">"OP_RETURN marks the output unspendable"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_TRUE"</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">"</span><span class="se">\x01</span><span class="s2">"</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_FALSE"</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
+            <span class="k">continue</span>
+        <span class="n">needed</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"OP_EQUAL"</span><span class="p">,</span> <span class="s2">"OP_EQUALVERIFY"</span><span class="p">,</span> <span class="s2">"OP_CHECKSIG"</span><span class="p">)</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">needed</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2"> needs </span><span class="si">{</span><span class="n">needed</span><span class="si">}</span><span class="s2"> stack items"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_DUP"</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_DROP"</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"OP_EQUAL"</span><span class="p">,</span> <span class="s2">"OP_EQUALVERIFY"</span><span class="p">):</span>
+            <span class="n">equal</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">==</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_EQUALVERIFY"</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">equal</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="s2">"OP_EQUALVERIFY: items differ"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_EQUAL"</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">"</span><span class="se">\x01</span><span class="s2">"</span> <span class="k">if</span> <span class="n">equal</span> <span class="k">else</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_VERIFY"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">_true</span><span class="p">(</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()):</span>
+                <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="s2">"OP_VERIFY: false"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_SHA256"</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sha256</span><span class="p">(</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()))</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_HASH256"</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hash256</span><span class="p">(</span><span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()))</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">"OP_CHECKSIG"</span><span class="p">:</span>
+            <span class="n">public</span><span class="p">,</span> <span class="n">signature</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">(),</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">point</span> <span class="o">=</span> <span class="n">_point</span><span class="p">(</span><span class="n">signature</span><span class="p">[:</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">_WIDTH</span><span class="p">])</span>
+                <span class="n">response</span> <span class="o">=</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">signature</span><span class="p">[</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">_WIDTH</span> <span class="p">:],</span> <span class="s2">"big"</span><span class="p">)</span>
+                <span class="n">ok</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">_WIDTH</span> <span class="ow">and</span> <span class="n">verify</span><span class="p">(</span>
+                    <span class="n">message</span><span class="p">,</span> <span class="n">SchnorrSignature</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">response</span><span class="p">),</span> <span class="n">_point</span><span class="p">(</span><span class="n">public</span><span class="p">),</span> <span class="n">SECP256K1</span>
+                <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="n">ok</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">b</span><span class="s2">"</span><span class="se">\x01</span><span class="s2">"</span> <span class="k">if</span> <span class="n">ok</span> <span class="k">else</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># OP_CHECKLOCKTIMEVERIFY leaves its operand, as in BIP 65.</span>
+            <span class="k">if</span> <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">"big"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">locktime</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="s2">"OP_CHECKLOCKTIMEVERIFY: the lock time has not been reached"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">executing</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">_Fail</span><span class="p">(</span><span class="s2">"OP_IF without OP_ENDIF"</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="verify_script">
+<a class="viewcode-back" href="../../../../api/vm.html#blockchainkit.vm.systems.script.verify_script">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_script</span><span class="p">(</span>
+    <span class="n">unlocking</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">ScriptItem</span><span class="p">],</span>
+    <span class="n">locking</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">ScriptItem</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">""</span><span class="p">,</span>
+    <span class="n">locktime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ScriptResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Run the unlocking script, then the locking script on its stack, and judge the spend.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    unlocking, locking : sequence of bytes or str</span>
+<span class="sd">        Data pushes and opcode names.</span>
+<span class="sd">    message : bytes</span>
+<span class="sd">        What ``OP_CHECKSIG`` signatures must sign (the spending transaction).</span>
+<span class="sd">    locktime : int</span>
+<span class="sd">        The spending transaction's lock time, compared by</span>
+<span class="sd">        ``OP_CHECKLOCKTIMEVERIFY``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ScriptResult</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Running the scripts separately matters: until 2010 Bitcoin concatenated</span>
+<span class="sd">    them, and the unlocking script ``OP_TRUE OP_RETURN`` ended execution</span>
+<span class="sd">    early with true on top, spending any coin (CVE-2010-5141).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.crypto import sha256</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.vm import verify_script</span>
+<span class="sd">    &gt;&gt;&gt; verify_script([b"secret"], ["OP_SHA256", sha256(b"secret"), "OP_EQUAL"]).valid</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"message must be bytes"</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">locktime</span><span class="p">,</span> <span class="s2">"locktime"</span><span class="p">)</span>
+    <span class="n">stack</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">operations</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Shared counter, so a failed run still reports its work.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_run</span><span class="p">(</span><span class="n">unlocking</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">locktime</span><span class="p">,</span> <span class="n">operations</span><span class="p">)</span>
+        <span class="n">_run</span><span class="p">(</span><span class="n">locking</span><span class="p">,</span> <span class="n">stack</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="n">locktime</span><span class="p">,</span> <span class="n">operations</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">_Fail</span> <span class="k">as</span> <span class="n">failure</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">ScriptResult</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">stack</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">failure</span><span class="p">),</span> <span class="n">operations</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">stack</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">_true</span><span class="p">(</span><span class="n">stack</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">return</span> <span class="n">ScriptResult</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">stack</span><span class="p">),</span> <span class="s2">"the top of the stack is not true"</span><span class="p">,</span> <span class="n">operations</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">ScriptResult</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">stack</span><span class="p">),</span> <span class="kc">None</span><span class="p">,</span> <span class="n">operations</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="p2pkh_locking">
+<a class="viewcode-back" href="../../../../api/vm.html#blockchainkit.vm.systems.script.p2pkh_locking">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">p2pkh_locking</span><span class="p">(</span><span class="n">public</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ScriptItem</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Pay to public-key hash: ``OP_DUP OP_HASH256 &lt;hash&gt; OP_EQUALVERIFY OP_CHECKSIG``.</span>
+
+<span class="sd">    The coin names only the hash of a key; the spender reveals the key and</span>
+<span class="sd">    a signature.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="s2">"OP_DUP"</span><span class="p">,</span>
+        <span class="s2">"OP_HASH256"</span><span class="p">,</span>
+        <span class="n">hash256</span><span class="p">(</span><span class="n">encode_public_key</span><span class="p">(</span><span class="n">public</span><span class="p">)),</span>
+        <span class="s2">"OP_EQUALVERIFY"</span><span class="p">,</span>
+        <span class="s2">"OP_CHECKSIG"</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="p2pkh_unlocking">
+<a class="viewcode-back" href="../../../../api/vm.html#blockchainkit.vm.systems.script.p2pkh_unlocking">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">p2pkh_unlocking</span><span class="p">(</span><span class="n">signature</span><span class="p">:</span> <span class="n">SchnorrSignature</span><span class="p">,</span> <span class="n">public</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ScriptItem</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""The matching unlocking script: ``&lt;signature&gt; &lt;public key&gt;``."""</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">encode_signature</span><span class="p">(</span><span class="n">signature</span><span class="p">),</span> <span class="n">encode_public_key</span><span class="p">(</span><span class="n">public</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="htlc_locking">
+<a class="viewcode-back" href="../../../../api/vm.html#blockchainkit.vm.systems.script.htlc_locking">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">htlc_locking</span><span class="p">(</span>
+    <span class="n">payment_hash</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span>
+    <span class="n">recipient</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">refund</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">ScriptItem</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""A hash time-locked contract.</span>
+
+<span class="sd">    The recipient can claim with a signature and the preimage of</span>
+<span class="sd">    ``payment_hash`` (SHA-256); after ``timeout``, the sender can take a</span>
+<span class="sd">    refund with its own signature::</span>
+
+<span class="sd">        OP_IF</span>
+<span class="sd">            OP_SHA256 &lt;payment_hash&gt; OP_EQUALVERIFY &lt;recipient&gt;</span>
+<span class="sd">        OP_ELSE</span>
+<span class="sd">            &lt;timeout&gt; OP_CHECKLOCKTIMEVERIFY OP_DROP &lt;refund&gt;</span>
+<span class="sd">        OP_ENDIF</span>
+<span class="sd">        OP_CHECKSIG</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">payment_hash</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">payment_hash</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">32</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"payment_hash must be a 32-byte SHA-256 digest"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="s2">"OP_IF"</span><span class="p">,</span>
+        <span class="s2">"OP_SHA256"</span><span class="p">,</span>
+        <span class="n">payment_hash</span><span class="p">,</span>
+        <span class="s2">"OP_EQUALVERIFY"</span><span class="p">,</span>
+        <span class="n">encode_public_key</span><span class="p">(</span><span class="n">recipient</span><span class="p">),</span>
+        <span class="s2">"OP_ELSE"</span><span class="p">,</span>
+        <span class="n">number</span><span class="p">(</span><span class="n">timeout</span><span class="p">),</span>
+        <span class="s2">"OP_CHECKLOCKTIMEVERIFY"</span><span class="p">,</span>
+        <span class="s2">"OP_DROP"</span><span class="p">,</span>
+        <span class="n">encode_public_key</span><span class="p">(</span><span class="n">refund</span><span class="p">),</span>
+        <span class="s2">"OP_ENDIF"</span><span class="p">,</span>
+        <span class="s2">"OP_CHECKSIG"</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

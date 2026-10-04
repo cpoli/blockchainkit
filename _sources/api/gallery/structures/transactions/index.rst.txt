@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_structures_transactions:
+
+Transaction identity
+--------------------
+
+What a transaction id covers, and which network a signature belongs to.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin&#x27;s transaction id hashed the whole transaction, signatures included. Anyone relaying a transaction could alter its signature encoding without invalidating it, changing the id. In 2014 the Mt. Gox exchange blamed malleability for lost withdrawals; Decker and Wattenhofer found it explained only a small fraction. Segregated witness (2017) moved signatures out of the id, which also made payment channels such as Lightning safe to build.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/transactions/images/thumb/sphx_glr_plot_01_malleability_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/transactions/plot_01_malleability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Transaction malleability and segregated witness (2014-2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 2016 Ethereum split into two chains, Ethereum and Ethereum Classic, with the same accounts and keys. A transaction signed for one was valid on the other: anyone could replay it, moving the sender&#x27;s coins on both. EIP-155 added the chain id to what is signed, so a signature belongs to exactly one network.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/transactions/images/thumb/sphx_glr_plot_02_replay_protection_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/transactions/plot_02_replay_protection`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Replay protection with a chain identifier (EIP-155, 2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/transactions/plot_01_malleability
+   /api/gallery/structures/transactions/plot_02_replay_protection
+

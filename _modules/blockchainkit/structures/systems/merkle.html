@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.structures.systems.merkle &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/structures/systems/merkle';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">blockchainkit</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../start_here.html">
+    Start here: a blockchain without the jargon
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../quickstart.html">
+    Your first payment, step by step
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../glossary.html">
+    Glossary
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../exercises/index.html">
+    Exercises
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../protocol.html">
+    Exact conventions and model boundaries
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../simulation.html">
+    Reproducible experiments and research scope
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../contributing.html">
+    Developing blockchainkit
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.structures.systems.merkle</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.structures.systems.merkle</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Domain-separated Merkle trees with explicit leaf-count commitments.</span>
+
+<span class="sd">Odd nodes are promoted unchanged. Roots bind the leaf count to avoid</span>
+<span class="sd">ambiguity between differently shaped trees. This is not Bitcoin's format.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">MERKLE_LEAF_PREFIX</span><span class="p">,</span>
+    <span class="n">MERKLE_NODE_PREFIX</span><span class="p">,</span>
+    <span class="n">MERKLE_ROOT_PREFIX</span><span class="p">,</span>
+    <span class="n">UINT64_LIMIT</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.hashing</span><span class="w"> </span><span class="kn">import</span> <span class="n">hash256</span><span class="p">,</span> <span class="n">sha256</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.structures.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">MerkleProof</span><span class="p">,</span> <span class="n">MerkleTrace</span><span class="p">,</span> <span class="n">ProofStep</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_root</span><span class="p">(</span><span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">digest</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_ROOT_PREFIX</span> <span class="o">+</span> <span class="n">count</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">"big"</span><span class="p">)</span> <span class="o">+</span> <span class="n">digest</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="MerkleTree">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.MerkleTree">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">MerkleTree</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Build a tree from an iterable of byte strings.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    leaves : iterable of bytes</span>
+<span class="sd">        Ordered payloads, hashed as SHA256(0x00 || payload).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.structures import MerkleTree, verify_proof</span>
+<span class="sd">    &gt;&gt;&gt; tree = MerkleTree([b"alice", b"bob", b"carol"])</span>
+<span class="sd">    &gt;&gt;&gt; verify_proof(b"bob", tree.proof(1), tree.root)</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">leaves</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">payloads</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">leaves</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">leaf</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="k">for</span> <span class="n">leaf</span> <span class="ow">in</span> <span class="n">payloads</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"leaves must be bytes"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">payloads</span><span class="p">)</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_LEAF_PREFIX</span> <span class="o">+</span> <span class="n">leaf</span><span class="p">)</span> <span class="k">for</span> <span class="n">leaf</span> <span class="ow">in</span> <span class="n">payloads</span><span class="p">)</span>
+        <span class="n">levels</span> <span class="o">=</span> <span class="p">[</span><span class="n">level</span><span class="p">]</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">level</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
+                <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_NODE_PREFIX</span> <span class="o">+</span> <span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">level</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+                <span class="k">else</span> <span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">levels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_levels</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_root</span> <span class="o">=</span> <span class="n">_root</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_count</span><span class="p">,</span> <span class="n">level</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">level</span> <span class="k">else</span> <span class="sa">b</span><span class="s2">""</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"MerkleTree(leaves=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_count</span><span class="si">}</span><span class="s2">, root=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_root</span><span class="o">.</span><span class="n">hex</span><span class="p">()[:</span><span class="mi">16</span><span class="p">]</span><span class="si">}</span><span class="s2">...)"</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return the immutable 32-byte, leaf-count-bound root."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">leaf_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return the number of leaves the root commits to."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count</span>
+
+<div class="viewcode-block" id="MerkleTree.consistency_proof">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.MerkleTree.consistency_proof">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">consistency_proof</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Prove that this tree extends its first ``old_size`` leaves (RFC 6962)."""</span>
+        <span class="k">return</span> <span class="n">consistency_proof</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_size</span><span class="p">)</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">levels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Return every level's digests, from leaf hashes up to the top digest.</span>
+
+<span class="sd">        The top digest is not yet the root: the root also binds the leaf count.</span>
+<span class="sd">        An empty tree has a single empty level.</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_levels</span>
+
+<div class="viewcode-block" id="MerkleTree.proof">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.MerkleTree.proof">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">proof</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MerkleProof</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return a logarithmic-size inclusion proof at a zero-based position."""</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">"leaf index out of range"</span><span class="p">)</span>
+        <span class="n">siblings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">position</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_levels</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">sibling</span> <span class="o">=</span> <span class="n">position</span> <span class="o">^</span> <span class="mi">1</span>
+            <span class="n">siblings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="n">sibling</span><span class="p">]</span> <span class="k">if</span> <span class="n">sibling</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">position</span> <span class="o">//=</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">MerkleProof</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">siblings</span><span class="p">))</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_walk</span><span class="p">(</span><span class="n">leaf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">proof</span><span class="p">:</span> <span class="n">MerkleProof</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">ProofStep</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Recompute the top digest bottom-up; return None for a malformed proof."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">leaf</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">proof</span><span class="p">,</span> <span class="n">MerkleProof</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">proof</span><span class="o">.</span><span class="n">leaf_count</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">proof</span><span class="o">.</span><span class="n">leaf_count</span> <span class="o">&lt;</span> <span class="n">UINT64_LIMIT</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">proof</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">proof</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;</span> <span class="n">proof</span><span class="o">.</span><span class="n">leaf_count</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">proof</span><span class="o">.</span><span class="n">siblings</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">proof</span><span class="o">.</span><span class="n">siblings</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">proof</span><span class="o">.</span><span class="n">leaf_count</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">leaf_digest</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_LEAF_PREFIX</span> <span class="o">+</span> <span class="n">leaf</span><span class="p">)</span>
+    <span class="n">current</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="n">leaf_digest</span><span class="p">,</span> <span class="n">proof</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">proof</span><span class="o">.</span><span class="n">leaf_count</span>
+    <span class="n">steps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># The checked path length ensures count &gt; 1 at every iteration, and</span>
+    <span class="c1"># repeated ceiling-halving reaches exactly 1 after the final sibling.</span>
+    <span class="k">for</span> <span class="n">sibling</span> <span class="ow">in</span> <span class="n">proof</span><span class="o">.</span><span class="n">siblings</span><span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">^</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">count</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sibling</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="n">side</span> <span class="o">=</span> <span class="s2">"promoted"</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sibling</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">sibling</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">32</span><span class="p">:</span>
+                <span class="k">return</span> <span class="kc">None</span>
+            <span class="n">side</span> <span class="o">=</span> <span class="s2">"left"</span> <span class="k">if</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">else</span> <span class="s2">"right"</span>
+            <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="p">(</span><span class="n">sibling</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span> <span class="k">if</span> <span class="n">side</span> <span class="o">==</span> <span class="s2">"left"</span> <span class="k">else</span> <span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">sibling</span><span class="p">)</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_NODE_PREFIX</span> <span class="o">+</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span>
+        <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ProofStep</span><span class="p">(</span><span class="n">side</span><span class="p">,</span> <span class="n">sibling</span><span class="p">,</span> <span class="n">current</span><span class="p">))</span>
+        <span class="n">index</span> <span class="o">//=</span> <span class="mi">2</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="p">(</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">leaf_digest</span><span class="p">,</span> <span class="n">steps</span>
+
+
+<div class="viewcode-block" id="verify_proof">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.verify_proof">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_proof</span><span class="p">(</span><span class="n">leaf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">proof</span><span class="p">:</span> <span class="n">MerkleProof</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Verify payload, position, shape, count, and root; reject malformed proofs."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">32</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">walked</span> <span class="o">=</span> <span class="n">_walk</span><span class="p">(</span><span class="n">leaf</span><span class="p">,</span> <span class="n">proof</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">walked</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">leaf_digest</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">walked</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">digest</span> <span class="k">if</span> <span class="n">steps</span> <span class="k">else</span> <span class="n">leaf_digest</span>
+    <span class="k">return</span> <span class="n">_root</span><span class="p">(</span><span class="n">proof</span><span class="o">.</span><span class="n">leaf_count</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span> <span class="o">==</span> <span class="n">root</span></div>
+
+
+
+<div class="viewcode-block" id="trace_proof">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.trace_proof">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">trace_proof</span><span class="p">(</span><span class="n">leaf</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">proof</span><span class="p">:</span> <span class="n">MerkleProof</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MerkleTrace</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Reconstruct the root step by step, recording each level.</span>
+
+<span class="sd">    Unlike :func:`verify_proof`, a well-formed proof that reconstructs the</span>
+<span class="sd">    wrong root still returns its full trace (with ``valid=False``), so an</span>
+<span class="sd">    experiment can show where a tampered leaf diverges.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        The proof is malformed: wrong shape, count, index, or sibling type.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.structures import MerkleTree, trace_proof</span>
+<span class="sd">    &gt;&gt;&gt; tree = MerkleTree([b"a", b"b", b"c"])</span>
+<span class="sd">    &gt;&gt;&gt; [step.side for step in trace_proof(b"c", tree.proof(2), tree.root).steps]</span>
+<span class="sd">    ['promoted', 'left']</span>
+<span class="sd">    """</span>
+    <span class="n">walked</span> <span class="o">=</span> <span class="n">_walk</span><span class="p">(</span><span class="n">leaf</span><span class="p">,</span> <span class="n">proof</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">walked</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"malformed Merkle proof"</span><span class="p">)</span>
+    <span class="n">leaf_digest</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="n">walked</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">digest</span> <span class="k">if</span> <span class="n">steps</span> <span class="k">else</span> <span class="n">leaf_digest</span>
+    <span class="n">computed</span> <span class="o">=</span> <span class="n">_root</span><span class="p">(</span><span class="n">proof</span><span class="o">.</span><span class="n">leaf_count</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">MerkleTrace</span><span class="p">(</span><span class="n">leaf_digest</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">steps</span><span class="p">),</span> <span class="n">computed</span><span class="p">,</span> <span class="n">computed</span> <span class="o">==</span> <span class="n">root</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_subtree</span><span class="p">(</span><span class="n">digests</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Top digest of consecutive leaf digests (the RFC 6962 tree shape)."""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">digests</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">digests</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">split</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">digests</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Largest power of two below n.</span>
+    <span class="k">return</span> <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_NODE_PREFIX</span> <span class="o">+</span> <span class="n">_subtree</span><span class="p">(</span><span class="n">digests</span><span class="p">[:</span><span class="n">split</span><span class="p">])</span> <span class="o">+</span> <span class="n">_subtree</span><span class="p">(</span><span class="n">digests</span><span class="p">[</span><span class="n">split</span><span class="p">:]))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_subproof</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">digests</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">],</span> <span class="n">complete</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">digests</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">complete</span> <span class="k">else</span> <span class="p">[</span><span class="n">_subtree</span><span class="p">(</span><span class="n">digests</span><span class="p">)]</span>
+    <span class="n">split</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">m</span> <span class="o">&lt;=</span> <span class="n">split</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_subproof</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">digests</span><span class="p">[:</span><span class="n">split</span><span class="p">],</span> <span class="n">complete</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">_subtree</span><span class="p">(</span><span class="n">digests</span><span class="p">[</span><span class="n">split</span><span class="p">:])]</span>
+    <span class="k">return</span> <span class="n">_subproof</span><span class="p">(</span><span class="n">m</span> <span class="o">-</span> <span class="n">split</span><span class="p">,</span> <span class="n">digests</span><span class="p">[</span><span class="n">split</span><span class="p">:],</span> <span class="kc">False</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">_subtree</span><span class="p">(</span><span class="n">digests</span><span class="p">[:</span><span class="n">split</span><span class="p">])]</span>
+
+
+<div class="viewcode-block" id="consistency_proof">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.consistency_proof">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">consistency_proof</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">MerkleTree</span><span class="p">,</span> <span class="n">old_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Prove that the first ``old_size`` leaves of ``tree`` form an earlier tree.</span>
+
+<span class="sd">    The proof (RFC 6962, section 2.1.2) lists the subtree digests needed to</span>
+<span class="sd">    rebuild both the old and the new top digest from shared parts, so a</span>
+<span class="sd">    verifier can check that the log only appended. Because blockchainkit's</span>
+<span class="sd">    roots also bind the leaf count, the verifier cannot read the old top</span>
+<span class="sd">    digest off the old root; when ``old_size`` is a power of two (the case</span>
+<span class="sd">    where RFC 6962 omits it) the proof starts with it. Also available as</span>
+<span class="sd">    :meth:`MerkleTree.consistency_proof`.</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">old_size</span><span class="p">,</span> <span class="s2">"old_size"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">old_size</span> <span class="o">&gt;</span> <span class="n">tree</span><span class="o">.</span><span class="n">leaf_count</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"old_size cannot exceed the tree's leaf count"</span><span class="p">)</span>
+    <span class="n">digests</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tree</span><span class="o">.</span><span class="n">levels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">old_size</span> <span class="o">==</span> <span class="n">tree</span><span class="o">.</span><span class="n">leaf_count</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">()</span>
+    <span class="n">proof</span> <span class="o">=</span> <span class="n">_subproof</span><span class="p">(</span><span class="n">old_size</span><span class="p">,</span> <span class="n">digests</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">old_size</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">old_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">proof</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">_subtree</span><span class="p">(</span><span class="n">digests</span><span class="p">[:</span><span class="n">old_size</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">proof</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="verify_consistency">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.verify_consistency">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_consistency</span><span class="p">(</span>
+    <span class="n">old_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">old_root</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">new_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">new_root</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">proof</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Check that the tree with ``old_root`` is a prefix of the tree with ``new_root``.</span>
+
+<span class="sd">    Follows RFC 9162, section 2.1.4.2, on top digests, then checks both</span>
+<span class="sd">    count-bound roots. Malformed or mismatched proofs return False.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.structures import MerkleTree, verify_consistency</span>
+<span class="sd">    &gt;&gt;&gt; leaves = [bytes([i]) for i in range(7)]</span>
+<span class="sd">    &gt;&gt;&gt; old, new = MerkleTree(leaves[:3]), MerkleTree(leaves)</span>
+<span class="sd">    &gt;&gt;&gt; verify_consistency(3, old.root, 7, new.root, new.consistency_proof(3))</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">old_size</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="nb">type</span><span class="p">(</span><span class="n">new_size</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">old_size</span> <span class="o">&lt;=</span> <span class="n">new_size</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">digest</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">32</span> <span class="k">for</span> <span class="n">digest</span> <span class="ow">in</span> <span class="n">proof</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="n">old_size</span> <span class="o">==</span> <span class="n">new_size</span><span class="p">:</span>
+        <span class="k">return</span> <span class="ow">not</span> <span class="n">proof</span> <span class="ow">and</span> <span class="n">old_root</span> <span class="o">==</span> <span class="n">new_root</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">proof</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">fn</span><span class="p">,</span> <span class="n">sn</span> <span class="o">=</span> <span class="n">old_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_size</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">fn</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">fn</span><span class="p">,</span> <span class="n">sn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sn</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+    <span class="n">old_top</span> <span class="o">=</span> <span class="n">new_top</span> <span class="o">=</span> <span class="n">proof</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">digest</span> <span class="ow">in</span> <span class="n">proof</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="k">if</span> <span class="n">sn</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">fn</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">fn</span> <span class="o">==</span> <span class="n">sn</span><span class="p">:</span>
+            <span class="n">old_top</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_NODE_PREFIX</span> <span class="o">+</span> <span class="n">digest</span> <span class="o">+</span> <span class="n">old_top</span><span class="p">)</span>
+            <span class="n">new_top</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_NODE_PREFIX</span> <span class="o">+</span> <span class="n">digest</span> <span class="o">+</span> <span class="n">new_top</span><span class="p">)</span>
+            <span class="k">while</span> <span class="ow">not</span> <span class="n">fn</span> <span class="o">&amp;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">fn</span><span class="p">:</span>
+                <span class="n">fn</span><span class="p">,</span> <span class="n">sn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sn</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">new_top</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">MERKLE_NODE_PREFIX</span> <span class="o">+</span> <span class="n">new_top</span> <span class="o">+</span> <span class="n">digest</span><span class="p">)</span>
+        <span class="n">fn</span><span class="p">,</span> <span class="n">sn</span> <span class="o">=</span> <span class="n">fn</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sn</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">sn</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">_root</span><span class="p">(</span><span class="n">old_size</span><span class="p">,</span> <span class="n">old_top</span><span class="p">)</span> <span class="o">==</span> <span class="n">old_root</span> <span class="ow">and</span> <span class="n">_root</span><span class="p">(</span><span class="n">new_size</span><span class="p">,</span> <span class="n">new_top</span><span class="p">)</span> <span class="o">==</span> <span class="n">new_root</span></div>
+
+
+
+<div class="viewcode-block" id="bitcoin_merkle_root">
+<a class="viewcode-back" href="../../../../api/structures.html#blockchainkit.structures.systems.merkle.bitcoin_merkle_root">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">bitcoin_merkle_root</span><span class="p">(</span><span class="n">leaves</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return a root in Bitcoin's convention: double SHA-256, odd nodes duplicated.</span>
+
+<span class="sd">    Shown for contrast with :class:`MerkleTree`. With no domain separation</span>
+<span class="sd">    and no leaf count, the lists ``[a, b, c]`` and ``[a, b, c, c]`` share a</span>
+<span class="sd">    root (CVE-2012-2459), which let an attacker make nodes reject a valid</span>
+<span class="sd">    block. :class:`MerkleTree` promotes odd nodes and binds the count instead.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.structures import bitcoin_merkle_root</span>
+<span class="sd">    &gt;&gt;&gt; bitcoin_merkle_root([b"a", b"b", b"c"]) == bitcoin_merkle_root([b"a", b"b", b"c", b"c"])</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="p">[</span><span class="n">hash256</span><span class="p">(</span><span class="n">leaf</span><span class="p">)</span> <span class="k">for</span> <span class="n">leaf</span> <span class="ow">in</span> <span class="n">leaves</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">level</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Bitcoin's convention has no root for an empty list"</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">level</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="p">[</span><span class="n">hash256</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">level</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">),</span> <span class="mi">2</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">level</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.169063Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.740093Z",
+      "mimetype": null,
+      "name": "plot_02_rumor_spreading.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/gossip/plot_02_rumor_spreading.ipynb",
+      "size": 3840,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.169384Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.740385Z",
+      "mimetype": null,
+      "name": "plot_03_reliable_broadcast.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/gossip/plot_03_reliable_broadcast.ipynb",
+      "size": 4758,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T10:01:21.168739Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T10:01:17.739818Z",
+      "mimetype": null,
+      "name": "plot_01_epidemic_algorithms.ipynb",
+      "path": "jupyterlite_contents/api/gallery/network/gossip/plot_01_epidemic_algorithms.ipynb",
+      "size": 4341,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T10:01:21.169384Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T10:01:21.169384Z",
+  "mimetype": null,
+  "name": "gossip",
+  "path": "jupyterlite_contents/api/gallery/network/gossip",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

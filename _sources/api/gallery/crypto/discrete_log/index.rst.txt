@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_crypto_discrete_log:
+
+Discrete logarithms
+-------------------
+
+Generic attacks on the problem behind Diffie-Hellman and Schnorr.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Diffie-Hellman and Schnorr are safe only if recovering x from gx is hard. Trying every exponent costs n steps in a group of order n. Shanks showed a time-memory trade-off that costs about 2sqrt(n): store m = sqrt(n) &quot;baby steps&quot; gj, then take &quot;giant steps&quot; target  g(-m*i) until one matches.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/discrete_log/images/thumb/sphx_glr_plot_01_baby_step_giant_step_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/discrete_log/plot_01_baby_step_giant_step`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Baby-step giant-step: square-root discrete logs (Shanks 1971)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pohlig and Hellman noticed that a discrete log in a group of order n = p1e1  p2e2  ... splits into small problems, one per prime power, recombined with the Chinese Remainder Theorem. The cost depends on the largest prime factor of n, not on n. A huge group with a smooth order is weak.">
+
+.. only:: html
+
+  .. image:: /api/gallery/crypto/discrete_log/images/thumb/sphx_glr_plot_02_pohlig_hellman_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/crypto/discrete_log/plot_02_pohlig_hellman`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pohlig-Hellman: why the group order must have a large prime factor (1978)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/crypto/discrete_log/plot_01_baby_step_giant_step
+   /api/gallery/crypto/discrete_log/plot_02_pohlig_hellman
+

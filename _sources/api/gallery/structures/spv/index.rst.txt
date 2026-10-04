@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_structures_spv:
+
+Light clients
+-------------
+
+Verifying a payment with block headers only.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Section 8 of the Bitcoin whitepaper describes a client that never downloads blocks. It keeps only the chain of block headers, checks that they link and carry proof of work, and asks a full node for a Merkle proof that a payment is in one of them. Phones run wallets this way.">
+
+.. only:: html
+
+  .. image:: /api/gallery/structures/spv/images/thumb/sphx_glr_plot_01_light_clients_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/structures/spv/plot_01_light_clients`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Simplified payment verification: light clients (Nakamoto 2008)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/structures/spv/plot_01_light_clients
+
