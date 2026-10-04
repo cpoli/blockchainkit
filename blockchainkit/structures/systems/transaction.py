@@ -12,6 +12,7 @@ from blockchainkit.crypto import (
     sign,
     verify,
 )
+from blockchainkit.structures.utils.accounts import is_account_id
 from blockchainkit.structures.utils.encoding import canonical_json
 
 
@@ -49,11 +50,7 @@ class Transaction:
 
     def __post_init__(self) -> None:
         encode_point(self.sender)
-        if (
-            not isinstance(self.recipient, str)
-            or len(self.recipient) != 64
-            or any(c not in "0123456789abcdef" for c in self.recipient)
-        ):
+        if not is_account_id(self.recipient):
             raise ValueError("recipient must be a lowercase SHA-256 account identifier")
         integer(self.amount, "amount", 1)
         integer(self.nonce, "nonce")
@@ -61,6 +58,8 @@ class Transaction:
             raise ValueError("amount and nonce must fit unsigned 64-bit integers")
         if not isinstance(self.chain_id, str) or not 1 <= len(self.chain_id) <= 128:
             raise ValueError("chain_id must contain 1 to 128 characters")
+        if self.signature is not None and not isinstance(self.signature, SchnorrSignature):
+            raise TypeError("signature must be a SchnorrSignature or None")
 
     @property
     def sender_address(self) -> str:

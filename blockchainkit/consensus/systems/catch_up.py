@@ -13,6 +13,8 @@ def eventual_catch_up(attacker_fraction: float, deficit: int) -> float:
     >>> eventual_catch_up(0.25, 2)
     0.1111111111111111
     """
+    if isinstance(attacker_fraction, bool) or not isinstance(attacker_fraction, (int, float)):
+        raise TypeError("attacker_fraction must be a real number in [0, 1]")
     if not 0 <= attacker_fraction <= 1:
         raise ValueError("attacker_fraction must be in [0, 1]")
     integer(deficit, "deficit")

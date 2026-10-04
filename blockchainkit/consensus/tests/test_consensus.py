@@ -25,9 +25,11 @@ def test_mining_and_target_boundaries():
         bk.consensus.mine(replace(block, nonce=2**64 - 1), max_attempts=2)
     with pytest.raises(ValueError):
         bk.consensus.mine(block, max_attempts=0)
-    for difficulty in (-1, 257, True):
+    for difficulty in (-1, 257):
         with pytest.raises(ValueError):
             bk.consensus.target(difficulty)
+    with pytest.raises(TypeError):
+        bk.consensus.target(True)
 
 
 def test_catch_up_model():
@@ -51,6 +53,9 @@ def test_stake_sampling_reproducibility_and_statistics():
     assert counts["c"] == 0
     # Integer sampling works even when weights exceed floating-point precision.
     assert bk.consensus.StakeSampler({"a": 10**100}, seed=1).choose() == "a"
-    for stakes in ({}, {"a": 0}, {"a": -1}, {"a": 0.5}, {"a": True}, {"": 1}):
+    for stakes in ({}, {"a": 0}, {"a": -1}, {"": 1}):
         with pytest.raises(ValueError):
+            bk.consensus.StakeSampler(stakes)
+    for stakes in ({"a": 0.5}, {"a": True}):
+        with pytest.raises(TypeError):
             bk.consensus.StakeSampler(stakes)

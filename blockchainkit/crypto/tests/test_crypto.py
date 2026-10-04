@@ -55,7 +55,7 @@ def test_composites(value):
 def test_primality_bounds():
     with pytest.raises(ValueError):
         is_prime(2**64 + 1)
-    with pytest.raises(ValueError):
+    with pytest.raises(TypeError):
         is_prime(True)
 
 
@@ -69,9 +69,11 @@ def test_diffie_hellman_and_impersonation():
     for peer in (0, 1, 5, 23, -1):
         with pytest.raises(ValueError):
             group.shared(peer, 3)
-    for private in (0, 11, True):
+    for private in (0, 11):
         with pytest.raises(ValueError):
             group.public(private)
+    with pytest.raises(TypeError):
+        group.public(True)
     for params in ((21, 5, 2), (23, 7, 2), (23, 11, 5)):
         with pytest.raises(ValueError):
             c.DHGroup(*params)
@@ -92,9 +94,11 @@ def test_rsa_known_vector_blinding_and_malleability():
     for params in ((61, 61, 17), (15, 53, 17), (61, 53, 12)):
         with pytest.raises(ValueError):
             c.rsa_keypair(*params)
-    for value in (-1, 3233, True):
+    for value in (-1, 3233):
         with pytest.raises(ValueError):
             key.encrypt(value)
+    with pytest.raises(TypeError):
+        key.encrypt(True)
     with pytest.raises(ValueError):
         c.rsa_blind(42, 61, key)
 
@@ -143,9 +147,11 @@ def test_curve_vectors_and_validation():
     assert not curve.contains((22, 1))
     assert not curve.contains((1,))
     assert not curve.contains((True, 1))
-    for private in (0, 19, True):
+    for private in (0, 19):
         with pytest.raises(ValueError):
             c.public_key(private, curve)
+    with pytest.raises(TypeError):
+        c.public_key(True, curve)
     with pytest.raises(ValueError):
         c.add((0, 0), None, curve)
     with pytest.raises(ValueError):

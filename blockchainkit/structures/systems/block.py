@@ -1,6 +1,7 @@
 """Immutable blocks with canonical headers and transaction commitments."""
 
 from dataclasses import dataclass
+from functools import cached_property
 
 from blockchainkit._validation import integer
 from blockchainkit.constants import UINT64_LIMIT
@@ -24,6 +25,12 @@ class Block:
         Nonnegative 64-bit integers; timestamps use simulation units.
     difficulty : int
         Number of required leading zero hash bits, between 0 and 256.
+
+    Notes
+    -----
+    The Merkle root and the block hash are computed once and cached. A
+    miner never rebuilds the transaction tree: it calls ``header(nonce=...)``
+    with candidate nonces, as real miners vary only the header.
     """
 
     previous_hash: bytes = bytes(32)
@@ -47,13 +54,26 @@ class Block:
         if self.difficulty > 256:
             raise ValueError("difficulty cannot exceed 256 bits")
 
-    @property
+    @cached_property
     def merkle_root(self) -> bytes:
         """Return the count-bound commitment to ordered signed transactions."""
         return MerkleTree(tx.to_bytes() for tx in self.transactions).root
 
-    def header(self) -> bytes:
-        """Return canonical bytes committing to all consensus-relevant fields."""
+    def header(self, nonce: int | None = None) -> bytes:
+        """Return canonical bytes committing to all consensus-relevant fields.
+
+        Parameters
+        ----------
+        nonce : int, optional
+            A candidate nonce to place in the header instead of ``self.nonce``.
+            ``block.header(nonce=n)`` equals ``replace(block, nonce=n).header()``
+            without rebuilding the Merkle tree.
+        """
+        if nonce is None:
+            nonce = self.nonce
+        integer(nonce, "nonce")
+        if nonce >= UINT64_LIMIT:
+            raise ValueError("nonce must fit an unsigned 64-bit integer")
         return canonical_json(
             {
                 "version": 1,
@@ -62,11 +82,11 @@ class Block:
                 "height": self.height,
                 "timestamp": self.timestamp,
                 "difficulty": self.difficulty,
-                "nonce": self.nonce,
+                "nonce": nonce,
             }
         )
 
-    @property
+    @cached_property
     def hash(self) -> bytes:
         """Return SHA-256 of the canonical header."""
         return sha256(self.header())

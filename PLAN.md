@@ -90,7 +90,13 @@ LICENSE MANIFEST.in README.md ROADMAP.md SECURITY.md pyproject.toml
 Done when: `pytest`, doctests, ruff, mypy and `python -m build` pass with 100% coverage, the
 wheel contains no `/tests/`, and `bk.crypto.sign` and the other public names are unchanged.
 
-## Phase 2: Code-review fixes
+## Phase 2: Code-review fixes (done)
+
+Status: done. R1–R9 and the clarity items are fixed, each with a regression test (157 tests,
+100% coverage). Protocol outputs are byte-identical to the baseline. Mining a 20-transaction
+block went from 118 µs to 2 µs per attempt; `verify` from 17 ms to 8 ms. R4 uses Hasse's
+bound (`Curve.cofactor_is_one`) instead of a new `cofactor` field, so callers supply nothing
+new and the rule is a theorem the docs can teach.
 
 Measured or reproduced on the current code:
 

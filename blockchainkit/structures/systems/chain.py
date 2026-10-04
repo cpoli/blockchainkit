@@ -22,6 +22,10 @@ class Blockchain:
     the same block set converge independent of arrival order. This teaching
     tie-break is not Bitcoin's first-seen behavior. Each fork retains its own
     ledger snapshot, so reorganizations restore balances and nonces.
+
+    Keeping a full snapshot per block makes reorganizations easy to inspect,
+    at a memory cost proportional to blocks times accounts. Real nodes keep
+    one state and undo data instead.
     """
 
     def __init__(self, genesis: Block, initial_state: Ledger | None = None) -> None:
@@ -30,10 +34,16 @@ class Blockchain:
         if not valid_pow(genesis):
             raise ValueError("genesis proof of work is invalid")
         self._blocks = {genesis.hash: genesis}
-        self._states = {genesis.hash: initial_state or Ledger()}
+        self._states = {genesis.hash: Ledger() if initial_state is None else initial_state}
         self._work = {genesis.hash: expected_trials(genesis.difficulty)}
         self._tip = genesis.hash
         self._difficulty = genesis.difficulty
+
+    def __repr__(self) -> str:
+        return (
+            f"Blockchain(height={self.tip.height}, blocks={len(self._blocks)}, "
+            f"tip={self._tip.hex()[:16]}..., cumulative_work={self.cumulative_work})"
+        )
 
     @property
     def tip(self) -> Block:

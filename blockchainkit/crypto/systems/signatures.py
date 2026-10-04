@@ -95,7 +95,8 @@ def verify_transcript(
     for point in (public, commitment):
         if point is None or not curve.contains(point):
             return False
-        if multiply(curve.order, point, curve) is not None:
+        # With cofactor 1 every curve point is in the subgroup (see Curve.cofactor_is_one).
+        if not curve.cofactor_is_one and multiply(curve.order, point, curve) is not None:
             return False
     return multiply(response, curve.generator, curve) == add(
         commitment, multiply(challenge_scalar, public, curve), curve

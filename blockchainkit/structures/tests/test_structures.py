@@ -74,10 +74,17 @@ def test_transaction_and_ledger_rules():
 
 
 @pytest.mark.parametrize(
-    "change", [{"amount": 0}, {"amount": True}, {"nonce": -1}, {"recipient": "x"}, {"chain_id": ""}]
+    "change,error",
+    [
+        ({"amount": 0}, ValueError),
+        ({"amount": True}, TypeError),
+        ({"nonce": -1}, ValueError),
+        ({"recipient": "x"}, ValueError),
+        ({"chain_id": ""}, ValueError),
+    ],
 )
-def test_invalid_transaction_fields(change):
-    with pytest.raises(ValueError):
+def test_invalid_transaction_fields(change, error):
+    with pytest.raises(error):
         replace(transfer(), **change)
 
 
@@ -94,13 +101,14 @@ def test_block_header_commits_to_all_fields():
         assert replace(block, **change).hash != block.hash
     for change in (
         {"nonce": -1},
-        {"timestamp": True},
         {"difficulty": 257},
         {"previous_hash": b"x"},
         {"height": 2**64},
     ):
         with pytest.raises(ValueError):
             replace(block, **change)
+    with pytest.raises(TypeError):
+        replace(block, timestamp=True)
 
 
 def test_fork_reorganization_restores_balances_and_nonces():

@@ -6,6 +6,7 @@ from typing import TYPE_CHECKING
 from blockchainkit._validation import integer
 from blockchainkit.consensus.core.base import MiningResult
 from blockchainkit.constants import UINT64_LIMIT
+from blockchainkit.crypto.systems.hashing import sha256
 
 if TYPE_CHECKING:
     from blockchainkit.structures.systems.block import Block
@@ -48,8 +49,10 @@ def mine(block: "Block", *, max_attempts: int = 100_000) -> MiningResult:
     integer(max_attempts, "max_attempts", 1)
     if block.nonce + max_attempts > UINT64_LIMIT:
         raise ValueError("search exceeds the 64-bit nonce space")
+    limit = target(block.difficulty)
+    # Only the header changes between attempts; the Merkle root is computed once.
     for attempt in range(max_attempts):
-        candidate = replace(block, nonce=block.nonce + attempt)
-        if valid_pow(candidate):
-            return MiningResult(candidate, attempt + 1)
+        nonce = block.nonce + attempt
+        if int.from_bytes(sha256(block.header(nonce=nonce)), "big") <= limit:
+            return MiningResult(replace(block, nonce=nonce), attempt + 1)
     raise TimeoutError(f"no solution in {max_attempts} attempts")

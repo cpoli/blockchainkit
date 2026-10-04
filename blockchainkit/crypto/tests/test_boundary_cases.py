@@ -20,10 +20,15 @@ def test_curve_requires_finite_on_curve_generator(generator):
         replace(bk.crypto.TOY_CURVE, generator=generator)
 
 
-@pytest.mark.parametrize("scalar,point", [(True, (5, 1)), (1.5, (5, 1)), (1, (0, 0))])
-def test_multiplication_rejects_invalid_scalar_or_point(scalar, point):
-    with pytest.raises(ValueError, match="integer scalar and an on-curve point"):
-        bk.crypto.multiply(scalar, point, bk.crypto.TOY_CURVE)
+@pytest.mark.parametrize("scalar", [True, 1.5])
+def test_multiplication_rejects_non_integer_scalars(scalar):
+    with pytest.raises(TypeError, match="scalar must be an integer"):
+        bk.crypto.multiply(scalar, (5, 1), bk.crypto.TOY_CURVE)
+
+
+def test_multiplication_rejects_off_curve_points():
+    with pytest.raises(ValueError, match="on the curve"):
+        bk.crypto.multiply(1, (0, 0), bk.crypto.TOY_CURVE)
 
 
 def test_prime_that_divides_a_miller_rabin_base():
@@ -83,3 +88,47 @@ def test_singular_curve_is_rejected_before_group_operations():
 def test_curve_rejects_composite_field_or_subgroup_order(field):
     with pytest.raises(ValueError, match="must be prime"):
         replace(bk.crypto.TOY_CURVE, **{field: 15})
+
+
+def test_hasse_bound_proves_the_builtin_curves_have_cofactor_one():
+    # Hasse: #E <= p + 1 + 2*sqrt(p). A subgroup of order n > #E / 2 is the whole group.
+    assert bk.crypto.SECP256K1.cofactor_is_one
+    assert bk.crypto.TOY_CURVE.cofactor_is_one
+    assert not bk.crypto.Curve(7, 0, 1, (0, 1), 3).cofactor_is_one
+
+
+def test_verification_skips_subgroup_checks_when_the_cofactor_is_one(monkeypatch):
+    from blockchainkit.crypto.systems import signatures
+
+    signature = bk.crypto.sign(b"m", 7, nonce=11)
+    public = bk.crypto.public_key(7)
+    calls = []
+    real_multiply = signatures.multiply
+    monkeypatch.setattr(
+        signatures, "multiply", lambda *args: calls.append(args[0]) or real_multiply(*args)
+    )
+    assert bk.crypto.verify(b"m", signature, public)
+    assert bk.crypto.SECP256K1.order not in calls
+
+
+@pytest.mark.parametrize("field", ["p", "order"])
+def test_secp256k1_constants_are_allowlisted_only_in_their_own_role(field):
+    secp = bk.crypto.SECP256K1
+    swapped = secp.order if field == "p" else secp.p
+    with pytest.raises(ValueError, match="below 2\\*\\*64"):
+        replace(secp, **{field: swapped})
+
+
+@pytest.mark.parametrize("value", [True, 1.5, "7"])
+def test_integer_arguments_reject_wrong_types_with_type_error(value):
+    with pytest.raises(TypeError, match="must be an integer"):
+        bk.crypto.public_key(value, bk.crypto.TOY_CURVE)
+    with pytest.raises(TypeError):
+        is_prime(value)
+
+
+def test_blinding_rejects_values_outside_the_modulus():
+    key = bk.crypto.rsa_keypair()
+    for function in (bk.crypto.rsa_blind, bk.crypto.rsa_unblind):
+        with pytest.raises(ValueError, match="below n"):
+            function(key.n, 2, key)

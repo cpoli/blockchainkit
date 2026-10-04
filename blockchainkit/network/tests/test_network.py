@@ -89,3 +89,31 @@ def test_invalid_network_inputs():
     network.run(until=3)
     with pytest.raises(ValueError):
         network.run(until=2)
+
+
+def test_a_failing_receive_callback_does_not_mark_the_payload_seen():
+    failures = iter([RuntimeError("callback crashed")])
+
+    def flaky(delivery):
+        error = next(failures, None)
+        if error is not None:
+            raise error
+
+    network = SimulatedNetwork(["a"], on_receive=flaky)
+    with pytest.raises(RuntimeError):
+        network.broadcast("a", b"payload")
+    network.broadcast("a", b"payload")
+    assert [d.payload for d in network.deliveries] == [b"payload"]
+
+
+@pytest.mark.parametrize("seed", ["seed", 1.5, True])
+def test_network_requires_an_integer_seed(seed):
+    with pytest.raises(TypeError, match="seed"):
+        SimulatedNetwork(["a"], seed=seed)
+
+
+def test_network_repr_summarizes_the_simulation():
+    network = SimulatedNetwork(["a", "b", "c"])
+    network.connect("a", "b")
+    network.broadcast("a", b"x")
+    assert repr(network) == "SimulatedNetwork(peers=3, links=1, time=0, pending=1)"

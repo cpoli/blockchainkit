@@ -48,7 +48,9 @@ def split_secret(
         if coefficient >= prime:
             raise ValueError("randbelow returned a value outside the field")
         coefficients.append(coefficient)
-    # Include zero among coefficients to preserve uniform polynomial sampling.
+    # Coefficients, including the leading one, may be zero. Sampling every
+    # polynomial with this constant term uniformly is what makes any
+    # threshold - 1 shares independent of the secret (perfect secrecy).
     return tuple(
         (x, sum(c * pow(x, i, prime) for i, c in enumerate(coefficients)) % prime)
         for x in range(1, shares + 1)

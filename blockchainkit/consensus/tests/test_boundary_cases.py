@@ -14,3 +14,15 @@ def test_stake_lottery_ticket_boundaries(monkeypatch):
     assert sampler.sample(0) == ()
     with pytest.raises(ValueError, match="rounds"):
         sampler.sample(-1)
+
+
+@pytest.mark.parametrize("fraction", [True, "0.2", None])
+def test_catch_up_rejects_non_numeric_fractions(fraction):
+    with pytest.raises(TypeError, match="attacker_fraction"):
+        bk.consensus.eventual_catch_up(fraction, 1)
+
+
+@pytest.mark.parametrize("seed", ["seed", 1.5, True])
+def test_stake_sampler_requires_an_integer_seed(seed):
+    with pytest.raises(TypeError, match="seed"):
+        bk.consensus.StakeSampler({"a": 1}, seed=seed)

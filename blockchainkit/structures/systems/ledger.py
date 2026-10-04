@@ -6,6 +6,7 @@ from types import MappingProxyType
 from blockchainkit._validation import integer
 from blockchainkit.constants import DEFAULT_CHAIN_ID
 from blockchainkit.structures.systems.transaction import Transaction
+from blockchainkit.structures.utils.accounts import is_account_id
 
 
 class Ledger:
@@ -27,14 +28,18 @@ class Ledger:
             raise ValueError("chain_id must contain 1 to 128 characters")
         for mapping in (balances or {}, nonces or {}):
             for account, value in mapping.items():
-                if not isinstance(account, str) or len(account) != 64:
-                    raise ValueError("account IDs must be 64 hex characters")
-                if any(c not in "0123456789abcdef" for c in account):
-                    raise ValueError("account IDs must be lowercase hex")
+                if not is_account_id(account):
+                    raise ValueError("account IDs must be 64 lowercase hex characters")
                 integer(value, "account value")
         self._balances = MappingProxyType(dict(balances or {}))
         self._nonces = MappingProxyType(dict(nonces or {}))
         self._chain_id = chain_id
+
+    def __repr__(self) -> str:
+        return (
+            f"Ledger(chain_id={self._chain_id!r}, accounts={len(self._balances)}, "
+            f"supply={sum(self._balances.values())})"
+        )
 
     @property
     def balances(self) -> Mapping[str, int]:

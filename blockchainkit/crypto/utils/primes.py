@@ -11,7 +11,9 @@ def is_prime(value: int) -> bool:
     >>> is_prime(7919), is_prime(561)
     (True, False)
     """
-    if type(value) is not int or value >= 2**64:
+    if type(value) is not int:
+        raise TypeError(f"expected an integer, not {type(value).__name__}")
+    if value >= 2**64:
         raise ValueError("expected an integer below 2**64")
     if value < 2:
         return False

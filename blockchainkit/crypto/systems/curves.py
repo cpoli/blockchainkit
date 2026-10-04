@@ -5,6 +5,7 @@ The curve equation is y**2 = x**3 + a*x + b modulo p.
 """
 
 from dataclasses import dataclass
+from math import isqrt
 
 from blockchainkit._validation import integer
 from blockchainkit.crypto.core.base import Point
@@ -31,8 +32,9 @@ class Curve:
 
     Notes
     -----
-    Custom field/order primes must be below 2**64. The two known secp256k1
-    primes are also accepted. This bounds the educational primality check.
+    Custom field/order primes must be below 2**64, which bounds the
+    educational primality check. secp256k1's own field prime and group
+    order are also accepted, each only in its own role.
     """
 
     p: int
@@ -43,9 +45,13 @@ class Curve:
     name: str = "custom"
 
     def __post_init__(self) -> None:
-        for value in (self.p, self.order):
+        for value, known in ((self.p, _SECP_P), (self.order, _SECP_N)):
             integer(value, "prime", 3)
-            if value not in (_SECP_P, _SECP_N) and not is_prime(value):
+            if value == known:
+                continue
+            if value >= 2**64:
+                raise ValueError("custom primes must be below 2**64")
+            if not is_prime(value):
                 raise ValueError("field modulus and generator order must be prime")
         for value in (self.a, self.b):
             integer(value, "coefficient")
@@ -72,6 +78,17 @@ class Curve:
             and 0 <= y < self.p
             and (y * y - x**3 - self.a * x - self.b) % self.p == 0
         )
+
+    @property
+    def cofactor_is_one(self) -> bool:
+        """Whether the generator's subgroup is provably the whole curve group.
+
+        Hasse's theorem bounds the number of points: #E <= p + 1 + 2*sqrt(p).
+        The subgroup order n divides #E, so if 2n exceeds that bound the
+        cofactor #E/n must be 1. Every on-curve point then lies in the
+        subgroup, and verifiers can skip the n*P = O membership check.
+        """
+        return 2 * self.order > self.p + 1 + 2 * (isqrt(self.p) + 1)
 
 
 def _add(left: Point, right: Point, curve: Curve) -> Point:
@@ -105,8 +122,10 @@ def multiply(scalar: int, point: Point, curve: Curve) -> Point:
     Scalars are not reduced modulo the generator order: this also allows
     checking subgroup membership for arbitrary points on a custom curve.
     """
-    if type(scalar) is not int or not curve.contains(point):
-        raise ValueError("expected an integer scalar and an on-curve point")
+    if type(scalar) is not int:
+        raise TypeError(f"scalar must be an integer, not {type(scalar).__name__}")
+    if not curve.contains(point):
+        raise ValueError("point must lie on the curve")
     if scalar < 0:
         point = None if point is None else (point[0], -point[1] % curve.p)
         scalar = -scalar
@@ -148,7 +167,7 @@ def public_key(private: int, curve: Curve = SECP256K1) -> tuple[int, int]:
     return point
 
 
-def encode_point(point: tuple[int, int], curve: Curve = SECP256K1) -> bytes:
+def encode_point(point: Point, curve: Curve = SECP256K1) -> bytes:
     """Return fixed-width uncompressed encoding (0x04 || x || y)."""
     if point is None or not curve.contains(point):
         raise ValueError("expected a finite on-curve point")

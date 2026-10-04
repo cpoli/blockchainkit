@@ -104,19 +104,25 @@ def rsa_keypair(p: int = 61, q: int = 53, e: int = 17) -> RSAKeyPair:
     return RSAKeyPair(p * q, e, pow(e, -1, phi))
 
 
+def _check_blinding(value: int, factor: int, key: RSAKeyPair) -> None:
+    integer(value, "value")
+    if value >= key.n:
+        raise ValueError("value must be below n")
+    integer(factor, "factor", 1)
+    if factor >= key.n or gcd(factor, key.n) != 1:
+        raise ValueError("factor must be invertible modulo n and below n")
+
+
 def rsa_blind(message: int, factor: int, key: RSAKeyPair) -> int:
     """Return m*r**e mod n for a caller-selected invertible blinding factor.
 
     The signer applies its private exponent to this blinded integer.
     """
-    _rsa_apply(message, key.e, key.n)
-    integer(factor, "factor", 1)
-    if factor >= key.n or gcd(factor, key.n) != 1:
-        raise ValueError("factor must be invertible modulo n and below n")
+    _check_blinding(message, factor, key)
     return message * pow(factor, key.e, key.n) % key.n
 
 
 def rsa_unblind(blind_signature: int, factor: int, key: RSAKeyPair) -> int:
     """Remove blinding so signature**e mod n equals the original message."""
-    rsa_blind(blind_signature, factor, key)
+    _check_blinding(blind_signature, factor, key)
     return blind_signature * pow(factor, -1, key.n) % key.n

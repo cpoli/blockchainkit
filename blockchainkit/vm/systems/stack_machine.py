@@ -60,7 +60,7 @@ def execute(
         if not isinstance(instruction, tuple) or len(instruction) != 2:
             raise VMError("instructions must be (opcode, operand) pairs")
         op, arg = instruction
-        if op not in operands | simple:
+        if not isinstance(op, str) or op not in operands | simple:
             raise VMError(f"unknown opcode: {op}")
         if op in operands:
             if type(arg) is not int or not 0 <= arg < WORD_MODULUS:
@@ -84,21 +84,15 @@ def execute(
             raise VMError("stack underflow")
         if op == "STOP":
             break
-        if op == "PUSH":
-            assert arg is not None
-            stack.append(arg)
-        elif op == "LOAD":
-            assert arg is not None
-            stack.append(state.get(arg, 0))
-        elif op == "STORE":
-            assert arg is not None
-            state[arg] = stack.pop()
-        elif op == "JMP":
-            assert arg is not None
-            pc = arg
-        elif op == "JZ":
-            assert arg is not None
-            if stack.pop() == 0:
+        if op in operands:
+            assert arg is not None  # Checked for every operand opcode before execution.
+            if op == "PUSH":
+                stack.append(arg)
+            elif op == "LOAD":
+                stack.append(state.get(arg, 0))
+            elif op == "STORE":
+                state[arg] = stack.pop()
+            elif op == "JMP" or stack.pop() == 0:
                 pc = arg
         elif op == "DUP":
             stack.append(stack[-1])

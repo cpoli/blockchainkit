@@ -6,6 +6,7 @@ from itertools import accumulate
 from random import Random
 
 from blockchainkit._validation import integer
+from blockchainkit._validation import seed as check_seed
 
 
 class StakeSampler:
@@ -27,6 +28,7 @@ class StakeSampler:
     """
 
     def __init__(self, stakes: Mapping[str, int], *, seed: int = 0) -> None:
+        check_seed(seed)
         if not stakes or any(not isinstance(name, str) or not name for name in stakes):
             raise ValueError("provide nonempty validator names")
         for weight in stakes.values():

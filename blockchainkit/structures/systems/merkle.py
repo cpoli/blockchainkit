@@ -54,6 +54,9 @@ class MerkleTree:
         self._levels = tuple(levels)
         self._root = _root(self._count, level[0] if level else b"")
 
+    def __repr__(self) -> str:
+        return f"MerkleTree(leaves={self._count}, root={self._root.hex()[:16]}...)"
+
     @property
     def root(self) -> bytes:
         """Return the immutable 32-byte, leaf-count-bound root."""

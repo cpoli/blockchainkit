@@ -76,3 +76,9 @@ def test_failed_execution_does_not_commit_storage():
     for state in ({True: 1}, {1: -1}, {2**256: 0}):
         with pytest.raises(VMError):
             execute([], storage=state)
+
+
+@pytest.mark.parametrize("opcode", [["PUSH"], None, 7])
+def test_non_string_opcodes_raise_vm_error(opcode):
+    with pytest.raises(VMError, match="opcode"):
+        execute([(opcode, 1)])

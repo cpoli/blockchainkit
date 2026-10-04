@@ -5,6 +5,7 @@ from collections.abc import Callable, Iterable
 from random import Random
 
 from blockchainkit._validation import integer
+from blockchainkit._validation import seed as check_seed
 from blockchainkit.crypto import sha256
 from blockchainkit.network.core.base import Delivery
 
@@ -37,6 +38,7 @@ class SimulatedNetwork:
         seed: int = 0,
         on_receive: Callable[[Delivery], bool | None] | None = None,
     ) -> None:
+        check_seed(seed)
         names = tuple(peers)
         if not names or any(not isinstance(name, str) or not name for name in names):
             raise ValueError("provide nonempty peer names")
@@ -52,6 +54,12 @@ class SimulatedNetwork:
         self._time = 0
         self._serial = 0
         self._generation = 0
+
+    def __repr__(self) -> str:
+        return (
+            f"SimulatedNetwork(peers={len(self._seen)}, links={len(self._links)}, "
+            f"time={self._time}, pending={len(self._queue)})"
+        )
 
     @property
     def time(self) -> int:
@@ -110,9 +118,16 @@ class SimulatedNetwork:
         digest = sha256(payload)
         if digest in self._seen[recipient]:
             return False
+        # Mark the payload seen before the callback runs, so a callback that
+        # rebroadcasts it cannot recurse; undo the mark if the callback fails.
         self._seen[recipient].add(digest)
         delivery = Delivery(self.time, sender, recipient, payload)
-        if self._callback is not None and self._callback(delivery) is False:
+        try:
+            verdict = None if self._callback is None else self._callback(delivery)
+        except BaseException:
+            self._seen[recipient].discard(digest)
+            raise
+        if verdict is False:
             return False
         self._accepted[recipient].add(digest)
         self._deliveries.append(delivery)
