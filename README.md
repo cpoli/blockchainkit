@@ -2,6 +2,7 @@
 
 | | |
 |:--|:-:|
+| Package | [![PyPI version](https://img.shields.io/pypi/v/blockchainkit)](https://pypi.org/project/blockchainkit/) [![Python versions](https://img.shields.io/pypi/pyversions/blockchainkit)](https://pypi.org/project/blockchainkit/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23134958.svg)](https://doi.org/10.5281/zenodo.23134958) |
 | Quality | [![License](https://img.shields.io/github/license/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit/blob/main/LICENSE) [![CI](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml/badge.svg)](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml) [![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](#development) |
 | Documentation | [![Docs](https://img.shields.io/badge/docs-cpoli.github.io%2Fblockchainkit-blue)](https://cpoli.github.io/blockchainkit/) |
 | Code style | [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) |

@@ -3,8 +3,10 @@ message: "If you use blockchainkit in your research or teaching, please cite it 
 title: "blockchainkit: cryptography and blockchain breakthroughs, explained through reproducible Python experiments"
 type: software
 version: 0.2.0
-# Add `doi:` with this release's own Zenodo version DOI (not the concept DOI)
-# once the first release is archived.
+# This release's own Zenodo version DOI, not the concept DOI. Update both
+# lines with every release.
+doi: 10.5281/zenodo.23134958
+date-released: 2026-10-04
 license: MIT
 repository-code: "https://github.com/cpoli/blockchainkit"
 url: "https://cpoli.github.io/blockchainkit/"

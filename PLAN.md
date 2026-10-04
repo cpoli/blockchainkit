@@ -359,7 +359,13 @@ The quickstart notebook already had its Colab badge. PyPI and DOI badges wait fo
    mathematicskit does.
 5. A `notebooks/quickstart.ipynb` with a Colab badge.
 
-## Phase 7: Release pipeline
+## Phase 7: Release pipeline (done)
+
+Status: done. 0.2.0 released on 2026-10-04 through release.yml: on PyPI (trusted publisher),
+as a GitHub Release, with docs on GitHub Pages (gh-pages) and archived on Zenodo with version
+DOI 10.5281/zenodo.23134958, cited in CITATION.cff and the README. The repository is public.
+Remaining: the conda-forge recipe (item 3).
+
 
 1. Copy the CI layout: `ci.yml` (lint; tests on 3.10–3.15 × Linux/macOS; doctests; mypy;
    package build with `twine check` and no `/tests/` in the wheel), `docs.yml`, and a tag-driven
