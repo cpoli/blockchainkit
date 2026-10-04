@@ -38,8 +38,18 @@ class Ledger:
     def __repr__(self) -> str:
         return (
             f"Ledger(chain_id={self._chain_id!r}, accounts={len(self._balances)}, "
-            f"supply={sum(self._balances.values())})"
+            f"supply={self.total_supply})"
         )
+
+    @property
+    def total_supply(self) -> int:
+        """Return the sum of all balances, which transfers never change.
+
+        Every transfer debits one account and credits another by the same
+        amount: Pacioli's double-entry rule. A change in total supply would
+        mean money was created or destroyed.
+        """
+        return sum(self._balances.values())
 
     @property
     def balances(self) -> Mapping[str, int]:

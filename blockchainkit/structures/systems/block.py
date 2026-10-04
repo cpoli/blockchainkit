@@ -11,6 +11,65 @@ from blockchainkit.structures.systems.transaction import Transaction
 from blockchainkit.structures.utils.encoding import canonical_json
 
 
+def _check_uint64(value: int, name: str) -> None:
+    integer(value, name)
+    if value >= UINT64_LIMIT:
+        raise ValueError(f"{name} must fit an unsigned 64-bit integer")
+
+
+@dataclass(frozen=True)
+class BlockHeader:
+    """The 80-byte-style summary a light client downloads instead of a block.
+
+    It commits to the block's transactions through ``merkle_root`` alone, so
+    its hash, and therefore its proof of work, can be checked without them.
+    ``Block.to_header().hash == Block.hash``.
+
+    Parameters
+    ----------
+    previous_hash, merkle_root : bytes
+        32-byte digests.
+    height, timestamp, difficulty, nonce : int
+        As for :class:`Block`.
+    """
+
+    previous_hash: bytes = bytes(32)
+    merkle_root: bytes = bytes(32)
+    height: int = 0
+    timestamp: int = 0
+    difficulty: int = 8
+    nonce: int = 0
+
+    def __post_init__(self) -> None:
+        for name in ("previous_hash", "merkle_root"):
+            value = getattr(self, name)
+            if not isinstance(value, bytes) or len(value) != 32:
+                raise ValueError(f"{name} must be 32 bytes")
+        for name in ("height", "timestamp", "nonce", "difficulty"):
+            _check_uint64(getattr(self, name), name)
+        if self.difficulty > 256:
+            raise ValueError("difficulty cannot exceed 256 bits")
+
+    def encode(self) -> bytes:
+        """Return the canonical bytes that are hashed."""
+        return canonical_json(
+            {
+                "version": 1,
+                "previous_hash": self.previous_hash.hex(),
+                "merkle_root": self.merkle_root.hex(),
+                "height": self.height,
+                "timestamp": self.timestamp,
+                "difficulty": self.difficulty,
+                "nonce": self.nonce,
+            }
+        )
+
+    @cached_property
+    def hash(self) -> bytes:
+        """Return SHA-256 of the canonical header."""
+        return sha256(self.encode())
+
+
 @dataclass(frozen=True)
 class Block:
     """A teaching block, not a Bitcoin/Ethereum wire-format block.
@@ -47,10 +106,7 @@ class Block:
         if any(not isinstance(tx, Transaction) for tx in self.transactions):
             raise TypeError("transactions must contain Transaction instances")
         for name in ("height", "timestamp", "nonce", "difficulty"):
-            value = getattr(self, name)
-            integer(value, name)
-            if value >= UINT64_LIMIT:
-                raise ValueError(f"{name} must fit an unsigned 64-bit integer")
+            _check_uint64(getattr(self, name), name)
         if self.difficulty > 256:
             raise ValueError("difficulty cannot exceed 256 bits")
 
@@ -69,21 +125,17 @@ class Block:
             ``block.header(nonce=n)`` equals ``replace(block, nonce=n).header()``
             without rebuilding the Merkle tree.
         """
-        if nonce is None:
-            nonce = self.nonce
-        integer(nonce, "nonce")
-        if nonce >= UINT64_LIMIT:
-            raise ValueError("nonce must fit an unsigned 64-bit integer")
-        return canonical_json(
-            {
-                "version": 1,
-                "previous_hash": self.previous_hash.hex(),
-                "merkle_root": self.merkle_root.hex(),
-                "height": self.height,
-                "timestamp": self.timestamp,
-                "difficulty": self.difficulty,
-                "nonce": nonce,
-            }
+        return self.to_header(nonce).encode()
+
+    def to_header(self, nonce: int | None = None) -> BlockHeader:
+        """Return this block's header, optionally with a candidate nonce."""
+        return BlockHeader(
+            self.previous_hash,
+            self.merkle_root,
+            self.height,
+            self.timestamp,
+            self.difficulty,
+            self.nonce if nonce is None else nonce,
         )
 
     @cached_property

@@ -4,6 +4,16 @@
 
 ### Added
 
+- Structures history: 15 breakthroughs, each with its own gallery example,
+  from double-entry bookkeeping (1494) to Merkle mountain ranges (2016). New
+  APIs: `Ledger.total_supply`; `BloomFilter`; `hash_chain` and
+  `verify_one_time_password`; `BlockHeader`, `Block.to_header()` and
+  `verify_header_chain` for light clients; `bitcoin_merkle_root` (Bitcoin's
+  duplicated-leaf convention, for CVE-2012-2459); `MerkleTree.consistency_proof`
+  and `verify_consistency` (RFC 6962/9162); `UTXOSet`, `UTXOTransaction`,
+  `OutPoint` and `Coin`; `Transaction.unsigned_id` (SegWit-style);
+  `SparseMerkleTree` with membership and non-membership proofs; and
+  `MerkleMountainRange`.
 - Cryptography history: 22 breakthroughs, each with its own gallery example,
   from the one-time pad (1917-1949) to MuSig (2018). New APIs behind them:
   `one_time_pad`/`xor_bytes`; `baby_step_giant_step` and `pohlig_hellman`;

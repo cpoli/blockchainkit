@@ -1,6 +1,6 @@
 """
 The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)
-=================================================================
+================================================================
 
 Vernam's teleprinter cipher added a key tape to the message, character by
 character. Shannon later proved that if the key is truly random, as long as

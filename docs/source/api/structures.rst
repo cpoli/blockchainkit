@@ -24,10 +24,28 @@ Constructions and protocols
 .. automodule:: blockchainkit.structures.systems.merkle
    :members:
 
+.. automodule:: blockchainkit.structures.systems.mmr
+   :members:
+
+.. automodule:: blockchainkit.structures.systems.sparse_merkle
+   :members:
+
+.. automodule:: blockchainkit.structures.systems.bloom
+   :members:
+
+.. automodule:: blockchainkit.structures.systems.hash_chain
+   :members:
+
 .. automodule:: blockchainkit.structures.systems.transaction
    :members:
 
+.. automodule:: blockchainkit.structures.systems.utxo
+   :members:
+
 .. automodule:: blockchainkit.structures.systems.block
+   :members:
+
+.. automodule:: blockchainkit.structures.systems.headers
    :members:
 
 .. automodule:: blockchainkit.structures.systems.ledger

@@ -1,6 +1,6 @@
 """
-Merkle trees: authenticate one item with a short proof
-======================================================
+Merkle trees: authenticate one item with a short proof (Merkle 1979)
+====================================================================
 
 A root commits to an ordered collection. An inclusion proof reveals the
 sibling digests needed to recompute that root, rather than the full dataset.
@@ -15,7 +15,8 @@ proof length grows much more slowly than the number of records.
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/structures_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%

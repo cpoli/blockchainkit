@@ -2,6 +2,8 @@
 
 from dataclasses import dataclass
 
+from blockchainkit._validation import integer
+
 
 @dataclass(frozen=True)
 class MerkleProof:
@@ -53,3 +55,46 @@ class MerkleTrace:
     steps: tuple[ProofStep, ...]
     root: bytes
     valid: bool
+
+
+@dataclass(frozen=True, order=True)
+class OutPoint:
+    """A reference to one coin: the creating transaction's id and the output index."""
+
+    txid: bytes
+    index: int
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.txid, bytes) or len(self.txid) != 32:
+            raise ValueError("txid must be 32 bytes")
+        integer(self.index, "index")
+
+    def __repr__(self) -> str:
+        return f"OutPoint({self.txid.hex()[:12]}..., {self.index})"
+
+
+@dataclass(frozen=True)
+class Coin:
+    """An unspent output: who owns it and how much it holds."""
+
+    owner: str
+    amount: int
+
+
+@dataclass(frozen=True)
+class SparseMerkleProof:
+    """Siblings from the leaf up, and the value at the key (None if absent)."""
+
+    key: bytes
+    value: bytes | None
+    siblings: tuple[bytes, ...]
+
+
+@dataclass(frozen=True)
+class MMRProof:
+    """Path from a leaf to its peak, plus every peak and the range size."""
+
+    index: int
+    size: int
+    siblings: tuple[bytes, ...]
+    peaks: tuple[bytes, ...]

@@ -1,6 +1,6 @@
 """
 Baby-step giant-step: square-root discrete logs (Shanks 1971)
-==============================================================
+=============================================================
 
 Diffie-Hellman and Schnorr are safe only if recovering x from g**x is hard.
 Trying every exponent costs n steps in a group of order n. Shanks showed a

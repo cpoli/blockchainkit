@@ -88,8 +88,22 @@ class Transaction:
 
     @property
     def txid(self) -> bytes:
-        """Return a digest of the signed transaction encoding."""
+        """Return a digest of the signed transaction encoding.
+
+        Because it covers the signature, re-signing the same payment changes
+        it: the malleability that segregated witness removed from Bitcoin's
+        transaction ids. Compare :attr:`unsigned_id`.
+        """
         return sha256(self.to_bytes())
+
+    @property
+    def unsigned_id(self) -> bytes:
+        """Return a digest of the unsigned payload only, as SegWit's txid does.
+
+        Any valid signature over the same payment gives the same value, so a
+        later transaction can refer to this one before it is confirmed.
+        """
+        return sha256(self.payload())
 
     def is_valid(self) -> bool:
         """Check the signature; account balance and nonce are checked by Ledger."""

@@ -49,3 +49,12 @@ PEDERSEN_DOMAIN = b"blockchainkit:pedersen:v1"
 
 MUSIG_DOMAIN = b"blockchainkit:musig:v1"
 """bytes: Domain tag for MuSig key-aggregation coefficients."""
+
+MMR_ROOT_PREFIX = b"\x03"
+"""bytes: Prefix for bagging Merkle-mountain-range peaks into one root."""
+
+BLOOM_DOMAIN = b"blockchainkit:bloom:v1"
+"""bytes: Domain tag for deriving Bloom-filter bit positions."""
+
+UTXO_DOMAIN = "blockchainkit:utxo:v1"
+"""str: Domain tag signed into every UTXO transaction."""
