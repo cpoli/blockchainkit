@@ -22,6 +22,14 @@
 
 ### Changed
 
+- The documentation follows the kit-family structure: generated hub pages per
+  subpackage, per-subpackage API pages, a `history/` directory with one
+  breakthroughs page per subpackage (each entry with its own *References:*
+  line and `minigallery`), an examples index, tutorials (the guided course and
+  solutions), and JupyterLite launch buttons. Examples moved to
+  `examples/<subpackage>/<topic>/`. The committed per-example notebooks and
+  their sync scripts are replaced by sphinx-gallery downloads and a single
+  `notebooks/quickstart.ipynb`.
 - The package uses the kit-family layout: one subpackage per domain with
   `core/`, `systems/`, `utils/` and `tests/`, shared validation in
   `_validation.py`, and every consensus-relevant constant in `constants.py`.

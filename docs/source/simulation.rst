@@ -3,7 +3,7 @@ Reproducible experiments and research scope
 
 This page is for readers ready to design their own experiments. A seed makes simulated
 random choices repeatable; a peer graph describes who can talk to whom, and latency is
-the delay before a message arrives. Begin with :doc:`quickstart` if you have not yet run
+the delay before a message arrives. Begin with :doc:`/quickstart` if you have not yet run
 a payment. A censored mining run below means a search stopped at its attempt limit
 before finding an answer.
 

@@ -159,7 +159,18 @@ Cross-cutting additions:
 New per-breakthrough APIs are marked **new** in Phase 5. Each comes with NumPy docstrings, a
 doctest, a cited source, and closed-form or independent-vector tests.
 
-## Phase 4: Docs scaffold (template structure)
+## Phase 4: Docs scaffold (template structure) (done)
+
+Status: done. HTML (warnings as errors, `nitpicky`) and doctest builds pass from a clean
+tree; JupyterLite builds. API pages document the full module paths, not only the
+re-exports, so every cross-reference resolves under `nitpicky`. Each subpackage page
+registers its package module, so `:mod:` links resolve. The 15 original milestones are split across
+the history pages (crypto 8, structures 2, consensus 3, network 1, vm 1), each with a
+*References:* line and a `minigallery`. Three examples are still shared by two
+breakthroughs each; Phase 5 splits them. The JupyterLite and Colab install cells run
+`%pip install blockchainkit`, so they work from the first PyPI release (Phase 7). Course
+and solutions live in `tutorials/`; `start_here`, `quickstart`, `glossary`, `protocol` and
+`simulation` stay at the top level under "Getting started" and "Model boundaries".
 
 1. Copy mathematicskit's `docs/source/conf.py` machinery: generated subpackage hubs
    (`_generated/{nav,subpackages,grid_*.rst,vars.rst}`), `api/<subpackage>.rst`, `examples/index.rst`,

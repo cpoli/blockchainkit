@@ -2,8 +2,8 @@ Exact conventions and model boundaries
 ======================================
 
 This page specifies exact rules for readers implementing or inspecting the model. It is
-optional on a first reading. Start with :doc:`start_here` for the concepts and
-:doc:`quickstart` for a complete worked payment.
+optional on a first reading. Start with :doc:`/start_here` for the concepts and
+:doc:`/quickstart` for a complete worked payment.
 
 Byte and number conventions
 ---------------------------

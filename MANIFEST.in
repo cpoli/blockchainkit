@@ -4,4 +4,5 @@
 graft blockchainkit
 include LICENSE README.md CONTRIBUTING.md CHANGELOG.md CITATION.cff CODE_OF_CONDUCT.md SECURITY.md ROADMAP.md
 recursive-include examples *.py *.rst
+include notebooks/quickstart.ipynb
 global-exclude __pycache__ *.py[cod] .DS_Store

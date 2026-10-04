@@ -66,19 +66,19 @@ history is a **reorganization**, which can change balances even though an
 earlier payment's signature still verifies.
 
 For a structured sequence with objectives and checked answers, follow
-:doc:`course` and :doc:`solutions`.
+:doc:`/tutorials/course` and :doc:`/tutorials/solutions`.
 
 A suggested learning route
 --------------------------
 
-1. Read :doc:`gallery/plot_07_hashing` for fingerprints.
-2. Read :doc:`gallery/plot_03_merkle_proofs` for checking a batch efficiently.
-3. Follow :doc:`quickstart` to make one payment.
-4. Explore :doc:`gallery/plot_09_gossip` and :doc:`gallery/plot_10_blockchain`
+1. Read :doc:`/api/gallery/crypto/hashing/plot_01_hashing` for fingerprints.
+2. Read :doc:`/api/gallery/structures/merkle/plot_01_merkle_proofs` for checking a batch efficiently.
+3. Follow :doc:`/quickstart` to make one payment.
+4. Explore :doc:`/api/gallery/network/gossip/plot_01_gossip` and :doc:`/api/gallery/structures/chain/plot_01_blockchain`
    to see delayed messages and competing histories.
-5. Read :doc:`history` to connect these tools to their original breakthroughs.
+5. Read :doc:`/history/index` to connect these tools to their original breakthroughs.
 
-Use the :doc:`glossary` whenever a term is unfamiliar. The equations in the
+Use the :doc:`/glossary` whenever a term is unfamiliar. The equations in the
 history chapter are optional on a first reading. The API and protocol pages
 are references for later, rather than prerequisites.
 
@@ -87,4 +87,4 @@ output. Do not copy the ``>>>`` into a script. An ``assert`` checks a claim:
 silence means the check passed; an error means it failed.
 
 These experiments use simulated peers and imaginary balances. They do not
-connect to a live blockchain. See :doc:`protocol` for the model's boundaries.
+connect to a live blockchain. See :doc:`/protocol` for the model's boundaries.

@@ -22,7 +22,8 @@ def plot_curve_points(
     Parameters
     ----------
     curve : Curve
-        A curve with p <= 10,000 (see :func:`~blockchainkit.crypto.enumerate_points`).
+        A curve with p <= 10,000
+        (see :func:`~blockchainkit.crypto.systems.curves.enumerate_points`).
     label_multiples : bool
         Annotate each point kG of the generator's subgroup with its k, which
         shows that scalar multiplication jumps around the plane with no
@@ -61,7 +62,7 @@ def plot_hamming_distances(
     ----------
     distances : sequence of int
         Hamming distances between digests of related inputs, e.g. from
-        :func:`~blockchainkit.crypto.hamming_distance` after a one-bit flip.
+        :func:`~blockchainkit.crypto.systems.hashing.hamming_distance` after a one-bit flip.
     bits : int
         Digest length in bits.
     ax : matplotlib.axes.Axes, optional

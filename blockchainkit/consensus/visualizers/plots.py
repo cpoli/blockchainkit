@@ -53,7 +53,7 @@ def plot_stake_shares(
     Parameters
     ----------
     stakes : Mapping
-        Validator weights, as given to :class:`~blockchainkit.consensus.StakeSampler`.
+        Validator weights, as given to :class:`~blockchainkit.consensus.systems.pos.StakeSampler`.
     proposers : sequence of str
         Sampled proposers, e.g. from ``StakeSampler.sample``.
     ax : matplotlib.axes.Axes, optional

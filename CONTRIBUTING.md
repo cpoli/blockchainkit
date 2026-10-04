@@ -30,10 +30,7 @@ ruff format --check .
 mypy
 pytest --cov=blockchainkit --cov-branch --cov-report=term-missing
 pytest --doctest-modules blockchainkit --ignore-glob="*/tests/*"
-sphinx-build -W --keep-going -b html docs/source docs/build/html
-sphinx-build -W --keep-going -b doctest docs/source docs/build/doctest
-python scripts/sync_notebooks.py
-python scripts/verify_notebooks.py
+cd docs && MPLBACKEND=Agg make html && MPLBACKEND=Agg make doctest && cd ..
 python -m build
 ```
 
@@ -51,25 +48,29 @@ cryptographic security audit.
 
 ## History is part of the implementation
 
-`docs/source/history.rst` is a first-class deliverable. A new historical entry
-must cite a primary source, explain the original problem, give the key equation
-or mechanism, link to a concrete public API, and link to a working gallery
-experiment. Distinguish original protocols from teaching adaptations. Do not
-describe a proposed future feature as an implemented breakthrough.
+`docs/source/history/` is a first-class deliverable: one page per subpackage,
+`<subpackage>_breakthroughs.rst`. A new entry must cite a primary source in a
+*References:* line, explain the original problem, give the key equation or
+mechanism, link to a concrete public API, and link its own gallery example(s)
+with `.. minigallery::`. No example is shared between two breakthroughs, and
+each example's title names its breakthrough. Distinguish original protocols
+from teaching adaptations. Do not describe a proposed future feature as an
+implemented breakthrough.
 
 Every public algorithm should have a clear docstring and type annotations.
 Use NumPy-style parameter/return sections where they clarify the interface.
 Tests should compare independent vectors, algebraic properties, conservation
 laws, or failure behavior rather than merely asserting the function returns.
 
-## Examples and notebooks
+## Examples
 
-Edit `examples/plot_*.py`, not the generated notebooks. Separate explanation and
+Examples live in `examples/<subpackage>/<topic>/plot_NN_<name>.py`, and each
+topic folder has a `README.rst` header. Sphinx-Gallery runs every script during
+the docs build and offers each one as a downloadable notebook and a JupyterLite
+launch, so the script is the single source of truth. Separate explanation and
 code with `# %%` cells. Use fixed simulation seeds, small bounded searches,
-assertions of the expected result, and an exercise. Build Sphinx, then run
-`scripts/sync_notebooks.py` to regenerate the notebook deliverables.
-`scripts/verify_notebooks.py` executes notebooks in isolated kernels and writes
-executed copies to `build/executed-notebooks/`, keeping source notebooks clean.
+assertions of the expected result, a "What to look for" section, and an
+exercise. Plot with the subpackage's `visualizers` where one fits.
 
 ## Protocol changes
 

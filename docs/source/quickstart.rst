@@ -3,7 +3,7 @@ Your first payment, step by step
 
 We will give Alice 100 imaginary units, have her pay Bob 25, and check the
 result. You need basic Python, but no prior cryptography knowledge. Read
-:doc:`start_here` first if blocks, keys, or signatures are unfamiliar.
+:doc:`/start_here` first if blocks, keys, or signatures are unfamiliar.
 
 Install locally
 ---------------
@@ -15,11 +15,11 @@ with Python 3.10 or newer:
 
    python -m venv .venv
    source .venv/bin/activate
-   python -m pip install -e ".[notebooks]"
+   python -m pip install -e . jupyterlab
 
 The virtual environment keeps this project's dependencies together. The
 ``-e`` option makes edits to the local package available without reinstalling.
-The notebook extra installs the tools for the course notebooks.
+JupyterLab runs the notebooks.
 
 Use ``pip install -e .`` for the package with its plotting helpers alone. No published
 PyPI package is assumed. On Windows, activate with ``.venv\Scripts\activate``.
@@ -101,20 +101,17 @@ byte representation, and ``merkle_root`` is the block's batch fingerprint.
 
 The proof establishes membership in that block. It does not establish that
 the block is on the selected chain or that it will remain there. Explore this
-distinction in :doc:`gallery/plot_10_blockchain`.
+distinction in :doc:`/api/gallery/structures/chain/plot_01_blockchain`.
 
 Continue the course
 -------------------
 
-Open the notebooks with:
-
-.. code-block:: bash
-
-   jupyter lab notebooks
-
-Read a notebook from top to bottom and run its cells in that order. The HTML
-:doc:`gallery/index` contains the same explanations and figures without
-requiring a running Python environment. Each experiment ends with an exercise.
+Every experiment in the :doc:`/examples/index` has a **Download Jupyter
+notebook** link at the bottom of its page. Open a downloaded notebook with
+``jupyter lab``, read it from top to bottom, and run its cells in that order.
+The HTML pages contain the same explanations and figures without requiring a
+running Python environment. To begin, ``notebooks/quickstart.ipynb`` takes one
+payment from a signature to a mined block. Each experiment ends with an exercise.
 
 If Python says ``ModuleNotFoundError``, check that your terminal or notebook
 kernel uses the environment where you installed the package. If you get a
@@ -122,6 +119,6 @@ payment sequence error after rerunning only part of an experiment, restart
 with a fresh ledger and run all cells in order.
 
 Direct script execution creates figures without waiting for a GUI window.
-For interactive inspection, use ``python -i examples/plot_07_hashing.py`` and
+For interactive inspection, use ``python -i examples/crypto/hashing/plot_01_hashing.py`` and
 then call ``matplotlib.pyplot.show()``. Documentation build instructions and
-developer tools are covered in :doc:`contributing`.
+developer tools are covered in :doc:`/contributing`.

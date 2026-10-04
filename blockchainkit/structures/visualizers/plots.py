@@ -83,7 +83,7 @@ def plot_proof_trace(trace: MerkleTrace, ax: Axes | None = None) -> Axes:
     Parameters
     ----------
     trace : MerkleTrace
-        From :func:`~blockchainkit.structures.trace_proof`.
+        From :func:`~blockchainkit.structures.systems.merkle.trace_proof`.
     ax : matplotlib.axes.Axes, optional
         Axes to draw on; a new figure is created if omitted.
 

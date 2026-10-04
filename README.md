@@ -28,8 +28,8 @@ source .venv/bin/activate
 python -m pip install -e ".[dev]"
 ```
 
-For the package alone use `pip install -e .`; choose `[notebooks]`, `[test]`,
-or `[docs]` for smaller optional tool sets. This is a local project;
+For the package alone use `pip install -e .`; choose `[test]` or `[docs]` for
+smaller optional tool sets. This is a local project;
 no published PyPI distribution or hosted documentation is assumed.
 
 ## Quick start
@@ -51,7 +51,7 @@ chain.add(bk.consensus.mine(block).block)
 assert chain.state.balances[bob] == 25
 ```
 
-See [the complete fork experiment](examples/plot_10_blockchain.py) to propagate
+See [the complete fork experiment](examples/structures/chain/plot_01_blockchain.py) to propagate
 blocks between peers and observe how a reorganization changes account state.
 
 ## Subpackages
@@ -66,30 +66,32 @@ blocks between peers and observe how a reorganization changes account state.
 
 ## Learn through experiments
 
-The [13 gallery scripts](examples/) cover key exchange and RSA; secret sharing;
-Merkle proofs; blind signatures; curves; Schnorr and nonce reuse; hashing;
-mining; gossip; a signed payment and fork; stake weighting; execution limits; and the complete payment lifecycle.
-Each includes assertions, a figure, observations, and an exercise.
+The [gallery scripts](examples/), one folder per subpackage, cover key exchange
+and RSA; secret sharing; Merkle proofs; blind signatures; curves; Schnorr and
+nonce reuse; hashing; mining; gossip; a signed payment and fork; stake
+weighting; execution limits; and the complete payment lifecycle. Each includes
+assertions, a figure, observations, and an exercise. The documentation offers
+every script as a downloadable notebook.
 
-[Notebooks](notebooks/) are generated from those scripts with Sphinx-Gallery,
-so there is one source of truth. Open them with `jupyter lab notebooks`.
+New here? [The quickstart notebook](notebooks/quickstart.ipynb) takes one payment
+from a signature to a mined block in about ten minutes.
 
 ## Sphinx documentation
 
 ```bash
-sphinx-build -W --keep-going -b html docs/source docs/build/html
-sphinx-build -W --keep-going -b doctest docs/source docs/build/doctest
-python scripts/sync_notebooks.py
+cd docs
+MPLBACKEND=Agg make html
+MPLBACKEND=Agg make doctest
 ```
 
 Open `docs/build/html/index.html`. The build executes gallery examples and
 fails on warnings or example errors. The documentation includes:
 
-- [History](docs/source/history.rst): 15 milestones, mathematics, implementation links, experiments, and primary references.
+- [History](docs/source/history/index.rst): one page per subpackage; each milestone gives the mathematics, implementation links, experiments, and primary references.
 - [Quick start](docs/source/quickstart.rst): a tested signed-payment walkthrough.
 - [Protocol conventions](docs/source/protocol.rst): exact encodings, validation rules, and model boundaries.
 - [Simulation guide](docs/source/simulation.rst): reproducibility and research assumptions.
-- [API](docs/source/api.rst): generated from implementation docstrings.
+- [API](docs/source/api/index.rst): one page per subpackage, generated from implementation docstrings.
 
 ## Verification and development
 

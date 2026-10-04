@@ -31,16 +31,13 @@ pytest --doctest-modules blockchainkit --ignore-glob="*/tests/*"
 # type check (strict, blocking in CI)
 mypy
 
-# docs: re-executes every examples/plot_*.py; warnings are errors (nitpicky = True)
-MPLBACKEND=Agg sphinx-build -W --keep-going -b html docs/source docs/build/html
-MPLBACKEND=Agg sphinx-build -W --keep-going -b doctest docs/source docs/build/doctest
-python scripts/sync_notebooks.py     # copy generated notebooks to notebooks/ (needs the HTML build)
-python scripts/verify_notebooks.py   # execute notebooks in fresh kernels
+# docs: re-executes every examples/*/*/plot_*.py; warnings are errors (nitpicky = True)
+cd docs && MPLBACKEND=Agg make html && MPLBACKEND=Agg make doctest
 
 python -m build
 ```
 
-CI (`.github/workflows/ci.yml`) runs tests on Python 3.10-3.14, the quality checks, and the docs build. It also runs `git diff --exit-code -- notebooks` after syncing, so committed notebooks must match the regenerated ones.
+CI (`.github/workflows/ci.yml`) runs tests on Python 3.10-3.14, the quality checks, and the docs build (HTML and doctest).
 
 ## Architecture
 
@@ -65,5 +62,5 @@ Determinism is a design requirement: randomness comes from explicit seeds, and s
 - Coverage is 100% (enforced in `pyproject.toml`); add real boundary and failure tests, never exclusions. Tests use `hypothesis` for property tests and check independent vectors, algebraic identities, or failure behavior.
 - Math single-letter names (`n`, `k`, `x`, `p`, `q`) are intentional; see the ruff ignores in `pyproject.toml`.
 - Public functions need type annotations and NumPy-style docstrings. Sphinx uses napoleon with `nitpicky`, so new types referenced in docstrings may need `napoleon_type_aliases` or `nitpick_ignore` entries in `docs/source/conf.py`. New algorithms cite their source.
-- History is a first-class deliverable. The target (being migrated from the single `docs/source/history.rst`) is one page per subpackage, `docs/source/history/<subpackage>_breakthroughs.rst`, with at least 15 breakthroughs. Each breakthrough cites a primary source, explains the original problem and key mechanism, links the API, distinguishes the original protocol from the teaching adaptation, and links its own gallery example(s) with `.. minigallery::`. No example is shared between two breakthroughs, and each example's title names its breakthrough. When the match is unclear, change the example, not the breakthrough.
-- `examples/plot_*.py` are the single source of truth for experiments. Never edit `notebooks/*.ipynb` or `docs/source/gallery/` directly; they are generated. Examples use `# %%` cells, fixed seeds, small bounded searches, assertions, a "What to look for" section, and an exercise.
+- History is a first-class deliverable. There is one page per subpackage, `docs/source/history/<subpackage>_breakthroughs.rst`, with at least 15 breakthroughs. Each breakthrough cites a primary source, explains the original problem and key mechanism, links the API, distinguishes the original protocol from the teaching adaptation, and links its own gallery example(s) with `.. minigallery::`. No example is shared between two breakthroughs, and each example's title names its breakthrough. When the match is unclear, change the example, not the breakthrough.
+- Examples live in `examples/<subpackage>/<topic>/plot_NN_<name>.py`, each topic folder with a `README.rst`; sphinx-gallery renders them under `docs/source/api/gallery/` (generated; never edit) and offers notebooks and JupyterLite. `notebooks/quickstart.ipynb` is the only committed notebook. Examples use `# %%` cells, fixed seeds, small bounded searches, assertions, a "What to look for" section, and an exercise.
