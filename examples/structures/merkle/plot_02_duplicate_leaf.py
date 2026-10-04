@@ -16,6 +16,7 @@ tree promotes odd nodes instead and binds the leaf count into the root, so
 every list has its own root.
 
 The history behind this experiment: :doc:`/history/structures_breakthroughs`.
+See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%

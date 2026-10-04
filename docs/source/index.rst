@@ -57,7 +57,7 @@ Choose a route
   using one imaginary payment, without assuming cryptography or finance
   knowledge. Keep the :doc:`/glossary` nearby.
 * **Learn in order:** follow the :doc:`/tutorials/course`, with
-  :doc:`/tutorials/solutions` to check your reasoning.
+  :doc:`/exercises/index` to check your reasoning.
 * **Learn the ideas:** read the :doc:`history </history/index>`, then run each
   linked experiment.
 * **Build a chain:** follow :doc:`/quickstart` and the end-to-end payment
@@ -123,6 +123,13 @@ Conventionally imported as ``bk``:
    :hidden:
 
    tutorials/index
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Exercises
+   :hidden:
+
+   exercises/index
 
 .. toctree::
    :maxdepth: 2

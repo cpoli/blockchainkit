@@ -170,6 +170,14 @@ needs a key derivation function before use as an encryption key.
 **Implementation:** :class:`blockchainkit.crypto.systems.asymmetric.DHGroup` validates
 the prime-order subgroup and peer elements.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Diffie-Hellman here runs in a 62-bit teaching group with no authentication.
+   Deployments use 2048-bit groups or X25519, and authenticate the exchange to
+   stop a man in the middle. See :doc:`/protocol` for this package's exact
+   conventions.
+
 .. doctest::
 
    >>> group = bk.crypto.DHGroup()
@@ -212,6 +220,14 @@ the inverse exponent :math:`d`.
 **Implementation:** :func:`blockchainkit.crypto.systems.asymmetric.rsa_keypair`
 exposes the arithmetic, including the familiar :math:`61\times53` example.
 The code accepts only small factors for inspectable experiments.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   This is textbook RSA with tiny primes and no padding. Real RSA uses moduli of
+   2048 bits or more with OAEP (encryption) or PSS (signatures) padding; unpadded
+   RSA is deterministic and malleable. See :doc:`/protocol` for this package's
+   exact conventions.
 
 .. doctest::
 
@@ -344,6 +360,13 @@ on hashing, these signatures resist quantum computers: the standardized SPHINCS+
 :func:`blockchainkit.crypto.systems.lamport.lamport_sign`, and
 :func:`blockchainkit.crypto.systems.lamport.lamport_verify`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Keys here are full Lamport pairs. Deployed hash-based signatures (XMSS,
+   SPHINCS+) shrink them with Winternitz chains and many-time trees. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example signs, verifies, and measures how quickly key
 reuse makes forgeries possible.
 
@@ -459,6 +482,13 @@ the signer processes the blinded value.
 **Implementation:** :func:`blockchainkit.crypto.systems.asymmetric.rsa_blind` and
 :func:`blockchainkit.crypto.systems.asymmetric.rsa_unblind` expose this identity.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Blind signatures here use textbook RSA over a tiny modulus. Standardized blind
+   RSA (RFC 9474) hashes and pads the message and uses full-size keys. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** :doc:`/api/gallery/crypto/blind_signatures/plot_01_blind_signatures` follows each value
 through the exchange. These bare integer operations are not a complete
 anonymous cash system: issuance policy, message encoding, and a mechanism to
@@ -501,6 +531,13 @@ selection matter; arbitrary curves do not inherit security merely by name.
 :func:`blockchainkit.crypto.systems.curves.multiply` implement the group law,
 including infinity, inverse points, and doubling. ``TOY_CURVE`` has 19 points;
 ``SECP256K1`` supplies a larger, established parameter set.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   Curve arithmetic here is variable-time Python. Production libraries such as
+   libsecp256k1 use constant-time code, because timing can leak private scalars.
+   See :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** :doc:`/api/gallery/crypto/curves/plot_01_elliptic_curves` plots the tiny group and
 recovers a private scalar by enumeration. The same API handles secp256k1,
@@ -630,6 +667,14 @@ wallets use to create a key no single party ever holds.
 :func:`blockchainkit.crypto.systems.sharing.feldman_verify`, over
 :data:`blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   The commitments live in the 62-bit teaching group, where discrete logs are easy
+   to compute. Real verifiable secret sharing needs a group of cryptographic size
+   and a broadcast channel for complaints. See :doc:`/protocol` for this package's
+   exact conventions.
+
 **Experiment:** the gallery example verifies honest shares, recovers the secret from
 every threshold subset, and catches a corrupted share.
 
@@ -712,6 +757,13 @@ Bitcoin adopted them in 2021 as BIP-340.
 domain-separated teaching scheme over a prime-order elliptic-curve subgroup.
 The historical paper uses multiplicative groups; this is an additive adaptation.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   The challenge encoding differs from BIP-340 (no x-only keys or its tagged
+   hash), so these signatures do not verify in Bitcoin. See :doc:`/protocol` for
+   this package's exact conventions.
+
 **Experiment:** :doc:`/api/gallery/crypto/signatures/plot_03_schnorr_signatures` signs a
 payment, checks :math:`sG = R + cQ` step by step, and shows that changing the
 message, key, :math:`R`, or :math:`s` breaks verification. The scheme is not
@@ -749,6 +801,13 @@ confidential transactions in Monero and Mimblewimble.
 
 **Implementation:** :func:`blockchainkit.crypto.systems.commitments.pedersen_commit` and
 :func:`blockchainkit.crypto.systems.commitments.pedersen_generators`.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   The generators here are in the teaching group, so binding holds only as long as
+   its small discrete logarithm stays unknown; production uses 256-bit elliptic-
+   curve groups. See :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** the gallery example balances hidden transaction amounts, opens one
 commitment as three different values in a tiny group, and shows that commitments
@@ -862,6 +921,14 @@ messages get distinct nonces, and the nonce is unpredictable without the key.
 performs the extraction; :func:`blockchainkit.crypto.systems.signatures.deterministic_nonce`
 implements RFC 6979 section 3.2 with SHA-256 and reproduces the RFC's test vectors.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``deterministic_nonce`` follows RFC 6979 and matches its test vectors, but it
+   feeds this package's Schnorr signatures, not ECDSA, and adds no protection
+   against fault attacks. See :doc:`/protocol` for this package's exact
+   conventions.
+
 **Experiment:** the gallery example recovers a key from a reused nonce and generates
 deterministic nonces, checking one against the RFC.
 
@@ -904,6 +971,14 @@ spends indistinguishable from single-signer spends.
 :func:`blockchainkit.crypto.systems.multisig.musig_sign`. As a teaching
 simplification, signing runs every signer in one process; real MuSig first
 exchanges nonce commitments.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   All signers run in one process here. Real MuSig needs a round of nonce
+   commitments (or MuSig2's two nonces per signer) to resist attacks across
+   concurrent signing sessions. See :doc:`/protocol` for this package's exact
+   conventions.
 
 **Experiment:** the gallery example mounts the rogue-key attack on naive aggregation,
 shows MuSig stopping it, and verifies a three-party signature.

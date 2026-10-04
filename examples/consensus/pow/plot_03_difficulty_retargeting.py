@@ -15,6 +15,7 @@ retarget, which lowers the target and restores the interval. The clamp
 limits how far one adjustment can go.
 
 The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%

@@ -16,6 +16,7 @@ constant as n grows a thousandfold. A network of a million peers needs only
 about 34 rounds: this is why gossip scales.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

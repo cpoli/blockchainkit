@@ -16,6 +16,7 @@ has a short proof to its peak. Grin and other chains use mountain ranges to
 commit to their entire history of outputs or headers.
 
 The history behind this experiment: :doc:`/history/structures_breakthroughs`.
+See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%

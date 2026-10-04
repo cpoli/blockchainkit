@@ -14,7 +14,7 @@ clusters around 128 of 256, following a Binomial(256, 1/2) distribution.
 This is useful intuition, not a proof of collision or preimage resistance.
 
 The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/tutorials/solutions` for a worked answer to the exercise.
+See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%

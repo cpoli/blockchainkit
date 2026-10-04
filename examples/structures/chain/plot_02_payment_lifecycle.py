@@ -2,7 +2,7 @@
 One payment from signature to reorganization and reinclusion
 ============================================================
 
-Prerequisites: the first-payment walkthrough, gossip, and the fork experiment.
+Prerequisites: the quick start, gossip, and the fork experiment.
 By the end you should distinguish a signed, pending, included, and displaced
 payment. A pending queue (often called a mempool) is local to each peer.
 
@@ -17,7 +17,8 @@ This deliberately small scenario has one pending payment per peer. It has no
 fees or queue replacement policy. Hash announcements resolve through a shared
 in-memory object registry; synchronization explicitly sends parents first.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+This capstone ties the subpackages together; :doc:`/tutorials/life_of_a_payment` tells
+the same story step by step. See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%
@@ -163,4 +164,4 @@ for event in events:
 # Replace an empty competing block with a conflicting payment that spends all
 # of Alice's funds. Predict whether the original payment returns to the queue.
 # Explain why the single-payment queue is insufficient for dependent payments
-# with consecutive account nonces. See the course solutions for discussion.
+# with consecutive account nonces.

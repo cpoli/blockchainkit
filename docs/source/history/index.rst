@@ -65,7 +65,7 @@ teaching adaptations. The :doc:`/tutorials/course` follows prerequisites rather 
    Python lists -> stack execution (a separate component)
 
 Run :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle` to see how these ideas interact.
-Use :doc:`/tutorials/solutions` to check your reasoning after each experiment.
+Use :doc:`/exercises/index` to check your reasoning after each experiment.
 
 What the sequence teaches
 -------------------------

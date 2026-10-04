@@ -18,6 +18,7 @@ most a third are faulty. One faulty peer too many breaks agreement. Block
 gossip uses the same idea: a peer forwards what enough others vouch for.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

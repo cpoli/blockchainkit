@@ -251,6 +251,13 @@ construction. A sender varies a nonce until a hash meets a target.
 nonce interval; :func:`blockchainkit.consensus.systems.pow.valid_pow` checks one hash.
 The header encoding is blockchainkit's, not a Hashcash token format.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Difficulty here is a count of leading zero bits of SHA-256 over this package's
+   header. Bitcoin compares double SHA-256 of an 80-byte header with a full
+   256-bit target. See :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** :doc:`/api/gallery/consensus/pow/plot_02_hashcash` compares measured trial
 counts with the expected exponential cost. Search is random-looking, so a
 mean is not a deadline. An exhausted attempt budget raises ``TimeoutError``.
@@ -290,6 +297,13 @@ HotStuff and many proof-of-stake chains descend from PBFT.
 **Implementation:** :func:`blockchainkit.consensus.systems.pbft.pbft_round` runs the
 normal-case exchange; :func:`blockchainkit.consensus.systems.pbft.quorum_size`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``pbft_round`` runs one round with a fixed leader and synchronous delivery. It
+   has no view changes, checkpoints, request batching or message authentication.
+   See :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example stays safe under an equivocating leader with one
 fault among four, breaks with two, and plots quorum overlap.
 
@@ -321,6 +335,13 @@ account transfers and selects greatest cumulative work. Each fork retains its
 own :class:`blockchainkit.structures.systems.ledger.Ledger`, so a reorganization also
 restores the appropriate balances and account nonces. Difficulty is fixed by
 genesis; this model does not implement Bitcoin's adjustment schedule or UTXOs.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   Blocks here have no coinbase reward or fees, no scripts, and no peer-to-peer
+   protocol; fork choice by cumulative work is the part reproduced. See
+   :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain` mines and gossips a signed
 payment, then removes its confirmation when a competing fork wins. The
@@ -401,6 +422,14 @@ clock, and is also what lets selfish mining become profitable in absolute terms.
 **Implementation:** :func:`blockchainkit.consensus.systems.difficulty.retarget` and
 :func:`blockchainkit.consensus.systems.difficulty.simulate_difficulty`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``retarget`` uses Bitcoin's factor-of-four clamp, but on an integer target in a
+   simulation with fixed hashrates; it does not reproduce the off-by-one in
+   Bitcoin's interval count. See :doc:`/protocol` for this package's exact
+   conventions.
+
 **Experiment:** the gallery example quadruples and then halves the hashrate and
 watches the block interval return to ten minutes.
 
@@ -429,6 +458,14 @@ by newly performed computation.
 
 **Implementation:** :class:`blockchainkit.consensus.systems.pos.StakeSampler` isolates
 a simple stake-proportional lottery:
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``StakeSampler`` draws proposers from a fixed seed. Deployed protocols derive
+   randomness with RANDAO or verifiable random functions, and must resist
+   validators grinding it. See :doc:`/protocol` for this package's exact
+   conventions.
 
 .. math::
 
@@ -474,6 +511,14 @@ became the fork-choice rule of Ethereum's proof of stake.
 **Implementation:** :func:`blockchainkit.consensus.systems.fork_choice.ghost_tip`
 and :func:`blockchainkit.consensus.systems.fork_choice.subtree_work`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``ghost_tip`` applies GHOST to a static block tree. Ethereum's proof-of-work
+   chain rewarded uncles but kept heaviest-chain selection; a GHOST variant (LMD-
+   GHOST) became its fork choice only with proof of stake. See :doc:`/protocol`
+   for this package's exact conventions.
+
 **Experiment:** the gallery example builds a fork where the longest chain and GHOST
 disagree and draws the block tree.
 
@@ -509,6 +554,13 @@ part of every major proof-of-stake protocol; its limit is the *long-range attack
 by keys whose deposits were already withdrawn.
 
 **Implementation:** :func:`blockchainkit.consensus.systems.stake_games.fork_voting_payoffs`.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``fork_voting_payoffs`` is a payoff table, not a protocol. Real slashing needs
+   on-chain evidence, deposits that are still locked, and rules against long-range
+   attacks. See :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** the gallery example plots the three strategies' payoffs against the
 penalty.
@@ -548,6 +600,13 @@ majority.
 state-machine simulation
 :func:`blockchainkit.consensus.systems.selfish.simulate_selfish_mining`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   The simulation follows Eyal and Sirer's idealized model: propagation is instant
+   apart from the tie-breaking share gamma, and difficulty does not adjust. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example plots revenue against hashrate for three values
 of γ, with simulations on the curves.
 
@@ -586,6 +645,13 @@ of stake combines Casper FFG with LMD-GHOST.
 **Implementation:** :class:`blockchainkit.consensus.systems.finality.FinalityGadget`
 tracks justification, finality and offenses.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``FinalityGadget`` checks votes on a given checkpoint tree with a fixed
+   validator set; it has no deposits, rewards, inactivity leak or fork choice. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example finalizes checkpoints, lets one height miss its
 quorum, and catches a double vote and a surround vote.
 
@@ -622,6 +688,13 @@ seats unchanged: there is no Sybil advantage.
 **Implementation:** :func:`blockchainkit.consensus.systems.sortition.sortition`. As a
 teaching simplification, a hash of a secret replaces the verifiable random
 function.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   A hash of the user's secret replaces Algorand's verifiable random function, so
+   others cannot check a claimed draw. See :doc:`/protocol` for this package's
+   exact conventions.
 
 **Experiment:** the gallery example runs 300 rounds, compares seats with stake,
 splits one account into ten, and plots committee sizes.

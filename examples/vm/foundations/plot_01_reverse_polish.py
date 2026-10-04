@@ -18,6 +18,7 @@ its result matches Python's. The stack height rises with each pending
 operand and falls with each operator.
 
 The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%

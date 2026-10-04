@@ -21,6 +21,7 @@ most 16 of the 64 buckets, and choosing a bucket before an entry makes an
 all-attacker selection vanishingly rare.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

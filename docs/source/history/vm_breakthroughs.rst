@@ -324,6 +324,13 @@ Ethereum's EVM Object Format.
 **Implementation:** :func:`blockchainkit.vm.systems.verifier.verify_bytecode`, an
 abstract interpretation of stack heights.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``verify_bytecode`` tracks stack heights only. The JVM verifier also infers the
+   type of every stack slot and local variable. See :doc:`/protocol` for this
+   package's exact conventions.
+
 **Experiment:** the gallery example verifies the package's contracts, catches an
 underflow on a path a test run does not take, and rejects a loop that grows the
 stack.
@@ -359,6 +366,14 @@ two are now run separately.
 :func:`blockchainkit.vm.systems.script.p2pkh_unlocking`. Teaching differences:
 ``OP_HASH256`` replaces ``OP_HASH160``, and signatures are this package's
 Schnorr signatures over an explicit message.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   This interpreter supports a small opcode subset on big-endian numbers, uses
+   ``OP_HASH256`` for ``OP_HASH160``, and checks this package's Schnorr signatures
+   over an explicit message, not a transaction digest. See :doc:`/protocol` for
+   this package's exact conventions.
 
 **Experiment:** the gallery example spends a coin with the right key, the wrong
 key, and a signature over a different transaction.
@@ -396,6 +411,13 @@ resources an individual program can demand.
 instruction budget. It works on a storage copy and returns a new state only
 after success; errors leave the caller's state unchanged.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Every instruction costs one gas unit here, and there is no memory, contract
+   calls, logs or refunds. This is not the EVM. See :doc:`/protocol` for this
+   package's exact conventions.
+
 **Experiment:** the gallery example compares successful execution, out-of-gas
 failure, and a bounded infinite loop. Costs are one unit per instruction, not
 an EVM gas schedule. The VM is independent of the transfer-only ledger:
@@ -432,6 +454,13 @@ protect each intermediary.
 **Implementation:** :func:`blockchainkit.vm.systems.script.htlc_locking` and the
 ``locktime`` argument of :func:`blockchainkit.vm.systems.script.verify_script`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``OP_CHECKLOCKTIMEVERIFY`` compares heights only. Lightning also uses relative
+   timelocks (``OP_CHECKSEQUENCEVERIFY``) and penalty transactions, which are not
+   modeled. See :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example claims an HTLC with the secret, fails with a
 guess, refunds only from the deadline on, and settles a two-hop route.
 
@@ -465,6 +494,13 @@ by updating state before any external call.
 **Implementation:** :func:`blockchainkit.vm.systems.reentrancy.drain_bank`, a
 Python model of a bank contract and an attacker whose fallback re-enters.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``drain_bank`` is a Python model of the call pattern, not EVM execution; the
+   DAO's real split function also involved token balances and a waiting period.
+   See :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example drains a bank with both orders and shows how
 the call-depth limit of 1024 bounds the attack for small deposits.
 
@@ -495,6 +531,13 @@ attacker always picks the instruction with the most work per unit of gas.
 
 **Implementation:** the ``gas_costs`` schedule of
 :func:`blockchainkit.vm.systems.stack_machine.execute`.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   The real-work costs are teaching estimates in arithmetic units, not
+   measurements of any Ethereum client. See :doc:`/protocol` for this package's
+   exact conventions.
 
 **Experiment:** the gallery example compares the real work done by a block of
 storage reads and a block of arithmetic, before and after repricing.
@@ -529,6 +572,13 @@ and since Solidity 0.8 by default, reverts on overflow instead.
 
 **Implementation:** :func:`blockchainkit.vm.systems.programs.batch_transfer`,
 with ``checked=True`` for the SafeMath test ``amount / count == value``.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``batch_transfer`` is a stack-machine program with storage slots as accounts,
+   not the Solidity contract. See :doc:`/protocol` for this package's exact
+   conventions.
 
 **Experiment:** the gallery example mints tokens from an empty account with the
 unchecked contract, and shows the checked one reverting while agreeing on every

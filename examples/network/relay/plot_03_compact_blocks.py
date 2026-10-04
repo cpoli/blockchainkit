@@ -19,6 +19,7 @@ mempool's coverage falls. Shrinking the short IDs to a single byte backfires:
 with 2000 transactions, every ID becomes ambiguous.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

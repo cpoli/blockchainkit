@@ -17,6 +17,7 @@ quorums no longer intersect in an honest replica, and safety breaks.
 Tendermint, HotStuff and many proof-of-stake chains descend from PBFT.
 
 The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%

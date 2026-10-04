@@ -8,7 +8,7 @@ second pass. The times below are planning estimates, including exercises.
 
 For each lesson: predict the result, run the notebook from its first cell,
 change one input, and explain the result in your own words. Consult
-:doc:`/tutorials/solutions` after trying the exercise. A passed assertion checks a
+:doc:`/exercises/index` after trying the exercise. A passed assertion checks a
 specific claim; it is not proof that a complete system is secure.
 
 .. list-table:: Beginner route
@@ -82,7 +82,8 @@ Run :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle`. Draw its two
 label Bob's balance at each block, and compare your predictions with the
 balance and queue table. Then make the winning branch contain a conflicting
 payment. Explain why a valid signature is insufficient to restore the original
-payment to a pending queue. See :doc:`/tutorials/solutions` for a checked conflict example.
+payment to a pending queue. See :doc:`/exercises/structures` (problem 7) for a checked conflict example, and
+:doc:`/tutorials/life_of_a_payment` for the same story told step by step.
 
 The lifecycle queue handles one candidate payment per peer. Extending it to
 many dependent payments requires validating an ordered batch against a

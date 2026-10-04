@@ -16,6 +16,7 @@ needs only a one-way hash, the idea survives quantum computers; it is the
 ancestor of today's standardized SPHINCS+ (SLH-DSA).
 
 The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
+See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%

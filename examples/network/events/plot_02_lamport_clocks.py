@@ -19,6 +19,7 @@ smaller timestamp does not prove an event came first: events that are
 concurrent still receive ordered numbers.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

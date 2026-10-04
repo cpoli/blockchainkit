@@ -16,7 +16,7 @@ works, but Alice now shares a secret with Mallory. Agreement on a secret is
 not authentication of the other person.
 
 The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/tutorials/solutions` for a worked answer to the exercise.
+See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%

@@ -17,7 +17,7 @@ RFC 6979 nonces, each message gets its own nonce automatically, and the
 derivation reproduces the RFC's published test vector.
 
 The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/tutorials/solutions` for a worked answer to the exercise.
+See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%

@@ -17,6 +17,7 @@ failure discarded the half-done write. A successful transfer conserves the
 total.
 
 The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%

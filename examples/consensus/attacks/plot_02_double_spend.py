@@ -16,6 +16,7 @@ between two chains agrees. Six confirmations against a 10% attacker leave
 about a 0.02% risk; against 30% it takes 24.
 
 The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%

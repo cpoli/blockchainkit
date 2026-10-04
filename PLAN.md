@@ -332,7 +332,16 @@ Total: about 86 breakthroughs, so about 75 new examples. Work one subpackage at 
 structures → consensus → network → vm, the course's learning order). For each one: API → tests →
 examples → history page. The docs build must pass before starting the next subpackage.
 
-## Phase 6: Educational layer
+## Phase 6: Educational layer (done)
+
+Status: done. Four doctest-checked tutorials (life of a payment, nonces, hashes, trust);
+`docs/source/exercises/`, one page per subpackage with 40 problems whose solutions sit in
+dropdowns and run in the doctest build (`tutorials/solutions.rst` was migrated and removed;
+41 examples link to their solution); 43 "Teaching vs production" callouts on history entries
+that adapt a deployed protocol; README rewritten in the kit layout with a hero figure and one
+figure per subpackage (`docs/make_readme_figure.py`, `docs/make_readme_subpackage_figures.py`).
+The quickstart notebook already had its Colab badge. PyPI and DOI badges wait for Phase 7.
+
 
 1. Cross-domain tutorials (`docs/source/tutorials/`), in the style of mathematicskit's
    `eigenvalues_everywhere.rst`:

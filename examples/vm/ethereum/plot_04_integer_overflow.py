@@ -19,6 +19,7 @@ The checked version reverts, and both versions agree on every ordinary
 transfer.
 
 The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%

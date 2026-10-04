@@ -16,6 +16,7 @@ protocol still decides: eventually the coins all land the same way. The
 number of rounds is random, with an exponential tail.
 
 The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%

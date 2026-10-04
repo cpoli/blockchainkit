@@ -14,6 +14,7 @@ algebra shows through: multiplying a ciphertext by 2**e doubles the hidden
 message. Real RSA adds randomized padding (OAEP, PSS) to break this.
 
 The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
+See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%

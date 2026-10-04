@@ -21,7 +21,7 @@ Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/tutorials/solutions` for a worked answer to the exercise.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

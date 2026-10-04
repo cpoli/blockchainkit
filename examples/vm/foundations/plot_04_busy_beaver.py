@@ -18,6 +18,7 @@ budget, but proving that the remaining "unknown" machines never halt is
 exactly what the search cannot do.
 
 The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%

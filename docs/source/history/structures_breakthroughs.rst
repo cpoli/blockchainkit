@@ -84,6 +84,13 @@ reversed the roles: the node publishes a filter and the wallet tests it.
 with :meth:`~blockchainkit.structures.systems.bloom.BloomFilter.false_positive_rate`
 and :meth:`~blockchainkit.structures.systems.bloom.BloomFilter.optimal_hash_count`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Bit positions here come from SHA-256. BIP 37 filters use MurmurHash3 with a
+   per-filter tweak, and Bitcoin Core has since disabled them by default. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example filters a wallet's addresses and compares
 measured false positives with Bloom's formula.
 
@@ -283,6 +290,14 @@ validated in parallel, and a wallet's balance is just the sum of its coins.
 :class:`blockchainkit.structures.core.base.Coin`. The account-based
 :class:`blockchainkit.structures.systems.ledger.Ledger` is the alternative model.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   UTXO transactions here are signed with this package's Schnorr over a canonical
+   encoding. Bitcoin locks outputs with scripts, signs with ECDSA or BIP-340, uses
+   its own serialization, and charges fees. See :doc:`/protocol` for this
+   package's exact conventions.
+
 **Experiment:** the gallery example pays with change, rejects a double spend, and
 merges coins.
 
@@ -321,6 +336,13 @@ checks links and proof of work over
 :class:`blockchainkit.structures.systems.block.BlockHeader` values;
 :func:`blockchainkit.structures.systems.merkle.verify_proof` checks inclusion.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Headers here are this package's encoding and difficulty counts leading zero
+   bits; Bitcoin headers are 80 bytes with a compact-encoded target. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example verifies a payment from 20 headers and one
 proof and compares the download with a full node's.
 
@@ -358,6 +380,13 @@ leaves and nodes have different prefixes, and the root binds the leaf count.
 **Implementation:** :func:`blockchainkit.structures.systems.merkle.bitcoin_merkle_root`
 reproduces Bitcoin's convention for comparison with
 :class:`blockchainkit.structures.systems.merkle.MerkleTree`.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``bitcoin_merkle_root`` reproduces Bitcoin's rule exactly. Bitcoin itself
+   closed CVE-2012-2459 by rejecting blocks with duplicate transactions, not by
+   changing the tree. See :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** the gallery example finds the collision and maps which list sizes
 are ambiguous.
@@ -398,6 +427,13 @@ RFC 6962 and RFC 9162 (blockchainkit's tree has the same shape; because its root
 also bind the leaf count, a power-of-two old tree's digest is carried in the
 proof).
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Leaf and node prefixes follow RFC 6962, but this package's roots also bind the
+   leaf count, so they differ from Certificate Transparency's roots. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example proves a 600-entry log is a prefix of a
 1000-entry one, rejects a rewritten history, and plots proof size.
 
@@ -433,6 +469,13 @@ per-sender order, where coins allowed independent spends.
 
 **Implementation:** :class:`blockchainkit.structures.systems.ledger.Ledger`
 stores balances and next nonces and rejects replayed or out-of-order transfers.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   Transactions here are signed canonical JSON with a string chain ID; Ethereum
+   uses RLP encoding, ECDSA signatures with recovery, and gas fees. See
+   :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** the gallery example rejects a replay, holds an out-of-order
 transfer until its gap is filled, and plots nonce against balance.
@@ -475,6 +518,13 @@ covers the signature, like Bitcoin's original id;
 :attr:`blockchainkit.structures.systems.transaction.Transaction.unsigned_id`
 covers only the payload, like SegWit's txid.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``unsigned_id`` models only SegWit's key idea, an identifier that excludes the
+   signature. Bitcoin's witness serialization, weight units and script versions
+   are not modeled. See :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example re-signs one payment, shows the txid changing
 and the unsigned id staying fixed.
 
@@ -513,6 +563,13 @@ light clients use mountain ranges over headers.
 **Implementation:** :class:`blockchainkit.structures.systems.mmr.MerkleMountainRange`
 and :func:`blockchainkit.structures.systems.mmr.verify_mmr_proof`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Peak bagging here binds the size and differs from deployed MMRs (Grin, Zcash's
+   FlyClient), so roots are not interoperable. See :doc:`/protocol` for this
+   package's exact conventions.
+
 **Experiment:** the gallery example grows a range to 64 leaves, counts peaks and
 merges, and proves an old leaf.
 
@@ -550,6 +607,13 @@ replay *across* chains.
 signs its ``chain_id``; :class:`blockchainkit.structures.systems.ledger.Ledger`
 accepts only transactions for its own chain id.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   The chain ID here is a string inside the signed message. EIP-155 folds a
+   numeric chain ID into the signature's recovery value ``v``. See
+   :doc:`/protocol` for this package's exact conventions.
+
 **Experiment:** the gallery example signs a payment on one chain and shows it
 rejected on the other and on replay.
 
@@ -586,6 +650,13 @@ a related structure, the Merkle Patricia trie.
 
 **Implementation:** :class:`blockchainkit.structures.systems.sparse_merkle.SparseMerkleTree`
 and :func:`blockchainkit.structures.systems.sparse_merkle.verify_sparse_proof`.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   The tree has fixed depth 256 and stores every empty subtree's default hash.
+   Production state trees (Ethereum's Patricia trie, Diem's Jellyfish) compress
+   empty paths. See :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** the gallery example commits to balances in two orders, proves a
 balance and an absence, and counts the non-default siblings.

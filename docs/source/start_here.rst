@@ -66,7 +66,8 @@ history is a **reorganization**, which can change balances even though an
 earlier payment's signature still verifies.
 
 For a structured sequence with objectives and checked answers, follow
-:doc:`/tutorials/course` and :doc:`/tutorials/solutions`.
+:doc:`/tutorials/course` and :doc:`/exercises/index`. For the whole story in one
+page, read :doc:`/tutorials/life_of_a_payment`.
 
 A suggested learning route
 --------------------------

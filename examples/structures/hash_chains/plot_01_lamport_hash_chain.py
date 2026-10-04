@@ -17,6 +17,7 @@ back along the chain. Replaying a captured password fails, and the attacker
 cannot step backwards without inverting SHA-256.
 
 The history behind this experiment: :doc:`/history/structures_breakthroughs`.
+See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%

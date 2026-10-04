@@ -18,6 +18,7 @@ can be talked out of the commander's order: n > 3m is necessary. This
 3f + 1 bound reappears in every Byzantine fault-tolerant blockchain.
 
 The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%

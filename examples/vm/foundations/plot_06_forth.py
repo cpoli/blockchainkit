@@ -17,6 +17,7 @@ is computed by Horner's rule with stack words only, and gives the same
 values as Python for every input.
 
 The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%

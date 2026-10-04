@@ -19,6 +19,7 @@ transactions broadcast at the same time are concurrent in exactly this
 sense.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

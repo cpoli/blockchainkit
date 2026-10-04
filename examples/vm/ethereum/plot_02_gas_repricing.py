@@ -18,6 +18,7 @@ to process than a block of arithmetic with the same gas; after repricing the
 gap shrinks. A gas schedule is a security parameter.
 
 The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%

@@ -428,6 +428,14 @@ distributed hash table, Ethereum's node discovery and IPFS.
 fills every bucket from global knowledge and routes greedily;
 :func:`blockchainkit.network.systems.kademlia.xor_distance`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Buckets here are filled from global knowledge and lookups are greedy and
+   single-path. Real Kademlia learns contacts from traffic, prefers long-lived
+   ones, and queries three contacts in parallel. See :doc:`/protocol` for this
+   package's exact conventions.
+
 **Experiment:** the gallery example measures lookup hops from 64 to 4096 nodes
 for two bucket sizes and prints one route bit by bit.
 
@@ -493,6 +501,13 @@ later motivated compact blocks.
 against the message count of
 :class:`blockchainkit.network.systems.gossip.SimulatedNetwork`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   Costs here are counted analytically, one item per message. Bitcoin batches many
+   hashes per ``inv`` and now relays headers first. See :doc:`/protocol` for this
+   package's exact conventions.
+
 **Experiment:** the gallery example compares the traffic and delay of flooding and
 announcing as the number of links per peer grows.
 
@@ -528,6 +543,13 @@ verifying it, or minimizing round trips, reduces them.
 
 **Implementation:** :func:`blockchainkit.network.systems.propagation.fork_rate` and
 :func:`blockchainkit.network.systems.propagation.simulate_fork_rate`.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   The model uses one fixed propagation delay. Measured delays vary across peers
+   and grow with block size, and relay networks have shortened them since 2013.
+   See :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** the gallery example compares the formula with simulation for block
 intervals from 15 s to 20 minutes and computes the delay budget for 1% forks.
@@ -571,6 +593,14 @@ were the attacker's and connections were independent draws,
 **Implementation:** :class:`blockchainkit.network.systems.addresses.AddressManager`
 and :func:`blockchainkit.network.systems.addresses.eclipse_probability`.
 
+.. admonition:: Teaching vs production
+   :class: note
+
+   ``AddressManager`` models group bucketing and random eviction only. Bitcoin
+   Core's address manager has separate new and tried tables, test-before-evict,
+   feeler and anchor connections. See :doc:`/protocol` for this package's exact
+   conventions.
+
 **Experiment:** the gallery example floods tables with and without group
 bucketing and measures how often eight selections are all the attacker's.
 
@@ -602,6 +632,13 @@ of the forks Decker and Wattenhofer measured.
 **Implementation:** :func:`blockchainkit.network.systems.relay.compact_block_relay`
 and :func:`blockchainkit.network.systems.relay.short_id` (SHA-256 in place of
 SipHash).
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   Short IDs here use SHA-256 instead of SipHash, and there is no high-bandwidth
+   mode or prefilled coinbase. See :doc:`/protocol` for this package's exact
+   conventions.
 
 **Experiment:** the gallery example compares compact and full sizes as mempool
 coverage falls, and shows short IDs of one or two bytes collapsing into
@@ -635,6 +672,13 @@ cryptocurrencies.
 
 **Implementation:** :func:`blockchainkit.network.systems.privacy.first_spy_precision`
 runs both modes; stems are random walks on the peer graph itself.
+
+.. admonition:: Teaching vs production
+   :class: note
+
+   Stems here are random walks on the peer graph. Dandelion routes them over a
+   separate line-shaped anonymity graph, and Dandelion++ adds further defenses.
+   See :doc:`/protocol` for this package's exact conventions.
 
 **Experiment:** the gallery example measures the first-spy precision of diffusion
 and Dandelion and varies the stem probability.

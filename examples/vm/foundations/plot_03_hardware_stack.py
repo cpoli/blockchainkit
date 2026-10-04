@@ -17,6 +17,7 @@ The same sum needs very different stack depths depending on its shape:
 limit, the right-nested form overflows.
 
 The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%

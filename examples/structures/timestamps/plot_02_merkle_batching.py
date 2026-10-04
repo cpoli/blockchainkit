@@ -14,6 +14,7 @@ One 32-byte root timestamps a thousand documents, and each proof grows only
 logarithmically. A block's header commits to its transactions the same way.
 
 The history behind this experiment: :doc:`/history/structures_breakthroughs`.
+See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%

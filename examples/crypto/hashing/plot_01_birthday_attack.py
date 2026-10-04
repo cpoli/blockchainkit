@@ -15,6 +15,7 @@ trials. This square root is why hashes have 256-bit outputs: to give
 128-bit collision resistance.
 
 The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
+See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%

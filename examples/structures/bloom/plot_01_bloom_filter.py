@@ -17,6 +17,7 @@ transactions a wallet cares about; analyses soon showed they leaked most of
 that privacy, and BIP 37 was deprecated.
 
 The history behind this experiment: :doc:`/history/structures_breakthroughs`.
+See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%

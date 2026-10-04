@@ -19,6 +19,7 @@ about ``1/e`` exactly at the threshold. Just below the threshold, what keeps
 the graph disconnected is almost always a single isolated peer.
 
 The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%

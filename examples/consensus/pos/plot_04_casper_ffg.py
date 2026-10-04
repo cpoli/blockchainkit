@@ -18,6 +18,7 @@ who equivocates or casts a surrounding vote is caught by comparing votes,
 with no need to know which fork is correct.
 
 The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%
