@@ -12,13 +12,35 @@ license = "MIT"
 license-files = ["LICENSE"]
 authors = [{name = "Charles Poli", email = "cpoli374@gmail.com"}]
 maintainers = [{name = "Charles Poli", email = "cpoli374@gmail.com"}]
-keywords = ["blockchain", "cryptography", "education", "simulation", "consensus"]
+keywords = [
+  "blockchain",
+  "cryptography",
+  "education",
+  "simulation",
+  "consensus",
+  "merkle-tree",
+  "proof-of-work",
+  "proof-of-stake",
+  "elliptic-curves",
+  "digital-signatures",
+  "gossip-protocol",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Education",
   "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
   "Typing :: Typed",
+  "Topic :: Education",
+  "Topic :: Security :: Cryptography",
+  "Topic :: Scientific/Engineering",
 ]
 dependencies = []
 
@@ -29,8 +51,17 @@ notebooks = ["blockchainkit[examples]", "jupyterlab>=4", "nbclient>=0.9", "nbfor
 docs = ["blockchainkit[examples]", "sphinx>=7", "pydata-sphinx-theme>=0.15", "sphinx-gallery>=0.17", "myst-parser>=2", "pillow>=9"]
 dev = ["blockchainkit[test,docs,notebooks]", "ruff==0.16.6", "mypy>=1.10", "pre-commit>=3.7", "build>=1"]
 
+[project.urls]
+Homepage = "https://github.com/cpoli/blockchainkit"
+Issues = "https://github.com/cpoli/blockchainkit/issues"
+Changelog = "https://github.com/cpoli/blockchainkit/blob/main/CHANGELOG.md"
+Documentation = "https://cpoli.github.io/blockchainkit/"
+
 [tool.setuptools.packages.find]
-where = ["src"]
+where = ["."]
+include = ["blockchainkit*"]
+# Tests live beside each subpackage; they stay in the sdist but not the wheel.
+exclude = ["blockchainkit.tests", "blockchainkit.*.tests"]
 
 [tool.setuptools.dynamic]
 version = {attr = "blockchainkit.__version__"}
@@ -38,8 +69,20 @@ version = {attr = "blockchainkit.__version__"}
 [tool.setuptools.package-data]
 blockchainkit = ["py.typed"]
 
+# include-package-data (on by default) would otherwise re-add each
+# subpackage's tests/ directory as package data of its parent.
+[tool.setuptools.exclude-package-data]
+"*" = ["tests/*", "tests/**/*"]
+
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = [
+    "blockchainkit/crypto/tests",
+    "blockchainkit/structures/tests",
+    "blockchainkit/consensus/tests",
+    "blockchainkit/network/tests",
+    "blockchainkit/vm/tests",
+    "blockchainkit/tests",
+]
 addopts = "--strict-markers"
 
 [tool.ruff]
@@ -48,7 +91,11 @@ target-version = "py310"
 extend-exclude = ["docs/source/gallery", "docs/build", "notebooks"]
 
 [tool.ruff.lint]
-select = ["E", "F", "W", "I", "UP", "B"]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]
+ignore = [
+  "E741", # single-letter names (n, k, x, p, q): standard mathematical notation
+  "SIM108", # if/else vs ternary: kept as if/else around multi-line arithmetic
+]
 
 [tool.ruff.lint.per-file-ignores]
 "examples/*.py" = ["E402"]
@@ -56,11 +103,13 @@ select = ["E", "F", "W", "I", "UP", "B"]
 [tool.mypy]
 python_version = "3.10"
 strict = true
-files = ["src/blockchainkit"]
+files = ["blockchainkit"]
+exclude = ["/tests/"]
 
 [tool.coverage.run]
 branch = true
 source = ["blockchainkit"]
+omit = ["*/tests/*"]
 
 [tool.coverage.report]
 show_missing = true

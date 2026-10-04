@@ -93,7 +93,7 @@ fails on warnings or example errors. The documentation includes:
 
 ```bash
 pytest --cov=blockchainkit --cov-report=term-missing
-pytest --doctest-modules src/blockchainkit
+pytest --doctest-modules blockchainkit --ignore-glob="*/tests/*"
 ruff check .
 ruff format --check .
 mypy

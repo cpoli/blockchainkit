@@ -11,54 +11,77 @@ the five domain subpackages; the modules below show implementation details.
 Cryptography
 ------------
 
-.. automodule:: blockchainkit.crypto.hashing
+.. automodule:: blockchainkit.crypto.systems.hashing
    :members:
 
-.. automodule:: blockchainkit.crypto.asymmetric
+.. automodule:: blockchainkit.crypto.systems.commitments
    :members:
 
-.. automodule:: blockchainkit.crypto.sharing
+.. automodule:: blockchainkit.crypto.core.base
    :members:
 
-.. automodule:: blockchainkit.crypto.curves
+.. automodule:: blockchainkit.crypto.systems.asymmetric
    :members:
 
-.. automodule:: blockchainkit.crypto.signatures
+.. automodule:: blockchainkit.crypto.systems.sharing
+   :members:
+
+.. automodule:: blockchainkit.crypto.systems.curves
+   :members:
+
+.. automodule:: blockchainkit.crypto.systems.signatures
    :members:
 
 Structures and state
 --------------------
 
-.. automodule:: blockchainkit.structures.merkle
+.. automodule:: blockchainkit.structures.core.base
    :members:
 
-.. automodule:: blockchainkit.structures.transaction
-   :members:
-   :exclude-members: canonical_json
-
-.. automodule:: blockchainkit.structures.block
+.. automodule:: blockchainkit.structures.systems.merkle
    :members:
 
-.. automodule:: blockchainkit.structures.chain
+.. automodule:: blockchainkit.structures.systems.transaction
+   :members:
+
+.. automodule:: blockchainkit.structures.systems.block
+   :members:
+
+.. automodule:: blockchainkit.structures.systems.ledger
+   :members:
+
+.. automodule:: blockchainkit.structures.systems.chain
    :members:
 
 Consensus models
 ----------------
 
-.. automodule:: blockchainkit.consensus.pow
+.. automodule:: blockchainkit.consensus.core.base
    :members:
 
-.. automodule:: blockchainkit.consensus.pos
+.. automodule:: blockchainkit.consensus.systems.pow
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.catch_up
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.pos
    :members:
 
 Peer simulation
 ---------------
 
-.. automodule:: blockchainkit.network.p2p
+.. automodule:: blockchainkit.network.core.base
+   :members:
+
+.. automodule:: blockchainkit.network.systems.gossip
    :members:
 
 Execution
 ---------
 
-.. automodule:: blockchainkit.vm.execution
+.. automodule:: blockchainkit.vm.core.base
+   :members:
+
+.. automodule:: blockchainkit.vm.systems.stack_machine
    :members:

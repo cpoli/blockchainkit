@@ -15,3 +15,7 @@ docs/build/
 docs/source/gallery/
 .ipynb_checkpoints/
 .DS_Store
+docs/source/_generated/
+docs/source/api/gallery/
+docs/source/gen_modules/
+docs/source/sg_execution_times.rst

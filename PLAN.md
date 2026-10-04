@@ -22,7 +22,7 @@ the package is not on PyPI (the name `blockchainkit` is free).
 
 ---
 
-## Phase 0: Safety net
+## Phase 0: Safety net (done)
 
 1. `git init`, set `user.name cpoli374` / `user.email cpoli374@gmail.com` locally, and commit the
    current tree as the baseline. Extend `.gitignore` with `build/`, `dist/`, `.hypothesis/`,
@@ -30,7 +30,14 @@ the package is not on PyPI (the name `blockchainkit` is free).
    `sg_execution_times.rst`.
 2. Create `cpoli/blockchainkit` on GitHub (private until Phase 7).
 
-## Phase 1: Repository structure (mechanical; tests must stay green)
+## Phase 1: Repository structure (done)
+
+Status: done. 130 tests (112 original + 18 package-level), 100% coverage, docs
+build and doctests pass, and hashes, signatures and Merkle roots are byte-identical to
+the baseline. Deferred, deliberately: `visualizers/` and the matplotlib `conftest.py`
+move to Phase 3 with D1. Empty `utils/` packages are created only when they get
+content. The `notebooks` extra and sync scripts stay until the docs move to JupyterLite
+in Phase 4.
 
 Target layout, copied from mathematicskit:
 

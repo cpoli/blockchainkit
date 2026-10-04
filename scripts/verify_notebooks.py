@@ -14,7 +14,7 @@ def main() -> None:
     destination = ROOT / "build/executed-notebooks"
     destination.mkdir(parents=True, exist_ok=True)
     # Also supports verifying an unpacked checkout before editable installation.
-    os.environ["PYTHONPATH"] = str(ROOT / "src") + os.pathsep + os.environ.get("PYTHONPATH", "")
+    os.environ["PYTHONPATH"] = str(ROOT) + os.pathsep + os.environ.get("PYTHONPATH", "")
     notebooks = sorted((ROOT / "notebooks").glob("plot_*.ipynb"))
     if not notebooks:
         raise SystemExit("No notebooks found; build docs and run sync_notebooks.py first")

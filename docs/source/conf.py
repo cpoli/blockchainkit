@@ -3,7 +3,7 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 import blockchainkit  # noqa: E402
 
@@ -38,10 +38,12 @@ napoleon_type_aliases = {
     "mapping": "collections.abc.Mapping",
     "callable": "collections.abc.Callable",
     "Mapping": "collections.abc.Mapping",
-    "Curve": "blockchainkit.crypto.curves.Curve",
-    "SchnorrSignature": "blockchainkit.crypto.signatures.SchnorrSignature",
-    "Transaction": "blockchainkit.structures.transaction.Transaction",
-    "Block": "blockchainkit.structures.block.Block",
+    "Curve": "blockchainkit.crypto.systems.curves.Curve",
+    "SchnorrSignature": "blockchainkit.crypto.core.base.SchnorrSignature",
+    "Transaction": "blockchainkit.structures.systems.transaction.Transaction",
+    "Block": "blockchainkit.structures.systems.block.Block",
+    "Ledger": "blockchainkit.structures.systems.ledger.Ledger",
+    "ExecutionResult": "blockchainkit.vm.core.base.ExecutionResult",
 }
 autodoc_typehints = "description"
 autodoc_member_order = "bysource"
@@ -53,8 +55,8 @@ nitpick_ignore = [
     ("py:class", "collections.abc.Mapping"),
     ("py:class", "collections.abc.Callable"),
     ("py:class", "collections.abc.Sequence"),
-    ("py:class", "blockchainkit.crypto.curves.Point"),
-    ("py:class", "blockchainkit.vm.execution.Instruction"),
+    ("py:class", "blockchainkit.crypto.core.base.Point"),
+    ("py:class", "blockchainkit.vm.core.base.Instruction"),
 ]
 exclude_patterns = ["gallery/*.ipynb"]
 sphinx_gallery_conf = {

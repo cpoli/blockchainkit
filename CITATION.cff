@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use blockchainkit in your research or teaching, please cite it as below."
+title: "blockchainkit: cryptography and blockchain breakthroughs, explained through reproducible Python experiments"
+type: software
+version: 0.1.0
+# Add `doi:` with this release's own Zenodo version DOI (not the concept DOI)
+# once the first release is archived.
+license: MIT
+repository-code: "https://github.com/cpoli/blockchainkit"
+url: "https://cpoli.github.io/blockchainkit/"
+authors:
+  - given-names: "Charles"
+    family-names: "Poli"
+    email: "cpoli374@gmail.com"
+keywords:
+  - blockchain
+  - cryptography
+  - education
+  - simulation
+  - consensus

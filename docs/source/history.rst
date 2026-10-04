@@ -102,7 +102,7 @@ An observer sees :math:`g,p,A,B`, but recovering a private exponent requires
 solving a discrete logarithm in the chosen group. The shared element still
 needs a key derivation function before use as an encryption key.
 
-**Implementation:** :class:`blockchainkit.crypto.asymmetric.DHGroup` validates
+**Implementation:** :class:`blockchainkit.crypto.systems.asymmetric.DHGroup` validates
 the prime-order subgroup and peer elements.
 
 .. doctest::
@@ -136,7 +136,7 @@ the inverse exponent :math:`d`.
    ed\equiv1\pmod{(p-1)(q-1)},\qquad
    c=m^e\bmod n,\qquad m=c^d\bmod n.
 
-**Implementation:** :func:`blockchainkit.crypto.asymmetric.rsa_keypair`
+**Implementation:** :func:`blockchainkit.crypto.systems.asymmetric.rsa_keypair`
 exposes the arithmetic, including the familiar :math:`61\times53` example.
 The code accepts only small factors for inspectable experiments.
 
@@ -179,8 +179,8 @@ interpolation. With uniform coefficients, fewer than :math:`t` shares are
 compatible with every possible secret; this is an information-theoretic
 property rather than a computational hardness assumption.
 
-**Implementation:** :func:`blockchainkit.crypto.sharing.split_secret` and
-:func:`blockchainkit.crypto.sharing.recover_secret` use integer field arithmetic.
+**Implementation:** :func:`blockchainkit.crypto.systems.sharing.split_secret` and
+:func:`blockchainkit.crypto.systems.sharing.recover_secret` use integer field arithmetic.
 
 **Experiment:** :doc:`gallery/plot_02_secret_sharing` reconstructs from every
 three-of-five subset and draws several polynomials compatible with two shares.
@@ -214,8 +214,8 @@ The prefix bytes above are blockchainkit's domain-separation convention,
 not a claim about Merkle's original wire format. Our root additionally binds
 the leaf count; an unmatched node is promoted rather than duplicated.
 
-**Implementation:** :class:`blockchainkit.structures.merkle.MerkleTree` and
-:func:`blockchainkit.structures.merkle.verify_proof` check index, shape,
+**Implementation:** :class:`blockchainkit.structures.systems.merkle.MerkleTree` and
+:func:`blockchainkit.structures.systems.merkle.verify_proof` check index, shape,
 payload, and count.
 
 **Experiment:** :doc:`gallery/plot_03_merkle_proofs` measures logarithmic proof
@@ -247,8 +247,8 @@ invertible random factor and remove that factor after signing.
 Then :math:`s^e=m\pmod n`. The requester obtains an ordinary signature while
 the signer processes the blinded value.
 
-**Implementation:** :func:`blockchainkit.crypto.asymmetric.rsa_blind` and
-:func:`blockchainkit.crypto.asymmetric.rsa_unblind` expose this identity.
+**Implementation:** :func:`blockchainkit.crypto.systems.asymmetric.rsa_blind` and
+:func:`blockchainkit.crypto.systems.asymmetric.rsa_unblind` expose this identity.
 
 **Experiment:** :doc:`gallery/plot_04_blind_signatures` follows each value
 through the exchange. These bare integer operations are not a complete
@@ -281,9 +281,9 @@ Repeated addition efficiently computes :math:`Q`. Recovering :math:`x` from
 :math:`G,Q` is an elliptic-curve discrete-log problem. Group and parameter
 selection matter; arbitrary curves do not inherit security merely by name.
 
-**Implementation:** :class:`blockchainkit.crypto.curves.Curve`,
-:func:`blockchainkit.crypto.curves.add`, and
-:func:`blockchainkit.crypto.curves.multiply` implement the group law,
+**Implementation:** :class:`blockchainkit.crypto.systems.curves.Curve`,
+:func:`blockchainkit.crypto.systems.curves.add`, and
+:func:`blockchainkit.crypto.systems.curves.multiply` implement the group law,
 including infinity, inverse points, and doubling. ``TOY_CURVE`` has 19 points;
 ``SECP256K1`` supplies a larger, established parameter set.
 
@@ -313,8 +313,8 @@ An honest-verifier transcript can be simulated by choosing :math:`c,s` first
 and computing :math:`R=sG-cQ`. An actual prover must commit to :math:`R` before
 receiving an unpredictable :math:`c`. The order is crucial.
 
-**Implementation:** :func:`blockchainkit.crypto.signatures.verify_transcript`
-checks the group equation; :func:`blockchainkit.crypto.signatures.challenge`
+**Implementation:** :func:`blockchainkit.crypto.systems.signatures.verify_transcript`
+checks the group equation; :func:`blockchainkit.crypto.systems.signatures.challenge`
 hashes the message, public key, commitment, and curve domain.
 
 **Experiment:** :doc:`gallery/plot_06_schnorr_proofs` constructs both a real
@@ -338,7 +338,7 @@ among replicated databases [Demers87]_. Local exchanges can spread information
 without requiring one central sender to reach every replica at once. The
 resulting delays make each participant's view temporarily different.
 
-**Implementation:** :class:`blockchainkit.network.p2p.SimulatedNetwork` is a
+**Implementation:** :class:`blockchainkit.network.systems.gossip.SimulatedNetwork` is a
 simplified flooding model with duplicate suppression, explicit links, and
 seeded per-hop delays. It illustrates dissemination rather than reproducing
 the paper's anti-entropy algorithms. The simulator orders simultaneous events
@@ -374,9 +374,9 @@ Two responses to different challenges under the same commitment expose
 :math:`x=(s_1-s_2)(c_1-c_2)^{-1}\pmod n`. This gives a concrete lesson in both
 proof extraction and catastrophic signing-nonce reuse.
 
-**Implementation:** :func:`blockchainkit.crypto.signatures.sign`,
-:func:`blockchainkit.crypto.signatures.verify`, and
-:func:`blockchainkit.crypto.signatures.recover_reused_nonce_key` use a
+**Implementation:** :func:`blockchainkit.crypto.systems.signatures.sign`,
+:func:`blockchainkit.crypto.systems.signatures.verify`, and
+:func:`blockchainkit.crypto.systems.signatures.recover_reused_nonce_key` use a
 domain-separated teaching scheme over a prime-order elliptic-curve subgroup.
 The historical paper uses multiplicative groups; this is an additive adaptation.
 
@@ -404,7 +404,7 @@ to earlier records makes an alteration affect subsequent commitments.
 
    h_i=H(\mathrm{encode}(h_{i-1},\mathrm{root}_i,\mathrm{metadata}_i)).
 
-**Implementation:** :class:`blockchainkit.structures.block.Block` hashes a
+**Implementation:** :class:`blockchainkit.structures.systems.block.Block` hashes a
 canonical header containing the parent hash, transaction root, height,
 timestamp, difficulty, and mining nonce. Changing any of those fields changes
 the block digest.
@@ -437,8 +437,8 @@ construction [Back02]_. A sender varies a nonce until a hash meets a target.
    H(\mathrm{header})\leq 2^{256-d}-1,\qquad
    \Pr[\mathrm{success}]=2^{-d},\qquad \mathbb{E}[T]=2^d.
 
-**Implementation:** :func:`blockchainkit.consensus.pow.mine` searches a bounded
-nonce interval; :func:`blockchainkit.consensus.pow.valid_pow` checks one hash.
+**Implementation:** :func:`blockchainkit.consensus.systems.pow.mine` searches a bounded
+nonce interval; :func:`blockchainkit.consensus.systems.pow.valid_pow` checks one hash.
 The header encoding is blockchainkit's, not a Hashcash token format.
 
 **Experiment:** :doc:`gallery/plot_08_proof_of_work` compares measured trial
@@ -463,9 +463,9 @@ NIST's FIPS 180-2 specified SHA-256 alongside other secure hash algorithms
 could implement and test against common vectors. A fixed-size output gives
 a compact fingerprint; it does not encrypt the input.
 
-**Implementation:** :func:`blockchainkit.crypto.hashing.sha256` delegates to
+**Implementation:** :func:`blockchainkit.crypto.systems.hashing.sha256` delegates to
 Python's standard-library implementation instead of reimplementing the
-compression function. :func:`blockchainkit.crypto.hashing.commit` adds domain
+compression function. :func:`blockchainkit.crypto.systems.commitments.commit` adds domain
 separation and explicit salt framing for a simple commitment experiment.
 
 .. doctest::
@@ -496,9 +496,9 @@ and peer-to-peer dissemination into an electronic cash design [Nakamoto08]_.
 The key systems question is double spending: two individually authorized
 payments may conflict, so participants need a shared ordering rule.
 
-**Implementation:** :class:`blockchainkit.structures.chain.Blockchain` validates
+**Implementation:** :class:`blockchainkit.structures.systems.chain.Blockchain` validates
 account transfers and selects greatest cumulative work. Each fork retains its
-own :class:`blockchainkit.structures.chain.Ledger`, so a reorganization also
+own :class:`blockchainkit.structures.systems.ledger.Ledger`, so a reorganization also
 restores the appropriate balances and account nonces. Difficulty is fixed by
 genesis; this model does not implement Bitcoin's adjustment schedule or UTXOs.
 
@@ -527,7 +527,7 @@ work [KN12]_. The broader design question is how participants earn influence
 over proposing or confirming state changes without weighting every decision
 by newly performed computation.
 
-**Implementation:** :class:`blockchainkit.consensus.pos.StakeSampler` isolates
+**Implementation:** :class:`blockchainkit.consensus.systems.pos.StakeSampler` isolates
 a simple stake-proportional lottery:
 
 .. math::
@@ -565,7 +565,7 @@ resources an individual program can demand.
    (S,\mathrm{program},\mathrm{input})\longrightarrow S'
    \quad\text{or an execution error}.
 
-**Implementation:** :func:`blockchainkit.vm.execution.execute` provides a
+**Implementation:** :func:`blockchainkit.vm.systems.stack_machine.execute` provides a
 256-bit stack machine, integer storage, branches, a stack bound, and an
 instruction budget. It works on a storage copy and returns a new state only
 after success; errors leave the caller's state unchanged.

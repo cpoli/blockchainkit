@@ -19,7 +19,7 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: python -m pip install -e ".[test]"
       - run: pytest --cov=blockchainkit --cov-branch --cov-report=term-missing
-      - run: pytest --doctest-modules src/blockchainkit
+      - run: pytest --doctest-modules blockchainkit --ignore-glob="*/tests/*"
 
   quality:
     runs-on: ubuntu-latest

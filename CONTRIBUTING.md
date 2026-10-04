@@ -3,6 +3,16 @@
 Keep the teaching chain intact: historical motivation, mathematical mechanism,
 typed public API, checked example, and explicit model assumptions.
 
+blockchainkit is organized as one subpackage per domain
+(`blockchainkit/<name>/`), each with its own `core/` (shared types and result
+dataclasses), `systems/` (concrete constructions and protocols, one module per
+family), `utils/` (supporting helpers that are not a model themselves), and
+`tests/` directory. Code shared by every subpackage lives at the top level:
+argument validation in `_validation.py` and every consensus-relevant constant
+(hash domain tags, encoding bounds, the default chain ID) in `constants.py`.
+New material belongs in the subpackage it fits best, re-exported from that
+subpackage's `__init__.py`.
+
 ## Setup
 
 ```bash
@@ -19,7 +29,7 @@ ruff check .
 ruff format --check .
 mypy
 pytest --cov=blockchainkit --cov-branch --cov-report=term-missing
-pytest --doctest-modules src/blockchainkit
+pytest --doctest-modules blockchainkit --ignore-glob="*/tests/*"
 sphinx-build -W --keep-going -b html docs/source docs/build/html
 sphinx-build -W --keep-going -b doctest docs/source docs/build/doctest
 python scripts/sync_notebooks.py
@@ -30,6 +40,14 @@ python -m build
 Coverage runs must reach 100% for statements and branches across all package
 modules. `pyproject.toml` enforces this threshold for the CI coverage command.
 Add meaningful boundary and failure tests; do not exclude code to meet the target.
+
+The tests check independent vectors (SHA-256 test vectors, hand-computed curve
+points), algebraic identities (Diffie-Hellman agreement, RSA and blinding
+round-trips, Shamir reconstruction from every threshold subset), and failure
+behavior (signature tampering, nonce reuse, malformed Merkle proofs, replayed
+or overdrawn transfers, fork state restoration, VM resource limits). Passing
+them shows the teaching models behave as documented; it is not a
+cryptographic security audit.
 
 ## History is part of the implementation
 
