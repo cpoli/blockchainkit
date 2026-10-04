@@ -4,6 +4,18 @@
 
 ### Added
 
+- Network history: 17 breakthroughs, each with its own gallery example, from
+  Erdős-Rényi random graphs (1959) to Dandelion (2017). New APIs: `Graph`,
+  `erdos_renyi`, `ring_lattice`, `watts_strogatz`, `barabasi_albert` and
+  `complete_graph`; `lamport_timestamps`, `vector_timestamps`,
+  `happened_before` and `concurrent`; `spread_rumor` (push, pull, push-pull)
+  and `pittel_rounds`; `reliable_broadcast` (Bracha); `ReplicatedRegister`
+  (CAP); `KademliaNetwork`, `xor_distance` and `node_id`; `AddressManager`
+  and `eclipse_probability`; `relay_cost`, `compact_block_relay` and
+  `short_id`; `fork_rate` and `simulate_fork_rate`; `first_spy_precision`;
+  `SimulatedNetwork.from_graph` and `SimulatedNetwork.messages_sent`; the
+  plots `plot_graph`, `plot_space_time` and `plot_rumor_spread`; and the
+  `COMPACT_BLOCK_DOMAIN` constant.
 - Consensus history: 17 breakthroughs, each with its own gallery example,
   from the gambler's ruin (1656) to Casper FFG (2017). New APIs:
   `oral_messages` (Byzantine generals); `ben_or` (randomized consensus, also

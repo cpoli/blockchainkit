@@ -36,7 +36,7 @@ specific claim; it is not proof that a complete system is secure.
      - What a signature checks and why signing nonces must not be reused
      - Lessons 1 and 3 / 60 min
    * - 5
-     - :doc:`/api/gallery/consensus/pow/plot_02_hashcash` and :doc:`/api/gallery/network/gossip/plot_01_gossip`
+     - :doc:`/api/gallery/consensus/pow/plot_02_hashcash` and :doc:`/api/gallery/network/events/plot_01_discrete_event_simulation`
      - Why finding a block takes work and why peers temporarily disagree
      - Lesson 1 / 50 min
    * - 6

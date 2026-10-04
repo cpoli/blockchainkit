@@ -304,6 +304,11 @@ primary source while writing; the list below is a draft.
 15. 2016 The DAO and reentrancy, **new** host-call simulation
 16. 2018 Integer overflow (BEC token): modular wraparound ✓
 
+Progress: **network done** (17 breakthroughs, 17 dedicated examples; the gossip example
+became the discrete-event-simulation example, and the Demers entry got its own push/pull
+example). Changes from the draft: vector clocks (1988) added as their own entry; CAP is
+shown on a replicated register rather than on the gossip simulator; the stem in Dandelion
+is a random walk on the peer graph rather than a line-shaped anonymity graph.
 Progress: **consensus done** (17 breakthroughs, 17 dedicated examples; the fork example
 moved here for Nakamoto consensus, and the proof-of-work example became Hashcash's). Changes
 from the draft: HotStuff dropped; FLP is shown with Ben-Or's protocol given a deterministic

@@ -35,8 +35,10 @@ it is not in the package name.
   blocks, ledger state, and cumulative-work fork selection.
 - :mod:`blockchainkit.consensus`: proof-of-work search and its expected
   cost, catch-up probabilities, and stake-weighted proposer selection.
-- :mod:`blockchainkit.network`: deterministic discrete-event gossip with
-  latency, partitions, and duplicate suppression.
+- :mod:`blockchainkit.network`: peer graphs, Lamport and vector clocks,
+  epidemic gossip and Byzantine reliable broadcast, the CAP trade-off,
+  Kademlia with its Sybil and eclipse attacks, block relay, forks, and
+  transaction privacy.
 - :mod:`blockchainkit.vm`: a deterministic 256-bit stack machine with
   storage, gas limits, step traces, and atomic failure.
 

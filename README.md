@@ -61,7 +61,7 @@ blocks between peers and observe how a reorganization changes account state.
 | `bk.crypto` | SHA-256, commitments, textbook DH/RSA, RSA blinding, Shamir sharing, curve arithmetic, Schnorr signatures and proof transcripts |
 | `bk.structures` | Count-bound Merkle proofs, signed account transfers, immutable blocks, ledger snapshots, cumulative-work fork selection |
 | `bk.consensus` | Bounded PoW mining and verification, a catch-up model, reproducible integer-weight proposer sampling |
-| `bk.network` | Discrete-event gossip, configurable latency, partitions, duplicate suppression, receive callbacks |
+| `bk.network` | Discrete-event gossip, random/small-world/scale-free graphs, Lamport and vector clocks, epidemic rumor spreading, Bracha broadcast, CAP, Kademlia, eclipse and Sybil attacks, block relay, forks, Dandelion |
 | `bk.vm` | Deterministic 256-bit stack execution, storage, branches, gas and stack limits, atomic failure |
 
 ## Learn through experiments

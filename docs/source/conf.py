@@ -79,6 +79,13 @@ napoleon_type_aliases = {
     "MerkleTrace": "blockchainkit.structures.core.base.MerkleTrace",
     "ProofStep": "blockchainkit.structures.core.base.ProofStep",
     "Delivery": "blockchainkit.network.core.base.Delivery",
+    "RumorRun": "blockchainkit.network.core.base.RumorRun",
+    "BroadcastResult": "blockchainkit.network.core.base.BroadcastResult",
+    "Operation": "blockchainkit.network.core.base.Operation",
+    "LookupResult": "blockchainkit.network.core.base.LookupResult",
+    "RelayCost": "blockchainkit.network.core.base.RelayCost",
+    "CompactBlockResult": "blockchainkit.network.core.base.CompactBlockResult",
+    "Graph": "blockchainkit.network.systems.topology.Graph",
     "ConsensusRun": "blockchainkit.consensus.core.base.ConsensusRun",
     "DifficultyRun": "blockchainkit.consensus.core.base.DifficultyRun",
     "GeneralsResult": "blockchainkit.consensus.core.base.GeneralsResult",
@@ -113,6 +120,8 @@ nitpick_ignore = [
     # Type aliases are documented as module attributes, not classes.
     ("py:class", "blockchainkit.crypto.core.base.Point"),
     ("py:class", "Point"),
+    ("py:class", "blockchainkit.network.systems.clocks.Event"),
+    ("py:class", "Event"),
     ("py:class", "blockchainkit.vm.core.base.Instruction"),
     ("py:class", "Instruction"),
 ]
@@ -148,8 +157,8 @@ SUBPACKAGES = [
     {
         "name": "network",
         "category": "Agreement",
-        "blurb": "Deterministic discrete-event gossip with latency, partitions, "
-        "and duplicate suppression.",
+        "blurb": "Peer graphs, logical clocks, gossip and reliable broadcast, "
+        "Kademlia and its attacks, block relay, forks, and transaction privacy.",
     },
     {
         "name": "vm",

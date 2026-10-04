@@ -74,7 +74,7 @@ A suggested learning route
 1. Read :doc:`/api/gallery/crypto/hashing/plot_04_sha256_avalanche` for fingerprints.
 2. Read :doc:`/api/gallery/structures/merkle/plot_01_merkle_proofs` for checking a batch efficiently.
 3. Follow :doc:`/quickstart` to make one payment.
-4. Explore :doc:`/api/gallery/network/gossip/plot_01_gossip` and :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`
+4. Explore :doc:`/api/gallery/network/events/plot_01_discrete_event_simulation` and :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`
    to see delayed messages and competing histories.
 5. Read :doc:`/history/index` to connect these tools to their original breakthroughs.
 

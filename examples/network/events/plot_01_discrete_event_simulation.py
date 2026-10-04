@@ -1,21 +1,27 @@
 """
-Gossip and partitions: different peers see different presents
-=============================================================
+Discrete-event simulation: a network on an event queue (GPSS 1961, Simula 1965)
+===============================================================================
 
-Messages propagate one hop at a time. A disconnected peer cannot learn an
-update until communication resumes and somebody sends it again. Gossip
-distributes information; it does not decide which conflicting update is valid.
+A discrete-event simulator keeps a queue of future events ordered by time.
+It pops the earliest, jumps the clock straight to it, and lets it schedule
+new events. Nothing happens between events, so no time is wasted waiting,
+and with a seeded random source every run is exactly reproducible.
+:class:`~blockchainkit.network.systems.gossip.SimulatedNetwork` simulates gossip this way:
+a message sent on a link becomes a delivery event a random number of ticks
+later.
 
 What to look for
 ----------------
 
-Follow arrival times as the message crosses the network. An isolated peer misses it, and
-reconnecting the peer requires an explicit retransmission of old news.
+Follow arrival times as the message crosses the network. An isolated peer
+misses it, and reconnecting the peer requires an explicit retransmission of
+old news. Rerunning with the same seed reproduces every arrival time.
 
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/network_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%
@@ -40,6 +46,27 @@ network.run()
 assert network.deliveries[-1].recipient == "dave"
 assert network.deliveries[-1].time == 12
 print([(event.recipient, event.time) for event in network.deliveries])
+
+# %%
+# Same seed, same history
+# -----------------------
+# The simulator draws latencies from its own seeded generator, so a second
+# run with the same operations reproduces every event exactly.
+
+
+def replay(seed):
+    net = bk.network.SimulatedNetwork(["alice", "bob", "carol", "dave"], seed=seed)
+    net.connect("alice", "bob", latency=(2, 4))
+    net.connect("bob", "carol", latency=(2, 4))
+    net.broadcast("alice", b"a new block announcement")
+    net.run(until=10)
+    net.connect("carol", "dave", latency=(2, 2))
+    net.broadcast("carol", b"a new block announcement")
+    net.run()
+    return net.deliveries
+
+
+assert replay(7) == network.deliveries
 
 # %%
 fig, ax = plt.subplots(figsize=(8, 4))

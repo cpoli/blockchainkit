@@ -61,3 +61,6 @@ UTXO_DOMAIN = "blockchainkit:utxo:v1"
 
 SORTITION_DOMAIN = b"blockchainkit:sortition:v1"
 """bytes: Domain tag for the hash that stands in for a VRF in cryptographic sortition."""
+
+COMPACT_BLOCK_DOMAIN = b"blockchainkit:compact-block:v1"
+"""bytes: Domain tag for the salted short transaction IDs of compact blocks."""

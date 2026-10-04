@@ -3,11 +3,15 @@
 import heapq
 from collections.abc import Callable, Iterable
 from random import Random
+from typing import TYPE_CHECKING
 
 from blockchainkit._validation import integer
 from blockchainkit._validation import seed as check_seed
 from blockchainkit.crypto import sha256
 from blockchainkit.network.core.base import Delivery
+
+if TYPE_CHECKING:
+    from blockchainkit.network.systems.topology import Graph
 
 
 class SimulatedNetwork:
@@ -54,6 +58,27 @@ class SimulatedNetwork:
         self._time = 0
         self._serial = 0
         self._generation = 0
+        self._sent = 0
+
+    @classmethod
+    def from_graph(
+        cls,
+        graph: "Graph",
+        *,
+        latency: tuple[int, int] = (1, 1),
+        seed: int = 0,
+        on_receive: Callable[[Delivery], bool | None] | None = None,
+    ) -> "SimulatedNetwork":
+        """Build a network whose peers ``"0"``, ``"1"``, ... are linked like ``graph``.
+
+        >>> from blockchainkit.network import SimulatedNetwork, ring_lattice
+        >>> SimulatedNetwork.from_graph(ring_lattice(8, 2))
+        SimulatedNetwork(peers=8, links=8, time=0, pending=0)
+        """
+        network = cls((str(node) for node in range(graph.n)), seed=seed, on_receive=on_receive)
+        for left, right in graph.edges:
+            network.connect(str(left), str(right), latency=latency)
+        return network
 
     def __repr__(self) -> str:
         return (
@@ -70,6 +95,11 @@ class SimulatedNetwork:
     def deliveries(self) -> tuple[Delivery, ...]:
         """Immutable snapshot of accepted first deliveries."""
         return tuple(self._deliveries)
+
+    @property
+    def messages_sent(self) -> int:
+        """Messages handed to links so far, including duplicates that receivers discard."""
+        return self._sent
 
     @property
     def pending(self) -> int:
@@ -102,6 +132,7 @@ class SimulatedNetwork:
             if link is not None:
                 low, high, generation = link
                 self._serial += 1
+                self._sent += 1
                 heapq.heappush(
                     self._queue,
                     (

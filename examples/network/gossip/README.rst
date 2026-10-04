@@ -1,4 +1,5 @@
-Gossip
-------
+Gossip and broadcast
+--------------------
 
-Flooding a payload through a peer graph, and what a partition does to it.
+Epidemic dissemination, how many rounds a rumor needs, and broadcast that
+survives a lying sender.

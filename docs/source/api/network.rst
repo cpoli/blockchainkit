@@ -6,7 +6,8 @@ blockchainkit.network
 .. automodule:: blockchainkit.network
    :no-members:
 
-Deterministic discrete-event gossip with latency, partitions, and duplicate suppression.
+Peer graphs, logical clocks, gossip and reliable broadcast, replication under partitions, Kademlia
+and its attacks, block relay, forks, and transaction privacy.
 
 Every public name below is re-exported by the subpackage: import it as
 ``bk.network.<name>``. The plotting helpers are the exception: import them
@@ -22,6 +23,36 @@ Constructions and protocols
 ---------------------------
 
 .. automodule:: blockchainkit.network.systems.gossip
+   :members:
+
+.. automodule:: blockchainkit.network.systems.topology
+   :members:
+
+.. automodule:: blockchainkit.network.systems.clocks
+   :members:
+
+.. automodule:: blockchainkit.network.systems.epidemics
+   :members:
+
+.. automodule:: blockchainkit.network.systems.broadcast
+   :members:
+
+.. automodule:: blockchainkit.network.systems.replication
+   :members:
+
+.. automodule:: blockchainkit.network.systems.kademlia
+   :members:
+
+.. automodule:: blockchainkit.network.systems.addresses
+   :members:
+
+.. automodule:: blockchainkit.network.systems.relay
+   :members:
+
+.. automodule:: blockchainkit.network.systems.propagation
+   :members:
+
+.. automodule:: blockchainkit.network.systems.privacy
    :members:
 
 Plotting

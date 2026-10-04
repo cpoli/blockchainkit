@@ -29,7 +29,11 @@ the same latency distribution. Measure first-arrival times and event counts,
 and repeat across seeds. ``deliveries`` includes local origin receipt; queued
 events can include duplicates or messages later invalidated by a partition.
 The simulator does not model bandwidth, packet sizes, queues inside links,
-adversarial peer discovery, or network-level denial of service.
+or network-level denial of service. Bandwidth is counted analytically by
+``relay_cost`` and ``compact_block_relay``; peer discovery under attack is
+modeled separately by ``AddressManager`` (eclipse attacks) and
+``KademliaNetwork`` (Sybil identities). Both take global knowledge as given:
+buckets and tables are filled at once, not learned from traffic.
 
 **Mining variance.** Repeat searches using different headers at each difficulty.
 Check the distribution, not just one sample. The expected geometric cost is
@@ -40,7 +44,8 @@ mean. The gallery uses small difficulties so all fixed fixtures complete.
 **Stake concentration.** Compare empirical proposer frequencies to weight
 fractions, with confidence intervals or repeated seeds. Integer sampling avoids
 rounding weights into floating point. Sampling a proposer does not simulate
-votes, slashing, finality, long-range attacks, or randomness grinding.
+votes, long-range attacks, or randomness grinding; ``FinalityGadget`` models
+Casper-style votes, slashing, and finality separately.
 
 Forks and validation
 --------------------
