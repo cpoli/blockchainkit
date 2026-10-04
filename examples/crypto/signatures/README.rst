@@ -1,5 +1,5 @@
-Schnorr proofs and signatures
------------------------------
+Proofs and signatures
+---------------------
 
-Interactive identification, simulated transcripts, Fiat-Shamir signatures,
-and nonce reuse.
+Zero knowledge, the Fiat-Shamir transform, Schnorr signatures, nonce reuse
+and deterministic nonces, and MuSig multi-signatures.

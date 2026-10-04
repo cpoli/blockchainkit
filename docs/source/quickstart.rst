@@ -119,6 +119,6 @@ payment sequence error after rerunning only part of an experiment, restart
 with a fresh ledger and run all cells in order.
 
 Direct script execution creates figures without waiting for a GUI window.
-For interactive inspection, use ``python -i examples/crypto/hashing/plot_01_hashing.py`` and
+For interactive inspection, use ``python -i examples/crypto/hashing/plot_04_sha256_avalanche.py`` and
 then call ``matplotlib.pyplot.show()``. Documentation build instructions and
 developer tools are covered in :doc:`/contributing`.

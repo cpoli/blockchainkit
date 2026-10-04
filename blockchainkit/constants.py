@@ -34,3 +34,18 @@ MERKLE_NODE_PREFIX = b"\x01"
 
 MERKLE_ROOT_PREFIX = b"\x02"
 """bytes: Prefix for binding the leaf count to the top Merkle digest."""
+
+PUZZLE_DOMAIN = b"blockchainkit:puzzle:v1"
+"""bytes: Domain tag for the keystream that encrypts a Merkle puzzle."""
+
+PUZZLE_MAGIC = b"MERKLE78"
+"""bytes: Known plaintext prefix that tells a solver a puzzle has opened."""
+
+LAMPORT_DOMAIN = b"blockchainkit:lamport:v1"
+"""bytes: Domain tag for deriving Lamport private preimages from a seed."""
+
+PEDERSEN_DOMAIN = b"blockchainkit:pedersen:v1"
+"""bytes: Domain tag for deriving the second Pedersen generator."""
+
+MUSIG_DOMAIN = b"blockchainkit:musig:v1"
+"""bytes: Domain tag for MuSig key-aggregation coefficients."""

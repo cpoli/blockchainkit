@@ -1,6 +1,6 @@
 """
-Elliptic curves: a finite group you can draw
-============================================
+Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)
+==================================================================================
 
 Replace modular exponentiation with repeated addition of curve points.
 The public key Q=xG is easy to compute; recovering x is the discrete-log
@@ -15,7 +15,8 @@ private step count here because this example is deliberately small.
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%

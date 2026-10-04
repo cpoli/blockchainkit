@@ -20,7 +20,7 @@ specific claim; it is not proof that a complete system is secure.
      - You should be able to explain
      - Prerequisite / time
    * - 1
-     - :doc:`/api/gallery/crypto/hashing/plot_01_hashing`
+     - :doc:`/api/gallery/crypto/hashing/plot_04_sha256_avalanche`, then :doc:`/api/gallery/crypto/commitments/plot_01_coin_flipping`
      - Why fingerprints detect changes but do not hide guessable messages
      - Start here / 30 min
    * - 2
@@ -28,11 +28,11 @@ specific claim; it is not proof that a complete system is secure.
      - How ordered sibling hashes reconstruct a trusted root
      - Lesson 1 / 40 min
    * - 3
-     - :doc:`/api/gallery/crypto/public_keys/plot_01_public_keys`, then :doc:`/api/gallery/crypto/curves/plot_01_elliptic_curves`
+     - :doc:`/api/gallery/crypto/public_keys/plot_02_diffie_hellman` and :doc:`/api/gallery/crypto/public_keys/plot_03_rsa`, then :doc:`/api/gallery/crypto/curves/plot_01_elliptic_curves`
      - Public versus private values; why tiny examples can be broken
      - Python loops / 60 min
    * - 4
-     - :doc:`/api/gallery/crypto/signatures/plot_01_schnorr_proofs` and :doc:`/quickstart`
+     - :doc:`/api/gallery/crypto/signatures/plot_03_schnorr_signatures`, :doc:`/api/gallery/crypto/signatures/plot_04_nonce_reuse` and :doc:`/quickstart`
      - What a signature checks and why signing nonces must not be reused
      - Lessons 1 and 3 / 60 min
    * - 5

@@ -1,4 +1,5 @@
 Hashing
 -------
 
-SHA-256, the avalanche effect, and salted commitments.
+Attacks on hash functions and the constructions that answer them: the
+birthday bound, Merkle-Damgard and length extension, HMAC, and SHA-256.

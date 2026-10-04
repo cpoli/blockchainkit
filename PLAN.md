@@ -304,6 +304,12 @@ primary source while writing; the list below is a draft.
 15. 2016 The DAO and reentrancy, **new** host-call simulation
 16. 2018 Integer overflow (BEC token): modular wraparound ✓
 
+Progress: **crypto done** (22 breakthroughs, 22 dedicated examples; the shared DH/RSA,
+ZK/Schnorr and hashing/commitment examples were split). Changes from the draft list:
+Blum's coin flipping (1981) added for hash commitments; ElGamal not used. A brute-force
+check over 1.7 million cases found and fixed a Pohlig-Hellman bug when the stated order
+is a proper multiple of the base's order.
+
 Total: about 86 breakthroughs, so about 75 new examples. Work one subpackage at a time (crypto →
 structures → consensus → network → vm, the course's learning order). For each one: API → tests →
 examples → history page. The docs build must pass before starting the next subpackage.

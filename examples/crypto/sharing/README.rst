@@ -1,4 +1,4 @@
 Secret sharing
 --------------
 
-Shamir's threshold scheme: polynomial shares and Lagrange interpolation.
+Shamir's threshold scheme and Feldman's verifiable variant.

@@ -1,6 +1,6 @@
 """
-Shamir sharing: reconstruct a secret without storing it whole
-=============================================================
+Shamir's secret sharing: reconstruct a secret without storing it whole (1979)
+=============================================================================
 
 The secret is the constant coefficient of a random polynomial. Any threshold
 number of evaluations determines it; fewer evaluations leave it undetermined.
@@ -15,7 +15,8 @@ secrets; the curves illustrate why the missing share matters.
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%

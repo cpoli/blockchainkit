@@ -71,7 +71,7 @@ For a structured sequence with objectives and checked answers, follow
 A suggested learning route
 --------------------------
 
-1. Read :doc:`/api/gallery/crypto/hashing/plot_01_hashing` for fingerprints.
+1. Read :doc:`/api/gallery/crypto/hashing/plot_04_sha256_avalanche` for fingerprints.
 2. Read :doc:`/api/gallery/structures/merkle/plot_01_merkle_proofs` for checking a batch efficiently.
 3. Follow :doc:`/quickstart` to make one payment.
 4. Explore :doc:`/api/gallery/network/gossip/plot_01_gossip` and :doc:`/api/gallery/structures/chain/plot_01_blockchain`

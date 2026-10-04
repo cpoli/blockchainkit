@@ -1,4 +1,4 @@
-Public keys
------------
+Public-key exchange
+-------------------
 
-Diffie-Hellman key agreement and textbook RSA.
+Merkle's puzzles, Diffie-Hellman key agreement, and RSA.

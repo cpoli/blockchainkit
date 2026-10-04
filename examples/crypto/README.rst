@@ -1,9 +1,13 @@
 Examples
 ========
 
-This gallery walks through ``blockchainkit.crypto``: hashing and its avalanche
-effect, public-key exchange and RSA, threshold secret sharing, blind
-signatures, elliptic-curve groups, and Schnorr proofs and signatures.
+This gallery walks through ``blockchainkit.crypto``, one experiment per
+breakthrough on the :doc:`cryptography history page
+</history/crypto_breakthroughs>`: the one-time pad, Merkle's puzzles,
+Diffie-Hellman and RSA, discrete-log attacks, hash attacks and HMAC,
+commitments, Lamport signatures, secret sharing, blind signatures, elliptic
+curves, zero knowledge, Fiat-Shamir, and Schnorr signatures with their
+pitfalls and multi-signatures.
 
 Each script is self-contained and runs with
 ``python examples/crypto/<section>/<script>.py``. Explicit keys and nonces are

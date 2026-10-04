@@ -4,6 +4,17 @@
 
 ### Added
 
+- Cryptography history: 22 breakthroughs, each with its own gallery example,
+  from the one-time pad (1917-1949) to MuSig (2018). New APIs behind them:
+  `one_time_pad`/`xor_bytes`; `baby_step_giant_step` and `pohlig_hellman`;
+  `merkle_puzzles`/`solve_puzzle`; `lamport_keypair`/`lamport_sign`/
+  `lamport_verify`; `find_collision`/`truncated_hash`; a readable
+  Merkle-Damgard SHA-256 (`merkle_damgard_sha256`, `sha256_compress`,
+  `sha256_padding`) with `length_extension`; `naive_mac` and `hmac_sha256`;
+  `pedersen_commit`/`pedersen_generators`; `feldman_split`/`feldman_verify`;
+  `TEACHING_GROUP`, a 62-bit safe-prime group; `simulate_transcript`;
+  `deterministic_nonce` (RFC 6979, checked against the RFC's vectors); and
+  `musig_coefficients`/`aggregate_public_keys`/`musig_sign`.
 - `visualizers/` in every subpackage (Matplotlib, imported explicitly; plain
   `import blockchainkit` still loads only the standard library):
   `plot_curve_points`, `plot_hamming_distances`, `plot_merkle_tree`,

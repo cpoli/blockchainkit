@@ -21,22 +21,43 @@ Types and results
 Constructions and protocols
 ---------------------------
 
+.. automodule:: blockchainkit.crypto.systems.one_time_pad
+   :members:
+
 .. automodule:: blockchainkit.crypto.systems.hashing
+   :members:
+
+.. automodule:: blockchainkit.crypto.systems.merkle_damgard
+   :members:
+
+.. automodule:: blockchainkit.crypto.systems.mac
    :members:
 
 .. automodule:: blockchainkit.crypto.systems.commitments
    :members:
 
+.. automodule:: blockchainkit.crypto.systems.puzzles
+   :members:
+
 .. automodule:: blockchainkit.crypto.systems.asymmetric
    :members:
 
+.. automodule:: blockchainkit.crypto.systems.discrete_log
+   :members:
+
 .. automodule:: blockchainkit.crypto.systems.sharing
+   :members:
+
+.. automodule:: blockchainkit.crypto.systems.lamport
    :members:
 
 .. automodule:: blockchainkit.crypto.systems.curves
    :members:
 
 .. automodule:: blockchainkit.crypto.systems.signatures
+   :members:
+
+.. automodule:: blockchainkit.crypto.systems.multisig
    :members:
 
 Helpers

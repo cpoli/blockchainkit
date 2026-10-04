@@ -1,6 +1,6 @@
 """
-Blind signatures: authenticate a message the signer cannot see
-==============================================================
+Chaum's blind signatures: authenticate a message the signer cannot see (1982)
+=============================================================================
 
 Chaum's construction separates authorization from knowledge of a message.
 This experiment exposes RSA's multiplicative blinding identity with tiny
@@ -16,7 +16,8 @@ system.
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%

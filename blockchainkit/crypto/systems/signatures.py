@@ -5,6 +5,8 @@ curve arithmetic is variable-time. Explicit nonces exist for experiments;
 reusing a nonce reveals the private key.
 """
 
+import hashlib
+import hmac
 import secrets
 
 from blockchainkit._validation import integer
@@ -101,6 +103,94 @@ def verify_transcript(
     return multiply(response, curve.generator, curve) == add(
         commitment, multiply(challenge_scalar, public, curve), curve
     )
+
+
+def simulate_transcript(
+    public: tuple[int, int],
+    challenge_scalar: int,
+    response: int,
+    curve: Curve = SECP256K1,
+) -> tuple[int, int]:
+    """Forge an accepting transcript *without* the private key: R = sG - cQ.
+
+    Choosing the challenge and response first, then solving for the
+    commitment, produces ``(R, c, s)`` that :func:`verify_transcript` accepts.
+    This is the simulator in the zero-knowledge proof (Goldwasser, Micali and
+    Rackoff, 1985): real transcripts and simulated ones look the same, so a
+    transcript teaches the verifier nothing. A live proof is sound only
+    because the verifier picks c *after* seeing R.
+    """
+    for scalar in (challenge_scalar, response):
+        integer(scalar, "scalar")
+        if scalar >= curve.order:
+            raise ValueError("scalars must be below the curve order")
+    negated = multiply(-challenge_scalar, public, curve)
+    commitment = add(multiply(response, curve.generator, curve), negated, curve)
+    if commitment is None:
+        raise ValueError("these scalars give the point at infinity; choose others")
+    return commitment
+
+
+def deterministic_nonce(private: int, message: bytes, order: int = SECP256K1.order) -> int:
+    """Derive a signing nonce from the key and message (RFC 6979, HMAC-SHA256).
+
+    Random nonces fail when the randomness does: a repeated or predictable
+    nonce reveals the private key (see :func:`recover_reused_nonce_key`).
+    RFC 6979 removes the random number generator from signing: the nonce is
+    an HMAC-DRBG output seeded with the private key and the message hash, so
+    it is unpredictable without the key, and distinct messages get distinct
+    nonces. This implements section 3.2 with SHA-256, and reproduces the
+    RFC's published nonces when given the same order.
+
+    Parameters
+    ----------
+    private : int
+        Secret scalar in [1, order).
+    message : bytes
+        The message to be signed (it is hashed here).
+    order : int
+        The group order q; defaults to secp256k1's.
+
+    Examples
+    --------
+    >>> from blockchainkit.crypto import deterministic_nonce, sign, verify, public_key
+    >>> k = deterministic_nonce(7, b"lesson")
+    >>> verify(b"lesson", sign(b"lesson", 7, nonce=k), public_key(7))
+    True
+    """
+    integer(order, "order", 2)
+    integer(private, "private", 1)
+    if private >= order:
+        raise ValueError("private key must be below the order")
+    if not isinstance(message, bytes):
+        raise TypeError("message must be bytes")
+    qlen = order.bit_length()
+    rlen = (qlen + 7) // 8
+
+    def bits2int(data: bytes) -> int:
+        value = int.from_bytes(data, "big")
+        excess = 8 * len(data) - qlen
+        return value >> excess if excess > 0 else value
+
+    def mac(key: bytes, data: bytes) -> bytes:
+        return hmac.new(key, data, hashlib.sha256).digest()
+
+    seed = private.to_bytes(rlen, "big") + (bits2int(sha256(message)) % order).to_bytes(rlen, "big")
+    v, k = b"\x01" * 32, b"\x00" * 32
+    k = mac(k, v + b"\x00" + seed)
+    v = mac(k, v)
+    k = mac(k, v + b"\x01" + seed)
+    v = mac(k, v)
+    while True:
+        t = b""
+        while 8 * len(t) < qlen:
+            v = mac(k, v)
+            t += v
+        nonce = bits2int(t)
+        if 1 <= nonce < order:
+            return nonce
+        k = mac(k, v + b"\x00")
+        v = mac(k, v)
 
 
 def verify(
