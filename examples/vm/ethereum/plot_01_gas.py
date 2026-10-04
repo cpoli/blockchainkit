@@ -1,22 +1,26 @@
 """
-Programmable state: determinism, bounded work, and atomic failure
-=================================================================
+Ethereum: a replicated computer metered by gas (Buterin 2014)
+=============================================================
 
-A replicated machine must produce the same state transition at every node.
-Execution limits stop a program from consuming unbounded instruction steps.
-This small stack machine has unit instruction costs, not Ethereum gas prices.
+Ethereum turned a blockchain into a shared computer: every node runs every
+contract call and must reach the same state. Since no one can predict
+whether an arbitrary program halts, each call carries a gas budget; every
+instruction spends some, and running out aborts the call and undoes its
+effects. Words are 256 bits, wide enough for hashes and keys.
+This small stack machine uses unit instruction costs, not Ethereum's prices.
 
 What to look for
 ----------------
 
-Compare successful execution with an exhausted instruction budget. Success returns new
-storage; failure preserves the original storage. An infinite loop stops when its budget
-runs out.
+Compare successful execution with an exhausted gas budget. Success returns
+new storage; failure preserves the original storage. An infinite loop stops
+when its budget runs out, so every call terminates.
 
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/vm_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%

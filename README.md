@@ -62,7 +62,7 @@ blocks between peers and observe how a reorganization changes account state.
 | `bk.structures` | Count-bound Merkle proofs, signed account transfers, immutable blocks, ledger snapshots, cumulative-work fork selection |
 | `bk.consensus` | Bounded PoW mining and verification, a catch-up model, reproducible integer-weight proposer sampling |
 | `bk.network` | Discrete-event gossip, random/small-world/scale-free graphs, Lamport and vector clocks, epidemic rumor spreading, Bracha broadcast, CAP, Kademlia, eclipse and Sybil attacks, block relay, forks, Dandelion |
-| `bk.vm` | Deterministic 256-bit stack execution, storage, branches, gas and stack limits, atomic failure |
+| `bk.vm` | Deterministic 256-bit stack machine with gas and atomic failure, assembler, RPN compiler, bytecode verifier, Turing machines and busy beavers, Bitcoin Script (P2PKH, HTLC), contracts, reentrancy and overflow |
 
 ## Learn through experiments
 

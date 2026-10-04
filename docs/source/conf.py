@@ -97,6 +97,11 @@ napoleon_type_aliases = {
     "ViewChangeRun": "blockchainkit.consensus.core.base.ViewChangeRun",
     "ExecutionResult": "blockchainkit.vm.core.base.ExecutionResult",
     "TraceStep": "blockchainkit.vm.core.base.TraceStep",
+    "VerificationResult": "blockchainkit.vm.core.base.VerificationResult",
+    "TuringRun": "blockchainkit.vm.core.base.TuringRun",
+    "BusyBeaverResult": "blockchainkit.vm.core.base.BusyBeaverResult",
+    "ScriptResult": "blockchainkit.vm.core.base.ScriptResult",
+    "ReentrancyResult": "blockchainkit.vm.core.base.ReentrancyResult",
 }
 
 autodoc_default_options = {
@@ -124,6 +129,10 @@ nitpick_ignore = [
     ("py:class", "Event"),
     ("py:class", "blockchainkit.vm.core.base.Instruction"),
     ("py:class", "Instruction"),
+    ("py:class", "blockchainkit.vm.systems.script.ScriptItem"),
+    ("py:class", "ScriptItem"),
+    ("py:class", "blockchainkit.vm.systems.turing.Rule"),
+    ("py:class", "Rule"),
 ]
 
 source_suffix = {
@@ -163,8 +172,8 @@ SUBPACKAGES = [
     {
         "name": "vm",
         "category": "Execution",
-        "blurb": "A deterministic 256-bit stack machine with storage, gas limits, "
-        "step traces, and atomic failure.",
+        "blurb": "A deterministic 256-bit stack machine with gas and atomic failure, "
+        "Turing machines, Bitcoin Script, and smart contracts and their attacks.",
     },
 ]
 

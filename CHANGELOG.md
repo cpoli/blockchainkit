@@ -4,6 +4,17 @@
 
 ### Added
 
+- Execution history: 16 breakthroughs, each with its own gallery example,
+  from reverse Polish notation (1924-1957) to the BeautyChain overflow
+  (2018). New APIs: `execute(..., arguments=...)`, the Forth words `OVER` and
+  `ROT`, `REVERT`, and the shared `STACK_EFFECTS` table; `validate_program`;
+  `assemble` (labels); `to_rpn` and `compile_expression`; `verify_bytecode`
+  and `VerificationResult`; `run_turing_machine`, `enumerate_machines` and
+  `busy_beaver` (reproducing S(2) = 6); Bitcoin-style Script with
+  `verify_script`, `p2pkh_locking`/`p2pkh_unlocking` and `htlc_locking`
+  (`OP_CHECKLOCKTIMEVERIFY`); the contracts `vending_machine` and
+  `batch_transfer` (BEC overflow, with a SafeMath option); `drain_bank`
+  (DAO reentrancy); and the plot `plot_stack_height`.
 - Network history: 17 breakthroughs, each with its own gallery example, from
   Erdős-Rényi random graphs (1959) to Dandelion (2017). New APIs: `Graph`,
   `erdos_renyi`, `ring_lattice`, `watts_strogatz`, `barabasi_albert` and

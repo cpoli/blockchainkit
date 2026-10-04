@@ -1,4 +1,4 @@
-"""Plotting helpers for blockchainkit.vm: execution traces."""
+"""Plotting helpers for blockchainkit.vm: execution traces and stack heights."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from matplotlib.axes import Axes
 
 from blockchainkit.vm.core.base import TraceStep
 
-__all__ = ["plot_execution_trace"]
+__all__ = ["plot_execution_trace", "plot_stack_height"]
 
 
 def plot_execution_trace(
@@ -59,4 +59,39 @@ def plot_execution_trace(
     hidden = len(trace) - len(shown)
     suffix = f" (first {len(shown)} of {len(trace)} steps)" if hidden else ""
     ax.set_title("State after each instruction" + suffix)
+    return ax
+
+
+def plot_stack_height(
+    trace: Sequence[TraceStep], *, label: str | None = None, ax: Axes | None = None
+) -> Axes:
+    """Plot the stack height after each executed instruction.
+
+    The peak is the stack space the run needed: what a hardware stack must
+    provide, and what static verification bounds in advance.
+
+    Parameters
+    ----------
+    trace : sequence of TraceStep
+        From ``execute(..., trace=True)``.
+    label : str, optional
+        Legend label, to compare several runs on one axes.
+    ax : matplotlib.axes.Axes, optional
+        Axes to draw on; a new figure is created if omitted.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+    """
+    if not trace:
+        raise ValueError("empty trace: pass trace=True to execute")
+    if ax is None:
+        _, ax = plt.subplots()
+    heights = [len(step.stack) for step in trace]
+    ax.step(range(1, len(heights) + 1), heights, where="post", label=label)
+    ax.set_xlabel("instructions executed")
+    ax.set_ylabel("stack height")
+    ax.set_title(f"Stack height (peak {max(heights)})")
+    if label is not None:
+        ax.legend()
     return ax

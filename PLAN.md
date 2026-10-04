@@ -304,6 +304,11 @@ primary source while writing; the list below is a draft.
 15. 2016 The DAO and reentrancy, **new** host-call simulation
 16. 2018 Integer overflow (BEC token): modular wraparound ✓
 
+Progress: **vm done** (16 breakthroughs, 16 dedicated examples; the execution example
+became the 2014 Ethereum gas example). Changes from the draft: the halting problem and the
+busy beaver use a real Turing-machine simulator rather than stack-machine programs; Bitcoin
+Script is a separate byte-string interpreter rather than new opcodes on the stack machine;
+the DAO is a Python model, not a host-call simulation. Phase 5 is complete.
 Progress: **network done** (17 breakthroughs, 17 dedicated examples; the gossip example
 became the discrete-event-simulation example, and the Demers entry got its own push/pull
 example). Changes from the draft: vector clocks (1988) added as their own entry; CAP is

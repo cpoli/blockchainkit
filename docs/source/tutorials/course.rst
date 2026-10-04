@@ -44,7 +44,7 @@ specific claim; it is not proof that a complete system is secure.
      - Pending versus included payments; how a fork changes balances and queues
      - Lessons 2, 4, 5 / 60 min
    * - 7
-     - :doc:`/api/gallery/vm/stack_machine/plot_01_execution`
+     - :doc:`/api/gallery/vm/ethereum/plot_01_gas`
      - Stack operations, execution budgets, and committing state only on success
      - Python lists / 40 min
 

@@ -39,8 +39,10 @@ it is not in the package name.
   epidemic gossip and Byzantine reliable broadcast, the CAP trade-off,
   Kademlia with its Sybil and eclipse attacks, block relay, forks, and
   transaction privacy.
-- :mod:`blockchainkit.vm`: a deterministic 256-bit stack machine with
-  storage, gas limits, step traces, and atomic failure.
+- :mod:`blockchainkit.vm`: a deterministic 256-bit stack machine with gas,
+  traces and atomic failure; its assembler, expression compiler and bytecode
+  verifier; Turing machines and busy beavers; Bitcoin Script with P2PKH and
+  HTLCs; and smart contracts with the reentrancy and overflow attacks.
 
 **blockchainkit** is part of a family of packages, with
 `physicskit <https://cpoli.github.io/physicskit/>`_,
