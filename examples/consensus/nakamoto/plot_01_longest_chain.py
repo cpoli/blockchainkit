@@ -1,6 +1,6 @@
 """
-A signed payment, a network fork, and a ledger reorganization
-=============================================================
+Nakamoto consensus: a payment, a fork, and a reorganization (2008)
+==================================================================
 
 This is the full teaching chain: keys authorize a transfer, a Merkle root
 commits to it, proof of work secures a header, and peers compare valid forks.
@@ -16,7 +16,8 @@ selected ledger.
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%

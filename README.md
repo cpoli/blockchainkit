@@ -51,7 +51,7 @@ chain.add(bk.consensus.mine(block).block)
 assert chain.state.balances[bob] == 25
 ```
 
-See [the complete fork experiment](examples/structures/chain/plot_01_blockchain.py) to propagate
+See [the complete fork experiment](examples/consensus/nakamoto/plot_01_longest_chain.py) to propagate
 blocks between peers and observe how a reorganization changes account state.
 
 ## Subpackages

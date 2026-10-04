@@ -304,7 +304,10 @@ primary source while writing; the list below is a draft.
 15. 2016 The DAO and reentrancy, **new** host-call simulation
 16. 2018 Integer overflow (BEC token): modular wraparound ✓
 
-Progress: **structures done** (15 breakthroughs, 15 dedicated examples; the 1991 linked
+Progress: **consensus done** (17 breakthroughs, 17 dedicated examples; the fork example
+moved here for Nakamoto consensus, and the proof-of-work example became Hashcash's). Changes
+from the draft: HotStuff dropped; FLP is shown with Ben-Or's protocol given a deterministic
+coin. Progress: **structures done** (15 breakthroughs, 15 dedicated examples; the 1991 linked
 timestamps entry got its own example instead of sharing the fork example, which moves to
 consensus with the Bitcoin entry). Changes from the draft: Git's content addressing dropped.
 Before building consistency proofs, a check over 1-299 leaves confirmed the tree has RFC

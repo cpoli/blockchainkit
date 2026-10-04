@@ -21,13 +21,46 @@ Types and results
 Constructions and protocols
 ---------------------------
 
+.. automodule:: blockchainkit.consensus.systems.byzantine
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.randomized
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.synchrony
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.pricing
+   :members:
+
 .. automodule:: blockchainkit.consensus.systems.pow
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.pbft
    :members:
 
 .. automodule:: blockchainkit.consensus.systems.catch_up
    :members:
 
+.. automodule:: blockchainkit.consensus.systems.difficulty
+   :members:
+
 .. automodule:: blockchainkit.consensus.systems.pos
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.fork_choice
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.selfish
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.stake_games
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.sortition
+   :members:
+
+.. automodule:: blockchainkit.consensus.systems.finality
    :members:
 
 Plotting

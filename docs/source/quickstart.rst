@@ -101,7 +101,7 @@ byte representation, and ``merkle_root`` is the block's batch fingerprint.
 
 The proof establishes membership in that block. It does not establish that
 the block is on the selected chain or that it will remain there. Explore this
-distinction in :doc:`/api/gallery/structures/chain/plot_01_blockchain`.
+distinction in :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`.
 
 Continue the course
 -------------------

@@ -1,6 +1,6 @@
 """
-Stake weighting: measure a proposer lottery
-===========================================
+Proof of stake: a stake-weighted proposer lottery (Peercoin 2012)
+=================================================================
 
 Weighting proposer selection by stake changes the resource used to allocate
 influence. This sampler isolates that one mechanism; it has no voting,
@@ -16,7 +16,8 @@ share.
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%

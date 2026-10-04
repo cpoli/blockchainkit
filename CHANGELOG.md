@@ -4,6 +4,16 @@
 
 ### Added
 
+- Consensus history: 17 breakthroughs, each with its own gallery example,
+  from the gambler's ruin (1656) to Casper FFG (2017). New APIs:
+  `oral_messages` (Byzantine generals); `ben_or` (randomized consensus, also
+  used to show the FLP adversary); `view_changes` (partial synchrony);
+  `modular_square_root` (Dwork-Naor pricing); `pbft_round` and
+  `quorum_size`; `attacker_success_probability` (whitepaper section 11, checked
+  against its table); `retarget` and `simulate_difficulty`; `ghost_tip` and
+  `subtree_work`; `selfish_mining_revenue`, `selfish_mining_threshold` and
+  `simulate_selfish_mining`; `fork_voting_payoffs` (nothing at stake);
+  `sortition`; and `FinalityGadget` (Casper FFG with slashing detection).
 - Structures history: 15 breakthroughs, each with its own gallery example,
   from double-entry bookkeeping (1494) to Merkle mountain ranges (2016). New
   APIs: `Ledger.total_supply`; `BloomFilter`; `hash_chain` and

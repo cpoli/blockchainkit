@@ -1,4 +1,4 @@
 Proof of stake
 --------------
 
-Reproducible stake-weighted proposer sampling.
+Stake-weighted selection, nothing at stake, sortition, and finality.

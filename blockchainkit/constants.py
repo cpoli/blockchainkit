@@ -58,3 +58,6 @@ BLOOM_DOMAIN = b"blockchainkit:bloom:v1"
 
 UTXO_DOMAIN = "blockchainkit:utxo:v1"
 """str: Domain tag signed into every UTXO transaction."""
+
+SORTITION_DOMAIN = b"blockchainkit:sortition:v1"
+"""bytes: Domain tag for the hash that stands in for a VRF in cryptographic sortition."""

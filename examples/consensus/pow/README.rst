@@ -1,4 +1,4 @@
 Proof of work
 -------------
 
-Bounded nonce searches, targets, and expected trials.
+Pricing functions, Hashcash, and difficulty retargeting.

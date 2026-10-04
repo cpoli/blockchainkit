@@ -36,11 +36,11 @@ specific claim; it is not proof that a complete system is secure.
      - What a signature checks and why signing nonces must not be reused
      - Lessons 1 and 3 / 60 min
    * - 5
-     - :doc:`/api/gallery/consensus/pow/plot_01_proof_of_work` and :doc:`/api/gallery/network/gossip/plot_01_gossip`
+     - :doc:`/api/gallery/consensus/pow/plot_02_hashcash` and :doc:`/api/gallery/network/gossip/plot_01_gossip`
      - Why finding a block takes work and why peers temporarily disagree
      - Lesson 1 / 50 min
    * - 6
-     - :doc:`/api/gallery/structures/chain/plot_01_blockchain`, then :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle`
+     - :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`, then :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle`
      - Pending versus included payments; how a fork changes balances and queues
      - Lessons 2, 4, 5 / 60 min
    * - 7

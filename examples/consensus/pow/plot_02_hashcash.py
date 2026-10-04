@@ -1,6 +1,6 @@
 """
-Proof of work: cheap verification, uncertain search
-===================================================
+Hashcash: proof of work you can verify in one hash (Back 1997)
+==============================================================
 
 With d leading zero bits, a uniform hash succeeds with probability 2**(-d).
 The expected search is 2**d trials, but any one run can finish much earlier
@@ -15,7 +15,8 @@ searches fluctuate: the average is not a deadline.
 Read cells in order. An ``assert`` that produces no output has passed.
 The final exercise asks you to change an input and explain the result.
 
-See :doc:`/tutorials/course` for prerequisites and :doc:`/tutorials/solutions` for worked answers.
+The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+See :doc:`/tutorials/solutions` for a worked answer to the exercise.
 """
 
 # %%
