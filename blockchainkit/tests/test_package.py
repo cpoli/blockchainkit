@@ -46,3 +46,15 @@ def test_constants_match_their_documented_values():
         bk.constants.MERKLE_ROOT_PREFIX,
     }
     assert len(prefixes) == 3
+
+
+def test_importing_blockchainkit_does_not_load_matplotlib():
+    # Visualizers are opt-in; the protocol code must stay standard-library only.
+    import subprocess
+    import sys
+
+    code = "import sys, blockchainkit; print('matplotlib' in sys.modules, 'numpy' in sys.modules)"
+    output = subprocess.run(
+        [sys.executable, "-c", code], capture_output=True, text=True, check=True
+    )
+    assert output.stdout.split() == ["False", "False"]

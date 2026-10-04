@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-An educational, typed, pure-Python toolkit for cryptography and blockchain systems: five domain subpackages (`crypto`, `structures`, `consensus`, `network`, `vm`) that follow each idea from its history and mathematics to a small API, a gallery experiment, and a notebook. Conventionally imported as `bk`. It is deliberately *not* production cryptography: tiny RSA/DH parameters, variable-time curve arithmetic, non-BIP-340 Schnorr, and non-Bitcoin/Ethereum wire formats. Keep those model boundaries explicit.
+An educational, typed Python toolkit for cryptography and blockchain systems: five domain subpackages (`crypto`, `structures`, `consensus`, `network`, `vm`) that follow each idea from its history and mathematics to a small API, a gallery experiment, and a notebook. Conventionally imported as `bk`. It is deliberately *not* production cryptography: tiny RSA/DH parameters, variable-time curve arithmetic, non-BIP-340 Schnorr, and non-Bitcoin/Ethereum wire formats. Keep those model boundaries explicit.
 
 blockchainkit is a sibling package to `../mathematicskit`, `../physicskit`, `../chemistrykit` and `../tbkit`, and is being aligned with their architecture and conventions (see `PLAN.md` for the phases and what is done). When a convention here seems underspecified, check how mathematicskit handles the equivalent case rather than inventing a new one.
 
@@ -44,7 +44,7 @@ CI (`.github/workflows/ci.yml`) runs tests on Python 3.10-3.14, the quality chec
 
 ## Architecture
 
-**One subpackage per domain**, each at `blockchainkit/<name>/` with its own `tests/` directory (not a top-level `tests/`). Every subpackage uses the same internal layout: `core/base.py` (shared types and frozen result dataclasses, never bare tuples), `systems/` (concrete constructions and protocols, one module per family), `utils/` (supporting helpers that are not a model themselves; only where needed), and `tests/`. Each subpackage's `__init__.py` re-exports the public names of its `core` and `systems` layers, and `blockchainkit/tests/test_package.py` checks that.
+**One subpackage per domain**, each at `blockchainkit/<name>/` with its own `tests/` directory (not a top-level `tests/`). Every subpackage uses the same internal layout: `core/base.py` (shared types and frozen result dataclasses, never bare tuples), `systems/` (concrete constructions and protocols, one module per family), `utils/` (supporting helpers that are not a model themselves; only where needed), `visualizers/` (matplotlib plotting: functions take `ax=None` and return the `Axes`), and `tests/`. `import blockchainkit` must stay stdlib-only: nothing outside `visualizers/` imports matplotlib or numpy, and subpackage `__init__.py` files do not import `visualizers`. Each subpackage's `__init__.py` re-exports the public names of its `core` and `systems` layers, and `blockchainkit/tests/test_package.py` checks that.
 
 Shared across all subpackages:
 - `blockchainkit/_validation.py`: `integer()` is the argument validator used everywhere (rejects bools and non-ints, with an inclusive lower bound).

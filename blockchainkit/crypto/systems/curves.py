@@ -167,6 +167,36 @@ def public_key(private: int, curve: Curve = SECP256K1) -> tuple[int, int]:
     return point
 
 
+def enumerate_points(curve: Curve) -> tuple[tuple[int, int], ...]:
+    """List every finite point of a small curve, sorted, by trying each x.
+
+    Adding the point at infinity gives the whole group, so
+    ``len(enumerate_points(curve)) + 1`` is the group order #E. Useful for
+    plotting a toy curve and for checking Hasse's bound by hand.
+
+    Raises
+    ------
+    ValueError
+        The field has more than 10,000 elements; enumeration is O(p).
+
+    Examples
+    --------
+    >>> from blockchainkit.crypto import TOY_CURVE, enumerate_points
+    >>> len(enumerate_points(TOY_CURVE)) + 1 == TOY_CURVE.order
+    True
+    """
+    if curve.p > 10_000:
+        raise ValueError("enumeration is only for small curves (p <= 10000)")
+    roots: dict[int, list[int]] = {}
+    for y in range(curve.p):
+        roots.setdefault(y * y % curve.p, []).append(y)
+    return tuple(
+        (x, y)
+        for x in range(curve.p)
+        for y in roots.get((x**3 + curve.a * x + curve.b) % curve.p, ())
+    )
+
+
 def encode_point(point: Point, curve: Curve = SECP256K1) -> bytes:
     """Return fixed-width uncompressed encoding (0x04 || x || y)."""
     if point is None or not curve.contains(point):

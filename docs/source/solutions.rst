@@ -251,5 +251,5 @@ predictable; allowing someone to choose among seeds also permits bias.
 
 The rightmost stack item is the top. Intermediate storage is working state;
 a failure before successful completion leaves the caller's input unchanged.
-The VM trace replays prefixes of a straight-line program, so it should not be
-used as a general tracing technique for branches or loops.
+``execute(..., trace=True)`` records the state after every executed
+instruction, following jumps, so the same trace works for branches and loops.

@@ -2,6 +2,24 @@
 
 ## Unreleased
 
+### Added
+
+- `visualizers/` in every subpackage (Matplotlib, imported explicitly; plain
+  `import blockchainkit` still loads only the standard library):
+  `plot_curve_points`, `plot_hamming_distances`, `plot_merkle_tree`,
+  `plot_proof_trace`, `plot_block_tree`, `plot_mining_trials`,
+  `plot_stake_shares`, `plot_gossip_timeline`, `plot_execution_trace`.
+  Matplotlib and NumPy are now runtime dependencies; the `examples` extra is
+  gone.
+- `execute(..., trace=True)` records a `TraceStep` after every instruction,
+  following jumps; a failed run carries its partial trace in `VMError.trace`.
+  `execute(..., gas_costs=...)` prices opcodes individually (each at least 1).
+- `MerkleTree.levels`, `MerkleTree.leaf_count`, and `trace_proof`, which
+  returns a `MerkleTrace` of `ProofStep`s, even for a proof that fails.
+- `Blockchain.blocks`, `tips()`, `work_at()` and `state_at()` to inspect
+  side forks.
+- `enumerate_points` lists every point of a small curve.
+
 ### Changed
 
 - The package uses the kit-family layout: one subpackage per domain with

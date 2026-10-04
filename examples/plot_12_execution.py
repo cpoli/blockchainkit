@@ -23,6 +23,7 @@ See :doc:`/course` for prerequisites and :doc:`/solutions` for worked answers.
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+from blockchainkit.vm.visualizers import plot_execution_trace
 
 # Increment persistent slot zero by five.
 program = [("LOAD", 0), ("PUSH", 5), ("ADD", None), ("STORE", 0), ("STOP", None)]
@@ -80,32 +81,11 @@ fig.tight_layout()
 # %%
 # Trace the stack after each instruction
 # --------------------------------------
-# For this straight-line program only, replay each prefix from the SAME initial
-# state to expose its intermediate result. This is not a debugger for jumps:
-# truncating a branching program can change whether its targets are valid.
-trace = []
-for length in range(1, len(program) + 1):
-    partial = bk.vm.execute(program[:length], storage=initial)
-    opcode, operand = program[length - 1]
-    trace.append(
-        [
-            opcode + (" " + str(operand) if operand is not None else ""),
-            str(list(partial.stack)),
-            partial.storage.get(0, 0),
-            partial.gas_used,
-        ]
-    )
-assert trace[-1][2] == result.storage[0]
+# ``trace=True`` records the machine state after every executed instruction.
+# Storage in the trace is the *working* copy: it is committed only if the whole
+# program succeeds. The trace follows jumps too, so it works for loops.
+traced = bk.vm.execute(program, storage=initial, trace=True)
+assert traced.trace[-1].storage == dict(result.storage)
 assert initial == {0: 10}
-fig, ax = plt.subplots(figsize=(9, 3.5))
-ax.axis("off")
-table = ax.table(
-    cellText=trace,
-    colLabels=["Instruction", "Stack (top at right)", "Working slot 0", "Gas"],
-    loc="center",
-)
-table.auto_set_font_size(False)
-table.set_fontsize(10)
-table.scale(1, 2)
-ax.set_title("Intermediate working state; commit only if the whole program succeeds")
-fig.tight_layout()
+ax = plot_execution_trace(traced.trace)
+ax.figure.tight_layout()

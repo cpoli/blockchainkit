@@ -13,7 +13,7 @@ from blockchainkit.constants import (
     UINT64_LIMIT,
 )
 from blockchainkit.crypto.systems.hashing import sha256
-from blockchainkit.structures.core.base import MerkleProof
+from blockchainkit.structures.core.base import MerkleProof, MerkleTrace, ProofStep
 
 
 def _root(count: int, digest: bytes) -> bytes:
@@ -62,6 +62,20 @@ class MerkleTree:
         """Return the immutable 32-byte, leaf-count-bound root."""
         return self._root
 
+    @property
+    def leaf_count(self) -> int:
+        """Return the number of leaves the root commits to."""
+        return self._count
+
+    @property
+    def levels(self) -> tuple[tuple[bytes, ...], ...]:
+        """Return every level's digests, from leaf hashes up to the top digest.
+
+        The top digest is not yet the root: the root also binds the leaf count.
+        An empty tree has a single empty level.
+        """
+        return self._levels
+
     def proof(self, index: int) -> MerkleProof:
         """Return a logarithmic-size inclusion proof at a zero-based position."""
         if type(index) is not int or not 0 <= index < self._count:
@@ -75,32 +89,75 @@ class MerkleTree:
         return MerkleProof(index, self._count, tuple(siblings))
 
 
-def verify_proof(leaf: bytes, proof: MerkleProof, root: bytes) -> bool:
-    """Verify payload, position, shape, count, and root; reject malformed proofs."""
-    if not isinstance(leaf, bytes) or not isinstance(root, bytes) or len(root) != 32:
-        return False
-    if not isinstance(proof, MerkleProof):
-        return False
+def _walk(leaf: bytes, proof: MerkleProof) -> tuple[bytes, list[ProofStep]] | None:
+    """Recompute the top digest bottom-up; return None for a malformed proof."""
+    if not isinstance(leaf, bytes) or not isinstance(proof, MerkleProof):
+        return None
     if type(proof.leaf_count) is not int or not 0 < proof.leaf_count < UINT64_LIMIT:
-        return False
+        return None
     if type(proof.index) is not int or not 0 <= proof.index < proof.leaf_count:
-        return False
+        return None
     if not isinstance(proof.siblings, tuple):
-        return False
+        return None
     if len(proof.siblings) != (proof.leaf_count - 1).bit_length():
-        return False
-    current, index, count = sha256(MERKLE_LEAF_PREFIX + leaf), proof.index, proof.leaf_count
+        return None
+    leaf_digest = sha256(MERKLE_LEAF_PREFIX + leaf)
+    current, index, count = leaf_digest, proof.index, proof.leaf_count
+    steps = []
     # The checked path length ensures count > 1 at every iteration, and
     # repeated ceiling-halving reaches exactly 1 after the final sibling.
     for sibling in proof.siblings:
         if (index ^ 1) >= count:
             if sibling is not None:
-                return False
+                return None
+            side = "promoted"
         else:
             if not isinstance(sibling, bytes) or len(sibling) != 32:
-                return False
-            left, right = (sibling, current) if index % 2 else (current, sibling)
+                return None
+            side = "left" if index % 2 else "right"
+            left, right = (sibling, current) if side == "left" else (current, sibling)
             current = sha256(MERKLE_NODE_PREFIX + left + right)
+        steps.append(ProofStep(side, sibling, current))
         index //= 2
         count = (count + 1) // 2
-    return count == 1 and _root(proof.leaf_count, current) == root
+    return leaf_digest, steps
+
+
+def verify_proof(leaf: bytes, proof: MerkleProof, root: bytes) -> bool:
+    """Verify payload, position, shape, count, and root; reject malformed proofs."""
+    if not isinstance(root, bytes) or len(root) != 32:
+        return False
+    walked = _walk(leaf, proof)
+    if walked is None:
+        return False
+    leaf_digest, steps = walked
+    top = steps[-1].digest if steps else leaf_digest
+    return _root(proof.leaf_count, top) == root
+
+
+def trace_proof(leaf: bytes, proof: MerkleProof, root: bytes) -> MerkleTrace:
+    """Reconstruct the root step by step, recording each level.
+
+    Unlike :func:`verify_proof`, a well-formed proof that reconstructs the
+    wrong root still returns its full trace (with ``valid=False``), so an
+    experiment can show where a tampered leaf diverges.
+
+    Raises
+    ------
+    ValueError
+        The proof is malformed: wrong shape, count, index, or sibling type.
+
+    Examples
+    --------
+    >>> from blockchainkit.structures import MerkleTree, trace_proof
+    >>> tree = MerkleTree([b"a", b"b", b"c"])
+    >>> [step.side for step in trace_proof(b"c", tree.proof(2), tree.root).steps]
+    ['promoted', 'left']
+    """
+    walked = _walk(leaf, proof)
+    if walked is None:
+        raise ValueError("malformed Merkle proof")
+    leaf_digest, steps = walked
+    top = steps[-1].digest if steps else leaf_digest
+    computed = _root(proof.leaf_count, top)
+    return MerkleTrace(leaf_digest, tuple(steps), computed, computed == root)

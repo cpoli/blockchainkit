@@ -133,7 +133,15 @@ Clarity-only changes (no behavior change):
 Each fix gets a regression test (TDD). Add a CHANGELOG entry and update `protocol.rst` wherever
 validation changes.
 
-## Phase 3: API additions the history pages need
+## Phase 3: API additions the history pages need (done)
+
+Status: done. 193 tests, 100% coverage. Names differ slightly from the sketch below:
+`trace_proof` is a function returning a `MerkleTrace` (so `verify_proof` stays a plain
+bool); the block-tree accessors are `blocks`, `tips()`, `work_at()`, `state_at()`;
+`plot_proof_trace` and `plot_hamming_distances` were added; `plot_stack_trace` is
+`plot_execution_trace`. Gas prices must be at least 1, so a loop always runs out of
+gas. Examples 03 and 12 now use the trace APIs instead of re-hashing or replaying
+prefixes.
 
 The gallery currently re-implements internals that the library should expose:
 `plot_03_merkle_proofs.py` hard-codes the `\x00/\x01/\x02` prefixes to trace a proof, and

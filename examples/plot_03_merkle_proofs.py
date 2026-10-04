@@ -22,6 +22,7 @@ See :doc:`/course` for prerequisites and :doc:`/solutions` for worked answers.
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+from blockchainkit.structures.visualizers import plot_merkle_tree, plot_proof_trace
 
 leaves = [b"Alice pays Bob", b"Bob pays Carol", b"Carol pays Dave"]
 tree = bk.structures.MerkleTree(leaves)
@@ -66,29 +67,12 @@ fig.tight_layout()
 # %%
 # Trace one proof from its leaf to the trusted root
 # -------------------------------------------------
-# Index 1 is a right child: put its sibling on the left before hashing.
-# The next level has our node on the left, so the ordering reverses.
-current = bk.crypto.sha256(b"\x00" + leaves[1])
-trace = [("Hash leaf with prefix 0", current.hex()[:16])]
-position = proof.index
-for sibling in proof.siblings:
-    assert sibling is not None  # This chosen path has no promoted nodes.
-    left, right = (sibling, current) if position % 2 else (current, sibling)
-    current = bk.crypto.sha256(b"\x01" + left + right)
-    trace.append(
-        ("Combine sibling on " + ("left" if position % 2 else "right"), current.hex()[:16])
-    )
-    position //= 2
-current = bk.crypto.sha256(b"\x02" + proof.leaf_count.to_bytes(8, "big") + current)
-assert current == tree.root
-trace.append(("Bind leaf count = 3; compare root", current.hex()[:16]))
-fig, ax = plt.subplots(figsize=(9, 3))
-ax.axis("off")
-table = ax.table(
-    cellText=trace, colLabels=["Verification step", "Digest prefix (display only)"], loc="center"
-)
-table.auto_set_font_size(False)
-table.set_fontsize(10)
-table.scale(1, 2)
-ax.set_title("A Merkle proof is a recipe for reconstructing a root")
+# Index 1 is a right child: its sibling goes on the left before hashing.
+# At the next level our node is on the left, so the order reverses. The final
+# step binds the leaf count before comparing with the trusted root.
+trace = bk.structures.trace_proof(leaves[1], proof, tree.root)
+assert trace.valid and [step.side for step in trace.steps] == ["left", "right"]
+fig, (tree_ax, table_ax) = plt.subplots(2, 1, figsize=(9, 6), height_ratios=[1.2, 1])
+plot_merkle_tree(tree, highlight=1, ax=tree_ax)
+plot_proof_trace(trace, ax=table_ax)
 fig.tight_layout()

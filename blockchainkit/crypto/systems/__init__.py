@@ -14,6 +14,7 @@ from blockchainkit.crypto.systems.curves import (
     Curve,
     add,
     encode_point,
+    enumerate_points,
     multiply,
     public_key,
 )
@@ -40,6 +41,7 @@ __all__ = [
     "Curve",
     "add",
     "encode_point",
+    "enumerate_points",
     "multiply",
     "public_key",
     "hamming_distance",

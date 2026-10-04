@@ -1,0 +1,62 @@
+"""Plotting helpers for blockchainkit.vm: execution traces."""
+
+from __future__ import annotations
+
+from collections.abc import Sequence
+
+import matplotlib.pyplot as plt
+from matplotlib.axes import Axes
+
+from blockchainkit.vm.core.base import TraceStep
+
+__all__ = ["plot_execution_trace"]
+
+
+def plot_execution_trace(
+    trace: Sequence[TraceStep], *, max_rows: int = 30, ax: Axes | None = None
+) -> Axes:
+    """Tabulate the stack, storage, and gas after each executed instruction.
+
+    Parameters
+    ----------
+    trace : sequence of TraceStep
+        ``ExecutionResult.trace`` or ``VMError.trace`` from
+        ``execute(..., trace=True)``.
+    max_rows : int
+        Show at most this many steps (the first ones), so loops stay legible.
+    ax : matplotlib.axes.Axes, optional
+        Axes to draw on; a new figure is created if omitted.
+
+    Returns
+    -------
+    matplotlib.axes.Axes
+    """
+    if not trace:
+        raise ValueError("empty trace: pass trace=True to execute")
+    shown = list(trace[:max_rows])
+    if ax is None:
+        _, ax = plt.subplots(figsize=(9, 0.35 * len(shown) + 1.4))
+    rows = [
+        [
+            str(step.pc),
+            step.opcode if step.operand is None else f"{step.opcode} {step.operand}",
+            str(list(step.stack)),
+            str(dict(step.storage)),
+            str(step.gas_used),
+        ]
+        for step in shown
+    ]
+    ax.axis("off")
+    table = ax.table(
+        cellText=rows,
+        colLabels=["pc", "instruction", "stack", "storage", "gas"],
+        cellLoc="center",
+        loc="center",
+    )
+    table.auto_set_font_size(False)
+    table.set_fontsize(9)
+    table.scale(1, 1.4)
+    hidden = len(trace) - len(shown)
+    suffix = f" (first {len(shown)} of {len(trace)} steps)" if hidden else ""
+    ax.set_title("State after each instruction" + suffix)
+    return ax

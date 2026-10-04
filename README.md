@@ -18,7 +18,9 @@ proof of work, peer propagation, fork selection, stake sampling, and a teaching 
 
 ## Install locally
 
-Requires Python 3.10+. The core has no third-party runtime dependencies.
+Requires Python 3.10+. The only runtime dependencies are Matplotlib and NumPy,
+used by each subpackage's `visualizers`; `import blockchainkit` itself loads
+only the standard library.
 
 ```bash
 python -m venv .venv
@@ -26,8 +28,8 @@ source .venv/bin/activate
 python -m pip install -e ".[dev]"
 ```
 
-For the core alone use `pip install -e .`; choose `[examples]`, `[notebooks]`,
-`[test]`, or `[docs]` for smaller optional tool sets. This is a local project;
+For the package alone use `pip install -e .`; choose `[notebooks]`, `[test]`,
+or `[docs]` for smaller optional tool sets. This is a local project;
 no published PyPI distribution or hosted documentation is assumed.
 
 ## Quick start

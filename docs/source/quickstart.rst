@@ -21,8 +21,7 @@ The virtual environment keeps this project's dependencies together. The
 ``-e`` option makes edits to the local package available without reinstalling.
 The notebook extra installs the tools for the course notebooks.
 
-Use ``pip install -e .`` for only the dependency-free core, or
-``pip install -e ".[examples]"`` for the plotting experiments. No published
+Use ``pip install -e .`` for the package with its plotting helpers alone. No published
 PyPI package is assumed. On Windows, activate with ``.venv\Scripts\activate``.
 
 Authorize a transfer

@@ -10,7 +10,13 @@ from types import MappingProxyType
 
 from blockchainkit._validation import integer
 from blockchainkit.constants import WORD_MODULUS
-from blockchainkit.vm.core.base import ExecutionResult, Instruction, VMError
+from blockchainkit.vm.core.base import ExecutionResult, Instruction, TraceStep, VMError
+
+OPERAND_OPCODES = frozenset({"PUSH", "LOAD", "STORE", "JMP", "JZ"})
+"""Opcodes that take a 256-bit integer operand."""
+
+OPCODES = OPERAND_OPCODES | {"ADD", "SUB", "MUL", "DIV", "EQ", "LT", "DUP", "DROP", "SWAP", "STOP"}
+"""Every opcode the machine accepts."""
 
 
 def execute(
@@ -19,6 +25,8 @@ def execute(
     storage: Mapping[int, int] | None = None,
     gas_limit: int = 10_000,
     stack_limit: int = 1024,
+    gas_costs: Mapping[str, int] | None = None,
+    trace: bool = False,
 ) -> ExecutionResult:
     """Execute a program against a copy of storage, committing only on success.
 
@@ -30,20 +38,30 @@ def execute(
     storage : mapping, optional
         Initial 256-bit integer keys and values. Never mutated by execution.
     gas_limit : int
-        Maximum executed instructions, including STOP.
+        Maximum total gas, including STOP.
     stack_limit : int
         Maximum stack depth.
+    gas_costs : mapping, optional
+        Per-opcode gas prices overriding the default of one unit each, for
+        experiments with a cost schedule. Unlisted opcodes cost one unit;
+        every price must be at least one, so gas always bounds the run.
+    trace : bool
+        Record a :class:`~blockchainkit.vm.core.base.TraceStep` after every
+        executed instruction, in ``ExecutionResult.trace`` on success or
+        ``VMError.trace`` on failure.
 
     Returns
     -------
     ExecutionResult
-        Deterministic stack, storage, and instruction count.
+        Deterministic stack, storage, gas used, and the trace if requested.
 
     Examples
     --------
     >>> from blockchainkit.vm import execute
     >>> execute([("PUSH", 7), ("PUSH", 2), ("SUB", None)]).stack
     (5,)
+    >>> [step.stack for step in execute([("PUSH", 7), ("DUP", None)], trace=True).trace]
+    [(7,), (7, 7)]
     """
     integer(gas_limit, "gas_limit")
     integer(stack_limit, "stack_limit", 1)
@@ -54,28 +72,53 @@ def execute(
             raise VMError("storage keys and values must be integers")
         if not 0 <= key < WORD_MODULUS or not 0 <= value < WORD_MODULUS:
             raise VMError("storage keys and values must be 256-bit words")
-    operands = {"PUSH", "LOAD", "STORE", "JMP", "JZ"}
-    simple = {"ADD", "SUB", "MUL", "DIV", "EQ", "LT", "DUP", "DROP", "SWAP", "STOP"}
+    prices = dict(gas_costs or {})
+    for name, price in prices.items():
+        if name not in OPCODES:
+            raise VMError(f"gas schedule names an unknown opcode: {name}")
+        # A zero price would let a loop run forever without exhausting gas.
+        integer(price, f"gas cost of {name}", 1)
     for instruction in code:
         if not isinstance(instruction, tuple) or len(instruction) != 2:
             raise VMError("instructions must be (opcode, operand) pairs")
         op, arg = instruction
-        if not isinstance(op, str) or op not in operands | simple:
+        if not isinstance(op, str) or op not in OPCODES:
             raise VMError(f"unknown opcode: {op}")
-        if op in operands:
+        if op in OPERAND_OPCODES:
             if type(arg) is not int or not 0 <= arg < WORD_MODULUS:
                 raise VMError(f"{op} requires a 256-bit integer operand")
             if op in {"JMP", "JZ"} and arg >= len(code):
                 raise VMError("jump target outside program")
         elif arg is not None:
             raise VMError(f"{op} takes no operand")
+    steps: list[TraceStep] = []
+    try:
+        stack, gas_used = _run(
+            code, state, prices, gas_limit, stack_limit, steps if trace else None
+        )
+    except VMError as error:
+        error.trace = tuple(steps)
+        raise
+    return ExecutionResult(tuple(stack), MappingProxyType(state), gas_used, tuple(steps))
+
+
+def _run(
+    code: tuple[Instruction, ...],
+    state: dict[int, int],
+    prices: Mapping[str, int],
+    gas_limit: int,
+    stack_limit: int,
+    steps: list[TraceStep] | None,
+) -> tuple[list[int], int]:
     stack: list[int] = []
     pc = gas_used = 0
     while pc < len(code):
-        if gas_used >= gas_limit:
-            raise VMError("out of gas")
-        gas_used += 1
+        start = pc
         op, arg = code[pc]
+        price = prices.get(op, 1)
+        if gas_used + price > gas_limit:
+            raise VMError("out of gas")
+        gas_used += price
         pc += 1
         needed = 2 if op in {"ADD", "SUB", "MUL", "DIV", "EQ", "LT", "SWAP"} else 0
         if op in {"DUP", "DROP", "STORE", "JZ"}:
@@ -83,8 +126,10 @@ def execute(
         if len(stack) < needed:
             raise VMError("stack underflow")
         if op == "STOP":
+            if steps is not None:
+                steps.append(TraceStep(start, op, arg, tuple(stack), dict(state), gas_used))
             break
-        if op in operands:
+        if op in OPERAND_OPCODES:
             assert arg is not None  # Checked for every operand opcode before execution.
             if op == "PUSH":
                 stack.append(arg)
@@ -119,4 +164,6 @@ def execute(
             stack.append(value % WORD_MODULUS)
         if len(stack) > stack_limit:
             raise VMError("stack limit exceeded")
-    return ExecutionResult(tuple(stack), MappingProxyType(state), gas_used)
+        if steps is not None:
+            steps.append(TraceStep(start, op, arg, tuple(stack), dict(state), gas_used))
+    return stack, gas_used

@@ -28,8 +28,9 @@ Choose a route
 * **Run simulations:** read :doc:`simulation` for assumptions and reproducibility.
 * **Inspect the implementation:** browse :doc:`api` and :doc:`protocol`.
 
-The core has no third-party runtime dependencies. NumPy and Matplotlib are
-optional tools for experiments; Sphinx builds the documentation and gallery.
+``import blockchainkit`` loads only the standard library. NumPy and Matplotlib
+are installed with the package for each subpackage's plotting helpers in
+``visualizers``; Sphinx builds the documentation and gallery.
 This is a teaching and simulation package, not hardened cryptographic software
 or a node compatible with an existing blockchain.
 

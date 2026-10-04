@@ -132,3 +132,14 @@ def test_blinding_rejects_values_outside_the_modulus():
     for function in (bk.crypto.rsa_blind, bk.crypto.rsa_unblind):
         with pytest.raises(ValueError, match="below n"):
             function(key.n, 2, key)
+
+
+def test_enumerating_a_small_curve_counts_the_whole_group():
+    points = bk.crypto.enumerate_points(bk.crypto.TOY_CURVE)
+    assert len(points) == bk.crypto.TOY_CURVE.order - 1  # Every finite point; cofactor 1.
+    assert all(bk.crypto.TOY_CURVE.contains(point) for point in points)
+    assert points == tuple(sorted(points))
+    # y^2 = x^3 + 1 over F_7 has 12 points: the order-3 subgroup is a quarter of it.
+    assert len(bk.crypto.enumerate_points(bk.crypto.Curve(7, 0, 1, (0, 1), 3))) == 11
+    with pytest.raises(ValueError, match="small"):
+        bk.crypto.enumerate_points(bk.crypto.SECP256K1)

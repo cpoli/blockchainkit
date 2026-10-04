@@ -1,5 +1,8 @@
 """Cumulative-work fork selection for a fixed-difficulty chain."""
 
+from collections.abc import Mapping
+from types import MappingProxyType
+
 from blockchainkit.consensus.systems.pow import expected_trials, valid_pow
 from blockchainkit.structures.systems.block import Block
 from blockchainkit.structures.systems.ledger import Ledger
@@ -59,6 +62,36 @@ class Blockchain:
     def cumulative_work(self) -> int:
         """Return total expected hash trials represented by the canonical chain."""
         return self._work[self._tip]
+
+    @property
+    def blocks(self) -> Mapping[bytes, Block]:
+        """Read-only view of every stored block by hash, including side forks."""
+        return MappingProxyType(self._blocks)
+
+    def tips(self) -> tuple[Block, ...]:
+        """Return the blocks that have no child: the tip of every fork.
+
+        Ordered as fork choice ranks them: most cumulative work first, ties
+        broken by the smaller hash. The first tip is always :attr:`tip`.
+        """
+        parents = {block.previous_hash for block in self._blocks.values()}
+        leaves = [digest for digest in self._blocks if digest not in parents]
+        leaves.sort(key=lambda digest: (-self._work[digest], digest))
+        return tuple(self._blocks[digest] for digest in leaves)
+
+    def work_at(self, block_hash: bytes) -> int:
+        """Return the cumulative expected work of the chain ending at a stored block.
+
+        Raises KeyError for an unknown hash.
+        """
+        return self._work[block_hash]
+
+    def state_at(self, block_hash: bytes) -> Ledger:
+        """Return the ledger snapshot after a stored block, on whichever fork it lies.
+
+        Raises KeyError for an unknown hash.
+        """
+        return self._states[block_hash]
 
     def contains(self, block_hash: bytes) -> bool:
         """Return whether this node already knows a block, including side forks."""
