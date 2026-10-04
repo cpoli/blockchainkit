@@ -1,0 +1,9 @@
+include LICENSE README.md CONTRIBUTING.md CHANGELOG.md VALIDATION.md .pre-commit-config.yaml .gitignore
+recursive-include .github *.yml
+recursive-include docs *.rst *.py *.css Makefile
+recursive-include examples *.py *.rst
+recursive-include notebooks *.ipynb *.md
+recursive-include tests *.py
+recursive-include scripts *.py
+prune docs/build
+prune docs/source/gallery

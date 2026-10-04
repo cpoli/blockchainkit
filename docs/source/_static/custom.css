@@ -1,0 +1,6 @@
+:root { --pst-color-primary: #2456a6; }
+.bd-main .bd-content .bd-article-container { max-width: 55rem; }
+.bd-article h1 { letter-spacing: -.03em; }
+.bd-article h2 { margin-top: 2.2rem; }
+.bd-article .admonition { border-radius: .4rem; }
+.bd-article p { line-height: 1.7; }

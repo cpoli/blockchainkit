@@ -1,0 +1,61 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python: ["3.10", "3.11", "3.12", "3.13", "3.14"]
+        include:
+          - os: macos-latest
+            python: "3.12"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e ".[test]"
+      - run: pytest --cov=blockchainkit --cov-branch --cov-report=term-missing
+      - run: pytest --doctest-modules src/blockchainkit
+
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[dev]"
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: mypy
+      - run: python -m build
+      - name: Test the built wheel outside the source tree
+        run: |
+          python -m venv /tmp/wheel-test
+          /tmp/wheel-test/bin/python -m pip install dist/*.whl
+          cd /tmp
+          /tmp/wheel-test/bin/python -c "import blockchainkit as bk; assert bk.consensus.valid_pow(bk.consensus.mine(bk.structures.Block(difficulty=4)).block)"
+
+  docs:
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e ".[docs,notebooks]"
+      - run: sphinx-build -W --keep-going -b html docs/source docs/build/html
+      - run: sphinx-build -W --keep-going -b doctest docs/source docs/build/doctest
+      - run: python scripts/sync_notebooks.py
+      - run: git diff --exit-code -- notebooks
+      - run: python scripts/verify_notebooks.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: documentation
+          path: docs/build/html
