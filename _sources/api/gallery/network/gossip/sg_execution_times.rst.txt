@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:03.459** total execution time for 3 files **from api/gallery/network/gossip**:
+**00:00.827** total execution time for 3 files **from api/gallery/network/gossip**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_network_gossip_plot_02_rumor_spreading.py` (``plot_02_rumor_spreading.py``)
-     - 00:02.901
+     - 00:00.705
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_gossip_plot_01_epidemic_algorithms.py` (``plot_01_epidemic_algorithms.py``)
-     - 00:00.392
+     - 00:00.082
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_gossip_plot_03_reliable_broadcast.py` (``plot_03_reliable_broadcast.py``)
-     - 00:00.166
+     - 00:00.040
      - 0.0

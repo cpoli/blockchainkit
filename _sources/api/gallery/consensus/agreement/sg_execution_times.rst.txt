@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.769** total execution time for 5 files **from api/gallery/consensus/agreement**:
+**00:00.194** total execution time for 5 files **from api/gallery/consensus/agreement**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_02_ben_or.py` (``plot_02_ben_or.py``)
-     - 00:00.279
+     - 00:00.072
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_04_partial_synchrony.py` (``plot_04_partial_synchrony.py``)
-     - 00:00.154
+     - 00:00.037
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_05_pbft.py` (``plot_05_pbft.py``)
-     - 00:00.149
+     - 00:00.036
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_03_flp_impossibility.py` (``plot_03_flp_impossibility.py``)
-     - 00:00.113
+     - 00:00.031
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_01_byzantine_generals.py` (``plot_01_byzantine_generals.py``)
-     - 00:00.074
+     - 00:00.018
      - 0.0

@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_economics_rewards:
+
+Block rewards
+-------------
+
+Why miners follow the rules, how new coins are issued, and what happens when they stop.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Section 6 of the Bitcoin paper pays whoever creates a block in new coins and in the fees of the transactions it includes. The reward distributes the currency, pays for the work that secures the chain, and, Nakamoto argued, keeps even a powerful miner honest: it &quot;ought to find it more profitable to play by the rules ... than to undermine the system and the validity of his own wealth.&quot;">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_01_nakamoto_incentives_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_01_nakamoto_incentives`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nakamoto's incentive: block rewards and fees (2008)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The first Bitcoin release fixed the monetary policy in code. The block at height h creates">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_02_halving_schedule_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_02_halving_schedule`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fixed supply and the halving schedule (2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When the subsidy is gone, a block earns only the fees it collects. Fees arrive steadily, blocks at exponentially distributed intervals, so a block&#x27;s reward is proportional to the time since the previous one, and as variable as that time. Carlsten, Kalodner, Weinberg and Narayanan showed two consequences.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_03_carlsten_fee_only_instability_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_03_carlsten_fee_only_instability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The instability of Bitcoin without the block reward (Carlsten et al. 2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Kiayias, Koutsoupias, Kyropoulou and Tselekounis modeled Bitcoin mining as a stochastic game in which each miner chooses which block to extend and when to publish. Honest mining, extending the longest chain and publishing at once, is the designer&#x27;s intended behavior; they showed it is a best response to the others&#x27; honesty when every miner is small, but not for a large one, and that other equilibria then arise.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_04_kiayias_mining_games_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_04_kiayias_mining_games`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mining games: when honest mining is an equilibrium (Kiayias et al. 2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/economics/rewards/plot_01_nakamoto_incentives
+   /api/gallery/economics/rewards/plot_02_halving_schedule
+   /api/gallery/economics/rewards/plot_03_carlsten_fee_only_instability
+   /api/gallery/economics/rewards/plot_04_kiayias_mining_games
+

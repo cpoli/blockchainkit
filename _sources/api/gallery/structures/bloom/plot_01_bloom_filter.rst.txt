@@ -27,23 +27,12 @@ added are always found; others are occasionally found by mistake. Bitcoin
 light wallets (BIP 37, 2012) sent full nodes a Bloom filter of their
 addresses instead of the addresses themselves.
 
-What to look for
-----------------
-
 No false negatives, and a false-positive rate that matches Bloom's formula
 (1 - exp(-kn/m))**k. The false positives were meant to hide which
 transactions a wallet cares about; analyses soon showed they leaked most of
 that privacy, and BIP 37 was deprecated.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-A filter of one wallet's addresses
-----------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-40
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
@@ -51,6 +40,23 @@ A filter of one wallet's addresses
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+A filter of one wallet's addresses
+----------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-36
+
+.. code-block:: Python
+
 
     wallet = [bk.crypto.sha256(f"my address {i}".encode()) for i in range(40)]
     bloom = bk.structures.BloomFilter(512, bk.structures.BloomFilter.optimal_hash_count(512, 40))
@@ -74,12 +80,12 @@ A filter of one wallet's addresses
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 Measured rate against the formula
 ---------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-63
+.. GENERATED FROM PYTHON SOURCE LINES 39-61
 
 .. code-block:: Python
 
@@ -103,6 +109,8 @@ Measured rate against the formula
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -115,7 +123,7 @@ Measured rate against the formula
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-70
+.. GENERATED FROM PYTHON SOURCE LINES 62-70
 
 Exercise
 --------
@@ -124,10 +132,12 @@ filter matches 1% of unrelated transactions, and the wallet has 40
 addresses each used once a day among 300,000 daily transactions, what
 fraction of the matches really belong to the wallet?
 
+A worked solution is in :doc:`/exercises/structures`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.626 seconds)
+   **Total running time of the script:** (0 minutes 0.191 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_bloom_plot_01_bloom_filter.py:

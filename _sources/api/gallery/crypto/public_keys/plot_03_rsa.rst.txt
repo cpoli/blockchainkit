@@ -25,28 +25,34 @@ RSA publishes n = p*q and an exponent e; only the holder of p and q can
 compute the inverse exponent d. Anyone can raise a message to e; only the
 key holder can undo it. The same inverse pair gives digital signatures.
 
-What to look for
-----------------
-
 The message 65 encrypts to 2790 and decrypts back. Then textbook RSA's
 algebra shows through: multiplying a ciphertext by 2**e doubles the hidden
 message. Real RSA adds randomized padding (OAEP, PSS) to break this.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
-
-Encrypt and decrypt
--------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-33
+.. GENERATED FROM PYTHON SOURCE LINES 15-19
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
+
+Encrypt and decrypt
+-------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-29
+
+.. code-block:: Python
+
 
     key = bk.crypto.rsa_keypair()  # p = 61, q = 53, e = 17: the classic textbook key.
     ciphertext = key.encrypt(65)
@@ -68,12 +74,12 @@ Encrypt and decrypt
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
 Signatures are the same operation in reverse
 --------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-39
+.. GENERATED FROM PYTHON SOURCE LINES 32-35
 
 .. code-block:: Python
 
@@ -87,13 +93,13 @@ Signatures are the same operation in reverse
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-43
+.. GENERATED FROM PYTHON SOURCE LINES 36-39
 
 Textbook RSA is malleable
 -------------------------
 Multiplying a ciphertext by 2**e multiplies the decrypted message by 2.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-47
+.. GENERATED FROM PYTHON SOURCE LINES 39-43
 
 .. code-block:: Python
 
@@ -114,12 +120,12 @@ Multiplying a ciphertext by 2**e multiplies the decrypted message by 2.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 44-46
 
 A permutation of the residues
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-56
+.. GENERATED FROM PYTHON SOURCE LINES 46-54
 
 .. code-block:: Python
 
@@ -128,6 +134,8 @@ A permutation of the residues
     ax.scatter(messages, [key.encrypt(m) for m in messages], s=18, color="#7c3aed")
     ax.set(xlabel="message m", ylabel="ciphertext m**e mod n", title="Textbook RSA permutation")
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -141,17 +149,19 @@ A permutation of the residues
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-61
+.. GENERATED FROM PYTHON SOURCE LINES 55-61
 
 Exercise
 --------
 Factor n = 3233 by trial division and recompute d. Explain why a
 scrambled-looking plot is not evidence of secure encryption.
 
+A worked solution is in :doc:`/exercises/crypto`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.125 seconds)
+   **Total running time of the script:** (0 minutes 0.029 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_public_keys_plot_03_rsa.py:

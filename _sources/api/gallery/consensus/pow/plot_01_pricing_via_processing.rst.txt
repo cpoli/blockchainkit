@@ -27,28 +27,35 @@ pricing functions is a square root modulo a prime: computing it takes a
 full modular exponentiation, checking it a single multiplication. The idea
 of a cost asymmetry became proof of work.
 
-What to look for
-----------------
-
 The work to compute a root grows with the size of the prime; checking stays
 at one multiplication. The asymmetry here is only logarithmic, which is why
 Hashcash (the next example) switched to hash puzzles with tunable,
 exponential cost.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Price one message
------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-36
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Price one message
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-33
+
+.. code-block:: Python
+
 
     p = 2**61 - 1  # A Mersenne prime, = 3 mod 4.
     message_id = int.from_bytes(bk.crypto.sha256(b"Hello, buy my product!")[:8], "big") % p
@@ -70,12 +77,12 @@ Price one message
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 Cost against prime size
 -----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-53
+.. GENERATED FROM PYTHON SOURCE LINES 36-52
 
 .. code-block:: Python
 
@@ -93,6 +100,8 @@ Cost against prime size
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -105,7 +114,7 @@ Cost against prime size
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-59
+.. GENERATED FROM PYTHON SOURCE LINES 53-58
 
 Exercise
 --------
@@ -116,7 +125,7 @@ to stop a spammer with a fast computer, and how does Hashcash fix that?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.239 seconds)
+   **Total running time of the script:** (0 minutes 0.047 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pow_plot_01_pricing_via_processing.py:

@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.804955Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.804955Z",
+      "mimetype": null,
+      "name": "plot_03_carlsten_fee_only_instability.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/rewards/plot_03_carlsten_fee_only_instability.ipynb",
+      "size": 5925,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.805103Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.805103Z",
+      "mimetype": null,
+      "name": "plot_04_kiayias_mining_games.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/rewards/plot_04_kiayias_mining_games.ipynb",
+      "size": 4709,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.804811Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.804811Z",
+      "mimetype": null,
+      "name": "plot_02_halving_schedule.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/rewards/plot_02_halving_schedule.ipynb",
+      "size": 4511,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.804666Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.804666Z",
+      "mimetype": null,
+      "name": "plot_01_nakamoto_incentives.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/rewards/plot_01_nakamoto_incentives.ipynb",
+      "size": 5273,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T05:56:30.823874Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T05:56:30.824634Z",
+  "mimetype": null,
+  "name": "rewards",
+  "path": "jupyterlite_contents/api/gallery/economics/rewards",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

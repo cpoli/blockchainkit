@@ -27,22 +27,12 @@ had the dealer publish g**a_j for each coefficient a_j. Each holder checks
 g**y == product of C_j**(x**j), which holds only for points on the
 committed polynomial.
 
-What to look for
-----------------
-
 Honest shares pass the check and any three of them recover the secret. A
 corrupted share is caught by its holder before reconstruction. Verifiable
 sharing is the starting point of distributed key generation, used for
 threshold signatures in modern wallets.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Deal and verify
----------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-41
+.. GENERATED FROM PYTHON SOURCE LINES 18-25
 
 .. code-block:: Python
 
@@ -52,6 +42,23 @@ Deal and verify
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
+
+Deal and verify
+---------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-38
+
+.. code-block:: Python
+
 
     G = bk.crypto.TEACHING_GROUP
     secret = 2026
@@ -75,12 +82,12 @@ Deal and verify
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-44
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 A cheating dealer is caught
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-50
+.. GENERATED FROM PYTHON SOURCE LINES 41-47
 
 .. code-block:: Python
 
@@ -97,12 +104,12 @@ A cheating dealer is caught
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 Which shares pass?
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-65
+.. GENERATED FROM PYTHON SOURCE LINES 50-64
 
 .. code-block:: Python
 
@@ -118,6 +125,8 @@ Which shares pass?
     )
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -130,7 +139,7 @@ Which shares pass?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 Exercise
 --------
@@ -141,7 +150,7 @@ verifiable sharing hide the secret perfectly.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.088 seconds)
+   **Total running time of the script:** (0 minutes 0.023 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_sharing_plot_02_feldman_vss.py:

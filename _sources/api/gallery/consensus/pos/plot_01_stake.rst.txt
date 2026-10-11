@@ -25,20 +25,11 @@ Weighting proposer selection by stake changes the resource used to allocate
 influence. This sampler isolates that one mechanism; it has no voting,
 slashing, randomness beacon, or finality and is not a full PoS protocol.
 
-What to look for
-----------------
-
 Compare observed selection frequencies with stake proportions. More trials tend to bring
 them closer; splitting one stake among names does not increase its combined expected
 share.
 
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-39
+.. GENERATED FROM PYTHON SOURCE LINES 15-21
 
 .. code-block:: Python
 
@@ -47,6 +38,17 @@ See :doc:`/exercises/consensus` for a worked solution to the exercise.
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-31
+
+.. code-block:: Python
 
     stakes = {"alice": 10, "bob": 30, "carol": 60}
     rounds = 10_000
@@ -70,12 +72,12 @@ See :doc:`/exercises/consensus` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-42
+.. GENERATED FROM PYTHON SOURCE LINES 32-34
 
 Stake concentration is visible even when the lottery is fair
 ------------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-55
+.. GENERATED FROM PYTHON SOURCE LINES 34-49
 
 .. code-block:: Python
 
@@ -92,6 +94,8 @@ Stake concentration is visible even when the lottery is fair
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -104,7 +108,7 @@ Stake concentration is visible even when the lottery is fair
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-62
+.. GENERATED FROM PYTHON SOURCE LINES 50-58
 
 Exercise
 --------
@@ -113,10 +117,12 @@ change? Why is choosing a proposer insufficient to decide between two
 conflicting blocks that proposer might sign? Why is a public seed unsuitable
 as the sole randomness mechanism for a live consensus protocol?
 
+A worked solution is in :doc:`/exercises/consensus`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.154 seconds)
+   **Total running time of the script:** (0 minutes 0.034 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pos_plot_01_stake.py:

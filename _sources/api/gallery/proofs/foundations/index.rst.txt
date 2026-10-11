@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_proofs_foundations:
+
+Polynomials and interactive proofs
+----------------------------------
+
+Testing polynomial identities at random points, the sum-check protocol, and IP = PSPACE.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Are two polynomial expressions the same polynomial? Expanding them can take exponentially many terms. Schwartz, and independently Zippel and DeMillo and Lipton, noticed that a nonzero polynomial of total degree d has few roots: on a random point of \mathbb{F}^n it vanishes with probability">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/foundations/images/thumb/sphx_glr_plot_01_schwartz_zippel_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/foundations/plot_01_schwartz_zippel`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Schwartz-Zippel lemma: polynomial identities at random points (1980)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lund, Fortnow, Karloff and Nisan showed that a prover can convince a verifier of a sum over the whole Boolean cube,">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/foundations/images/thumb/sphx_glr_plot_02_sumcheck_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/foundations/plot_02_sumcheck`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The sum-check protocol: verifying a sum of 2n terms (1990)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interactive proofs can do much more than NP. Shamir showed that they capture all of PSPACE, whose complete problem is deciding a fully quantified Boolean formula such as \forall x_1 \exists x_2 \forall x_3 \, \varphi. Arithmetize \varphi, and turn each quantifier into an operator on polynomials:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/foundations/images/thumb/sphx_glr_plot_03_ip_pspace_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/foundations/plot_03_ip_pspace`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shamir's IP = PSPACE: proving a quantified formula (1990)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/proofs/foundations/plot_01_schwartz_zippel
+   /api/gallery/proofs/foundations/plot_02_sumcheck
+   /api/gallery/proofs/foundations/plot_03_ip_pspace
+

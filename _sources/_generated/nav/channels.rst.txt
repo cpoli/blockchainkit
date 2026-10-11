@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.channels hub </_generated/subpackages/channels>` · :doc:`History </history/channels_breakthroughs>` · :doc:`Examples </api/gallery/channels/index>` · :doc:`API reference </api/channels>`

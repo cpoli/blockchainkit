@@ -28,27 +28,34 @@ payer as change. Whatever is not assigned to an output goes to the miner as
 a fee. A coin can be spent once; a double spend is two transactions
 consuming the same coin.
 
-What to look for
-----------------
-
 Alice pays Bob 30 from a 50 coin: she gets 18 back as change and 2 goes to
 fees. Spending the same coin again is rejected, because it is no longer in
 the unspent set.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Spend a coin, receive change
-----------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-39
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Spend a coin, receive change
+----------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-36
+
+.. code-block:: Python
+
 
     alice_key, bob_key = 7, 11
     alice = bk.structures.address(bk.crypto.public_key(alice_key))
@@ -73,12 +80,12 @@ Spend a coin, receive change
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-42
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 A coin cannot be spent twice
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-48
+.. GENERATED FROM PYTHON SOURCE LINES 39-45
 
 .. code-block:: Python
 
@@ -101,12 +108,12 @@ A coin cannot be spent twice
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-51
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
 
 Bob combines coins
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-79
+.. GENERATED FROM PYTHON SOURCE LINES 48-78
 
 .. code-block:: Python
 
@@ -138,6 +145,8 @@ Bob combines coins
     ax.invert_yaxis()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -150,7 +159,7 @@ Bob combines coins
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-85
+.. GENERATED FROM PYTHON SOURCE LINES 79-84
 
 Exercise
 --------
@@ -161,7 +170,7 @@ parallel, while two account-model transfers from one sender cannot?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.221 seconds)
+   **Total running time of the script:** (0 minutes 0.082 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_utxo_plot_01_utxo.py:

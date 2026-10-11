@@ -1,4 +1,4 @@
-"""
+r"""
 Merkle trees: authenticate one item with a short proof (Merkle 1979)
 ====================================================================
 
@@ -6,17 +6,8 @@ A root commits to an ordered collection. An inclusion proof reveals the
 sibling digests needed to recompute that root, rather than the full dataset.
 The verifier must already trust the root by some independent mechanism.
 
-What to look for
-----------------
-
 Watch a genuine membership proof pass and an altered payment fail. In the size plot,
 proof length grows much more slowly than the number of records.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%
@@ -25,6 +16,7 @@ import matplotlib.pyplot as plt
 import blockchainkit as bk
 from blockchainkit.structures.visualizers import plot_merkle_tree, plot_proof_trace
 
+# %%
 leaves = [b"Alice pays Bob", b"Bob pays Carol", b"Carol pays Dave"]
 tree = bk.structures.MerkleTree(leaves)
 proof = tree.proof(1)
@@ -59,13 +51,6 @@ ax.legend()
 fig.tight_layout()
 
 # %%
-# Exercise
-# --------
-# Change the leaf index or leaf count in the proof and check verification.
-# Explain why inclusion in a committed list does not establish that a payment
-# was authorized, funded, or finalized by a consensus protocol.
-
-# %%
 # Trace one proof from its leaf to the trusted root
 # -------------------------------------------------
 # Index 1 is a right child: its sibling goes on the left before hashing.
@@ -77,3 +62,14 @@ fig, (tree_ax, table_ax) = plt.subplots(2, 1, figsize=(9, 6), height_ratios=[1.2
 plot_merkle_tree(tree, highlight=1, ax=tree_ax)
 plot_proof_trace(trace, ax=table_ax)
 fig.tight_layout()
+
+plt.show()
+
+# %%
+# Exercise
+# --------
+# Change the leaf index or leaf count in the proof and check verification.
+# Explain why inclusion in a committed list does not establish that a payment
+# was authorized, funded, or finalized by a consensus protocol.
+#
+# A worked solution is in :doc:`/exercises/structures`.

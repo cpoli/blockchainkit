@@ -28,22 +28,12 @@ random peer with a small probability and found that a handful of shortcuts
 collapses path lengths almost to those of a random graph while clustering
 barely changes: a *small world*, like "six degrees of separation".
 
-What to look for
-----------------
-
 On the log scale of the rewiring probability, the path length L falls long
 before the clustering C does. Around 1% rewiring, paths are already short
 and the network is still clustered. Gossip benefits directly: it crosses
 the network in a few hops.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-Reproduce the 1998 figure
--------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-45
+.. GENERATED FROM PYTHON SOURCE LINES 19-25
 
 .. code-block:: Python
 
@@ -52,6 +42,23 @@ Reproduce the 1998 figure
 
     import blockchainkit as bk
     from blockchainkit.network.visualizers import plot_graph
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
+
+Reproduce the 1998 figure
+-------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-42
+
+.. code-block:: Python
+
 
     n, k = 400, 10
     lattice = bk.network.ring_lattice(n, k)
@@ -79,12 +86,12 @@ Reproduce the 1998 figure
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-48
+.. GENERATED FROM PYTHON SOURCE LINES 43-45
 
 Gossip on the two graphs
 ------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-69
+.. GENERATED FROM PYTHON SOURCE LINES 45-68
 
 .. code-block:: Python
 
@@ -109,6 +116,8 @@ Gossip on the two graphs
     right.set_title("10% rewired")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -127,7 +136,7 @@ Gossip on the two graphs
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-76
+.. GENERATED FROM PYTHON SOURCE LINES 69-75
 
 Exercise
 --------
@@ -139,7 +148,7 @@ hand and recomputing L and C.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.399 seconds)
+   **Total running time of the script:** (0 minutes 0.435 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_graphs_plot_02_small_world.py:

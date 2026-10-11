@@ -1,4 +1,4 @@
-"""
+r"""
 HMAC: keyed hashing that resists length extension (1996)
 ========================================================
 
@@ -7,22 +7,19 @@ into a message authentication code with a security proof:
 HMAC(k, m) = H((k XOR opad) || H((k XOR ipad) || m)). The outer hash hides
 the inner chaining state, so an attacker has nothing to extend.
 
-What to look for
-----------------
-
 The length-extension forgery that defeats the naive H(key || message) fails
 against HMAC. HMAC also appears inside RFC 6979's deterministic nonces and
 in key derivation (HKDF).
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Same attack, two MACs
 # ---------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 secret = b"server-side key!"
 order = b"user=alice&amount=10"
@@ -61,6 +58,8 @@ ax.set(
 )
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

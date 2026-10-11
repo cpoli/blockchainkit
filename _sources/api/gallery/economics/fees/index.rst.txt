@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_economics_fees:
+
+Fee markets
+-----------
+
+Pricing scarce block space.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Until August 2021, Ethereum sold block space as Bitcoin still does: a first-price auction in which each user names a fee and pays it if included. No bid is obviously right, so users overpay or wait, and the price swings with every burst of demand. EIP-1559 sets a protocol price per unit of gas, the base fee, adjusted after every block toward a target of half the block&#x27;s capacity,">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/fees/images/thumb/sphx_glr_plot_01_eip1559_base_fee_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/fees/plot_01_eip1559_base_fee`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EIP-1559: a base fee, burned (2021), and Roughgarden's analysis (2020)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/economics/fees/plot_01_eip1559_base_fee
+

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.proofs.systems.zerocash &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/proofs/systems/zerocash';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.proofs.systems.zerocash</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.proofs.systems.zerocash</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Zerocash: private payments from notes, nullifiers and a SNARK (2014).</span>
+
+<span class="sd">Ben-Sasson, Chiesa, Garman, Green, Miers, Tromer and Virza hid the sender,</span>
+<span class="sd">receiver and amount of every payment. Coins are *notes* ``(owner, value,</span>
+<span class="sd">rho, r)``, and the ledger stores only their hiding commitments, in a Merkle</span>
+<span class="sd">tree. To spend a note, its owner publishes</span>
+
+<span class="sd">- its *nullifier* ``PRF_sk(rho)``, which the ledger records so the note</span>
+<span class="sd">  cannot be spent twice, yet which nobody can link to the commitment,</span>
+<span class="sd">- the commitment to a new note for the payee, and</span>
+<span class="sd">- a zk-SNARK that some commitment in the tree opens to a note owned by the</span>
+<span class="sd">  spender, with this nullifier and enough value for the new note.</span>
+
+<span class="sd">The ledger learns that *some* unspent note paid *someone*, and nothing else.</span>
+
+<span class="sd">This model uses Groth16 on the toy pairing, MiMC (Albrecht et al., 2016)</span>
+<span class="sd">as the arithmetic-friendly hash, and one input and one output per</span>
+<span class="sd">spend, with a public amount leaving the pool. Zerocash used SHA-256 inside</span>
+<span class="sd">its circuits, two inputs and two outputs per transaction, and</span>
+<span class="sd">encryption of the new note for the payee.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">MIMC_DOMAIN</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.hashing</span><span class="w"> </span><span class="kn">import</span> <span class="n">sha256</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Groth16Trapdoor</span><span class="p">,</span>
+    <span class="n">Note</span><span class="p">,</span>
+    <span class="n">ProvingKey</span><span class="p">,</span>
+    <span class="n">SpendTransaction</span><span class="p">,</span>
+    <span class="n">VerifyingKey</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.systems.circuits</span><span class="w"> </span><span class="kn">import</span> <span class="n">Circuit</span><span class="p">,</span> <span class="n">Wire</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.systems.groth16</span><span class="w"> </span><span class="kn">import</span> <span class="n">groth16_prove</span><span class="p">,</span> <span class="n">groth16_setup</span><span class="p">,</span> <span class="n">groth16_verify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.utils.polynomials</span><span class="w"> </span><span class="kn">import</span> <span class="n">FIELD_PRIME</span>
+
+<span class="n">MIMC_ROUNDS</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="sd">"""int: Rounds of MiMC-7 over the BabyBear field: ceil(log_7 p)."""</span>
+
+<span class="n">VALUE_BITS</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="sd">"""int: Note values are range-checked to this many bits inside the circuit."""</span>
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_constants</span><span class="p">(</span><span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">0</span><span class="p">,)</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span>
+        <span class="nb">int</span><span class="o">.</span><span class="n">from_bytes</span><span class="p">(</span><span class="n">sha256</span><span class="p">(</span><span class="n">MIMC_DOMAIN</span> <span class="o">+</span> <span class="n">i</span><span class="o">.</span><span class="n">to_bytes</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"big"</span><span class="p">)),</span> <span class="s2">"big"</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">MIMC_ROUNDS</span><span class="p">)</span>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="mimc_hash">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.mimc_hash">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">mimc_hash</span><span class="p">(</span><span class="n">left</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Compress two field elements with MiMC-7 in Miyaguchi-Preneel mode.</span>
+
+<span class="sd">    Each round computes ``x = (x + key + c_i)**7`` with ``key = left``,</span>
+<span class="sd">    starting from ``x = right``; the output is ``x + 2 key + right``. Seven</span>
+<span class="sd">    is the smallest exponent coprime to ``p - 1``, so each round permutes</span>
+<span class="sd">    the field, and it costs four multiplications in a circuit.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import mimc_hash</span>
+<span class="sd">    &gt;&gt;&gt; mimc_hash(1, 2) == mimc_hash(1, 2) != mimc_hash(2, 1)</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="s2">"left"</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="s2">"right"</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">right</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_constants</span><span class="p">(</span><span class="n">prime</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">left</span> <span class="o">+</span> <span class="n">c</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span></div>
+
+
+
+<div class="viewcode-block" id="mimc_gadget">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.mimc_gadget">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">mimc_gadget</span><span class="p">(</span><span class="n">circuit</span><span class="p">:</span> <span class="n">Circuit</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span> <span class="n">Wire</span><span class="p">,</span> <span class="n">right</span><span class="p">:</span> <span class="n">Wire</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Wire</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Constrain a new wire to ``mimc_hash(left, right)``: 4 constraints per round."""</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">right</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_constants</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">prime</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">left</span> <span class="o">+</span> <span class="n">c</span>
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+        <span class="n">t4</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">t4</span><span class="p">,</span> <span class="n">t2</span><span class="p">),</span> <span class="n">t</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">left</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">right</span></div>
+
+
+
+<div class="viewcode-block" id="owner_key">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.owner_key">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">owner_key</span><span class="p">(</span><span class="n">secret_key</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The public address of a spending key: ``H(sk, 0)``."""</span>
+    <span class="k">return</span> <span class="n">mimc_hash</span><span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="note_commitment">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.note_commitment">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">note_commitment</span><span class="p">(</span><span class="n">note</span><span class="p">:</span> <span class="n">Note</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""``H(H(owner, value), H(rho, r))``: hiding thanks to r, binding thanks to the hash."""</span>
+    <span class="k">return</span> <span class="n">mimc_hash</span><span class="p">(</span><span class="n">mimc_hash</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">note</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="n">mimc_hash</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">rho</span><span class="p">,</span> <span class="n">note</span><span class="o">.</span><span class="n">randomness</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="nullifier">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.nullifier">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">nullifier</span><span class="p">(</span><span class="n">secret_key</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">rho</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""``H(sk, rho)``: only the owner can compute it, and it reveals nothing about the note."""</span>
+    <span class="k">return</span> <span class="n">mimc_hash</span><span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_merkle_root</span><span class="p">(</span><span class="n">leaves</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">level</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">leaves</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">depth</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">leaves</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span><span class="p">):</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="p">[</span><span class="n">mimc_hash</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">level</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">),</span> <span class="mi">2</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">level</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="spend_circuit">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.spend_circuit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">spend_circuit</span><span class="p">(</span>
+    <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">secret_key</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">note</span><span class="p">:</span> <span class="n">Note</span><span class="p">,</span>
+    <span class="n">siblings</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">new_note</span><span class="p">:</span> <span class="n">Note</span><span class="p">,</span>
+    <span class="n">public_value</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Circuit</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Build the spend statement and its witness.</span>
+
+<span class="sd">    Public inputs: the Merkle root, the nullifier, the new commitment and</span>
+<span class="sd">    the amount leaving the pool. The circuit checks that the spender owns</span>
+<span class="sd">    the note, that its commitment is a leaf on the path to the root, that</span>
+<span class="sd">    the nullifier is derived from it, that the new commitment is well</span>
+<span class="sd">    formed, and that ``value = new value + public value`` with the new</span>
+<span class="sd">    value in ``[0, 2**16)``. Without that range check, a "negative" new value</span>
+<span class="sd">    ``p - k`` would mint k coins.</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="s2">"depth"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"index"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">siblings</span><span class="p">)</span> <span class="o">!=</span> <span class="n">depth</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="o">**</span><span class="n">depth</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"need one sibling per level and an index inside the tree"</span><span class="p">)</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">_merkle_root_from_path</span><span class="p">(</span><span class="n">note_commitment</span><span class="p">(</span><span class="n">note</span><span class="p">),</span> <span class="n">siblings</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Circuit</span><span class="p">()</span>
+    <span class="n">root_wire</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+    <span class="n">nullifier_wire</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">nullifier</span><span class="p">(</span><span class="n">secret_key</span><span class="p">,</span> <span class="n">note</span><span class="o">.</span><span class="n">rho</span><span class="p">))</span>
+    <span class="n">new_commitment</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">note_commitment</span><span class="p">(</span><span class="n">new_note</span><span class="p">))</span>
+    <span class="n">public_wire</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">public_value</span><span class="p">)</span>
+
+    <span class="n">sk</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">secret_key</span><span class="p">)</span>
+    <span class="n">value</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">randomness</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">rho</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">randomness</span><span class="p">)</span>
+    <span class="n">owner</span> <span class="o">=</span> <span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">sk</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">one</span> <span class="o">*</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">owner</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">randomness</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">sibling</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">siblings</span><span class="p">):</span>
+        <span class="n">sibling_wire</span><span class="p">,</span> <span class="n">bit</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">sibling</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">index</span> <span class="o">&gt;&gt;</span> <span class="n">level</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">assert_boolean</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
+        <span class="n">swap</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">bit</span><span class="p">,</span> <span class="n">sibling_wire</span> <span class="o">-</span> <span class="n">current</span><span class="p">)</span>  <span class="c1"># Swaps the pair when the bit is 1.</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">current</span> <span class="o">+</span> <span class="n">swap</span><span class="p">,</span> <span class="n">sibling_wire</span> <span class="o">-</span> <span class="n">swap</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">root_wire</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">sk</span><span class="p">,</span> <span class="n">rho</span><span class="p">),</span> <span class="n">nullifier_wire</span><span class="p">)</span>
+
+    <span class="n">new_owner</span><span class="p">,</span> <span class="n">new_value</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">new_note</span><span class="o">.</span><span class="n">owner</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">new_note</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">new_rho</span><span class="p">,</span> <span class="n">new_randomness</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">new_note</span><span class="o">.</span><span class="n">rho</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">new_note</span><span class="o">.</span><span class="n">randomness</span><span class="p">)</span>
+    <span class="n">formed</span> <span class="o">=</span> <span class="n">mimc_gadget</span><span class="p">(</span>
+        <span class="n">c</span><span class="p">,</span> <span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">new_owner</span><span class="p">,</span> <span class="n">new_value</span><span class="p">),</span> <span class="n">mimc_gadget</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">new_rho</span><span class="p">,</span> <span class="n">new_randomness</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">formed</span><span class="p">,</span> <span class="n">new_commitment</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">new_value</span> <span class="o">+</span> <span class="n">public_wire</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">one</span> <span class="o">*</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">VALUE_BITS</span><span class="p">):</span>
+        <span class="n">bit</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">private</span><span class="p">(</span><span class="n">new_note</span><span class="o">.</span><span class="n">value</span> <span class="o">%</span> <span class="n">FIELD_PRIME</span> <span class="o">&gt;&gt;</span> <span class="n">k</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">assert_boolean</span><span class="p">(</span><span class="n">bit</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">bit</span> <span class="o">*</span> <span class="mi">2</span><span class="o">**</span><span class="n">k</span>
+    <span class="n">c</span><span class="o">.</span><span class="n">assert_equal</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">new_value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_merkle_root_from_path</span><span class="p">(</span><span class="n">leaf</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">siblings</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">current</span> <span class="o">=</span> <span class="n">leaf</span>
+    <span class="k">for</span> <span class="n">level</span><span class="p">,</span> <span class="n">sibling</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">siblings</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;&gt;</span> <span class="n">level</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">mimc_hash</span><span class="p">(</span><span class="n">sibling</span><span class="p">,</span> <span class="n">current</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">mimc_hash</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">sibling</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current</span>
+
+
+<div class="viewcode-block" id="spend_setup">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.spend_setup">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">spend_setup</span><span class="p">(</span><span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">trapdoor</span><span class="p">:</span> <span class="n">Groth16Trapdoor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProvingKey</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Run the Groth16 setup for the spend circuit of a tree of the given depth."""</span>
+    <span class="n">dummy</span> <span class="o">=</span> <span class="n">Note</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">spend_circuit</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dummy</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">depth</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dummy</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">groth16_setup</span><span class="p">(</span><span class="n">circuit</span><span class="o">.</span><span class="n">r1cs</span><span class="p">(),</span> <span class="n">trapdoor</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ShieldedPool">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.ShieldedPool">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ShieldedPool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The ledger side of Zerocash: commitments, nullifiers, and proof checks.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    depth : int</span>
+<span class="sd">        The note-commitment tree holds ``2**depth`` notes.</span>
+<span class="sd">    verifying_key : VerifyingKey</span>
+<span class="sd">        From :func:`spend_setup` for the same depth.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import (Groth16Trapdoor, Note, ShieldedPool, owner_key,</span>
+<span class="sd">    ...     prove_spend, spend_setup)</span>
+<span class="sd">    &gt;&gt;&gt; key = spend_setup(2, Groth16Trapdoor(5, 6, 7, 8, 9))</span>
+<span class="sd">    &gt;&gt;&gt; pool = ShieldedPool(2, key.verifying_key)</span>
+<span class="sd">    &gt;&gt;&gt; alice, bob = 1111, 2222</span>
+<span class="sd">    &gt;&gt;&gt; coin = Note(owner_key(alice), 100, rho=1, randomness=77)</span>
+<span class="sd">    &gt;&gt;&gt; index = pool.mint(coin)</span>
+<span class="sd">    &gt;&gt;&gt; payment = Note(owner_key(bob), 60, rho=2, randomness=88)</span>
+<span class="sd">    &gt;&gt;&gt; spend = prove_spend(key, pool, alice, coin, index, payment, public_value=40)</span>
+<span class="sd">    &gt;&gt;&gt; pool.spend(spend), pool.supply</span>
+<span class="sd">    (1, 60)</span>
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">verifying_key</span><span class="p">:</span> <span class="n">VerifyingKey</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">integer</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="s2">"depth"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">verifying_key</span><span class="p">,</span> <span class="n">VerifyingKey</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"verifying_key must be a VerifyingKey"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verifying_key</span> <span class="o">=</span> <span class="n">verifying_key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nullifiers</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_roots</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">supply</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">commitments</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Every note commitment in order, which is all an observer sees of the notes."""</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">nullifiers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">frozenset</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""The nullifiers of spent notes."""</span>
+        <span class="k">return</span> <span class="nb">frozenset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_nullifiers</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">root</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""The current root of the commitment tree."""</span>
+        <span class="k">return</span> <span class="n">_merkle_root</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">depth</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commitment</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">depth</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the commitment tree is full"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">commitment</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_roots</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+<div class="viewcode-block" id="ShieldedPool.mint">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.ShieldedPool.mint">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">mint</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">:</span> <span class="n">Note</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Deposit public value into a new note; the value is visible, the owner is not."""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="n">Note</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"note must be a Note"</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span><span class="n">note_commitment</span><span class="p">(</span><span class="n">note</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">supply</span> <span class="o">+=</span> <span class="n">note</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="n">index</span></div>
+
+
+<div class="viewcode-block" id="ShieldedPool.siblings">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.ShieldedPool.siblings">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">siblings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""The Merkle path of a note: the sibling hash at each level."""</span>
+        <span class="n">integer</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">"index"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">"no note at this index"</span><span class="p">)</span>
+        <span class="n">level</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_commitments</span><span class="p">))</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">depth</span><span class="p">):</span>
+            <span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="n">index</span> <span class="o">^</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">level</span> <span class="o">=</span> <span class="p">[</span><span class="n">mimc_hash</span><span class="p">(</span><span class="n">level</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">level</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">),</span> <span class="mi">2</span><span class="p">)]</span>
+            <span class="n">index</span> <span class="o">//=</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ShieldedPool.spend">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.ShieldedPool.spend">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">spend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">transaction</span><span class="p">:</span> <span class="n">SpendTransaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check a spend and record it; return the new note's index.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            Unknown root, reused nullifier, amount out of range, or invalid proof.</span>
+<span class="sd">        """</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">transaction</span>
+        <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">root</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_roots</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"unknown Merkle root"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">nullifier</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nullifiers</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"double spend: the nullifier was already revealed"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">public_value</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span> <span class="ow">or</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="o">.</span><span class="n">public_value</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">**</span><span class="n">VALUE_BITS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the public value is out of range"</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">root</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">nullifier</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">new_commitment</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">public_value</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">groth16_verify</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verifying_key</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">proof</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"invalid spend proof"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nullifiers</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">nullifier</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">supply</span> <span class="o">-=</span> <span class="n">t</span><span class="o">.</span><span class="n">public_value</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_append</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">new_commitment</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="prove_spend">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.zerocash.prove_spend">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">prove_spend</span><span class="p">(</span>
+    <span class="n">proving_key</span><span class="p">:</span> <span class="n">ProvingKey</span><span class="p">,</span>
+    <span class="n">pool</span><span class="p">:</span> <span class="n">ShieldedPool</span><span class="p">,</span>
+    <span class="n">secret_key</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">note</span><span class="p">:</span> <span class="n">Note</span><span class="p">,</span>
+    <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">new_note</span><span class="p">:</span> <span class="n">Note</span><span class="p">,</span>
+    <span class="n">public_value</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SpendTransaction</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Spend ``note`` (at ``index`` in the pool) into ``new_note`` plus a public amount.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        The statement is false: a key that does not own the note, values</span>
+<span class="sd">        that do not balance, or a new value outside ``[0, 2**16)``.</span>
+<span class="sd">    """</span>
+    <span class="n">siblings</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">siblings</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+    <span class="n">circuit</span> <span class="o">=</span> <span class="n">spend_circuit</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">depth</span><span class="p">,</span> <span class="n">secret_key</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="n">siblings</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">new_note</span><span class="p">,</span> <span class="n">public_value</span><span class="p">)</span>
+    <span class="n">proof</span> <span class="o">=</span> <span class="n">groth16_prove</span><span class="p">(</span><span class="n">proving_key</span><span class="p">,</span> <span class="n">circuit</span><span class="o">.</span><span class="n">witness</span><span class="p">(),</span> <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">root</span><span class="p">,</span> <span class="n">spent</span><span class="p">,</span> <span class="n">created</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">circuit</span><span class="o">.</span><span class="n">public_inputs</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">SpendTransaction</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">spent</span><span class="p">,</span> <span class="n">created</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">proof</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

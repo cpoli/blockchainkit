@@ -27,29 +27,35 @@ least f + 1 replicas, so in at least one honest replica. A replica prepares
 a value after 2f matching prepares and commits after 2f + 1 matching
 commits; no two honest replicas can commit different values in one view.
 
-What to look for
-----------------
-
 With one faulty replica among four, even an equivocating leader cannot make
 honest replicas commit different values. With two faulty replicas the
 quorums no longer intersect in an honest replica, and safety breaks.
 Tendermint, HotStuff and many proof-of-stake chains descend from PBFT.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-An equivocating leader, one fault: still safe
----------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-34
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+An equivocating leader, one fault: still safe
+---------------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-30
+
+.. code-block:: Python
+
 
     safe = bk.consensus.pbft_round(4, faulty={0}, value="A", equivocate=True)
     print("one faulty leader:", safe.commits)
@@ -68,12 +74,12 @@ An equivocating leader, one fault: still safe
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 Two faults among four: safety breaks
 ------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-41
+.. GENERATED FROM PYTHON SOURCE LINES 33-37
 
 .. code-block:: Python
 
@@ -94,12 +100,12 @@ Two faults among four: safety breaks
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-44
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 Quorum intersection
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-57
+.. GENERATED FROM PYTHON SOURCE LINES 40-55
 
 .. code-block:: Python
 
@@ -116,6 +122,8 @@ Quorum intersection
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -128,17 +136,19 @@ Quorum intersection
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-62
+.. GENERATED FROM PYTHON SOURCE LINES 56-62
 
 Exercise
 --------
 Why does a replica wait for 2f + 1 commits and not 2f? Find the run where
 2f would let two honest replicas commit different values.
 
+A worked solution is in :doc:`/exercises/consensus`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.149 seconds)
+   **Total running time of the script:** (0 minutes 0.036 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_agreement_plot_05_pbft.py:

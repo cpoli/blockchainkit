@@ -1,4 +1,4 @@
-"""
+r"""
 Ethereum: a replicated computer metered by gas (Buterin 2014)
 =============================================================
 
@@ -9,18 +9,9 @@ instruction spends some, and running out aborts the call and undoes its
 effects. Words are 256 bits, wide enough for hashes and keys.
 This small stack machine uses unit instruction costs, not Ethereum's prices.
 
-What to look for
-----------------
-
 Compare successful execution with an exhausted gas budget. Success returns
 new storage; failure preserves the original storage. An infinite loop stops
 when its budget runs out, so every call terminates.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%
@@ -29,6 +20,7 @@ import matplotlib.pyplot as plt
 import blockchainkit as bk
 from blockchainkit.vm.visualizers import plot_execution_trace
 
+# %%
 # Increment persistent slot zero by five.
 program = [("LOAD", 0), ("PUSH", 5), ("ADD", None), ("STORE", 0), ("STOP", None)]
 initial = {0: 10}
@@ -75,14 +67,6 @@ ax.legend()
 fig.tight_layout()
 
 # %%
-# Exercise
-# --------
-# Implement a branch that stores one value when two numbers are equal and
-# another value otherwise. Check both branches, stack underflow, and 256-bit
-# wraparound. The VM is an independent component; it is not embedded in the
-# transfer-only ledger's transaction format.
-
-# %%
 # Trace the stack after each instruction
 # --------------------------------------
 # ``trace=True`` records the machine state after every executed instruction.
@@ -93,3 +77,15 @@ assert traced.trace[-1].storage == dict(result.storage)
 assert initial == {0: 10}
 ax = plot_execution_trace(traced.trace)
 ax.figure.tight_layout()
+
+plt.show()
+
+# %%
+# Exercise
+# --------
+# Implement a branch that stores one value when two numbers are equal and
+# another value otherwise. Check both branches, stack underflow, and 256-bit
+# wraparound. The VM is an independent component; it is not embedded in the
+# transfer-only ledger's transaction format.
+#
+# A worked solution is in :doc:`/exercises/vm`.

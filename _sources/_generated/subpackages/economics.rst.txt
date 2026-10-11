@@ -1,0 +1,26 @@
+blockchainkit.economics
+=======================
+
+Incentives, fees and markets: auctions, block rewards and mining games, EIP-1559, stablecoins and market makers, and the value of transaction ordering.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/economics_breakthroughs
+      :link-type: doc
+
+      The breakthroughs behind this subpackage, linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/economics/index
+      :link-type: doc
+
+      The runnable example gallery.
+
+   .. grid-item-card:: API reference
+      :link: /api/economics
+      :link-type: doc
+
+      Every public class and function.
+

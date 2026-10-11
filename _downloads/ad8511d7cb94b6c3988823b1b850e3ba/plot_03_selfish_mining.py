@@ -1,4 +1,4 @@
-"""
+r"""
 Selfish mining: majority is not enough (Eyal and Sirer 2014)
 ============================================================
 
@@ -8,23 +8,20 @@ blocks secret and releasing them only to overtake or tie the honest chain,
 wasting honest work. Above a threshold hashrate, between 0 and 1/3
 depending on how ties break, selfish mining pays.
 
-What to look for
-----------------
-
 The simulated state machine matches the closed-form revenue. With
 gamma = 0 (ties go to honest blocks) the threshold is 1/3; when the pool
 wins every tie, any pool profits.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
 """
 
 # %%
-# Revenue against hashrate
-# ------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Revenue against hashrate
+# ------------------------
 
 alphas = np.linspace(0.02, 0.48, 24)
 fig, ax = plt.subplots(figsize=(7, 4.5))
@@ -51,6 +48,8 @@ fig.tight_layout()
 result = bk.consensus.simulate_selfish_mining(0.4, 0.0, blocks=200_000, seed=1)
 assert result.revenue > 0.4
 print(f"a 40% pool gets {result.revenue:.1%} of the blocks")
+
+plt.show()
 
 # %%
 # Exercise

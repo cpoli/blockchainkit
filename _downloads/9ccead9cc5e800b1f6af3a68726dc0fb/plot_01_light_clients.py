@@ -1,4 +1,4 @@
-"""
+r"""
 Simplified payment verification: light clients (Nakamoto 2008)
 ==============================================================
 
@@ -7,23 +7,20 @@ blocks. It keeps only the chain of block headers, checks that they link and
 carry proof of work, and asks a full node for a Merkle proof that a payment
 is in one of them. Phones run wallets this way.
 
-What to look for
-----------------
-
 The client verifies 20 headers and one inclusion proof: a few kilobytes
 instead of every transaction. What it gives up is visible too: it trusts
 that the heaviest header chain is valid, without checking the transactions
 inside.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # A full node mines 20 blocks of payments
 # ---------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 alice_key = 7
 alice = bk.crypto.public_key(alice_key)
@@ -69,6 +66,8 @@ ax.barh(
 )
 ax.set(xlabel="bytes downloaded", title="Headers and a Merkle proof instead of every block")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

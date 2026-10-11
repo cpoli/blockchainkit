@@ -30,30 +30,36 @@ defense is *bucketing*, which the paper's countermeasures strengthened: an
 address's bucket depends on its network group, and each group can reach
 only a few buckets.
 
-What to look for
-----------------
-
 Without bucketing, a flood of 5000 attacker addresses from four network
 groups fills nearly the whole table, and most sets of eight connections are
 entirely the attacker's. With bucketing, the same flood is confined to at
 most 16 of the 64 buckets, and choosing a bucket before an entry makes an
 all-attacker selection vanishingly rare.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-30
-
-Flood a table with and without bucketing
-----------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 30-53
+.. GENERATED FROM PYTHON SOURCE LINES 22-26
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
+
+Flood a table with and without bucketing
+----------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-49
+
+.. code-block:: Python
+
 
     results = {}
     for label, per_group in (("unbucketed", None), ("bucketed", 4)):
@@ -88,7 +94,7 @@ Flood a table with and without bucketing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-61
+.. GENERATED FROM PYTHON SOURCE LINES 50-57
 
 More connections help only against a small share
 ------------------------------------------------
@@ -98,7 +104,7 @@ attackers with probability f**k. Against a poisoned table, extra
 connections barely help; against a defended one, each extra connection
 multiplies the attacker's odds down.
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-85
+.. GENERATED FROM PYTHON SOURCE LINES 57-83
 
 .. code-block:: Python
 
@@ -126,6 +132,8 @@ multiplies the attacker's odds down.
     right.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -138,7 +146,7 @@ multiplies the attacker's odds down.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-91
+.. GENERATED FROM PYTHON SOURCE LINES 84-91
 
 Exercise
 --------
@@ -146,10 +154,12 @@ In the bucketed table, a selection picks a random nonempty bucket first.
 If the attacker owns 16 of 64 buckets outright, what is the probability
 that all eight picks land in its buckets? Compare with the simulation.
 
+A worked solution is in :doc:`/exercises/network`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.502 seconds)
+   **Total running time of the script:** (0 minutes 0.171 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_overlays_plot_03_eclipse_attack.py:

@@ -1,4 +1,4 @@
-"""
+r"""
 Pricing via processing: making junk mail expensive (Dwork and Naor 1992)
 ========================================================================
 
@@ -8,23 +8,20 @@ pricing functions is a square root modulo a prime: computing it takes a
 full modular exponentiation, checking it a single multiplication. The idea
 of a cost asymmetry became proof of work.
 
-What to look for
-----------------
-
 The work to compute a root grows with the size of the prime; checking stays
 at one multiplication. The asymmetry here is only logarithmic, which is why
 Hashcash (the next example) switched to hash puzzles with tunable,
 exponential cost.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Price one message
 # -----------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 p = 2**61 - 1  # A Mersenne prime, = 3 mod 4.
 message_id = int.from_bytes(bk.crypto.sha256(b"Hello, buy my product!")[:8], "big") % p
@@ -49,6 +46,8 @@ ax.set(
 )
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

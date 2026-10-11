@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.proofs.systems.halo &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/proofs/systems/halo';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.proofs.systems.halo</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.proofs.systems.halo</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Halo: recursive proof composition without a trusted setup (2019).</span>
+
+<span class="sd">A proof that verifies another proof, which verified another, can compress</span>
+<span class="sd">an entire blockchain's history into one constant-size proof, if</span>
+<span class="sd">verification is cheap enough to run inside a proof. Inner-product</span>
+<span class="sd">arguments need no setup, but verifying one costs a multi-exponentiation of</span>
+<span class="sd">length n. Bowe, Grigg and Hopwood noticed that this expensive step has a</span>
+<span class="sd">special form: after the log2(n) challenges c_j of the halving rounds, the</span>
+<span class="sd">verifier needs</span>
+
+<span class="sd">    G_final = prod G_i**s_i,    where    sum s_i X**i = g(X) = prod (1 + c_j X**(2**(k-j))),</span>
+
+<span class="sd">a *commitment to a polynomial g that anyone can evaluate in O(log n)*.</span>
+<span class="sd">So the verifier does the cheap part, and keeps ``(c, G_final)`` as an</span>
+<span class="sd">*accumulator*: a claim to be checked later. Two accumulators merge into</span>
+<span class="sd">one by opening a random combination of their G_finals at a random point,</span>
+<span class="sd">which is again an inner-product argument, with its own deferred claim. A</span>
+<span class="sd">chain of any length then needs one O(n) check at the very end.</span>
+
+<span class="sd">This module provides the inner-product polynomial commitment and its</span>
+<span class="sd">accumulation, in the 62-bit teaching group. Halo itself ran the cheap</span>
+<span class="sd">verifier inside a circuit over a cycle of two elliptic curves (Tweedledum</span>
+<span class="sd">and Tweedledee); here the verifier runs in Python. Commitments carry no</span>
+<span class="sd">blinding, so they are binding but not hiding.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.asymmetric</span><span class="w"> </span><span class="kn">import</span> <span class="n">TEACHING_GROUP</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">AccumulationProof</span><span class="p">,</span> <span class="n">HaloAccumulator</span><span class="p">,</span> <span class="n">IPAOpening</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.utils.groups</span><span class="w"> </span><span class="kn">import</span> <span class="n">independent_generators</span><span class="p">,</span> <span class="n">multi_exponent</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.utils.transcript</span><span class="w"> </span><span class="kn">import</span> <span class="n">Transcript</span>
+
+<span class="n">_GROUP</span> <span class="o">=</span> <span class="n">TEACHING_GROUP</span>
+
+
+<div class="viewcode-block" id="ipa_generators">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.ipa_generators">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ipa_generators</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Return ``size`` independent generators G_i, then one more, U, for the evaluation."""</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"size must be a power of two"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">independent_generators</span><span class="p">(</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">"halo"</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="ipa_commit">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.ipa_commit">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ipa_commit</span><span class="p">(</span><span class="n">coefficients</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">generators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Commit to a polynomial of degree below n: ``prod G_i**a_i``.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import ipa_commit, ipa_generators</span>
+<span class="sd">    &gt;&gt;&gt; gens = ipa_generators(4)</span>
+<span class="sd">    &gt;&gt;&gt; ipa_commit([1, 2], gens) == ipa_commit([1, 2, 0, 0], gens)</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">generators</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"at most </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> coefficients"</span><span class="p">)</span>
+    <span class="n">padded</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="o">%</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coefficients</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">multi_exponent</span><span class="p">(</span><span class="n">generators</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">padded</span><span class="p">,</span> <span class="n">_GROUP</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_s_vector</span><span class="p">(</span><span class="n">challenges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Coefficients of g(X) = prod (1 + c_j X**(2**(k-j))), round 1 owning the top bit."""</span>
+    <span class="n">q</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">challenges</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">challenges</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">c</span> <span class="o">%</span> <span class="n">q</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+
+<div class="viewcode-block" id="challenge_polynomial">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.challenge_polynomial">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">challenge_polynomial</span><span class="p">(</span><span class="n">challenges</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">point</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Evaluate ``g(X) = prod (1 + c_j X**(2**(k-j)))`` at a point in O(log n).</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import challenge_polynomial</span>
+<span class="sd">    &gt;&gt;&gt; challenge_polynomial([2, 3], 5) == (1 + 2 * 5**2) * (1 + 3 * 5)</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">q</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">challenges</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">challenges</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">j</span><span class="p">),</span> <span class="n">q</span><span class="p">))</span> <span class="o">%</span> <span class="n">q</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_start</span><span class="p">(</span><span class="n">transcript</span><span class="p">:</span> <span class="n">Transcript</span><span class="p">,</span> <span class="n">commitment</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">point</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">transcript</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"opening"</span><span class="p">,</span> <span class="p">[</span><span class="n">commitment</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">value</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">transcript</span><span class="o">.</span><span class="n">challenge</span><span class="p">(</span><span class="s2">"u"</span><span class="p">,</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ipa_open">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.ipa_open">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ipa_open</span><span class="p">(</span>
+    <span class="n">coefficients</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">point</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">generators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">label</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"halo-ipa"</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">IPAOpening</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Prove the value of a committed polynomial at ``point`` by halving.</span>
+
+<span class="sd">    Each round sends ``L = prod G_hi**a_lo U**&lt;a_lo, b_hi&gt;`` and</span>
+<span class="sd">    ``R = prod G_lo**a_hi U**&lt;a_hi, b_lo&gt;``, where ``b = (1, x, x**2, ...)``,</span>
+<span class="sd">    and folds ``a' = a_lo + c**-1 a_hi``, ``b' = b_lo + c b_hi``,</span>
+<span class="sd">    ``G' = G_lo G_hi**c``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import ipa_commit, ipa_generators, ipa_open, ipa_verify</span>
+<span class="sd">    &gt;&gt;&gt; gens = ipa_generators(8)</span>
+<span class="sd">    &gt;&gt;&gt; opening = ipa_open([3, 1, 4, 1, 5], 2, gens)</span>
+<span class="sd">    &gt;&gt;&gt; opening.value, ipa_verify(ipa_commit([3, 1, 4, 1, 5], gens), opening, gens)</span>
+<span class="sd">    (109, True)</span>
+<span class="sd">    """</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">generators</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="s2">"point"</span><span class="p">)</span>
+    <span class="n">commitment</span> <span class="o">=</span> <span class="n">ipa_commit</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">generators</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="o">%</span> <span class="n">q</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coefficients</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="nb">pow</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="o">%</span> <span class="n">q</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="n">Transcript</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">generators</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">_start</span><span class="p">(</span><span class="n">transcript</span><span class="p">,</span> <span class="n">commitment</span><span class="p">,</span> <span class="n">point</span> <span class="o">%</span> <span class="n">q</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">generators</span><span class="p">[:</span><span class="n">n</span><span class="p">])</span>
+    <span class="n">lefts</span><span class="p">,</span> <span class="n">rights</span><span class="p">,</span> <span class="n">challenges</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">c_left</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">[:</span><span class="n">h</span><span class="p">],</span> <span class="n">b</span><span class="p">[</span><span class="n">h</span><span class="p">:],</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="o">%</span> <span class="n">q</span>
+        <span class="n">c_right</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">h</span><span class="p">:],</span> <span class="n">b</span><span class="p">[:</span><span class="n">h</span><span class="p">],</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span> <span class="o">%</span> <span class="n">q</span>
+        <span class="n">lefts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">multi_exponent</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">h</span><span class="p">:],</span> <span class="n">a</span><span class="p">[:</span><span class="n">h</span><span class="p">],</span> <span class="n">_GROUP</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">c_left</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">rights</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">multi_exponent</span><span class="p">(</span><span class="n">g</span><span class="p">[:</span><span class="n">h</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">h</span><span class="p">:],</span> <span class="n">_GROUP</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">c_right</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span><span class="p">)</span>
+        <span class="n">transcript</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"round"</span><span class="p">,</span> <span class="p">[</span><span class="n">lefts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">rights</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">transcript</span><span class="o">.</span><span class="n">challenge</span><span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">1</span>
+        <span class="n">challenges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">c_inverse</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">c_inverse</span> <span class="o">*</span> <span class="n">a</span><span class="p">[</span><span class="n">h</span> <span class="o">+</span> <span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">q</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">[(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">b</span><span class="p">[</span><span class="n">h</span> <span class="o">+</span> <span class="n">i</span><span class="p">])</span> <span class="o">%</span> <span class="n">q</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="n">h</span> <span class="o">+</span> <span class="n">i</span><span class="p">],</span> <span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">h</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">IPAOpening</span><span class="p">(</span><span class="n">point</span> <span class="o">%</span> <span class="n">q</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">lefts</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">rights</span><span class="p">),</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="ipa_defer">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.ipa_defer">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ipa_defer</span><span class="p">(</span>
+    <span class="n">commitment</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">opening</span><span class="p">:</span> <span class="n">IPAOpening</span><span class="p">,</span> <span class="n">generators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">"halo-ipa"</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HaloAccumulator</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Do the cheap part of verification and return the deferred claim about G_final.</span>
+
+<span class="sd">    This takes O(log n) group operations: it folds the commitment with L</span>
+<span class="sd">    and R and evaluates g(x) without the generators, trusting the opening's</span>
+<span class="sd">    ``g_final``. It returns ``None`` if the final equation fails, and</span>
+<span class="sd">    otherwise an accumulator that :func:`decide` must eventually check.</span>
+<span class="sd">    """</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">generators</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">opening</span><span class="p">,</span> <span class="n">IPAOpening</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">opening</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">opening</span><span class="o">.</span><span class="n">left</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">opening</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="n">Transcript</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">generators</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">_start</span><span class="p">(</span><span class="n">transcript</span><span class="p">,</span> <span class="n">commitment</span><span class="p">,</span> <span class="n">opening</span><span class="o">.</span><span class="n">point</span><span class="p">,</span> <span class="n">opening</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">commitment</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">opening</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span>
+    <span class="n">challenges</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">big_l</span><span class="p">,</span> <span class="n">big_r</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">opening</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">opening</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="n">transcript</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"round"</span><span class="p">,</span> <span class="p">[</span><span class="n">big_l</span><span class="p">,</span> <span class="n">big_r</span><span class="p">])</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">transcript</span><span class="o">.</span><span class="n">challenge</span><span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">1</span>
+        <span class="n">challenges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">target</span> <span class="o">=</span> <span class="n">target</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">big_l</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">big_r</span><span class="p">,</span> <span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span>
+    <span class="n">b_final</span> <span class="o">=</span> <span class="n">challenge_polynomial</span><span class="p">(</span><span class="n">challenges</span><span class="p">,</span> <span class="n">opening</span><span class="o">.</span><span class="n">point</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">opening</span><span class="o">.</span><span class="n">final</span>
+    <span class="k">if</span> <span class="n">target</span> <span class="o">!=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">opening</span><span class="o">.</span><span class="n">g_final</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b_final</span> <span class="o">%</span> <span class="n">q</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">HaloAccumulator</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">challenges</span><span class="p">),</span> <span class="n">opening</span><span class="o">.</span><span class="n">g_final</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="decide">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.decide">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">decide</span><span class="p">(</span><span class="n">accumulator</span><span class="p">:</span> <span class="n">HaloAccumulator</span><span class="p">,</span> <span class="n">generators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The expensive O(n) check: is ``g_final`` really ``prod G_i**s_i``?"""</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">generators</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">HaloAccumulator</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">2</span> <span class="o">**</span> <span class="nb">len</span><span class="p">(</span><span class="n">accumulator</span><span class="o">.</span><span class="n">challenges</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">_s_vector</span><span class="p">(</span><span class="n">accumulator</span><span class="o">.</span><span class="n">challenges</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">multi_exponent</span><span class="p">(</span><span class="n">generators</span><span class="p">[:</span><span class="n">n</span><span class="p">],</span> <span class="n">s</span><span class="p">,</span> <span class="n">_GROUP</span><span class="p">)</span> <span class="o">==</span> <span class="n">accumulator</span><span class="o">.</span><span class="n">g_final</span></div>
+
+
+
+<div class="viewcode-block" id="ipa_verify">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.ipa_verify">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ipa_verify</span><span class="p">(</span><span class="n">commitment</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">opening</span><span class="p">:</span> <span class="n">IPAOpening</span><span class="p">,</span> <span class="n">generators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Verify an opening completely: the deferred checks, then :func:`decide` at once."""</span>
+    <span class="n">accumulator</span> <span class="o">=</span> <span class="n">ipa_defer</span><span class="p">(</span><span class="n">commitment</span><span class="p">,</span> <span class="n">opening</span><span class="p">,</span> <span class="n">generators</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">accumulator</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">decide</span><span class="p">(</span><span class="n">accumulator</span><span class="p">,</span> <span class="n">generators</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_accumulation_challenges</span><span class="p">(</span><span class="n">accumulators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">HaloAccumulator</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="n">transcript</span> <span class="o">=</span> <span class="n">Transcript</span><span class="p">(</span><span class="sa">b</span><span class="s2">"halo-accumulate"</span><span class="p">)</span>
+    <span class="n">transcript</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"accumulators"</span><span class="p">,</span> <span class="p">[[</span><span class="nb">list</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">challenges</span><span class="p">),</span> <span class="n">a</span><span class="o">.</span><span class="n">g_final</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">accumulators</span><span class="p">])</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span>
+    <span class="k">return</span> <span class="n">transcript</span><span class="o">.</span><span class="n">challenge</span><span class="p">(</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">transcript</span><span class="o">.</span><span class="n">challenge</span><span class="p">(</span><span class="s2">"rho"</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_combined_commitment</span><span class="p">(</span><span class="n">accumulators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">HaloAccumulator</span><span class="p">],</span> <span class="n">rho</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">accumulator</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">accumulators</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">accumulator</span><span class="o">.</span><span class="n">g_final</span><span class="p">,</span> <span class="nb">pow</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">q</span><span class="p">),</span> <span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">p</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="accumulate">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.accumulate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">accumulate</span><span class="p">(</span>
+    <span class="n">accumulators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">HaloAccumulator</span><span class="p">],</span> <span class="n">generators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AccumulationProof</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Merge deferred claims into one: open ``sum rho**j g_j(X)`` at a random point.</span>
+
+<span class="sd">    The prover knows each g_j's coefficients from its challenges, so it can</span>
+<span class="sd">    open the combination of the G_finals; if any G_final were wrong, it could</span>
+<span class="sd">    not. The result's own deferred claim is the new accumulator.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">accumulators</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">HaloAccumulator</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">accumulators</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"need at least one HaloAccumulator"</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">generators</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span>
+    <span class="n">point</span><span class="p">,</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">_accumulation_challenges</span><span class="p">(</span><span class="n">accumulators</span><span class="p">)</span>
+    <span class="n">combined</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">accumulator</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">accumulators</span><span class="p">):</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">_s_vector</span><span class="p">(</span><span class="n">accumulator</span><span class="o">.</span><span class="n">challenges</span><span class="p">,</span> <span class="n">n</span><span class="p">)):</span>
+            <span class="n">combined</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">combined</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">weight</span> <span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="o">%</span> <span class="n">q</span>
+    <span class="k">return</span> <span class="n">AccumulationProof</span><span class="p">(</span><span class="n">ipa_open</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">point</span><span class="p">,</span> <span class="n">generators</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">b</span><span class="s2">"halo-accumulate-ipa"</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="verify_accumulation">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.systems.halo.verify_accumulation">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_accumulation</span><span class="p">(</span>
+    <span class="n">accumulators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">HaloAccumulator</span><span class="p">],</span> <span class="n">proof</span><span class="p">:</span> <span class="n">AccumulationProof</span><span class="p">,</span> <span class="n">generators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">HaloAccumulator</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Check an accumulation step in O(k log n) and return the new accumulator, or ``None``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import (ipa_generators, ipa_commit, ipa_open, ipa_defer,</span>
+<span class="sd">    ...     accumulate, verify_accumulation, decide)</span>
+<span class="sd">    &gt;&gt;&gt; gens = ipa_generators(8)</span>
+<span class="sd">    &gt;&gt;&gt; claims = [ipa_defer(ipa_commit(f, gens), ipa_open(f, 5, gens), gens)</span>
+<span class="sd">    ...           for f in ([1, 2, 3], [4, 5, 6, 7])]</span>
+<span class="sd">    &gt;&gt;&gt; merged = verify_accumulation(claims, accumulate(claims, gens), gens)</span>
+<span class="sd">    &gt;&gt;&gt; decide(merged, gens)</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">accumulators</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">proof</span><span class="p">,</span> <span class="n">AccumulationProof</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">HaloAccumulator</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">accumulators</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">_GROUP</span><span class="o">.</span><span class="n">q</span>
+    <span class="n">point</span><span class="p">,</span> <span class="n">rho</span> <span class="o">=</span> <span class="n">_accumulation_challenges</span><span class="p">(</span><span class="n">accumulators</span><span class="p">)</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">sum</span><span class="p">(</span>
+            <span class="nb">pow</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="o">*</span> <span class="n">challenge_polynomial</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">challenges</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">accumulators</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="o">%</span> <span class="n">q</span>
+    <span class="p">)</span>
+    <span class="n">opening</span> <span class="o">=</span> <span class="n">proof</span><span class="o">.</span><span class="n">opening</span>
+    <span class="k">if</span> <span class="n">opening</span><span class="o">.</span><span class="n">point</span> <span class="o">!=</span> <span class="n">point</span> <span class="ow">or</span> <span class="n">opening</span><span class="o">.</span><span class="n">value</span> <span class="o">!=</span> <span class="n">expected</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">commitment</span> <span class="o">=</span> <span class="n">_combined_commitment</span><span class="p">(</span><span class="n">accumulators</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ipa_defer</span><span class="p">(</span><span class="n">commitment</span><span class="p">,</span> <span class="n">opening</span><span class="p">,</span> <span class="n">generators</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">b</span><span class="s2">"halo-accumulate-ipa"</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

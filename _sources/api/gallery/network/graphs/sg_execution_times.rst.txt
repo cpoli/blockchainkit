@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:08.681** total execution time for 3 files **from api/gallery/network/graphs**:
+**00:02.301** total execution time for 3 files **from api/gallery/network/graphs**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_network_graphs_plot_01_random_graphs.py` (``plot_01_random_graphs.py``)
-     - 00:06.120
+     - 00:01.542
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_graphs_plot_02_small_world.py` (``plot_02_small_world.py``)
-     - 00:01.399
+     - 00:00.435
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_graphs_plot_03_scale_free.py` (``plot_03_scale_free.py``)
-     - 00:01.162
+     - 00:00.324
      - 0.0

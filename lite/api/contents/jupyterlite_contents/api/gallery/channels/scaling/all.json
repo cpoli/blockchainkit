@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T17:17:50.649714Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T17:17:50.649714Z",
+      "mimetype": null,
+      "name": "plot_04_optimistic_rollups.ipynb",
+      "path": "jupyterlite_contents/api/gallery/channels/scaling/plot_04_optimistic_rollups.ipynb",
+      "size": 5353,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T17:17:50.649314Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T17:17:50.649314Z",
+      "mimetype": null,
+      "name": "plot_02_omniledger_sharding.ipynb",
+      "path": "jupyterlite_contents/api/gallery/channels/scaling/plot_02_omniledger_sharding.ipynb",
+      "size": 4801,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T17:17:50.649517Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T17:17:50.649517Z",
+      "mimetype": null,
+      "name": "plot_03_zk_rollups.ipynb",
+      "path": "jupyterlite_contents/api/gallery/channels/scaling/plot_03_zk_rollups.ipynb",
+      "size": 4769,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T17:17:50.649107Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T17:17:50.649107Z",
+      "mimetype": null,
+      "name": "plot_01_plasma_exit_games.ipynb",
+      "path": "jupyterlite_contents/api/gallery/channels/scaling/plot_01_plasma_exit_games.ipynb",
+      "size": 5509,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T17:17:51.619657Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T17:17:51.620585Z",
+  "mimetype": null,
+  "name": "scaling",
+  "path": "jupyterlite_contents/api/gallery/channels/scaling",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_fraud_manipulation:
+
+Market manipulation
+-------------------
+
+Moving prices with unbacked money, coordinated crowds, and trades with oneself.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Between February and November 2013, two accounts on Mt. Gox, later dubbed the Markus and Willy bots, bought about 600,000 bitcoins without paying for them: the exchange credited them with dollars it did not have. Over the same months the price of bitcoin rose from about 150 to over 1,000 dollars. Gandal, Hamrick, Moore and Oberman compared the price change on the days the bots traded with the other days and found it rose about 4% a day on the former and fell slightly on the latter. In a thin market, buying moves the price: with Kyle&#x27;s linear impact \lambda,">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/manipulation/images/thumb/sphx_glr_plot_01_willy_bot_price_manipulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/manipulation/plot_01_willy_bot_price_manipulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Gandal et al.: price manipulation in the Bitcoin ecosystem, the Willy bot (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Telegram groups with tens of thousands of members announce a coin at a set minute; members rush to buy it, and the price jumps within seconds. The organizers bought it quietly beforehand, and sell into the rush. Xu and Livshits studied 412 such pumps from 2018 and 2019, and predicted which coin would be pumped from its market&#x27;s features. On a constant-product market the organizers&#x27; advantage is arithmetic: each buyer of \Delta y gets x \Delta y / (y + \Delta y) coins at a higher price than the one before, so those who buy first and sell first win what the late buyers lose,">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/manipulation/images/thumb/sphx_glr_plot_02_pump_and_dump_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/manipulation/plot_02_pump_and_dump`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Xu and Livshits: the anatomy of a cryptocurrency pump-and-dump (2019)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A wash trade is a sale between parties who are really one. On NFT markets it fakes a price history for a token, or earns trading rewards: in early 2022 LooksRare paid its token to traders in proportion to their volume, and most of its volume was washed. Von Wachter, Jensen, Regner and Ross looked for the shape such trading leaves on a public ledger: a token that passes through a few accounts and returns to one that held it. A cycle of \ell sales among a_1, \dots, a_\ell,">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/manipulation/images/thumb/sphx_glr_plot_03_nft_wash_trading_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/manipulation/plot_03_nft_wash_trading`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Von Wachter et al.: wash trading in NFT markets (2022)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fraud/manipulation/plot_01_willy_bot_price_manipulation
+   /api/gallery/fraud/manipulation/plot_02_pump_and_dump
+   /api/gallery/fraud/manipulation/plot_03_nft_wash_trading
+

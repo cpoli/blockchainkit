@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_proofs_pcp:
+
+Probabilistically checkable proofs and arguments
+------------------------------------------------
+
+Proofs checked by reading a few bits, and how Merkle trees and hashing make them short.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Arora and Safra, and Arora, Lund, Motwani, Sudan and Szegedy, proved that every NP statement has a probabilistically checkable proof: a verifier tosses coins, reads a constant number of the proof&#x27;s bits, and accepts a correct proof always and an incorrect one with probability at most 1/2. Repeating drives the error down to 2^{-k}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/pcp/images/thumb/sphx_glr_plot_01_pcp_theorem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/pcp/plot_01_pcp_theorem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The PCP theorem: checking a proof by reading a few bits (1992)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A PCP is cheap to check but expensive to send. Kilian&#x27;s argument sends only a Merkle root of it. The verifier then chooses its queries, and the prover opens each queried bit with its authentication path. Changing an answer after committing would mean finding a SHA-256 collision, so the prover is bound to one proof, and the conversation costs">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/pcp/images/thumb/sphx_glr_plot_02_kilian_arguments_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/pcp/plot_02_kilian_arguments`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kilian's succinct arguments: a Merkle-committed PCP (1992)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Micali made Kilian&#x27;s argument non-interactive: the queries are derived by hashing the Merkle root, so the prover can write the whole argument down at once, and anyone can check it later. If the hash behaves like a random oracle, the prover cannot predict which bits will be read before committing.">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/pcp/images/thumb/sphx_glr_plot_03_micali_cs_proofs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/pcp/plot_03_micali_cs_proofs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Micali's computationally sound proofs: hashing the verifier away (1994)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/proofs/pcp/plot_01_pcp_theorem
+   /api/gallery/proofs/pcp/plot_02_kilian_arguments
+   /api/gallery/proofs/pcp/plot_03_micali_cs_proofs
+

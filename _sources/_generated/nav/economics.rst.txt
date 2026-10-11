@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.economics hub </_generated/subpackages/economics>` · :doc:`History </history/economics_breakthroughs>` · :doc:`Examples </api/gallery/economics/index>` · :doc:`API reference </api/economics>`

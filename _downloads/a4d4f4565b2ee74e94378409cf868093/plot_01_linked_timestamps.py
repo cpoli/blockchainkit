@@ -1,4 +1,4 @@
-"""
+r"""
 Linked timestamps: tamper evidence by hashing the past (Haber and Stornetta 1991)
 =================================================================================
 
@@ -8,24 +8,21 @@ certificate includes the hash of the previous one. Changing any old record
 changes its hash, which breaks every later link. A blockchain is this
 chain of linked timestamps, with blocks as the records.
 
-What to look for
-----------------
-
 Edit one record in the middle and every link after it fails. Rewriting
 history requires recomputing every later record, and anyone holding a
 recent hash detects the change.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
 
 # %%
-# Link ten records
-# ----------------
 from dataclasses import replace
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Link ten records
+# ----------------
 
 documents = [f"lab notebook, page {page}".encode() for page in range(10)]
 records = []
@@ -70,6 +67,8 @@ ax.set(
     title="Edited (red) and every record that must be rewritten (amber)",
 )
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

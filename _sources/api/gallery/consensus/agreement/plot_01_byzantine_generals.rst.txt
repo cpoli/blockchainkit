@@ -28,29 +28,35 @@ and only if more than two thirds of the generals are loyal, and gave the
 oral-messages algorithm OM(m): every lieutenant relays what it heard, and
 everyone takes a majority.
 
-What to look for
-----------------
-
 With four generals and one traitor, the loyal ones always agree, and follow
 a loyal commander. With three generals and one traitor, a loyal lieutenant
 can be talked out of the commander's order: n > 3m is necessary. This
 3f + 1 bound reappears in every Byzantine fault-tolerant blockchain.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-Four generals, one traitor anywhere
------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-36
+.. GENERATED FROM PYTHON SOURCE LINES 19-23
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Four generals, one traitor anywhere
+-----------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-32
+
+.. code-block:: Python
+
 
     for traitor in range(4):
         result = bk.consensus.oral_messages(4, {traitor}, "attack", rounds=1)
@@ -73,12 +79,12 @@ Four generals, one traitor anywhere
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 33-35
 
 Three generals are not enough
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-43
+.. GENERATED FROM PYTHON SOURCE LINES 35-39
 
 .. code-block:: Python
 
@@ -99,12 +105,12 @@ Three generals are not enough
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-46
+.. GENERATED FROM PYTHON SOURCE LINES 40-42
 
 When does OM(1) survive one traitor?
 ------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-62
+.. GENERATED FROM PYTHON SOURCE LINES 42-60
 
 .. code-block:: Python
 
@@ -124,6 +130,8 @@ When does OM(1) survive one traitor?
     )
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -136,7 +144,7 @@ When does OM(1) survive one traitor?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-68
+.. GENERATED FROM PYTHON SOURCE LINES 61-68
 
 Exercise
 --------
@@ -144,10 +152,12 @@ Run ``oral_messages(7, {a, b}, "attack", rounds=2)`` for every pair of
 traitors, then with rounds=1. Why does tolerating m traitors need m + 1
 rounds of relaying?
 
+A worked solution is in :doc:`/exercises/consensus`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.074 seconds)
+   **Total running time of the script:** (0 minutes 0.018 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_agreement_plot_01_byzantine_generals.py:

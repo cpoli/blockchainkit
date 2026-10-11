@@ -27,22 +27,12 @@ recombined with the Chinese Remainder Theorem. The cost depends on the
 *largest prime factor* of n, not on n. A huge group with a smooth order is
 weak.
 
-What to look for
-----------------
-
 Two groups of about the same size: one whose order splits into small primes,
 one of prime order. Pohlig-Hellman breaks the first almost instantly and
 gains nothing on the second. This is why Diffie-Hellman and Schnorr use a
 subgroup of large *prime* order, like blockchainkit's ``TEACHING_GROUP``.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-A smooth order falls apart
---------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-39
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
@@ -50,6 +40,23 @@ A smooth order falls apart
 
     import blockchainkit as bk
     from blockchainkit.crypto.systems.discrete_log import factor_order
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+A smooth order falls apart
+--------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-36
+
+.. code-block:: Python
+
 
     smooth_p = 8101  # 8100 = 2**2 * 3**4 * 5**2
     print("order factors:", factor_order(smooth_p - 1))
@@ -74,12 +81,12 @@ A smooth order falls apart
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-42
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 A prime order does not
 ----------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-49
+.. GENERATED FROM PYTHON SOURCE LINES 39-46
 
 .. code-block:: Python
 
@@ -97,7 +104,7 @@ A prime order does not
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-70
+.. GENERATED FROM PYTHON SOURCE LINES 47-69
 
 .. code-block:: Python
 
@@ -121,6 +128,8 @@ A prime order does not
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -133,7 +142,7 @@ A prime order does not
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-77
+.. GENERATED FROM PYTHON SOURCE LINES 70-76
 
 Exercise
 --------
@@ -145,7 +154,7 @@ of every exponent?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.143 seconds)
+   **Total running time of the script:** (0 minutes 0.031 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_discrete_log_plot_02_pohlig_hellman.py:

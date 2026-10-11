@@ -28,28 +28,34 @@ fast and easy to implement, Forth ran telescopes and spacecraft. Bitcoin
 Script is described as Forth-like, and the EVM's ``DUP`` and ``SWAP`` families
 serve the same purpose.
 
-What to look for
-----------------
-
 Each stack word matches its diagram. The polynomial ``a x**2 + b x + c``
 is computed by Horner's rule with stack words only, and gives the same
 values as Python for every input.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-Check every stack diagram
--------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-41
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Check every stack diagram
+-------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-37
+
+.. code-block:: Python
+
 
     diagrams = {
         "DUP": ((1,), (1, 1)),
@@ -79,13 +85,13 @@ Check every stack diagram
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-45
+.. GENERATED FROM PYTHON SOURCE LINES 38-41
 
 Horner's rule without variables
 -------------------------------
 ( x -- a*x*x + b*x + c ) as ((a * x) + b) * x + c, keeping x with OVER.
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-65
+.. GENERATED FROM PYTHON SOURCE LINES 41-63
 
 .. code-block:: Python
 
@@ -109,6 +115,8 @@ Horner's rule without variables
     ax.set(xlabel="x", ylabel="result", title=f"{a}x² + {b}x + {c} from stack words")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -121,17 +129,19 @@ Horner's rule without variables
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-70
+.. GENERATED FROM PYTHON SOURCE LINES 64-70
 
 Exercise
 --------
 Define ``NIP ( a b -- b )`` and ``TUCK ( a b -- b a b )`` from the five
 words above and check them with ``bk.vm.execute``.
 
+A worked solution is in :doc:`/exercises/vm`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.095 seconds)
+   **Total running time of the script:** (0 minutes 0.026 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_foundations_plot_06_forth.py:

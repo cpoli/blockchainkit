@@ -1,4 +1,4 @@
-"""
+r"""
 The birthday attack on hash functions (Yuval 1979)
 ==================================================
 
@@ -7,24 +7,20 @@ into an attack: to find *any* two messages with the same n-bit hash takes
 about 2**(n/2) trials, not the 2**n needed to match one given hash. A
 signer tricked into signing one of a colliding pair has signed both.
 
-What to look for
-----------------
-
 Collision searches on truncated SHA-256 succeed after about sqrt(2**n)
 trials. This square root is why hashes have 256-bit outputs: to give
 128-bit collision resistance.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%
-# Find a collision on 24 bits
-# ---------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Find a collision on 24 bits
+# ---------------------------
 
 result = bk.crypto.find_collision(24, prefix=b"contract v")
 assert bk.crypto.truncated_hash(result.first, 24) == bk.crypto.truncated_hash(result.second, 24)
@@ -50,9 +46,13 @@ ax.set(xlabel="hash bits n", ylabel="trials", title="Collisions cost the square 
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # The expected number of trials is about sqrt(pi/2 * 2**n). At a billion
 # hashes per second, how long does a collision on a 64-bit hash take? On a
 # 128-bit hash? Why did MD5 (128 bits) fall, but not only because of this?
+#
+# A worked solution is in :doc:`/exercises/crypto`.

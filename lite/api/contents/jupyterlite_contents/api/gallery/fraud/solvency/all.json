@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.636677Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.636677Z",
+      "mimetype": null,
+      "name": "plot_02_mtgox_malleability_excuse.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/solvency/plot_02_mtgox_malleability_excuse.ipynb",
+      "size": 4599,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.637077Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.637077Z",
+      "mimetype": null,
+      "name": "plot_03_provisions_proof_of_solvency.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/solvency/plot_03_provisions_proof_of_solvency.ipynb",
+      "size": 5277,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.637212Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.637212Z",
+      "mimetype": null,
+      "name": "plot_04_ftx_commingled_funds.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/solvency/plot_04_ftx_commingled_funds.ipynb",
+      "size": 4782,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.636559Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.636559Z",
+      "mimetype": null,
+      "name": "plot_01_maxwell_proof_of_reserves.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/solvency/plot_01_maxwell_proof_of_reserves.ipynb",
+      "size": 4620,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.623265Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.624120Z",
+  "mimetype": null,
+  "name": "solvency",
+  "path": "jupyterlite_contents/api/gallery/fraud/solvency",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

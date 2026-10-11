@@ -1,4 +1,4 @@
-"""
+r"""
 GHOST: follow the heaviest subtree (Sompolinsky and Zohar 2013)
 ===============================================================
 
@@ -8,22 +8,21 @@ That wasted work no longer protects the chain. GHOST (Greedy Heaviest
 Observed SubTree) counts it: at each fork, follow the child whose whole
 subtree carries the most work.
 
-What to look for
-----------------
-
 A single long branch wins the longest-chain rule, while a shorter but
 bushier branch, with more honest work behind it, wins under GHOST.
-Ethereum's proof-of-work chain used a GHOST variant, with uncle rewards.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+Ethereum's proof-of-work chain adopted GHOST's uncle rewards but kept
+heaviest-chain selection; LMD-GHOST became its fork choice with proof of stake.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
+from blockchainkit.structures.visualizers import plot_block_tree
 
 # %%
 # Build a fork
 # ------------
-
-import blockchainkit as bk
-from blockchainkit.structures.visualizers import plot_block_tree
 
 genesis = bk.consensus.mine(bk.structures.Block(difficulty=3)).block
 chain = bk.structures.Blockchain(genesis)
@@ -59,6 +58,8 @@ print(f"subtree work: branch A {work_a}, branch B {work_b}")
 ax = plot_block_tree(chain)
 ax.set_title("Longest chain (blue) versus GHOST's heaviest subtree (branch B)")
 ax.figure.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

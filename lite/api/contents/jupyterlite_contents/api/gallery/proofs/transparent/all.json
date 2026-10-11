@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.641071Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.641071Z",
+      "mimetype": null,
+      "name": "plot_02_fri.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/transparent/plot_02_fri.ipynb",
+      "size": 4149,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.640956Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.640956Z",
+      "mimetype": null,
+      "name": "plot_01_bulletproofs.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/transparent/plot_01_bulletproofs.ipynb",
+      "size": 4959,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.641185Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.641185Z",
+      "mimetype": null,
+      "name": "plot_03_starks.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/transparent/plot_03_starks.ipynb",
+      "size": 4210,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.641336Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.641336Z",
+      "mimetype": null,
+      "name": "plot_04_halo.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/transparent/plot_04_halo.ipynb",
+      "size": 5031,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.628707Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.629386Z",
+  "mimetype": null,
+  "name": "transparent",
+  "path": "jupyterlite_contents/api/gallery/proofs/transparent",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

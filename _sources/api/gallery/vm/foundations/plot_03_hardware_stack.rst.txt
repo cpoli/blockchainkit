@@ -27,23 +27,12 @@ registers to allocate. A real stack has finite size, so the machine must
 know how deep a computation goes. The EVM limits its stack to 1024 words
 for the same reason.
 
-What to look for
-----------------
-
 The same sum needs very different stack depths depending on its shape:
 ``((1 + 2) + 3) + ...`` never holds more than two values, while
 ``1 + (2 + (3 + ...))`` holds every operand at once. With a small stack
 limit, the right-nested form overflows.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-Two shapes of the same sum
---------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-43
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
@@ -51,6 +40,23 @@ Two shapes of the same sum
 
     import blockchainkit as bk
     from blockchainkit.vm.visualizers import plot_stack_height
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Two shapes of the same sum
+--------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-39
+
+.. code-block:: Python
+
 
     n = 12
     left = "(" * (n - 2) + "1 + 2" + "".join(f") + {k}" for k in range(3, n + 1))
@@ -77,12 +83,12 @@ Two shapes of the same sum
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-46
+.. GENERATED FROM PYTHON SOURCE LINES 40-42
 
 A hardware limit
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-59
+.. GENERATED FROM PYTHON SOURCE LINES 42-57
 
 .. code-block:: Python
 
@@ -98,6 +104,8 @@ A hardware limit
     ax.axhline(8, color="black", linestyle="--")
     ax.set_title("Same sum, different stack needs")
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -117,17 +125,19 @@ A hardware limit
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-64
+.. GENERATED FROM PYTHON SOURCE LINES 58-64
 
 Exercise
 --------
 For a balanced tree of additions over 2**k numbers, what is the peak stack
 height? (This is the Ershov or Strahler number of the expression tree.)
 
+A worked solution is in :doc:`/exercises/vm`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.107 seconds)
+   **Total running time of the script:** (0 minutes 0.031 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_foundations_plot_03_hardware_stack.py:

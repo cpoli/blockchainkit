@@ -9,6 +9,12 @@
 
       Hashing and commitments, Diffie-Hellman and RSA, blind signatures, secret sharing, elliptic curves, and Schnorr proofs and signatures.
 
+   .. grid-item-card:: blockchainkit.proofs
+      :link: /_generated/subpackages/proofs
+      :link-type: doc
+
+      Zero-knowledge and succinct proofs: sum-check and PCPs, KZG, Groth16 and PLONK with their trusted setups, Zerocash, and transparent Bulletproofs, FRI, STARKs and Halo.
+
 
 .. rubric:: Ledgers
 
@@ -50,5 +56,41 @@
       :link-type: doc
 
       A deterministic 256-bit stack machine with gas and atomic failure, Turing machines, Bitcoin Script, and smart contracts and their attacks.
+
+   .. grid-item-card:: blockchainkit.contracts
+      :link: /_generated/subpackages/contracts
+      :link-type: doc
+
+      A world-state model of contracts calling contracts: token standards, wallets, proxies and their famous failures, with Hoare logic, symbolic execution and fuzzing.
+
+
+.. rubric:: Economics
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: blockchainkit.economics
+      :link: /_generated/subpackages/economics
+      :link-type: doc
+
+      Incentives, fees and markets: auctions, block rewards and mining games, EIP-1559, stablecoins and market makers, and the value of transaction ordering.
+
+   .. grid-item-card:: blockchainkit.fraud
+      :link: /_generated/subpackages/fraud
+      :link-type: doc
+
+      Ponzi schemes, Benford's law, proofs of reserves and solvency, honeypots and rug pulls, pump-and-dumps, wash trading, and phishing.
+
+
+.. rubric:: Scaling
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: blockchainkit.channels
+      :link: /_generated/subpackages/channels
+      :link-type: doc
+
+      Layer 2 and interoperability: payment channels from Spilman to Lightning and eltoo, atomic swaps and bridges, Plasma, sharding, rollups, and data-availability sampling.
 
 

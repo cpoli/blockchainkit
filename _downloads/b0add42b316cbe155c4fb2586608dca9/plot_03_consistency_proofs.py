@@ -1,4 +1,4 @@
-"""
+r"""
 Append-only logs: consistency proofs (Certificate Transparency 2013)
 ====================================================================
 
@@ -8,22 +8,19 @@ log. Auditors need to know the log only ever *appends*: that today's tree
 contains yesterday's as a prefix. A consistency proof shows it with a
 logarithmic number of hashes.
 
-What to look for
-----------------
-
 Every older version of the log is proven to be a prefix of the newer one.
 A log that rewrote an old entry cannot produce a passing proof. Proof size
 grows with log2 of the log, not with its length.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Prove that the log only appended
 # --------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 certificates = [f"certificate for site-{i}.example".encode() for i in range(1000)]
 yesterday = bk.structures.MerkleTree(certificates[:600])
@@ -55,6 +52,8 @@ fig, ax = plt.subplots(figsize=(7, 4))
 ax.semilogx(sizes, lengths, "o-", base=2)
 ax.set(xlabel="log size", ylabel="hashes in proof", title="Consistency proofs are logarithmic")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

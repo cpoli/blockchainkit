@@ -1,4 +1,4 @@
-"""
+r"""
 Merkle mountain ranges: an append-only accumulator (Todd 2016)
 ==============================================================
 
@@ -8,23 +8,19 @@ size. Appending adds a one-leaf peak and merges equal-sized neighbours,
 like carrying in binary addition. Old peaks are never rewritten, so an
 append costs about two hashes, however long the range is.
 
-What to look for
-----------------
-
 The number of peaks equals the number of 1-bits in the size. Every leaf
 has a short proof to its peak. Grin and other chains use mountain ranges to
 commit to their entire history of outputs or headers.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Grow a range and watch the peaks
 # --------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 mmr = bk.structures.MerkleMountainRange()
 peak_counts, merges = [], []
@@ -51,8 +47,12 @@ bottom.bar(range(1, 65), merges, color="#2563eb")
 bottom.set(xlabel="leaves", ylabel="merges at this append")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # When does a single append cause the most merges? Relate the answer to
 # carries when adding 1 in binary, and compute the average over 2**k appends.
+#
+# A worked solution is in :doc:`/exercises/structures`.

@@ -26,27 +26,36 @@ Bob can lie. Blum's fix: Alice *commits* to her call, Bob announces the coin,
 then Alice opens the commitment. A commitment must be binding (Alice cannot
 change her call) and hiding (Bob cannot read it early).
 
-What to look for
-----------------
-
 A salted hash commitment opens only to the committed value. Without a
 secret salt, Bob can hash both possible calls and read Alice's choice: a
 commitment to a guessable value needs randomness to hide it.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
-
-Commit, reveal, verify
-----------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-36
+.. GENERATED FROM PYTHON SOURCE LINES 16-22
 
 .. code-block:: Python
+
+    from random import Random
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Commit, reveal, verify
+----------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-35
+
+.. code-block:: Python
+
 
     salt = bytes(range(32))  # A real salt comes from secrets.token_bytes(32).
     commitment = bk.crypto.commit(b"heads", salt)
@@ -70,12 +79,12 @@ Commit, reveal, verify
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 Why the salt matters
 --------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-44
+.. GENERATED FROM PYTHON SOURCE LINES 38-43
 
 .. code-block:: Python
 
@@ -91,18 +100,17 @@ Why the salt matters
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-49
+.. GENERATED FROM PYTHON SOURCE LINES 44-48
 
 A thousand fair flips
 ---------------------
 The coin is the XOR of Alice's committed bit and Bob's bit: fair if either
 party is honest.
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-65
+.. GENERATED FROM PYTHON SOURCE LINES 48-65
 
 .. code-block:: Python
 
-    from random import Random
 
     rng = Random(1981)
     outcomes = []
@@ -117,6 +125,8 @@ party is honest.
     ax.set(ylabel="flips", title="XOR of a committed bit and a reply")
     fig.tight_layout()
     assert 430 < outcomes.count(1) < 570
+
+    plt.show()
 
 
 
@@ -142,7 +152,7 @@ coin toss to be fair?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.089 seconds)
+   **Total running time of the script:** (0 minutes 0.022 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_commitments_plot_01_coin_flipping.py:

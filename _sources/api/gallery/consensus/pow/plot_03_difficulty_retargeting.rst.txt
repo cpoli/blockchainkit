@@ -26,22 +26,11 @@ its target every 2016 blocks by the ratio of the actual to the expected
 time, clamped to a factor of four, so blocks return to ten minutes after
 hashrate rises or falls.
 
-What to look for
-----------------
-
 When the hashrate quadruples, blocks come every 2.5 minutes until the next
 retarget, which lowers the target and restores the interval. The clamp
 limits how far one adjustment can go.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-A hashrate jump
----------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-35
+.. GENERATED FROM PYTHON SOURCE LINES 16-21
 
 .. code-block:: Python
 
@@ -49,6 +38,23 @@ A hashrate jump
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+A hashrate jump
+---------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-31
+
+.. code-block:: Python
+
 
     hashrates = [1.0] * 3000 + [4.0] * 5000 + [2.0] * 4000
     run = bk.consensus.simulate_difficulty(hashrates, interval=600, window=500, seed=2009)
@@ -63,7 +69,7 @@ A hashrate jump
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-51
+.. GENERATED FROM PYTHON SOURCE LINES 32-49
 
 .. code-block:: Python
 
@@ -82,6 +88,8 @@ A hashrate jump
     bottom.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -94,17 +102,19 @@ A hashrate jump
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-56
+.. GENERATED FROM PYTHON SOURCE LINES 50-56
 
 Exercise
 --------
 Bitcoin's original code measured 2015 intervals for 2016 blocks, an
 off-by-one. Estimate the effect on the long-run average block time.
 
+A worked solution is in :doc:`/exercises/consensus`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.212 seconds)
+   **Total running time of the script:** (0 minutes 0.053 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pow_plot_03_difficulty_retargeting.py:

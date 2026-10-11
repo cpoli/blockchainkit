@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.221** total execution time for 1 file **from api/gallery/structures/utxo**:
+**00:00.082** total execution time for 1 file **from api/gallery/structures/utxo**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structures_utxo_plot_01_utxo.py` (``plot_01_utxo.py``)
-     - 00:00.221
+     - 00:00.082
      - 0.0

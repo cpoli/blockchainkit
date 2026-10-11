@@ -28,23 +28,13 @@ the old tip, and one of them may find a competing block. Since blocks are
 found as a Poisson process, the chance of a fork per block is about
 ``1 - exp(-delay / interval)``.
 
-What to look for
-----------------
-
 With the authors' measured mean delay of about 12.6 seconds and a 10-minute
 interval, about 2% of blocks fork, close to the 1.69% they observed. The
 rate climbs quickly as the interval shrinks toward the delay, which is why
 faster blockchains must also relay faster, or accept many more stale blocks
 and the security loss that comes with them.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-Model and simulation agree
---------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-47
+.. GENERATED FROM PYTHON SOURCE LINES 20-25
 
 .. code-block:: Python
 
@@ -52,6 +42,23 @@ Model and simulation agree
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
+
+Model and simulation agree
+--------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-44
+
+.. code-block:: Python
+
 
     delay = 12.6
     bitcoin = bk.network.fork_rate(delay, 600)
@@ -82,13 +89,13 @@ Model and simulation agree
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-51
+.. GENERATED FROM PYTHON SOURCE LINES 45-48
 
 How fast must relay be?
 -----------------------
 To keep forks below 1%, the delay must stay under about 1% of the interval.
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-64
+.. GENERATED FROM PYTHON SOURCE LINES 48-63
 
 .. code-block:: Python
 
@@ -104,6 +111,8 @@ To keep forks below 1%, the delay must stay under about 1% of the interval.
     right.loglog(intervals, budget, "o-")
     right.set(xlabel="block interval T (s)", ylabel="max delay (s)", title="Delay for 1% forks")
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -123,7 +132,7 @@ To keep forks below 1%, the delay must stay under about 1% of the interval.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-71
+.. GENERATED FROM PYTHON SOURCE LINES 64-70
 
 Exercise
 --------
@@ -135,7 +144,7 @@ inv/getdata.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.339 seconds)
+   **Total running time of the script:** (0 minutes 0.086 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_relay_plot_02_propagation_and_forks.py:

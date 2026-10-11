@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.contracts hub </_generated/subpackages/contracts>` · :doc:`History </history/contracts_breakthroughs>` · :doc:`Examples </api/gallery/contracts/index>` · :doc:`API reference </api/contracts>`

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.072** total execution time for 4 files **from api/gallery/vm/ethereum**:
+**00:00.298** total execution time for 4 files **from api/gallery/vm/ethereum**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_02_gas_repricing.py` (``plot_02_gas_repricing.py``)
-     - 00:00.464
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_03_reentrancy.py` (``plot_03_reentrancy.py``)
-     - 00:00.267
+     - 00:00.128
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_01_gas.py` (``plot_01_gas.py``)
-     - 00:00.251
+     - 00:00.075
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_03_reentrancy.py` (``plot_03_reentrancy.py``)
+     - 00:00.068
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_04_integer_overflow.py` (``plot_04_integer_overflow.py``)
-     - 00:00.091
+     - 00:00.027
      - 0.0

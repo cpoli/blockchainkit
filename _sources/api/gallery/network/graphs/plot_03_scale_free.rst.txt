@@ -27,23 +27,13 @@ the narrow distribution of a random graph. Barabási and Albert explained it
 with growth plus *preferential attachment*: newcomers link to existing nodes
 with probability proportional to their degree, so the rich get richer.
 
-What to look for
-----------------
-
 On log-log axes the degree distribution is close to a straight line of
 slope -3, and the largest degree is several times what a random graph of
 the same density reaches. Hubs make gossip fast, but they are also a weak
 point: removing 5% of the nodes at random leaves the network in one piece,
 while removing the 5% largest hubs already cuts a tenth of the peers off.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-Degree distributions
---------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-48
+.. GENERATED FROM PYTHON SOURCE LINES 19-26
 
 .. code-block:: Python
 
@@ -53,6 +43,23 @@ Degree distributions
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
+
+Degree distributions
+--------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-45
+
+.. code-block:: Python
+
 
     n = 3000
     scale_free = bk.network.barabasi_albert(n, 2, seed=1)
@@ -83,13 +90,13 @@ Degree distributions
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-52
+.. GENERATED FROM PYTHON SOURCE LINES 46-49
 
 Targeted attacks hurt
 ---------------------
 Remove 5% of the nodes, either the largest hubs or a random choice.
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-80
+.. GENERATED FROM PYTHON SOURCE LINES 49-79
 
 .. code-block:: Python
 
@@ -121,6 +128,8 @@ Remove 5% of the nodes, either the largest hubs or a random choice.
     right.set(ylabel="largest component share", title="Robust, yet fragile")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -139,7 +148,7 @@ Remove 5% of the nodes, either the largest hubs or a random choice.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 81-85
+.. GENERATED FROM PYTHON SOURCE LINES 80-84
 
 Exercise
 --------
@@ -149,7 +158,7 @@ shorter, and what role do the hubs play?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.162 seconds)
+   **Total running time of the script:** (0 minutes 0.324 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_graphs_plot_03_scale_free.py:

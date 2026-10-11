@@ -27,21 +27,11 @@ debit in one account and a credit in another, so the books always balance.
 A blockchain ledger enforces the same invariant mechanically: transfers move
 value between accounts, so the total supply never changes.
 
-What to look for
-----------------
-
 Thousands of random transfers leave the total supply exactly where it
 started. A transfer that would overdraw an account is rejected as a whole,
 and the ledger is left untouched: no half-recorded entries.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Random transfers among five accounts
-------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-51
+.. GENERATED FROM PYTHON SOURCE LINES 17-24
 
 .. code-block:: Python
 
@@ -51,6 +41,23 @@ Random transfers among five accounts
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+Random transfers among five accounts
+------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-48
+
+.. code-block:: Python
+
 
     keys = [3, 5, 7, 11, 13]
     publics = [bk.crypto.public_key(k) for k in keys]
@@ -85,12 +92,12 @@ Random transfers among five accounts
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-54
+.. GENERATED FROM PYTHON SOURCE LINES 49-51
 
 A failed batch changes nothing
 ------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-69
+.. GENERATED FROM PYTHON SOURCE LINES 51-66
 
 .. code-block:: Python
 
@@ -122,7 +129,7 @@ A failed batch changes nothing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-81
+.. GENERATED FROM PYTHON SOURCE LINES 67-80
 
 .. code-block:: Python
 
@@ -137,6 +144,8 @@ A failed batch changes nothing
     ax.legend(loc="lower right", fontsize=8)
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -149,7 +158,7 @@ A failed batch changes nothing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-87
+.. GENERATED FROM PYTHON SOURCE LINES 81-86
 
 Exercise
 --------
@@ -160,7 +169,7 @@ grows exactly by the block reward")?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 8.264 seconds)
+   **Total running time of the script:** (0 minutes 3.836 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_ledger_plot_01_double_entry.py:

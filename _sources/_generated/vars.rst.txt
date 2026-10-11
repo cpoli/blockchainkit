@@ -1,1 +1,1 @@
-.. |num_subpackages| replace:: 5
+.. |num_subpackages| replace:: 10

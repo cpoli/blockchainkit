@@ -28,27 +28,34 @@ Delta afterwards. A leader-based protocol keeps safety at all times and
 waits out each leader with a timeout. Doubling the timeout every failed view
 guarantees it eventually exceeds Delta, whatever Delta is.
 
-What to look for
-----------------
-
 Views fail until GST; the first view that starts after GST with a long
 enough timeout makes progress. With a fixed timeout below Delta, no view
 ever succeeds. PBFT, Tendermint and HotStuff all rely on this model.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Views before and after GST
---------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-38
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Views before and after GST
+--------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-35
+
+.. code-block:: Python
+
 
     run = bk.consensus.view_changes(gst=300, delta=40, base_timeout=5)
     print(f"view {run.decided_view} decides at t = {run.decision_time}")
@@ -73,12 +80,12 @@ Views before and after GST
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 Progress time grows only linearly with GST
 ------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-55
+.. GENERATED FROM PYTHON SOURCE LINES 38-54
 
 .. code-block:: Python
 
@@ -96,6 +103,8 @@ Progress time grows only linearly with GST
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -108,7 +117,7 @@ Progress time grows only linearly with GST
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-61
+.. GENERATED FROM PYTHON SOURCE LINES 55-60
 
 Exercise
 --------
@@ -119,7 +128,7 @@ protocols reset the timeout after a successful view?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.154 seconds)
+   **Total running time of the script:** (0 minutes 0.037 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_agreement_plot_04_partial_synchrony.py:

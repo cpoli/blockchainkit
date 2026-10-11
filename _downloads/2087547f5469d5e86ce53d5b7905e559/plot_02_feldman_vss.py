@@ -1,4 +1,4 @@
-"""
+r"""
 Feldman's verifiable secret sharing (1987)
 ==========================================
 
@@ -8,26 +8,23 @@ had the dealer publish g**a_j for each coefficient a_j. Each holder checks
 g**y == product of C_j**(x**j), which holds only for points on the
 committed polynomial.
 
-What to look for
-----------------
-
 Honest shares pass the check and any three of them recover the secret. A
 corrupted share is caught by its holder before reconstruction. Verifiable
 sharing is the starting point of distributed key generation, used for
 threshold signatures in modern wallets.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
 
 # %%
-# Deal and verify
-# ---------------
 from itertools import combinations
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Deal and verify
+# ---------------
 
 G = bk.crypto.TEACHING_GROUP
 secret = 2026
@@ -61,6 +58,8 @@ ax.set(
     title="Only the committed share verifies",
 )
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

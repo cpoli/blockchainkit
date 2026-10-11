@@ -27,27 +27,36 @@ That wasted work no longer protects the chain. GHOST (Greedy Heaviest
 Observed SubTree) counts it: at each fork, follow the child whose whole
 subtree carries the most work.
 
-What to look for
-----------------
-
 A single long branch wins the longest-chain rule, while a shorter but
 bushier branch, with more honest work behind it, wins under GHOST.
-Ethereum's proof-of-work chain used a GHOST variant, with uncle rewards.
+Ethereum's proof-of-work chain adopted GHOST's uncle rewards but kept
+heaviest-chain selection; LMD-GHOST became its fork choice with proof of stake.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
+.. code-block:: Python
+
+    import matplotlib.pyplot as plt
+
+    import blockchainkit as bk
+    from blockchainkit.structures.visualizers import plot_block_tree
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
 
 Build a fork
 ------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-47
+.. GENERATED FROM PYTHON SOURCE LINES 26-46
 
 .. code-block:: Python
 
-
-    import blockchainkit as bk
-    from blockchainkit.structures.visualizers import plot_block_tree
 
     genesis = bk.consensus.mine(bk.structures.Block(difficulty=3)).block
     chain = bk.structures.Blockchain(genesis)
@@ -75,12 +84,12 @@ Build a fork
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 47-49
 
 Two fork-choice rules, two answers
 ----------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-63
+.. GENERATED FROM PYTHON SOURCE LINES 49-64
 
 .. code-block:: Python
 
@@ -96,6 +105,8 @@ Two fork-choice rules, two answers
     ax = plot_block_tree(chain)
     ax.set_title("Longest chain (blue) versus GHOST's heaviest subtree (branch B)")
     ax.figure.tight_layout()
+
+    plt.show()
 
 
 
@@ -116,7 +127,7 @@ Two fork-choice rules, two answers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-69
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 Exercise
 --------
@@ -127,7 +138,7 @@ than half the hashrate win more often?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.123 seconds)
+   **Total running time of the script:** (0 minutes 0.030 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_nakamoto_plot_02_ghost.py:

@@ -1,4 +1,4 @@
-"""
+r"""
 Bitcoin Script: pay to public-key hash (Nakamoto 2009)
 ======================================================
 
@@ -9,23 +9,20 @@ with this hash, and a signature by it over the spending transaction". Script
 is a Forth-like stack language with no loops, so a script of n operations
 runs at most n steps: Bitcoin needs no gas.
 
-What to look for
-----------------
-
 The owner's spend passes; a different key fails at ``OP_EQUALVERIFY``, and the
 right key with a signature over a different transaction fails at
 ``OP_CHECKSIG``. The operation count never exceeds the script length.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
 
 # %%
-# Lock a coin to Alice's key hash
-# -------------------------------
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 from blockchainkit.crypto import public_key, sign
+
+# %%
+# Lock a coin to Alice's key hash
+# -------------------------------
 
 alice = public_key(7)
 lock = bk.vm.p2pkh_locking(alice)
@@ -56,6 +53,8 @@ ax.axvline(len(lock) + 2, color="black", linestyle="--", label="script length")
 ax.set(xlabel="operations executed", title="Scripts cannot loop")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

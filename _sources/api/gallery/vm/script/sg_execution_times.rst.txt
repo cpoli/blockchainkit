@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.571** total execution time for 2 files **from api/gallery/vm/script**:
+**00:00.250** total execution time for 2 files **from api/gallery/vm/script**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_vm_script_plot_02_htlc.py` (``plot_02_htlc.py``)
-     - 00:00.439
+     - 00:00.204
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_script_plot_01_p2pkh.py` (``plot_01_p2pkh.py``)
-     - 00:00.132
+     - 00:00.046
      - 0.0

@@ -28,28 +28,34 @@ captured password is useless, because the next one is its *preimage*.
 This became S/KEY (1995), and hash chains reappear in blockchains as
 commit-reveal randomness and in Lamport-style signatures.
 
-What to look for
-----------------
-
 Each password verifies against the previous anchor, and the anchor moves
 back along the chain. Replaying a captured password fails, and the attacker
 cannot step backwards without inverting SHA-256.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-Log in five times
------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-40
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Log in five times
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-36
+
+.. code-block:: Python
+
 
     chain = bk.structures.hash_chain(b"Alice's secret seed", 100)
     anchor = chain[-1]  # Registered with the server once.
@@ -74,12 +80,12 @@ Log in five times
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 A captured password cannot be replayed
 --------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-48
+.. GENERATED FROM PYTHON SOURCE LINES 39-44
 
 .. code-block:: Python
 
@@ -95,12 +101,12 @@ A captured password cannot be replayed
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-51
+.. GENERATED FROM PYTHON SOURCE LINES 45-47
 
 Remaining logins
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-58
+.. GENERATED FROM PYTHON SOURCE LINES 47-56
 
 .. code-block:: Python
 
@@ -110,6 +116,8 @@ Remaining logins
     )
     ax.set(xlabel="passwords", title="A chain of 100 hashes gives 99 logins")
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -123,17 +131,19 @@ Remaining logins
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-63
+.. GENERATED FROM PYTHON SOURCE LINES 57-63
 
 Exercise
 --------
 Why must passwords be revealed in reverse order of computation? What does
 a server learn if it is breached, compared with storing a password hash?
 
+A worked solution is in :doc:`/exercises/structures`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.066 seconds)
+   **Total running time of the script:** (0 minutes 0.018 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_hash_chains_plot_01_lamport_hash_chain.py:

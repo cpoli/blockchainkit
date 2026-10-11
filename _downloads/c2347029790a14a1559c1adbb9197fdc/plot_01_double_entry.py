@@ -1,4 +1,4 @@
-"""
+r"""
 Double-entry bookkeeping: value is moved, never created (Pacioli 1494)
 ======================================================================
 
@@ -8,25 +8,22 @@ debit in one account and a credit in another, so the books always balance.
 A blockchain ledger enforces the same invariant mechanically: transfers move
 value between accounts, so the total supply never changes.
 
-What to look for
-----------------
-
 Thousands of random transfers leave the total supply exactly where it
 started. A transfer that would overdraw an account is rejected as a whole,
 and the ledger is left untouched: no half-recorded entries.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
 
 # %%
-# Random transfers among five accounts
-# ------------------------------------
 from contextlib import suppress
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Random transfers among five accounts
+# ------------------------------------
 
 keys = [3, 5, 7, 11, 13]
 publics = [bk.crypto.public_key(k) for k in keys]
@@ -77,6 +74,8 @@ ax.plot(supply, color="black", linewidth=2, label="total supply")
 ax.set(xlabel="transfer attempt", ylabel="balance", title="Balances move; their sum does not")
 ax.legend(loc="lower right", fontsize=8)
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

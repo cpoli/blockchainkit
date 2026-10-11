@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.300** total execution time for 1 file **from api/gallery/crypto/hash_signatures**:
+**00:00.088** total execution time for 1 file **from api/gallery/crypto/hash_signatures**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_crypto_hash_signatures_plot_01_lamport_signatures.py` (``plot_01_lamport_signatures.py``)
-     - 00:00.300
+     - 00:00.088
      - 0.0

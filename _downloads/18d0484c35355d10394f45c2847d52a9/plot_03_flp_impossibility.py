@@ -1,4 +1,4 @@
-"""
+r"""
 FLP: no deterministic consensus in an asynchronous network (1985)
 =================================================================
 
@@ -7,9 +7,6 @@ reach agreement in an asynchronous system where even one process may crash.
 The adversary does not need to crash anyone: it only chooses the order in
 which messages arrive, and can keep the system undecided forever.
 
-What to look for
-----------------
-
 Ben-Or's protocol with its coin replaced by a fixed rule, here "process p
 adopts p mod 2", never decides against a scheduler that keeps every process
 from seeing a strict majority: the values stay split two against two in
@@ -17,16 +14,16 @@ every round. Give the processes real coins and the same scheduler loses.
 FLP says *every* deterministic protocol has some such schedule. Practical
 protocols escape it with randomness (Ben-Or) or timing assumptions
 (partial synchrony).
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # A deterministic protocol, stalled forever
 # -----------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 
 def parity(process, round_):
@@ -53,6 +50,8 @@ ax.set(
     ylabel="rounds run (500 = gave up)", title="Same adversarial schedule, deterministic vs random"
 )
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

@@ -1,4 +1,4 @@
-"""
+r"""
 Atomic transactions: all or nothing (Gray 1981)
 ===============================================
 
@@ -8,25 +8,21 @@ debits one account must also credit the other, or do neither, however it
 fails halfway. Ethereum gives every call this property: if execution
 fails, every storage write it made is discarded.
 
-What to look for
-----------------
-
 The trace shows the debit already written to the *working* storage before
 the transfer fails. The committed storage is unchanged all the same: the
 failure discarded the half-done write. A successful transfer conserves the
 total.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%
-# A transfer from slot 0 to slot 1
-# --------------------------------
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 from blockchainkit.vm.visualizers import plot_execution_trace
+
+# %%
+# A transfer from slot 0 to slot 1
+# --------------------------------
 
 transfer = bk.vm.assemble("""
 # stack: amount
@@ -65,6 +61,8 @@ fig, ax = plt.subplots(figsize=(9, 4.5))
 plot_execution_trace(failed, ax=ax)
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
@@ -72,3 +70,5 @@ fig.tight_layout()
 # for any amount? What does atomicity let a contract get away with here, and
 # why is the order of checks and effects still crucial once a contract calls
 # out to another one (see the DAO example)?
+#
+# A worked solution is in :doc:`/exercises/vm`.

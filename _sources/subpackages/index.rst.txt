@@ -15,3 +15,8 @@ reference, all linked from a single page.
    /_generated/subpackages/consensus
    /_generated/subpackages/network
    /_generated/subpackages/vm
+   /_generated/subpackages/contracts
+   /_generated/subpackages/economics
+   /_generated/subpackages/channels
+   /_generated/subpackages/proofs
+   /_generated/subpackages/fraud

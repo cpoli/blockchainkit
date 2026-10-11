@@ -1,4 +1,4 @@
-"""
+r"""
 Bytecode verification: check before you run (Gosling 1995)
 ==========================================================
 
@@ -10,23 +10,20 @@ stack height. Verified code needs no run-time stack checks and its maximum
 stack size is known in advance. Ethereum's EOF format brings similar
 validation at deployment.
 
-What to look for
-----------------
-
 The verifier accepts the contracts in this package and computes their
 maximum stack depth, which matches the deepest stack any run reaches. It
 rejects a program with an underflow on a path that a test run happens not
 to take, and a loop that grows the stack on every turn.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Verify the library's contracts
 # ------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 programs = {
     "vending machine": (bk.vm.vending_machine(), 1),
@@ -67,6 +64,8 @@ fig, ax = plt.subplots(figsize=(6, 3.5))
 ax.barh(list(bounds), list(bounds.values()), color="#0d9488")
 ax.set(xlabel="maximum stack depth, proved before running", title="Verified programs")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

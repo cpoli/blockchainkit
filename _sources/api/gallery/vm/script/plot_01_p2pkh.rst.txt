@@ -28,21 +28,11 @@ with this hash, and a signature by it over the spending transaction". Script
 is a Forth-like stack language with no loops, so a script of n operations
 runs at most n steps: Bitcoin needs no gas.
 
-What to look for
-----------------
-
 The owner's spend passes; a different key fails at ``OP_EQUALVERIFY``, and the
 right key with a signature over a different transaction fails at
 ``OP_CHECKSIG``. The operation count never exceeds the script length.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Lock a coin to Alice's key hash
--------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-60
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
@@ -50,6 +40,23 @@ Lock a coin to Alice's key hash
 
     import blockchainkit as bk
     from blockchainkit.crypto import public_key, sign
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Lock a coin to Alice's key hash
+-------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-59
+
+.. code-block:: Python
+
 
     alice = public_key(7)
     lock = bk.vm.p2pkh_locking(alice)
@@ -81,6 +88,8 @@ Lock a coin to Alice's key hash
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -102,7 +111,7 @@ Lock a coin to Alice's key hash
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-66
+.. GENERATED FROM PYTHON SOURCE LINES 60-65
 
 Exercise
 --------
@@ -113,7 +122,7 @@ using only the opcodes available (hint: ``OP_CHECKSIG`` then
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.132 seconds)
+   **Total running time of the script:** (0 minutes 0.046 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_script_plot_01_p2pkh.py:

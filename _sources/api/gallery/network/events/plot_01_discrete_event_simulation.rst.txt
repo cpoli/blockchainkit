@@ -29,26 +29,28 @@ and with a seeded random source every run is exactly reproducible.
 a message sent on a link becomes a delivery event a random number of ticks
 later.
 
-What to look for
-----------------
-
 Follow arrival times as the message crosses the network. An isolated peer
 misses it, and reconnecting the peer requires an explicit retransmission of
 old news. Rerunning with the same seed reproduces every arrival time.
 
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-40
+.. GENERATED FROM PYTHON SOURCE LINES 19-23
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-32
+
+.. code-block:: Python
 
     network = bk.network.SimulatedNetwork(["alice", "bob", "carol", "dave"], seed=7)
     network.connect("alice", "bob", latency=(2, 4))
@@ -65,12 +67,12 @@ See :doc:`/exercises/network` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 33-35
 
 Healing requires synchronization, not just a link
 -------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-50
+.. GENERATED FROM PYTHON SOURCE LINES 35-42
 
 .. code-block:: Python
 
@@ -94,14 +96,14 @@ Healing requires synchronization, not just a link
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-55
+.. GENERATED FROM PYTHON SOURCE LINES 43-47
 
 Same seed, same history
 -----------------------
 The simulator draws latencies from its own seeded generator, so a second
 run with the same operations reproduces every event exactly.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-71
+.. GENERATED FROM PYTHON SOURCE LINES 47-63
 
 .. code-block:: Python
 
@@ -128,7 +130,7 @@ run with the same operations reproduces every event exactly.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-85
+.. GENERATED FROM PYTHON SOURCE LINES 64-79
 
 .. code-block:: Python
 
@@ -145,6 +147,8 @@ run with the same operations reproduces every event exactly.
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -157,7 +161,7 @@ run with the same operations reproduces every event exactly.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-91
+.. GENERATED FROM PYTHON SOURCE LINES 80-87
 
 Exercise
 --------
@@ -165,10 +169,12 @@ Connect a triangle and check that duplicate paths do not duplicate receipts.
 Disconnect a link while a message is in flight. Then replace fixed latency
 with a range and compare results under the same and different seeds.
 
+A worked solution is in :doc:`/exercises/network`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.126 seconds)
+   **Total running time of the script:** (0 minutes 0.030 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_events_plot_01_discrete_event_simulation.py:

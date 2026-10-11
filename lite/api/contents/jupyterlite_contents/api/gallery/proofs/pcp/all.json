@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.639836Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.639836Z",
+      "mimetype": null,
+      "name": "plot_01_pcp_theorem.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/pcp/plot_01_pcp_theorem.ipynb",
+      "size": 5043,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.640069Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.640069Z",
+      "mimetype": null,
+      "name": "plot_03_micali_cs_proofs.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/pcp/plot_03_micali_cs_proofs.ipynb",
+      "size": 4265,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.639957Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.639957Z",
+      "mimetype": null,
+      "name": "plot_02_kilian_arguments.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/pcp/plot_02_kilian_arguments.ipynb",
+      "size": 4477,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.626060Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.626663Z",
+  "mimetype": null,
+  "name": "pcp",
+  "path": "jupyterlite_contents/api/gallery/proofs/pcp",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

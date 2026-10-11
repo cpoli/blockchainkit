@@ -22,14 +22,14 @@ from signature to confirmation.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Prerequisites: the quick start, gossip, and the fork experiment. By the end you should distinguish a signed, pending, included, and displaced payment. A pending queue (often called a mempool) is local to each peer.">
+    <div class="sphx-glr-thumbcontainer" tooltip="This capstone follows one payment through every subpackage: Alice signs it, peers gossip it into their pending queues (mempools), a miner includes it in a block, a competing branch with more work displaces that block, and the payment is included again. /tutorials/life_of_a_payment tells the same story step by step.">
 
 .. only:: html
 
-  .. image:: /api/gallery/structures/chain/images/thumb/sphx_glr_plot_02_payment_lifecycle_thumb.png
+  .. image:: /api/gallery/structures/chain/images/thumb/sphx_glr_plot_01_payment_lifecycle_thumb.png
     :alt:
 
-  :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle`
+  :doc:`/api/gallery/structures/chain/plot_01_payment_lifecycle`
 
 .. raw:: html
 
@@ -47,5 +47,5 @@ from signature to confirmation.
 .. toctree::
    :hidden:
 
-   /api/gallery/structures/chain/plot_02_payment_lifecycle
+   /api/gallery/structures/chain/plot_01_payment_lifecycle
 

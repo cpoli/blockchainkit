@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_channels_interoperability:
+
+Interoperability
+----------------
+
+Moving value between chains: atomic swaps, light-client relays, and bridges that trust a committee.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Alice has coins on chain A, Bob on chain B, and neither will pay first. Tier Nolan&#x27;s protocol ties both payments to one secret. Alice locks her coins to Bob behind the hash of a secret, refundable to her at T_A; Bob locks his to Alice behind the same hash, refundable at T_B. Alice claims on B by revealing the secret, and Bob reads it there and claims on A. The swap is atomic if">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/interoperability/images/thumb/sphx_glr_plot_01_atomic_swaps_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/interoperability/plot_01_atomic_swaps`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tier Nolan's atomic cross-chain swaps (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An Ethereum contract cannot see Bitcoin. BTC Relay let it check Bitcoin payments the way a light client does: relayers submit block headers, the contract checks that each links to a stored one and meets its proof-of-work target, and it follows the chain with the most work. A contract can then verify that a transaction is in a block of that chain under c confirmations, with a Merkle proof against the header&#x27;s root. Each header adds expected work">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/interoperability/images/thumb/sphx_glr_plot_02_btc_relay_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/interoperability/plot_02_btc_relay`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">BTC Relay: a Bitcoin light client in an Ethereum contract (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Most bridges do not verify the other chain; they trust a committee to sign withdrawals, and are exactly as safe as its keys and the code that checks its signatures. In 2022 both failed. Ronin released funds on 5 of 9 validator signatures; one company ran four validators and still held permission to sign for a fifth, so a single breach yielded 173,600 ether and 25.5 million USDC. Wormhole&#x27;s Solana program trusted an account, supplied by the caller, saying that the guardians&#x27; signatures had been checked; a forged account minted 120,000 wrapped ether from nothing.">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/interoperability/images/thumb/sphx_glr_plot_03_bridge_exploits_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/interoperability/plot_03_bridge_exploits`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bridge failures: the Ronin and Wormhole exploits (2022)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/channels/interoperability/plot_01_atomic_swaps
+   /api/gallery/channels/interoperability/plot_02_btc_relay
+   /api/gallery/channels/interoperability/plot_03_bridge_exploits
+

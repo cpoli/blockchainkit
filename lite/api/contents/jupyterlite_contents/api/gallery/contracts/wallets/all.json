@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.221433Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.221433Z",
+      "mimetype": null,
+      "name": "plot_02_parity_library_freeze.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/wallets/plot_02_parity_library_freeze.ipynb",
+      "size": 4929,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.221300Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.221300Z",
+      "mimetype": null,
+      "name": "plot_01_parity_multisig_hack.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/wallets/plot_01_parity_multisig_hack.ipynb",
+      "size": 4795,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T19:00:14.602024Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T19:00:14.602292Z",
+  "mimetype": null,
+  "name": "wallets",
+  "path": "jupyterlite_contents/api/gallery/contracts/wallets",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

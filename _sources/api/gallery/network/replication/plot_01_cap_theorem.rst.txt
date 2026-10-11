@@ -27,9 +27,6 @@ and *availability* (every request to a live replica gets an answer) when
 the network may *partition*. During a split, each side must either refuse
 requests or answer without the other side.
 
-What to look for
-----------------
-
 The same sequence of requests runs against two policies on five replicas
 split 2 to 3. The consistent register refuses every request on the minority
 side, and every read it does answer is up to date. The available register
@@ -38,20 +35,30 @@ discards one side's write when the partition heals. Bitcoin is on the
 available side: both halves of a split keep extending their own chain, and
 the shorter chain's blocks are discarded at reconnection.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-28
-
-One workload, two policies
---------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-59
+.. GENERATED FROM PYTHON SOURCE LINES 21-25
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
+
+One workload, two policies
+--------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-56
+
+.. code-block:: Python
+
 
 
     def workload(mode):
@@ -108,13 +115,13 @@ One workload, two policies
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-63
+.. GENERATED FROM PYTHON SOURCE LINES 57-60
 
 Count the anomalies
 -------------------
 A read is stale if some earlier successful write is not visible in it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-91
+.. GENERATED FROM PYTHON SOURCE LINES 60-90
 
 .. code-block:: Python
 
@@ -146,6 +153,8 @@ A read is stale if some earlier successful write is not visible in it.
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -164,7 +173,7 @@ A read is stale if some earlier successful write is not visible in it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 92-97
+.. GENERATED FROM PYTHON SOURCE LINES 91-96
 
 Exercise
 --------
@@ -175,7 +184,7 @@ Bitcoin behave so differently during a network split.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.093 seconds)
+   **Total running time of the script:** (0 minutes 0.028 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_replication_plot_01_cap_theorem.py:

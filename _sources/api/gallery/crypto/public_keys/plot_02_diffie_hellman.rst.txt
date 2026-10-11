@@ -26,30 +26,36 @@ exchanging only public values: each raises the other's public element to
 their own private exponent, and both arrive at g**(a*b). An eavesdropper sees
 g**a and g**b but would need a discrete logarithm to continue.
 
-What to look for
-----------------
-
 Both parties compute the same shared element without ever sending it. Then
 a man in the middle substitutes his own public value: the arithmetic still
 works, but Alice now shares a secret with Mallory. Agreement on a secret is
 not authentication of the other person.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-26
-
-Agree on a shared group element
--------------------------------
-Neither party sends the shared value. Both reach g**(a*b) modulo p.
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-38
+.. GENERATED FROM PYTHON SOURCE LINES 17-21
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-25
+
+Agree on a shared group element
+-------------------------------
+Neither party sends the shared value. Both reach g**(a*b) modulo p.
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-34
+
+.. code-block:: Python
+
 
     group = bk.crypto.DHGroup()  # p = 23, q = 11, g = 2: tiny, so every value is visible.
     alice_secret, bob_secret = 3, 7
@@ -72,14 +78,14 @@ Neither party sends the shared value. Both reach g**(a*b) modulo p.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-43
+.. GENERATED FROM PYTHON SOURCE LINES 35-39
 
 Authentication is a separate problem
 ------------------------------------
 Mallory substitutes her own public value. Alice now shares a secret with
 Mallory, not Bob. Real protocols authenticate the exchange and use a KDF.
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-49
+.. GENERATED FROM PYTHON SOURCE LINES 39-45
 
 .. code-block:: Python
 
@@ -102,12 +108,12 @@ Mallory, not Bob. Real protocols authenticate the exchange and use a KDF.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
 
 The same exchange in a group too large to search by hand
 --------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-56
+.. GENERATED FROM PYTHON SOURCE LINES 48-52
 
 .. code-block:: Python
 
@@ -122,12 +128,12 @@ The same exchange in a group too large to search by hand
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 Exponentiation scrambles the subgroup
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-67
+.. GENERATED FROM PYTHON SOURCE LINES 55-65
 
 .. code-block:: Python
 
@@ -138,6 +144,8 @@ Exponentiation scrambles the subgroup
         xlabel="private exponent x", ylabel="public element g**x mod p", title="DH in a tiny subgroup"
     )
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -151,17 +159,19 @@ Exponentiation scrambles the subgroup
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-72
+.. GENERATED FROM PYTHON SOURCE LINES 66-72
 
 Exercise
 --------
 Exhaustively recover Alice's exponent from her public value. Why does this
 experiment say nothing about the cost for a carefully chosen large group?
 
+A worked solution is in :doc:`/exercises/crypto`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.135 seconds)
+   **Total running time of the script:** (0 minutes 0.028 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_public_keys_plot_02_diffie_hellman.py:

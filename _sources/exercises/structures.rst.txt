@@ -152,7 +152,7 @@ Estimate the proof length for a round of a million documents.
 7. The payment lifecycle: reinclusion and conflicts
 ---------------------------------------------------
 
-From :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle` and
+From :doc:`/api/gallery/structures/chain/plot_01_payment_lifecycle` and
 :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`. After a fork,
 replay a displaced payment, then try it against a state where a conflicting
 payment spent the same account nonce.

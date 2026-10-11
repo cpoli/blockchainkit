@@ -27,28 +27,35 @@ attacker who announces Q_rogue = xG - Q_honest controls the sum alone.
 Maxwell, Poelstra, Seurin and Wuille's MuSig weights each key by a hash of
 the whole key list, a_i = H(L, Q_i), so no key can cancel the others.
 
-What to look for
-----------------
-
 The rogue key takes over a naive aggregate. With MuSig coefficients the
 attack fails, and three signers produce one 64-byte-style signature that
 verifies like any other. This is how Taproot multisig spends look like
 single-signer spends on Bitcoin.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-The rogue-key attack on naive aggregation
------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-40
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+The rogue-key attack on naive aggregation
+-----------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-37
+
+.. code-block:: Python
+
 
     curve = bk.crypto.SECP256K1
     honest = bk.crypto.public_key(3)
@@ -74,12 +81,12 @@ The rogue-key attack on naive aggregation
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 MuSig coefficients stop it
 --------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-47
+.. GENERATED FROM PYTHON SOURCE LINES 40-44
 
 .. code-block:: Python
 
@@ -94,12 +101,12 @@ MuSig coefficients stop it
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 45-47
 
 Three honest signers, one signature
 -----------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-58
+.. GENERATED FROM PYTHON SOURCE LINES 47-55
 
 .. code-block:: Python
 
@@ -124,7 +131,7 @@ Three honest signers, one signature
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 59-73
+.. GENERATED FROM PYTHON SOURCE LINES 56-72
 
 .. code-block:: Python
 
@@ -142,6 +149,8 @@ Three honest signers, one signature
     ax.set(ylabel="verifies", yticks=[0, 1], title="Key aggregation with and without MuSig")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -154,7 +163,7 @@ Three honest signers, one signature
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-79
+.. GENERATED FROM PYTHON SOURCE LINES 73-78
 
 Exercise
 --------
@@ -165,7 +174,7 @@ signers exchange commitments to their nonces R_i before revealing them?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.261 seconds)
+   **Total running time of the script:** (0 minutes 0.107 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_signatures_plot_05_musig.py:

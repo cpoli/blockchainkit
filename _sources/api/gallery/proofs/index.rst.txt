@@ -1,0 +1,452 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.proofs``, one experiment per
+breakthrough on the :doc:`proof systems history page
+</history/proofs_breakthroughs>`: the Schwartz-Zippel lemma, sum-check and
+IP = PSPACE; the PCP theorem, Kilian's arguments and Micali's CS proofs; KZG
+commitments, quadratic arithmetic programs, Groth16, trusted-setup
+ceremonies and PLONK; Zerocash's private payments; and the transparent
+systems: Bulletproofs, FRI, STARKs and Halo.
+
+Each script is self-contained and runs with
+``python examples/proofs/<section>/<script>.py``.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Polynomials and interactive proofs
+----------------------------------
+
+Testing polynomial identities at random points, the sum-check protocol, and IP = PSPACE.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Are two polynomial expressions the same polynomial? Expanding them can take exponentially many terms. Schwartz, and independently Zippel and DeMillo and Lipton, noticed that a nonzero polynomial of total degree d has few roots: on a random point of \mathbb{F}^n it vanishes with probability">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/foundations/images/thumb/sphx_glr_plot_01_schwartz_zippel_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/foundations/plot_01_schwartz_zippel`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Schwartz-Zippel lemma: polynomial identities at random points (1980)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lund, Fortnow, Karloff and Nisan showed that a prover can convince a verifier of a sum over the whole Boolean cube,">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/foundations/images/thumb/sphx_glr_plot_02_sumcheck_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/foundations/plot_02_sumcheck`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The sum-check protocol: verifying a sum of 2n terms (1990)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Interactive proofs can do much more than NP. Shamir showed that they capture all of PSPACE, whose complete problem is deciding a fully quantified Boolean formula such as \forall x_1 \exists x_2 \forall x_3 \, \varphi. Arithmetize \varphi, and turn each quantifier into an operator on polynomials:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/foundations/images/thumb/sphx_glr_plot_03_ip_pspace_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/foundations/plot_03_ip_pspace`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Shamir's IP = PSPACE: proving a quantified formula (1990)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Probabilistically checkable proofs and arguments
+------------------------------------------------
+
+Proofs checked by reading a few bits, and how Merkle trees and hashing make them short.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Arora and Safra, and Arora, Lund, Motwani, Sudan and Szegedy, proved that every NP statement has a probabilistically checkable proof: a verifier tosses coins, reads a constant number of the proof&#x27;s bits, and accepts a correct proof always and an incorrect one with probability at most 1/2. Repeating drives the error down to 2^{-k}.">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/pcp/images/thumb/sphx_glr_plot_01_pcp_theorem_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/pcp/plot_01_pcp_theorem`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The PCP theorem: checking a proof by reading a few bits (1992)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A PCP is cheap to check but expensive to send. Kilian&#x27;s argument sends only a Merkle root of it. The verifier then chooses its queries, and the prover opens each queried bit with its authentication path. Changing an answer after committing would mean finding a SHA-256 collision, so the prover is bound to one proof, and the conversation costs">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/pcp/images/thumb/sphx_glr_plot_02_kilian_arguments_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/pcp/plot_02_kilian_arguments`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kilian's succinct arguments: a Merkle-committed PCP (1992)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Micali made Kilian&#x27;s argument non-interactive: the queries are derived by hashing the Merkle root, so the prover can write the whole argument down at once, and anyone can check it later. If the hash behaves like a random oracle, the prover cannot predict which bits will be read before committing.">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/pcp/images/thumb/sphx_glr_plot_03_micali_cs_proofs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/pcp/plot_03_micali_cs_proofs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Micali's computationally sound proofs: hashing the verifier away (1994)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Private payments
+----------------
+
+Notes, nullifiers and a SNARK: spending a coin without revealing which one.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin&#x27;s ledger shows who paid whom and how much. Ben-Sasson, Chiesa, Garman, Green, Miers, Tromer and Virza hid all three. A coin is a note, and the ledger stores only its commitment, in a Merkle tree. Spending a note publishes its nullifier \mathrm{nf} = H(\mathit{sk}, \rho), a commitment to the payee&#x27;s new note, and a zk-SNARK of the statement">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/privacy/images/thumb/sphx_glr_plot_01_zerocash_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/privacy/plot_01_zerocash`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Zerocash: notes, nullifiers and private payments (2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Pairing-based SNARKs
+--------------------
+
+Polynomial commitments, quadratic arithmetic programs, Groth16, trusted setups, and PLONK.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Kate, Zaverucha and Goldberg committed to a whole polynomial with a single group element, C = [f(\tau)]G, computed from published powers [\tau^i]G of a secret \tau. To prove f(z) = y, the prover commits to the quotient q(X) = (f(X) - y)/(X - z), which is a polynomial exactly when the claim is true, and the verifier checks the division at the hidden point with a pairing:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_01_kzg_commitments_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_01_kzg_commitments`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kate-Zaverucha-Goldberg commitments: one point per polynomial (2010)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gennaro, Gentry, Parno and Raykova turned a whole circuit into a single polynomial identity. Write the computation as rank-1 constraints \langle a_j, z\rangle \cdot \langle b_j, z\rangle = \langle c_j, z\rangle, put constraint j at the point \omega^j, and interpolate each column into polynomials A_i, B_i, C_i. Then all the constraints hold exactly when">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_02_qap_pinocchio_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_02_qap_pinocchio`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Quadratic arithmetic programs and Pinocchio: a circuit as one divisibility (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Groth found the shortest pairing-based SNARK: a proof is three group elements (A, B, C), and the verifier checks one equation,">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_03_groth16_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_03_groth16`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Groth16: three group elements per proof (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pairing-based SNARKs need [\tau^i]G for a \tau that nobody knows: whoever knows it can prove false statements. In October 2016 six Zcash participants generated its parameters by multi-party computation, so that the secret stayed unknown unless all of them colluded. Later &quot;powers of tau&quot; ceremonies scaled this to thousands of participants. Each one multiplies the current string by a secret s and destroys it:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_04_powers_of_tau_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_04_powers_of_tau`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Trusted-setup ceremonies: Zcash's parameters and the powers of tau (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gabizon, Williamson and Ciobotaru wrote circuits as uniform gates, q_L a + q_R b + q_O c + q_M ab + q_C = 0, and enforced that wires sharing a variable carry the same value with a permutation argument. With random \beta, \gamma, the grand product">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_05_plonk_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_05_plonk`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">PLONK: permutation arguments and a universal setup (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Transparent proofs
+------------------
+
+Proof systems without a trusted setup: Bulletproofs, FRI, STARKs, and Halo's recursion.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Confidential transactions hide amounts in Pedersen commitments V = g^v h^\gamma, which add: inputs balance outputs if the commitments&#x27; product does. But the arithmetic is modulo the group order, so an output of -1000 would mint coins unless every amount is proved to lie in [0, 2^n). Bünz, Bootle, Boneh, Poelstra, Wuille and Maxwell reduced the range check to one inner product t = \langle l, r \rangle, and proved the inner product by halving the vectors each round, sending two group elements per halving. The proof is">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_01_bulletproofs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_01_bulletproofs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bulletproofs: range proofs without a trusted setup (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How can a verifier tell that a million committed values are evaluations of a polynomial of degree below d, reading only a few of them? Ben-Sasson, Bentov, Horesh and Riabzev fold the problem in half each round. Writing f(X) = f_e(X^2) + X f_o(X^2), a random \alpha gives a polynomial of half the degree on a domain of half the size,">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_02_fri_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_02_fri`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FRI: fast Reed-Solomon proximity testing (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ben-Sasson, Bentov, Horesh and Riabzev built scalable, transparent arguments of knowledge: no trusted setup, nothing but a hash function, and proofs that grow polylogarithmically with the computation. Write the computation as an execution trace, here the Fibonacci sequence a_{i+2} = a_{i+1} + a_i, interpolate it as a polynomial f over a subgroup \langle g\rangle, and turn each rule into a divisibility:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_03_starks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_03_starks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">STARKs: transparent proofs of computation from hashes (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A proof that a previous proof verified, applied at every block, would let anyone check a whole chain from one short proof. That needs verification cheap enough to run inside a proof. Inner-product arguments have no trusted setup, but verifying one costs a multi-exponentiation as long as the committed vector. Bowe, Grigg and Hopwood noticed that the expensive part is a commitment to the polynomial">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_04_halo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_04_halo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Halo: recursive proof composition without a trusted setup (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/proofs/foundations/index.rst
+   /api/gallery/proofs/pcp/index.rst
+   /api/gallery/proofs/privacy/index.rst
+   /api/gallery/proofs/snarks/index.rst
+   /api/gallery/proofs/transparent/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: proofs_python.zip </api/gallery/proofs/proofs_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: proofs_jupyter.zip </api/gallery/proofs/proofs_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

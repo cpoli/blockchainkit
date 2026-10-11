@@ -1,0 +1,26 @@
+blockchainkit.contracts
+=======================
+
+A world-state model of contracts calling contracts: token standards, wallets, proxies and their famous failures, with Hoare logic, symbolic execution and fuzzing.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/contracts_breakthroughs
+      :link-type: doc
+
+      The breakthroughs behind this subpackage, linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/contracts/index
+      :link-type: doc
+
+      The runnable example gallery.
+
+   .. grid-item-card:: API reference
+      :link: /api/contracts
+      :link-type: doc
+
+      Every public class and function.
+

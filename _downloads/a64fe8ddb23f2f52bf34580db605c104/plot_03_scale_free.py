@@ -1,4 +1,4 @@
-"""
+r"""
 Scale-free networks: preferential attachment (Barabási and Albert 1999)
 =======================================================================
 
@@ -8,27 +8,24 @@ the narrow distribution of a random graph. Barabási and Albert explained it
 with growth plus *preferential attachment*: newcomers link to existing nodes
 with probability proportional to their degree, so the rich get richer.
 
-What to look for
-----------------
-
 On log-log axes the degree distribution is close to a straight line of
 slope -3, and the largest degree is several times what a random graph of
 the same density reaches. Hubs make gossip fast, but they are also a weak
 point: removing 5% of the nodes at random leaves the network in one piece,
 while removing the 5% largest hubs already cuts a tenth of the peers off.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
 
 # %%
-# Degree distributions
-# --------------------
 import collections
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Degree distributions
+# --------------------
 
 n = 3000
 scale_free = bk.network.barabasi_albert(n, 2, seed=1)
@@ -76,6 +73,8 @@ left.legend()
 right.bar(["random 5%", "top-hub 5%"], [failures, targeted], color=["#16a34a", "#dc2626"])
 right.set(ylabel="largest component share", title="Robust, yet fragile")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

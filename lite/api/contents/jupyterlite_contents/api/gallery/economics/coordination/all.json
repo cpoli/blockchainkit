@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.803380Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.803380Z",
+      "mimetype": null,
+      "name": "plot_02_schellingcoin_oracle.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/coordination/plot_02_schellingcoin_oracle.ipynb",
+      "size": 4748,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.803273Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.803273Z",
+      "mimetype": null,
+      "name": "plot_01_schelling_focal_points.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/coordination/plot_01_schelling_focal_points.ipynb",
+      "size": 3669,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T05:56:30.821530Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T05:56:30.821812Z",
+  "mimetype": null,
+  "name": "coordination",
+  "path": "jupyterlite_contents/api/gallery/economics/coordination",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

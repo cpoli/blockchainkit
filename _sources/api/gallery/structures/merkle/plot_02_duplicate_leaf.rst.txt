@@ -27,28 +27,34 @@ send a block with a duplicated transaction: nodes rejected it as invalid and
 remembered its hash as bad, so they later refused the valid block with the
 same hash. The bug was fixed by checking for the duplication.
 
-What to look for
-----------------
-
 Bitcoin's convention gives one root to two different lists. blockchainkit's
 tree promotes odd nodes instead and binds the leaf count into the root, so
 every list has its own root.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-One root, two lists
--------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-35
+.. GENERATED FROM PYTHON SOURCE LINES 17-21
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+One root, two lists
+-------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-31
+
+.. code-block:: Python
+
 
     honest = [b"coinbase", b"pay Bob", b"pay Carol"]
     mutated = honest + [b"pay Carol"]
@@ -69,12 +75,12 @@ One root, two lists
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 32-34
 
 How many sizes are affected?
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-56
+.. GENERATED FROM PYTHON SOURCE LINES 34-54
 
 .. code-block:: Python
 
@@ -96,6 +102,8 @@ How many sizes are affected?
     )
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -108,7 +116,7 @@ How many sizes are affected?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-63
+.. GENERATED FROM PYTHON SOURCE LINES 55-63
 
 Exercise
 --------
@@ -117,10 +125,12 @@ never paired). Find a length-6 list whose
 Bitcoin-style root equals that of a length-8 list. (Hint: duplicate a
 whole pair.) Why does binding the count rule out all such cases?
 
+A worked solution is in :doc:`/exercises/structures`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.137 seconds)
+   **Total running time of the script:** (0 minutes 0.033 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_merkle_plot_02_duplicate_leaf.py:

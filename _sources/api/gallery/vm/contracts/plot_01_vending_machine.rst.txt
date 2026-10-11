@@ -27,21 +27,11 @@ primordial example: anyone who inserts enough money gets the item and the
 change, and nobody can take the goods without paying. A blockchain contract
 is such a machine whose code and state every node can check.
 
-What to look for
-----------------
-
 Every outcome follows from the code: a sale moves exactly one item and the
 price, underpaying or buying from an empty machine changes nothing, and the
 machine's books always balance: revenue equals price times items sold.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Run a day of customers
-----------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-59
+.. GENERATED FROM PYTHON SOURCE LINES 17-23
 
 .. code-block:: Python
 
@@ -50,6 +40,23 @@ Run a day of customers
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Run a day of customers
+----------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-58
+
+.. code-block:: Python
+
 
     machine = bk.vm.vending_machine()
     STOCK, PRICE, REVENUE = 0, 1, 2
@@ -80,6 +87,8 @@ Run a day of customers
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -98,7 +107,7 @@ Run a day of customers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-65
+.. GENERATED FROM PYTHON SOURCE LINES 59-64
 
 Exercise
 --------
@@ -109,7 +118,7 @@ has no notion of a caller; what would the contract need to know?)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.134 seconds)
+   **Total running time of the script:** (0 minutes 0.037 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_contracts_plot_01_vending_machine.py:

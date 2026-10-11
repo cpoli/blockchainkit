@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_economics_auctions:
+
+Auctions and market makers
+--------------------------
+
+Truthful bidding, the revenue-maximizing auction, and a market maker for predictions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In a sealed-bid first-price auction, the winner pays its own bid, so every bidder shades its bid below its value, by an amount that depends on guesses about the others. Vickrey proposed charging the winner the second-highest bid instead. A bid then decides only whether one wins, never what one pays, and bidding one&#x27;s true value is a dominant strategy:">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/auctions/images/thumb/sphx_glr_plot_01_vickrey_second_price_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/auctions/plot_01_vickrey_second_price`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Vickrey's second-price auction: truthful bidding (1961)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Which auction earns the seller the most? Myerson replaced each bidder&#x27;s value v by its virtual value, the marginal revenue of selling to it,">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/auctions/images/thumb/sphx_glr_plot_02_myerson_optimal_auction_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/auctions/plot_02_myerson_optimal_auction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Myerson's optimal auction and revenue equivalence (1981)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A prediction market pays 1 for each share of the outcome that happens, so a share&#x27;s price reads as a probability. With few traders, an order book is empty and nobody can trade. Hanson&#x27;s automated market maker always quotes a price: it keeps the shares q_i sold of each outcome and charges each trade the change in">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/auctions/images/thumb/sphx_glr_plot_03_hanson_lmsr_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/auctions/plot_03_hanson_lmsr`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hanson's logarithmic market scoring rule (2003)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/economics/auctions/plot_01_vickrey_second_price
+   /api/gallery/economics/auctions/plot_02_myerson_optimal_auction
+   /api/gallery/economics/auctions/plot_03_hanson_lmsr
+

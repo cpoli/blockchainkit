@@ -3,42 +3,49 @@ Breakthroughs in Replicated Execution
 
 .. include:: /_generated/nav/vm.rst
 
+.. epigraph::
+
+   "A smart contract is a set of promises, specified in digital form,
+   including protocols within which the parties perform on these promises."
+   -- Nick Szabo, *Smart Contracts: Building Blocks for Digital Markets*, 1996
+
 When every node must reach the same state, every node must run the same
 program and get the same result, within bounded resources. This chronology
 traces the ideas behind :mod:`blockchainkit.vm`, from reverse Polish notation
-to the overflow bugs of token contracts. Each entry has its own experiment in
-the :doc:`gallery </api/gallery/vm/index>`.
-
-All snippets use the package's conventional import: ``import blockchainkit as bk``.
+to the overflow bugs of token contracts. The argument runs in four steps.
+Stack machines give a simple, portable way to run programs (1924-1970).
+Computability theory shows that nobody can predict whether an arbitrary
+program stops, so execution must be bounded by a budget instead (1936-1966).
+Replication needs execution to be deterministic and all-or-nothing
+(1978-1981). Smart contracts and blockchains then put these pieces together,
+and their attacks show what happens when one piece is missing (1994-2018).
+The stack machine is a small teaching design, not the EVM; :doc:`/protocol` lists exactly where it differs.
+How contracts are designed, broken and verified continues in
+:doc:`contracts_breakthroughs`.
 
 .. contents:: Timeline
    :local:
    :depth: 1
 
-1924–1957 — Polish and reverse Polish notation
-----------------------------------------------
+1924-1957 -- Polish and Reverse Polish Notation
+-----------------------------------------------
 
-**In plain language.** Writing the operation after its numbers, as in
-``1 2 +``, removes the need for parentheses and gives exactly the order in
-which a machine with a stack of numbers can compute.
+Łukasiewicz wrote logical formulas with each operator before its operands, so
+that no parentheses or precedence rules are needed. Hamblin, designing
+compilers for early Australian computers, reversed the order. In *reverse*
+Polish notation each operator follows its operands, which is exactly the order
+in which a machine with one stack computes, left to right:
 
-**Reading the experiment.** RPN is reverse Polish notation. Each number
-becomes ``PUSH``; each operator becomes an instruction that replaces the top
-two stack values by its result.
+.. math::
 
-Łukasiewicz wrote logical formulas with each operator before its operands,
-so that no parentheses or precedence rules are needed. Hamblin, designing
-compilers for early Australian computers, reversed the order: in *reverse*
-Polish notation ``(1 + 2) \times 3`` is ``1 2 + 3 ×``, evaluated left to right
-with one stack. Dijkstra's shunting-yard algorithm (1961) converts ordinary
-infix notation to this order. Every stack virtual machine, including Bitcoin
-Script and the EVM, runs code in this form.
+   (1 + 2) \times 3 \quad\longrightarrow\quad 1\ 2\ +\ 3\ \times.
 
-**Implementation:** :func:`blockchainkit.vm.systems.expressions.to_rpn` (shunting
+Dijkstra's shunting-yard algorithm (1961) converts ordinary infix notation to
+this order. Every stack virtual machine, including Bitcoin Script and the EVM,
+runs code in this form.
+
+*Implementation:* :func:`blockchainkit.vm.systems.expressions.to_rpn` (shunting
 yard) and :func:`blockchainkit.vm.systems.expressions.compile_expression`.
-
-**Experiment:** the gallery example compiles an expression to RPN and to
-instructions, runs it, and traces the stack.
 
 *References:* J. Łukasiewicz, *Elementy logiki matematycznej* (1929);
 C. L. Hamblin, *Translation to and from Polish notation*, The Computer Journal
@@ -46,64 +53,48 @@ C. L. Hamblin, *Translation to and from Polish notation*, The Computer Journal
 
 .. minigallery:: ../../examples/vm/foundations/plot_01_reverse_polish.py
 
-
-1936 — Turing machines and the halting problem
-----------------------------------------------
-
-**In plain language.** No program can look at every other program and say
-whether it will ever finish. A system that runs programs from strangers
-therefore cannot check them in advance; it can only give each one a budget.
-
-**Reading the experiment.** All two-state Turing machines run from a blank
-tape. *Halted* machines stopped, *looping* ones repeated a configuration and
-provably never stop, and *unknown* ones simply used up the step budget.
+1936 -- Turing Machines and the Halting Problem
+-----------------------------------------------
 
 Turing modeled computation as a machine reading and writing an unbounded tape
 under a finite table of rules, and proved by diagonalization that no machine
-decides, for every machine and input, whether it halts. Rice's theorem
-extends this to every nontrivial property of a program's behavior. For a
-blockchain, this means a node cannot reject non-terminating contracts before
-running them. Ethereum's answer is gas: every step is paid for, so every call
-ends.
+decides, for every machine and input, whether it halts. Rice's theorem extends
+this to every nontrivial property of a program's behavior.
 
-**Implementation:** :func:`blockchainkit.vm.systems.turing.run_turing_machine`
+For a blockchain, this means a node cannot inspect a stranger's contract and
+reject it in advance for never finishing. It can only give each call a budget.
+Ethereum's answer is gas: every step costs gas and every call carries a finite
+amount, so every call ends, either by finishing or by running out of gas. The
+budget does not decide halting. It makes the question irrelevant.
+
+*Implementation:* :func:`blockchainkit.vm.systems.turing.run_turing_machine`
 (with exact cycle detection) and
 :func:`blockchainkit.vm.systems.turing.enumerate_machines`.
 
-**Experiment:** the gallery example classifies all 20,736 two-state machines at
-growing budgets and shows that thousands remain unknown at every budget.
-
 *References:* A. M. Turing, *On computable numbers, with an application to the
-Entscheidungsproblem*, Proceedings of the London Mathematical Society s2-42(1),
-230–265 (1937; read 1936). `DOI <https://doi.org/10.1112/plms/s2-42.1.230>`__.
+Entscheidungsproblem*, Proceedings of the London Mathematical Society
+s2-42(1), 230–265 (1937; read 1936). `DOI
+<https://doi.org/10.1112/plms/s2-42.1.230>`__.
 
 .. minigallery:: ../../examples/vm/foundations/plot_02_halting_problem.py
 
+1961 -- A Hardware Stack: The Burroughs B5000
+---------------------------------------------
 
-1961 — A hardware stack: the Burroughs B5000
---------------------------------------------
+Robert Barton designed the Burroughs B5000 to keep intermediate results on a
+hardware stack instead of in named registers, so that compiled Algol programs
+mapped directly onto machine operations. The stack needs no register
+allocation, but it is a finite resource, and the shape of an expression decides
+how much stack its evaluation needs. Evaluated left to right,
+:math:`((1 + 2) + 3) + 4` never holds more than two values, because each sum is
+finished before the next operand arrives. :math:`1 + (2 + (3 + 4))` holds all
+four at once, because every addition waits for the one inside it. Virtual machines
+inherit the limit: the EVM caps its stack at 1024 words, and Bitcoin caps the
+combined stacks at 1000 items.
 
-**In plain language.** A computer can be built to keep its intermediate results
-on a stack instead of in named registers. The stack is finite, so how deeply a
-calculation nests decides whether it fits.
-
-**Reading the experiment.** Two expressions compute the same sum. The plot
-shows the stack height after each instruction; the dashed line is a small
-stack limit.
-
-Robert Barton designed the Burroughs B5000 around a hardware stack so that
-compiled Algol programs mapped directly onto machine operations. The stack
-needs no register allocation, but it is a finite resource: the depth of an
-expression tree's evaluation, its Ershov number, determines how much stack
-it needs. The EVM caps its stack at 1024 words, and Bitcoin caps the combined
-stacks at 1000 items.
-
-**Implementation:** the ``stack_limit`` of
+*Implementation:* the ``stack_limit`` of
 :func:`blockchainkit.vm.systems.stack_machine.execute`;
 :func:`blockchainkit.vm.visualizers.plots.plot_stack_height`.
-
-**Experiment:** the gallery example evaluates a left-nested and a right-nested
-sum of twelve numbers; one needs 2 stack slots, the other 12.
 
 *References:* R. S. Barton, *A new approach to the functional design of a
 digital computer*, Proc. Western Joint Computer Conference, 393–396 (1961).
@@ -111,38 +102,30 @@ digital computer*, Proc. Western Joint Computer Conference, 393–396 (1961).
 
 .. minigallery:: ../../examples/vm/foundations/plot_03_hardware_stack.py
 
+1962 -- Radó's Busy Beaver
+--------------------------
 
-1962 — The busy beaver
-----------------------
-
-**In plain language.** Among all tiny programs that eventually stop, which runs
-longest? The answer grows so fast that no program can compute it, and
-finding it for five-state machines took until 2024.
-
-**Reading the experiment.** :math:`S(n)` is the most steps a halting
-:math:`n`-state, two-symbol machine takes from a blank tape; :math:`\Sigma(n)`
-is the most 1s it can leave.
-
-Radó defined the busy-beaver functions and proved they grow faster than any
-computable function: if :math:`S` were computable, one could decide halting for
-:math:`n`-state machines by running each for :math:`S(n)` steps. The known
-values are
+Among all tiny programs that eventually stop, which runs longest? Radó defined
+the busy-beaver function :math:`S(n)`, the most steps any halting
+:math:`n`-state, 2-symbol machine takes from a blank tape, and proved that
+:math:`S` is not computable. The reason is short. If :math:`S` were computable,
+one could decide halting on a blank tape: run an :math:`n`-state machine for
+:math:`S(n)` steps, and if it has not stopped by then, it never will. Radó also
+proved more: :math:`S` eventually grows faster than every computable function.
+The known values are
 
 .. math::
 
    S(1) = 1,\quad S(2) = 6,\quad S(3) = 21,\quad S(4) = 107,\quad
    S(5) = 47{,}176{,}870.
 
-Lin and Radó settled :math:`S(3)` by computer in 1965; :math:`S(5)` was proved by
-the bbchallenge collaboration in 2024. A gas limit is a busy-beaver bound
-chosen by policy rather than computed.
+Lin and Radó settled :math:`S(3)` by computer in 1965; :math:`S(5)` was proved
+by the bbchallenge collaboration in 2024. A gas limit plays the role that
+:math:`S(n)` would play, a step count beyond which execution stops. Because the
+true bound cannot be computed, the limit is chosen by policy instead.
 
-**Implementation:** :func:`blockchainkit.vm.systems.turing.busy_beaver` searches
+*Implementation:* :func:`blockchainkit.vm.systems.turing.busy_beaver` searches
 every machine of a given size.
-
-**Experiment:** the gallery example searches all two-state machines and finds
-:math:`S(2) = 6` and :math:`\Sigma(2) = 4`; the tests also run the 21-step
-three-state champion.
 
 *References:* T. Radó, *On non-computable functions*, Bell System Technical
 Journal 41(3), 877–884 (1962). `DOI
@@ -152,29 +135,23 @@ Journal 41(3), 877–884 (1962). `DOI
 
 .. minigallery:: ../../examples/vm/foundations/plot_04_busy_beaver.py
 
+1966 -- Böhm and Jacopini: Sequence, Selection, Iteration
+---------------------------------------------------------
 
-1966 — Sequence, selection, iteration
--------------------------------------
+Böhm and Jacopini proved that three building blocks suffice to express any
+flowchart, given extra Boolean variables if needed: do this then that, choose
+between two paths, and repeat while a condition holds. Dijkstra's
+*Go To Statement Considered Harmful* (1968) turned
+the result into a discipline. On a stack machine the three constructs are
+straight-line code, a conditional jump, and a backward jump.
 
-**In plain language.** Every program, however tangled, can be rewritten using
-three building blocks: do this then that, choose between two paths, and repeat
-while a condition holds.
+Only iteration can make a program run longer than it is. Without backward
+jumps, each instruction runs at most once, so running time is bounded by program
+length. With them, a loop can run for as long as its input asks, and that is
+what makes gas necessary. Bitcoin Script leaves out backward jumps entirely.
 
-**Reading the experiment.** The program is written in assembly with labels;
-``JZ`` jumps when the top of the stack is zero, ``JMP`` always jumps.
-
-Böhm and Jacopini proved that sequence, selection and iteration suffice to
-express any flowchart. Dijkstra's *Go To Statement Considered Harmful* (1968)
-turned the result into a discipline. On a stack machine the three constructs
-are straight-line code, a conditional jump and a backward jump. Iteration is
-also what makes running time depend on the input, and therefore what makes
-gas necessary: Bitcoin Script leaves out backward jumps entirely.
-
-**Implementation:** :func:`blockchainkit.vm.systems.assembler.assemble`, a
+*Implementation:* :func:`blockchainkit.vm.systems.assembler.assemble`, a
 two-pass assembler that resolves labels to addresses.
-
-**Experiment:** the gallery example sums :math:`1 + \dots + n` with a loop,
-checks Gauss's formula, and shows gas growing linearly with :math:`n`.
 
 *References:* C. Böhm and G. Jacopini, *Flow diagrams, Turing machines and
 languages with only two formation rules*, Communications of the ACM 9(5),
@@ -182,60 +159,40 @@ languages with only two formation rules*, Communications of the ACM 9(5),
 
 .. minigallery:: ../../examples/vm/foundations/plot_05_structured_programming.py
 
+1970 -- Forth and Stack Words
+-----------------------------
 
-1970 — Forth and stack words
-----------------------------
+Charles Moore developed Forth around 1970 to control radio telescopes. Instead
+of naming variables, a Forth program shuffles the values on its data stack with
+a few small words, documented by stack diagrams such as ``OVER ( a b -- a b a )``
+and ``ROT ( a b c -- b c a )``. The language is tiny, fast, and easy to
+implement on small machines. Bitcoin's Script is explicitly Forth-like, and the
+EVM has whole families of ``DUP`` and ``SWAP`` instructions.
 
-**In plain language.** Instead of naming variables, a program can shuffle the
-values on its stack with a few small words: duplicate the top, drop it, swap
-the top two, copy the second, rotate three.
-
-**Reading the experiment.** A stack diagram ``( before -- after )`` lists the
-stack from bottom to top before and after a word.
-
-Charles Moore developed Forth around 1970 to control radio telescopes. Its
-programs are sequences of words acting on a data stack, documented by stack
-diagrams such as ``OVER ( a b -- a b a )`` and ``ROT ( a b c -- b c a )``. The
-language is tiny, fast, and easy to implement on small machines. Bitcoin's
-Script is explicitly Forth-like, and the EVM has whole families of ``DUP`` and
-``SWAP`` instructions.
-
-**Implementation:** the ``DUP``, ``DROP``, ``SWAP``, ``OVER`` and ``ROT`` opcodes of
-:func:`blockchainkit.vm.systems.stack_machine.execute`, whose stack effects are
-listed in :data:`blockchainkit.vm.systems.stack_machine.STACK_EFFECTS`.
-
-**Experiment:** the gallery example checks every word against its stack diagram
-and evaluates a polynomial by Horner's rule with stack words only.
+*Implementation:* the ``DUP``, ``DROP``, ``SWAP``, ``OVER`` and ``ROT`` opcodes
+of :func:`blockchainkit.vm.systems.stack_machine.execute`, whose stack effects
+are listed in :data:`blockchainkit.vm.systems.stack_machine.STACK_EFFECTS`.
 
 *References:* E. D. Rather, D. R. Colburn and C. H. Moore, *The evolution of
 Forth*, HOPL-II, 177–199 (1993). `DOI <https://doi.org/10.1145/154766.155369>`__.
 
 .. minigallery:: ../../examples/vm/foundations/plot_06_forth.py
 
-
-1978–1990 — State-machine replication
--------------------------------------
-
-**In plain language.** Copies of a program that start alike and process the same
-requests in the same order stay identical. Agreeing on the order is the hard
-part; that is what consensus is for.
-
-**Reading the experiment.** Each command is a small program updating a counter
-in storage. A *log* is the order in which commands are applied.
+1978-1990 -- State-Machine Replication
+--------------------------------------
 
 Lamport's 1978 paper showed how a total order of commands lets distributed
-processes simulate one state machine; Schneider's 1990 tutorial made *state
-machine replication* the general recipe for fault-tolerant services. It needs
-two things: agreement on the order of inputs, and deterministic execution.
-A blockchain supplies the first with consensus and the second with a virtual
-machine that has no access to clocks, randomness or the network.
+processes simulate one state machine, and Schneider's 1990 tutorial made
+*state machine replication* the general recipe for fault-tolerant services:
+copies that start alike and apply the same requests in the same order stay
+identical. The recipe needs two things, agreement on the order of inputs and
+deterministic execution. A blockchain supplies the first with consensus and the
+second with a virtual machine that has no access to clocks, randomness or the
+network.
 
-**Implementation:** determinism of
+*Implementation:* the determinism of
 :func:`blockchainkit.vm.systems.stack_machine.execute`: the same program,
 storage and arguments always give the same result.
-
-**Experiment:** the gallery example replays one log on three replicas, applies
-the same commands in all six orders, and lets each replica read its own clock.
 
 *References:* L. Lamport, *Time, clocks, and the ordering of events in a
 distributed system*, Communications of the ACM 21(7), 558–565 (1978);
@@ -245,57 +202,39 @@ approach: a tutorial*, ACM Computing Surveys 22(4), 299–319 (1990). `DOI
 
 .. minigallery:: ../../examples/vm/replication/plot_01_state_machine_replication.py
 
+1981 -- Gray's Transaction Concept
+----------------------------------
 
-1981 — The transaction concept
-------------------------------
-
-**In plain language.** A transfer must either fully happen or not happen at all.
-If it fails halfway, everything it already changed is undone.
-
-**Reading the experiment.** The trace shows *working* storage after each
-instruction. Committed storage changes only if the whole program succeeds.
-
-Jim Gray defined transactions as units of work that are atomic, consistent and
-durable (isolation was added to make the ACID properties). Atomicity means a
+A transfer must either fully happen or not happen at all. Jim Gray defined
+transactions as units of work that are atomic, consistent and durable
+(isolation was added later to make the ACID properties). Atomicity means that a
 failure at any point leaves no partial effects. Every Ethereum call is a
-transaction in this sense: when execution reverts or runs out of gas, all of its
-storage writes are discarded, although the gas spent is still paid.
+transaction in this sense: when execution reverts or runs out of gas, all of
+its storage writes are discarded, although the gas spent is still paid.
 
-**Implementation:** :func:`blockchainkit.vm.systems.stack_machine.execute` runs
+*Implementation:* :func:`blockchainkit.vm.systems.stack_machine.execute` runs
 on a copy of storage and returns it only on success; ``REVERT`` aborts
 deliberately.
 
-**Experiment:** the gallery example writes a debit, then reverts the transfer, and
-checks that the debit was never committed.
-
-*References:* J. Gray, *The transaction concept: virtues and limitations*, Proc.
-7th International Conference on Very Large Data Bases, 144–154 (1981).
+*References:* J. Gray, *The transaction concept: virtues and limitations*,
+Proc. 7th International Conference on Very Large Data Bases, 144–154 (1981).
 
 .. minigallery:: ../../examples/vm/replication/plot_02_atomic_transactions.py
 
+1994 -- Szabo's Smart Contracts
+-------------------------------
 
-1994 — Smart contracts
-----------------------
-
-**In plain language.** Some agreements can be enforced by a machine instead of a
-court: a vending machine sells to anyone who pays, and nobody can take the goods
-without paying.
-
-**Reading the experiment.** Storage holds the stock, the price and the revenue;
-each customer's payment is the call's argument; the change is the result.
-
+Some agreements can be enforced by a machine instead of a court: a vending
+machine sells to anyone who pays, and nobody can take the goods without paying.
 Nick Szabo coined *smart contract* for computerized protocols that execute the
-terms of a contract, and gave the vending machine as their ancestor. He argued
-they could reduce the need for trusted intermediaries. Ethereum made the idea
-practical by putting contract code and state on a blockchain, where every node
-executes it and anyone can check the result.
+terms of a contract, gave the vending machine as their ancestor, and argued
+that they could reduce the need for trusted intermediaries. Ethereum made the
+idea practical by putting contract code and state on a blockchain, where every
+node executes it and anyone can check the result.
 
-**Implementation:** :func:`blockchainkit.vm.systems.programs.vending_machine`,
+*Implementation:* :func:`blockchainkit.vm.systems.programs.vending_machine`,
 run with the ``arguments`` of
 :func:`blockchainkit.vm.systems.stack_machine.execute`.
-
-**Experiment:** the gallery example serves 25 customers and checks after each one
-that revenue equals price times items sold.
 
 *References:* N. Szabo, *Smart contracts* (1994); N. Szabo, *Formalizing and
 securing relationships on public networks*, First Monday 2(9) (1997). `DOI
@@ -303,126 +242,81 @@ securing relationships on public networks*, First Monday 2(9) (1997). `DOI
 
 .. minigallery:: ../../examples/vm/contracts/plot_01_vending_machine.py
 
+1995 -- Bytecode Verification
+-----------------------------
 
-1995 — Bytecode verification
-----------------------------
-
-**In plain language.** Before running code from a stranger, check that it cannot
-misuse the machine on any path, without running it.
-
-**Reading the experiment.** The verifier follows every path and tracks how many
-values the stack holds at each instruction. ``max_depth`` is the most it can
-ever hold.
-
-Gosling's design of the Java virtual machine verified downloaded bytecode before
-execution, by a data-flow analysis over all paths: no instruction may pop more
+Gosling's design of the Java virtual machine checked downloaded bytecode before
+running it, by a data-flow analysis over every path: no instruction may pop more
 values than are present, and paths that meet must agree on the stack's shape.
-Verified code runs without run-time stack checks, with stack size known in
-advance. The same idea of validating code once, at deployment, is behind
-Ethereum's EVM Object Format.
+Because the check covers every path, verified code can run without run-time
+stack checks, and its stack size is known in advance. Rice's theorem is not
+contradicted: the verifier checks the form of the code on every path, whether
+or not that path can ever run, so it is decidable, and it rejects some programs
+that would in fact behave well. The same idea of validating code once, at
+deployment, is behind Ethereum's EVM Object Format proposals.
 
-**Implementation:** :func:`blockchainkit.vm.systems.verifier.verify_bytecode`, an
-abstract interpretation of stack heights.
+*Implementation:* :func:`blockchainkit.vm.systems.verifier.verify_bytecode`, an
+abstract interpretation of stack heights only; the JVM verifier also infers the
+type of every stack slot and local variable.
 
-.. admonition:: Teaching vs production
-   :class: note
-
-   ``verify_bytecode`` tracks stack heights only. The JVM verifier also infers the
-   type of every stack slot and local variable. See :doc:`/protocol` for this
-   package's exact conventions.
-
-**Experiment:** the gallery example verifies the package's contracts, catches an
-underflow on a path a test run does not take, and rejects a loop that grows the
-stack.
-
-*References:* J. Gosling, *Java intermediate bytecodes*, ACM SIGPLAN Workshop on
-Intermediate Representations, 111–118 (1995). `DOI
+*References:* J. Gosling, *Java intermediate bytecodes*, ACM SIGPLAN Workshop
+on Intermediate Representations, 111–118 (1995). `DOI
 <https://doi.org/10.1145/202529.202541>`__.
 
 .. minigallery:: ../../examples/vm/contracts/plot_02_bytecode_verification.py
 
+2009 -- Bitcoin Script and Pay-to-Public-Key-Hash
+-------------------------------------------------
 
-2009 — Bitcoin Script and pay-to-public-key-hash
-------------------------------------------------
+Bitcoin's first release locked each coin with a tiny program in Script, a stack
+language with no loops. To spend the coin, one supplies the inputs that make the
+program succeed. The common lock
+``OP_DUP OP_HASH160 <hash> OP_EQUALVERIFY OP_CHECKSIG`` pays whoever shows a
+public key with that hash and a valid signature by it. The spender pushes a
+signature and a public key. ``OP_DUP`` copies the key, ``OP_HASH160`` hashes the
+copy, ``OP_EQUALVERIFY`` stops unless that hash matches the lock, and
+``OP_CHECKSIG`` checks the signature against the key. Without loops, execution
+time is bounded by script length, so Bitcoin needs no gas.
 
-**In plain language.** A Bitcoin coin is locked by a tiny program. To spend it,
-you supply the inputs that make the program succeed: usually a public key with
-the right fingerprint and a signature by it.
+Until 2010 the unlocking and locking scripts were concatenated and run as one
+program. ``OP_RETURN`` then ended execution early with whatever was on the
+stack, so an unlocking script ending in ``OP_TRUE OP_RETURN`` succeeded before
+the lock's checks ever ran (CVE-2010-5141). The two scripts are now run
+separately.
 
-**Reading the experiment.** The *locking* script sits on the coin; the
-*unlocking* script comes with the spending transaction. The operation count is
-the number of steps executed.
-
-Bitcoin's first release validated spends with Script, a stack language with
-no loops: ``OP_DUP OP_HASH160 <hash> OP_EQUALVERIFY OP_CHECKSIG`` pays to whoever
-shows a key with that hash and a valid signature. Without loops, execution time
-is bounded by script length, so Bitcoin needs no gas. Until 2010 the unlocking
-and locking scripts were concatenated and run as one; a script ending in
-``OP_TRUE OP_RETURN`` could then skip the lock's checks (CVE-2010-5141), and the
-two are now run separately.
-
-**Implementation:** :func:`blockchainkit.vm.systems.script.verify_script`,
+*Implementation:* :func:`blockchainkit.vm.systems.script.verify_script`,
 :func:`blockchainkit.vm.systems.script.p2pkh_locking` and
-:func:`blockchainkit.vm.systems.script.p2pkh_unlocking`. Teaching differences:
-``OP_HASH256`` replaces ``OP_HASH160``, and signatures are this package's
-Schnorr signatures over an explicit message.
-
-.. admonition:: Teaching vs production
-   :class: note
-
-   This interpreter supports a small opcode subset on big-endian numbers, uses
-   ``OP_HASH256`` for ``OP_HASH160``, and checks this package's Schnorr signatures
-   over an explicit message, not a transaction digest. See :doc:`/protocol` for
-   this package's exact conventions.
-
-**Experiment:** the gallery example spends a coin with the right key, the wrong
-key, and a signature over a different transaction.
+:func:`blockchainkit.vm.systems.script.p2pkh_unlocking` support a small opcode
+subset on big-endian numbers, use ``OP_HASH256`` in place of ``OP_HASH160``,
+and check this package's Schnorr signatures over an explicit message rather
+than a transaction digest.
 
 *References:* S. Nakamoto, Bitcoin v0.1 source code, ``script.cpp`` (2009);
-`Bitcoin Script documentation <https://developer.bitcoin.org/devguide/transactions.html>`__.
+`Bitcoin Script documentation
+<https://developer.bitcoin.org/devguide/transactions.html>`__.
 
 .. minigallery:: ../../examples/vm/script/plot_01_p2pkh.py
 
+2014 -- Ethereum and Programmable Replicated State
+--------------------------------------------------
 
-2014 — Ethereum and programmable replicated state
--------------------------------------------------
-
-**In plain language.** Participants can agree on program results as well as payments if
-they all execute the same rules. A work budget stops one program from consuming
-unlimited computation.
-
-**Reading the experiment.** S is the state before execution and S prime is the state
-afterward. In this experiment, a successful program returns updated storage; an error
-leaves the original storage untouched. This small virtual machine is separate from the
-payment ledger, rather than an Ethereum implementation.
-
-Ethereum's whitepaper describes a blockchain as a state-transition system
-whose rules can include programmable contracts. Replication
-requires deterministic execution, while bounded execution cost limits the
-resources an individual program can demand.
+Ethereum's whitepaper describes a blockchain as a state-transition system whose
+rules can include programmable contracts, so participants agree on program
+results as well as payments. Replication requires deterministic execution, and
+a gas budget stops any one program from consuming unlimited computation:
 
 .. math::
 
-   (S,\mathrm{program},\mathrm{input})\longrightarrow S'
-   \quad\text{or an execution error}.
+   (S,\mathrm{program},\mathrm{input},\mathrm{gas})\longrightarrow S'
+   \quad\text{or an execution error leaving } S.
 
-**Implementation:** :func:`blockchainkit.vm.systems.stack_machine.execute` provides a
-256-bit stack machine, integer storage, branches, a stack bound, and an
-instruction budget. It works on a storage copy and returns a new state only
-after success; errors leave the caller's state unchanged.
+Words are 256 bits, wide enough for hashes and keys.
 
-.. admonition:: Teaching vs production
-   :class: note
-
-   Every instruction costs one gas unit here, and there is no memory, contract
-   calls, logs or refunds. This is not the EVM. See :doc:`/protocol` for this
-   package's exact conventions.
-
-**Experiment:** the gallery example compares successful execution, out-of-gas
-failure, and a bounded infinite loop. Costs are one unit per instruction, not
-an EVM gas schedule. The VM is independent of the transfer-only ledger:
-connecting arbitrary contract transactions would require a further consensus
-specification.
+*Implementation:* :func:`blockchainkit.vm.systems.stack_machine.execute` is a
+256-bit stack machine with integer storage, branches, a stack bound, and an
+instruction budget. It works on a copy of storage and returns a new state only
+on success. Every instruction costs one gas unit by default, and there are no
+memory, contract calls, logs or refunds: this is not the EVM.
 
 *References:* V. Buterin, *A Next-Generation Smart Contract and Decentralized
 Application Platform* (2014). `Original whitepaper maintained by Ethereum
@@ -431,78 +325,52 @@ specification of the present-day Ethereum network.
 
 .. minigallery:: ../../examples/vm/ethereum/plot_01_gas.py
 
+2015-2016 -- Hash Time-Locked Contracts
+---------------------------------------
 
-2015–2016 — Hash time-locked contracts
---------------------------------------
+"Bob gets this money if he reveals the secret behind this hash; if he does not
+by a deadline, Alice gets it back." Peter Todd's ``OP_CHECKLOCKTIMEVERIFY``
+(BIP 65, activated in 2015) let a script refuse a spend before a given time.
+Combined with a hash lock it gives the hash time-locked contract: pay on
+revealing a preimage, or refund after a timeout. Poon and Dryja's Lightning
+Network chains HTLCs that share one hash along a route of payment channels:
+revealing the preimage at the last hop lets every earlier hop claim too.
+Timeouts grow toward the sender, so an intermediary that is paid out
+downstream with the preimage still has time to claim from upstream before its
+own refund deadline passes.
 
-**In plain language.** "Bob gets this money if he reveals the secret behind this
-fingerprint; if he does not by a deadline, Alice gets it back." Chaining such
-promises with the same secret lets payments hop across many people safely.
-
-**Reading the experiment.** The *lock time* is the block height at which the
-spending transaction becomes valid; ``OP_CHECKLOCKTIMEVERIFY`` fails if it is
-earlier than the script's deadline.
-
-Peter Todd's ``OP_CHECKLOCKTIMEVERIFY`` (BIP 65, activated in 2015) let a script
-refuse a spend before a given time. Combined with a hash lock it gives the
-hash time-locked contract: pay on revealing a preimage, or refund after a
-timeout. Poon and Dryja's Lightning Network chains HTLCs sharing one hash along
-a route of payment channels, so that revealing the preimage at the last hop
-lets every earlier hop claim too, and timeouts that grow toward the sender
-protect each intermediary.
-
-**Implementation:** :func:`blockchainkit.vm.systems.script.htlc_locking` and the
+*Implementation:* :func:`blockchainkit.vm.systems.script.htlc_locking` and the
 ``locktime`` argument of :func:`blockchainkit.vm.systems.script.verify_script`.
+Lock times are compared as plain numbers; Lightning also uses relative
+timelocks (``OP_CHECKSEQUENCEVERIFY``) and penalty transactions, which are not
+modeled.
 
-.. admonition:: Teaching vs production
-   :class: note
-
-   ``OP_CHECKLOCKTIMEVERIFY`` compares heights only. Lightning also uses relative
-   timelocks (``OP_CHECKSEQUENCEVERIFY``) and penalty transactions, which are not
-   modeled. See :doc:`/protocol` for this package's exact conventions.
-
-**Experiment:** the gallery example claims an HTLC with the secret, fails with a
-guess, refunds only from the deadline on, and settles a two-hop route.
-
-*References:* P. Todd, *BIP 65: OP_CHECKLOCKTIMEVERIFY* (2014).
-`Specification <https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki>`__;
-J. Poon and T. Dryja, *The Bitcoin Lightning Network: scalable off-chain instant
+*References:* P. Todd, *BIP 65: OP_CHECKLOCKTIMEVERIFY* (2014). `Specification
+<https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki>`__; J. Poon
+and T. Dryja, *The Bitcoin Lightning Network: scalable off-chain instant
 payments* (2016).
 
 .. minigallery:: ../../examples/vm/script/plot_02_htlc.py
 
-
-2016 — The DAO and reentrancy
------------------------------
-
-**In plain language.** A contract paid out before writing down that it had paid.
-The recipient, itself a program, asked to be paid again during the payment, and
-again, and again.
-
-**Reading the experiment.** "Pay, then update" is the vulnerable order; "update,
-then pay" is the checks-effects-interactions order. Each nested call is one
-re-entry into ``withdraw``.
+2016 -- The DAO and Reentrancy
+------------------------------
 
 The DAO was a crowdfunded investment contract holding about 14% of all ether.
 Its split function sent ether before zeroing the caller's balance, and sending
-ether to a contract runs that contract's code. In June 2016 an attacker
-re-entered the function from that code and drained about 3.6 million ether;
-Ethereum hard-forked to reverse the theft, and the dissenting chain continues as
+ether to a contract runs that contract's code. In June 2016 an attacker's
+contract called the function again from inside each payment. Because the
+balance had not yet been zeroed, every nested call passed the balance check
+and paid out the full deposit again, and the attacker drained about 3.6
+million ether. Ethereum
+hard-forked to reverse the theft, and the dissenting chain continues as
 Ethereum Classic. *Reentrancy* became the canonical smart-contract bug, avoided
-by updating state before any external call.
+by the checks-effects-interactions order: update state before any external
+call.
 
-**Implementation:** :func:`blockchainkit.vm.systems.reentrancy.drain_bank`, a
-Python model of a bank contract and an attacker whose fallback re-enters.
-
-.. admonition:: Teaching vs production
-   :class: note
-
-   ``drain_bank`` is a Python model of the call pattern, not EVM execution; the
-   DAO's real split function also involved token balances and a waiting period.
-   See :doc:`/protocol` for this package's exact conventions.
-
-**Experiment:** the gallery example drains a bank with both orders and shows how
-the call-depth limit of 1024 bounds the attack for small deposits.
+*Implementation:* :func:`blockchainkit.vm.systems.reentrancy.drain_bank`, a
+Python model of the call pattern with an attacker whose fallback re-enters, not
+EVM execution; the DAO's real split function also involved token balances and a
+waiting period.
 
 *References:* N. Atzei, M. Bartoletti and T. Cimoli, *A survey of attacks on
 Ethereum smart contracts (SoK)*, POST 2017, LNCS 10204, 164–186 (2017). `DOI
@@ -510,79 +378,49 @@ Ethereum smart contracts (SoK)*, POST 2017, LNCS 10204, 164–186 (2017). `DOI
 
 .. minigallery:: ../../examples/vm/ethereum/plot_03_reentrancy.py
 
+2016 -- Gas Repricing after Denial-of-Service Attacks
+-----------------------------------------------------
 
-2016 — Gas repricing after denial-of-service attacks
-----------------------------------------------------
+If an operation costs little gas but a lot of real work, an attacker can fill
+blocks with it and slow every node down. In September 2016 attackers spammed
+Ethereum with transactions calling underpriced, disk-heavy instructions such as
+``EXTCODESIZE``, making blocks take far longer to process. EIP-150 (the
+*Tangerine Whistle* fork, October 2016) raised their prices: ``SLOAD`` from 50
+to 200 gas, ``BALANCE`` from 20 to 400, ``EXTCODESIZE`` and ``CALL`` to 700.
+Gas prices are security parameters, because an attacker always picks the
+instruction with the most work per unit of gas.
 
-**In plain language.** If an operation costs little gas but a lot of real work,
-an attacker can fill blocks with it and slow every node down. The fix is to
-charge what the work really costs.
-
-**Reading the experiment.** *Real work* is a teaching estimate in units of one
-arithmetic instruction, with a storage read counting 100. Both programs loop
-until a block's worth of gas runs out.
-
-In September 2016 attackers spammed Ethereum with transactions that called
-underpriced, disk-heavy instructions such as ``EXTCODESIZE``, making blocks take
-far longer to process. EIP-150 (the *Tangerine Whistle* fork, October 2016)
-raised their prices: ``SLOAD`` from 50 to 200 gas, ``BALANCE`` from 20 to 400,
-``EXTCODESIZE`` and ``CALL`` to 700. Gas prices are security parameters: an
-attacker always picks the instruction with the most work per unit of gas.
-
-**Implementation:** the ``gas_costs`` schedule of
-:func:`blockchainkit.vm.systems.stack_machine.execute`.
-
-.. admonition:: Teaching vs production
-   :class: note
-
-   The real-work costs are teaching estimates in arithmetic units, not
-   measurements of any Ethereum client. See :doc:`/protocol` for this package's
-   exact conventions.
-
-**Experiment:** the gallery example compares the real work done by a block of
-storage reads and a block of arithmetic, before and after repricing.
+*Implementation:* the ``gas_costs`` schedule of
+:func:`blockchainkit.vm.systems.stack_machine.execute`. The real-work costs in
+the experiment are teaching estimates, not measurements of any Ethereum client.
 
 *References:* V. Buterin, *EIP-150: Gas cost changes for IO-heavy operations*
 (2016). `Specification <https://eips.ethereum.org/EIPS/eip-150>`__.
 
 .. minigallery:: ../../examples/vm/ethereum/plot_02_gas_repricing.py
 
+2018 -- Integer Overflow: BeautyChain
+-------------------------------------
 
-2018 — Integer overflow: BeautyChain
-------------------------------------
-
-**In plain language.** Machine numbers wrap around like a car's odometer. A
-token contract multiplied two numbers, the product wrapped to zero, and its
-balance check passed for a sender who had nothing.
-
-**Reading the experiment.** Balances live in storage, one slot per account.
-``value`` is paid to each of two recipients; the contract checks the sender's
-balance against ``2 × value`` computed modulo :math:`2^{256}`.
-
-In April 2018 an attacker called the BeautyChain token's ``batchTransfer`` with
-two recipients and ``value`` :math:`= 2^{255}`, so that
+Machine integers wrap around like a car's odometer. In April 2018 an attacker
+called the BeautyChain token's ``batchTransfer`` with two recipients and
+``value`` :math:`= 2^{255}`. The contract computed the total as
 
 .. math::
 
    2 \times 2^{255} \equiv 0 \pmod{2^{256}},
 
-passed the balance check, and created :math:`2^{256}` tokens (CVE-2018-10299).
-Exchanges suspended the token. Checked arithmetic, through the SafeMath library
-and since Solidity 0.8 by default, reverts on overflow instead.
+so the contract checked that the sender held at least 0 tokens, which passed
+for a sender who had nothing, subtracted 0, and credited each recipient with
+:math:`2^{255}` tokens, :math:`2^{256}` in total, created from nothing
+(CVE-2018-10299). Exchanges suspended the token. Checked arithmetic, through
+the SafeMath library and since Solidity 0.8 by default, detects the wrap and
+reverts instead. SafeMath's test is that dividing the product by one factor
+gives back the other, which fails here because :math:`0 / 2 \ne 2^{255}`.
 
-**Implementation:** :func:`blockchainkit.vm.systems.programs.batch_transfer`,
-with ``checked=True`` for the SafeMath test ``amount / count == value``.
-
-.. admonition:: Teaching vs production
-   :class: note
-
-   ``batch_transfer`` is a stack-machine program with storage slots as accounts,
-   not the Solidity contract. See :doc:`/protocol` for this package's exact
-   conventions.
-
-**Experiment:** the gallery example mints tokens from an empty account with the
-unchecked contract, and shows the checked one reverting while agreeing on every
-ordinary transfer.
+*Implementation:* :func:`blockchainkit.vm.systems.programs.batch_transfer` is a
+stack-machine program with storage slots as accounts, not the Solidity
+contract; ``checked=True`` adds the SafeMath test ``amount / count == value``.
 
 *References:* `CVE-2018-10299 <https://nvd.nist.gov/vuln/detail/CVE-2018-10299>`__
 (2018).

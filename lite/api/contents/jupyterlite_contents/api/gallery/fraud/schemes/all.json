@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.636218Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.636218Z",
+      "mimetype": null,
+      "name": "plot_01_ponzi_scheme.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/schemes/plot_01_ponzi_scheme.ipynb",
+      "size": 4305,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.636333Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.636333Z",
+      "mimetype": null,
+      "name": "plot_02_bartoletti_ponzi_contracts.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/schemes/plot_02_bartoletti_ponzi_contracts.ipynb",
+      "size": 4370,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.636447Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.636447Z",
+      "mimetype": null,
+      "name": "plot_03_bitconnect_lending_ponzi.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/schemes/plot_03_bitconnect_lending_ponzi.ipynb",
+      "size": 4565,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.622269Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.623029Z",
+  "mimetype": null,
+  "name": "schemes",
+  "path": "jupyterlite_contents/api/gallery/fraud/schemes",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

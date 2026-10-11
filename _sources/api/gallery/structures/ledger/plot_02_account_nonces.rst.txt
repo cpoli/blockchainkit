@@ -26,27 +26,34 @@ Ethereum replaced Bitcoin's coins with accounts: a balance per address, and a
 carry the next expected nonce, so it can be applied once and only in order.
 Without it, anyone could replay a signed payment again and again.
 
-What to look for
-----------------
-
 The same signed transfer is accepted once and rejected on replay. A transfer
 with a skipped nonce waits until the gap is filled. Account balances make
 wallets simple, at the cost of this global ordering per sender.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
-
-Replay is rejected by the nonce
--------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-49
+.. GENERATED FROM PYTHON SOURCE LINES 16-20
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-23
+
+Replay is rejected by the nonce
+-------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-46
+
+.. code-block:: Python
+
 
     alice_key = 7
     alice_pub = bk.crypto.public_key(alice_key)
@@ -83,12 +90,12 @@ Replay is rejected by the nonce
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 47-49
 
 Out-of-order transactions wait for the gap
 ------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-60
+.. GENERATED FROM PYTHON SOURCE LINES 49-57
 
 .. code-block:: Python
 
@@ -113,12 +120,12 @@ Out-of-order transactions wait for the gap
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-63
+.. GENERATED FROM PYTHON SOURCE LINES 58-60
 
 Nonce and balance after each transfer
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-75
+.. GENERATED FROM PYTHON SOURCE LINES 60-74
 
 .. code-block:: Python
 
@@ -134,6 +141,8 @@ Nonce and balance after each transfer
     )
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -146,7 +155,7 @@ Nonce and balance after each transfer
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-81
+.. GENERATED FROM PYTHON SOURCE LINES 75-80
 
 Exercise
 --------
@@ -157,7 +166,7 @@ goes wrong when each is reused?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.377 seconds)
+   **Total running time of the script:** (0 minutes 0.141 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_ledger_plot_02_account_nonces.py:

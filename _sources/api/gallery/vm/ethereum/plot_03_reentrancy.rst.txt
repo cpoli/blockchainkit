@@ -28,28 +28,35 @@ called back into the withdrawal from inside the payment, again and again,
 while its balance still showed the original deposit. About 3.6 million
 ether were drained, and Ethereum hard-forked to return them.
 
-What to look for
-----------------
-
 With the vulnerable order, the attacker withdraws its deposit once per
 nested call, until the bank is empty or the call-depth limit stops it. With
 the *checks-effects-interactions* order, the re-entrant call finds a zero
 balance and the attacker gets back exactly its deposit.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-Drain a bank holding 10,000 of other people's funds
----------------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-40
+.. GENERATED FROM PYTHON SOURCE LINES 19-23
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Drain a bank holding 10,000 of other people's funds
+---------------------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-37
+
+.. code-block:: Python
+
 
     deposits = [10, 50, 100, 500, 1000]
     vulnerable = [bk.vm.drain_bank(10_000, d) for d in deposits]
@@ -78,13 +85,13 @@ Drain a bank holding 10,000 of other people's funds
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-44
+.. GENERATED FROM PYTHON SOURCE LINES 38-41
 
 The depth limit
 ---------------
 Ethereum then limited calls to a depth of 1024; tiny deposits run into it.
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-63
+.. GENERATED FROM PYTHON SOURCE LINES 41-62
 
 .. code-block:: Python
 
@@ -107,6 +114,8 @@ Ethereum then limited calls to a depth of 1024; tiny deposits run into it.
     )
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -125,7 +134,7 @@ Ethereum then limited calls to a depth of 1024; tiny deposits run into it.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-69
+.. GENERATED FROM PYTHON SOURCE LINES 63-68
 
 Exercise
 --------
@@ -136,7 +145,7 @@ do auditors still recommend checks-effects-interactions as well?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.267 seconds)
+   **Total running time of the script:** (0 minutes 0.068 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_ethereum_plot_03_reentrancy.py:

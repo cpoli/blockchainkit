@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.640196Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.640196Z",
+      "mimetype": null,
+      "name": "plot_01_zerocash.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/privacy/plot_01_zerocash.ipynb",
+      "size": 5326,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.626907Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.626973Z",
+  "mimetype": null,
+  "name": "privacy",
+  "path": "jupyterlite_contents/api/gallery/proofs/privacy",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

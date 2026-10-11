@@ -123,8 +123,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
   
-    <p class="title logo__title">blockchainkit</p>
   
 </a></div>
     
@@ -139,27 +145,6 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../start_here.html">
-    Start here: a blockchain without the jargon
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../quickstart.html">
-    Your first payment, step by step
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../glossary.html">
-    Glossary
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
     Subpackages
   </a>
@@ -172,65 +157,20 @@
   </a>
 </li>
 
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../examples/index.html">
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../tutorials/index.html">
-    Tutorials
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../exercises/index.html">
-    Exercises
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../protocol.html">
-    Exact conventions and model boundaries
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../simulation.html">
-    Reproducible experiments and research scope
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../api/index.html">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
     API
   </a>
 </li>
 
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../contributing.html">
-    Developing blockchainkit
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
   </ul>
 </nav></div>
       
@@ -325,27 +265,6 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../start_here.html">
-    Start here: a blockchain without the jargon
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../quickstart.html">
-    Your first payment, step by step
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../glossary.html">
-    Glossary
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
     Subpackages
   </a>
@@ -367,43 +286,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
-    Tutorials
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../exercises/index.html">
-    Exercises
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../protocol.html">
-    Exact conventions and model boundaries
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../simulation.html">
-    Reproducible experiments and research scope
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../../api/index.html">
     API
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../contributing.html">
-    Developing blockchainkit
   </a>
 </li>
 
@@ -513,12 +397,19 @@
 <span class="sd">and that wasted work no longer protects it. GHOST (Greedy Heaviest Observed</span>
 <span class="sd">SubTree) walks from genesis and at each fork picks the child whose whole</span>
 <span class="sd">subtree carries the most work, counting the honest side branches too.</span>
-<span class="sd">Ethereum's proof-of-work chain used a variant through uncle rewards.</span>
+<span class="sd">Ethereum's proof-of-work chain adopted its uncle rewards but kept heaviest-chain</span>
+<span class="sd">selection; LMD-GHOST became Ethereum's fork choice with proof of stake.</span>
 <span class="sd">"""</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
 <span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.consensus.systems.pow</span><span class="w"> </span><span class="kn">import</span> <span class="n">expected_trials</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.structures.systems.block</span><span class="w"> </span><span class="kn">import</span> <span class="n">Block</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.structures.systems.chain</span><span class="w"> </span><span class="kn">import</span> <span class="n">Blockchain</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>  <span class="c1"># structures.systems.chain imports consensus: avoid the cycle.</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.structures.systems.block</span><span class="w"> </span><span class="kn">import</span> <span class="n">Block</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.structures.systems.chain</span><span class="w"> </span><span class="kn">import</span> <span class="n">Blockchain</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">_children</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">Blockchain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]]:</span>
@@ -529,17 +420,24 @@
     <span class="k">return</span> <span class="n">children</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_subtree_weights</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">Blockchain</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Expected work of every stored block's subtree, children before parents."""</span>
+    <span class="n">weights</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">b</span><span class="p">:</span> <span class="o">-</span><span class="n">b</span><span class="o">.</span><span class="n">height</span><span class="p">):</span>
+        <span class="n">weights</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">expected_trials</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">difficulty</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">block</span><span class="o">.</span><span class="n">height</span><span class="p">:</span>
+            <span class="n">weights</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">previous_hash</span><span class="p">]</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">previous_hash</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">weights</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">weights</span>
+
+
 <div class="viewcode-block" id="subtree_work">
 <a class="viewcode-back" href="../../../../api/consensus.html#blockchainkit.consensus.systems.fork_choice.subtree_work">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">subtree_work</span><span class="p">(</span><span class="n">chain</span><span class="p">:</span> <span class="n">Blockchain</span><span class="p">,</span> <span class="n">block_hash</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Return the expected work of a block and all its descendants."""</span>
-    <span class="n">children</span> <span class="o">=</span> <span class="n">_children</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
-    <span class="n">stack</span><span class="p">,</span> <span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="n">chain</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">block_hash</span><span class="p">]],</span> <span class="mi">0</span>
-    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
-        <span class="n">block</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-        <span class="n">total</span> <span class="o">+=</span> <span class="n">expected_trials</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">difficulty</span><span class="p">)</span>
-        <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">children</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="p">,</span> <span class="p">[]))</span>
-    <span class="k">return</span> <span class="n">total</span></div>
+<span class="w">    </span><span class="sd">"""Return the expected work of a block and all its descendants.</span>
+
+<span class="sd">    Raises KeyError for an unknown hash.</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">_subtree_weights</span><span class="p">(</span><span class="n">chain</span><span class="p">)[</span><span class="n">block_hash</span><span class="p">]</span></div>
 
 
 
@@ -552,9 +450,10 @@
 <span class="sd">    :class:`~blockchainkit.structures.systems.chain.Blockchain`.</span>
 <span class="sd">    """</span>
     <span class="n">children</span> <span class="o">=</span> <span class="n">_children</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">_subtree_weights</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
     <span class="n">block</span> <span class="o">=</span> <span class="n">chain</span><span class="o">.</span><span class="n">canonical_blocks</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">while</span> <span class="n">children</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="p">):</span>
-        <span class="n">block</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">children</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">subtree_work</span><span class="p">(</span><span class="n">chain</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">hash</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">hash</span><span class="p">))</span>
+        <span class="n">block</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">children</span><span class="p">[</span><span class="n">block</span><span class="o">.</span><span class="n">hash</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">weights</span><span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">hash</span><span class="p">],</span> <span class="n">c</span><span class="o">.</span><span class="n">hash</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">block</span></div>
 
 </pre></div>

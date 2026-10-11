@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.channels.systems.state_channels &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/channels/systems/state_channels';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.channels.systems.state_channels</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.channels.systems.state_channels</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Sprites and general state channels (Miller et al., 2017).</span>
+
+<span class="sd">On a chain with contracts, a channel need not be built from transactions:</span>
+<span class="sd">a contract can hold the deposits and act as judge. The parties sign</span>
+<span class="sd">successive versions of any state, and close by submitting the last one. If</span>
+<span class="sd">one party submits an old version, the other has a dispute period to submit</span>
+<span class="sd">a newer one, and the contract settles with the highest version it saw. The</span>
+<span class="sd">state can be balances or the position of a game, so one adjudicator serves</span>
+<span class="sd">every application: a *general* state channel.</span>
+
+<span class="sd">Sprites also cut the time a multi-hop payment locks up collateral. In</span>
+<span class="sd">Lightning, the expiry of each hop exceeds the next one's by a margin</span>
+<span class="sd">``delta``, so a payment over ``n`` hops holds the first hop's coins for</span>
+<span class="sd">about ``n * delta`` blocks. Sprites' hops instead share one deadline: the</span>
+<span class="sd">recipient must publish the preimage in a global *preimage manager*</span>
+<span class="sd">contract by then, and every hop settles by asking it. Each hop's expiry is</span>
+<span class="sd">the same constant, whatever the path's length.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.channels.utils.scripts</span><span class="w"> </span><span class="kn">import</span> <span class="n">PublicKey</span><span class="p">,</span> <span class="n">channel_message</span><span class="p">,</span> <span class="n">signature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.contracts.systems.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">Contract</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SchnorrSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.hashing</span><span class="w"> </span><span class="kn">import</span> <span class="n">sha256</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.signatures</span><span class="w"> </span><span class="kn">import</span> <span class="n">verify</span>
+
+
+<div class="viewcode-block" id="state_message">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.state_message">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">state_message</span><span class="p">(</span><span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">balances</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The bytes both parties sign for ``version`` of a channel's state."""</span>
+    <span class="k">return</span> <span class="n">channel_message</span><span class="p">(</span><span class="s2">"state"</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">balances</span><span class="p">),</span> <span class="n">final</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="sign_state">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.sign_state">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sign_state</span><span class="p">(</span>
+    <span class="n">private</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">channel</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">balances</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SchnorrSignature</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""One party's signature on a channel state; ``final`` marks a cooperative close.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.channels import sign_state</span>
+<span class="sd">    &gt;&gt;&gt; sign_state(7, "0xchannel", 3, [60, 40]).response &gt; 0</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="s2">"version"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">signature</span><span class="p">(</span><span class="n">private</span><span class="p">,</span> <span class="n">state_message</span><span class="p">(</span><span class="n">channel</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">balances</span><span class="p">,</span> <span class="n">final</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="StateChannel">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.StateChannel">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">StateChannel</span><span class="p">(</span><span class="n">Contract</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""An adjudicator holding two deposits and settling on the highest signed version.</span>
+
+<span class="sd">    Constructor arguments: the parties' public ``keys``, the ``accounts``</span>
+<span class="sd">    paid at the end, the initial ``balances`` (sent as the deployment's</span>
+<span class="sd">    value), and the dispute ``period`` in blocks.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.channels import StateChannel, sign_state</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.contracts import World</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.crypto import public_key</span>
+<span class="sd">    &gt;&gt;&gt; world = World()</span>
+<span class="sd">    &gt;&gt;&gt; world.fund("alice", 100)</span>
+<span class="sd">    &gt;&gt;&gt; keys, accounts = [public_key(7), public_key(5)], ["alice", "bob"]</span>
+<span class="sd">    &gt;&gt;&gt; channel = world.deploy("alice", StateChannel, keys, accounts, [100, 0], 10, value=100)</span>
+<span class="sd">    &gt;&gt;&gt; signatures = [sign_state(k, channel, 4, [70, 30]) for k in (7, 5)]</span>
+<span class="sd">    &gt;&gt;&gt; world.transact("bob", channel, "submit", 4, [70, 30], signatures).success</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; world.advance(10)</span>
+<span class="sd">    &gt;&gt;&gt; world.transact("bob", channel, "settle").success, world.balance("bob")</span>
+<span class="sd">    (True, 30)</span>
+<span class="sd">    """</span>
+
+    <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"keys"</span><span class="p">,</span> <span class="s2">"accounts"</span><span class="p">,</span> <span class="s2">"balances"</span><span class="p">,</span> <span class="s2">"version"</span><span class="p">,</span> <span class="s2">"deadline"</span><span class="p">,</span> <span class="s2">"period"</span><span class="p">,</span> <span class="s2">"closed"</span><span class="p">)</span>
+
+<div class="viewcode-block" id="StateChannel.constructor">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.StateChannel.constructor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">constructor</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">keys</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">PublicKey</span><span class="p">],</span>
+        <span class="n">accounts</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+        <span class="n">balances</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">period</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">accounts</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">balances</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"a channel has two parties"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="nb">sum</span><span class="p">(</span><span class="n">balances</span><span class="p">),</span> <span class="s2">"the deposit must equal the balances"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"keys"</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">((</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"accounts"</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">accounts</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"balances"</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">balances</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"period"</span><span class="p">,</span> <span class="n">period</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">version</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">balances</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+        <span class="n">signatures</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">SchnorrSignature</span><span class="p">],</span>
+        <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"closed"</span><span class="p">),</span> <span class="s2">"the channel is closed"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">balances</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">min</span><span class="p">(</span><span class="n">balances</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"two non-negative balances"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span>
+            <span class="nb">sum</span><span class="p">(</span><span class="n">balances</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"balances"</span><span class="p">)),</span> <span class="s2">"balances must sum to the deposit"</span>
+        <span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">state_message</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">version</span><span class="p">,</span> <span class="n">balances</span><span class="p">,</span> <span class="n">final</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">signatures</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+            <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
+                <span class="n">verify</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">signatures</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"keys"</span><span class="p">),</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="p">),</span>
+            <span class="s2">"both parties must sign"</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="StateChannel.submit">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.StateChannel.submit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">submit</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">balances</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">signatures</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">SchnorrSignature</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Submit a signed state; the first submission opens the dispute period."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">balances</span><span class="p">,</span> <span class="n">signatures</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">deadline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"deadline"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">deadline</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_number</span> <span class="o">&lt;</span> <span class="n">deadline</span><span class="p">,</span> <span class="s2">"the dispute period is over"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">version</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"version"</span><span class="p">),</span> <span class="s2">"a newer version was already submitted"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"version"</span><span class="p">,</span> <span class="n">version</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"balances"</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">balances</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">deadline</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"deadline"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_number</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"period"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"Submitted"</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="StateChannel.close">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.StateChannel.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">balances</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">signatures</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">SchnorrSignature</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Pay out at once a state both parties signed as final."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="n">version</span><span class="p">,</span> <span class="n">balances</span><span class="p">,</span> <span class="n">signatures</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"balances"</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">balances</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pay</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="StateChannel.settle">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.StateChannel.settle">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">settle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Pay out the highest submitted version once the dispute period is over."""</span>
+        <span class="n">deadline</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"deadline"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">deadline</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"no state was submitted"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">block_number</span> <span class="o">&gt;=</span> <span class="n">deadline</span><span class="p">,</span> <span class="s2">"the dispute period is not over"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"closed"</span><span class="p">),</span> <span class="s2">"the channel is closed"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pay</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_pay</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"closed"</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">account</span><span class="p">,</span> <span class="n">amount</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"accounts"</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"balances"</span><span class="p">),</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">amount</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">amount</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="PreimageManager">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.PreimageManager">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PreimageManager</span><span class="p">(</span><span class="n">Contract</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Sprites' global record of when each payment preimage was first published."""</span>
+
+    <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"published"</span><span class="p">,)</span>
+
+<div class="viewcode-block" id="PreimageManager.publish">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.PreimageManager.publish">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">publish</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preimage</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Record ``preimage`` at the current block, unless it is already recorded."""</span>
+        <span class="n">payment_hash</span> <span class="o">=</span> <span class="n">sha256</span><span class="p">(</span><span class="n">preimage</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"published"</span><span class="p">,</span> <span class="n">payment_hash</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"published"</span><span class="p">,</span> <span class="n">payment_hash</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_number</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PreimageManager.published_by">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.PreimageManager.published_by">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">published_by</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">payment_hash</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">deadline</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""True if the preimage of ``payment_hash`` was published at or before ``deadline``."""</span>
+        <span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"published"</span><span class="p">,</span> <span class="n">payment_hash</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">block</span><span class="p">)</span> <span class="ow">and</span> <span class="n">block</span> <span class="o">&lt;=</span> <span class="n">deadline</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="htlc_expiries">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.htlc_expiries">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">htlc_expiries</span><span class="p">(</span><span class="n">hops</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">delta</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">final</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Lightning's expiries, sender's hop first: each exceeds the next by ``delta``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.channels import htlc_expiries, sprites_expiries</span>
+<span class="sd">    &gt;&gt;&gt; htlc_expiries(4, delta=10), sprites_expiries(4, delta=10)</span>
+<span class="sd">    ((40, 30, 20, 10), (10, 10, 10, 10))</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">hops</span><span class="p">,</span> <span class="s2">"hops"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="s2">"delta"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">final</span><span class="p">,</span> <span class="s2">"final"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">final</span> <span class="o">+</span> <span class="p">(</span><span class="n">hops</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">hops</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="sprites_expiries">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.sprites_expiries">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sprites_expiries</span><span class="p">(</span><span class="n">hops</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">delta</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">final</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Sprites' expiries: every hop settles ``delta`` after the shared preimage deadline."""</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">hops</span><span class="p">,</span> <span class="s2">"hops"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="s2">"delta"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">final</span><span class="p">,</span> <span class="s2">"final"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">final</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,)</span> <span class="o">*</span> <span class="n">hops</span></div>
+
+
+
+<div class="viewcode-block" id="collateral_time">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.state_channels.collateral_time">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">collateral_time</span><span class="p">(</span><span class="n">amounts</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">expiries</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Worst-case coins times blocks a payment locks: the sum of ``amount * (expiry - height)``."""</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="s2">"height"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="n">e</span> <span class="o">-</span> <span class="n">height</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">amounts</span><span class="p">,</span> <span class="n">expiries</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

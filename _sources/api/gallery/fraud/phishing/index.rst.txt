@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_fraud_phishing:
+
+Phishing
+--------
+
+Taking funds without stealing keys: allowances and look-alike addresses.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An ERC-20 approve lets a spender move the owner&#x27;s tokens later without asking again. Exchanges ask once for an unlimited allowance, so users learn to sign approvals without reading them. In February 2022 Microsoft named ice phishing the attack that exploits this: a fake airdrop or mint page asks the victim to approve the attacker&#x27;s contract, and the attacker empties the wallet whenever it likes. Nothing is stolen from the keys; the signature the victim reads in the wallet is the whole attack:">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/phishing/images/thumb/sphx_glr_plot_01_ice_phishing_approvals_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/phishing/plot_01_ice_phishing_approvals`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Approval ("ice") phishing on ERC-20 allowances (2022)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An Ethereum address is 40 hexadecimal digits, and wallets show only the first and last few. From late 2022, poisoners watched for payments, ground out an address matching the payee&#x27;s ends, and sent the payer a worthless transfer from it, so that the look-alike appeared in the payer&#x27;s history right next to the real one. The next payment copied from the history went to the poisoner; in May 2024 one victim sent 68 million dollars this way. Tsuchiya, Dong, Soska and Christin measured millions of such attempts. Matching k digits takes about">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/phishing/images/thumb/sphx_glr_plot_02_address_poisoning_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/phishing/plot_02_address_poisoning`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Address poisoning with look-alike addresses (2022-2023)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fraud/phishing/plot_01_ice_phishing_approvals
+   /api/gallery/fraud/phishing/plot_02_address_poisoning
+

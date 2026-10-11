@@ -1,4 +1,4 @@
-"""
+r"""
 Integer overflow: minting tokens from nothing (BeautyChain, 2018)
 =================================================================
 
@@ -10,24 +10,20 @@ checked that the sender had at least 0 tokens, and credited each recipient
 library's checked arithmetic, and later Solidity 0.8's default overflow
 checks, close the hole.
 
-What to look for
-----------------
-
 The unchecked contract accepts the call from a sender with no tokens, and
 the total supply jumps by 2**256: tokens appear from nowhere.
 The checked version reverts, and both versions agree on every ordinary
 transfer.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # The attack
 # ----------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 ATTACKER, RECIPIENT_A, RECIPIENT_B = 1, 2, 3
 balances = {ATTACKER: 0, 4: 1_000_000}
@@ -58,9 +54,13 @@ ax.bar(supply.keys(), [s / 2**255 for s in supply.values()], color=["#64748b", "
 ax.set(ylabel="total supply / 2**255", title="Tokens from a wrapped multiplication")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # The checked version tests ``amount / count == value``. Why does that detect
 # every overflow of ``count * value`` for ``count >= 1``? Could the check
 # ``amount >= value`` replace it?
+#
+# A worked solution is in :doc:`/exercises/vm`.

@@ -28,21 +28,11 @@ have precomputed digests, so only paths to stored keys cost anything.
 Dahlberg, Pulls and Peeters made them efficient and gave non-membership
 proofs.
 
-What to look for
-----------------
-
 The root does not depend on insertion order. A key that is absent has a
 proof too: the leaf at its position is empty. Ethereum's state root plays
 this role with a related structure, the Merkle Patricia trie.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Commit to balances
-------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-41
+.. GENERATED FROM PYTHON SOURCE LINES 18-24
 
 .. code-block:: Python
 
@@ -51,6 +41,23 @@ Commit to balances
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+Commit to balances
+------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-38
+
+.. code-block:: Python
+
 
     balances = {b"alice": b"100", b"bob": b"5", b"carol": b"42"}
     tree = bk.structures.SparseMerkleTree()
@@ -75,12 +82,12 @@ Commit to balances
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-44
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 Prove a balance, and prove an absence
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-50
+.. GENERATED FROM PYTHON SOURCE LINES 41-47
 
 .. code-block:: Python
 
@@ -97,12 +104,12 @@ Prove a balance, and prove an absence
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-53
+.. GENERATED FROM PYTHON SOURCE LINES 48-50
 
 Most siblings are default digests of empty subtrees
 ---------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-71
+.. GENERATED FROM PYTHON SOURCE LINES 50-70
 
 .. code-block:: Python
 
@@ -124,6 +131,8 @@ Most siblings are default digests of empty subtrees
     )
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -136,7 +145,7 @@ Most siblings are default digests of empty subtrees
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-76
+.. GENERATED FROM PYTHON SOURCE LINES 71-75
 
 Exercise
 --------
@@ -146,7 +155,7 @@ an ordinary Merkle tree over a sorted list needs two neighbouring leaves?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.481 seconds)
+   **Total running time of the script:** (0 minutes 0.125 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_state_plot_01_sparse_merkle.py:

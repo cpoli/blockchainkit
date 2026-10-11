@@ -1,4 +1,4 @@
-"""
+r"""
 Structured programming: sequence, selection, iteration (Böhm and Jacopini 1966)
 ===============================================================================
 
@@ -9,22 +9,19 @@ straight-line code, a conditional jump (``JZ``) and a backward jump
 (``JMP``). The assembler lets us write them with labels instead of
 addresses.
 
-What to look for
-----------------
-
 The loop computes ``1 + 2 + ... + n`` and agrees with Gauss's formula. The
 backward jump is what makes iteration possible, and also what makes the
 running time depend on the input: the gas used grows linearly with n.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # A loop written with labels
 # --------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 source = """
 # Sum 1 + 2 + ... + n, with n in slot 0 and the sum in slot 1.
@@ -63,6 +60,8 @@ fig, ax = plt.subplots(figsize=(6, 4))
 ax.plot(sizes, gas, "o-")
 ax.set(xlabel="n", ylabel="gas used", title="11 instructions per iteration")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

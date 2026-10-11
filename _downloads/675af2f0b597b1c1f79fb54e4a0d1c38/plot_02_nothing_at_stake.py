@@ -1,4 +1,4 @@
-"""
+r"""
 Nothing at stake: why proof of stake needs penalties (Buterin 2014)
 ===================================================================
 
@@ -8,23 +8,20 @@ reward whichever one wins. If everyone does that, forks never resolve.
 Buterin's Slasher proposal made such double-signing punishable: evidence
 of two conflicting signatures destroys the validator's deposit.
 
-What to look for
-----------------
-
 Without a penalty, signing both forks pays more than any honest choice.
 Once the penalty exceeds the reward lost by picking one side, picking a
 side wins. Every modern proof-of-stake protocol has slashing.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
 """
 
 # %%
-# Payoffs without slashing
-# ------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Payoffs without slashing
+# ------------------------
 
 free = bk.consensus.fork_voting_payoffs(0.6, reward=1.0, penalty=0.0)
 print("no penalty:", free)
@@ -51,6 +48,8 @@ assert (
     bk.consensus.fork_voting_payoffs(0.6, 1.0, 0.5)["A"]
     > bk.consensus.fork_voting_payoffs(0.6, 1.0, 0.5)["both"]
 )
+
+plt.show()
 
 # %%
 # Exercise

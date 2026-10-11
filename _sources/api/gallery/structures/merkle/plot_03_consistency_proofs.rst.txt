@@ -27,27 +27,34 @@ log. Auditors need to know the log only ever *appends*: that today's tree
 contains yesterday's as a prefix. A consistency proof shows it with a
 logarithmic number of hashes.
 
-What to look for
-----------------
-
 Every older version of the log is proven to be a prefix of the newer one.
 A log that rewrote an old entry cannot produce a passing proof. Proof size
 grows with log2 of the log, not with its length.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Prove that the log only appended
---------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-35
+.. GENERATED FROM PYTHON SOURCE LINES 17-21
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+Prove that the log only appended
+--------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-32
+
+.. code-block:: Python
+
 
     certificates = [f"certificate for site-{i}.example".encode() for i in range(1000)]
     yesterday = bk.structures.MerkleTree(certificates[:600])
@@ -69,12 +76,12 @@ Prove that the log only appended
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 33-35
 
 A rewritten history fails
 -------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-46
+.. GENERATED FROM PYTHON SOURCE LINES 35-43
 
 .. code-block:: Python
 
@@ -93,12 +100,12 @@ A rewritten history fails
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-49
+.. GENERATED FROM PYTHON SOURCE LINES 44-46
 
 Proof size against log size
 ---------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-59
+.. GENERATED FROM PYTHON SOURCE LINES 46-58
 
 .. code-block:: Python
 
@@ -112,6 +119,8 @@ Proof size against log size
     ax.set(xlabel="log size", ylabel="hashes in proof", title="Consistency proofs are logarithmic")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -124,7 +133,7 @@ Proof size against log size
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-65
+.. GENERATED FROM PYTHON SOURCE LINES 59-64
 
 Exercise
 --------
@@ -135,7 +144,7 @@ gossiped signed tree heads help?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.174 seconds)
+   **Total running time of the script:** (0 minutes 0.037 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_merkle_plot_03_consistency_proofs.py:

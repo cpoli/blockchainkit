@@ -1,4 +1,4 @@
-"""
+r"""
 Coin flipping by telephone: hash commitments (Blum 1981)
 ========================================================
 
@@ -7,22 +7,21 @@ Bob can lie. Blum's fix: Alice *commits* to her call, Bob announces the coin,
 then Alice opens the commitment. A commitment must be binding (Alice cannot
 change her call) and hiding (Bob cannot read it early).
 
-What to look for
-----------------
-
 A salted hash commitment opens only to the committed value. Without a
 secret salt, Bob can hash both possible calls and read Alice's choice: a
 commitment to a guessable value needs randomness to hide it.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
+
+# %%
+from random import Random
+
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Commit, reveal, verify
 # ----------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 salt = bytes(range(32))  # A real salt comes from secrets.token_bytes(32).
 commitment = bk.crypto.commit(b"heads", salt)
@@ -46,7 +45,6 @@ assert recovered == b"heads"  # Bob reads the call: no hiding without a salt.
 # ---------------------
 # The coin is the XOR of Alice's committed bit and Bob's bit: fair if either
 # party is honest.
-from random import Random
 
 rng = Random(1981)
 outcomes = []
@@ -61,6 +59,8 @@ ax.bar(["0", "1"], [outcomes.count(0), outcomes.count(1)], color="#2563eb")
 ax.set(ylabel="flips", title="XOR of a committed bit and a reply")
 fig.tight_layout()
 assert 430 < outcomes.count(1) < 570
+
+plt.show()
 
 # %%
 # Exercise

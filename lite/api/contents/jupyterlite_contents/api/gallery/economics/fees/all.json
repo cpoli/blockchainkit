@@ -1,0 +1,29 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.804047Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.804047Z",
+      "mimetype": null,
+      "name": "plot_01_eip1559_base_fee.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/fees/plot_01_eip1559_base_fee.ipynb",
+      "size": 5258,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T05:56:30.822764Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T05:56:30.822836Z",
+  "mimetype": null,
+  "name": "fees",
+  "path": "jupyterlite_contents/api/gallery/economics/fees",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

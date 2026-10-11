@@ -28,24 +28,13 @@ a little above it the graph is almost surely connected. Each peer then needs
 only about ``ln n`` random links, which is why Bitcoin's few random outbound
 connections per node suffice to hold the network together.
 
-What to look for
-----------------
-
 The probability of being connected jumps from near 0 to near 1 over a narrow
 range of ``p n / ln n`` around 1. Erdős and Rényi also gave the shape of the
 jump: with ``p = c ln n / n``, the probability tends to ``exp(-n**(1 - c))``,
 about ``1/e`` exactly at the threshold. Just below the threshold, what keeps
 the graph disconnected is almost always a single isolated peer.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-28
-
-Sweep p around ln n / n
------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-52
+.. GENERATED FROM PYTHON SOURCE LINES 20-28
 
 .. code-block:: Python
 
@@ -56,6 +45,23 @@ Sweep p around ln n / n
 
     import blockchainkit as bk
     import blockchainkit.network.visualizers
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-31
+
+Sweep p around ln n / n
+-----------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 31-48
+
+.. code-block:: Python
+
 
     scales = np.linspace(0.4, 2.0, 17)
     curves = {}
@@ -80,13 +86,13 @@ Sweep p around ln n / n
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-56
+.. GENERATED FROM PYTHON SOURCE LINES 49-52
 
 What disconnects the graph?
 ---------------------------
 Below the threshold, the second-largest component is usually one peer.
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-75
+.. GENERATED FROM PYTHON SOURCE LINES 52-73
 
 .. code-block:: Python
 
@@ -109,6 +115,8 @@ Below the threshold, the second-largest component is usually one peer.
     bk.network.visualizers.plot_graph(bk.network.erdos_renyi(60, 0.06, seed=2), ax=right)
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -127,7 +135,7 @@ Below the threshold, the second-largest component is usually one peer.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-82
+.. GENERATED FROM PYTHON SOURCE LINES 74-82
 
 Exercise
 --------
@@ -136,10 +144,12 @@ The expected number of isolated peers is ``n (1 - p)**(n - 1)``, close to
 is the threshold. If the number of isolated peers is roughly Poisson,
 where does the limit law ``exp(-n**(1 - c))`` come from?
 
+A worked solution is in :doc:`/exercises/network`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 6.120 seconds)
+   **Total running time of the script:** (0 minutes 1.542 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_graphs_plot_01_random_graphs.py:

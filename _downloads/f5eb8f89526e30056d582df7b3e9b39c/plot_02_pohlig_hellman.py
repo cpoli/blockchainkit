@@ -1,4 +1,4 @@
-"""
+r"""
 Pohlig-Hellman: why the group order must have a large prime factor (1978)
 =========================================================================
 
@@ -8,24 +8,21 @@ recombined with the Chinese Remainder Theorem. The cost depends on the
 *largest prime factor* of n, not on n. A huge group with a smooth order is
 weak.
 
-What to look for
-----------------
-
 Two groups of about the same size: one whose order splits into small primes,
 one of prime order. Pohlig-Hellman breaks the first almost instantly and
 gains nothing on the second. This is why Diffie-Hellman and Schnorr use a
 subgroup of large *prime* order, like blockchainkit's ``TEACHING_GROUP``.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
 
 # %%
-# A smooth order falls apart
-# --------------------------
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 from blockchainkit.crypto.systems.discrete_log import factor_order
+
+# %%
+# A smooth order falls apart
+# --------------------------
 
 smooth_p = 8101  # 8100 = 2**2 * 3**4 * 5**2
 print("order factors:", factor_order(smooth_p - 1))
@@ -66,6 +63,8 @@ ax.set_xticks(list(xs), labels)
 ax.set(ylabel="group operations", title="Only the largest prime factor matters")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

@@ -199,4 +199,4 @@ Where each question was answered
      - :mod:`blockchainkit.consensus`
 
 The full simulation, with two peers, a partition, and a balance and queue
-table, is :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle`.
+table, is :doc:`/api/gallery/structures/chain/plot_01_payment_lifecycle`.

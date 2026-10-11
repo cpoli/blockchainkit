@@ -1,0 +1,69 @@
+
+
+.. _sphx_glr_api_gallery_contracts_foundations:
+
+Foundations
+-----------
+
+Contracts that bind legal prose to code, and authority carried by
+references rather than identities.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ian Grigg designed the Ricardian contract to issue bonds and currencies on the Ricardo payment system. One document is both a legal contract a person can read and a set of parameters a program can parse. The issuer signs it, and its hash becomes the instrument&#x27;s identifier:">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/foundations/images/thumb/sphx_glr_plot_01_ricardian_contracts_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/foundations/plot_01_ricardian_contracts`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Grigg's Ricardian contracts: a bond whose terms are its name (1996)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In an object-capability system, the only way to act on something is to hold a reference to it. Mark Miller&#x27;s E language built distributed money on this rule: to pay, hand over a purse holding exactly the payment; the recipient can take that and nothing else. There is no ambient authority, no global &quot;who is calling&quot; to consult.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/foundations/images/thumb/sphx_glr_plot_02_capabilities_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/foundations/plot_02_capabilities`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Miller's capabilities: purses, and the tx.origin confused deputy (1997-2006)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/contracts/foundations/plot_01_ricardian_contracts
+   /api/gallery/contracts/foundations/plot_02_capabilities
+

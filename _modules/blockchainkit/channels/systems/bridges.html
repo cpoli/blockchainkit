@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.channels.systems.bridges &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/channels/systems/bridges';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.channels.systems.bridges</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.channels.systems.bridges</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Bridge failures of 2022: the Ronin and Wormhole exploits.</span>
+
+<span class="sd">A bridge locks coins in a contract on one chain and issues wrapped coins on</span>
+<span class="sd">another; to release the locked coins, the contract needs evidence that the</span>
+<span class="sd">wrapped ones were burned. A light-client relay checks that evidence itself;</span>
+<span class="sd">most bridges instead trust a committee of validators to sign it. The</span>
+<span class="sd">contract is then exactly as safe as the committee's keys and the code that</span>
+<span class="sd">checks their signatures, and in 2022 bridges lost more than two billion</span>
+<span class="sd">dollars to failures of both.</span>
+
+<span class="sd">**Ronin** (March 2022). The bridge of the Axie Infinity sidechain released</span>
+<span class="sd">funds on 5 of 9 validator signatures. Sky Mavis ran four validators, and</span>
+<span class="sd">had been allowed to sign for a fifth, the Axie DAO's, during a load spike</span>
+<span class="sd">months before; the permission was never revoked. An attacker who</span>
+<span class="sd">compromised Sky Mavis's systems held five keys, and withdrew 173,600 ether</span>
+<span class="sd">and 25.5 million USDC.</span>
+
+<span class="sd">**Wormhole** (February 2022). Wormhole's Solana program checked guardian</span>
+<span class="sd">signatures in one instruction and then, in the next, trusted an account</span>
+<span class="sd">saying that the check had passed. It took that account from the caller and</span>
+<span class="sd">never verified that it was the genuine system account. The attacker passed</span>
+<span class="sd">a forged one, minted 120,000 wrapped ether without any signature, and</span>
+<span class="sd">redeemed most of it for ether held by the bridge.</span>
+
+<span class="sd">Here both are contracts on :class:`~blockchainkit.contracts.systems.world.World`.</span>
+<span class="sd">Solana's accounts become a caller-supplied verifier contract, and minting</span>
+<span class="sd">and redeeming wrapped ether happen in one contract rather than on two chains.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.channels.utils.scripts</span><span class="w"> </span><span class="kn">import</span> <span class="n">PublicKey</span><span class="p">,</span> <span class="n">key_pair</span><span class="p">,</span> <span class="n">signature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">BRIDGE_DOMAIN</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.contracts.systems.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">Contract</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SchnorrSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.hashing</span><span class="w"> </span><span class="kn">import</span> <span class="n">sha256</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.systems.signatures</span><span class="w"> </span><span class="kn">import</span> <span class="n">verify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.structures.utils.encoding</span><span class="w"> </span><span class="kn">import</span> <span class="n">canonical_json</span>
+
+<span class="n">Approval</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">PublicKey</span><span class="p">,</span> <span class="n">SchnorrSignature</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="withdrawal_message">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.withdrawal_message">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">withdrawal_message</span><span class="p">(</span><span class="n">bridge</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">recipient</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nonce</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The bytes validators sign to release ``amount`` to ``recipient`` from ``bridge``."""</span>
+    <span class="k">return</span> <span class="n">BRIDGE_DOMAIN</span> <span class="o">+</span> <span class="n">canonical_json</span><span class="p">([</span><span class="n">bridge</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">nonce</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="sign_withdrawal">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.sign_withdrawal">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">sign_withdrawal</span><span class="p">(</span><span class="n">private</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">bridge</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">recipient</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nonce</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Approval</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""One validator's approval of a withdrawal: ``(public_key, signature)``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.channels import sign_withdrawal</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.crypto import public_key</span>
+<span class="sd">    &gt;&gt;&gt; sign_withdrawal(7, "0xbridge", "alice", 10, 0)[0] == public_key(7)</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">public</span> <span class="o">=</span> <span class="n">key_pair</span><span class="p">(</span><span class="n">private</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">public</span><span class="p">,</span> <span class="n">signature</span><span class="p">(</span><span class="n">private</span><span class="p">,</span> <span class="n">withdrawal_message</span><span class="p">(</span><span class="n">bridge</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">nonce</span><span class="p">))</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_signers</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">approvals</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Approval</span><span class="p">],</span> <span class="n">members</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="n">allowed</span> <span class="o">=</span> <span class="p">{(</span><span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">members</span><span class="p">}</span>
+    <span class="n">valid</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">signed</span> <span class="ow">in</span> <span class="n">approvals</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">in</span> <span class="n">allowed</span> <span class="ow">and</span> <span class="n">verify</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">signed</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ValidatorBridge">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.ValidatorBridge">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidatorBridge</span><span class="p">(</span><span class="n">Contract</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Ronin's bridge: locked ether, released on ``threshold`` validator signatures.</span>
+
+<span class="sd">    Constructor arguments: the validators' public keys and the threshold.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.channels import ValidatorBridge, sign_withdrawal</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.contracts import World</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.crypto import public_key</span>
+<span class="sd">    &gt;&gt;&gt; world = World()</span>
+<span class="sd">    &gt;&gt;&gt; world.fund("alice", 50)</span>
+<span class="sd">    &gt;&gt;&gt; keys = range(1, 10)</span>
+<span class="sd">    &gt;&gt;&gt; bridge = world.deploy("ronin", ValidatorBridge, [public_key(k) for k in keys], 5)</span>
+<span class="sd">    &gt;&gt;&gt; world.transact("alice", bridge, "deposit", value=50).success</span>
+<span class="sd">    True</span>
+<span class="sd">    &gt;&gt;&gt; approvals = [sign_withdrawal(k, bridge, "alice", 50, 0) for k in (1, 2, 3, 4, 5)]</span>
+<span class="sd">    &gt;&gt;&gt; world.transact("relayer", bridge, "withdraw", "alice", 50, 0, approvals).success</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+
+    <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"validators"</span><span class="p">,</span> <span class="s2">"threshold"</span><span class="p">,</span> <span class="s2">"processed"</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ValidatorBridge.constructor">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.ValidatorBridge.constructor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">constructor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validators</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">PublicKey</span><span class="p">],</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">threshold</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">validators</span><span class="p">),</span> <span class="s2">"threshold must be between 1 and n"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"validators"</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">((</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">validators</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"threshold"</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ValidatorBridge.deposit">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.ValidatorBridge.deposit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Lock ether; the validators then mint as much on the other chain."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"Deposit"</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ValidatorBridge.withdraw">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.ValidatorBridge.withdraw">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">withdraw</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">recipient</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nonce</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">approvals</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Approval</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Release ``amount`` to ``recipient``, approved by enough distinct validators."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"processed"</span><span class="p">,</span> <span class="n">nonce</span><span class="p">),</span> <span class="s2">"withdrawal already processed"</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">withdrawal_message</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
+        <span class="n">signers</span> <span class="o">=</span> <span class="n">_signers</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">approvals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"validators"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">signers</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"threshold"</span><span class="p">),</span> <span class="s2">"not enough validator signatures"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"processed"</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">recipient</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">amount</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="GuardianVerifier">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.GuardianVerifier">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">GuardianVerifier</span><span class="p">(</span><span class="n">Contract</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Wormhole's signature-verification step: records messages enough guardians signed.</span>
+
+<span class="sd">    Constructor arguments: the guardians' public keys and the threshold.</span>
+<span class="sd">    """</span>
+
+    <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"guardians"</span><span class="p">,</span> <span class="s2">"threshold"</span><span class="p">,</span> <span class="s2">"verified"</span><span class="p">)</span>
+
+<div class="viewcode-block" id="GuardianVerifier.constructor">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.GuardianVerifier.constructor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">constructor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">guardians</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">PublicKey</span><span class="p">],</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">threshold</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">guardians</span><span class="p">),</span> <span class="s2">"threshold must be between 1 and n"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"guardians"</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">((</span><span class="n">g</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">g</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">guardians</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"threshold"</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GuardianVerifier.verify_signatures">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.GuardianVerifier.verify_signatures">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">verify_signatures</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">approvals</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Approval</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check the guardians' signatures on ``message`` and record its hash as verified."""</span>
+        <span class="n">signers</span> <span class="o">=</span> <span class="n">_signers</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">approvals</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"guardians"</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">signers</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"threshold"</span><span class="p">),</span> <span class="s2">"not enough guardian signatures"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"verified"</span><span class="p">,</span> <span class="n">sha256</span><span class="p">(</span><span class="n">message</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="GuardianVerifier.is_verified">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.GuardianVerifier.is_verified">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_verified</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message_hash</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""True if the message with this hash passed :meth:`verify_signatures`."""</span>
+        <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"verified"</span><span class="p">,</span> <span class="n">message_hash</span><span class="p">))</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ForgedVerifier">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.ForgedVerifier">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ForgedVerifier</span><span class="p">(</span><span class="n">Contract</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""The attacker's stand-in for the verification account: it vouches for everything."""</span>
+
+<div class="viewcode-block" id="ForgedVerifier.is_verified">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.ForgedVerifier.is_verified">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_verified</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message_hash</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="WormholeBridge">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.WormholeBridge">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">WormholeBridge</span><span class="p">(</span><span class="n">Contract</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Wrapped ether minted on verified guardian messages, and redeemed for locked ether.</span>
+
+<span class="sd">    Constructor arguments: the genuine verifier's address, and whether to</span>
+<span class="sd">    check that the caller-supplied verifier is that one (the fix).</span>
+<span class="sd">    """</span>
+
+    <span class="n">layout</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"verifier"</span><span class="p">,</span> <span class="s2">"check_verifier"</span><span class="p">,</span> <span class="s2">"wrapped"</span><span class="p">,</span> <span class="s2">"processed"</span><span class="p">)</span>
+
+<div class="viewcode-block" id="WormholeBridge.constructor">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.WormholeBridge.constructor">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">constructor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">check_verifier</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"verifier"</span><span class="p">,</span> <span class="n">verifier</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"check_verifier"</span><span class="p">,</span> <span class="n">check_verifier</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WormholeBridge.deposit">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.WormholeBridge.deposit">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">deposit</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Lock ether, to be minted as wrapped ether on another chain."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">emit</span><span class="p">(</span><span class="s2">"Deposit"</span><span class="p">,</span> <span class="n">sender</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="n">amount</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WormholeBridge.complete_transfer">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.WormholeBridge.complete_transfer">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">complete_transfer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recipient</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nonce</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">verifier</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Mint wrapped ether for a transfer that ``verifier`` says the guardians signed.</span>
+
+<span class="sd">        With ``check_verifier`` off, as in the vulnerable program, any</span>
+<span class="sd">        contract can be passed as the verifier.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"check_verifier"</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="n">verifier</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"verifier"</span><span class="p">),</span> <span class="s2">"not the genuine verifier"</span><span class="p">)</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">withdrawal_message</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">verifier</span><span class="p">,</span> <span class="s2">"is_verified"</span><span class="p">,</span> <span class="n">sha256</span><span class="p">(</span><span class="n">message</span><span class="p">)),</span> <span class="s2">"message not verified"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"processed"</span><span class="p">,</span> <span class="n">nonce</span><span class="p">),</span> <span class="s2">"transfer already completed"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"processed"</span><span class="p">,</span> <span class="n">nonce</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"wrapped"</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"wrapped"</span><span class="p">,</span> <span class="n">recipient</span><span class="p">)</span> <span class="o">+</span> <span class="n">amount</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WormholeBridge.redeem">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.WormholeBridge.redeem">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">redeem</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Burn wrapped ether and receive as much locked ether."""</span>
+        <span class="n">balance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"wrapped"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">amount</span> <span class="o">&lt;=</span> <span class="n">balance</span><span class="p">,</span> <span class="s2">"not enough wrapped ether"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"wrapped"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="n">balance</span> <span class="o">-</span> <span class="n">amount</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">amount</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WormholeBridge.wrapped_balance">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.systems.bridges.WormholeBridge.wrapped_balance">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapped_balance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Wrapped ether held by ``account``."""</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s2">"wrapped"</span><span class="p">,</span> <span class="n">account</span><span class="p">))</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

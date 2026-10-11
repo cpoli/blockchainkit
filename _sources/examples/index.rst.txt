@@ -18,3 +18,8 @@ Jupyter notebook, or run it in the browser with JupyterLite. The guided
    blockchainkit.consensus </api/gallery/consensus/index>
    blockchainkit.network </api/gallery/network/index>
    blockchainkit.vm </api/gallery/vm/index>
+   blockchainkit.contracts </api/gallery/contracts/index>
+   blockchainkit.economics </api/gallery/economics/index>
+   blockchainkit.channels </api/gallery/channels/index>
+   blockchainkit.proofs </api/gallery/proofs/index>
+   blockchainkit.fraud </api/gallery/fraud/index>

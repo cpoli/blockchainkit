@@ -28,23 +28,13 @@ protocol that counts identities, such as voting or choosing which nodes
 store a key, can be taken over. Proof of work is one answer: it makes
 influence cost computation instead of counting identities.
 
-What to look for
-----------------
-
 When nodes choose their own identifiers, eight Sybils placed next to a key
 become the eight closest nodes, so every honest lookup lands on the
 attacker. When identifiers must be the hash of a public key, the attacker
 has to grind keys instead: the cost doubles with every extra bit it must
 match, but it is only a cost, not a barrier.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-Chosen identifiers
-------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-43
+.. GENERATED FROM PYTHON SOURCE LINES 20-26
 
 .. code-block:: Python
 
@@ -53,6 +43,23 @@ Chosen identifiers
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
+
+Chosen identifiers
+------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-40
+
+.. code-block:: Python
+
 
     bits = 20
     honest = Random(2).sample(range(2**bits), 300)
@@ -77,14 +84,14 @@ Chosen identifiers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-48
+.. GENERATED FROM PYTHON SOURCE LINES 41-45
 
 Identifiers bound to keys
 -------------------------
 To land within d leading bits of the key, the attacker must try about
 2**d public keys per Sybil.
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-71
+.. GENERATED FROM PYTHON SOURCE LINES 45-70
 
 .. code-block:: Python
 
@@ -111,6 +118,8 @@ To land within d leading bits of the key, the attacker must try about
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -130,7 +139,7 @@ To land within d leading bits of the key, the attacker must try about
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-77
+.. GENERATED FROM PYTHON SOURCE LINES 71-76
 
 Exercise
 --------
@@ -141,7 +150,7 @@ compared with the honest nodes' cost of joining once?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.326 seconds)
+   **Total running time of the script:** (0 minutes 0.094 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_overlays_plot_02_sybil_attack.py:

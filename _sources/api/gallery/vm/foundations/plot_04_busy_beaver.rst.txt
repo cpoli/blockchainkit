@@ -28,23 +28,12 @@ any computable function: S(3) = 21, S(4) = 107, and S(5) = 47,176,870,
 proved only in 2024. Knowing S(n) would solve the halting problem for
 n-state machines, so no algorithm computes it.
 
-What to look for
-----------------
-
 The exhaustive search finds the 2-state champion, which halts after 6 steps
 with 4 ones on the tape. Its step count is reached long before the search's
 budget, but proving that the remaining "unknown" machines never halt is
 exactly what the search cannot do.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-Search all 20,736 two-state machines
-------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-37
+.. GENERATED FROM PYTHON SOURCE LINES 19-24
 
 .. code-block:: Python
 
@@ -52,6 +41,23 @@ Search all 20,736 two-state machines
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+Search all 20,736 two-state machines
+------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-33
+
+.. code-block:: Python
+
 
     result = bk.vm.busy_beaver(2, max_steps=50)
     print(result.steps, "steps,", result.ones, "ones:", result.machine)
@@ -72,12 +78,12 @@ Search all 20,736 two-state machines
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-40
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 How long halting machines run
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-57
+.. GENERATED FROM PYTHON SOURCE LINES 36-55
 
 .. code-block:: Python
 
@@ -98,6 +104,8 @@ How long halting machines run
     right.set(xlabel="states n", ylabel="S(n)", title="Busy beaver values (known)")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -110,7 +118,7 @@ How long halting machines run
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-64
+.. GENERATED FROM PYTHON SOURCE LINES 56-64
 
 Exercise
 --------
@@ -119,10 +127,12 @@ from its rule table (see the history page). Why does a gas limit of 22
 steps let you *run* it but not *know* that no other 3-state machine runs
 longer?
 
+A worked solution is in :doc:`/exercises/vm`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.574 seconds)
+   **Total running time of the script:** (0 minutes 0.837 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_foundations_plot_04_busy_beaver.py:

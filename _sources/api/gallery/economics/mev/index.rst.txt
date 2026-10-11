@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_economics_mev:
+
+Transaction ordering
+--------------------
+
+Profiting from the order of transactions, and the market that sells it.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When an arbitrage opportunity appears on a decentralized exchange, only the first transaction to execute can take it, and transactions in a block run in fee order. Daian et al. watched bots compete by repeatedly replacing their pending transaction with one paying a higher fee: a priority gas auction. Each replacement must raise the fee by a minimum step (10% in go-ethereum), so with bots that value the opportunity alike, bidding stops only when the next step would exceed its value V:">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/mev/images/thumb/sphx_glr_plot_01_flash_boys_gas_auctions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/mev/plot_01_flash_boys_gas_auctions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Flash Boys 2.0: priority gas auctions and front-running (Daian et al. 2019)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A swap on a constant-product pool waits in the public mempool before it is mined. An attacker who sees it can sandwich it: buy just before it, which raises the price the victim pays, and sell just after, at the price the victim&#x27;s own purchase pushed up. The victim&#x27;s slippage limit, the least output it accepts, is all that stops the attacker: the victim&#x27;s swap reverts below it, so the attacker picks the most profitable front-run a among those that keep">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/mev/images/thumb/sphx_glr_plot_02_sandwich_attacks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/mev/plot_02_sandwich_attacks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Sandwich attacks on decentralized exchanges (Zhou et al. 2021)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Extracting the value of transaction ordering takes searchers, private order flow and fast infrastructure. A validator that has them earns more per unit of stake than one that does not, and so attracts more stake: MEV pushes proof of stake toward a few large operators. Proposer-builder separation splits the roles. Specialized builders assemble blocks and bid for the slot; the proposer, any validator, signs the best bid.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/mev/images/thumb/sphx_glr_plot_03_mev_boost_pbs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/mev/plot_03_mev_boost_pbs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Proposer-builder separation and MEV-Boost (2022)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/economics/mev/plot_01_flash_boys_gas_auctions
+   /api/gallery/economics/mev/plot_02_sandwich_attacks
+   /api/gallery/economics/mev/plot_03_mev_boost_pbs
+

@@ -1,4 +1,4 @@
-"""
+r"""
 Casper FFG: finality by two-thirds votes and slashing (Buterin and Griffith 2017)
 =================================================================================
 
@@ -10,23 +10,19 @@ votes for one height; no vote surrounding another) guarantee that two
 conflicting finalized checkpoints cost at least a third of all stake.
 Ethereum's proof of stake uses it.
 
-What to look for
-----------------
-
 Checkpoints are finalized one behind the justified frontier. A validator
 who equivocates or casts a surrounding vote is caught by comparing votes,
 with no need to know which fork is correct.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Justify and finalize
 # --------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 stakes = {"v1": 25, "v2": 25, "v3": 25, "v4": 25}
 ffg = bk.consensus.FinalityGadget(stakes)
@@ -62,9 +58,13 @@ ax.set(
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Two conflicting checkpoints are each finalized by two thirds of the stake.
 # Show that at least a third of the stake must have voted for both, and so
 # broke a slashing rule.
+#
+# A worked solution is in :doc:`/exercises/consensus`.

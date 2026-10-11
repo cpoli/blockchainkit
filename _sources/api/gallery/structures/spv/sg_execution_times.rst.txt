@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.476** total execution time for 1 file **from api/gallery/structures/spv**:
+**00:00.677** total execution time for 1 file **from api/gallery/structures/spv**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structures_spv_plot_01_light_clients.py` (``plot_01_light_clients.py``)
-     - 00:01.476
+     - 00:00.677
      - 0.0

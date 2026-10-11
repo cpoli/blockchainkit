@@ -26,27 +26,33 @@ Haber and Stornetta batched them: put a round's documents in a Merkle tree
 and timestamp only the root. Each document keeps a short proof linking it
 to that root. This is exactly how a block commits to its transactions.
 
-What to look for
-----------------
-
 One 32-byte root timestamps a thousand documents, and each proof grows only
 logarithmically. A block's header commits to its transactions the same way.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
-
-Timestamp a round of documents with one root
---------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-35
+.. GENERATED FROM PYTHON SOURCE LINES 15-19
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-22
+
+Timestamp a round of documents with one root
+--------------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-31
+
+.. code-block:: Python
+
 
     documents = [f"contract {i}".encode() for i in range(1000)]
     tree = bk.structures.MerkleTree(documents)
@@ -69,12 +75,12 @@ Timestamp a round of documents with one root
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 32-34
 
 A block does the same for its transactions
 ------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-46
+.. GENERATED FROM PYTHON SOURCE LINES 34-42
 
 .. code-block:: Python
 
@@ -93,12 +99,12 @@ A block does the same for its transactions
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-49
+.. GENERATED FROM PYTHON SOURCE LINES 43-45
 
 Records needed: one per document, or one per round
 --------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-59
+.. GENERATED FROM PYTHON SOURCE LINES 45-57
 
 .. code-block:: Python
 
@@ -112,6 +118,8 @@ Records needed: one per document, or one per round
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -124,17 +132,19 @@ Records needed: one per document, or one per round
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-64
+.. GENERATED FROM PYTHON SOURCE LINES 58-64
 
 Exercise
 --------
 OpenTimestamps batches documents worldwide into one Bitcoin transaction per
 round. Estimate the proof length for a round of a million documents.
 
+A worked solution is in :doc:`/exercises/structures`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.401 seconds)
+   **Total running time of the script:** (0 minutes 0.078 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_timestamps_plot_02_merkle_batching.py:

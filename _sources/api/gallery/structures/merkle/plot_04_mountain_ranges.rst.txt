@@ -27,28 +27,34 @@ size. Appending adds a one-leaf peak and merges equal-sized neighbours,
 like carrying in binary addition. Old peaks are never rewritten, so an
 append costs about two hashes, however long the range is.
 
-What to look for
-----------------
-
 The number of peaks equals the number of 1-bits in the size. Every leaf
 has a short proof to its peak. Grin and other chains use mountain ranges to
 commit to their entire history of outputs or headers.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Grow a range and watch the peaks
---------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-39
+.. GENERATED FROM PYTHON SOURCE LINES 17-21
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+Grow a range and watch the peaks
+--------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-35
+
+.. code-block:: Python
+
 
     mmr = bk.structures.MerkleMountainRange()
     peak_counts, merges = [], []
@@ -73,12 +79,12 @@ Grow a range and watch the peaks
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-42
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 Prove one old leaf
 ------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-46
+.. GENERATED FROM PYTHON SOURCE LINES 38-42
 
 .. code-block:: Python
 
@@ -93,7 +99,7 @@ Prove one old leaf
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-54
+.. GENERATED FROM PYTHON SOURCE LINES 43-52
 
 .. code-block:: Python
 
@@ -103,6 +109,8 @@ Prove one old leaf
     bottom.bar(range(1, 65), merges, color="#2563eb")
     bottom.set(xlabel="leaves", ylabel="merges at this append")
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -116,17 +124,19 @@ Prove one old leaf
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-59
+.. GENERATED FROM PYTHON SOURCE LINES 53-59
 
 Exercise
 --------
 When does a single append cause the most merges? Relate the answer to
 carries when adding 1 in binary, and compute the average over 2**k appends.
 
+A worked solution is in :doc:`/exercises/structures`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.244 seconds)
+   **Total running time of the script:** (0 minutes 0.051 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_merkle_plot_04_mountain_ranges.py:

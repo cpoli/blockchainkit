@@ -1,4 +1,4 @@
-"""
+r"""
 Transaction malleability and segregated witness (2014-2017)
 ===========================================================
 
@@ -9,22 +9,19 @@ malleability for lost withdrawals; Decker and Wattenhofer found it explained
 only a small fraction. Segregated witness (2017) moved signatures out of
 the id, which also made payment channels such as Lightning safe to build.
 
-What to look for
-----------------
-
 The same payment, signed twice, has two txids: a child transaction that
 named the first id would point at nothing. The unsigned id, like SegWit's
 txid, is the same for every valid signature.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # One payment, two signatures, two txids
 # --------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 alice_key = 7
 payment = bk.structures.Transaction(
@@ -59,6 +56,8 @@ ax.set(xlim=(0, 1), ylim=(-0.7, len(ids) + 0.5), title="Re-signing changes one i
 ax.axis("off")
 ax.invert_yaxis()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

@@ -27,22 +27,11 @@ a Poisson-distributed amount with mean z q/p; from each possible lead the
 gambler's ruin gives the chance to catch up. The whitepaper tabulates the
 result, and concludes that the risk drops exponentially with z.
 
-What to look for
-----------------
-
 The function reproduces the whitepaper's table, and a Monte-Carlo race
 between two chains agrees. Six confirmations against a 10% attacker leave
 about a 0.02% risk; against 30% it takes 24.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-The whitepaper's table
-----------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-36
+.. GENERATED FROM PYTHON SOURCE LINES 17-23
 
 .. code-block:: Python
 
@@ -51,6 +40,23 @@ The whitepaper's table
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+The whitepaper's table
+----------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-32
+
+.. code-block:: Python
+
 
     for z, expected in ((0, 1.0), (1, 0.2045873), (2, 0.0509779), (5, 0.0009137), (10, 0.0000012)):
         assert abs(bk.consensus.attacker_success_probability(0.1, z) - expected) < 5e-8
@@ -70,12 +76,12 @@ The whitepaper's table
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 33-35
 
 A Monte-Carlo double-spend race
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-74
+.. GENERATED FROM PYTHON SOURCE LINES 35-72
 
 .. code-block:: Python
 
@@ -114,6 +120,8 @@ A Monte-Carlo double-spend race
     ax.legend(fontsize=8)
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -126,17 +134,19 @@ A Monte-Carlo double-spend race
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-79
+.. GENERATED FROM PYTHON SOURCE LINES 73-79
 
 Exercise
 --------
 Find the smallest z with risk below 0.1% for q = 0.1, 0.2 and 0.3. Why does
 the required z grow so quickly as q approaches 1/2?
 
+A worked solution is in :doc:`/exercises/consensus`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.036 seconds)
+   **Total running time of the script:** (0 minutes 0.541 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_attacks_plot_02_double_spend.py:

@@ -1,0 +1,140 @@
+
+
+.. _sphx_glr_api_gallery_channels_payment_channels:
+
+Payment and state channels
+--------------------------
+
+Paying off chain with the chain as judge: one-way and duplex channels, revocation and penalties, general state channels, eltoo, and watchtowers.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Paying for a stream by the second on chain costs a transaction, and a fee, per payment. Jeremy Spilman&#x27;s channel needs two. The payer locks the channel&#x27;s capacity in a 2-of-2 output, after the payee has signed a refund that returns everything to the payer at a lock time. Each payment is a new transaction from that output, paying the payee a little more; the payer signs it and hands it over, and the payee countersigns and publishes only the last one. Mike Hearn built the scheme into bitcoinj the same year.">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/payment_channels/images/thumb/sphx_glr_plot_01_spilman_channels_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/payment_channels/plot_01_spilman_channels`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Spilman and Hearn's one-way micropayment channels (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Spilman channel pays one way and is spent once its capacity has gone to the payee. Decker and Wattenhofer pair two of them, one in each direction, and reset the pair when one side runs dry, re-funding both from the current balances. Without penalties, the newest pair must beat every older one to the chain, and an invalidation tree of relative lock times sees to that: at every level, each replacement lowers the lock time by \delta, so where two branches part, the newer one is valid first and spends the shared parent. A tree of depth d with s lock-time values per level holds s^d resets, and closing waits for up to">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/payment_channels/images/thumb/sphx_glr_plot_02_duplex_channels_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/payment_channels/plot_02_duplex_channels`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Decker and Wattenhofer's duplex micropayment channels (2015)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lightning ranks a channel&#x27;s states by punishment rather than by time locks, so a channel can be updated any number of times. Each party holds its own commitment transaction, signed by the other. It pays the counterparty at once, but its holder only after a delay, during which anyone with the revocation key can take the holder&#x27;s output instead. Moving to a new state, each party reveals the secret behind its old commitment&#x27;s revocation key. Publishing a revoked commitment then forfeits the whole channel to a counterparty that is watching.">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/payment_channels/images/thumb/sphx_glr_plot_03_lightning_revocation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/payment_channels/plot_03_lightning_revocation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Poon and Dryja's Lightning Network: revocation and penalties (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="With contracts, a channel can be a judge rather than a set of transactions. An adjudicator contract holds both deposits; the parties sign successive versions of any state; and at the end one of them submits the latest. If it submits an old version, the other has a dispute period to submit a newer one, and the contract pays out the highest version it saw.">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/payment_channels/images/thumb/sphx_glr_plot_04_sprites_state_channels_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/payment_channels/plot_04_sprites_state_channels`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Sprites and general state channels (Miller et al., 2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Lightning&#x27;s penalty punishes mistakes as hard as theft: restore an old backup, publish it, and lose the channel. eltoo replaces punishment with replacement. Every state is an update transaction, which can spend the funding output or any earlier update, and a settlement, which pays that state&#x27;s balances after a delay. An old update on chain is simply overwritten by a newer one, and only the last update ever settles.">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/payment_channels/images/thumb/sphx_glr_plot_05_eltoo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/payment_channels/plot_05_eltoo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">eltoo: channel updates without penalties (Decker, Russell and Osuntokun, 2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A Lightning party is safe only while it watches the chain: if it is offline for longer than the channel&#x27;s delay, a revoked commitment can be swept. A watchtower watches for it. After each update the party gives the tower a hint, half the revoked commitment&#x27;s txid, and a presigned penalty encrypted under the whole txid; the tower learns nothing until that commitment appears, and can then publish only a penalty that pays the party.">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/payment_channels/images/thumb/sphx_glr_plot_06_pisa_watchtowers_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/payment_channels/plot_06_pisa_watchtowers`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Watchtowers and PISA: guarding offline channel parties (McCorry et al., 2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/channels/payment_channels/plot_01_spilman_channels
+   /api/gallery/channels/payment_channels/plot_02_duplex_channels
+   /api/gallery/channels/payment_channels/plot_03_lightning_revocation
+   /api/gallery/channels/payment_channels/plot_04_sprites_state_channels
+   /api/gallery/channels/payment_channels/plot_05_eltoo
+   /api/gallery/channels/payment_channels/plot_06_pisa_watchtowers
+

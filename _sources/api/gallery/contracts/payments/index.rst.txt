@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_contracts_payments:
+
+Paying out
+----------
+
+Sending ether safely, loops that outgrow the block, and fair randomness.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="King of the Ether sold a throne. Each claimant paid more than the current price, the deposed king received the payment less a 1% fee, and the price rose by half. The contract paid with send, which forwards only 2,300 gas and returns False on failure. In February 2016 some kings used Mist&#x27;s contract wallets, whose code for receiving ether needed more than 2,300 gas; their payments failed, the contract ignored the False, crowned the next king, and kept the money.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/payments/images/thumb/sphx_glr_plot_01_king_of_the_ether_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/payments/plot_01_king_of_the_ether`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">King of the Ether: unchecked send and the pull-payment pattern (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GovernMental was a Ponzi game: the last person to invest before 12 hours of silence won the jackpot. Paying out also reset the game, by clearing the array of creditors, one storage write per entry. In April 2016 the array had grown so long that clearing it needed more gas than a block allowed (about 4.7 million then), so the payout could not execute and roughly 1,100 ether sat stuck in the contract.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/payments/images/thumb/sphx_glr_plot_02_governmental_gas_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/payments/plot_02_governmental_gas`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GovernMental: an unbounded loop meets the block gas limit (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Every node must compute the same result, so a contract has no secret source of randomness. Early lotteries drew from the previous block&#x27;s hash, but a contract called in the same block reads the same hash, so an attacker computes the draw first and plays only when it wins. (A miner could also discard a block whose hash it disliked.)">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/payments/images/thumb/sphx_glr_plot_03_commit_reveal_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/payments/plot_03_commit_reveal`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Commit-reveal schemes and on-chain randomness (2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/contracts/payments/plot_01_king_of_the_ether
+   /api/gallery/contracts/payments/plot_02_governmental_gas
+   /api/gallery/contracts/payments/plot_03_commit_reveal
+

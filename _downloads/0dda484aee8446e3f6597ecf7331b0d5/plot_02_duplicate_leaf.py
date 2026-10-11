@@ -1,4 +1,4 @@
-"""
+r"""
 Two lists, one root: the duplicated-leaf ambiguity (CVE-2012-2459)
 ==================================================================
 
@@ -8,23 +8,19 @@ send a block with a duplicated transaction: nodes rejected it as invalid and
 remembered its hash as bad, so they later refused the valid block with the
 same hash. The bug was fixed by checking for the duplication.
 
-What to look for
-----------------
-
 Bitcoin's convention gives one root to two different lists. blockchainkit's
 tree promotes odd nodes instead and binds the leaf count into the root, so
 every list has its own root.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # One root, two lists
 # -------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 honest = [b"coinbase", b"pay Bob", b"pay Carol"]
 mutated = honest + [b"pay Carol"]
@@ -53,6 +49,8 @@ ax.set(
 )
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
@@ -60,3 +58,5 @@ fig.tight_layout()
 # never paired). Find a length-6 list whose
 # Bitcoin-style root equals that of a length-8 list. (Hint: duplicate a
 # whole pair.) Why does binding the count rule out all such cases?
+#
+# A worked solution is in :doc:`/exercises/structures`.

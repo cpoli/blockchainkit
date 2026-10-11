@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.635226Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.635226Z",
+      "mimetype": null,
+      "name": "plot_03_nft_wash_trading.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/manipulation/plot_03_nft_wash_trading.ipynb",
+      "size": 4172,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.634758Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.634758Z",
+      "mimetype": null,
+      "name": "plot_01_willy_bot_price_manipulation.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/manipulation/plot_01_willy_bot_price_manipulation.ipynb",
+      "size": 3520,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.634967Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.634967Z",
+      "mimetype": null,
+      "name": "plot_02_pump_and_dump.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/manipulation/plot_02_pump_and_dump.ipynb",
+      "size": 4284,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.619784Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.620305Z",
+  "mimetype": null,
+  "name": "manipulation",
+  "path": "jupyterlite_contents/api/gallery/fraud/manipulation",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

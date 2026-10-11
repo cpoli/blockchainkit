@@ -27,21 +27,11 @@ function on the round seed to learn how many of their tickets won. Nobody
 can target the committee in advance, because members reveal themselves only
 when they vote.
 
-What to look for
-----------------
-
 Seats are proportional to stake, and splitting stake into many accounts
 earns the same expected seats: there is no Sybil advantage. Committee size
 varies from round to round around its expected value.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Run 300 rounds
---------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-43
+.. GENERATED FROM PYTHON SOURCE LINES 17-22
 
 .. code-block:: Python
 
@@ -49,6 +39,23 @@ Run 300 rounds
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Run 300 rounds
+--------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-40
+
+.. code-block:: Python
+
 
     stakes = {"alice": 4000, "bob": 3000, "carol": 2000, "dave": 1000}
     total, expected = sum(stakes.values()), 30
@@ -71,12 +78,12 @@ Run 300 rounds
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-46
+.. GENERATED FROM PYTHON SOURCE LINES 41-43
 
 Splitting stake gains nothing
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-73
+.. GENERATED FROM PYTHON SOURCE LINES 43-72
 
 .. code-block:: Python
 
@@ -107,6 +114,8 @@ Splitting stake gains nothing
     right.set(xlabel="committee size", title=f"Committee size around {expected}")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -119,7 +128,7 @@ Splitting stake gains nothing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-79
+.. GENERATED FROM PYTHON SOURCE LINES 73-78
 
 Exercise
 --------
@@ -130,7 +139,7 @@ must the round seed itself be unpredictable?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.281 seconds)
+   **Total running time of the script:** (0 minutes 0.060 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pos_plot_03_sortition.py:

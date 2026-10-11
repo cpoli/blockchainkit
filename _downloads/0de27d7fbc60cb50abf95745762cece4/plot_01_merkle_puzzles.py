@@ -1,4 +1,4 @@
-"""
+r"""
 Merkle's puzzles: the first public-key exchange (1974-1978)
 ===========================================================
 
@@ -8,25 +8,22 @@ publishes many puzzles, each a session key locked by a deliberately weak
 key. Bob solves one at random and announces only its label. An eavesdropper
 does not know which puzzle Bob picked, and must open about half of them.
 
-What to look for
-----------------
-
 Bob's work stays flat while the eavesdropper's grows with the number of
 puzzles. With N puzzles of N-trial difficulty, honest parties do O(N) work
 and the attacker O(N**2): a real but only *quadratic* advantage. Diffie and
 Hellman's exponential gap came next.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
 
 # %%
-# One exchange
-# ------------
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# One exchange
+# ------------
 
 bits = 8
 puzzles, alice_table = bk.crypto.merkle_puzzles(64, bits, randbits=Random(78).getrandbits)
@@ -62,6 +59,8 @@ ax.loglog(counts, eve_work, "s-", label="Eve: half of the puzzles")
 ax.set(xlabel="number of puzzles", ylabel="trials", title="A quadratic gap from symmetric crypto")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

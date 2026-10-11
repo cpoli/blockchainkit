@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_channels_coding:
+
+Erasure codes and data availability
+-----------------------------------
+
+Data as the values of a polynomial: recovering what was lost, and catching a block producer who hides part of a block.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Reed and Solomon treated k symbols of data as a polynomial of degree below k over a finite field, and sent its values at n points. Two such polynomials agree on at most k - 1 points, so any k of the n values determine all the others. The code survives the loss of up to n - k symbols, and up to (n - k) / 2 symbols that arrive wrong:">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/coding/images/thumb/sphx_glr_plot_01_reed_solomon_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/coding/plot_01_reed_solomon`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Reed-Solomon codes: recovering lost and corrupted symbols (1960)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A light client cannot download every block, so it relies on full nodes to prove fraud. That fails if the block producer publishes a header but withholds part of the data: nobody can then prove anything about it. Al-Bassam, Sonnino and Buterin extend the data with a Reed-Solomon code, so that any half of the shares rebuilds the block. To hide even one transaction the producer must withhold more than half of the shares, and a client sampling s random shares notices with probability">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/coding/images/thumb/sphx_glr_plot_02_data_availability_sampling_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/coding/plot_02_data_availability_sampling`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fraud proofs and data-availability sampling (Al-Bassam, Sonnino and Buterin, 2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/channels/coding/plot_01_reed_solomon
+   /api/gallery/channels/coding/plot_02_data_availability_sampling
+

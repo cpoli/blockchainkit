@@ -25,22 +25,29 @@ SHA-256 became the standardized hash behind Bitcoin's block hashes,
 addresses, and Merkle trees. A good hash behaves like a random function:
 flipping one input bit flips each output bit with probability one half.
 
-What to look for
-----------------
-
 Flip every bit of a message in turn. The number of changed output bits
 clusters around 128 of 256, following a Binomial(256, 1/2) distribution.
 This is useful intuition, not a proof of collision or preimage resistance.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-36
+.. GENERATED FROM PYTHON SOURCE LINES 15-20
 
 .. code-block:: Python
 
+    import matplotlib.pyplot as plt
+
     import blockchainkit as bk
     from blockchainkit.crypto.visualizers import plot_hamming_distances
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-33
+
+.. code-block:: Python
 
     message = b"blockchainkit: a reproducible experiment"
     digest = bk.crypto.sha256(message)
@@ -67,12 +74,14 @@ See :doc:`/exercises/crypto` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-40
+.. GENERATED FROM PYTHON SOURCE LINES 34-39
 
 .. code-block:: Python
 
     ax = plot_hamming_distances(distances)
     ax.figure.tight_layout()
+
+    plt.show()
 
 
 
@@ -86,7 +95,7 @@ See :doc:`/exercises/crypto` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-46
+.. GENERATED FROM PYTHON SOURCE LINES 40-47
 
 Exercise
 --------
@@ -94,10 +103,12 @@ Hash only the first byte of each digest and find collisions. Compare the
 number of trials to the birthday estimate. Why is this not an attack on
 the full SHA-256 output?
 
+A worked solution is in :doc:`/exercises/crypto`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.152 seconds)
+   **Total running time of the script:** (0 minutes 0.043 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_hashing_plot_04_sha256_avalanche.py:

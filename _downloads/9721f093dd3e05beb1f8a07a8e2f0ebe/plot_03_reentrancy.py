@@ -1,4 +1,4 @@
-"""
+r"""
 The DAO and reentrancy: checks, effects, interactions (2016)
 ============================================================
 
@@ -9,23 +9,20 @@ called back into the withdrawal from inside the payment, again and again,
 while its balance still showed the original deposit. About 3.6 million
 ether were drained, and Ethereum hard-forked to return them.
 
-What to look for
-----------------
-
 With the vulnerable order, the attacker withdraws its deposit once per
 nested call, until the bank is empty or the call-depth limit stops it. With
 the *checks-effects-interactions* order, the re-entrant call finds a zero
 balance and the attacker gets back exactly its deposit.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Drain a bank holding 10,000 of other people's funds
 # ---------------------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 deposits = [10, 50, 100, 500, 1000]
 vulnerable = [bk.vm.drain_bank(10_000, d) for d in deposits]
@@ -59,6 +56,8 @@ right.set(
     title="Smaller deposit, deeper recursion",
 )
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

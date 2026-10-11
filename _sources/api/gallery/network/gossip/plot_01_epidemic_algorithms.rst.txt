@@ -27,9 +27,6 @@ exchange updates, like an infection passing between people. They compared
 *push* (the caller sends what it knows), *pull* (the caller asks for what it
 lacks), and both together.
 
-What to look for
-----------------
-
 Push starts fast but finishes slowly: near the end, an informed caller
 mostly reaches peers that already know, so the uninformed fraction shrinks
 only by a constant factor per round. Pull is the reverse: an uninformed peer
@@ -37,14 +34,7 @@ stays uninformed only if it calls another uninformed peer, so once most
 peers know, the uninformed fraction *squares* each round. Push-pull gets
 both phases and finishes first.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-Spread one update among 4096 replicas
--------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-39
+.. GENERATED FROM PYTHON SOURCE LINES 20-25
 
 .. code-block:: Python
 
@@ -52,6 +42,23 @@ Spread one update among 4096 replicas
 
     import blockchainkit as bk
     from blockchainkit.network.visualizers import plot_rumor_spread
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
+
+Spread one update among 4096 replicas
+-------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-36
+
+.. code-block:: Python
+
 
     n = 4096
     modes = ("push", "pull", "push-pull")
@@ -75,14 +82,14 @@ Spread one update among 4096 replicas
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-44
+.. GENERATED FROM PYTHON SOURCE LINES 37-41
 
 Pull squares the residue
 ------------------------
 If a fraction s is uninformed at the start of a round, an uninformed peer
 calls another uninformed peer with probability about s.
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-50
+.. GENERATED FROM PYTHON SOURCE LINES 41-47
 
 .. code-block:: Python
 
@@ -107,14 +114,14 @@ calls another uninformed peer with probability about s.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-55
+.. GENERATED FROM PYTHON SOURCE LINES 48-52
 
 Push shrinks it by a constant factor
 ------------------------------------
 An uninformed peer escapes every one of about n informed callers with
 probability (1 - 1/n)**n, close to 1/e.
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-68
+.. GENERATED FROM PYTHON SOURCE LINES 52-67
 
 .. code-block:: Python
 
@@ -130,6 +137,8 @@ probability (1 - 1/n)**n, close to 1/e.
     fig, ax = plt.subplots(figsize=(7, 4))
     plot_rumor_spread(runs, ax=ax)
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -149,7 +158,7 @@ probability (1 - 1/n)**n, close to 1/e.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-75
+.. GENERATED FROM PYTHON SOURCE LINES 68-74
 
 Exercise
 --------
@@ -161,7 +170,7 @@ k = 1, 2, 3.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.392 seconds)
+   **Total running time of the script:** (0 minutes 0.082 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_gossip_plot_01_epidemic_algorithms.py:

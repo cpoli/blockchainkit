@@ -28,21 +28,11 @@ the deadline enforceable in Script, and Poon and Dryja's Lightning Network
 (2016) chains HTLCs with the same hash across many channels, so a payment
 either completes along the whole route or nowhere.
 
-What to look for
-----------------
-
 Bob can claim at any time with the secret, never with a guess. Alice's
 refund fails before the deadline and succeeds from it on. Revealing the
 secret to claim on one hop is exactly what lets the previous hop claim too.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Alice pays Bob for the secret behind a hash
--------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-45
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
@@ -50,6 +40,23 @@ Alice pays Bob for the secret behind a hash
 
     import blockchainkit as bk
     from blockchainkit.crypto import public_key, sha256, sign
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Alice pays Bob for the secret behind a hash
+-------------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-42
+
+.. code-block:: Python
+
 
     alice, bob = public_key(7), public_key(5)
     secret = b"invoice 42 preimage"
@@ -79,14 +86,14 @@ Alice pays Bob for the secret behind a hash
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-50
+.. GENERATED FROM PYTHON SOURCE LINES 43-47
 
 A two-hop route with one secret
 -------------------------------
 Alice pays Carol through Bob: Alice -> Bob locked until 600, Bob -> Carol
 until 500. Carol claims with the secret, and Bob reuses it before 600.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-72
+.. GENERATED FROM PYTHON SOURCE LINES 47-71
 
 .. code-block:: Python
 
@@ -112,6 +119,8 @@ until 500. Carol claims with the secret, and Bob reuses it before 600.
     ax.legend(loc="center left")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -124,7 +133,7 @@ until 500. Carol claims with the secret, and Bob reuses it before 600.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-77
+.. GENERATED FROM PYTHON SOURCE LINES 72-76
 
 Exercise
 --------
@@ -134,7 +143,7 @@ timeouts and describe how Bob could lose money.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.439 seconds)
+   **Total running time of the script:** (0 minutes 0.204 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_script_plot_02_htlc.py:

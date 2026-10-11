@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.economics.systems.auctions &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/economics/systems/auctions';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.economics.systems.auctions</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.economics.systems.auctions</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Sealed-bid auctions: Vickrey (1961) and Myerson (1981).</span>
+
+<span class="sd">Vickrey showed that in a *second-price* auction, where the highest bidder</span>
+<span class="sd">wins but pays the second-highest bid, bidding one's true value is a dominant</span>
+<span class="sd">strategy: the bid decides only whether one wins, never what one pays. In a</span>
+<span class="sd">first-price auction, bidders shade their bids below their values, by an</span>
+<span class="sd">amount that depends on what they believe about the others.</span>
+
+<span class="sd">Myerson characterized the auction that maximizes the seller's expected</span>
+<span class="sd">revenue. Each bidder's value ``v`` is replaced by its *virtual value*</span>
+<span class="sd">``phi(v) = v - (1 - F(v)) / f(v)``; the item goes to the highest</span>
+<span class="sd">nonnegative virtual value. For identical bidders this is a second-price</span>
+<span class="sd">auction with a reserve price ``phi^{-1}(0)``. Myerson also proved *revenue</span>
+<span class="sd">equivalence*: any two auctions that allocate the item the same way earn the</span>
+<span class="sd">same expected revenue, so first-price and second-price auctions, without</span>
+<span class="sd">or with the same reserve, raise the same amount on average.</span>
+
+<span class="sd">Values here are drawn independently and uniformly from ``[0, high]``, the</span>
+<span class="sd">textbook case in which everything has a closed form: ``phi(v) = 2v - high``</span>
+<span class="sd">and the optimal reserve is ``high / 2``, whatever the number of bidders.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mapping</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">Random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">MappingProxyType</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span><span class="p">,</span> <span class="n">positive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">seed</span> <span class="k">as</span> <span class="n">check_seed</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.economics.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">AuctionResult</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_real</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be a real number"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="nb">float</span><span class="p">(</span><span class="s2">"inf"</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be non-negative and finite"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_auction</span><span class="p">(</span><span class="n">bids</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">reserve</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AuctionResult</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">bids</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"an auction needs at least one bid"</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">bid</span> <span class="ow">in</span> <span class="n">bids</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"bidders must be non-empty names"</span><span class="p">)</span>
+        <span class="n">_real</span><span class="p">(</span><span class="n">bid</span><span class="p">,</span> <span class="s2">"bid"</span><span class="p">)</span>
+    <span class="n">_real</span><span class="p">(</span><span class="n">reserve</span><span class="p">,</span> <span class="s2">"reserve"</span><span class="p">)</span>
+    <span class="n">ranked</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">bids</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">frozen</span> <span class="o">=</span> <span class="n">MappingProxyType</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">bids</span><span class="p">))</span>
+    <span class="n">winner</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="n">ranked</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">top</span> <span class="o">&lt;</span> <span class="n">reserve</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">AuctionResult</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">frozen</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">second</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">AuctionResult</span><span class="p">(</span><span class="n">winner</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">top</span><span class="p">),</span> <span class="n">frozen</span><span class="p">)</span>
+    <span class="n">runner_up</span> <span class="o">=</span> <span class="n">ranked</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ranked</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="n">AuctionResult</span><span class="p">(</span><span class="n">winner</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">runner_up</span><span class="p">,</span> <span class="n">reserve</span><span class="p">)),</span> <span class="n">frozen</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="first_price_auction">
+<a class="viewcode-back" href="../../../../api/economics.html#blockchainkit.economics.systems.auctions.first_price_auction">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">first_price_auction</span><span class="p">(</span><span class="n">bids</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">reserve</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AuctionResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Sell to the highest bid at or above ``reserve``; the winner pays its own bid.</span>
+
+<span class="sd">    Ties go to the alphabetically first bidder.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.economics import first_price_auction</span>
+<span class="sd">    &gt;&gt;&gt; first_price_auction({"alice": 7, "bob": 5}).price</span>
+<span class="sd">    7.0</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">_auction</span><span class="p">(</span><span class="n">bids</span><span class="p">,</span> <span class="n">reserve</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="second_price_auction">
+<a class="viewcode-back" href="../../../../api/economics.html#blockchainkit.economics.systems.auctions.second_price_auction">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">second_price_auction</span><span class="p">(</span><span class="n">bids</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="o">*</span><span class="p">,</span> <span class="n">reserve</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AuctionResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Sell to the highest bid at or above ``reserve``, at the larger of the second bid and reserve.</span>
+
+<span class="sd">    This is Vickrey's auction; with a reserve, Myerson's optimal one.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.economics import second_price_auction</span>
+<span class="sd">    &gt;&gt;&gt; result = second_price_auction({"alice": 7, "bob": 5})</span>
+<span class="sd">    &gt;&gt;&gt; result.winner, result.price, result.utility("alice", 7)</span>
+<span class="sd">    ('alice', 5.0, 2.0)</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">_auction</span><span class="p">(</span><span class="n">bids</span><span class="p">,</span> <span class="n">reserve</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="virtual_value">
+<a class="viewcode-back" href="../../../../api/economics.html#blockchainkit.economics.systems.auctions.virtual_value">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">virtual_value</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">high</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Myerson's virtual value of ``value`` for values uniform on ``[0, high]``: ``2 value - high``.</span>
+
+<span class="sd">    It is the marginal revenue of selling to this bidder; a seller gains</span>
+<span class="sd">    nothing from selling to a bidder whose virtual value is negative.</span>
+<span class="sd">    """</span>
+    <span class="n">positive</span><span class="p">(</span><span class="n">high</span><span class="p">,</span> <span class="s2">"high"</span><span class="p">)</span>
+    <span class="n">_real</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"value must not exceed high"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">value</span> <span class="o">-</span> <span class="n">high</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="optimal_reserve">
+<a class="viewcode-back" href="../../../../api/economics.html#blockchainkit.economics.systems.auctions.optimal_reserve">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">optimal_reserve</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">high</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The reserve price of Myerson's optimal auction: the zero of the virtual value, ``high / 2``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.economics import optimal_reserve, virtual_value</span>
+<span class="sd">    &gt;&gt;&gt; virtual_value(optimal_reserve(high=10), high=10)</span>
+<span class="sd">    0.0</span>
+<span class="sd">    """</span>
+    <span class="n">positive</span><span class="p">(</span><span class="n">high</span><span class="p">,</span> <span class="s2">"high"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">high</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="equilibrium_bid">
+<a class="viewcode-back" href="../../../../api/economics.html#blockchainkit.economics.systems.auctions.equilibrium_bid">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">equilibrium_bid</span><span class="p">(</span>
+    <span class="n">value</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bidders</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">reserve</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The symmetric equilibrium bid in a first-price auction with values uniform on ``[0, high]``.</span>
+
+<span class="sd">    For ``high = 1``, a bidder with value :math:`v \\ge r` among ``n`` bids</span>
+<span class="sd">    :math:`v - (v^n - r^n) / (n v^{n-1})`: the expected second-highest value</span>
+<span class="sd">    given that it wins, so that it pays on average what a second-price</span>
+<span class="sd">    auction would charge. Below the reserve it does not bid (0 is returned).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.economics import equilibrium_bid</span>
+<span class="sd">    &gt;&gt;&gt; round(equilibrium_bid(0.9, 3), 6)</span>
+<span class="sd">    0.6</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">bidders</span><span class="p">,</span> <span class="s2">"bidders"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">positive</span><span class="p">(</span><span class="n">high</span><span class="p">,</span> <span class="s2">"high"</span><span class="p">)</span>
+    <span class="n">_real</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">"value"</span><span class="p">)</span>
+    <span class="n">_real</span><span class="p">(</span><span class="n">reserve</span><span class="p">,</span> <span class="s2">"reserve"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">high</span> <span class="ow">or</span> <span class="n">reserve</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"value and reserve must not exceed high"</span><span class="p">)</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">value</span> <span class="o">/</span> <span class="n">high</span><span class="p">,</span> <span class="n">reserve</span> <span class="o">/</span> <span class="n">high</span><span class="p">,</span> <span class="n">bidders</span>
+    <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="n">r</span> <span class="ow">or</span> <span class="n">v</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">high</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="p">(</span><span class="n">v</span><span class="o">**</span><span class="n">n</span> <span class="o">-</span> <span class="n">r</span><span class="o">**</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">v</span> <span class="o">**</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))))</span></div>
+
+
+
+<div class="viewcode-block" id="expected_revenue">
+<a class="viewcode-back" href="../../../../api/economics.html#blockchainkit.economics.systems.auctions.expected_revenue">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">expected_revenue</span><span class="p">(</span><span class="n">bidders</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">reserve</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">high</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Expected revenue of a first- or second-price auction with values uniform on ``[0, high]``.</span>
+
+<span class="sd">    By revenue equivalence both formats earn, for ``high = 1``,</span>
+<span class="sd">    :math:`n \\left[\\frac{2(1 - r^{n+1})}{n+1} - \\frac{1 - r^n}{n}\\right]`, the</span>
+<span class="sd">    expected highest nonnegative virtual value; without a reserve this is</span>
+<span class="sd">    :math:`(n - 1)/(n + 1)`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.economics import expected_revenue</span>
+<span class="sd">    &gt;&gt;&gt; round(expected_revenue(2), 4), round(expected_revenue(2, reserve=0.5), 4)</span>
+<span class="sd">    (0.3333, 0.4167)</span>
+<span class="sd">    """</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">bidders</span><span class="p">,</span> <span class="s2">"bidders"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">positive</span><span class="p">(</span><span class="n">high</span><span class="p">,</span> <span class="s2">"high"</span><span class="p">)</span>
+    <span class="n">_real</span><span class="p">(</span><span class="n">reserve</span><span class="p">,</span> <span class="s2">"reserve"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">reserve</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"reserve must not exceed high"</span><span class="p">)</span>
+    <span class="n">n</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">bidders</span><span class="p">,</span> <span class="n">reserve</span> <span class="o">/</span> <span class="n">high</span>
+    <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">high</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span> <span class="o">**</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">r</span><span class="o">**</span><span class="n">n</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="simulate_revenue">
+<a class="viewcode-back" href="../../../../api/economics.html#blockchainkit.economics.systems.auctions.simulate_revenue">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">simulate_revenue</span><span class="p">(</span>
+    <span class="n">auction</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">bidders</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">rounds</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">reserve</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">high</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Average revenue over ``rounds`` auctions with values drawn uniformly from ``[0, high]``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    auction : str</span>
+<span class="sd">        ``"first-price"``, in which everyone bids :func:`equilibrium_bid`, or</span>
+<span class="sd">        ``"second-price"``, in which everyone bids its value.</span>
+<span class="sd">    bidders : int</span>
+<span class="sd">        Bidders per auction.</span>
+<span class="sd">    rounds : int</span>
+<span class="sd">        Auctions to simulate.</span>
+<span class="sd">    reserve : float</span>
+<span class="sd">        The reserve price.</span>
+<span class="sd">    high : float</span>
+<span class="sd">        The highest possible value.</span>
+<span class="sd">    seed : int</span>
+<span class="sd">        Simulation seed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">auction</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"first-price"</span><span class="p">,</span> <span class="s2">"second-price"</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'auction must be "first-price" or "second-price"'</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">bidders</span><span class="p">,</span> <span class="s2">"bidders"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">rounds</span><span class="p">,</span> <span class="s2">"rounds"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">positive</span><span class="p">(</span><span class="n">high</span><span class="p">,</span> <span class="s2">"high"</span><span class="p">)</span>
+    <span class="n">_real</span><span class="p">(</span><span class="n">reserve</span><span class="p">,</span> <span class="s2">"reserve"</span><span class="p">)</span>
+    <span class="n">check_seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">Random</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rounds</span><span class="p">):</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bidders</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">auction</span> <span class="o">==</span> <span class="s2">"first-price"</span><span class="p">:</span>
+            <span class="n">bids</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="sa">f</span><span class="s2">"b</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">equilibrium_bid</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">bidders</span><span class="p">,</span> <span class="n">reserve</span><span class="o">=</span><span class="n">reserve</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">high</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">first_price_auction</span><span class="p">(</span><span class="n">bids</span><span class="p">,</span> <span class="n">reserve</span><span class="o">=</span><span class="n">reserve</span><span class="p">)</span><span class="o">.</span><span class="n">price</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bids</span> <span class="o">=</span> <span class="p">{</span><span class="sa">f</span><span class="s2">"b</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">)}</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">second_price_auction</span><span class="p">(</span><span class="n">bids</span><span class="p">,</span> <span class="n">reserve</span><span class="o">=</span><span class="n">reserve</span><span class="p">)</span><span class="o">.</span><span class="n">price</span>
+    <span class="k">return</span> <span class="n">total</span> <span class="o">/</span> <span class="n">rounds</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

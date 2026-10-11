@@ -1,0 +1,123 @@
+
+
+.. _sphx_glr_api_gallery_contracts_verification:
+
+Verification
+------------
+
+Proving contracts correct, executing them on symbols, checking them at run
+time, and fuzzing them with random transactions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Floyd attached an assertion to every arrow of a flowchart and asked that each instruction carry a true assertion to a true one. Hoare compressed the idea into the triple \{P\}\,S\,\{Q\}: if P holds before S runs and S finishes, Q holds afterwards. The rule for an assignment runs backwards,">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_01_floyd_hoare_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_01_floyd_hoare`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Floyd and Hoare: proving a withdrawal correct with assertions (1967-1969)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="James King proposed running a program on symbols instead of numbers. Every variable holds an expression over the inputs, and each branch on such an expression forks the run in two. Each path then carries a path condition, the conjunction of the decisions it took:">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_02_symbolic_execution_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_02_symbolic_execution`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">King's symbolic execution: every path of a fee schedule (1976)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bertrand Meyer&#x27;s Eiffel treats every routine as a contract. The caller must establish the precondition; the routine then guarantees the postcondition; and every public routine preserves the class invariant. Checked at run time, a violated clause names the culprit: a failed precondition is the caller&#x27;s bug, a failed postcondition or invariant the supplier&#x27;s. In Hoare&#x27;s notation, a routine r must satisfy">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_03_design_by_contract_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_03_design_by_contract`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Meyer's design by contract: an escrow with checked clauses (1986)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Oyente, by Luu, Chu, Olickel, Saxena and Hobor, ran symbolic execution on deployed EVM bytecode, with the Z3 solver deciding which paths were feasible. Run over 19,366 contracts on the main network, it flagged about 8,800 as vulnerable, including the DAO. Working on bytecode means checking what actually runs, not what the source was meant to say.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_04_oyente_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_04_oyente`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Oyente: symbolic execution finds the BeautyChain overflow in bytecode (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Echidna, from Trail of Bits, tests a contract the way QuickCheck tests a function. The author writes properties, functions that must always return true; the fuzzer sends random sequences of transactions, with random senders and arguments, checks every property after each one, and shrinks any failing sequence to a short counterexample.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_05_echidna_fuzzing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_05_echidna_fuzzing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Echidna: property-based fuzzing finds a self-transfer bug (2020)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/contracts/verification/plot_01_floyd_hoare
+   /api/gallery/contracts/verification/plot_02_symbolic_execution
+   /api/gallery/contracts/verification/plot_03_design_by_contract
+   /api/gallery/contracts/verification/plot_04_oyente
+   /api/gallery/contracts/verification/plot_05_echidna_fuzzing
+

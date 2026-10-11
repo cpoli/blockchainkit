@@ -1,4 +1,4 @@
-"""
+r"""
 Eclipse attacks on Bitcoin's peer table (Heilman et al. 2015)
 =============================================================
 
@@ -11,25 +11,21 @@ defense is *bucketing*, which the paper's countermeasures strengthened: an
 address's bucket depends on its network group, and each group can reach
 only a few buckets.
 
-What to look for
-----------------
-
 Without bucketing, a flood of 5000 attacker addresses from four network
 groups fills nearly the whole table, and most sets of eight connections are
 entirely the attacker's. With bucketing, the same flood is confined to at
 most 16 of the 64 buckets, and choosing a bucket before an entry makes an
 all-attacker selection vanishingly rare.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Flood a table with and without bucketing
 # ----------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 results = {}
 for label, per_group in (("unbucketed", None), ("bucketed", 4)):
@@ -82,9 +78,13 @@ right.set(xlabel="outbound connections k", ylabel="f ** k", title="Independent-d
 right.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # In the bucketed table, a selection picks a random nonempty bucket first.
 # If the attacker owns 16 of 64 buckets outright, what is the probability
 # that all eight picks land in its buckets? Compare with the simulation.
+#
+# A worked solution is in :doc:`/exercises/network`.

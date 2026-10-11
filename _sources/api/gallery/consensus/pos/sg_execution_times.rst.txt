@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.759** total execution time for 4 files **from api/gallery/consensus/pos**:
+**00:00.169** total execution time for 4 files **from api/gallery/consensus/pos**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_03_sortition.py` (``plot_03_sortition.py``)
-     - 00:00.281
+     - 00:00.060
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_02_nothing_at_stake.py` (``plot_02_nothing_at_stake.py``)
-     - 00:00.183
+     - 00:00.043
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_01_stake.py` (``plot_01_stake.py``)
-     - 00:00.154
+     - 00:00.034
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_04_casper_ffg.py` (``plot_04_casper_ffg.py``)
-     - 00:00.142
+     - 00:00.032
      - 0.0

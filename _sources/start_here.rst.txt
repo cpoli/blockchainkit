@@ -1,3 +1,5 @@
+:orphan:
+
 Start here: a blockchain without the jargon
 ===========================================
 

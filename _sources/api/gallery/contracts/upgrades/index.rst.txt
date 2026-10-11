@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_contracts_upgrades:
+
+Upgrades and addresses
+----------------------
+
+Proxies that keep state across code changes, and addresses known before deployment.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Deployed code cannot change, so upgradeable contracts split in two. A proxy keeps the address, the ether and the storage, and forwards every call with DELEGATECALL to an implementation that holds the code. Upgrading points the proxy at new code, and the state stays.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/upgrades/images/thumb/sphx_glr_plot_01_proxy_storage_collision_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/upgrades/plot_01_proxy_storage_collision`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Upgradeable proxies and storage collisions (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="CREATE derives a new contract&#x27;s address from the deployer and its nonce, so the address depends on everything the deployer did before. EIP-1014, by Vitalik Buterin, activated in the Constantinople upgrade of February 2019, added CREATE2:">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/upgrades/images/thumb/sphx_glr_plot_02_create2_counterfactual_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/upgrades/plot_02_create2_counterfactual`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">CREATE2 and counterfactual addresses (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/contracts/upgrades/plot_01_proxy_storage_collision
+   /api/gallery/contracts/upgrades/plot_02_create2_counterfactual
+

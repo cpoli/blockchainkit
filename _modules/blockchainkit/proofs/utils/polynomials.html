@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.proofs.utils.polynomials &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/proofs/utils/polynomials';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.proofs.utils.polynomials</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.proofs.utils.polynomials</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Univariate polynomials over a prime field, and the fast Fourier transform.</span>
+
+<span class="sd">A polynomial is a tuple of coefficients, constant term first, with no</span>
+<span class="sd">trailing zeros: ``(5, 0, 1)`` is 5 + x**2 and ``()`` is the zero</span>
+<span class="sd">polynomial. Every function takes the field modulus as ``prime``; it</span>
+<span class="sd">defaults to :data:`FIELD_PRIME`, the BabyBear prime 15 * 2**27 + 1, whose</span>
+<span class="sd">multiplicative group has a subgroup of every power-of-two order up to</span>
+<span class="sd">2**27. Those subgroups are the evaluation domains of the FFT, of FRI, and</span>
+<span class="sd">of PLONK.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit._validation</span><span class="w"> </span><span class="kn">import</span> <span class="n">integer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.utils.primes</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_prime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.proofs.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">Polynomial</span>
+
+<span class="n">FIELD_PRIME</span> <span class="o">=</span> <span class="mi">15</span> <span class="o">*</span> <span class="mi">2</span><span class="o">**</span><span class="mi">27</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="sd">"""int: The BabyBear prime 2013265921, used by RISC Zero and SP1. Its</span>
+<span class="sd">multiplicative group has order 2**27 * 15, so power-of-two domains up to</span>
+<span class="sd">2**27 points exist."""</span>
+
+<span class="n">FIELD_GENERATOR</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="sd">"""int: A generator of the multiplicative group of :data:`FIELD_PRIME`."""</span>
+
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">prime</span><span class="p">,</span> <span class="s2">"prime"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the field modulus must be a prime below 2**64"</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_trim</span><span class="p">(</span><span class="n">coefficients</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+    <span class="k">while</span> <span class="n">coefficients</span> <span class="ow">and</span> <span class="n">coefficients</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">coefficients</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_element</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> must be an integer, not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">value</span> <span class="o">%</span> <span class="n">prime</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_reduce</span><span class="p">(</span><span class="n">poly</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">poly</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"coefficients must be integers, not </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">c</span> <span class="o">%</span> <span class="n">prime</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">poly</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="polynomial">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.polynomial">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">polynomial</span><span class="p">(</span><span class="n">coefficients</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Reduce coefficients into the field and drop trailing zeros.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import polynomial</span>
+<span class="sd">    &gt;&gt;&gt; polynomial([3, -1, 0], prime=7)</span>
+<span class="sd">    (3, 6)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_trim</span><span class="p">(</span><span class="n">_reduce</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">prime</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="degree">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.degree">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">degree</span><span class="p">(</span><span class="n">poly</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return the degree, or -1 for the zero polynomial."""</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">_trim</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">poly</span><span class="p">)))</span> <span class="o">-</span> <span class="mi">1</span></div>
+
+
+
+<div class="viewcode-block" id="poly_add">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.poly_add">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_add</span><span class="p">(</span><span class="n">left</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">right</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Add two polynomials."""</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">_reduce</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">prime</span><span class="p">),</span> <span class="n">_reduce</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+    <span class="k">return</span> <span class="n">_trim</span><span class="p">([(</span><span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span><span class="p">))</span> <span class="o">%</span> <span class="n">prime</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="poly_scale">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.poly_scale">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_scale</span><span class="p">(</span><span class="n">poly</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">scalar</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Multiply every coefficient by ``scalar``."""</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">scalar</span> <span class="o">=</span> <span class="n">_element</span><span class="p">(</span><span class="n">scalar</span><span class="p">,</span> <span class="s2">"scalar"</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">_trim</span><span class="p">([</span><span class="n">c</span> <span class="o">*</span> <span class="n">scalar</span> <span class="o">%</span> <span class="n">prime</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_reduce</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">prime</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="poly_sub">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.poly_sub">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_sub</span><span class="p">(</span><span class="n">left</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">right</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Subtract ``right`` from ``left``."""</span>
+    <span class="k">return</span> <span class="n">poly_add</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">poly_scale</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="p">),</span> <span class="n">prime</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="poly_mul">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.poly_mul">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_mul</span><span class="p">(</span><span class="n">left</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">right</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Multiply two polynomials by schoolbook convolution.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import poly_mul</span>
+<span class="sd">    &gt;&gt;&gt; poly_mul([1, 1], [1, 1], prime=97)</span>
+<span class="sd">    (1, 2, 1)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">_reduce</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">prime</span><span class="p">),</span> <span class="n">_reduce</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">()</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+                <span class="n">product</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">_trim</span><span class="p">([</span><span class="n">c</span> <span class="o">%</span> <span class="n">prime</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">product</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="poly_divmod">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.poly_divmod">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_divmod</span><span class="p">(</span>
+    <span class="n">numerator</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">denominator</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Polynomial</span><span class="p">,</span> <span class="n">Polynomial</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Divide with remainder: ``numerator = quotient * denominator + remainder``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ZeroDivisionError</span>
+<span class="sd">        ``denominator`` is the zero polynomial.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import poly_divmod</span>
+<span class="sd">    &gt;&gt;&gt; poly_divmod([-1, 0, 1], [-1, 1], prime=97)  # (x**2 - 1) / (x - 1)</span>
+<span class="sd">    ((1, 1), ())</span>
+<span class="sd">    """</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">remainder</span> <span class="o">=</span> <span class="n">_trim</span><span class="p">(</span><span class="n">_reduce</span><span class="p">(</span><span class="n">numerator</span><span class="p">,</span> <span class="n">prime</span><span class="p">))</span>
+    <span class="n">divisor</span> <span class="o">=</span> <span class="n">_trim</span><span class="p">(</span><span class="n">_reduce</span><span class="p">(</span><span class="n">denominator</span><span class="p">,</span> <span class="n">prime</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">divisor</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ZeroDivisionError</span><span class="p">(</span><span class="s2">"division by the zero polynomial"</span><span class="p">)</span>
+    <span class="n">rest</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">remainder</span><span class="p">)</span>
+    <span class="n">lead_inverse</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">divisor</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">quotient</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rest</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">shift</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">quotient</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="n">rest</span><span class="p">[</span><span class="n">shift</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">lead_inverse</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="n">quotient</span><span class="p">[</span><span class="n">shift</span><span class="p">]</span> <span class="o">=</span> <span class="n">factor</span>
+        <span class="k">if</span> <span class="n">factor</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">divisor</span><span class="p">):</span>
+                <span class="n">rest</span><span class="p">[</span><span class="n">shift</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">rest</span><span class="p">[</span><span class="n">shift</span> <span class="o">+</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">return</span> <span class="n">_trim</span><span class="p">(</span><span class="n">quotient</span><span class="p">),</span> <span class="n">_trim</span><span class="p">(</span><span class="n">rest</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">divisor</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="poly_eval">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.poly_eval">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">poly_eval</span><span class="p">(</span><span class="n">poly</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Evaluate at ``x`` by Horner's rule.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import poly_eval</span>
+<span class="sd">    &gt;&gt;&gt; poly_eval([5, 0, 1], 3, prime=97)</span>
+<span class="sd">    14</span>
+<span class="sd">    """</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">_element</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">_reduce</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">prime</span><span class="p">)):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">c</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="vanishing_polynomial">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.vanishing_polynomial">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">vanishing_polynomial</span><span class="p">(</span><span class="n">roots</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return the monic polynomial whose roots are ``roots``: the product of (x - root)."""</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">Polynomial</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+    <span class="k">for</span> <span class="n">root</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">poly_mul</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">root</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+
+<div class="viewcode-block" id="interpolate">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.interpolate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">interpolate</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return the unique polynomial of degree below ``len(points)`` through ``points``.</span>
+
+<span class="sd">    Lagrange's formula, in O(n**2) field operations.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        Two points share an x-coordinate.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import interpolate</span>
+<span class="sd">    &gt;&gt;&gt; interpolate([(0, 5), (1, 6), (2, 9)], prime=97)  # 5 + x**2</span>
+<span class="sd">    (5, 0, 1)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">xs</span> <span class="o">=</span> <span class="n">_reduce</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">points</span><span class="p">],</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">ys</span> <span class="o">=</span> <span class="n">_reduce</span><span class="p">([</span><span class="n">y</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">points</span><span class="p">],</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">xs</span><span class="p">))</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"interpolation points need distinct x-coordinates"</span><span class="p">)</span>
+    <span class="n">full</span> <span class="o">=</span> <span class="n">vanishing_polynomial</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">yi</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">basis</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">poly_divmod</span><span class="p">(</span><span class="n">full</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="n">xi</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">prime</span><span class="p">)</span>  <span class="c1"># Product of (x - xj) for j != i.</span>
+        <span class="n">scale</span> <span class="o">=</span> <span class="n">yi</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">poly_eval</span><span class="p">(</span><span class="n">basis</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">prime</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">basis</span><span class="p">):</span>
+            <span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">return</span> <span class="n">_trim</span><span class="p">(</span><span class="n">result</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="root_of_unity">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.root_of_unity">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">root_of_unity</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return an element of multiplicative order exactly ``n``, a power of two.</span>
+
+<span class="sd">    The domain ``{w**i}`` of the FFT. ``n`` must divide ``prime - 1``.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import root_of_unity</span>
+<span class="sd">    &gt;&gt;&gt; w = root_of_unity(8)</span>
+<span class="sd">    &gt;&gt;&gt; pow(w, 8, 2013265921), pow(w, 4, 2013265921) != 1</span>
+<span class="sd">    (1, True)</span>
+<span class="sd">    """</span>
+    <span class="n">_check_prime</span><span class="p">(</span><span class="n">prime</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">prime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"n must be a power of two dividing prime - 1"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">prime</span> <span class="o">==</span> <span class="n">FIELD_PRIME</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">pow</span><span class="p">(</span><span class="n">FIELD_GENERATOR</span><span class="p">,</span> <span class="p">(</span><span class="n">prime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">candidate</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># Half of all nonzero elements are non-residues, so this ends quickly.</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span> <span class="p">(</span><span class="n">prime</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">pow</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">w</span>
+        <span class="n">candidate</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+
+
+<div class="viewcode-block" id="domain">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.domain">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">domain</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Return the ``n`` points ``offset * w**i`` of a (shifted) power-of-two subgroup."""</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">root_of_unity</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="s2">"offset"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">points</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[],</span> <span class="n">offset</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">w</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">points</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_fft</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">values</span>
+    <span class="n">even</span> <span class="o">=</span> <span class="n">_fft</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">w</span> <span class="o">*</span> <span class="n">w</span> <span class="o">%</span> <span class="n">prime</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">odd</span> <span class="o">=</span> <span class="n">_fft</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span> <span class="n">w</span> <span class="o">*</span> <span class="n">w</span> <span class="o">%</span> <span class="n">prime</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">odd</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">even</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">n</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">even</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">w</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<div class="viewcode-block" id="evaluate_on_domain">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.evaluate_on_domain">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">evaluate_on_domain</span><span class="p">(</span>
+    <span class="n">poly</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Evaluate at the ``n`` points of :func:`domain` with the radix-2 FFT.</span>
+
+<span class="sd">    Costs O(n log n) field operations instead of the O(n**2) of evaluating</span>
+<span class="sd">    point by point. The polynomial's degree must be below ``n``.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import evaluate_on_domain, poly_eval, domain</span>
+<span class="sd">    &gt;&gt;&gt; evaluate_on_domain([1, 2, 3], 4) == tuple(poly_eval([1, 2, 3], x) for x in domain(4))</span>
+<span class="sd">    True</span>
+<span class="sd">    """</span>
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="n">_reduce</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">root_of_unity</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="s2">"offset"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_trim</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)))</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"the polynomial's degree must be below n"</span><span class="p">)</span>
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="p">(</span><span class="n">coefficients</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span><span class="p">)[:</span><span class="n">n</span><span class="p">]</span>
+    <span class="n">shift</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">coefficients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">shift</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="n">shift</span> <span class="o">=</span> <span class="n">shift</span> <span class="o">*</span> <span class="n">offset</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">_fft</span><span class="p">(</span><span class="n">coefficients</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">prime</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="interpolate_on_domain">
+<a class="viewcode-back" href="../../../../api/proofs.html#blockchainkit.proofs.utils.polynomials.interpolate_on_domain">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">interpolate_on_domain</span><span class="p">(</span>
+    <span class="n">values</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">prime</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">FIELD_PRIME</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Polynomial</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Inverse of :func:`evaluate_on_domain`: the polynomial taking ``values`` on the domain.</span>
+
+<span class="sd">    &gt;&gt;&gt; from blockchainkit.proofs import evaluate_on_domain, interpolate_on_domain</span>
+<span class="sd">    &gt;&gt;&gt; interpolate_on_domain(evaluate_on_domain([4, 0, 7], 8, offset=31), offset=31)</span>
+<span class="sd">    (4, 0, 7)</span>
+<span class="sd">    """</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">root_of_unity</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">integer</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="s2">"offset"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">offset</span> <span class="o">%</span> <span class="n">prime</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"offset must be invertible"</span><span class="p">)</span>
+    <span class="n">coefficients</span> <span class="o">=</span> <span class="n">_fft</span><span class="p">(</span><span class="n">_reduce</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">prime</span><span class="p">),</span> <span class="nb">pow</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="p">),</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">scale</span><span class="p">,</span> <span class="n">unshift</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="p">),</span> <span class="nb">pow</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">prime</span><span class="p">)</span>
+    <span class="n">factor</span> <span class="o">=</span> <span class="n">scale</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">coefficients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">coefficients</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">factor</span> <span class="o">%</span> <span class="n">prime</span>
+        <span class="n">factor</span> <span class="o">=</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">unshift</span> <span class="o">%</span> <span class="n">prime</span>
+    <span class="k">return</span> <span class="n">_trim</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

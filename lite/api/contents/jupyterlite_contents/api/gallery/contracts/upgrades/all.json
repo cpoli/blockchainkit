@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.220356Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.220356Z",
+      "mimetype": null,
+      "name": "plot_01_proxy_storage_collision.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/upgrades/plot_01_proxy_storage_collision.ipynb",
+      "size": 5223,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.220494Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.220494Z",
+      "mimetype": null,
+      "name": "plot_02_create2_counterfactual.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/upgrades/plot_02_create2_counterfactual.ipynb",
+      "size": 4942,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T19:00:14.600172Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T19:00:14.600466Z",
+  "mimetype": null,
+  "name": "upgrades",
+  "path": "jupyterlite_contents/api/gallery/contracts/upgrades",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

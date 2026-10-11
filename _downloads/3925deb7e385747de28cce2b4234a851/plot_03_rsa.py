@@ -1,4 +1,4 @@
-"""
+r"""
 RSA: a public trapdoor (Rivest, Shamir and Adleman 1978)
 ========================================================
 
@@ -6,23 +6,19 @@ RSA publishes n = p*q and an exponent e; only the holder of p and q can
 compute the inverse exponent d. Anyone can raise a message to e; only the
 key holder can undo it. The same inverse pair gives digital signatures.
 
-What to look for
-----------------
-
 The message 65 encrypts to 2790 and decrypts back. Then textbook RSA's
 algebra shows through: multiplying a ciphertext by 2**e doubles the hidden
 message. Real RSA adds randomized padding (OAEP, PSS) to break this.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Encrypt and decrypt
 # -------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 key = bk.crypto.rsa_keypair()  # p = 61, q = 53, e = 17: the classic textbook key.
 ciphertext = key.encrypt(65)
@@ -53,8 +49,12 @@ ax.scatter(messages, [key.encrypt(m) for m in messages], s=18, color="#7c3aed")
 ax.set(xlabel="message m", ylabel="ciphertext m**e mod n", title="Textbook RSA permutation")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Factor n = 3233 by trial division and recompute d. Explain why a
 # scrambled-looking plot is not evidence of secure encryption.
+#
+# A worked solution is in :doc:`/exercises/crypto`.

@@ -25,26 +25,28 @@ Chaum's construction separates authorization from knowledge of a message.
 This experiment exposes RSA's multiplicative blinding identity with tiny
 integers; a usable payment system needs encoding, issuance, and spent-token rules.
 
-What to look for
-----------------
-
 Follow the original message, its hidden form, and the final signature. The final check
 succeeds after removing the hiding factor; this is only the signing step of a payment
 system.
 
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-37
+.. GENERATED FROM PYTHON SOURCE LINES 15-19
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-29
+
+.. code-block:: Python
 
     key = bk.crypto.rsa_keypair()
     message, factor = 42, 7
@@ -68,12 +70,12 @@ See :doc:`/exercises/crypto` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-40
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
 The signer sees the middle column, not the blinding factor
 ----------------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-67
+.. GENERATED FROM PYTHON SOURCE LINES 32-61
 
 .. code-block:: Python
 
@@ -104,6 +106,8 @@ The signer sees the middle column, not the blinding factor
     ax.set_title("Authorization and message visibility are different properties")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -116,17 +120,19 @@ The signer sees the middle column, not the blinding factor
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-72
+.. GENERATED FROM PYTHON SOURCE LINES 62-68
 
 Exercise
 --------
 Try an r that shares a factor with n. Why can it not be removed? Explain
 why blind signatures alone do not prevent spending the same token twice.
 
+A worked solution is in :doc:`/exercises/crypto`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.279 seconds)
+   **Total running time of the script:** (0 minutes 0.071 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_blind_signatures_plot_01_blind_signatures.py:

@@ -25,19 +25,10 @@ With d leading zero bits, a uniform hash succeeds with probability 2**(-d).
 The expected search is 2**d trials, but any one run can finish much earlier
 or later. Nonce search changes a commitment without changing the payload.
 
-What to look for
-----------------
-
 Compare measured mining attempts with the average predicted by difficulty. Individual
 searches fluctuate: the average is not a deadline.
 
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-40
+.. GENERATED FROM PYTHON SOURCE LINES 14-19
 
 .. code-block:: Python
 
@@ -45,6 +36,17 @@ See :doc:`/exercises/consensus` for a worked solution to the exercise.
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-32
+
+.. code-block:: Python
 
     difficulties = list(range(2, 10))
     samples = []
@@ -71,7 +73,7 @@ See :doc:`/exercises/consensus` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-73
+.. GENERATED FROM PYTHON SOURCE LINES 33-67
 
 .. code-block:: Python
 
@@ -107,6 +109,8 @@ See :doc:`/exercises/consensus` for a worked solution to the exercise.
     axes[1].legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -119,7 +123,7 @@ See :doc:`/exercises/consensus` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-79
+.. GENERATED FROM PYTHON SOURCE LINES 68-75
 
 Exercise
 --------
@@ -127,10 +131,12 @@ Repeat with more trials and compare means and medians. The right plot
 assumes independent block discoveries and an infinite horizon; it is not
 Nakamoto's Poisson confirmation calculation and omits propagation effects.
 
+A worked solution is in :doc:`/exercises/consensus`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.584 seconds)
+   **Total running time of the script:** (0 minutes 0.140 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pow_plot_02_hashcash.py:

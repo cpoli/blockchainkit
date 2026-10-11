@@ -25,30 +25,36 @@ Lamport built a signature from nothing but a one-way function. The private
 key is 256 pairs of random strings; the public key is their hashes. To sign,
 reveal one string from each pair, chosen by the bits of the message digest.
 
-What to look for
-----------------
-
 A signature verifies, and changing the message breaks it. But every
 signature reveals half the private key: after a few signatures an attacker
 can sign new messages. The key must sign exactly once. Because security
 needs only a one-way hash, the idea survives quantum computers; it is the
 ancestor of today's standardized SPHINCS+ (SLH-DSA).
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Sign once, verify
------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-36
+.. GENERATED FROM PYTHON SOURCE LINES 17-21
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+Sign once, verify
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-32
+
+.. code-block:: Python
+
 
     key = bk.crypto.lamport_keypair(b"teaching seed, never reuse")
     signature = bk.crypto.lamport_sign(b"pay Bob 10", key)
@@ -70,14 +76,14 @@ Sign once, verify
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-41
+.. GENERATED FROM PYTHON SOURCE LINES 33-37
 
 Reusing the key leaks it
 ------------------------
 Collect the preimages revealed by k signatures, then count how many random
 messages an attacker could now sign (every digest bit must be covered).
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-74
+.. GENERATED FROM PYTHON SOURCE LINES 37-72
 
 .. code-block:: Python
 
@@ -114,6 +120,8 @@ messages an attacker could now sign (every digest bit must be covered).
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -126,7 +134,7 @@ messages an attacker could now sign (every digest bit must be covered).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-80
+.. GENERATED FROM PYTHON SOURCE LINES 73-80
 
 Exercise
 --------
@@ -134,10 +142,12 @@ A Lamport public key is 16 KiB. Merkle (1979) signed many messages by
 putting many one-time public keys in a hash tree and publishing only its
 root. How big is a proof that one key belongs to a tree of 2**20 keys?
 
+A worked solution is in :doc:`/exercises/crypto`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.300 seconds)
+   **Total running time of the script:** (0 minutes 0.088 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_hash_signatures_plot_01_lamport_signatures.py:

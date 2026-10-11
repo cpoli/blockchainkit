@@ -27,28 +27,35 @@ replies with a random challenge c, and the prover answers s = k + c*x. The
 verifier checks sG = R + cQ and learns that the prover knows x, but nothing
 else: a *simulator* can produce transcripts that look identical without x.
 
-What to look for
-----------------
-
 An honest run verifies. A simulated transcript, built backwards by choosing
 c and s first, verifies too, so a recorded transcript proves nothing to a
 third party. Soundness comes only from the order of messages: R first,
 unpredictable c second.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-An honest interactive proof
----------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-38
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+An honest interactive proof
+---------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-35
+
+.. code-block:: Python
+
 
     curve = bk.crypto.SECP256K1
     x = 42  # The prover's secret.
@@ -66,13 +73,13 @@ An honest interactive proof
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-42
+.. GENERATED FROM PYTHON SOURCE LINES 36-39
 
 A simulator needs no secret
 ---------------------------
 Choose c and s first, then solve for R = sG - cQ.
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-48
+.. GENERATED FROM PYTHON SOURCE LINES 39-45
 
 .. code-block:: Python
 
@@ -95,12 +102,12 @@ Choose c and s first, then solve for R = sG - cQ.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-51
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
 
 Who sends what, and in which order
 ----------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 51-65
+.. GENERATED FROM PYTHON SOURCE LINES 48-64
 
 .. code-block:: Python
 
@@ -118,6 +125,8 @@ Who sends what, and in which order
         ax.text(0.485, y + 0.04, label, ha="center")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -130,7 +139,7 @@ Who sends what, and in which order
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 Exercise
 --------
@@ -141,7 +150,7 @@ the cheater's success probability with a 256-bit challenge.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.064 seconds)
+   **Total running time of the script:** (0 minutes 0.023 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_signatures_plot_01_zero_knowledge.py:

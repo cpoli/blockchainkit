@@ -29,22 +29,12 @@ transaction along a random path (the *stem*), each hop continuing with a
 fixed probability, and only then diffuse it (the *fluff*). Spies then see
 the end of the stem.
 
-What to look for
-----------------
-
 With 10% spies, the first-spy estimator names the true origin about half as
 often under Dandelion as under diffusion. Precision does not reach zero:
 when the origin's first stem hop happens to be a spy, the spy knows exactly
 who sent it.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-10% spies on a 300-peer network
--------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-42
+.. GENERATED FROM PYTHON SOURCE LINES 20-26
 
 .. code-block:: Python
 
@@ -53,6 +43,23 @@ The history behind this experiment: :doc:`/history/network_breakthroughs`.
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-29
+
+10% spies on a 300-peer network
+-------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-39
+
+.. code-block:: Python
+
 
     graph = bk.network.watts_strogatz(300, 8, 0.3, seed=4)
     spies = set(Random(5).sample(range(300), 30))
@@ -76,14 +83,14 @@ The history behind this experiment: :doc:`/history/network_breakthroughs`.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-47
+.. GENERATED FROM PYTHON SOURCE LINES 40-44
 
 Longer stems
 ------------
 The stem continues with probability q at each hop, so its expected length
 is 1 / (1 - q).
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-64
+.. GENERATED FROM PYTHON SOURCE LINES 44-63
 
 .. code-block:: Python
 
@@ -104,6 +111,8 @@ is 1 / (1 - q).
     right.set(xlabel="expected stem length", ylabel="P(origin identified)", title="Dandelion")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -122,7 +131,7 @@ is 1 / (1 - q).
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 65-71
+.. GENERATED FROM PYTHON SOURCE LINES 64-70
 
 Exercise
 --------
@@ -134,7 +143,7 @@ graph rather than the full peer graph?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.247 seconds)
+   **Total running time of the script:** (0 minutes 0.079 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_relay_plot_04_dandelion.py:

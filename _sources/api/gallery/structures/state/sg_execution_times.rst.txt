@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.481** total execution time for 1 file **from api/gallery/structures/state**:
+**00:00.125** total execution time for 1 file **from api/gallery/structures/state**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structures_state_plot_01_sparse_merkle.py` (``plot_01_sparse_merkle.py``)
-     - 00:00.481
+     - 00:00.125
      - 0.0

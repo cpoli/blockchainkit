@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.802948Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.802948Z",
+      "mimetype": null,
+      "name": "plot_02_myerson_optimal_auction.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/auctions/plot_02_myerson_optimal_auction.ipynb",
+      "size": 4437,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.803124Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.803124Z",
+      "mimetype": null,
+      "name": "plot_03_hanson_lmsr.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/auctions/plot_03_hanson_lmsr.ipynb",
+      "size": 4465,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.802746Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.802746Z",
+      "mimetype": null,
+      "name": "plot_01_vickrey_second_price.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/auctions/plot_01_vickrey_second_price.ipynb",
+      "size": 4348,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T05:56:30.820707Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T05:56:30.821322Z",
+  "mimetype": null,
+  "name": "auctions",
+  "path": "jupyterlite_contents/api/gallery/economics/auctions",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

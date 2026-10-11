@@ -1,3 +1,5 @@
+:orphan:
+
 Glossary
 ========
 
@@ -142,3 +144,17 @@ These definitions describe how terms are used in this course.
    Zero knowledge
       A precise property of a proof protocol: the verifier gains no additional
       knowledge beyond the claim's validity, under stated assumptions.
+
+   Base fee
+      The protocol's price per unit of gas under EIP-1559, raised after full
+      blocks and lowered after empty ones, and burned rather than paid to
+      the block producer.
+
+   MEV
+      Maximal (originally miner) extractable value: what whoever orders a
+      block's transactions can earn by including, excluding or reordering
+      them, as in front-running and sandwich attacks.
+
+   Stablecoin
+      A token designed to keep a constant price, usually one dollar, backed
+      by reserves or, like Dai, by collateral locked in contracts.

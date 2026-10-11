@@ -1,0 +1,49 @@
+
+:orphan:
+
+.. _sphx_glr_api_gallery_fraud_scam_contracts_sg_execution_times:
+
+
+Computation times
+=================
+**00:00.155** total execution time for 5 files **from api/gallery/fraud/scam_contracts**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_05_squid_game_rug_pull.py` (``plot_05_squid_game_rug_pull.py``)
+     - 00:00.040
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_02_ico_exit_scams_daico.py` (``plot_02_ico_exit_scams_daico.py``)
+     - 00:00.036
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_04_torres_solidity_quirks.py` (``plot_04_torres_solidity_quirks.py``)
+     - 00:00.030
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_03_torres_evm_honeypots.py` (``plot_03_torres_evm_honeypots.py``)
+     - 00:00.026
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_01_verified_source_deception.py` (``plot_01_verified_source_deception.py``)
+     - 00:00.022
+     - 0.0

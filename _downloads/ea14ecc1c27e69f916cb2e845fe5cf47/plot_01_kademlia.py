@@ -1,4 +1,4 @@
-"""
+r"""
 Kademlia: routing by XOR distance (Maymounkov and Mazières 2002)
 ================================================================
 
@@ -11,25 +11,22 @@ hop toward a key at least fixes the next differing bit, so a lookup among n
 nodes takes about ``log2 n`` hops at most and far fewer on average.
 Ethereum's discovery protocol and IPFS use Kademlia.
 
-What to look for
-----------------
-
 Every lookup ends at the true closest node. The number of hops grows by a
 constant each time n quadruples: logarithmic growth, a straight line on a
 log axis. Larger buckets mean fewer hops, at the price of bigger tables.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
 
 # %%
-# Build networks of 64 to 4096 nodes
-# ----------------------------------
 from random import Random
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Build networks of 64 to 4096 nodes
+# ----------------------------------
 
 random = Random(1)
 sizes = [64, 256, 1024, 4096]
@@ -65,6 +62,8 @@ for k, hops in mean_hops.items():
 ax.set(xlabel="nodes n", ylabel="mean hops", title="Lookups take O(log n) hops")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

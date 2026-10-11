@@ -1,0 +1,122 @@
+
+
+.. _sphx_glr_api_gallery_fraud_scam_contracts:
+
+Scam contracts
+--------------
+
+Contracts whose source deceives the reader who checks it, and token sales that vanish.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Block explorers let a contract&#x27;s author publish its source and verify it: the explorer compiles the source and checks that the bytecode matches the code at the address. Solidity&#x27;s metadata hash, added in December 2016, made the match exact, and a green &quot;verified&quot; badge came to read as &quot;safe&quot;. It certifies only which code sits at one address. A buyer who checks the verified source of an upgradeable token reads a proxy:">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/scam_contracts/images/thumb/sphx_glr_plot_01_verified_source_deception_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/scam_contracts/plot_01_verified_source_deception`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Verified source code, and why a verified source can still deceive (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 2017 initial coin offerings raised billions of dollars for projects that existed only as white papers. Nothing tied the team to the money: once the sale closed, it could withdraw everything and disappear, an exit scam. In December 2017 the SEC&#x27;s new Cyber Unit froze the PlexCoin sale, which had promised a 1,354% return within a month. Buterin&#x27;s DAICO proposal of January 2018 keeps the ether in the contract and releases it at a tap rate \tau, while contributors may vote to refund what remains:">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/scam_contracts/images/thumb/sphx_glr_plot_02_ico_exit_scams_daico_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/scam_contracts/plot_02_ico_exit_scams_daico`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ICO exit scams and the DAICO (2017-2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A honeypot holds ether and seems to leak it to anyone who spots a flaw in its source. The reader sends ether to exploit the flaw and loses it. Torres, Steichen and State found 690 honeypots on Ethereum and sorted them by technique. Three rest on EVM semantics or on what the block explorer shows. Balance disorder: the reader sees that sending at least the contract&#x27;s balance pays out both,">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/scam_contracts/images/thumb/sphx_glr_plot_03_torres_evm_honeypots_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/scam_contracts/plot_03_torres_evm_honeypots`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Torres et al.: honeypot contracts that trap would-be thieves (2019)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Four of the honeypot techniques Torres, Steichen and State classified are quirks of the Solidity language or compiler of the time, which the reader of the source does not suspect. They are reproduced here by their effect; nothing is compiled. Inheritance disorder: the child redeclares owner, so the bidder who becomes owner is not the one the parent&#x27;s modifier checks.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/scam_contracts/images/thumb/sphx_glr_plot_04_torres_solidity_quirks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/scam_contracts/plot_04_torres_solidity_quirks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Torres et al.: the Solidity quirks honeypots exploit (2019)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Anyone can issue a token and open a market for it on a decentralized exchange. In November 2021 a token named after the Squid Game series rose from a cent to 2,861 dollars in a week; its buyers could not sell, because the contract refused transfers into the market unless the seller held &quot;marbles&quot;, which nobody could earn. Its creators then sold and vanished, and the price fell to nothing in minutes. The rule hid behind an innocent-looking override, of the kind many scam tokens use:">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/scam_contracts/images/thumb/sphx_glr_plot_05_squid_game_rug_pull_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/scam_contracts/plot_05_squid_game_rug_pull`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rug pulls and hidden-mint tokens: the Squid Game token (2021)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fraud/scam_contracts/plot_01_verified_source_deception
+   /api/gallery/fraud/scam_contracts/plot_02_ico_exit_scams_daico
+   /api/gallery/fraud/scam_contracts/plot_03_torres_evm_honeypots
+   /api/gallery/fraud/scam_contracts/plot_04_torres_solidity_quirks
+   /api/gallery/fraud/scam_contracts/plot_05_squid_game_rug_pull
+

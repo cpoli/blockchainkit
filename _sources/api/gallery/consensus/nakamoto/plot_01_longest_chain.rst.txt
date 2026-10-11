@@ -25,26 +25,28 @@ This is the full teaching chain: keys authorize a transfer, a Merkle root
 commits to it, proof of work secures a header, and peers compare valid forks.
 The example uses an account ledger, not Bitcoin's UTXO model.
 
-What to look for
-----------------
-
 Follow Alice and Bob’s balances after a payment, then after a competing branch wins. The
 old payment’s signature can still verify even though its effect disappears from the
 selected ledger.
 
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-39
+.. GENERATED FROM PYTHON SOURCE LINES 15-19
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 20-31
+
+.. code-block:: Python
 
     alice_private, bob_private = 7, 11
     alice = bk.structures.address(bk.crypto.public_key(alice_private))
@@ -64,14 +66,14 @@ See :doc:`/exercises/structures` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-44
+.. GENERATED FROM PYTHON SOURCE LINES 32-36
 
 Two partitions extend the same genesis independently
 ----------------------------------------------------
 Transport sends hash announcements; this in-memory registry supplies the
 corresponding immutable block objects. It is not a wire serialization layer.
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-60
+.. GENERATED FROM PYTHON SOURCE LINES 36-52
 
 .. code-block:: Python
 
@@ -98,12 +100,12 @@ corresponding immutable block objects. It is not a wire serialization layer.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 61-63
+.. GENERATED FROM PYTHON SOURCE LINES 53-55
 
 Reconnect and synchronize parent before child
 ---------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-75
+.. GENERATED FROM PYTHON SOURCE LINES 55-67
 
 .. code-block:: Python
 
@@ -132,12 +134,12 @@ Reconnect and synchronize parent before child
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-78
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 Inclusion remains true for the discarded block
 ----------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-82
+.. GENERATED FROM PYTHON SOURCE LINES 70-74
 
 .. code-block:: Python
 
@@ -158,7 +160,7 @@ Inclusion remains true for the discarded block
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-97
+.. GENERATED FROM PYTHON SOURCE LINES 75-91
 
 .. code-block:: Python
 
@@ -176,6 +178,8 @@ Inclusion remains true for the discarded block
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -188,7 +192,7 @@ Inclusion remains true for the discarded block
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-103
+.. GENERATED FROM PYTHON SOURCE LINES 92-99
 
 Exercise
 --------
@@ -196,10 +200,12 @@ Reinclude the payment on the winning fork, then attempt to replay it. Check
 that its first inclusion succeeds and its second fails on the account nonce.
 Change the chain ID and explain why the existing signature no longer works.
 
+A worked solution is in :doc:`/exercises/structures`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.160 seconds)
+   **Total running time of the script:** (0 minutes 0.047 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_nakamoto_plot_01_longest_chain.py:

@@ -51,12 +51,11 @@
     <script src="_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="_static/jupyterlite_sphinx.js?v=96e329c5"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'protocol';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Reproducible experiments and research scope" href="simulation.html" />
-    <link rel="prev" title="Exercises: execution" href="exercises/vm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -126,8 +125,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
   
-    <p class="title logo__title">blockchainkit</p>
   
 </a></div>
     
@@ -142,27 +147,6 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="start_here.html">
-    Start here: a blockchain without the jargon
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="quickstart.html">
-    Your first payment, step by step
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="glossary.html">
-    Glossary
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="subpackages/index.html">
     Subpackages
   </a>
@@ -175,65 +159,20 @@
   </a>
 </li>
 
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="examples/index.html">
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="tutorials/index.html">
-    Tutorials
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="exercises/index.html">
-    Exercises
-  </a>
-</li>
-
-
-<li class=" current active">
-  <a class="nav-link dropdown-item nav-internal" href="#" aria-current="page">
-    Exact conventions and model boundaries
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="simulation.html">
-    Reproducible experiments and research scope
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="api/index.html">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
     API
   </a>
 </li>
 
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="contributing.html">
-    Developing blockchainkit
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
   </ul>
 </nav></div>
       
@@ -313,8 +252,10 @@
       
       
       
+        
+      
       <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -329,27 +270,6 @@
 <nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="start_here.html">
-    Start here: a blockchain without the jargon
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="quickstart.html">
-    Your first payment, step by step
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="glossary.html">
-    Glossary
-  </a>
-</li>
-
-
 <li class="nav-item ">
   <a class="nav-link nav-internal" href="subpackages/index.html">
     Subpackages
@@ -372,43 +292,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="tutorials/index.html">
-    Tutorials
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="exercises/index.html">
-    Exercises
-  </a>
-</li>
-
-
-<li class="nav-item current active">
-  <a class="nav-link nav-internal" href="#" aria-current="page">
-    Exact conventions and model boundaries
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="simulation.html">
-    Reproducible experiments and research scope
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="api/index.html">
     API
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="contributing.html">
-    Developing blockchainkit
   </a>
 </li>
 
@@ -455,23 +340,6 @@
       </div>
     
   </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
-  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
-  </svg>
-  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
-  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
-</button></div>
-        <div class="sidebar-primary-item">
-
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
@@ -678,6 +546,235 @@ storage is read-only. Gas bounds interpreter steps, not all host CPU/memory
 costs: parsing/materializing a huge program is not metered. This teaching VM
 is not a hostile-code sandbox and is not connected to the transfer ledger.</p>
 </section>
+<section id="contract-world-model">
+<h2>Contract world model<a class="headerlink" href="#contract-world-model" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a> models the EVM’s call
+semantics, not its bytecode. Contracts are Python classes; public methods
+(names without a leading underscore) are dispatched by name, not by a 4-byte
+selector, and values are Python objects rather than 256-bit words, with
+unbounded integer arithmetic. Field <code class="docutils literal notranslate"><span class="pre">i</span></code> of a contract’s <code class="docutils literal notranslate"><span class="pre">layout</span></code> is
+storage slot <code class="docutils literal notranslate"><span class="pre">i</span></code>, and entry <code class="docutils literal notranslate"><span class="pre">k</span></code> of a mapping field is slot <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">k)</span></code>
+rather than a Keccak hash; writing 0 clears a slot, and an unwritten slot
+reads 0. <code class="docutils literal notranslate"><span class="pre">delegatecall</span></code> runs the callee’s code on the caller’s storage
+through the callee’s layout.</p>
+<p>Every call runs on a snapshot of balances, code, storage, nonces and
+events: a revert (<a class="reference internal" href="api/contracts.html#blockchainkit.contracts.core.base.ContractError" title="blockchainkit.contracts.core.base.ContractError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContractError</span></code></a>)
+restores the snapshot of that call only, and the caller sees the error. A
+Python exception that is not a revert restores the snapshot and propagates.
+A reverted transaction still increments the sender’s nonce and reports the
+gas it used, but no ether is charged for gas.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id2">
+<caption><span class="caption-text">Teaching gas schedule</span><a class="headerlink" href="#id2" title="Link to this table">#</a></caption>
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Gas</p></th>
+<th class="head"><p>Ethereum, for comparison</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Transaction</p></td>
+<td><p>21,000</p></td>
+<td><p>21,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage read / write</p></td>
+<td><p>800 / 5,000</p></td>
+<td><p>2,100 cold read; 20,000 to fill an empty slot, 2,900 to change one</p></td>
+</tr>
+<tr class="row-even"><td><p>Call, create, log</p></td>
+<td><p>700, 32,000, 375</p></td>
+<td><p>100-2,600 (warm/cold), 32,000, 375 plus data</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">send</span></code> stipend</p></td>
+<td><p>2,300</p></td>
+<td><p>2,300</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>A call forwards at most 63/64 of the remaining gas (EIP-150), and the
+default call-depth limit is 128 rather than 1024, to stay within Python’s
+recursion limit. <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code> deletes code and storage at once rather
+than at the end of the transaction. Contract addresses are
+<code class="docutils literal notranslate"><span class="pre">&quot;0x&quot;</span> <span class="pre">+</span> <span class="pre">SHA-256(tag</span> <span class="pre">||</span> <span class="pre">canonical_json([deployer,</span> <span class="pre">nonce]))[-20:]</span></code> for CREATE
+and <code class="docutils literal notranslate"><span class="pre">&quot;0x&quot;</span> <span class="pre">+</span> <span class="pre">SHA-256(tag</span> <span class="pre">||</span> <span class="pre">canonical_json([deployer,</span> <span class="pre">salt])</span> <span class="pre">||</span>
+<span class="pre">code_hash)[-20:]</span></code> for CREATE2, where the code hash covers the class and its
+constructor arguments. Block hashes are SHA-256 of a seed and the block
+number, available for the 256 previous blocks. The domain tags are in
+<a class="reference internal" href="api/constants.html#module-blockchainkit.constants" title="blockchainkit.constants"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.constants</span></code></a>.</p>
+</section>
+<section id="economic-models">
+<h2>Economic models<a class="headerlink" href="#economic-models" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/economics.html#module-blockchainkit.economics" title="blockchainkit.economics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.economics</span></code></a> adds no consensus rule: the chain in
+<a class="reference internal" href="api/structures.html#module-blockchainkit.structures" title="blockchainkit.structures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.structures</span></code></a> still has no issuance, reward or fee. The
+models are pure functions and seeded simulations, and the market contracts
+run on the contract world model above.</p>
+<ul class="simple">
+<li><p><strong>Block subsidy.</strong> <a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.rewards.block_subsidy" title="blockchainkit.economics.systems.rewards.block_subsidy"><code class="xref py py-func docutils literal notranslate"><span class="pre">block_subsidy()</span></code></a>
+is Bitcoin’s schedule exactly: <code class="docutils literal notranslate"><span class="pre">50</span> <span class="pre">*</span> <span class="pre">10**8</span> <span class="pre">&gt;&gt;</span> <span class="pre">(height</span> <span class="pre">//</span> <span class="pre">210000)</span></code>
+satoshis, 0 from the 64th halving. <code class="docutils literal notranslate"><span class="pre">issued_supply</span></code> counts the genesis
+coins, which Bitcoin cannot spend.</p></li>
+<li><p><strong>Base fee.</strong> <a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.fee_market.next_base_fee" title="blockchainkit.economics.systems.fee_market.next_base_fee"><code class="xref py py-func docutils literal notranslate"><span class="pre">next_base_fee()</span></code></a>
+follows the EIP-1559 integer update (maximum change 1/8, elasticity 2, a
+minimum increase of 1 above target). The simulated mempool holds only
+21,000-gas transfers, with values drawn uniformly and integer fees per
+gas; there are no nonces, replacements or blob fees.</p></li>
+<li><p><strong>Swaps.</strong> <a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.amm.amount_out" title="blockchainkit.economics.systems.amm.amount_out"><code class="xref py py-func docutils literal notranslate"><span class="pre">amount_out()</span></code></a> is
+Uniswap V2’s <code class="docutils literal notranslate"><span class="pre">getAmountOut</span></code> with the fee in basis points.
+<a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.amm.ConstantProductPool" title="blockchainkit.economics.systems.amm.ConstantProductPool"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstantProductPool</span></code></a> keeps
+its reserves in storage rather than reading token balances, records
+shares in a mapping rather than an ERC-20 token, locks no minimum
+liquidity, and exposes the price before the current block’s first trade
+in place of V2’s cumulative time-weighted price.</p></li>
+<li><p><strong>Vaults.</strong> <a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.lending.VaultEngine" title="blockchainkit.economics.systems.lending.VaultEngine"><code class="xref py py-class docutils literal notranslate"><span class="pre">VaultEngine</span></code></a>
+uses Single-Collateral Dai’s 150% ratio and 13% penalty, with integer
+prices in Dai per ether. A liquidator buys the collateral at the oracle
+price, rounded up to whole ether; there is no auction, stability fee or
+global settlement.</p></li>
+<li><p><strong>Mining games.</strong> <a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.mining_games.optimal_mining_revenue" title="blockchainkit.economics.systems.mining_games.optimal_mining_revenue"><code class="xref py py-func docutils literal notranslate"><span class="pre">optimal_mining_revenue()</span></code></a>
+caps both branches at <code class="docutils literal notranslate"><span class="pre">max_lead</span></code> blocks and stops value iteration when
+the gain’s sign is certain, so the result is a lower bound accurate to
+<code class="docutils literal notranslate"><span class="pre">tolerance</span></code>.</p></li>
+<li><p><strong>Auctions and builders.</strong> Values are independent and uniform; ties in
+<a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.auctions.first_price_auction" title="blockchainkit.economics.systems.auctions.first_price_auction"><code class="xref py py-func docutils literal notranslate"><span class="pre">first_price_auction()</span></code></a> and
+<a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.auctions.second_price_auction" title="blockchainkit.economics.systems.auctions.second_price_auction"><code class="xref py py-func docutils literal notranslate"><span class="pre">second_price_auction()</span></code></a>
+go to the alphabetically first bidder. Builder auctions in
+<a class="reference internal" href="api/economics.html#blockchainkit.economics.systems.pbs.simulate_pbs" title="blockchainkit.economics.systems.pbs.simulate_pbs"><code class="xref py py-func docutils literal notranslate"><span class="pre">simulate_pbs()</span></code></a> are sealed and
+second-price, without relays.</p></li>
+</ul>
+</section>
+<section id="channels-rollups-and-bridges">
+<h2>Channels, rollups and bridges<a class="headerlink" href="#channels-rollups-and-bridges" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/channels.html#module-blockchainkit.channels" title="blockchainkit.channels"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.channels</span></code></a> adds no consensus rule to the chain in
+<a class="reference internal" href="api/structures.html#module-blockchainkit.structures" title="blockchainkit.structures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.structures</span></code></a>. Channel outputs are
+<a class="reference internal" href="api/vm.html#module-blockchainkit.vm.systems.script" title="blockchainkit.vm.systems.script"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script</span></code></a> programs, and the relay, state
+channel and bridges are contracts on the world model above. Off-chain
+messages are signed as <code class="docutils literal notranslate"><span class="pre">tag</span> <span class="pre">||</span> <span class="pre">canonical_json(fields)</span></code> under the
+<code class="docutils literal notranslate"><span class="pre">CHANNEL_DOMAIN</span></code>, <code class="docutils literal notranslate"><span class="pre">PLASMA_DOMAIN</span></code>, <code class="docutils literal notranslate"><span class="pre">BRIDGE_DOMAIN</span></code> and
+<code class="docutils literal notranslate"><span class="pre">WATCHTOWER_DOMAIN</span></code> tags of <a class="reference internal" href="api/constants.html#module-blockchainkit.constants" title="blockchainkit.constants"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.constants</span></code></a>, with RFC 6979
+signing nonces.</p>
+<ul class="simple">
+<li><p><strong>Scripts.</strong> There is no <code class="docutils literal notranslate"><span class="pre">OP_CHECKMULTISIG</span></code>: a 2-of-2 output is
+<code class="docutils literal notranslate"><span class="pre">&lt;A&gt;</span> <span class="pre">OP_CHECKSIG</span> <span class="pre">OP_VERIFY</span> <span class="pre">&lt;B&gt;</span> <span class="pre">OP_CHECKSIG</span></code>. There is no
+<code class="docutils literal notranslate"><span class="pre">OP_CHECKSEQUENCEVERIFY</span></code>: a relative delay is written with
+<code class="docutils literal notranslate"><span class="pre">OP_CHECKLOCKTIMEVERIFY</span></code> and the spender passes the output’s age as the
+lock time. eltoo’s <code class="docutils literal notranslate"><span class="pre">SIGHASH_NOINPUT</span></code> is a signature over a message that
+omits the spent output.</p></li>
+<li><p><strong>Lightning.</strong> The revocation key is the sum of the holder’s
+per-commitment point and the counterparty’s base point, without
+Lightning’s hashed tweaks. Per-commitment secrets are a SHA-256 hash
+chain used backwards; there are no in-channel HTLC outputs or fees.</p></li>
+<li><p><strong>Routing.</strong> <a class="reference internal" href="api/channels.html#blockchainkit.channels.systems.routing.ChannelNetwork" title="blockchainkit.channels.systems.routing.ChannelNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelNetwork</span></code></a>
+routes by fewest hops among channels with enough capacity, with one fee
+policy (base fee plus millionths) and one <code class="docutils literal notranslate"><span class="pre">cltv_delta</span></code> for every node.
+Errors are returned in the clear, without onion encryption.</p></li>
+<li><p><strong>Relay.</strong> <a class="reference internal" href="api/channels.html#blockchainkit.channels.systems.relay.BTCRelay" title="blockchainkit.channels.systems.relay.BTCRelay"><code class="xref py py-class docutils literal notranslate"><span class="pre">BTCRelay</span></code></a>
+stores teaching <a class="reference internal" href="api/structures.html#blockchainkit.structures.systems.block.BlockHeader" title="blockchainkit.structures.systems.block.BlockHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlockHeader</span></code></a>
+objects and requires a fixed minimum difficulty instead of retargeting.</p></li>
+<li><p><strong>Plasma.</strong> Each block is a sparse Merkle tree of depth 16 keyed by the
+coin’s 8-byte identifier; leaves are the canonical JSON of the transfer.
+Only the spend and double-spend challenges exist, without bonds.</p></li>
+<li><p><strong>Rollups.</strong> The state root is a <a class="reference internal" href="api/structures.html#blockchainkit.structures.systems.merkle.MerkleTree" title="blockchainkit.structures.systems.merkle.MerkleTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">MerkleTree</span></code></a>
+over <code class="docutils literal notranslate"><span class="pre">ROLLUP_DOMAIN</span> <span class="pre">||</span> <span class="pre">canonical_json([account,</span> <span class="pre">balance])</span></code>, sorted by
+account. Invalid transfers are skipped. A validity proof is verified by
+re-executing the batch; gas is the fixed cost plus 16 per calldata byte.</p></li>
+<li><p><strong>Data availability.</strong> Reed-Solomon codes are one-dimensional and
+systematic over the integers modulo 65,537; shares are committed as
+8-byte big-endian leaves of a Merkle tree.</p></li>
+<li><p><strong>Bridges.</strong> Validators sign <code class="docutils literal notranslate"><span class="pre">BRIDGE_DOMAIN</span> <span class="pre">||</span> <span class="pre">canonical_json([bridge,</span>
+<span class="pre">recipient,</span> <span class="pre">amount,</span> <span class="pre">nonce])</span></code>. Wrapped ether is minted and redeemed by the
+same contract.</p></li>
+</ul>
+</section>
+<section id="proof-systems">
+<h2>Proof systems<a class="headerlink" href="#proof-systems" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/proofs.html#module-blockchainkit.proofs" title="blockchainkit.proofs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.proofs</span></code></a> adds no consensus rule: no block or transaction
+carries a proof. Its parameters are chosen so that every number can be
+inspected, not for security.</p>
+<ul class="simple">
+<li><p><strong>Field.</strong> Polynomials, circuits, FRI and STARKs work over BabyBear,
+<span class="math notranslate nohighlight">\(p = 15 \cdot 2^{27} + 1\)</span>, whose multiplicative group (generator 31)
+has power-of-two subgroups up to <span class="math notranslate nohighlight">\(2^{27}\)</span>. Coefficient tuples list
+the constant term first. Deployed systems use larger fields or extension
+fields for their challenges; Schwartz-Zippel errors here are about
+<span class="math notranslate nohighlight">\(d / 2^{31}\)</span>.</p></li>
+<li><p><strong>Pairing.</strong> <a class="reference internal" href="api/proofs.html#blockchainkit.proofs.systems.pairing.PAIRING_CURVE" title="blockchainkit.proofs.systems.pairing.PAIRING_CURVE"><code class="xref py py-data docutils literal notranslate"><span class="pre">PAIRING_CURVE</span></code></a>
+is <span class="math notranslate nohighlight">\(y^2 = x^3 + x\)</span> over the 35-bit prime <span class="math notranslate nohighlight">\(12p - 1\)</span>, with a
+generator of order <span class="math notranslate nohighlight">\(p\)</span>. The pairing is the symmetric reduced Tate
+pairing with the distortion map <span class="math notranslate nohighlight">\((x, y) \mapsto (-x, iy)\)</span>, computed
+by Miller’s algorithm with denominator elimination. Its discrete
+logarithms take about <span class="math notranslate nohighlight">\(2^{16}\)</span> steps, so every trusted setup can be
+broken by brute force.</p></li>
+<li><p><strong>Groth16 and PLONK.</strong> Groth16 places <span class="math notranslate nohighlight">\(B\)</span> in the same group as
+<span class="math notranslate nohighlight">\(A\)</span>. Every R1CS gets one row <span class="math notranslate nohighlight">\(x_i \cdot 0 = 0\)</span> for the
+constant and each public input, as Bellman and snarkjs do. PLONK opens
+every polynomial at <span class="math notranslate nohighlight">\(\zeta\)</span> (no linearization), adds no blinding,
+and has no public inputs; its copy-constraint cosets are shifted by 31
+and 961.</p></li>
+<li><p><strong>Transcripts.</strong> Fiat-Shamir challenges are SHA-256 over
+<code class="docutils literal notranslate"><span class="pre">TRANSCRIPT_DOMAIN</span></code>, a protocol label, and length-prefixed labelled
+messages, reduced modulo the field. Interactive protocols (sum-check,
+IP = PSPACE, the PCP verifier, Kilian) draw challenges from a seeded
+<code class="docutils literal notranslate"><span class="pre">random.Random</span></code> instead.</p></li>
+<li><p><strong>Zerocash.</strong> Hashes are MiMC-7 with 12 rounds in Miyaguchi-Preneel
+mode, round constants from SHA-256 under <code class="docutils literal notranslate"><span class="pre">MIMC_DOMAIN</span></code>. Notes are
+committed as <span class="math notranslate nohighlight">\(H(H(\mathit{owner}, v), H(\rho, r))\)</span>, owners are
+<span class="math notranslate nohighlight">\(H(\mathit{sk}, 0)\)</span>, nullifiers <span class="math notranslate nohighlight">\(H(\mathit{sk}, \rho)\)</span>, and
+the commitment tree pads with zeros. A spend has one input and one output
+and range-checks the output to 16 bits.</p></li>
+<li><p><strong>Bulletproofs and Halo.</strong> Both run in the multiplicative
+<code class="docutils literal notranslate"><span class="pre">TEACHING_GROUP</span></code> of <a class="reference internal" href="api/crypto.html#module-blockchainkit.crypto" title="blockchainkit.crypto"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.crypto</span></code></a>, with generators hashed
+into it under <code class="docutils literal notranslate"><span class="pre">IPA_GENERATOR_DOMAIN</span></code>. Halo’s commitments are not
+blinded, and its accumulation is verified in Python, not in a circuit.</p></li>
+<li><p><strong>FRI and STARKs.</strong> Leaves are 8-byte big-endian field elements in a
+<a class="reference internal" href="api/structures.html#blockchainkit.structures.systems.merkle.MerkleTree" title="blockchainkit.structures.systems.merkle.MerkleTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">MerkleTree</span></code></a>. FRI folds
+by two down to a constant on the coset <span class="math notranslate nohighlight">\(31 \langle \omega \rangle\)</span>;
+query positions are reduced modulo half the domain. The STARK proves only
+the Fibonacci recurrence from 1, 1, with a blowup of 8 by default.</p></li>
+</ul>
+</section>
+<section id="fraud-models">
+<h2>Fraud models<a class="headerlink" href="#fraud-models" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/fraud.html#module-blockchainkit.fraud" title="blockchainkit.fraud"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.fraud</span></code></a> adds no consensus rule. Its scam contracts run on
+the contract world model above, and its detectors are pure functions over
+simulated transfers, trades and prices.</p>
+<ul class="simple">
+<li><p><strong>Merkle sum trees.</strong> A leaf is
+<code class="docutils literal notranslate"><span class="pre">SHA256(SUM_LEAF_DOMAIN</span> <span class="pre">||</span> <span class="pre">canonical_json([salt.hex(),</span> <span class="pre">label,</span> <span class="pre">balance]))</span></code>
+with the balance as its sum; a node is
+<code class="docutils literal notranslate"><span class="pre">SHA256(SUM_NODE_DOMAIN</span> <span class="pre">||</span> <span class="pre">canonical_json([left_sum,</span> <span class="pre">right_sum])</span> <span class="pre">||</span> <span class="pre">left</span> <span class="pre">||</span> <span class="pre">right)</span></code>
+with the two sums added. Odd nodes are promoted unchanged. Verification
+rejects a negative balance or sibling sum.</p></li>
+<li><p><strong>Proofs of solvency.</strong> Pedersen commitments in the 62-bit
+<code class="docutils literal notranslate"><span class="pre">TEACHING_GROUP</span></code>. OR proofs follow Cramer, Damgård and Schoenmakers with
+Fiat-Shamir challenges <code class="docutils literal notranslate"><span class="pre">SHA256(SOLVENCY_DOMAIN</span> <span class="pre">||</span> <span class="pre">canonical_json([p,</span> <span class="pre">q,</span> <span class="pre">g,</span>
+<span class="pre">commitment,</span> <span class="pre">value,</span> <span class="pre">A0,</span> <span class="pre">A1]))</span> <span class="pre">mod</span> <span class="pre">q</span></code>; range proofs commit to each of 16
+bits. Unlike Provisions, nothing proves knowledge of the owned addresses’
+keys or that two exchanges do not share an address.</p></li>
+<li><p><strong>Malleability.</strong> A second signature by the exchange over the same
+payment stands in for a third party re-encoding a Bitcoin signature.</p></li>
+<li><p><strong>Verified source.</strong> Code is compared by Python class, not compiled
+bytecode; <a class="reference internal" href="api/fraud.html#blockchainkit.fraud.systems.verification.effective_code" title="blockchainkit.fraud.systems.verification.effective_code"><code class="xref py py-func docutils literal notranslate"><span class="pre">effective_code()</span></code></a>
+follows only EIP-1967 proxies.</p></li>
+<li><p><strong>Honeypots.</strong> The Solidity-level techniques (inheritance disorder,
+uninitialised storage structs, <code class="docutils literal notranslate"><span class="pre">var</span></code> type deduction and the skipped
+empty string literal) are reproduced by their effect on storage and
+arguments, with no compiler or parser. <a class="reference internal" href="api/fraud.html#blockchainkit.fraud.systems.honeypots.explorer_view" title="blockchainkit.fraud.systems.honeypots.explorer_view"><code class="xref py py-func docutils literal notranslate"><span class="pre">explorer_view()</span></code></a>
+lists every top-level call and only those internal calls that carry
+ether, as block explorers did around 2018.</p></li>
+<li><p><strong>Markets.</strong> Prices follow a log-normal walk with linear impact
+(<a class="reference internal" href="api/fraud.html#blockchainkit.fraud.systems.manipulation.simulate_bot_market" title="blockchainkit.fraud.systems.manipulation.simulate_bot_market"><code class="xref py py-func docutils literal notranslate"><span class="pre">simulate_bot_market()</span></code></a>)
+or a fee-free constant-product market starting with a million coins
+(<a class="reference internal" href="api/fraud.html#blockchainkit.fraud.systems.manipulation.simulate_pump_and_dump" title="blockchainkit.fraud.systems.manipulation.simulate_pump_and_dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">simulate_pump_and_dump()</span></code></a>).</p></li>
+<li><p><strong>Look-alike addresses.</strong> Candidates are the last 20 bytes of
+<code class="docutils literal notranslate"><span class="pre">SHA256(LOOKALIKE_DOMAIN</span> <span class="pre">||</span> <span class="pre">canonical_json([seed,</span> <span class="pre">index]))</span></code>, not
+addresses derived from key pairs.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -690,24 +787,6 @@ is not a hostile-code sandbox and is not connected to the transfer ledger.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="exercises/vm.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exercises: execution</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="simulation.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reproducible experiments and research scope</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -734,6 +813,11 @@ is not a hostile-code sandbox and is not connected to the transfer ledger.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#block-headers-and-chain-selection">Block headers and chain selection</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#network-semantics">Network semantics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vm-instruction-set">VM instruction set</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contract-world-model">Contract world model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#economic-models">Economic models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-rollups-and-bridges">Channels, rollups and bridges</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-systems">Proof systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fraud-models">Fraud models</a></li>
 </ul>
   </nav></div>
 

@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.220089Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.220089Z",
+      "mimetype": null,
+      "name": "plot_01_erc20_approve_race.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/tokens/plot_01_erc20_approve_race.ipynb",
+      "size": 4472,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.220217Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.220217Z",
+      "mimetype": null,
+      "name": "plot_02_erc721_safe_transfers.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/tokens/plot_02_erc721_safe_transfers.ipynb",
+      "size": 4835,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T19:00:14.599678Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T19:00:14.599977Z",
+  "mimetype": null,
+  "name": "tokens",
+  "path": "jupyterlite_contents/api/gallery/contracts/tokens",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

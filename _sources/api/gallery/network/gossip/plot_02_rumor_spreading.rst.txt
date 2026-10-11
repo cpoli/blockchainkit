@@ -27,22 +27,11 @@ Frieze and Grimmett, and then Pittel more precisely, showed it takes
 almost every call reaches someone new; the second is a coupon-collector
 phase, while the last few peers wait to be called.
 
-What to look for
-----------------
-
 The measured rounds track ``log2 n + ln n`` with a gap that stays roughly
 constant as n grows a thousandfold. A network of a million peers needs only
 about 34 rounds: this is why gossip scales.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Measure rounds for n from 16 to 16384
--------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-38
+.. GENERATED FROM PYTHON SOURCE LINES 17-22
 
 .. code-block:: Python
 
@@ -50,6 +39,23 @@ Measure rounds for n from 16 to 16384
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Measure rounds for n from 16 to 16384
+-------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-34
+
+.. code-block:: Python
+
 
     sizes = [2**k for k in range(4, 15, 2)]
     measured = [np.mean([bk.network.spread_rumor(n, seed=s).rounds for s in range(8)]) for n in sizes]
@@ -73,12 +79,12 @@ Measure rounds for n from 16 to 16384
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 The two phases
 --------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-57
+.. GENERATED FROM PYTHON SOURCE LINES 37-55
 
 .. code-block:: Python
 
@@ -98,6 +104,8 @@ The two phases
     right.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -116,17 +124,19 @@ The two phases
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-62
+.. GENERATED FROM PYTHON SOURCE LINES 56-62
 
 Exercise
 --------
 Run push on a ring (``bk.network.ring_lattice(n, 2)``) instead of the
 complete graph. How do the rounds grow with n now, and why?
 
+A worked solution is in :doc:`/exercises/network`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.901 seconds)
+   **Total running time of the script:** (0 minutes 0.705 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_gossip_plot_02_rumor_spreading.py:

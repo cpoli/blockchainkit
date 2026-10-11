@@ -1,4 +1,4 @@
-"""
+r"""
 The Merkle-Damgard construction and length extension (1989)
 ===========================================================
 
@@ -8,25 +8,22 @@ its length, and chain the blocks through the function. SHA-256 is built
 this way. The digest *is* the final chaining state, which has a famous
 consequence.
 
-What to look for
-----------------
-
 blockchainkit's step-by-step SHA-256 matches the standard library. Then an
 attacker who sees only H(key || message) computes a valid
 H(key || message || padding || suffix) without the key: the
 length-extension attack that breaks naive secret-prefix MACs.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
 
 # %%
-# Hashing as a chain of compressions
-# ----------------------------------
 import hashlib
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Hashing as a chain of compressions
+# ----------------------------------
 
 message = b"x" * 150
 padded = message + bk.crypto.sha256_padding(len(message))
@@ -61,6 +58,8 @@ ax.set(
 )
 ax.set_xticks(range(len(states)))
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

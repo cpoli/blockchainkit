@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.proofs hub </_generated/subpackages/proofs>` · :doc:`History </history/proofs_breakthroughs>` · :doc:`Examples </api/gallery/proofs/index>` · :doc:`API reference </api/proofs>`

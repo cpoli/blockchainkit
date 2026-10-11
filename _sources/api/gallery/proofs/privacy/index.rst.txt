@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_proofs_privacy:
+
+Private payments
+----------------
+
+Notes, nullifiers and a SNARK: spending a coin without revealing which one.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin&#x27;s ledger shows who paid whom and how much. Ben-Sasson, Chiesa, Garman, Green, Miers, Tromer and Virza hid all three. A coin is a note, and the ledger stores only its commitment, in a Merkle tree. Spending a note publishes its nullifier \mathrm{nf} = H(\mathit{sk}, \rho), a commitment to the payee&#x27;s new note, and a zk-SNARK of the statement">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/privacy/images/thumb/sphx_glr_plot_01_zerocash_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/privacy/plot_01_zerocash`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Zerocash: notes, nullifiers and private payments (2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/proofs/privacy/plot_01_zerocash
+

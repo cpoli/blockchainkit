@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_fraud_solvency:
+
+Custodians and solvency
+-----------------------
+
+Exchanges that hold their customers' coins, how they fail, and how they can prove they have not.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An exchange can show that it holds coins by moving them, but holding coins proves nothing unless one also knows what it owes. Gregory Maxwell proposed in 2013 that the exchange publish the root of a Merkle tree over its customers&#x27; balances in which every node also carries the sum below it,">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/solvency/images/thumb/sphx_glr_plot_01_maxwell_proof_of_reserves_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/solvency/plot_01_maxwell_proof_of_reserves`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Maxwell's Merkle-sum-tree proof of reserves (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In February 2014 Mt. Gox, then handling most bitcoin trading, halted withdrawals and blamed transaction malleability: an attacker could alter a withdrawal&#x27;s signature encoding in flight, changing its txid; the exchange, which tracked withdrawals by txid, would not find it on chain, and paid again. Weeks later it filed for bankruptcy, about 850,000 bitcoins short.">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/solvency/images/thumb/sphx_glr_plot_02_mtgox_malleability_excuse_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/solvency/plot_02_mtgox_malleability_excuse`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Mt. Gox collapse and the malleability excuse (2014)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Maxwell&#x27;s proof reveals the exchange&#x27;s total liabilities and, to show its reserves, which addresses it owns. Dagher, Bünz, Bonneau, Clark and Boneh hid both with Pedersen commitments C(v, r) = g^v h^r, which multiply into a commitment to the sum. The exchange commits, for every address in a large public set, to that address&#x27;s balance if it owns it and to 0 if not; it commits to every customer&#x27;s balance; and">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/solvency/images/thumb/sphx_glr_plot_03_provisions_proof_of_solvency_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/solvency/plot_03_provisions_proof_of_solvency`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Provisions: privacy-preserving proofs of solvency (2015)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In November 2022 FTX, then one of the largest exchanges, could not meet a rush of withdrawals and filed for bankruptcy. Its affiliated trading firm, Alameda Research, had been allowed a negative balance on the exchange and had spent billions of dollars of customer deposits. The books still showed every customer&#x27;s balance; the coins were gone. With reserves R and liabilities L, a run pays the first customers in full and the rest nothing once">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/solvency/images/thumb/sphx_glr_plot_04_ftx_commingled_funds_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/solvency/plot_04_ftx_commingled_funds`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FTX, commingled customer funds, and proof of liabilities (2022)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fraud/solvency/plot_01_maxwell_proof_of_reserves
+   /api/gallery/fraud/solvency/plot_02_mtgox_malleability_excuse
+   /api/gallery/fraud/solvency/plot_03_provisions_proof_of_solvency
+   /api/gallery/fraud/solvency/plot_04_ftx_commingled_funds
+

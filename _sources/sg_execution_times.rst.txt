@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:57.931** total execution time for 88 files **from all galleries**:
+**00:43.403** total execution time for 171 files **from all galleries**:
 
 .. container::
 
@@ -33,266 +33,515 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structures_ledger_plot_01_double_entry.py` (``../../examples/structures/ledger/plot_01_double_entry.py``)
-     - 00:08.264
+     - 00:03.836
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_04_kiayias_mining_games.py` (``../../examples/economics/rewards/plot_04_kiayias_mining_games.py``)
+     - 00:03.711
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_overlays_plot_01_kademlia.py` (``../../examples/network/overlays/plot_01_kademlia.py``)
-     - 00:06.209
+     - 00:02.357
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_phishing_plot_02_address_poisoning.py` (``../../examples/fraud/phishing/plot_02_address_poisoning.py``)
+     - 00:02.018
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_02_mtgox_malleability_excuse.py` (``../../examples/fraud/solvency/plot_02_mtgox_malleability_excuse.py``)
+     - 00:01.905
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_channels_interoperability_plot_01_atomic_swaps.py` (``../../examples/channels/interoperability/plot_01_atomic_swaps.py``)
+     - 00:01.810
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_graphs_plot_01_random_graphs.py` (``../../examples/network/graphs/plot_01_random_graphs.py``)
-     - 00:06.120
+     - 00:01.542
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_foundations_plot_02_sumcheck.py` (``../../examples/proofs/foundations/plot_02_sumcheck.py``)
+     - 00:01.440
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_03_lightning_revocation.py` (``../../examples/channels/payment_channels/plot_03_lightning_revocation.py``)
+     - 00:01.318
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_01_birthday_attack.py` (``../../examples/crypto/hashing/plot_01_birthday_attack.py``)
-     - 00:03.140
+     - 00:00.934
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_gossip_plot_02_rumor_spreading.py` (``../../examples/network/gossip/plot_02_rumor_spreading.py``)
-     - 00:02.901
+   * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_05_eltoo.py` (``../../examples/channels/payment_channels/plot_05_eltoo.py``)
+     - 00:00.884
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_04_busy_beaver.py` (``../../examples/vm/foundations/plot_04_busy_beaver.py``)
-     - 00:02.574
+     - 00:00.837
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_01_gamblers_ruin.py` (``../../examples/consensus/attacks/plot_01_gamblers_ruin.py``)
-     - 00:02.560
+   * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_03_starks.py` (``../../examples/proofs/transparent/plot_03_starks.py``)
+     - 00:00.729
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_02_double_spend.py` (``../../examples/consensus/attacks/plot_02_double_spend.py``)
-     - 00:02.036
+   * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_01_maxwell_proof_of_reserves.py` (``../../examples/fraud/solvency/plot_01_maxwell_proof_of_reserves.py``)
+     - 00:00.726
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_02_halting_problem.py` (``../../examples/vm/foundations/plot_02_halting_problem.py``)
-     - 00:01.986
+   * - :ref:`sphx_glr_api_gallery_network_gossip_plot_02_rumor_spreading.py` (``../../examples/network/gossip/plot_02_rumor_spreading.py``)
+     - 00:00.705
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structures_spv_plot_01_light_clients.py` (``../../examples/structures/spv/plot_01_light_clients.py``)
-     - 00:01.476
+     - 00:00.677
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_graphs_plot_02_small_world.py` (``../../examples/network/graphs/plot_02_small_world.py``)
-     - 00:01.399
+   * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_01_spilman_channels.py` (``../../examples/channels/payment_channels/plot_01_spilman_channels.py``)
+     - 00:00.671
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_graphs_plot_03_scale_free.py` (``../../examples/network/graphs/plot_03_scale_free.py``)
-     - 00:01.162
+   * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_01_gamblers_ruin.py` (``../../examples/consensus/attacks/plot_01_gamblers_ruin.py``)
+     - 00:00.653
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_relay_plot_01_inv_getdata.py` (``../../examples/network/relay/plot_01_inv_getdata.py``)
-     - 00:00.921
+   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_02_halting_problem.py` (``../../examples/vm/foundations/plot_02_halting_problem.py``)
+     - 00:00.637
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_bloom_plot_01_bloom_filter.py` (``../../examples/structures/bloom/plot_01_bloom_filter.py``)
-     - 00:00.626
+   * - :ref:`sphx_glr_api_gallery_proofs_pcp_plot_03_micali_cs_proofs.py` (``../../examples/proofs/pcp/plot_03_micali_cs_proofs.py``)
+     - 00:00.621
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_discrete_log_plot_01_baby_step_giant_step.py` (``../../examples/crypto/discrete_log/plot_01_baby_step_giant_step.py``)
-     - 00:00.613
+   * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_02_double_spend.py` (``../../examples/consensus/attacks/plot_02_double_spend.py``)
+     - 00:00.541
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_02_hashcash.py` (``../../examples/consensus/pow/plot_02_hashcash.py``)
-     - 00:00.584
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_chain_plot_02_payment_lifecycle.py` (``../../examples/structures/chain/plot_02_payment_lifecycle.py``)
-     - 00:00.527
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_01_merkle_puzzles.py` (``../../examples/crypto/public_keys/plot_01_merkle_puzzles.py``)
-     - 00:00.512
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_overlays_plot_03_eclipse_attack.py` (``../../examples/network/overlays/plot_03_eclipse_attack.py``)
-     - 00:00.502
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_01_merkle_proofs.py` (``../../examples/structures/merkle/plot_01_merkle_proofs.py``)
-     - 00:00.489
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_state_plot_01_sparse_merkle.py` (``../../examples/structures/state/plot_01_sparse_merkle.py``)
+   * - :ref:`sphx_glr_api_gallery_economics_auctions_plot_02_myerson_optimal_auction.py` (``../../examples/economics/auctions/plot_02_myerson_optimal_auction.py``)
      - 00:00.481
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_02_gas_repricing.py` (``../../examples/vm/ethereum/plot_02_gas_repricing.py``)
-     - 00:00.464
+   * - :ref:`sphx_glr_api_gallery_channels_scaling_plot_02_omniledger_sharding.py` (``../../examples/channels/scaling/plot_02_omniledger_sharding.py``)
+     - 00:00.477
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_script_plot_02_htlc.py` (``../../examples/vm/script/plot_02_htlc.py``)
-     - 00:00.439
+   * - :ref:`sphx_glr_api_gallery_economics_mev_plot_03_mev_boost_pbs.py` (``../../examples/economics/mev/plot_03_mev_boost_pbs.py``)
+     - 00:00.436
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_relay_plot_03_compact_blocks.py` (``../../examples/network/relay/plot_03_compact_blocks.py``)
-     - 00:00.425
+   * - :ref:`sphx_glr_api_gallery_network_graphs_plot_02_small_world.py` (``../../examples/network/graphs/plot_02_small_world.py``)
+     - 00:00.435
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_timestamps_plot_02_merkle_batching.py` (``../../examples/structures/timestamps/plot_02_merkle_batching.py``)
-     - 00:00.401
+   * - :ref:`sphx_glr_api_gallery_fraud_manipulation_plot_03_nft_wash_trading.py` (``../../examples/fraud/manipulation/plot_03_nft_wash_trading.py``)
+     - 00:00.407
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_gossip_plot_01_epidemic_algorithms.py` (``../../examples/network/gossip/plot_01_epidemic_algorithms.py``)
-     - 00:00.392
+   * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_03_groth16.py` (``../../examples/proofs/snarks/plot_03_groth16.py``)
+     - 00:00.384
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_ledger_plot_02_account_nonces.py` (``../../examples/structures/ledger/plot_02_account_nonces.py``)
-     - 00:00.377
+   * - :ref:`sphx_glr_api_gallery_fraud_figures_plot_01_benford_law.py` (``../../examples/fraud/figures/plot_01_benford_law.py``)
+     - 00:00.350
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_relay_plot_02_propagation_and_forks.py` (``../../examples/network/relay/plot_02_propagation_and_forks.py``)
-     - 00:00.339
+   * - :ref:`sphx_glr_api_gallery_network_relay_plot_01_inv_getdata.py` (``../../examples/network/relay/plot_01_inv_getdata.py``)
+     - 00:00.345
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_03_selfish_mining.py` (``../../examples/consensus/attacks/plot_03_selfish_mining.py``)
-     - 00:00.330
+   * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_06_pisa_watchtowers.py` (``../../examples/channels/payment_channels/plot_06_pisa_watchtowers.py``)
+     - 00:00.341
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_overlays_plot_02_sybil_attack.py` (``../../examples/network/overlays/plot_02_sybil_attack.py``)
-     - 00:00.326
+   * - :ref:`sphx_glr_api_gallery_network_graphs_plot_03_scale_free.py` (``../../examples/network/graphs/plot_03_scale_free.py``)
+     - 00:00.324
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_hash_signatures_plot_01_lamport_signatures.py` (``../../examples/crypto/hash_signatures/plot_01_lamport_signatures.py``)
-     - 00:00.300
+   * - :ref:`sphx_glr_api_gallery_proofs_privacy_plot_01_zerocash.py` (``../../examples/proofs/privacy/plot_01_zerocash.py``)
+     - 00:00.294
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_one_time_pad_plot_01_one_time_pad.py` (``../../examples/crypto/one_time_pad/plot_01_one_time_pad.py``)
-     - 00:00.295
+   * - :ref:`sphx_glr_api_gallery_channels_interoperability_plot_03_bridge_exploits.py` (``../../examples/channels/interoperability/plot_03_bridge_exploits.py``)
+     - 00:00.275
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_03_sortition.py` (``../../examples/consensus/pos/plot_03_sortition.py``)
-     - 00:00.281
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_02_ben_or.py` (``../../examples/consensus/agreement/plot_02_ben_or.py``)
-     - 00:00.279
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_blind_signatures_plot_01_blind_signatures.py` (``../../examples/crypto/blind_signatures/plot_01_blind_signatures.py``)
-     - 00:00.279
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_03_reentrancy.py` (``../../examples/vm/ethereum/plot_03_reentrancy.py``)
+   * - :ref:`sphx_glr_api_gallery_proofs_foundations_plot_01_schwartz_zippel.py` (``../../examples/proofs/foundations/plot_01_schwartz_zippel.py``)
      - 00:00.267
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_05_musig.py` (``../../examples/crypto/signatures/plot_05_musig.py``)
-     - 00:00.261
+   * - :ref:`sphx_glr_api_gallery_crypto_discrete_log_plot_01_baby_step_giant_step.py` (``../../examples/crypto/discrete_log/plot_01_baby_step_giant_step.py``)
+     - 00:00.232
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_01_gas.py` (``../../examples/vm/ethereum/plot_01_gas.py``)
-     - 00:00.251
+   * - :ref:`sphx_glr_api_gallery_channels_scaling_plot_01_plasma_exit_games.py` (``../../examples/channels/scaling/plot_01_plasma_exit_games.py``)
+     - 00:00.213
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_relay_plot_04_dandelion.py` (``../../examples/network/relay/plot_04_dandelion.py``)
-     - 00:00.247
+   * - :ref:`sphx_glr_api_gallery_structures_chain_plot_01_payment_lifecycle.py` (``../../examples/structures/chain/plot_01_payment_lifecycle.py``)
+     - 00:00.206
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_04_mountain_ranges.py` (``../../examples/structures/merkle/plot_04_mountain_ranges.py``)
-     - 00:00.244
+   * - :ref:`sphx_glr_api_gallery_vm_script_plot_02_htlc.py` (``../../examples/vm/script/plot_02_htlc.py``)
+     - 00:00.204
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_replication_plot_02_atomic_transactions.py` (``../../examples/vm/replication/plot_02_atomic_transactions.py``)
-     - 00:00.242
+   * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_02_duplex_channels.py` (``../../examples/channels/payment_channels/plot_02_duplex_channels.py``)
+     - 00:00.195
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_01_pricing_via_processing.py` (``../../examples/consensus/pow/plot_01_pricing_via_processing.py``)
-     - 00:00.239
+   * - :ref:`sphx_glr_api_gallery_structures_bloom_plot_01_bloom_filter.py` (``../../examples/structures/bloom/plot_01_bloom_filter.py``)
+     - 00:00.191
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_utxo_plot_01_utxo.py` (``../../examples/structures/utxo/plot_01_utxo.py``)
-     - 00:00.221
+   * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_02_fri.py` (``../../examples/proofs/transparent/plot_02_fri.py``)
+     - 00:00.186
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_03_schnorr_signatures.py` (``../../examples/crypto/signatures/plot_03_schnorr_signatures.py``)
-     - 00:00.218
+   * - :ref:`sphx_glr_api_gallery_network_overlays_plot_03_eclipse_attack.py` (``../../examples/network/overlays/plot_03_eclipse_attack.py``)
+     - 00:00.171
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_03_difficulty_retargeting.py` (``../../examples/consensus/pow/plot_03_difficulty_retargeting.py``)
-     - 00:00.212
+   * - :ref:`sphx_glr_api_gallery_proofs_pcp_plot_01_pcp_theorem.py` (``../../examples/proofs/pcp/plot_01_pcp_theorem.py``)
+     - 00:00.161
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_commitments_plot_02_pedersen.py` (``../../examples/crypto/commitments/plot_02_pedersen.py``)
-     - 00:00.200
+   * - :ref:`sphx_glr_api_gallery_economics_coordination_plot_01_schelling_focal_points.py` (``../../examples/economics/coordination/plot_01_schelling_focal_points.py``)
+     - 00:00.158
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_01_reverse_polish.py` (``../../examples/vm/foundations/plot_01_reverse_polish.py``)
-     - 00:00.199
+   * - :ref:`sphx_glr_api_gallery_channels_coding_plot_01_reed_solomon.py` (``../../examples/channels/coding/plot_01_reed_solomon.py``)
+     - 00:00.153
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_02_nothing_at_stake.py` (``../../examples/consensus/pos/plot_02_nothing_at_stake.py``)
-     - 00:00.183
+   * - :ref:`sphx_glr_api_gallery_economics_fees_plot_01_eip1559_base_fee.py` (``../../examples/economics/fees/plot_01_eip1559_base_fee.py``)
+     - 00:00.153
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_sharing_plot_01_secret_sharing.py` (``../../examples/crypto/sharing/plot_01_secret_sharing.py``)
-     - 00:00.181
+   * - :ref:`sphx_glr_api_gallery_fraud_schemes_plot_03_bitconnect_lending_ponzi.py` (``../../examples/fraud/schemes/plot_03_bitconnect_lending_ponzi.py``)
+     - 00:00.146
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_03_consistency_proofs.py` (``../../examples/structures/merkle/plot_03_consistency_proofs.py``)
-     - 00:00.174
+   * - :ref:`sphx_glr_api_gallery_network_relay_plot_03_compact_blocks.py` (``../../examples/network/relay/plot_03_compact_blocks.py``)
+     - 00:00.146
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_gossip_plot_03_reliable_broadcast.py` (``../../examples/network/gossip/plot_03_reliable_broadcast.py``)
-     - 00:00.166
+   * - :ref:`sphx_glr_api_gallery_structures_ledger_plot_02_account_nonces.py` (``../../examples/structures/ledger/plot_02_account_nonces.py``)
+     - 00:00.141
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_nakamoto_plot_01_longest_chain.py` (``../../examples/consensus/nakamoto/plot_01_longest_chain.py``)
-     - 00:00.160
+   * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_02_hashcash.py` (``../../examples/consensus/pow/plot_02_hashcash.py``)
+     - 00:00.140
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_curves_plot_01_elliptic_curves.py` (``../../examples/crypto/curves/plot_01_elliptic_curves.py``)
-     - 00:00.159
+   * - :ref:`sphx_glr_api_gallery_economics_defi_plot_03_bzx_oracle_manipulation.py` (``../../examples/economics/defi/plot_03_bzx_oracle_manipulation.py``)
+     - 00:00.139
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_transactions_plot_01_malleability.py` (``../../examples/structures/transactions/plot_01_malleability.py``)
-     - 00:00.159
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_01_stake.py` (``../../examples/consensus/pos/plot_01_stake.py``)
-     - 00:00.154
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_04_partial_synchrony.py` (``../../examples/consensus/agreement/plot_04_partial_synchrony.py``)
-     - 00:00.154
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_04_sha256_avalanche.py` (``../../examples/crypto/hashing/plot_04_sha256_avalanche.py``)
-     - 00:00.152
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_events_plot_02_lamport_clocks.py` (``../../examples/network/events/plot_02_lamport_clocks.py``)
-     - 00:00.152
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_05_pbft.py` (``../../examples/consensus/agreement/plot_05_pbft.py``)
-     - 00:00.149
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_discrete_log_plot_02_pohlig_hellman.py` (``../../examples/crypto/discrete_log/plot_02_pohlig_hellman.py``)
-     - 00:00.143
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_04_casper_ffg.py` (``../../examples/consensus/pos/plot_04_casper_ffg.py``)
-     - 00:00.142
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_03_hmac.py` (``../../examples/crypto/hashing/plot_03_hmac.py``)
-     - 00:00.137
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_02_duplicate_leaf.py` (``../../examples/structures/merkle/plot_02_duplicate_leaf.py``)
-     - 00:00.137
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_events_plot_03_vector_clocks.py` (``../../examples/network/events/plot_03_vector_clocks.py``)
-     - 00:00.137
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_02_diffie_hellman.py` (``../../examples/crypto/public_keys/plot_02_diffie_hellman.py``)
+   * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_01_merkle_puzzles.py` (``../../examples/crypto/public_keys/plot_01_merkle_puzzles.py``)
      - 00:00.135
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_04_nonce_reuse.py` (``../../examples/crypto/signatures/plot_04_nonce_reuse.py``)
-     - 00:00.135
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_contracts_plot_01_vending_machine.py` (``../../examples/vm/contracts/plot_01_vending_machine.py``)
-     - 00:00.134
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_script_plot_01_p2pkh.py` (``../../examples/vm/script/plot_01_p2pkh.py``)
+   * - :ref:`sphx_glr_api_gallery_contracts_payments_plot_02_governmental_gas.py` (``../../examples/contracts/payments/plot_02_governmental_gas.py``)
      - 00:00.132
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_events_plot_01_discrete_event_simulation.py` (``../../examples/network/events/plot_01_discrete_event_simulation.py``)
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_02_gas_repricing.py` (``../../examples/vm/ethereum/plot_02_gas_repricing.py``)
+     - 00:00.128
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_03_carlsten_fee_only_instability.py` (``../../examples/economics/rewards/plot_03_carlsten_fee_only_instability.py``)
      - 00:00.126
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_03_rsa.py` (``../../examples/crypto/public_keys/plot_03_rsa.py``)
+   * - :ref:`sphx_glr_api_gallery_structures_state_plot_01_sparse_merkle.py` (``../../examples/structures/state/plot_01_sparse_merkle.py``)
      - 00:00.125
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_nakamoto_plot_02_ghost.py` (``../../examples/consensus/nakamoto/plot_02_ghost.py``)
-     - 00:00.123
+   * - :ref:`sphx_glr_api_gallery_channels_scaling_plot_03_zk_rollups.py` (``../../examples/channels/scaling/plot_03_zk_rollups.py``)
+     - 00:00.125
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_transactions_plot_02_replay_protection.py` (``../../examples/structures/transactions/plot_02_replay_protection.py``)
-     - 00:00.123
+   * - :ref:`sphx_glr_api_gallery_contracts_wallets_plot_01_parity_multisig_hack.py` (``../../examples/contracts/wallets/plot_01_parity_multisig_hack.py``)
+     - 00:00.117
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_02_fiat_shamir.py` (``../../examples/crypto/signatures/plot_02_fiat_shamir.py``)
-     - 00:00.114
+   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_01_merkle_proofs.py` (``../../examples/structures/merkle/plot_01_merkle_proofs.py``)
+     - 00:00.110
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_03_flp_impossibility.py` (``../../examples/consensus/agreement/plot_03_flp_impossibility.py``)
-     - 00:00.113
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_03_hardware_stack.py` (``../../examples/vm/foundations/plot_03_hardware_stack.py``)
+   * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_05_plonk.py` (``../../examples/proofs/snarks/plot_05_plonk.py``)
      - 00:00.107
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_02_merkle_damgard.py` (``../../examples/crypto/hashing/plot_02_merkle_damgard.py``)
-     - 00:00.102
+   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_05_musig.py` (``../../examples/crypto/signatures/plot_05_musig.py``)
+     - 00:00.107
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_replication_plot_01_state_machine_replication.py` (``../../examples/vm/replication/plot_01_state_machine_replication.py``)
-     - 00:00.098
+   * - :ref:`sphx_glr_api_gallery_contracts_verification_plot_01_floyd_hoare.py` (``../../examples/contracts/verification/plot_01_floyd_hoare.py``)
+     - 00:00.105
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_06_forth.py` (``../../examples/vm/foundations/plot_06_forth.py``)
+   * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_04_sprites_state_channels.py` (``../../examples/channels/payment_channels/plot_04_sprites_state_channels.py``)
+     - 00:00.103
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_04_halo.py` (``../../examples/proofs/transparent/plot_04_halo.py``)
+     - 00:00.103
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_pcp_plot_02_kilian_arguments.py` (``../../examples/proofs/pcp/plot_02_kilian_arguments.py``)
+     - 00:00.100
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_manipulation_plot_02_pump_and_dump.py` (``../../examples/fraud/manipulation/plot_02_pump_and_dump.py``)
      - 00:00.095
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_05_structured_programming.py` (``../../examples/vm/foundations/plot_05_structured_programming.py``)
+   * - :ref:`sphx_glr_api_gallery_network_overlays_plot_02_sybil_attack.py` (``../../examples/network/overlays/plot_02_sybil_attack.py``)
      - 00:00.094
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_network_replication_plot_01_cap_theorem.py` (``../../examples/network/replication/plot_01_cap_theorem.py``)
+   * - :ref:`sphx_glr_api_gallery_channels_routing_plot_01_balance_probing.py` (``../../examples/channels/routing/plot_01_balance_probing.py``)
      - 00:00.093
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_04_integer_overflow.py` (``../../examples/vm/ethereum/plot_04_integer_overflow.py``)
-     - 00:00.091
+   * - :ref:`sphx_glr_api_gallery_economics_mev_plot_01_flash_boys_gas_auctions.py` (``../../examples/economics/mev/plot_01_flash_boys_gas_auctions.py``)
+     - 00:00.093
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_commitments_plot_01_coin_flipping.py` (``../../examples/crypto/commitments/plot_01_coin_flipping.py``)
-     - 00:00.089
+   * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_01_nakamoto_incentives.py` (``../../examples/economics/rewards/plot_01_nakamoto_incentives.py``)
+     - 00:00.092
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_crypto_sharing_plot_02_feldman_vss.py` (``../../examples/crypto/sharing/plot_02_feldman_vss.py``)
+   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_03_schnorr_signatures.py` (``../../examples/crypto/signatures/plot_03_schnorr_signatures.py``)
+     - 00:00.090
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_one_time_pad_plot_01_one_time_pad.py` (``../../examples/crypto/one_time_pad/plot_01_one_time_pad.py``)
+     - 00:00.090
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_hash_signatures_plot_01_lamport_signatures.py` (``../../examples/crypto/hash_signatures/plot_01_lamport_signatures.py``)
      - 00:00.088
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_timestamps_plot_01_linked_timestamps.py` (``../../examples/structures/timestamps/plot_01_linked_timestamps.py``)
+   * - :ref:`sphx_glr_api_gallery_channels_interoperability_plot_02_btc_relay.py` (``../../examples/channels/interoperability/plot_02_btc_relay.py``)
      - 00:00.087
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_contracts_plot_02_bytecode_verification.py` (``../../examples/vm/contracts/plot_02_bytecode_verification.py``)
+   * - :ref:`sphx_glr_api_gallery_network_relay_plot_02_propagation_and_forks.py` (``../../examples/network/relay/plot_02_propagation_and_forks.py``)
+     - 00:00.086
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_auctions_plot_03_hanson_lmsr.py` (``../../examples/economics/auctions/plot_03_hanson_lmsr.py``)
+     - 00:00.085
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_auctions_plot_01_vickrey_second_price.py` (``../../examples/economics/auctions/plot_01_vickrey_second_price.py``)
+     - 00:00.085
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_channels_coding_plot_02_data_availability_sampling.py` (``../../examples/channels/coding/plot_02_data_availability_sampling.py``)
+     - 00:00.084
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_wallets_plot_02_parity_library_freeze.py` (``../../examples/contracts/wallets/plot_02_parity_library_freeze.py``)
+     - 00:00.083
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_03_selfish_mining.py` (``../../examples/consensus/attacks/plot_03_selfish_mining.py``)
+     - 00:00.082
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_defi_plot_02_uniswap_impermanent_loss.py` (``../../examples/economics/defi/plot_02_uniswap_impermanent_loss.py``)
+     - 00:00.082
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_utxo_plot_01_utxo.py` (``../../examples/structures/utxo/plot_01_utxo.py``)
+     - 00:00.082
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_network_gossip_plot_01_epidemic_algorithms.py` (``../../examples/network/gossip/plot_01_epidemic_algorithms.py``)
+     - 00:00.082
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_coordination_plot_02_schellingcoin_oracle.py` (``../../examples/economics/coordination/plot_02_schellingcoin_oracle.py``)
+     - 00:00.081
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_replication_plot_02_atomic_transactions.py` (``../../examples/vm/replication/plot_02_atomic_transactions.py``)
+     - 00:00.081
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_mev_plot_02_sandwich_attacks.py` (``../../examples/economics/mev/plot_02_sandwich_attacks.py``)
+     - 00:00.080
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_channels_scaling_plot_04_optimistic_rollups.py` (``../../examples/channels/scaling/plot_04_optimistic_rollups.py``)
+     - 00:00.080
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_01_bulletproofs.py` (``../../examples/proofs/transparent/plot_01_bulletproofs.py``)
+     - 00:00.079
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_network_relay_plot_04_dandelion.py` (``../../examples/network/relay/plot_04_dandelion.py``)
+     - 00:00.079
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_timestamps_plot_02_merkle_batching.py` (``../../examples/structures/timestamps/plot_02_merkle_batching.py``)
+     - 00:00.078
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_01_gas.py` (``../../examples/vm/ethereum/plot_01_gas.py``)
      - 00:00.075
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_01_byzantine_generals.py` (``../../examples/consensus/agreement/plot_01_byzantine_generals.py``)
-     - 00:00.074
+   * - :ref:`sphx_glr_api_gallery_fraud_schemes_plot_01_ponzi_scheme.py` (``../../examples/fraud/schemes/plot_01_ponzi_scheme.py``)
+     - 00:00.075
      - 0.0
-   * - :ref:`sphx_glr_api_gallery_structures_hash_chains_plot_01_lamport_hash_chain.py` (``../../examples/structures/hash_chains/plot_01_lamport_hash_chain.py``)
-     - 00:00.066
+   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_02_ben_or.py` (``../../examples/consensus/agreement/plot_02_ben_or.py``)
+     - 00:00.072
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_verification_plot_05_echidna_fuzzing.py` (``../../examples/contracts/verification/plot_05_echidna_fuzzing.py``)
+     - 00:00.072
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_blind_signatures_plot_01_blind_signatures.py` (``../../examples/crypto/blind_signatures/plot_01_blind_signatures.py``)
+     - 00:00.071
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_governance_plot_01_beanstalk_flash_loan.py` (``../../examples/contracts/governance/plot_01_beanstalk_flash_loan.py``)
+     - 00:00.069
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_upgrades_plot_01_proxy_storage_collision.py` (``../../examples/contracts/upgrades/plot_01_proxy_storage_collision.py``)
+     - 00:00.068
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_03_reentrancy.py` (``../../examples/vm/ethereum/plot_03_reentrancy.py``)
+     - 00:00.068
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_02_halving_schedule.py` (``../../examples/economics/rewards/plot_02_halving_schedule.py``)
+     - 00:00.068
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_04_powers_of_tau.py` (``../../examples/proofs/snarks/plot_04_powers_of_tau.py``)
+     - 00:00.063
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_foundations_plot_01_ricardian_contracts.py` (``../../examples/contracts/foundations/plot_01_ricardian_contracts.py``)
+     - 00:00.061
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_03_sortition.py` (``../../examples/consensus/pos/plot_03_sortition.py``)
+     - 00:00.060
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_transactions_plot_01_malleability.py` (``../../examples/structures/transactions/plot_01_malleability.py``)
+     - 00:00.059
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_01_kzg_commitments.py` (``../../examples/proofs/snarks/plot_01_kzg_commitments.py``)
+     - 00:00.059
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_01_reverse_polish.py` (``../../examples/vm/foundations/plot_01_reverse_polish.py``)
+     - 00:00.057
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_foundations_plot_03_ip_pspace.py` (``../../examples/proofs/foundations/plot_03_ip_pspace.py``)
+     - 00:00.057
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_foundations_plot_02_capabilities.py` (``../../examples/contracts/foundations/plot_02_capabilities.py``)
+     - 00:00.055
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_payments_plot_03_commit_reveal.py` (``../../examples/contracts/payments/plot_03_commit_reveal.py``)
+     - 00:00.055
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_economics_defi_plot_01_dai_liquidation.py` (``../../examples/economics/defi/plot_01_dai_liquidation.py``)
+     - 00:00.053
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_03_difficulty_retargeting.py` (``../../examples/consensus/pow/plot_03_difficulty_retargeting.py``)
+     - 00:00.053
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_manipulation_plot_01_willy_bot_price_manipulation.py` (``../../examples/fraud/manipulation/plot_01_willy_bot_price_manipulation.py``)
+     - 00:00.053
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_04_mountain_ranges.py` (``../../examples/structures/merkle/plot_04_mountain_ranges.py``)
+     - 00:00.051
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_transactions_plot_02_replay_protection.py` (``../../examples/structures/transactions/plot_02_replay_protection.py``)
+     - 00:00.048
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_nakamoto_plot_01_longest_chain.py` (``../../examples/consensus/nakamoto/plot_01_longest_chain.py``)
+     - 00:00.047
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_01_pricing_via_processing.py` (``../../examples/consensus/pow/plot_01_pricing_via_processing.py``)
+     - 00:00.047
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_commitments_plot_02_pedersen.py` (``../../examples/crypto/commitments/plot_02_pedersen.py``)
+     - 00:00.047
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_script_plot_01_p2pkh.py` (``../../examples/vm/script/plot_01_p2pkh.py``)
+     - 00:00.046
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_sharing_plot_01_secret_sharing.py` (``../../examples/crypto/sharing/plot_01_secret_sharing.py``)
+     - 00:00.043
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_04_sha256_avalanche.py` (``../../examples/crypto/hashing/plot_04_sha256_avalanche.py``)
+     - 00:00.043
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_02_nothing_at_stake.py` (``../../examples/consensus/pos/plot_02_nothing_at_stake.py``)
+     - 00:00.043
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_verification_plot_04_oyente.py` (``../../examples/contracts/verification/plot_04_oyente.py``)
+     - 00:00.043
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_03_provisions_proof_of_solvency.py` (``../../examples/fraud/solvency/plot_03_provisions_proof_of_solvency.py``)
+     - 00:00.042
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_02_qap_pinocchio.py` (``../../examples/proofs/snarks/plot_02_qap_pinocchio.py``)
+     - 00:00.042
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_network_gossip_plot_03_reliable_broadcast.py` (``../../examples/network/gossip/plot_03_reliable_broadcast.py``)
+     - 00:00.040
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_05_squid_game_rug_pull.py` (``../../examples/fraud/scam_contracts/plot_05_squid_game_rug_pull.py``)
+     - 00:00.040
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_tokens_plot_02_erc721_safe_transfers.py` (``../../examples/contracts/tokens/plot_02_erc721_safe_transfers.py``)
+     - 00:00.038
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_tokens_plot_01_erc20_approve_race.py` (``../../examples/contracts/tokens/plot_01_erc20_approve_race.py``)
+     - 00:00.038
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_payments_plot_01_king_of_the_ether.py` (``../../examples/contracts/payments/plot_01_king_of_the_ether.py``)
+     - 00:00.038
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_contracts_plot_01_vending_machine.py` (``../../examples/vm/contracts/plot_01_vending_machine.py``)
+     - 00:00.037
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_03_consistency_proofs.py` (``../../examples/structures/merkle/plot_03_consistency_proofs.py``)
+     - 00:00.037
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_04_partial_synchrony.py` (``../../examples/consensus/agreement/plot_04_partial_synchrony.py``)
+     - 00:00.037
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_02_ico_exit_scams_daico.py` (``../../examples/fraud/scam_contracts/plot_02_ico_exit_scams_daico.py``)
+     - 00:00.036
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_upgrades_plot_02_create2_counterfactual.py` (``../../examples/contracts/upgrades/plot_02_create2_counterfactual.py``)
+     - 00:00.036
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_05_pbft.py` (``../../examples/consensus/agreement/plot_05_pbft.py``)
+     - 00:00.036
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_schemes_plot_02_bartoletti_ponzi_contracts.py` (``../../examples/fraud/schemes/plot_02_bartoletti_ponzi_contracts.py``)
+     - 00:00.036
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_network_events_plot_02_lamport_clocks.py` (``../../examples/network/events/plot_02_lamport_clocks.py``)
+     - 00:00.035
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_03_hmac.py` (``../../examples/crypto/hashing/plot_03_hmac.py``)
+     - 00:00.034
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_curves_plot_01_elliptic_curves.py` (``../../examples/crypto/curves/plot_01_elliptic_curves.py``)
+     - 00:00.034
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_04_ftx_commingled_funds.py` (``../../examples/fraud/solvency/plot_04_ftx_commingled_funds.py``)
+     - 00:00.034
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_01_stake.py` (``../../examples/consensus/pos/plot_01_stake.py``)
+     - 00:00.034
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_04_nonce_reuse.py` (``../../examples/crypto/signatures/plot_04_nonce_reuse.py``)
+     - 00:00.033
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_network_events_plot_03_vector_clocks.py` (``../../examples/network/events/plot_03_vector_clocks.py``)
+     - 00:00.033
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_merkle_plot_02_duplicate_leaf.py` (``../../examples/structures/merkle/plot_02_duplicate_leaf.py``)
+     - 00:00.033
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_verification_plot_03_design_by_contract.py` (``../../examples/contracts/verification/plot_03_design_by_contract.py``)
+     - 00:00.033
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_pos_plot_04_casper_ffg.py` (``../../examples/consensus/pos/plot_04_casper_ffg.py``)
+     - 00:00.032
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_replication_plot_01_state_machine_replication.py` (``../../examples/vm/replication/plot_01_state_machine_replication.py``)
+     - 00:00.032
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_03_hardware_stack.py` (``../../examples/vm/foundations/plot_03_hardware_stack.py``)
+     - 00:00.031
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_discrete_log_plot_02_pohlig_hellman.py` (``../../examples/crypto/discrete_log/plot_02_pohlig_hellman.py``)
+     - 00:00.031
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_03_flp_impossibility.py` (``../../examples/consensus/agreement/plot_03_flp_impossibility.py``)
+     - 00:00.031
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_02_merkle_damgard.py` (``../../examples/crypto/hashing/plot_02_merkle_damgard.py``)
+     - 00:00.030
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_02_fiat_shamir.py` (``../../examples/crypto/signatures/plot_02_fiat_shamir.py``)
+     - 00:00.030
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_network_events_plot_01_discrete_event_simulation.py` (``../../examples/network/events/plot_01_discrete_event_simulation.py``)
+     - 00:00.030
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_04_torres_solidity_quirks.py` (``../../examples/fraud/scam_contracts/plot_04_torres_solidity_quirks.py``)
+     - 00:00.030
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_nakamoto_plot_02_ghost.py` (``../../examples/consensus/nakamoto/plot_02_ghost.py``)
+     - 00:00.030
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_03_rsa.py` (``../../examples/crypto/public_keys/plot_03_rsa.py``)
+     - 00:00.029
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_verification_plot_02_symbolic_execution.py` (``../../examples/contracts/verification/plot_02_symbolic_execution.py``)
+     - 00:00.029
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_phishing_plot_01_ice_phishing_approvals.py` (``../../examples/fraud/phishing/plot_01_ice_phishing_approvals.py``)
+     - 00:00.029
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_network_replication_plot_01_cap_theorem.py` (``../../examples/network/replication/plot_01_cap_theorem.py``)
+     - 00:00.028
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_02_diffie_hellman.py` (``../../examples/crypto/public_keys/plot_02_diffie_hellman.py``)
+     - 00:00.028
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_ethereum_plot_04_integer_overflow.py` (``../../examples/vm/ethereum/plot_04_integer_overflow.py``)
+     - 00:00.027
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_contracts_plot_02_bytecode_verification.py` (``../../examples/vm/contracts/plot_02_bytecode_verification.py``)
+     - 00:00.027
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_03_torres_evm_honeypots.py` (``../../examples/fraud/scam_contracts/plot_03_torres_evm_honeypots.py``)
+     - 00:00.026
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_06_forth.py` (``../../examples/vm/foundations/plot_06_forth.py``)
+     - 00:00.026
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_05_structured_programming.py` (``../../examples/vm/foundations/plot_05_structured_programming.py``)
+     - 00:00.026
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_01_zero_knowledge.py` (``../../examples/crypto/signatures/plot_01_zero_knowledge.py``)
-     - 00:00.064
+     - 00:00.023
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_sharing_plot_02_feldman_vss.py` (``../../examples/crypto/sharing/plot_02_feldman_vss.py``)
+     - 00:00.023
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_01_verified_source_deception.py` (``../../examples/fraud/scam_contracts/plot_01_verified_source_deception.py``)
+     - 00:00.022
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_crypto_commitments_plot_01_coin_flipping.py` (``../../examples/crypto/commitments/plot_01_coin_flipping.py``)
+     - 00:00.022
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_timestamps_plot_01_linked_timestamps.py` (``../../examples/structures/timestamps/plot_01_linked_timestamps.py``)
+     - 00:00.020
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_consensus_agreement_plot_01_byzantine_generals.py` (``../../examples/consensus/agreement/plot_01_byzantine_generals.py``)
+     - 00:00.018
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_structures_hash_chains_plot_01_lamport_hash_chain.py` (``../../examples/structures/hash_chains/plot_01_lamport_hash_chain.py``)
+     - 00:00.018
      - 0.0

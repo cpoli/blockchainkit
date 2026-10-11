@@ -27,28 +27,35 @@ a random function, the prover cannot choose R after knowing c, and the
 transcript becomes a non-interactive proof bound to the message: a
 signature.
 
-What to look for
-----------------
-
 The hashed challenge changes completely with the message. The simulator
 trick from the zero-knowledge example fails, because R must be fixed before
 the hash reveals c. Schnorr signatures, EdDSA, and most zero-knowledge proof
 systems used by blockchains rely on this transformation.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-The challenge is a hash of everything said so far
--------------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-37
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+The challenge is a hash of everything said so far
+-------------------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-34
+
+.. code-block:: Python
+
 
     x, k = 42, 17
     Q, R = bk.crypto.public_key(x), bk.crypto.public_key(k)
@@ -72,14 +79,14 @@ The challenge is a hash of everything said so far
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-42
+.. GENERATED FROM PYTHON SOURCE LINES 35-39
 
 Simulation no longer works
 --------------------------
 A forger picks s and c, sets R = sG - cQ, but the hash then demands a
 different c for that R.
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-48
+.. GENERATED FROM PYTHON SOURCE LINES 39-45
 
 .. code-block:: Python
 
@@ -96,14 +103,14 @@ different c for that R.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-53
+.. GENERATED FROM PYTHON SOURCE LINES 46-50
 
 Searching for a lucky challenge on a tiny curve
 -----------------------------------------------
 On a 19-element curve a forger succeeds when the hash happens to hit the
 chosen c: about 1 time in 19. On secp256k1, 1 time in 2**256.
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-74
+.. GENERATED FROM PYTHON SOURCE LINES 50-73
 
 .. code-block:: Python
 
@@ -128,6 +135,8 @@ chosen c: about 1 time in 19. On secp256k1, 1 time in 2**256.
     ax.set(ylabel="probability", title="Forging = guessing the hash output")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -140,7 +149,7 @@ chosen c: about 1 time in 19. On secp256k1, 1 time in 2**256.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-80
+.. GENERATED FROM PYTHON SOURCE LINES 74-79
 
 Exercise
 --------
@@ -151,7 +160,7 @@ including the public key and curve parameters protects against.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.114 seconds)
+   **Total running time of the script:** (0 minutes 0.030 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_signatures_plot_02_fiat_shamir.py:

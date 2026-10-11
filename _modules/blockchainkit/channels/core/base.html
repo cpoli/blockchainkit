@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blockchainkit.channels.core.base &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../../_static/documentation_options.js?v=95e61db4"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/blockchainkit/channels/core/base';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../../_static/searchtools.js"></script>
+    <script src="../../../../_static/language_data.js"></script>
+    <script src="../../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">blockchainkit.channels.core.base</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for blockchainkit.channels.core.base</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Result containers for blockchainkit.channels."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mapping</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.crypto.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">SchnorrSignature</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">blockchainkit.structures.core.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">MerkleProof</span><span class="p">,</span> <span class="n">SparseMerkleProof</span>
+
+
+<div class="viewcode-block" id="Settlement">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.Settlement">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Settlement</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""How a channel was closed on chain, and who received what.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    kind : str</span>
+<span class="sd">        ``"cooperative"``, ``"unilateral"``, ``"penalty"`` or ``"refund"``.</span>
+<span class="sd">    payouts : Mapping</span>
+<span class="sd">        Coins paid to each party.</span>
+<span class="sd">    height : int</span>
+<span class="sd">        The block at which the last output was claimed.</span>
+<span class="sd">    state : int</span>
+<span class="sd">        The off-chain state that was settled.</span>
+<span class="sd">    """</span>
+
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">payouts</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">state</span><span class="p">:</span> <span class="nb">int</span></div>
+
+
+
+<div class="viewcode-block" id="SwapOutcome">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.SwapOutcome">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SwapOutcome</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Who ended up with which coins after an atomic swap between chains A and B.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    alice, bob : tuple of int</span>
+<span class="sd">        Coins each party holds on chain A and on chain B, out of the swap's outputs.</span>
+<span class="sd">    secret_revealed : bool</span>
+<span class="sd">        True if Alice's preimage appeared on chain B.</span>
+<span class="sd">    """</span>
+
+    <span class="n">alice</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">bob</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">secret_revealed</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">completed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""True if both parties received the other chain's coins."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">bob</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">alice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">bob</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">refunded</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""True if both parties took their own coins back."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">alice</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">bob</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">alice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">bob</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">atomic</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""True if the swap either completed or was refunded, so nobody lost."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">completed</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">refunded</span></div>
+
+
+
+<div class="viewcode-block" id="Commitment">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.Commitment">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Commitment</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""One party's commitment transaction in a Lightning channel.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    holder : str</span>
+<span class="sd">        The party who can publish it.</span>
+<span class="sd">    state : int</span>
+<span class="sd">        The channel state it records.</span>
+<span class="sd">    to_local : int</span>
+<span class="sd">        The holder's balance, locked behind the revocable delay.</span>
+<span class="sd">    to_remote : int</span>
+<span class="sd">        The counterparty's balance, paid at once.</span>
+<span class="sd">    revocation : tuple of int</span>
+<span class="sd">        The public key that lets the counterparty take ``to_local`` once revoked.</span>
+<span class="sd">    txid : bytes</span>
+<span class="sd">        Hash identifying the transaction.</span>
+<span class="sd">    """</span>
+
+    <span class="n">holder</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">state</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">to_local</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">to_remote</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">revocation</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">txid</span><span class="p">:</span> <span class="nb">bytes</span></div>
+
+
+
+<div class="viewcode-block" id="Route">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.Route">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Route</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A payment route and what each hop forwards.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    nodes : tuple of int</span>
+<span class="sd">        Sender first, recipient last.</span>
+<span class="sd">    amounts : tuple of int</span>
+<span class="sd">        The HTLC amount offered on each hop, ``len(nodes) - 1`` of them.</span>
+<span class="sd">    expiries : tuple of int</span>
+<span class="sd">        Each hop's HTLC expiry (an absolute block height).</span>
+<span class="sd">    """</span>
+
+    <span class="n">nodes</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">amounts</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">expiries</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fee</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""What the sender pays the intermediate nodes."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">amounts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">amounts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="PaymentAttempt">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.PaymentAttempt">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PaymentAttempt</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The result of sending a payment along a route.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    success : bool</span>
+<span class="sd">        True if the recipient received the payment.</span>
+<span class="sd">    route : Route</span>
+<span class="sd">        The route tried.</span>
+<span class="sd">    failed_at : tuple of int or None</span>
+<span class="sd">        The channel ``(from, to)`` where the HTLC was refused, if it was.</span>
+<span class="sd">    error : str or None</span>
+<span class="sd">        ``"temporary_channel_failure"`` (not enough balance) or</span>
+<span class="sd">        ``"unknown_payment_hash"`` (the recipient cannot claim it).</span>
+<span class="sd">    """</span>
+
+    <span class="n">success</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">route</span><span class="p">:</span> <span class="n">Route</span>
+    <span class="n">failed_at</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="n">error</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="ProbeResult">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.ProbeResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProbeResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""What an outsider learned about one side of a channel by sending probes.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    low, high : int</span>
+<span class="sd">        The balance lies in ``[low, high]``.</span>
+<span class="sd">    probes : int</span>
+<span class="sd">        Payments sent.</span>
+<span class="sd">    """</span>
+
+    <span class="n">low</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">high</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">probes</span><span class="p">:</span> <span class="nb">int</span></div>
+
+
+
+<div class="viewcode-block" id="CoinTransfer">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.CoinTransfer">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">CoinTransfer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A Plasma Cash transfer of one coin, signed by its previous owner.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coin : int</span>
+<span class="sd">        The coin's identifier, its slot in the sparse Merkle tree.</span>
+<span class="sd">    owner : tuple of int</span>
+<span class="sd">        The new owner's public key.</span>
+<span class="sd">    parent_block : int</span>
+<span class="sd">        The block holding the previous transfer of the coin (0 for a deposit).</span>
+<span class="sd">    signature : SchnorrSignature or None</span>
+<span class="sd">        The previous owner's signature; None for a deposit.</span>
+<span class="sd">    """</span>
+
+    <span class="n">coin</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">owner</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">parent_block</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">signature</span><span class="p">:</span> <span class="n">SchnorrSignature</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="InclusionProof">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.InclusionProof">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InclusionProof</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A transfer, the block it is in, and the sparse Merkle proof that it is.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    transfer : CoinTransfer</span>
+<span class="sd">    block : int</span>
+<span class="sd">    proof : SparseMerkleProof</span>
+<span class="sd">    """</span>
+
+    <span class="n">transfer</span><span class="p">:</span> <span class="n">CoinTransfer</span>
+    <span class="n">block</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">proof</span><span class="p">:</span> <span class="n">SparseMerkleProof</span></div>
+
+
+
+<div class="viewcode-block" id="PlasmaExit">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.PlasmaExit">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PlasmaExit</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""An exit from the Plasma chain, waiting out its challenge period.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coin : int</span>
+<span class="sd">    owner : tuple of int</span>
+<span class="sd">        Who receives the coin if the exit stands.</span>
+<span class="sd">    block : int</span>
+<span class="sd">        The block of the exiting transfer.</span>
+<span class="sd">    parent_block : int</span>
+<span class="sd">        The block of the transfer before it.</span>
+<span class="sd">    deadline : int</span>
+<span class="sd">        The height from which the exit can be finalized.</span>
+<span class="sd">    status : str</span>
+<span class="sd">        ``"pending"``, ``"challenged"`` or ``"finalized"``.</span>
+<span class="sd">    """</span>
+
+    <span class="n">coin</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">owner</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">block</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">parent_block</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">deadline</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">status</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pending"</span></div>
+
+
+
+<div class="viewcode-block" id="AtomixResult">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.AtomixResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AtomixResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A cross-shard transfer by Atomix's lock, then commit or abort.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    committed : bool</span>
+<span class="sd">        True if every input shard accepted and the output was credited.</span>
+<span class="sd">    balances : tuple of Mapping</span>
+<span class="sd">        Each shard's balances afterwards.</span>
+<span class="sd">    rejected : tuple of int</span>
+<span class="sd">        The input shards that refused to lock.</span>
+<span class="sd">    """</span>
+
+    <span class="n">committed</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">balances</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">rejected</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="Transfer">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.Transfer">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Transfer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A rollup transaction: move ``amount`` from ``sender`` to ``recipient``."""</span>
+
+    <span class="n">sender</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">recipient</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span></div>
+
+
+
+<div class="viewcode-block" id="ValidityProof">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.ValidityProof">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ValidityProof</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The statement a zk-rollup's proof attests: this batch takes ``old_root`` to ``new_root``.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    old_root, new_root : bytes</span>
+<span class="sd">        State roots before and after the batch.</span>
+<span class="sd">    batch_digest : bytes</span>
+<span class="sd">        Hash of the batch's transactions.</span>
+<span class="sd">    """</span>
+
+    <span class="n">old_root</span><span class="p">:</span> <span class="nb">bytes</span>
+    <span class="n">new_root</span><span class="p">:</span> <span class="nb">bytes</span>
+    <span class="n">batch_digest</span><span class="p">:</span> <span class="nb">bytes</span></div>
+
+
+
+<div class="viewcode-block" id="FraudProof">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.FraudProof">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FraudProof</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The single step at which an optimistic rollup's assertion went wrong.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    step : int</span>
+<span class="sd">        The transaction whose execution the assertion got wrong (0-based).</span>
+<span class="sd">    rounds : int</span>
+<span class="sd">        Bisection rounds the challenge game took.</span>
+<span class="sd">    claimed, correct : bytes</span>
+<span class="sd">        The asserted and the true state root after that step.</span>
+<span class="sd">    """</span>
+
+    <span class="n">step</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">rounds</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">claimed</span><span class="p">:</span> <span class="nb">bytes</span>
+    <span class="n">correct</span><span class="p">:</span> <span class="nb">bytes</span></div>
+
+
+
+<div class="viewcode-block" id="ErasureCodedData">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.ErasureCodedData">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ErasureCodedData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A block's data extended with Reed-Solomon parity and committed to by a Merkle root.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    k : int</span>
+<span class="sd">        Data symbols; any ``k`` shares recover them.</span>
+<span class="sd">    shares : tuple of int</span>
+<span class="sd">        The codeword.</span>
+<span class="sd">    root : bytes</span>
+<span class="sd">        Merkle root over the shares.</span>
+<span class="sd">    """</span>
+
+    <span class="n">k</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">shares</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">root</span><span class="p">:</span> <span class="nb">bytes</span></div>
+
+
+
+<div class="viewcode-block" id="EncodingFraudProof">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.EncodingFraudProof">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EncodingFraudProof</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Evidence that a block producer's shares do not form a Reed-Solomon codeword.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    positions : tuple of int</span>
+<span class="sd">        ``k + 1`` share positions.</span>
+<span class="sd">    shares : tuple of int</span>
+<span class="sd">        Their values.</span>
+<span class="sd">    proofs : tuple of MerkleProof</span>
+<span class="sd">        Each share's inclusion proof against the block's root.</span>
+<span class="sd">    """</span>
+
+    <span class="n">positions</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">shares</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">proofs</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">MerkleProof</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="SamplingResult">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.SamplingResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SamplingResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Light clients sampling a block whose producer withholds some shares.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    detected : float</span>
+<span class="sd">        Fraction of clients that asked for a withheld share.</span>
+<span class="sd">    collected : int</span>
+<span class="sd">        Distinct shares that clients' samples brought to the network.</span>
+<span class="sd">    recoverable : bool</span>
+<span class="sd">        True if the collected shares are enough to rebuild the data.</span>
+<span class="sd">    """</span>
+
+    <span class="n">detected</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">collected</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">recoverable</span><span class="p">:</span> <span class="nb">bool</span></div>
+
+
+
+<div class="viewcode-block" id="AppointmentReceipt">
+<a class="viewcode-back" href="../../../../api/channels.html#blockchainkit.channels.core.base.AppointmentReceipt">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AppointmentReceipt</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A watchtower's signed promise to watch for one revoked commitment (PISA).</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tower : tuple of int</span>
+<span class="sd">        The watchtower's public key.</span>
+<span class="sd">    hint : bytes</span>
+<span class="sd">        Half the revoked commitment's txid, which the tower watches for.</span>
+<span class="sd">    expires : int</span>
+<span class="sd">        The last height the tower is responsible for.</span>
+<span class="sd">    signature : SchnorrSignature</span>
+<span class="sd">    """</span>
+
+    <span class="n">tower</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+    <span class="n">hint</span><span class="p">:</span> <span class="nb">bytes</span>
+    <span class="n">expires</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">signature</span><span class="p">:</span> <span class="n">SchnorrSignature</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

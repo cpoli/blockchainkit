@@ -27,26 +27,33 @@ other: anyone could replay it, moving the sender's coins on both. EIP-155
 added the chain id to what is signed, so a signature belongs to exactly one
 network.
 
-What to look for
-----------------
-
 A payment signed for one chain is rejected by a ledger with a different
 chain id, while an account nonce still prevents replay within one chain.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
-
-Two networks, same keys, same balances
---------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-44
+.. GENERATED FROM PYTHON SOURCE LINES 16-20
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-23
+
+Two networks, same keys, same balances
+--------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-41
+
+.. code-block:: Python
+
 
     alice_key = 7
     alice_pub = bk.crypto.public_key(alice_key)
@@ -78,12 +85,12 @@ Two networks, same keys, same balances
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-47
+.. GENERATED FROM PYTHON SOURCE LINES 42-44
 
 The chain id is part of the signed bytes
 ----------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-68
+.. GENERATED FROM PYTHON SOURCE LINES 44-67
 
 .. code-block:: Python
 
@@ -108,6 +115,8 @@ The chain id is part of the signed bytes
     )
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -120,7 +129,7 @@ The chain id is part of the signed bytes
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 69-73
+.. GENERATED FROM PYTHON SOURCE LINES 68-72
 
 Exercise
 --------
@@ -130,7 +139,7 @@ the fork? (Hint: make a transaction that is valid on only one chain.)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.123 seconds)
+   **Total running time of the script:** (0 minutes 0.048 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_transactions_plot_02_replay_protection.py:

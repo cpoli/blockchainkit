@@ -27,21 +27,11 @@ reward whichever one wins. If everyone does that, forks never resolve.
 Buterin's Slasher proposal made such double-signing punishable: evidence
 of two conflicting signatures destroys the validator's deposit.
 
-What to look for
-----------------
-
 Without a penalty, signing both forks pays more than any honest choice.
 Once the penalty exceeds the reward lost by picking one side, picking a
 side wins. Every modern proof-of-stake protocol has slashing.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Payoffs without slashing
-------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-33
+.. GENERATED FROM PYTHON SOURCE LINES 17-22
 
 .. code-block:: Python
 
@@ -49,6 +39,23 @@ Payoffs without slashing
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+Payoffs without slashing
+------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-30
+
+.. code-block:: Python
+
 
     free = bk.consensus.fork_voting_payoffs(0.6, reward=1.0, penalty=0.0)
     print("no penalty:", free)
@@ -67,12 +74,12 @@ Payoffs without slashing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 Payoffs as the penalty grows
 ----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-55
+.. GENERATED FROM PYTHON SOURCE LINES 33-54
 
 .. code-block:: Python
 
@@ -95,6 +102,8 @@ Payoffs as the penalty grows
         > bk.consensus.fork_voting_payoffs(0.6, 1.0, 0.5)["both"]
     )
 
+    plt.show()
+
 
 
 
@@ -107,7 +116,7 @@ Payoffs as the penalty grows
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-62
+.. GENERATED FROM PYTHON SOURCE LINES 55-61
 
 Exercise
 --------
@@ -119,7 +128,7 @@ new nodes to trust?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.183 seconds)
+   **Total running time of the script:** (0 minutes 0.043 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pos_plot_02_nothing_at_stake.py:

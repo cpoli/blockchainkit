@@ -27,28 +27,35 @@ Bitcoin client instead *announces*: it sends a small ``inv`` message
 carrying the block's hash, and sends the block only to peers that ask for it
 with ``getdata``. Each peer downloads each block once.
 
-What to look for
-----------------
-
 Announcing cuts the traffic by roughly the average degree, and the saving
 grows as peers keep more connections. The price is latency: each hop now
 needs three one-way messages (inv, getdata, block) instead of one, which is
 the delay that compact blocks later attacked.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-A 1 MB block on a random network of 500 peers
----------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-42
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+A 1 MB block on a random network of 500 peers
+---------------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-39
+
+.. code-block:: Python
+
 
     size = 1_000_000
     degrees = [4, 8, 16, 32]
@@ -79,14 +86,14 @@ A 1 MB block on a random network of 500 peers
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-47
+.. GENERATED FROM PYTHON SOURCE LINES 40-44
 
 Check the count against the simulator
 -------------------------------------
 Every message the simulator hands to a link is counted, including the
 duplicates that receivers discard.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-65
+.. GENERATED FROM PYTHON SOURCE LINES 44-64
 
 .. code-block:: Python
 
@@ -108,6 +115,8 @@ duplicates that receivers discard.
     right.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -126,7 +135,7 @@ duplicates that receivers discard.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 Exercise
 --------
@@ -137,7 +146,7 @@ how would batching many hashes into one ``inv`` change the answer?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.921 seconds)
+   **Total running time of the script:** (0 minutes 0.345 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_relay_plot_01_inv_getdata.py:

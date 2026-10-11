@@ -29,29 +29,35 @@ checked that the sender had at least 0 tokens, and credited each recipient
 library's checked arithmetic, and later Solidity 0.8's default overflow
 checks, close the hole.
 
-What to look for
-----------------
-
 The unchecked contract accepts the call from a sender with no tokens, and
 the total supply jumps by 2**256: tokens appear from nowhere.
 The checked version reverts, and both versions agree on every ordinary
 transfer.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-28
-
-The attack
-----------
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-46
+.. GENERATED FROM PYTHON SOURCE LINES 20-24
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+The attack
+----------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-42
+
+.. code-block:: Python
+
 
     ATTACKER, RECIPIENT_A, RECIPIENT_B = 1, 2, 3
     balances = {ATTACKER: 0, 4: 1_000_000}
@@ -81,12 +87,12 @@ The attack
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-49
+.. GENERATED FROM PYTHON SOURCE LINES 43-45
 
 Ordinary transfers are unaffected
 ---------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-61
+.. GENERATED FROM PYTHON SOURCE LINES 45-59
 
 .. code-block:: Python
 
@@ -102,6 +108,8 @@ Ordinary transfers are unaffected
     ax.set(ylabel="total supply / 2**255", title="Tokens from a wrapped multiplication")
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -114,7 +122,7 @@ Ordinary transfers are unaffected
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 62-67
+.. GENERATED FROM PYTHON SOURCE LINES 60-67
 
 Exercise
 --------
@@ -122,10 +130,12 @@ The checked version tests ``amount / count == value``. Why does that detect
 every overflow of ``count * value`` for ``count >= 1``? Could the check
 ``amount >= value`` replace it?
 
+A worked solution is in :doc:`/exercises/vm`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.091 seconds)
+   **Total running time of the script:** (0 minutes 0.027 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_ethereum_plot_04_integer_overflow.py:

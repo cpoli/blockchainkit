@@ -29,22 +29,11 @@ result. Dijkstra's shunting-yard algorithm (1961) translates ordinary
 notation into that order. Every stack virtual machine, from Forth to the
 EVM, runs programs in this form.
 
-What to look for
-----------------
-
 The compiled program is just the RPN sequence, one instruction per token, and
 its result matches Python's. The stack height rises with each pending
 operand and falls with each operator.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-Infix to RPN to instructions
-----------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-42
+.. GENERATED FROM PYTHON SOURCE LINES 19-24
 
 .. code-block:: Python
 
@@ -52,6 +41,23 @@ Infix to RPN to instructions
 
     import blockchainkit as bk
     from blockchainkit.vm.visualizers import plot_execution_trace
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+Infix to RPN to instructions
+----------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-38
+
+.. code-block:: Python
+
 
     expression = "(1 + 2) * 3 - 8 / (4 - 2)"
     rpn = bk.vm.to_rpn(expression)
@@ -87,13 +93,13 @@ Infix to RPN to instructions
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-46
+.. GENERATED FROM PYTHON SOURCE LINES 39-42
 
 Arithmetic is the machine's
 ---------------------------
 Results wrap modulo 2**256, and / is floor division.
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-52
+.. GENERATED FROM PYTHON SOURCE LINES 42-50
 
 .. code-block:: Python
 
@@ -102,6 +108,8 @@ Results wrap modulo 2**256, and / is floor division.
     fig, ax = plt.subplots(figsize=(9, 4.5))
     plot_execution_trace(result.trace, ax=ax)
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -115,7 +123,7 @@ Results wrap modulo 2**256, and / is floor division.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-58
+.. GENERATED FROM PYTHON SOURCE LINES 51-58
 
 Exercise
 --------
@@ -123,10 +131,12 @@ Write ``2 * (3 + 4)`` in Polish (prefix) notation and in RPN by hand. Why
 can an RPN evaluator scan left to right with one stack, while a prefix
 evaluator naturally scans right to left?
 
+A worked solution is in :doc:`/exercises/vm`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.199 seconds)
+   **Total running time of the script:** (0 minutes 0.057 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_foundations_plot_01_reverse_polish.py:

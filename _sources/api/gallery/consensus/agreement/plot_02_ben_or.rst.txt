@@ -27,28 +27,34 @@ any value held by a strict majority, and adopt a proposal they see, or flip
 a coin if they see none. A decision follows once enough processes propose
 the same value.
 
-What to look for
-----------------
-
 Against a scheduler that delivers messages to keep processes split, the
 protocol still decides: eventually the coins all land the same way. The
 number of rounds is random, with an exponential tail.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Decide despite an adversarial scheduler
----------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-33
+.. GENERATED FROM PYTHON SOURCE LINES 17-21
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+Decide despite an adversarial scheduler
+---------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-29
+
+.. code-block:: Python
+
 
     run = bk.consensus.ben_or([0, 0, 1, 1], faults=1, seed=1983)
     assert run.decided and len(set(run.decisions.values())) == 1
@@ -67,12 +73,12 @@ Decide despite an adversarial scheduler
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+.. GENERATED FROM PYTHON SOURCE LINES 30-32
 
 Unanimous inputs decide in one round
 ------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-38
+.. GENERATED FROM PYTHON SOURCE LINES 32-34
 
 .. code-block:: Python
 
@@ -85,12 +91,12 @@ Unanimous inputs decide in one round
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 How many rounds?
 ----------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-54
+.. GENERATED FROM PYTHON SOURCE LINES 37-52
 
 .. code-block:: Python
 
@@ -107,6 +113,8 @@ How many rounds?
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -119,7 +127,7 @@ How many rounds?
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 55-60
+.. GENERATED FROM PYTHON SOURCE LINES 53-60
 
 Exercise
 --------
@@ -127,10 +135,12 @@ The adversary here stalls unless all four coins agree, which happens with
 probability 2/16 per round. Derive the expected number of rounds and
 compare it with the histogram's mean.
 
+A worked solution is in :doc:`/exercises/consensus`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.279 seconds)
+   **Total running time of the script:** (0 minutes 0.072 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_agreement_plot_02_ben_or.py:

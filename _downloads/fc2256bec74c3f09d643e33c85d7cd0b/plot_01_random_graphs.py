@@ -1,4 +1,4 @@
-"""
+r"""
 Random graphs and the connectivity threshold (Erdős and Rényi 1959)
 ===================================================================
 
@@ -9,22 +9,14 @@ a little above it the graph is almost surely connected. Each peer then needs
 only about ``ln n`` random links, which is why Bitcoin's few random outbound
 connections per node suffice to hold the network together.
 
-What to look for
-----------------
-
 The probability of being connected jumps from near 0 to near 1 over a narrow
 range of ``p n / ln n`` around 1. Erdős and Rényi also gave the shape of the
 jump: with ``p = c ln n / n``, the probability tends to ``exp(-n**(1 - c))``,
 about ``1/e`` exactly at the threshold. Just below the threshold, what keeps
 the graph disconnected is almost always a single isolated peer.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%
-# Sweep p around ln n / n
-# -----------------------
 import math
 
 import matplotlib.pyplot as plt
@@ -32,6 +24,10 @@ import numpy as np
 
 import blockchainkit as bk
 import blockchainkit.network.visualizers
+
+# %%
+# Sweep p around ln n / n
+# -----------------------
 
 scales = np.linspace(0.4, 2.0, 17)
 curves = {}
@@ -72,6 +68,8 @@ left.legend()
 bk.network.visualizers.plot_graph(bk.network.erdos_renyi(60, 0.06, seed=2), ax=right)
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
@@ -79,3 +77,5 @@ fig.tight_layout()
 # ``n exp(-p n)``. Evaluate it at ``p = c ln n / n`` and explain why c = 1
 # is the threshold. If the number of isolated peers is roughly Poisson,
 # where does the limit law ``exp(-n**(1 - c))`` come from?
+#
+# A worked solution is in :doc:`/exercises/network`.

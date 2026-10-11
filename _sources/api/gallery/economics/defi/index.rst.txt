@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_economics_defi:
+
+Decentralized finance
+---------------------
+
+Stablecoins, automated market makers, and the price oracles that lenders trust.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A stablecoin aims at a constant price, usually one dollar. Dai is backed not by dollars in a bank but by ether locked in a contract. A user locks ether in a vault and draws newly minted Dai against it, as long as">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/defi/images/thumb/sphx_glr_plot_01_dai_liquidation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/defi/plot_01_dai_liquidation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MakerDAO's Dai: a collateralized stablecoin and liquidation (2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An order book needs market makers constantly posting and cancelling orders, which costs too much gas on chain. Uniswap replaced the book with a pool of two tokens whose reserves keep their product constant: a trader who adds \Delta x (after a 0.3% fee) receives the \Delta y that satisfies">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/defi/images/thumb/sphx_glr_plot_02_uniswap_impermanent_loss_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/defi/plot_02_uniswap_impermanent_loss`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Uniswap's constant-product market maker and impermanent loss (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A lender must know what its collateral is worth, and on a blockchain the easiest answer is the spot price of a decentralized exchange. In February 2020, attackers took flash loans, used them to move such a price within a single transaction, and borrowed from the bZx protocol against collateral it then overvalued, walking away with the difference.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/defi/images/thumb/sphx_glr_plot_03_bzx_oracle_manipulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/defi/plot_03_bzx_oracle_manipulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Flash loans and oracle manipulation: the bZx attacks (2020)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/economics/defi/plot_01_dai_liquidation
+   /api/gallery/economics/defi/plot_02_uniswap_impermanent_loss
+   /api/gallery/economics/defi/plot_03_bzx_oracle_manipulation
+

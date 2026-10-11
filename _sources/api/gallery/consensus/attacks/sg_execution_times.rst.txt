@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:04.926** total execution time for 3 files **from api/gallery/consensus/attacks**:
+**00:01.277** total execution time for 3 files **from api/gallery/consensus/attacks**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_01_gamblers_ruin.py` (``plot_01_gamblers_ruin.py``)
-     - 00:02.560
+     - 00:00.653
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_02_double_spend.py` (``plot_02_double_spend.py``)
-     - 00:02.036
+     - 00:00.541
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_attacks_plot_03_selfish_mining.py` (``plot_03_selfish_mining.py``)
-     - 00:00.330
+     - 00:00.082
      - 0.0

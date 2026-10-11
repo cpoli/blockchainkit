@@ -1,4 +1,4 @@
-"""
+r"""
 Discrete-event simulation: a network on an event queue (GPSS 1961, Simula 1965)
 ===============================================================================
 
@@ -10,18 +10,9 @@ and with a seeded random source every run is exactly reproducible.
 a message sent on a link becomes a delivery event a random number of ticks
 later.
 
-What to look for
-----------------
-
 Follow arrival times as the message crosses the network. An isolated peer
 misses it, and reconnecting the peer requires an explicit retransmission of
 old news. Rerunning with the same seed reproduces every arrival time.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%
@@ -29,6 +20,7 @@ import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 
+# %%
 network = bk.network.SimulatedNetwork(["alice", "bob", "carol", "dave"], seed=7)
 network.connect("alice", "bob", latency=(2, 4))
 network.connect("bob", "carol", latency=(2, 4))
@@ -82,9 +74,13 @@ ax.set(
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Connect a triangle and check that duplicate paths do not duplicate receipts.
 # Disconnect a link while a message is in flight. Then replace fixed latency
 # with a range and compare results under the same and different seeds.
+#
+# A worked solution is in :doc:`/exercises/network`.

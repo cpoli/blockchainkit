@@ -123,8 +123,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../../../../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
   
-    <p class="title logo__title">blockchainkit</p>
   
 </a></div>
     
@@ -139,27 +145,6 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../start_here.html">
-    Start here: a blockchain without the jargon
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../quickstart.html">
-    Your first payment, step by step
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../glossary.html">
-    Glossary
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
     Subpackages
   </a>
@@ -172,65 +157,20 @@
   </a>
 </li>
 
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false"
-                aria-controls="pst-nav-more-links">
-                    More
-                </button>
-                <ul id="pst-nav-more-links" class="dropdown-menu">
-                    
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../examples/index.html">
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../examples/index.html">
     Examples
   </a>
 </li>
 
 
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../tutorials/index.html">
-    Tutorials
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../exercises/index.html">
-    Exercises
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../protocol.html">
-    Exact conventions and model boundaries
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../simulation.html">
-    Reproducible experiments and research scope
-  </a>
-</li>
-
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../api/index.html">
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../../api/index.html">
     API
   </a>
 </li>
 
-
-<li class=" ">
-  <a class="nav-link dropdown-item nav-internal" href="../../../../contributing.html">
-    Developing blockchainkit
-  </a>
-</li>
-
-                </ul>
-            </li>
-            
   </ul>
 </nav></div>
       
@@ -325,27 +265,6 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../start_here.html">
-    Start here: a blockchain without the jargon
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../quickstart.html">
-    Your first payment, step by step
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../glossary.html">
-    Glossary
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../../subpackages/index.html">
     Subpackages
   </a>
@@ -367,43 +286,8 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../tutorials/index.html">
-    Tutorials
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../exercises/index.html">
-    Exercises
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../protocol.html">
-    Exact conventions and model boundaries
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../simulation.html">
-    Reproducible experiments and research scope
-  </a>
-</li>
-
-
-<li class="nav-item ">
   <a class="nav-link nav-internal" href="../../../../api/index.html">
     API
-  </a>
-</li>
-
-
-<li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../../contributing.html">
-    Developing blockchainkit
   </a>
 </li>
 
@@ -592,13 +476,16 @@
     <span class="n">integer</span><span class="p">(</span><span class="n">max_rounds</span><span class="p">,</span> <span class="s2">"max_rounds"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">Graph</span><span class="p">):</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">n</span>
-        <span class="n">reachable</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">network</span><span class="o">.</span><span class="n">distances</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">integer</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">reachable</span> <span class="o">=</span> <span class="n">network</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">network</span>
     <span class="n">integer</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="s2">"source"</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">source</span> <span class="o">&gt;=</span> <span class="n">n</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"source must be a peer in range(n)"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">Graph</span><span class="p">):</span>
+        <span class="n">reachable</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">network</span><span class="o">.</span><span class="n">distances</span><span class="p">(</span><span class="n">source</span><span class="p">)</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">reachable</span> <span class="o">=</span> <span class="n">n</span>
     <span class="n">random</span> <span class="o">=</span> <span class="n">Random</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">call</span><span class="p">(</span><span class="n">peer</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>

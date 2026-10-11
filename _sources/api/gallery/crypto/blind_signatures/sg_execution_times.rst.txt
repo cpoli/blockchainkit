@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.279** total execution time for 1 file **from api/gallery/crypto/blind_signatures**:
+**00:00.071** total execution time for 1 file **from api/gallery/crypto/blind_signatures**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_crypto_blind_signatures_plot_01_blind_signatures.py` (``plot_01_blind_signatures.py``)
-     - 00:00.279
+     - 00:00.071
      - 0.0

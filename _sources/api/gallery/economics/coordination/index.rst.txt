@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_economics_coordination:
+
+Coordination and oracles
+------------------------
+
+Agreeing without communicating, and paying reporters for agreeing on the truth.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Two people must meet in a city on the same day, without having agreed where or when. Any place and time is a good answer if both choose it, so game theory alone predicts nothing. Schelling found that most people choose the same one anyway, because it stands out: noon, at the main station. Such a focal point lets players coordinate because each expects the others to pick it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/coordination/images/thumb/sphx_glr_plot_01_schelling_focal_points_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/coordination/plot_01_schelling_focal_points`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Schelling's focal points: coordinating without communicating (1960)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A contract cannot read the price of ether in dollars; someone must report it. Buterin&#x27;s SchellingCoin asks many reporters, each with a deposit, publishes the median, and rewards those between the lower and upper quartile, while the others lose their deposit. Each reporter cannot know what the others will say, so it reports what it expects them to report: the truth, the focal point.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/coordination/images/thumb/sphx_glr_plot_02_schellingcoin_oracle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/coordination/plot_02_schellingcoin_oracle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SchellingCoin: a decentralized oracle (2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/economics/coordination/plot_01_schelling_focal_points
+   /api/gallery/economics/coordination/plot_02_schellingcoin_oracle
+

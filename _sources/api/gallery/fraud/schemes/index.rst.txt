@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_fraud_schemes:
+
+Ponzi schemes
+-------------
+
+Paying old investors with new money, on paper, in contracts, and on lending platforms.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 1920 Charles Ponzi promised Boston investors 50% in 45 days, supposedly from arbitrage on international reply coupons. There was no arbitrage: each payout came from later deposits. Such a scheme pays its promises only while new money grows fast enough. A deposit D made \tau periods ago is owed (1 + r) D today; if deposits grow by g per period and the operator keeps a fraction s of each, the scheme keeps up exactly when">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/schemes/images/thumb/sphx_glr_plot_01_ponzi_scheme_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/schemes/plot_01_ponzi_scheme`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ponzi's scheme: paying old investors with new money (1920)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bartoletti, Carta, Cimoli and Saia collected 184 Ponzi schemes running as Ethereum contracts and sorted them by how they pay. The commonest is the chain: each deposit is queued, owed a multiple of itself, and paid out of later deposits in order of arrival, as in Doubler and Rubixi. Its source is public, and the victims who read it see exactly that:">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/schemes/images/thumb/sphx_glr_plot_02_bartoletti_ponzi_contracts_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/schemes/plot_02_bartoletti_ponzi_contracts`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bartoletti et al.: dissecting Ponzi schemes on Ethereum (2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="BitConnect took bitcoin deposits into a &quot;lending program&quot; and credited interest of around 1% a day, said to come from a trading bot. Nothing was traded: interest and withdrawals were paid out of new deposits, and recruiters earned commissions down several levels of the investors they brought in. Credited balances compound, so the liabilities grow as">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/schemes/images/thumb/sphx_glr_plot_03_bitconnect_lending_ponzi_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/schemes/plot_03_bitconnect_lending_ponzi`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">BitConnect and lending-platform Ponzis (2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fraud/schemes/plot_01_ponzi_scheme
+   /api/gallery/fraud/schemes/plot_02_bartoletti_ponzi_contracts
+   /api/gallery/fraud/schemes/plot_03_bitconnect_lending_ponzi
+

@@ -1,0 +1,519 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.contracts``, one experiment per
+breakthrough on the :doc:`contracts history page
+</history/contracts_breakthroughs>`: proofs with assertions, symbolic
+execution and design by contract; Ricardian contracts and capabilities; the
+ERC-20 and ERC-721 standards; unchecked sends, gas limits and on-chain
+randomness; the two Parity wallet incidents; upgradeable proxies and
+CREATE2; contract checkers and fuzzers; and a flash-loan governance attack.
+
+Each script is self-contained and runs with
+``python examples/contracts/<section>/<script>.py``.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Foundations
+-----------
+
+Contracts that bind legal prose to code, and authority carried by
+references rather than identities.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ian Grigg designed the Ricardian contract to issue bonds and currencies on the Ricardo payment system. One document is both a legal contract a person can read and a set of parameters a program can parse. The issuer signs it, and its hash becomes the instrument&#x27;s identifier:">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/foundations/images/thumb/sphx_glr_plot_01_ricardian_contracts_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/foundations/plot_01_ricardian_contracts`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Grigg's Ricardian contracts: a bond whose terms are its name (1996)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In an object-capability system, the only way to act on something is to hold a reference to it. Mark Miller&#x27;s E language built distributed money on this rule: to pay, hand over a purse holding exactly the payment; the recipient can take that and nothing else. There is no ambient authority, no global &quot;who is calling&quot; to consult.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/foundations/images/thumb/sphx_glr_plot_02_capabilities_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/foundations/plot_02_capabilities`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Miller's capabilities: purses, and the tx.origin confused deputy (1997-2006)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Governance
+----------
+
+Voting with borrowed tokens inside a single transaction.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A flash loan lends any amount without collateral, on one condition: it is repaid before the transaction ends, or the whole transaction, loan included, reverts. For the length of one transaction, anyone can be as rich as the lender.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/governance/images/thumb/sphx_glr_plot_01_beanstalk_flash_loan_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/governance/plot_01_beanstalk_flash_loan`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Governance attacks: Beanstalk's flash-loan vote (2022)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Paying out
+----------
+
+Sending ether safely, loops that outgrow the block, and fair randomness.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="King of the Ether sold a throne. Each claimant paid more than the current price, the deposed king received the payment less a 1% fee, and the price rose by half. The contract paid with send, which forwards only 2,300 gas and returns False on failure. In February 2016 some kings used Mist&#x27;s contract wallets, whose code for receiving ether needed more than 2,300 gas; their payments failed, the contract ignored the False, crowned the next king, and kept the money.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/payments/images/thumb/sphx_glr_plot_01_king_of_the_ether_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/payments/plot_01_king_of_the_ether`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">King of the Ether: unchecked send and the pull-payment pattern (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="GovernMental was a Ponzi game: the last person to invest before 12 hours of silence won the jackpot. Paying out also reset the game, by clearing the array of creditors, one storage write per entry. In April 2016 the array had grown so long that clearing it needed more gas than a block allowed (about 4.7 million then), so the payout could not execute and roughly 1,100 ether sat stuck in the contract.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/payments/images/thumb/sphx_glr_plot_02_governmental_gas_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/payments/plot_02_governmental_gas`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GovernMental: an unbounded loop meets the block gas limit (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Every node must compute the same result, so a contract has no secret source of randomness. Early lotteries drew from the previous block&#x27;s hash, but a contract called in the same block reads the same hash, so an attacker computes the draw first and plays only when it wins. (A miner could also discard a block whose hash it disliked.)">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/payments/images/thumb/sphx_glr_plot_03_commit_reveal_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/payments/plot_03_commit_reveal`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Commit-reveal schemes and on-chain randomness (2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Token standards
+---------------
+
+Fungible and non-fungible tokens, and the races and traps in their interfaces.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Fabian Vogelsteller and Vitalik Buterin&#x27;s ERC-20 gave fungible tokens one interface: transfer, balanceOf, and a two-step delegation, where approve(spender, n) lets a spender move up to n tokens with transferFrom. Any wallet or exchange can then handle any token.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/tokens/images/thumb/sphx_glr_plot_01_erc20_approve_race_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/tokens/plot_01_erc20_approve_race`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ERC-20 tokens and the approve/transferFrom race (2015)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="ERC-721, by William Entriken, Dieter Shirley, Jacob Evans and Nastassia Sachs, gave each token an identity: a mapping from token ids to owners,">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/tokens/images/thumb/sphx_glr_plot_02_erc721_safe_transfers_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/tokens/plot_02_erc721_safe_transfers`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">ERC-721 non-fungible tokens and safe transfers (2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Upgrades and addresses
+----------------------
+
+Proxies that keep state across code changes, and addresses known before deployment.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Deployed code cannot change, so upgradeable contracts split in two. A proxy keeps the address, the ether and the storage, and forwards every call with DELEGATECALL to an implementation that holds the code. Upgrading points the proxy at new code, and the state stays.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/upgrades/images/thumb/sphx_glr_plot_01_proxy_storage_collision_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/upgrades/plot_01_proxy_storage_collision`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Upgradeable proxies and storage collisions (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="CREATE derives a new contract&#x27;s address from the deployer and its nonce, so the address depends on everything the deployer did before. EIP-1014, by Vitalik Buterin, activated in the Constantinople upgrade of February 2019, added CREATE2:">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/upgrades/images/thumb/sphx_glr_plot_02_create2_counterfactual_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/upgrades/plot_02_create2_counterfactual`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">CREATE2 and counterfactual addresses (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Verification
+------------
+
+Proving contracts correct, executing them on symbols, checking them at run
+time, and fuzzing them with random transactions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Floyd attached an assertion to every arrow of a flowchart and asked that each instruction carry a true assertion to a true one. Hoare compressed the idea into the triple \{P\}\,S\,\{Q\}: if P holds before S runs and S finishes, Q holds afterwards. The rule for an assignment runs backwards,">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_01_floyd_hoare_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_01_floyd_hoare`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Floyd and Hoare: proving a withdrawal correct with assertions (1967-1969)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="James King proposed running a program on symbols instead of numbers. Every variable holds an expression over the inputs, and each branch on such an expression forks the run in two. Each path then carries a path condition, the conjunction of the decisions it took:">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_02_symbolic_execution_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_02_symbolic_execution`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">King's symbolic execution: every path of a fee schedule (1976)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bertrand Meyer&#x27;s Eiffel treats every routine as a contract. The caller must establish the precondition; the routine then guarantees the postcondition; and every public routine preserves the class invariant. Checked at run time, a violated clause names the culprit: a failed precondition is the caller&#x27;s bug, a failed postcondition or invariant the supplier&#x27;s. In Hoare&#x27;s notation, a routine r must satisfy">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_03_design_by_contract_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_03_design_by_contract`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Meyer's design by contract: an escrow with checked clauses (1986)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Oyente, by Luu, Chu, Olickel, Saxena and Hobor, ran symbolic execution on deployed EVM bytecode, with the Z3 solver deciding which paths were feasible. Run over 19,366 contracts on the main network, it flagged about 8,800 as vulnerable, including the DAO. Working on bytecode means checking what actually runs, not what the source was meant to say.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_04_oyente_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_04_oyente`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Oyente: symbolic execution finds the BeautyChain overflow in bytecode (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Echidna, from Trail of Bits, tests a contract the way QuickCheck tests a function. The author writes properties, functions that must always return true; the fuzzer sends random sequences of transactions, with random senders and arguments, checks every property after each one, and shrinks any failing sequence to a short counterexample.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/verification/images/thumb/sphx_glr_plot_05_echidna_fuzzing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/verification/plot_05_echidna_fuzzing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Echidna: property-based fuzzing finds a self-transfer bug (2020)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Multisig wallets
+----------------
+
+The two Parity incidents: a wallet re-initialized, and a library destroyed.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Parity&#x27;s multisig wallet kept its logic in a shared library. Each wallet was a small stub holding the ether and the storage, which forwarded every unknown call to the library with DELEGATECALL: the library&#x27;s code ran on the wallet&#x27;s storage, as the wallet.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/wallets/images/thumb/sphx_glr_plot_01_parity_multisig_hack_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/wallets/plot_01_parity_multisig_hack`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Parity multisig hack: an unprotected initializer (July 2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="After the July hack, Parity deployed a fixed library whose initWallet runs only on uninitialized storage. Every wallet initialized itself at deployment, so no wallet could be taken over again. But the library was a contract too, with storage of its own, and nobody had initialized it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/wallets/images/thumb/sphx_glr_plot_02_parity_library_freeze_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/wallets/plot_02_parity_library_freeze`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The Parity library freeze: selfdestruct behind DELEGATECALL (November 2017)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/contracts/foundations/index.rst
+   /api/gallery/contracts/governance/index.rst
+   /api/gallery/contracts/payments/index.rst
+   /api/gallery/contracts/tokens/index.rst
+   /api/gallery/contracts/upgrades/index.rst
+   /api/gallery/contracts/verification/index.rst
+   /api/gallery/contracts/wallets/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: contracts_python.zip </api/gallery/contracts/contracts_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: contracts_jupyter.zip </api/gallery/contracts/contracts_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

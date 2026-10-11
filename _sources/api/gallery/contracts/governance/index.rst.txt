@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_contracts_governance:
+
+Governance
+----------
+
+Voting with borrowed tokens inside a single transaction.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A flash loan lends any amount without collateral, on one condition: it is repaid before the transaction ends, or the whole transaction, loan included, reverts. For the length of one transaction, anyone can be as rich as the lender.">
+
+.. only:: html
+
+  .. image:: /api/gallery/contracts/governance/images/thumb/sphx_glr_plot_01_beanstalk_flash_loan_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/contracts/governance/plot_01_beanstalk_flash_loan`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Governance attacks: Beanstalk's flash-loan vote (2022)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/contracts/governance/plot_01_beanstalk_flash_loan
+

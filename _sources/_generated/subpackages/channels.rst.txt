@@ -1,0 +1,26 @@
+blockchainkit.channels
+======================
+
+Layer 2 and interoperability: payment channels from Spilman to Lightning and eltoo, atomic swaps and bridges, Plasma, sharding, rollups, and data-availability sampling.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/channels_breakthroughs
+      :link-type: doc
+
+      The breakthroughs behind this subpackage, linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/channels/index
+      :link-type: doc
+
+      The runnable example gallery.
+
+   .. grid-item-card:: API reference
+      :link: /api/channels
+      :link-type: doc
+
+      Every public class and function.
+

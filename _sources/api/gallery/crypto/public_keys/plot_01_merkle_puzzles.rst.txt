@@ -27,22 +27,12 @@ publishes many puzzles, each a session key locked by a deliberately weak
 key. Bob solves one at random and announces only its label. An eavesdropper
 does not know which puzzle Bob picked, and must open about half of them.
 
-What to look for
-----------------
-
 Bob's work stays flat while the eavesdropper's grows with the number of
 puzzles. With N puzzles of N-trial difficulty, honest parties do O(N) work
 and the attacker O(N**2): a real but only *quadratic* advantage. Diffie and
 Hellman's exponential gap came next.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-One exchange
-------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-37
+.. GENERATED FROM PYTHON SOURCE LINES 18-24
 
 .. code-block:: Python
 
@@ -51,6 +41,23 @@ One exchange
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+One exchange
+------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-34
+
+.. code-block:: Python
+
 
     bits = 8
     puzzles, alice_table = bk.crypto.merkle_puzzles(64, bits, randbits=Random(78).getrandbits)
@@ -71,12 +78,12 @@ One exchange
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-40
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 What the eavesdropper must do
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-49
+.. GENERATED FROM PYTHON SOURCE LINES 37-46
 
 .. code-block:: Python
 
@@ -102,12 +109,12 @@ What the eavesdropper must do
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-52
+.. GENERATED FROM PYTHON SOURCE LINES 47-49
 
 Honest work versus attack work
 ------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-66
+.. GENERATED FROM PYTHON SOURCE LINES 49-65
 
 .. code-block:: Python
 
@@ -125,6 +132,8 @@ Honest work versus attack work
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -137,7 +146,7 @@ Honest work versus attack work
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 67-72
+.. GENERATED FROM PYTHON SOURCE LINES 66-71
 
 Exercise
 --------
@@ -148,7 +157,7 @@ much work does the attacker face? Compare with Diffie-Hellman.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.512 seconds)
+   **Total running time of the script:** (0 minutes 0.135 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_public_keys_plot_01_merkle_puzzles.py:

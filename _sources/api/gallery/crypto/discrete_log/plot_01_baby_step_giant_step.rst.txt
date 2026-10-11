@@ -26,21 +26,11 @@ Trying every exponent costs n steps in a group of order n. Shanks showed a
 time-memory trade-off that costs about 2*sqrt(n): store m = sqrt(n) "baby
 steps" g**j, then take "giant steps" target * g**(-m*i) until one matches.
 
-What to look for
-----------------
-
 The measured work follows 2*sqrt(n), far below n. The square root sets the
 security level: a group of order 2**256 gives about 2**128 work, which is
 why 256-bit curves are said to offer 128-bit security.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
-
-Recover a secret exponent
--------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-35
+.. GENERATED FROM PYTHON SOURCE LINES 16-21
 
 .. code-block:: Python
 
@@ -48,6 +38,23 @@ Recover a secret exponent
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+Recover a secret exponent
+-------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-32
+
+.. code-block:: Python
+
 
     group = bk.crypto.DHGroup(1019, 509, 4)  # Order-509 subgroup of the integers mod 1019.
     secret = 377
@@ -69,13 +76,13 @@ Recover a secret exponent
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-39
+.. GENERATED FROM PYTHON SOURCE LINES 33-36
 
 Work grows like the square root of the group order
 --------------------------------------------------
 Safe primes p = 2q + 1, with 4 generating the order-q subgroup.
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-59
+.. GENERATED FROM PYTHON SOURCE LINES 36-58
 
 .. code-block:: Python
 
@@ -99,6 +106,8 @@ Safe primes p = 2q + 1, with 4 generating the order-q subgroup.
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -111,7 +120,7 @@ Safe primes p = 2q + 1, with 4 generating the order-q subgroup.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-65
+.. GENERATED FROM PYTHON SOURCE LINES 59-64
 
 Exercise
 --------
@@ -122,7 +131,7 @@ memory for the same running time: why does that make memory no defense?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.613 seconds)
+   **Total running time of the script:** (0 minutes 0.232 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_discrete_log_plot_01_baby_step_giant_step.py:

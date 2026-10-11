@@ -26,9 +26,6 @@ reach agreement in an asynchronous system where even one process may crash.
 The adversary does not need to crash anyone: it only chooses the order in
 which messages arrive, and can keep the system undecided forever.
 
-What to look for
-----------------
-
 Ben-Or's protocol with its coin replaced by a fixed rule, here "process p
 adopts p mod 2", never decides against a scheduler that keeps every process
 from seeing a strict majority: the values stay split two against two in
@@ -37,20 +34,30 @@ FLP says *every* deterministic protocol has some such schedule. Practical
 protocols escape it with randomness (Ben-Or) or timing assumptions
 (partial synchrony).
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-27
-
-A deterministic protocol, stalled forever
------------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-40
+.. GENERATED FROM PYTHON SOURCE LINES 20-24
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+A deterministic protocol, stalled forever
+-----------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-37
+
+.. code-block:: Python
+
 
 
     def parity(process, round_):
@@ -74,12 +81,12 @@ A deterministic protocol, stalled forever
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 Change one ingredient at a time
 -------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-57
+.. GENERATED FROM PYTHON SOURCE LINES 40-56
 
 .. code-block:: Python
 
@@ -96,6 +103,8 @@ Change one ingredient at a time
         ylabel="rounds run (500 = gave up)", title="Same adversarial schedule, deterministic vs random"
     )
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -116,7 +125,7 @@ Change one ingredient at a time
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-64
+.. GENERATED FROM PYTHON SOURCE LINES 57-63
 
 Exercise
 --------
@@ -128,7 +137,7 @@ that this particular scheduler finds it.)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.113 seconds)
+   **Total running time of the script:** (0 minutes 0.031 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_agreement_plot_03_flp_impossibility.py:

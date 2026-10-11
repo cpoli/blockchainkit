@@ -1,4 +1,4 @@
-"""
+r"""
 Baby-step giant-step: square-root discrete logs (Shanks 1971)
 =============================================================
 
@@ -7,23 +7,20 @@ Trying every exponent costs n steps in a group of order n. Shanks showed a
 time-memory trade-off that costs about 2*sqrt(n): store m = sqrt(n) "baby
 steps" g**j, then take "giant steps" target * g**(-m*i) until one matches.
 
-What to look for
-----------------
-
 The measured work follows 2*sqrt(n), far below n. The square root sets the
 security level: a group of order 2**256 gives about 2**128 work, which is
 why 256-bit curves are said to offer 128-bit security.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
 
 # %%
-# Recover a secret exponent
-# -------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Recover a secret exponent
+# -------------------------
 
 group = bk.crypto.DHGroup(1019, 509, 4)  # Order-509 subgroup of the integers mod 1019.
 secret = 377
@@ -55,6 +52,8 @@ ax.loglog(grid, grid, ":", color="#b45309", label="brute force: n")
 ax.set(xlabel="group order n", ylabel="group operations", title="Square-root discrete logs")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

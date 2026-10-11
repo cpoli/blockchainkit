@@ -1,4 +1,4 @@
-"""
+r"""
 Diffie-Hellman: agreeing on a secret over a public channel (1976)
 =================================================================
 
@@ -7,25 +7,21 @@ exchanging only public values: each raises the other's public element to
 their own private exponent, and both arrive at g**(a*b). An eavesdropper sees
 g**a and g**b but would need a discrete logarithm to continue.
 
-What to look for
-----------------
-
 Both parties compute the same shared element without ever sending it. Then
 a man in the middle substitutes his own public value: the arithmetic still
 works, but Alice now shares a secret with Mallory. Agreement on a secret is
 not authentication of the other person.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Agree on a shared group element
 # -------------------------------
 # Neither party sends the shared value. Both reach g**(a*b) modulo p.
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 group = bk.crypto.DHGroup()  # p = 23, q = 11, g = 2: tiny, so every value is visible.
 alice_secret, bob_secret = 3, 7
@@ -64,8 +60,12 @@ ax.set(
 )
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Exhaustively recover Alice's exponent from her public value. Why does this
 # experiment say nothing about the cost for a carefully chosen large group?
+#
+# A worked solution is in :doc:`/exercises/crypto`.

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.639598Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.639598Z",
+      "mimetype": null,
+      "name": "plot_02_sumcheck.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/foundations/plot_02_sumcheck.ipynb",
+      "size": 4426,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.639481Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.639481Z",
+      "mimetype": null,
+      "name": "plot_01_schwartz_zippel.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/foundations/plot_01_schwartz_zippel.ipynb",
+      "size": 5443,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.639714Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.639714Z",
+      "mimetype": null,
+      "name": "plot_03_ip_pspace.ipynb",
+      "path": "jupyterlite_contents/api/gallery/proofs/foundations/plot_03_ip_pspace.ipynb",
+      "size": 4264,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.625235Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.625831Z",
+  "mimetype": null,
+  "name": "foundations",
+  "path": "jupyterlite_contents/api/gallery/proofs/foundations",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

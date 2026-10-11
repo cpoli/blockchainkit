@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_channels_scaling:
+
+Scaling the chain
+-----------------
+
+Moving work off chain or splitting it up while keeping the chain's security: Plasma, sharding, and rollups.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Plasma runs a whole chain off chain. An operator produces its blocks and posts only their Merkle roots to a root-chain contract, which cannot check the transactions behind them. Coins stay safe because their owners can always exit: prove ownership on the root chain, then wait out a challenge period during which anyone can prove the exit wrong.">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/scaling/images/thumb/sphx_glr_plot_01_plasma_exit_games_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/scaling/plot_01_plasma_exit_games`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Plasma: child chains secured by exit games (Poon and Buterin, 2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Splitting validators into shards multiplies throughput, but each shard is only as safe as its own committee. OmniLedger reshuffles validators into shards every epoch from unbiasable randomness, so an adversary cannot concentrate its validators in one committee. A committee of m drawn from N validators, M of them malicious, fails if a third or more of it is malicious, which is a hypergeometric tail:">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/scaling/images/thumb/sphx_glr_plot_02_omniledger_sharding_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/scaling/plot_02_omniledger_sharding`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">OmniLedger and sharding (Kokoris-Kogias et al., 2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A rollup runs transactions off chain but posts them, compressed, to the chain, so anyone can rebuild its state. Barry Whitehat&#x27;s roll_up and Buterin&#x27;s 2018 proposal added a succinct proof that the posted state root follows from the batch. The contract checks the proof at a fixed cost and never re-executes anything, so the gas per transaction falls toward the cost of its calldata:">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/scaling/images/thumb/sphx_glr_plot_03_zk_rollups_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/scaling/plot_03_zk_rollups`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">zk-rollups: validity proofs for batched transactions (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An optimistic rollup, as Adler and Quintyne-Collins proposed in 2019, posts its batches and state roots with no proof. A root becomes final once a challenge window has passed, and anyone who recomputes a batch and disagrees can prove fraud within it, taking the proposer&#x27;s bond. The proof is found by bisection, as in Arbitrum (Kalodner et al., 2018): the two sides compare intermediate state roots, halving the disputed range each round, until they disagree about one transaction, which the chain re-executes. A batch of n transactions needs">
+
+.. only:: html
+
+  .. image:: /api/gallery/channels/scaling/images/thumb/sphx_glr_plot_04_optimistic_rollups_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/channels/scaling/plot_04_optimistic_rollups`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Optimistic rollups and fraud-proof challenge windows (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/channels/scaling/plot_01_plasma_exit_games
+   /api/gallery/channels/scaling/plot_02_omniledger_sharding
+   /api/gallery/channels/scaling/plot_03_zk_rollups
+   /api/gallery/channels/scaling/plot_04_optimistic_rollups
+

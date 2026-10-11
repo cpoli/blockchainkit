@@ -1,4 +1,4 @@
-"""
+r"""
 Schnorr signatures: short, fast, and linear (1989-1991)
 =======================================================
 
@@ -8,22 +8,21 @@ shorter and faster than the alternatives, and their linearity (signatures
 add when keys add) later enabled multi-signatures. A patent kept them out
 of standards until 2008; Bitcoin adopted them in 2021 (BIP-340).
 
-What to look for
-----------------
-
 A signature verifies only for the exact message and key. The verification
 equation sG = R + cQ is checked step by step. The format here is a
 teaching scheme, not BIP-340's byte encoding.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
+
+# %%
+from dataclasses import replace
+
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Sign and verify
 # ---------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 curve = bk.crypto.SECP256K1
 x = 0xC0FFEE
@@ -46,7 +45,6 @@ print("sG == R + cQ:", left == right)
 # %%
 # Tampering with any part fails
 # -----------------------------
-from dataclasses import replace
 
 cases = {
     "genuine": bk.crypto.verify(b"pay Bob 10", signature, Q),
@@ -63,6 +61,8 @@ fig, ax = plt.subplots(figsize=(7, 3.2))
 ax.bar(cases.keys(), [int(v) for v in cases.values()], color=["#16a34a"] + ["#dc2626"] * 3)
 ax.set(ylabel="verifies", yticks=[0, 1], title="A signature binds key, message, R and s")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

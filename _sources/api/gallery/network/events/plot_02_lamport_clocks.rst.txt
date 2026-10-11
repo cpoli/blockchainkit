@@ -27,9 +27,6 @@ precedes the later events at its own process, a message's send precedes its
 receive, and the relation is transitive. A counter that ticks at every event
 and jumps past every timestamp it receives respects that order.
 
-What to look for
-----------------
-
 Every arrow in the space-time diagram points forward in Lamport time: that
 is the clock condition. Ordering events by ``(timestamp, process)`` gives one
 total order that all processes can compute alike, which Lamport used for
@@ -37,15 +34,7 @@ mutual exclusion and which underlies state-machine replication. But a
 smaller timestamp does not prove an event came first: events that are
 concurrent still receive ordered numbers.
 
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-28
-
-Three processes exchange three messages
----------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 28-42
+.. GENERATED FROM PYTHON SOURCE LINES 20-25
 
 .. code-block:: Python
 
@@ -53,6 +42,23 @@ Three processes exchange three messages
 
     import blockchainkit as bk
     from blockchainkit.network.visualizers import plot_space_time
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-28
+
+Three processes exchange three messages
+---------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-38
+
+.. code-block:: Python
+
 
     history = [
         [("send", "m1"), ("local", "a"), ("receive", "m3")],
@@ -76,14 +82,14 @@ Three processes exchange three messages
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-47
+.. GENERATED FROM PYTHON SOURCE LINES 39-43
 
 The clock condition
 -------------------
 Each receive is stamped later than its send, and each process's stamps
 increase, so every chain of causes has increasing timestamps.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-59
+.. GENERATED FROM PYTHON SOURCE LINES 43-55
 
 .. code-block:: Python
 
@@ -106,13 +112,13 @@ increase, so every chain of causes has increasing timestamps.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-63
+.. GENERATED FROM PYTHON SOURCE LINES 56-59
 
 One total order everyone agrees on
 ----------------------------------
 Break timestamp ties by process number.
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-70
+.. GENERATED FROM PYTHON SOURCE LINES 59-66
 
 .. code-block:: Python
 
@@ -136,7 +142,7 @@ Break timestamp ties by process number.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-76
+.. GENERATED FROM PYTHON SOURCE LINES 67-72
 
 The converse fails
 ------------------
@@ -144,7 +150,7 @@ Local event ``b`` (time 1) and local event ``a`` (time 2) are not causally
 related: no chain of messages links them. Their timestamps are ordered
 anyway, so a Lamport timestamp cannot detect concurrency.
 
-.. GENERATED FROM PYTHON SOURCE LINES 76-82
+.. GENERATED FROM PYTHON SOURCE LINES 72-80
 
 .. code-block:: Python
 
@@ -153,6 +159,8 @@ anyway, so a Lamport timestamp cannot detect concurrency.
     fig, ax = plt.subplots(figsize=(8, 3.5))
     plot_space_time(history, ax=ax)
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -166,17 +174,19 @@ anyway, so a Lamport timestamp cannot detect concurrency.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-87
+.. GENERATED FROM PYTHON SOURCE LINES 81-87
 
 Exercise
 --------
 Add a message from P0 to P2 sent right after ``a`` and received before
 ``b``. Which timestamps change, and is ``a`` still concurrent with ``b``?
 
+A worked solution is in :doc:`/exercises/network`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.152 seconds)
+   **Total running time of the script:** (0 minutes 0.035 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_events_plot_02_lamport_clocks.py:

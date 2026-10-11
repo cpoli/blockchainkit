@@ -1,0 +1,79 @@
+r"""
+SchellingCoin: a decentralized oracle (2014)
+============================================
+
+A contract cannot read the price of ether in dollars; someone must report
+it. Buterin's SchellingCoin asks many reporters, each with a deposit,
+publishes the median, and rewards those between the lower and upper
+quartile, while the others lose their deposit. Each reporter cannot know
+what the others will say, so it reports what it expects them to report: the
+truth, the focal point.
+
+Below a quarter of the reports, liars lose their deposits and the median
+does not move. Above a quarter, a cartel that agrees on one value is inside
+the quartiles and is paid like everyone else; above half, it sets the
+answer; above three quarters, the honest reporters lose their deposits:
+
+.. math::
+
+   \text{reward}_i = \begin{cases} R & q_{1/4} \le r_i \le q_{3/4},\\
+   -D & \text{otherwise.} \end{cases}
+"""
+
+# %%
+from random import Random
+
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
+
+# %%
+# Honest reporters, then a growing cartel
+# ---------------------------------------
+
+rng = Random(4)
+TRUE_PRICE = 2_000
+honest_reports = [round(rng.gauss(TRUE_PRICE, 3), -1) for _ in range(40)]  # Rounded to 10.
+
+answers, honest_payout, cartel_payout = [], [], []
+cartel_sizes = range(0, 41, 4)
+for cartel in cartel_sizes:
+    reports = {f"honest{i}": value for i, value in enumerate(honest_reports[cartel:])}
+    reports |= {f"cartel{i}": 2_500 for i in range(cartel)}
+    result = bk.economics.schelling_round(reports, reward=1, deposit=5)
+    answers.append(result.answer)
+    honest = [result.payouts[name] for name in reports if name.startswith("honest")]
+    cartel_gains = [result.payouts[name] for name in reports if name.startswith("cartel")]
+    honest_payout.append(sum(honest) / len(honest) if honest else float("nan"))
+    cartel_payout.append(sum(cartel_gains) / len(cartel_gains) if cartel_gains else float("nan"))
+
+at = cartel_sizes.index
+assert cartel_payout[at(8)] == -5 and answers[at(8)] == TRUE_PRICE  # 20%: liars pay.
+assert cartel_payout[at(12)] == 1 and answers[at(16)] == TRUE_PRICE  # 30-40%: liars are paid.
+assert answers[at(24)] == 2_500  # 60%: the cartel sets the price.
+assert honest_payout[at(32)] == -5  # 80%: honest reporters lose their deposits.
+print("published price with a 40% cartel:", answers[at(16)])
+
+fig, (left, right) = plt.subplots(1, 2, figsize=(11, 4.2))
+fractions = [c / 40 for c in cartel_sizes]
+left.plot(fractions, answers, "o-", color="#2563eb")
+left.axhline(TRUE_PRICE, color="#16a34a", linestyle="--", label="true price")
+left.set(xlabel="fraction of reporters in the cartel", ylabel="published median")
+left.set_title("The median holds until a majority lies")
+left.legend()
+right.plot(fractions, honest_payout, "o-", color="#16a34a", label="honest reporter")
+right.plot(fractions, cartel_payout, "s-", color="#dc2626", label="cartel member")
+right.set(xlabel="fraction of reporters in the cartel", ylabel="average payout")
+right.set_title("Who keeps their deposit")
+right.legend()
+fig.tight_layout()
+
+plt.show()
+
+# %%
+# Exercise
+# --------
+# In the "P + epsilon" attack, an attacker promises to pay every voter who
+# reports 2,500 its deposit plus a small bonus, but only if the vote fails.
+# Using this payout rule, explain why reporting 2,500 becomes a dominant
+# strategy, and why the attacker pays nothing if everyone believes it.

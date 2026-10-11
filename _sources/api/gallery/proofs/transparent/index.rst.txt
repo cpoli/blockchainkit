@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_proofs_transparent:
+
+Transparent proofs
+------------------
+
+Proof systems without a trusted setup: Bulletproofs, FRI, STARKs, and Halo's recursion.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Confidential transactions hide amounts in Pedersen commitments V = g^v h^\gamma, which add: inputs balance outputs if the commitments&#x27; product does. But the arithmetic is modulo the group order, so an output of -1000 would mint coins unless every amount is proved to lie in [0, 2^n). Bünz, Bootle, Boneh, Poelstra, Wuille and Maxwell reduced the range check to one inner product t = \langle l, r \rangle, and proved the inner product by halving the vectors each round, sending two group elements per halving. The proof is">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_01_bulletproofs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_01_bulletproofs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bulletproofs: range proofs without a trusted setup (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How can a verifier tell that a million committed values are evaluations of a polynomial of degree below d, reading only a few of them? Ben-Sasson, Bentov, Horesh and Riabzev fold the problem in half each round. Writing f(X) = f_e(X^2) + X f_o(X^2), a random \alpha gives a polynomial of half the degree on a domain of half the size,">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_02_fri_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_02_fri`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">FRI: fast Reed-Solomon proximity testing (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Ben-Sasson, Bentov, Horesh and Riabzev built scalable, transparent arguments of knowledge: no trusted setup, nothing but a hash function, and proofs that grow polylogarithmically with the computation. Write the computation as an execution trace, here the Fibonacci sequence a_{i+2} = a_{i+1} + a_i, interpolate it as a polynomial f over a subgroup \langle g\rangle, and turn each rule into a divisibility:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_03_starks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_03_starks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">STARKs: transparent proofs of computation from hashes (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A proof that a previous proof verified, applied at every block, would let anyone check a whole chain from one short proof. That needs verification cheap enough to run inside a proof. Inner-product arguments have no trusted setup, but verifying one costs a multi-exponentiation as long as the committed vector. Bowe, Grigg and Hopwood noticed that the expensive part is a commitment to the polynomial">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/transparent/images/thumb/sphx_glr_plot_04_halo_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/transparent/plot_04_halo`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Halo: recursive proof composition without a trusted setup (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/proofs/transparent/plot_01_bulletproofs
+   /api/gallery/proofs/transparent/plot_02_fri
+   /api/gallery/proofs/transparent/plot_03_starks
+   /api/gallery/proofs/transparent/plot_04_halo
+

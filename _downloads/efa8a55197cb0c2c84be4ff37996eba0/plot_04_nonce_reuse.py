@@ -1,4 +1,4 @@
-"""
+r"""
 Nonce reuse in practice, and deterministic nonces (2010-2013)
 =============================================================
 
@@ -9,23 +9,19 @@ signing key this way: the console's ECDSA used a constant nonce. RFC 6979
 (2013) removed the random number generator from signing: derive the nonce
 deterministically from the key and the message with HMAC.
 
-What to look for
-----------------
-
 Two signatures with the same nonce reveal x = (s1 - s2)/(c1 - c2). With
 RFC 6979 nonces, each message gets its own nonce automatically, and the
 derivation reproduces the RFC's published test vector.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Two signatures, one nonce: the key falls out
 # --------------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 c = bk.crypto
 private, nonce = 42, 17
@@ -60,9 +56,13 @@ ax.hist([n / c.SECP256K1.order for n in nonces], bins=20, color="#2563eb", edgec
 ax.set(xlabel="nonce / group order", ylabel="messages", title="RFC 6979 nonces for 200 messages")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Derive x = (s1 - s2)/(c1 - c2) modulo n from s_i = k + c_i x. Why must the
 # challenges differ? Why does a deterministic nonce stay safe even when the
 # same message is signed twice?
+#
+# A worked solution is in :doc:`/exercises/crypto`.

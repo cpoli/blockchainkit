@@ -27,27 +27,36 @@ shorter and faster than the alternatives, and their linearity (signatures
 add when keys add) later enabled multi-signatures. A patent kept them out
 of standards until 2008; Bitcoin adopted them in 2021 (BIP-340).
 
-What to look for
-----------------
-
 A signature verifies only for the exact message and key. The verification
 equation sG = R + cQ is checked step by step. The format here is a
 teaching scheme, not BIP-340's byte encoding.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Sign and verify
----------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-37
+.. GENERATED FROM PYTHON SOURCE LINES 17-23
 
 .. code-block:: Python
+
+    from dataclasses import replace
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Sign and verify
+---------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-36
+
+.. code-block:: Python
+
 
     curve = bk.crypto.SECP256K1
     x = 0xC0FFEE
@@ -65,12 +74,12 @@ Sign and verify
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-40
+.. GENERATED FROM PYTHON SOURCE LINES 37-39
 
 The verification equation, by hand
 -----------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 40-46
+.. GENERATED FROM PYTHON SOURCE LINES 39-45
 
 .. code-block:: Python
 
@@ -93,16 +102,15 @@ The verification equation, by hand
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-49
+.. GENERATED FROM PYTHON SOURCE LINES 46-48
 
 Tampering with any part fails
 -----------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-67
+.. GENERATED FROM PYTHON SOURCE LINES 48-67
 
 .. code-block:: Python
 
-    from dataclasses import replace
 
     cases = {
         "genuine": bk.crypto.verify(b"pay Bob 10", signature, Q),
@@ -119,6 +127,8 @@ Tampering with any part fails
     ax.bar(cases.keys(), [int(v) for v in cases.values()], color=["#16a34a"] + ["#dc2626"] * 3)
     ax.set(ylabel="verifies", yticks=[0, 1], title="A signature binds key, message, R and s")
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -143,7 +153,7 @@ is that property both useful and dangerous? (See the MuSig example.)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.218 seconds)
+   **Total running time of the script:** (0 minutes 0.090 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_signatures_plot_03_schnorr_signatures.py:

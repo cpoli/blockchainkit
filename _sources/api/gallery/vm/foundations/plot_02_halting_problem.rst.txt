@@ -28,28 +28,35 @@ machine that has not halted yet may halt later, or never. A blockchain that
 lets anyone submit programs therefore cannot check in advance that they
 terminate. It bounds them instead, with a step budget.
 
-What to look for
-----------------
-
 All 20,736 two-state Turing machines are run from a blank tape with growing
 step budgets. Those that halt do so within six steps; some are caught
 repeating a configuration, which proves they loop. But a large group stays
 *unknown* at every budget: no finite budget sorts them.
 
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-26
-
-Classify every two-state machine
---------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 26-43
+.. GENERATED FROM PYTHON SOURCE LINES 19-23
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Classify every two-state machine
+--------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-40
+
+.. code-block:: Python
+
 
     machines = list(bk.vm.enumerate_machines(2))
     budgets = [2, 4, 6, 10, 20, 50]
@@ -77,13 +84,13 @@ Classify every two-state machine
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-47
+.. GENERATED FROM PYTHON SOURCE LINES 41-44
 
 A machine the budget cannot classify
 ------------------------------------
 This one writes 1s rightward forever without repeating a configuration.
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-63
+.. GENERATED FROM PYTHON SOURCE LINES 44-62
 
 .. code-block:: Python
 
@@ -102,6 +109,8 @@ This one writes 1s rightward forever without repeating a configuration.
     ax.set(xlabel="step budget", ylabel="machines", title="20,736 two-state machines")
     ax.legend()
     fig.tight_layout()
+
+    plt.show()
 
 
 
@@ -123,7 +132,7 @@ This one writes 1s rightward forever without repeating a configuration.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-69
+.. GENERATED FROM PYTHON SOURCE LINES 63-68
 
 Exercise
 --------
@@ -134,7 +143,7 @@ Why can no such collection of tests cover every machine?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.986 seconds)
+   **Total running time of the script:** (0 minutes 0.637 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_foundations_plot_02_halting_problem.py:

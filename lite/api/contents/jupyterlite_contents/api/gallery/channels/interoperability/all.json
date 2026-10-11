@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T17:17:50.647071Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T17:17:50.647071Z",
+      "mimetype": null,
+      "name": "plot_01_atomic_swaps.ipynb",
+      "path": "jupyterlite_contents/api/gallery/channels/interoperability/plot_01_atomic_swaps.ipynb",
+      "size": 4686,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T17:17:50.647473Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T17:17:50.647473Z",
+      "mimetype": null,
+      "name": "plot_03_bridge_exploits.ipynb",
+      "path": "jupyterlite_contents/api/gallery/channels/interoperability/plot_03_bridge_exploits.ipynb",
+      "size": 5468,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T17:17:50.647268Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T17:17:50.647268Z",
+      "mimetype": null,
+      "name": "plot_02_btc_relay.ipynb",
+      "path": "jupyterlite_contents/api/gallery/channels/interoperability/plot_02_btc_relay.ipynb",
+      "size": 5061,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T17:17:51.616304Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T17:17:51.616969Z",
+  "mimetype": null,
+  "name": "interoperability",
+  "path": "jupyterlite_contents/api/gallery/channels/interoperability",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

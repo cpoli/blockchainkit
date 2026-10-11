@@ -26,27 +26,34 @@ into a message authentication code with a security proof:
 HMAC(k, m) = H((k XOR opad) || H((k XOR ipad) || m)). The outer hash hides
 the inner chaining state, so an attacker has nothing to extend.
 
-What to look for
-----------------
-
 The length-extension forgery that defeats the naive H(key || message) fails
 against HMAC. HMAC also appears inside RFC 6979's deterministic nonces and
 in key derivation (HKDF).
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 21-23
-
-Same attack, two MACs
----------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-38
+.. GENERATED FROM PYTHON SOURCE LINES 16-20
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 21-23
+
+Same attack, two MACs
+---------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-35
+
+.. code-block:: Python
+
 
     secret = b"server-side key!"
     order = b"user=alice&amount=10"
@@ -73,12 +80,12 @@ Same attack, two MACs
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 36-38
 
 A known test vector
 -------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-44
+.. GENERATED FROM PYTHON SOURCE LINES 38-41
 
 .. code-block:: Python
 
@@ -92,12 +99,12 @@ A known test vector
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-47
+.. GENERATED FROM PYTHON SOURCE LINES 42-44
 
 Changing one key bit changes about half the tag bits
 ----------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-65
+.. GENERATED FROM PYTHON SOURCE LINES 44-64
 
 .. code-block:: Python
 
@@ -119,6 +126,8 @@ Changing one key bit changes about half the tag bits
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -131,7 +140,7 @@ Changing one key bit changes about half the tag bits
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 Exercise
 --------
@@ -142,7 +151,7 @@ collisions in m.)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.137 seconds)
+   **Total running time of the script:** (0 minutes 0.034 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_hashing_plot_03_hmac.py:

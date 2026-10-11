@@ -26,22 +26,11 @@ into an attack: to find *any* two messages with the same n-bit hash takes
 about 2**(n/2) trials, not the 2**n needed to match one given hash. A
 signer tricked into signing one of a colliding pair has signed both.
 
-What to look for
-----------------
-
 Collision searches on truncated SHA-256 succeed after about sqrt(2**n)
 trials. This square root is why hashes have 256-bit outputs: to give
 128-bit collision resistance.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Find a collision on 24 bits
----------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-34
+.. GENERATED FROM PYTHON SOURCE LINES 16-21
 
 .. code-block:: Python
 
@@ -49,6 +38,23 @@ Find a collision on 24 bits
     import numpy as np
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-24
+
+Find a collision on 24 bits
+---------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-30
+
+.. code-block:: Python
+
 
     result = bk.crypto.find_collision(24, prefix=b"contract v")
     assert bk.crypto.truncated_hash(result.first, 24) == bk.crypto.truncated_hash(result.second, 24)
@@ -69,12 +75,12 @@ Find a collision on 24 bits
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 35-37
+.. GENERATED FROM PYTHON SOURCE LINES 31-33
 
 Collision cost follows the square root
 --------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-53
+.. GENERATED FROM PYTHON SOURCE LINES 33-51
 
 .. code-block:: Python
 
@@ -94,6 +100,8 @@ Collision cost follows the square root
     ax.legend()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -106,7 +114,7 @@ Collision cost follows the square root
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-59
+.. GENERATED FROM PYTHON SOURCE LINES 52-59
 
 Exercise
 --------
@@ -114,10 +122,12 @@ The expected number of trials is about sqrt(pi/2 * 2**n). At a billion
 hashes per second, how long does a collision on a 64-bit hash take? On a
 128-bit hash? Why did MD5 (128 bits) fall, but not only because of this?
 
+A worked solution is in :doc:`/exercises/crypto`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.140 seconds)
+   **Total running time of the script:** (0 minutes 0.934 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_hashing_plot_01_birthday_attack.py:

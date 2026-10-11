@@ -1,4 +1,4 @@
-"""
+r"""
 Smart contracts: the vending machine (Szabo 1994)
 =================================================
 
@@ -8,24 +8,21 @@ primordial example: anyone who inserts enough money gets the item and the
 change, and nobody can take the goods without paying. A blockchain contract
 is such a machine whose code and state every node can check.
 
-What to look for
-----------------
-
 Every outcome follows from the code: a sale moves exactly one item and the
 price, underpaying or buying from an empty machine changes nothing, and the
 machine's books always balance: revenue equals price times items sold.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
 
 # %%
-# Run a day of customers
-# ----------------------
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Run a day of customers
+# ----------------------
 
 machine = bk.vm.vending_machine()
 STOCK, PRICE, REVENUE = 0, 1, 2
@@ -55,6 +52,8 @@ ax.axhline(3, color="black", linestyle="--", label="price")
 ax.set(xlabel="customer", ylabel="payment", title="Green: sale, red: refused (nothing changes)")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

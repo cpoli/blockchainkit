@@ -27,22 +27,12 @@ its length, and chain the blocks through the function. SHA-256 is built
 this way. The digest *is* the final chaining state, which has a famous
 consequence.
 
-What to look for
-----------------
-
 blockchainkit's step-by-step SHA-256 matches the standard library. Then an
 attacker who sees only H(key || message) computes a valid
 H(key || message || padding || suffix) without the key: the
 length-extension attack that breaks naive secret-prefix MACs.
 
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-Hashing as a chain of compressions
-----------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-40
+.. GENERATED FROM PYTHON SOURCE LINES 18-24
 
 .. code-block:: Python
 
@@ -51,6 +41,23 @@ Hashing as a chain of compressions
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-27
+
+Hashing as a chain of compressions
+----------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 27-37
+
+.. code-block:: Python
+
 
     message = b"x" * 150
     padded = message + bk.crypto.sha256_padding(len(message))
@@ -74,12 +81,12 @@ Hashing as a chain of compressions
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-43
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
 
 Extend a hash without knowing the secret
 ----------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-51
+.. GENERATED FROM PYTHON SOURCE LINES 40-48
 
 .. code-block:: Python
 
@@ -104,12 +111,12 @@ Extend a hash without knowing the secret
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-54
+.. GENERATED FROM PYTHON SOURCE LINES 49-51
 
 The chaining state through the blocks
 -------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-65
+.. GENERATED FROM PYTHON SOURCE LINES 51-64
 
 .. code-block:: Python
 
@@ -124,6 +131,8 @@ The chaining state through the blocks
     ax.set_xticks(range(len(states)))
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -136,7 +145,7 @@ The chaining state through the blocks
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 65-70
 
 Exercise
 --------
@@ -147,7 +156,7 @@ hashing twice, H(H(m)), as Bitcoin does, also stop length extension?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.102 seconds)
+   **Total running time of the script:** (0 minutes 0.030 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_hashing_plot_02_merkle_damgard.py:

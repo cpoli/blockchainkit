@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.804206Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.804206Z",
+      "mimetype": null,
+      "name": "plot_01_flash_boys_gas_auctions.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/mev/plot_01_flash_boys_gas_auctions.ipynb",
+      "size": 4133,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.804517Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.804517Z",
+      "mimetype": null,
+      "name": "plot_03_mev_boost_pbs.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/mev/plot_03_mev_boost_pbs.ipynb",
+      "size": 5125,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.804364Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.804364Z",
+      "mimetype": null,
+      "name": "plot_02_sandwich_attacks.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/mev/plot_02_sandwich_attacks.ipynb",
+      "size": 6221,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T05:56:30.823061Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T05:56:30.823618Z",
+  "mimetype": null,
+  "name": "mev",
+  "path": "jupyterlite_contents/api/gallery/economics/mev",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

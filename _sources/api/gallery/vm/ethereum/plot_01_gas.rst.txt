@@ -28,20 +28,11 @@ instruction spends some, and running out aborts the call and undoes its
 effects. Words are 256 bits, wide enough for hashes and keys.
 This small stack machine uses unit instruction costs, not Ethereum's prices.
 
-What to look for
-----------------
-
 Compare successful execution with an exhausted gas budget. Success returns
 new storage; failure preserves the original storage. An infinite loop stops
 when its budget runs out, so every call terminates.
 
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
-
-.. GENERATED FROM PYTHON SOURCE LINES 27-41
+.. GENERATED FROM PYTHON SOURCE LINES 18-23
 
 .. code-block:: Python
 
@@ -50,7 +41,21 @@ See :doc:`/exercises/vm` for a worked solution to the exercise.
     import blockchainkit as bk
     from blockchainkit.vm.visualizers import plot_execution_trace
 
-    # Increment persistent slot zero by five.
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-25
+
+Increment persistent slot zero by five.
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-33
+
+.. code-block:: Python
+
     program = [("LOAD", 0), ("PUSH", 5), ("ADD", None), ("STORE", 0), ("STOP", None)]
     initial = {0: 10}
     result = bk.vm.execute(program, storage=initial)
@@ -72,12 +77,12 @@ See :doc:`/exercises/vm` for a worked solution to the exercise.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-44
+.. GENERATED FROM PYTHON SOURCE LINES 34-36
 
 Failed executions do not modify the caller's state
 --------------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-56
+.. GENERATED FROM PYTHON SOURCE LINES 36-48
 
 .. code-block:: Python
 
@@ -107,7 +112,7 @@ Failed executions do not modify the caller's state
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-77
+.. GENERATED FROM PYTHON SOURCE LINES 49-69
 
 .. code-block:: Python
 
@@ -143,16 +148,7 @@ Failed executions do not modify the caller's state
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 78-84
-
-Exercise
---------
-Implement a branch that stores one value when two numbers are equal and
-another value otherwise. Check both branches, stack underflow, and 256-bit
-wraparound. The VM is an independent component; it is not embedded in the
-transfer-only ledger's transaction format.
-
-.. GENERATED FROM PYTHON SOURCE LINES 86-91
+.. GENERATED FROM PYTHON SOURCE LINES 70-75
 
 Trace the stack after each instruction
 --------------------------------------
@@ -160,7 +156,7 @@ Trace the stack after each instruction
 Storage in the trace is the *working* copy: it is committed only if the whole
 program succeeds. The trace follows jumps too, so it works for loops.
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-96
+.. GENERATED FROM PYTHON SOURCE LINES 75-83
 
 .. code-block:: Python
 
@@ -169,6 +165,9 @@ program succeeds. The trace follows jumps too, so it works for loops.
     assert initial == {0: 10}
     ax = plot_execution_trace(traced.trace)
     ax.figure.tight_layout()
+
+    plt.show()
+
 
 
 
@@ -181,10 +180,21 @@ program succeeds. The trace follows jumps too, so it works for loops.
 
 
 
+.. GENERATED FROM PYTHON SOURCE LINES 84-92
+
+Exercise
+--------
+Implement a branch that stores one value when two numbers are equal and
+another value otherwise. Check both branches, stack underflow, and 256-bit
+wraparound. The VM is an independent component; it is not embedded in the
+transfer-only ledger's transaction format.
+
+A worked solution is in :doc:`/exercises/vm`.
+
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.251 seconds)
+   **Total running time of the script:** (0 minutes 0.075 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_ethereum_plot_01_gas.py:

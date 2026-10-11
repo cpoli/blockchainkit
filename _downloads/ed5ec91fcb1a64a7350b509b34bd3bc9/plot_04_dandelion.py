@@ -1,4 +1,4 @@
-"""
+r"""
 Dandelion: hiding where a transaction came from (Bojja Venkatakrishnan et al. 2017)
 ===================================================================================
 
@@ -10,25 +10,22 @@ transaction along a random path (the *stem*), each hop continuing with a
 fixed probability, and only then diffuse it (the *fluff*). Spies then see
 the end of the stem.
 
-What to look for
-----------------
-
 With 10% spies, the first-spy estimator names the true origin about half as
 often under Dandelion as under diffusion. Precision does not reach zero:
 when the origin's first stem hop happens to be a spy, the spy knows exactly
 who sent it.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
 
 # %%
-# 10% spies on a 300-peer network
-# -------------------------------
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# 10% spies on a 300-peer network
+# -------------------------------
 
 graph = bk.network.watts_strogatz(300, 8, 0.3, seed=4)
 spies = set(Random(5).sample(range(300), 30))
@@ -60,6 +57,8 @@ left.set(ylabel="P(origin identified)", title="First-spy estimator")
 right.plot([1 / (1 - q) for q in qs], stem, "o-")
 right.set(xlabel="expected stem length", ylabel="P(origin identified)", title="Dandelion")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

@@ -1,4 +1,4 @@
-"""
+r"""
 Rumor spreading in log2 n + ln n rounds (Frieze and Grimmett 1985, Pittel 1987)
 ===============================================================================
 
@@ -8,24 +8,20 @@ Frieze and Grimmett, and then Pittel more precisely, showed it takes
 almost every call reaches someone new; the second is a coupon-collector
 phase, while the last few peers wait to be called.
 
-What to look for
-----------------
-
 The measured rounds track ``log2 n + ln n`` with a gap that stays roughly
 constant as n grows a thousandfold. A network of a million peers needs only
 about 34 rounds: this is why gossip scales.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%
-# Measure rounds for n from 16 to 16384
-# -------------------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Measure rounds for n from 16 to 16384
+# -------------------------------------
 
 sizes = [2**k for k in range(4, 15, 2)]
 measured = [np.mean([bk.network.spread_rumor(n, seed=s).rounds for s in range(8)]) for n in sizes]
@@ -54,8 +50,12 @@ right.set(xlabel="round", ylabel="informed peers", title="Doubling, then the tai
 right.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Run push on a ring (``bk.network.ring_lattice(n, 2)``) instead of the
 # complete graph. How do the rounds grow with n now, and why?
+#
+# A worked solution is in :doc:`/exercises/network`.

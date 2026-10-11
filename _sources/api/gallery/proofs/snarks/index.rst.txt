@@ -1,0 +1,122 @@
+
+
+.. _sphx_glr_api_gallery_proofs_snarks:
+
+Pairing-based SNARKs
+--------------------
+
+Polynomial commitments, quadratic arithmetic programs, Groth16, trusted setups, and PLONK.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Kate, Zaverucha and Goldberg committed to a whole polynomial with a single group element, C = [f(\tau)]G, computed from published powers [\tau^i]G of a secret \tau. To prove f(z) = y, the prover commits to the quotient q(X) = (f(X) - y)/(X - z), which is a polynomial exactly when the claim is true, and the verifier checks the division at the hidden point with a pairing:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_01_kzg_commitments_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_01_kzg_commitments`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Kate-Zaverucha-Goldberg commitments: one point per polynomial (2010)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gennaro, Gentry, Parno and Raykova turned a whole circuit into a single polynomial identity. Write the computation as rank-1 constraints \langle a_j, z\rangle \cdot \langle b_j, z\rangle = \langle c_j, z\rangle, put constraint j at the point \omega^j, and interpolate each column into polynomials A_i, B_i, C_i. Then all the constraints hold exactly when">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_02_qap_pinocchio_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_02_qap_pinocchio`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Quadratic arithmetic programs and Pinocchio: a circuit as one divisibility (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Groth found the shortest pairing-based SNARK: a proof is three group elements (A, B, C), and the verifier checks one equation,">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_03_groth16_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_03_groth16`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Groth16: three group elements per proof (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pairing-based SNARKs need [\tau^i]G for a \tau that nobody knows: whoever knows it can prove false statements. In October 2016 six Zcash participants generated its parameters by multi-party computation, so that the secret stayed unknown unless all of them colluded. Later &quot;powers of tau&quot; ceremonies scaled this to thousands of participants. Each one multiplies the current string by a secret s and destroys it:">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_04_powers_of_tau_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_04_powers_of_tau`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Trusted-setup ceremonies: Zcash's parameters and the powers of tau (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gabizon, Williamson and Ciobotaru wrote circuits as uniform gates, q_L a + q_R b + q_O c + q_M ab + q_C = 0, and enforced that wires sharing a variable carry the same value with a permutation argument. With random \beta, \gamma, the grand product">
+
+.. only:: html
+
+  .. image:: /api/gallery/proofs/snarks/images/thumb/sphx_glr_plot_05_plonk_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/proofs/snarks/plot_05_plonk`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">PLONK: permutation arguments and a universal setup (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/proofs/snarks/plot_01_kzg_commitments
+   /api/gallery/proofs/snarks/plot_02_qap_pinocchio
+   /api/gallery/proofs/snarks/plot_03_groth16
+   /api/gallery/proofs/snarks/plot_04_powers_of_tau
+   /api/gallery/proofs/snarks/plot_05_plonk
+

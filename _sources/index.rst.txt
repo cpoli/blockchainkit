@@ -3,20 +3,29 @@ blockchainkit
 
 .. include:: /_generated/vars.rst
 
-**Cryptography and blockchains, understood through experiments.**
+**blockchainkit** is a teaching toolkit for cryptography and blockchain
+systems, spanning |num_subpackages| subpackages -- from public-key
+cryptography and authenticated data structures to consensus, peer-to-peer
+networking and replicated execution -- under one small, typed API. It's built
+for students working through a course, curious learners exploring how a
+blockchain actually works, and educators building a demonstration. Every
+construction is written out in plain Python on the standard library, with
+parameters small enough that each value can be inspected, so the mathematics
+stays visible rather than hidden behind an optimized library.
 
-**blockchainkit** is a teaching toolkit spanning |num_subpackages| subpackages,
-from public-key cryptography to replicated execution, under one small typed
-API. Start with two people agreeing on a secret. Follow the ideas that make
-it possible to prove knowledge, authenticate a payment, commit to a history,
-compare competing histories, and execute a shared program. Each step links
-an explanation to working Python, a figure, and an experiment you can change.
+.. image:: _static/images/readme_hero.png
+   :alt: A Merkle proof, Nakamoto's double-spend probabilities, and a Lamport space-time diagram, all drawn with blockchainkit
+   :width: 100%
 
-The :doc:`history </history/index>` is the spine of the package. Each
-subpackage's history page traces the breakthroughs behind it and their
-limitations, from Diffie-Hellman to Ethereum, each linked to the code and
-the gallery example that reproduce it. Cryptography is central even though
-it is not in the package name.
+Every subpackage is grounded in the ideas it implements, not just coded
+against them: public functions carry runnable, CI-checked examples, and each
+subpackage's :doc:`history </history/index>` page traces the breakthroughs
+behind it -- from the one-time pad to Casper finality -- each one linked to the
+code and the gallery experiment that reproduce it.
+
+In short, blockchainkit is |num_subpackages| domains behind one consistent
+API, plus a history of cryptography and distributed systems in which every
+breakthrough links to runnable gallery code.
 
 .. important::
 
@@ -28,42 +37,115 @@ it is not in the package name.
    audited libraries such as `cryptography <https://cryptography.io/>`__ or
    `libsecp256k1 <https://github.com/bitcoin-core/secp256k1>`__.
 
-- :mod:`blockchainkit.crypto`: hashing and commitments, Diffie-Hellman and
-  RSA, blind signatures, Shamir secret sharing, elliptic curves, and Schnorr
-  proofs and signatures.
-- :mod:`blockchainkit.structures`: Merkle trees and proofs, signed transfers,
-  blocks, ledger state, and cumulative-work fork selection.
-- :mod:`blockchainkit.consensus`: proof-of-work search and its expected
-  cost, catch-up probabilities, and stake-weighted proposer selection.
-- :mod:`blockchainkit.network`: peer graphs, Lamport and vector clocks,
-  epidemic gossip and Byzantine reliable broadcast, the CAP trade-off,
-  Kademlia with its Sybil and eclipse attacks, block relay, forks, and
-  transaction privacy.
-- :mod:`blockchainkit.vm`: a deterministic 256-bit stack machine with gas,
-  traces and atomic failure; its assembler, expression compiler and bytecode
-  verifier; Turing machines and busy beavers; Bitcoin Script with P2PKH and
-  HTLCs; and smart contracts with the reentrancy and overflow attacks.
+- :mod:`blockchainkit.crypto` -- the one-time pad, baby-step giant-step and
+  Pohlig-Hellman, Merkle's puzzles, Diffie-Hellman and RSA, Shamir and Feldman
+  secret sharing, Lamport signatures, birthday attacks, hash and Pedersen
+  commitments, blind signatures, elliptic curves, zero knowledge and
+  Fiat-Shamir, Merkle-Damgård and length extension, HMAC, Schnorr signatures,
+  RFC 6979 nonces, and MuSig.
 
-**blockchainkit** is part of a family of packages, with
+  .. image:: _static/images/readme_crypto.png
+     :alt: Scalar multiples on an elliptic curve, the SHA-256 avalanche, and the birthday bound
+     :width: 100%
+
+- :mod:`blockchainkit.structures` -- double-entry ledgers, Bloom filters,
+  Merkle trees and proofs, hash chains, linked and batched timestamps, the UTXO
+  and account models, light clients, Bitcoin's duplicated-leaf bug, Certificate
+  Transparency consistency proofs, transaction malleability, Merkle mountain
+  ranges, replay protection, sparse Merkle trees, and blocks with
+  cumulative-work fork choice.
+
+  .. image:: _static/images/readme_structures.png
+     :alt: A Merkle proof, a fork in a block tree, and Bloom-filter false-positive rates
+     :width: 100%
+
+- :mod:`blockchainkit.consensus` -- the gambler's ruin, Byzantine generals,
+  Ben-Or and FLP, partial synchrony, PBFT, pricing functions and Hashcash,
+  Nakamoto consensus and its double-spend calculation, difficulty retargeting,
+  GHOST, selfish mining, proof of stake, nothing at stake, Casper FFG, and
+  cryptographic sortition.
+
+  .. image:: _static/images/readme_consensus.png
+     :alt: Double-spend probabilities, selfish-mining revenue, and difficulty retargeting
+     :width: 100%
+
+- :mod:`blockchainkit.network` -- discrete-event gossip; random, small-world
+  and scale-free graphs; Lamport and vector clocks; epidemic rumor spreading;
+  Bracha's reliable broadcast; CAP; Kademlia with its Sybil and eclipse
+  attacks; inv/getdata relay, propagation and forks, compact blocks, and
+  Dandelion.
+
+  .. image:: _static/images/readme_network.png
+     :alt: A small-world graph, push and pull gossip, and Kademlia lookup hops
+     :width: 100%
+
+- :mod:`blockchainkit.vm` -- a deterministic 256-bit stack machine with gas
+  and atomic failure, reverse Polish notation, Turing machines and the busy
+  beaver, structured programming, Forth, state-machine replication, smart
+  contracts, bytecode verification, Bitcoin Script with P2PKH and hash
+  time-locked contracts, gas repricing, the DAO's reentrancy, and integer
+  overflow.
+
+  .. image:: _static/images/readme_vm.png
+     :alt: Stack height of two expressions, halting times of two-state Turing machines, and a reentrancy attack
+     :width: 100%
+
+- :mod:`blockchainkit.contracts` -- a world-state model of contracts calling
+  contracts; Floyd-Hoare proofs, symbolic execution, design by contract and
+  fuzzing; Ricardian contracts and capabilities; ERC-20 and ERC-721;
+  unchecked sends, gas denial of service and commit-reveal randomness; the
+  Parity wallet incidents; proxies and CREATE2; Oyente; and Beanstalk's
+  flash-loan governance attack.
+
+  .. image:: _static/images/readme_contracts.png
+     :alt: The execution paths of a withdrawal, GovernMental's payout outgrowing the block, and push versus pull payments
+     :width: 100%
+
+- :mod:`blockchainkit.economics` -- focal points and SchellingCoin;
+  Vickrey's and Myerson's auctions and Hanson's market scoring rule; block
+  rewards, the halving, fee-only mining and mining games; EIP-1559; Dai,
+  Uniswap and flash-loan oracle manipulation; priority gas auctions,
+  sandwich attacks and proposer-builder separation.
+
+  .. image:: _static/images/readme_economics.png
+     :alt: EIP-1559's base fee during a demand surge, a miner's best response against honest miners, and sandwich profits against slippage tolerance
+     :width: 100%
+
+- :mod:`blockchainkit.channels` -- Reed-Solomon codes; Spilman's, duplex
+  and Lightning channels, Sprites, eltoo and watchtowers; balance probing;
+  atomic swaps, BTC Relay and the Ronin and Wormhole exploits; Plasma,
+  sharding, zk and optimistic rollups, and data-availability sampling.
+
+  .. image:: _static/images/readme_channels.png
+     :alt: Light clients detecting withheld data, collateral locked by Lightning and Sprites routes, and a rollup's gas per transfer
+     :width: 100%
+
+- :mod:`blockchainkit.proofs` -- the Schwartz-Zippel lemma, sum-check and
+  IP = PSPACE; the PCP theorem and Kilian's and Micali's arguments; KZG
+  commitments, QAPs, Groth16, trusted-setup ceremonies and PLONK on a toy
+  pairing; Zerocash; and Bulletproofs, FRI, STARKs and Halo.
+
+  .. image:: _static/images/readme_proofs.png
+     :alt: How often a random test is fooled by a polynomial's roots, STARK proof size against computation length, and range-proof sizes
+     :width: 100%
+
+- :mod:`blockchainkit.fraud` -- Ponzi's scheme, Ethereum's Ponzi contracts
+  and BitConnect; Benford's law; Maxwell's proof of reserves, Provisions,
+  Mt. Gox and FTX; deceptive verified sources, ICO exit scams, honeypots and
+  the Squid Game rug pull; the Willy bot, pump-and-dumps and NFT wash
+  trading; ice phishing and address poisoning.
+
+  .. image:: _static/images/readme_fraud.png
+     :alt: A Ponzi scheme's deposits and payouts until its collapse, invented amounts against Benford's law, and a pump-and-dump flagged by its spike
+     :width: 100%
+
+
+**blockchainkit** is part of a family of packages --
 `physicskit <https://cpoli.github.io/physicskit/>`_,
-`mathematicskit <https://cpoli.github.io/mathematicskit/>`_ and
-`chemistrykit <https://cpoli.github.io/chemistrykit/>`_, that share the same
-architecture, API conventions, and history-driven documentation.
-
-Choose a route
---------------
-
-* **New to the topic?** Begin with :doc:`/start_here`. It explains the ideas
-  using one imaginary payment, without assuming cryptography or finance
-  knowledge. Keep the :doc:`/glossary` nearby.
-* **Learn in order:** follow the :doc:`/tutorials/course`, with
-  :doc:`/exercises/index` to check your reasoning.
-* **Learn the ideas:** read the :doc:`history </history/index>`, then run each
-  linked experiment.
-* **Build a chain:** follow :doc:`/quickstart` and the end-to-end payment
-  experiment.
-* **Run simulations:** read :doc:`/simulation` for assumptions and
-  reproducibility.
+`mathematicskit <https://cpoli.github.io/mathematicskit/>`_,
+`chemistrykit <https://cpoli.github.io/chemistrykit/>`_ and **blockchainkit**
+-- that share the same architecture, API conventions, and history-driven
+documentation.
 
 Install and try it
 ------------------
@@ -72,10 +154,18 @@ Install and try it
 
    pip install blockchainkit
 
-``import blockchainkit`` loads only the standard library. Matplotlib and NumPy
-are installed with the package for each subpackage's plotting helpers in
-``visualizers``. Every gallery example can be downloaded as a script or a
-notebook.
+``import blockchainkit`` loads only the standard library; Matplotlib and NumPy
+are installed for each subpackage's plotting helpers in ``visualizers``.
+
+To try it without installing anything, open the
+`quickstart notebook <https://colab.research.google.com/github/cpoli/blockchainkit/blob/main/notebooks/quickstart.ipynb>`__
+in Colab, or use the **JupyterLite** button at the top of every gallery
+example. Every gallery also has a download-all button for its scripts and
+notebooks. New to the topic? Begin with :doc:`/start_here` and
+:doc:`/quickstart`, keep the :doc:`/glossary` nearby, and follow the
+:doc:`tutorials </tutorials/index>` with their :doc:`exercises
+</exercises/index>`. :doc:`/protocol` and :doc:`/simulation` state the model
+boundaries, and :doc:`/contributing` covers development.
 
 Conventionally imported as ``bk``:
 
@@ -86,15 +176,6 @@ Conventionally imported as ``bk``:
    alice = bk.crypto.public_key(7)
    signature = bk.crypto.sign(b"pay Bob 25", 7, nonce=11)
    print(bk.crypto.verify(b"pay Bob 25", signature, alice))  # True
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Getting started
-   :hidden:
-
-   start_here
-   quickstart
-   glossary
 
 .. toctree::
    :maxdepth: 2
@@ -119,36 +200,7 @@ Conventionally imported as ``bk``:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Tutorials
-   :hidden:
-
-   tutorials/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Exercises
-   :hidden:
-
-   exercises/index
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Model boundaries
-   :hidden:
-
-   protocol
-   simulation
-
-.. toctree::
-   :maxdepth: 2
    :caption: API
    :hidden:
 
    api/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Development
-   :hidden:
-
-   contributing

@@ -1,0 +1,102 @@
+r"""
+The Schwartz-Zippel lemma: polynomial identities at random points (1980)
+========================================================================
+
+Are two polynomial expressions the same polynomial? Expanding them can take
+exponentially many terms. Schwartz, and independently Zippel and DeMillo
+and Lipton, noticed that a nonzero polynomial of total degree :math:`d` has
+few roots: on a random point of :math:`\mathbb{F}^n` it vanishes with
+probability
+
+.. math::
+
+   \Pr_{r \in \mathbb{F}^n}\left[f(r) = 0\right] \le \frac{d}{|\mathbb{F}|}.
+
+So evaluate both sides at a random point. Equal polynomials always agree;
+different ones disagree, except with probability at most :math:`d/|\mathbb{F}|`.
+Every succinct proof system reduces its claim to such a check: the
+verifier's random point is where the prover would have to be lucky.
+"""
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
+from blockchainkit.proofs.visualizers import plot_field_polynomials
+
+# %%
+# Two cubics that agree at three points
+# -------------------------------------
+# Over the field of 97 elements, ``g`` is ``f`` plus a cubic with roots 4, 10
+# and 50, so the two agree there and nowhere else.
+
+P = 97
+f = bk.proofs.polynomial([5, 2, 0, 1], P)
+g = bk.proofs.poly_add(f, bk.proofs.vanishing_polynomial([4, 10, 50], P), P)
+agree = [x for x in range(P) if bk.proofs.poly_eval(f, x, P) == bk.proofs.poly_eval(g, x, P)]
+print("f and g agree at", agree)
+assert agree == [4, 10, 50]
+
+# %%
+# The false-acceptance rate is exactly the fraction of roots
+# ----------------------------------------------------------
+# A product of d distinct linear factors has d roots, the most a degree-d
+# polynomial can have, so a random test accepts it as zero with probability
+# exactly d/97.
+
+degrees = range(1, 25, 2)
+measured = []
+for d in degrees:
+    roots = bk.proofs.vanishing_polynomial(range(1, d + 1), P)
+    tests = [
+        bk.proofs.identity_test(
+            lambda v, r=roots: bk.proofs.poly_eval(r, v[0], P), lambda v: 0, 1, P, seed=s
+        ).equal
+        for s in range(1500)
+    ]
+    measured.append(sum(tests) / len(tests))
+    assert abs(measured[-1] - d / P) < 0.03
+print("degree 23: accepted", measured[-1], "of the time; bound", round(23 / P, 3))
+
+# %%
+# A large field makes the test reliable
+# -------------------------------------
+# Over BabyBear, about 2**31 elements, a wrong expansion of (x + y)**8 is
+# caught with probability above 1 - 8 / 2**31.
+
+
+def binomial(v):
+    return (v[0] + v[1]) ** 8
+
+
+def correct(v):
+    return sum([1, 8, 28, 56, 70, 56, 28, 8, 1][k] * v[0] ** k * v[1] ** (8 - k) for k in range(9))
+
+
+def typo(v):
+    return correct(v) + v[0] ** 4 * v[1] ** 4  # One coefficient 71 instead of 70.
+
+
+assert bk.proofs.identity_test(binomial, correct, 2, trials=10).equal
+assert not bk.proofs.identity_test(binomial, typo, 2).equal
+print("bound over BabyBear:", bk.proofs.schwartz_zippel_bound(8, bk.proofs.FIELD_PRIME))
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
+plot_field_polynomials({"f": f, "g": g}, P, ax=ax1)
+ax1.set_title("Two distinct cubics over F_97")
+ax2.plot(degrees, measured, "o", color="#2563eb", label="measured")
+ax2.plot(degrees, [d / P for d in degrees], color="#dc2626", label="d / |F|")
+ax2.set(xlabel="degree d", ylabel="probability a random test is fooled")
+ax2.set_title("The Schwartz-Zippel bound is tight")
+ax2.legend()
+fig.tight_layout()
+
+plt.show()
+
+# %%
+# Exercise
+# --------
+# Over the field of 97 elements, how many independent random points are
+# needed before two distinct polynomials of degree 10 agree on all of them
+# with probability below one in a million?
+# A worked solution is in :doc:`/exercises/proofs`.

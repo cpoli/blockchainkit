@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.219265Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.219265Z",
+      "mimetype": null,
+      "name": "plot_01_ricardian_contracts.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/foundations/plot_01_ricardian_contracts.ipynb",
+      "size": 5035,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.219400Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.219400Z",
+      "mimetype": null,
+      "name": "plot_02_capabilities.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/foundations/plot_02_capabilities.ipynb",
+      "size": 4375,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T19:00:14.598068Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T19:00:14.598495Z",
+  "mimetype": null,
+  "name": "foundations",
+  "path": "jupyterlite_contents/api/gallery/contracts/foundations",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

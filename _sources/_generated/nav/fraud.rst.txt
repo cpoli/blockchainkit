@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.fraud hub </_generated/subpackages/fraud>` · :doc:`History </history/fraud_breakthroughs>` · :doc:`Examples </api/gallery/fraud/index>` · :doc:`API reference </api/fraud>`

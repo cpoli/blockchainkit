@@ -1,4 +1,4 @@
-"""
+r"""
 Compact blocks: send what the peer lacks (Corallo, BIP 152, 2016)
 =================================================================
 
@@ -9,28 +9,24 @@ receiver rebuilds the block from its mempool and asks for the few it lacks.
 Short IDs are salted per block, so an attacker cannot craft transactions
 whose IDs collide in every block.
 
-What to look for
-----------------
-
 With a full mempool a 500 kB block shrinks to about 12 kB, in a single
 round trip. The first missing transaction adds a second round trip, and each
 one must then be sent in full, so the saving shrinks linearly as the
 mempool's coverage falls. Shrinking the short IDs to a single byte backfires:
 with 2000 transactions, every ID becomes ambiguous.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%
-# A 2000-transaction block
-# ------------------------
 from random import Random
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# A 2000-transaction block
+# ------------------------
 
 rng = Random(1)
 block = [rng.randbytes(250) for _ in range(2000)]
@@ -71,9 +67,13 @@ right.bar([str(w) for w in ambiguous], ambiguous.values(), color="#ea580c")
 right.set(xlabel="short-ID bytes", ylabel="transactions re-requested", title="Collisions")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # With 6-byte short IDs, 2000 block transactions and a 300,000-transaction
 # mempool, estimate the expected number of colliding pairs. Why does BIP 152
 # still choose 6 bytes rather than 8?
+#
+# A worked solution is in :doc:`/exercises/network`.

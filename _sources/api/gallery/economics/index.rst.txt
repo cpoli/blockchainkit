@@ -1,0 +1,476 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.economics``, one experiment per
+breakthrough on the :doc:`economics history page
+</history/economics_breakthroughs>`: focal points and Schelling oracles;
+Vickrey's and Myerson's auctions and Hanson's market scoring rule; block
+rewards, the halving, fee-only mining and mining games; EIP-1559's base fee;
+Dai, Uniswap and oracle manipulation; and priority gas auctions, sandwiches
+and proposer-builder separation.
+
+Each script is self-contained and runs with
+``python examples/economics/<section>/<script>.py``.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Auctions and market makers
+--------------------------
+
+Truthful bidding, the revenue-maximizing auction, and a market maker for predictions.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In a sealed-bid first-price auction, the winner pays its own bid, so every bidder shades its bid below its value, by an amount that depends on guesses about the others. Vickrey proposed charging the winner the second-highest bid instead. A bid then decides only whether one wins, never what one pays, and bidding one&#x27;s true value is a dominant strategy:">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/auctions/images/thumb/sphx_glr_plot_01_vickrey_second_price_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/auctions/plot_01_vickrey_second_price`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Vickrey's second-price auction: truthful bidding (1961)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Which auction earns the seller the most? Myerson replaced each bidder&#x27;s value v by its virtual value, the marginal revenue of selling to it,">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/auctions/images/thumb/sphx_glr_plot_02_myerson_optimal_auction_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/auctions/plot_02_myerson_optimal_auction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Myerson's optimal auction and revenue equivalence (1981)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A prediction market pays 1 for each share of the outcome that happens, so a share&#x27;s price reads as a probability. With few traders, an order book is empty and nobody can trade. Hanson&#x27;s automated market maker always quotes a price: it keeps the shares q_i sold of each outcome and charges each trade the change in">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/auctions/images/thumb/sphx_glr_plot_03_hanson_lmsr_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/auctions/plot_03_hanson_lmsr`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hanson's logarithmic market scoring rule (2003)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Coordination and oracles
+------------------------
+
+Agreeing without communicating, and paying reporters for agreeing on the truth.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Two people must meet in a city on the same day, without having agreed where or when. Any place and time is a good answer if both choose it, so game theory alone predicts nothing. Schelling found that most people choose the same one anyway, because it stands out: noon, at the main station. Such a focal point lets players coordinate because each expects the others to pick it.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/coordination/images/thumb/sphx_glr_plot_01_schelling_focal_points_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/coordination/plot_01_schelling_focal_points`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Schelling's focal points: coordinating without communicating (1960)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A contract cannot read the price of ether in dollars; someone must report it. Buterin&#x27;s SchellingCoin asks many reporters, each with a deposit, publishes the median, and rewards those between the lower and upper quartile, while the others lose their deposit. Each reporter cannot know what the others will say, so it reports what it expects them to report: the truth, the focal point.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/coordination/images/thumb/sphx_glr_plot_02_schellingcoin_oracle_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/coordination/plot_02_schellingcoin_oracle`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">SchellingCoin: a decentralized oracle (2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Decentralized finance
+---------------------
+
+Stablecoins, automated market makers, and the price oracles that lenders trust.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A stablecoin aims at a constant price, usually one dollar. Dai is backed not by dollars in a bank but by ether locked in a contract. A user locks ether in a vault and draws newly minted Dai against it, as long as">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/defi/images/thumb/sphx_glr_plot_01_dai_liquidation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/defi/plot_01_dai_liquidation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MakerDAO's Dai: a collateralized stablecoin and liquidation (2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An order book needs market makers constantly posting and cancelling orders, which costs too much gas on chain. Uniswap replaced the book with a pool of two tokens whose reserves keep their product constant: a trader who adds \Delta x (after a 0.3% fee) receives the \Delta y that satisfies">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/defi/images/thumb/sphx_glr_plot_02_uniswap_impermanent_loss_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/defi/plot_02_uniswap_impermanent_loss`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Uniswap's constant-product market maker and impermanent loss (2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A lender must know what its collateral is worth, and on a blockchain the easiest answer is the spot price of a decentralized exchange. In February 2020, attackers took flash loans, used them to move such a price within a single transaction, and borrowed from the bZx protocol against collateral it then overvalued, walking away with the difference.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/defi/images/thumb/sphx_glr_plot_03_bzx_oracle_manipulation_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/defi/plot_03_bzx_oracle_manipulation`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Flash loans and oracle manipulation: the bZx attacks (2020)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Fee markets
+-----------
+
+Pricing scarce block space.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Until August 2021, Ethereum sold block space as Bitcoin still does: a first-price auction in which each user names a fee and pays it if included. No bid is obviously right, so users overpay or wait, and the price swings with every burst of demand. EIP-1559 sets a protocol price per unit of gas, the base fee, adjusted after every block toward a target of half the block&#x27;s capacity,">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/fees/images/thumb/sphx_glr_plot_01_eip1559_base_fee_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/fees/plot_01_eip1559_base_fee`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">EIP-1559: a base fee, burned (2021), and Roughgarden's analysis (2020)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Transaction ordering
+--------------------
+
+Profiting from the order of transactions, and the market that sells it.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When an arbitrage opportunity appears on a decentralized exchange, only the first transaction to execute can take it, and transactions in a block run in fee order. Daian et al. watched bots compete by repeatedly replacing their pending transaction with one paying a higher fee: a priority gas auction. Each replacement must raise the fee by a minimum step (10% in go-ethereum), so with bots that value the opportunity alike, bidding stops only when the next step would exceed its value V:">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/mev/images/thumb/sphx_glr_plot_01_flash_boys_gas_auctions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/mev/plot_01_flash_boys_gas_auctions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Flash Boys 2.0: priority gas auctions and front-running (Daian et al. 2019)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A swap on a constant-product pool waits in the public mempool before it is mined. An attacker who sees it can sandwich it: buy just before it, which raises the price the victim pays, and sell just after, at the price the victim&#x27;s own purchase pushed up. The victim&#x27;s slippage limit, the least output it accepts, is all that stops the attacker: the victim&#x27;s swap reverts below it, so the attacker picks the most profitable front-run a among those that keep">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/mev/images/thumb/sphx_glr_plot_02_sandwich_attacks_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/mev/plot_02_sandwich_attacks`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Sandwich attacks on decentralized exchanges (Zhou et al. 2021)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Extracting the value of transaction ordering takes searchers, private order flow and fast infrastructure. A validator that has them earns more per unit of stake than one that does not, and so attracts more stake: MEV pushes proof of stake toward a few large operators. Proposer-builder separation splits the roles. Specialized builders assemble blocks and bid for the slot; the proposer, any validator, signs the best bid.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/mev/images/thumb/sphx_glr_plot_03_mev_boost_pbs_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/mev/plot_03_mev_boost_pbs`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Proposer-builder separation and MEV-Boost (2022)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Block rewards
+-------------
+
+Why miners follow the rules, how new coins are issued, and what happens when they stop.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Section 6 of the Bitcoin paper pays whoever creates a block in new coins and in the fees of the transactions it includes. The reward distributes the currency, pays for the work that secures the chain, and, Nakamoto argued, keeps even a powerful miner honest: it &quot;ought to find it more profitable to play by the rules ... than to undermine the system and the validity of his own wealth.&quot;">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_01_nakamoto_incentives_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_01_nakamoto_incentives`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Nakamoto's incentive: block rewards and fees (2008)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The first Bitcoin release fixed the monetary policy in code. The block at height h creates">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_02_halving_schedule_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_02_halving_schedule`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fixed supply and the halving schedule (2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="When the subsidy is gone, a block earns only the fees it collects. Fees arrive steadily, blocks at exponentially distributed intervals, so a block&#x27;s reward is proportional to the time since the previous one, and as variable as that time. Carlsten, Kalodner, Weinberg and Narayanan showed two consequences.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_03_carlsten_fee_only_instability_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_03_carlsten_fee_only_instability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The instability of Bitcoin without the block reward (Carlsten et al. 2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Kiayias, Koutsoupias, Kyropoulou and Tselekounis modeled Bitcoin mining as a stochastic game in which each miner chooses which block to extend and when to publish. Honest mining, extending the longest chain and publishing at once, is the designer&#x27;s intended behavior; they showed it is a best response to the others&#x27; honesty when every miner is small, but not for a large one, and that other equilibria then arise.">
+
+.. only:: html
+
+  .. image:: /api/gallery/economics/rewards/images/thumb/sphx_glr_plot_04_kiayias_mining_games_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/economics/rewards/plot_04_kiayias_mining_games`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mining games: when honest mining is an equilibrium (Kiayias et al. 2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/economics/auctions/index.rst
+   /api/gallery/economics/coordination/index.rst
+   /api/gallery/economics/defi/index.rst
+   /api/gallery/economics/fees/index.rst
+   /api/gallery/economics/mev/index.rst
+   /api/gallery/economics/rewards/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: economics_python.zip </api/gallery/economics/economics_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: economics_jupyter.zip </api/gallery/economics/economics_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

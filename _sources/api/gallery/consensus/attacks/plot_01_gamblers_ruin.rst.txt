@@ -27,21 +27,11 @@ recovering a deficit of z is (q/p)**z when q < p. Nakamoto used exactly
 this random walk for an attacker trying to overtake the honest chain from z
 blocks behind.
 
-What to look for
-----------------
-
 Simulated random walks match (q/p)**z. An attacker with less than half the
 hashrate falls exponentially further from success with every block of lead,
 and at q = 1/2 the walk always catches up eventually.
 
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 22-24
-
-Simulate the race
------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 24-56
+.. GENERATED FROM PYTHON SOURCE LINES 17-23
 
 .. code-block:: Python
 
@@ -50,6 +40,23 @@ Simulate the race
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 24-26
+
+Simulate the race
+-----------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 26-53
+
+.. code-block:: Python
+
 
 
     def caught_up(q, deficit, rng, horizon=500):
@@ -89,12 +96,13 @@ Simulate the race
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 57-59
+.. GENERATED FROM PYTHON SOURCE LINES 54-58
 
 .. code-block:: Python
 
     assert bk.consensus.eventual_catch_up(0.5, 20) == 1.0
 
+    plt.show()
 
 
 
@@ -102,7 +110,8 @@ Simulate the race
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 60-65
+
+.. GENERATED FROM PYTHON SOURCE LINES 59-64
 
 Exercise
 --------
@@ -113,7 +122,7 @@ for z confirmations? (The next example answers this.)
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.560 seconds)
+   **Total running time of the script:** (0 minutes 0.653 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_attacks_plot_01_gamblers_ruin.py:

@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.635344Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.635344Z",
+      "mimetype": null,
+      "name": "plot_01_ice_phishing_approvals.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/phishing/plot_01_ice_phishing_approvals.ipynb",
+      "size": 4623,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T18:24:15.635459Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T18:24:15.635459Z",
+      "mimetype": null,
+      "name": "plot_02_address_poisoning.ipynb",
+      "path": "jupyterlite_contents/api/gallery/fraud/phishing/plot_02_address_poisoning.ipynb",
+      "size": 4219,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T18:24:16.620505Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T18:24:16.620771Z",
+  "mimetype": null,
+  "name": "phishing",
+  "path": "jupyterlite_contents/api/gallery/fraud/phishing",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

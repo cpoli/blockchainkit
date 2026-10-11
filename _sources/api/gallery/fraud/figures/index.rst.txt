@@ -1,0 +1,50 @@
+
+
+.. _sphx_glr_api_gallery_fraud_figures:
+
+Fabricated figures
+------------------
+
+How the leading digits of honest numbers betray invented ones.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Simon Newcomb noticed in 1881 that the first pages of logarithm tables wore out faster than the last; Frank Benford checked 20,229 numbers from rivers to street addresses in 1938 and found the same law. In data spread over several orders of magnitude, the leading digit is d with probability">
+
+.. only:: html
+
+  .. image:: /api/gallery/fraud/figures/images/thumb/sphx_glr_plot_01_benford_law_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/fraud/figures/plot_01_benford_law`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Benford's law: detecting fabricated figures (1938)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/fraud/figures/plot_01_benford_law
+

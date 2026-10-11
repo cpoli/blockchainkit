@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.282** total execution time for 2 files **from api/gallery/structures/transactions**:
+**00:00.107** total execution time for 2 files **from api/gallery/structures/transactions**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structures_transactions_plot_01_malleability.py` (``plot_01_malleability.py``)
-     - 00:00.159
+     - 00:00.059
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structures_transactions_plot_02_replay_protection.py` (``plot_02_replay_protection.py``)
-     - 00:00.123
+     - 00:00.048
      - 0.0

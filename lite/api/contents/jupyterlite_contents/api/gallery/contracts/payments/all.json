@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.219811Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.219811Z",
+      "mimetype": null,
+      "name": "plot_02_governmental_gas.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/payments/plot_02_governmental_gas.ipynb",
+      "size": 4376,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.219673Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.219673Z",
+      "mimetype": null,
+      "name": "plot_01_king_of_the_ether.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/payments/plot_01_king_of_the_ether.ipynb",
+      "size": 5315,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-04T19:00:13.219962Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-04T19:00:13.219962Z",
+      "mimetype": null,
+      "name": "plot_03_commit_reveal.ipynb",
+      "path": "jupyterlite_contents/api/gallery/contracts/payments/plot_03_commit_reveal.ipynb",
+      "size": 6633,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-04T19:00:14.598967Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-04T19:00:14.599469Z",
+  "mimetype": null,
+  "name": "payments",
+  "path": "jupyterlite_contents/api/gallery/contracts/payments",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

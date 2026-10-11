@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.803538Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.803538Z",
+      "mimetype": null,
+      "name": "plot_01_dai_liquidation.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/defi/plot_01_dai_liquidation.ipynb",
+      "size": 5474,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.803876Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.803876Z",
+      "mimetype": null,
+      "name": "plot_03_bzx_oracle_manipulation.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/defi/plot_03_bzx_oracle_manipulation.ipynb",
+      "size": 5648,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-08T05:56:29.803708Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-08T05:56:29.803708Z",
+      "mimetype": null,
+      "name": "plot_02_uniswap_impermanent_loss.ipynb",
+      "path": "jupyterlite_contents/api/gallery/economics/defi/plot_02_uniswap_impermanent_loss.ipynb",
+      "size": 5820,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-08T05:56:30.822039Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-08T05:56:30.822540Z",
+  "mimetype": null,
+  "name": "defi",
+  "path": "jupyterlite_contents/api/gallery/economics/defi",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

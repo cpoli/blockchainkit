@@ -28,27 +28,34 @@ malleability for lost withdrawals; Decker and Wattenhofer found it explained
 only a small fraction. Segregated witness (2017) moved signatures out of
 the id, which also made payment channels such as Lightning safe to build.
 
-What to look for
-----------------
-
 The same payment, signed twice, has two txids: a child transaction that
 named the first id would point at nothing. The unsigned id, like SegWit's
 txid, is the same for every valid signature.
 
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-
-.. GENERATED FROM PYTHON SOURCE LINES 23-25
-
-One payment, two signatures, two txids
---------------------------------------
-
-.. GENERATED FROM PYTHON SOURCE LINES 25-41
+.. GENERATED FROM PYTHON SOURCE LINES 18-22
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
 
     import blockchainkit as bk
+
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 23-25
+
+One payment, two signatures, two txids
+--------------------------------------
+
+.. GENERATED FROM PYTHON SOURCE LINES 25-38
+
+.. code-block:: Python
+
 
     alice_key = 7
     payment = bk.structures.Transaction(
@@ -76,12 +83,12 @@ One payment, two signatures, two txids
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-44
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 A child that names its parent by txid breaks
 --------------------------------------------
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-49
+.. GENERATED FROM PYTHON SOURCE LINES 41-46
 
 .. code-block:: Python
 
@@ -97,7 +104,7 @@ A child that names its parent by txid breaks
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-63
+.. GENERATED FROM PYTHON SOURCE LINES 47-62
 
 .. code-block:: Python
 
@@ -114,6 +121,8 @@ A child that names its parent by txid breaks
     ax.invert_yaxis()
     fig.tight_layout()
 
+    plt.show()
+
 
 
 
@@ -126,7 +135,7 @@ A child that names its parent by txid breaks
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-69
+.. GENERATED FROM PYTHON SOURCE LINES 63-68
 
 Exercise
 --------
@@ -137,7 +146,7 @@ an id for its parent that cannot change.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.159 seconds)
+   **Total running time of the script:** (0 minutes 0.059 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_transactions_plot_01_malleability.py:

@@ -1,4 +1,4 @@
-"""
+r"""
 Coins, not accounts: the unspent-output model (Nakamoto 2008)
 =============================================================
 
@@ -9,22 +9,19 @@ payer as change. Whatever is not assigned to an output goes to the miner as
 a fee. A coin can be spent once; a double spend is two transactions
 consuming the same coin.
 
-What to look for
-----------------
-
 Alice pays Bob 30 from a 50 coin: she gets 18 back as change and 2 goes to
 fees. Spending the same coin again is rejected, because it is no longer in
 the unspent set.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Spend a coin, receive change
 # ----------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 alice_key, bob_key = 7, 11
 alice = bk.structures.address(bk.crypto.public_key(alice_key))
@@ -75,6 +72,8 @@ ax.set(
 )
 ax.invert_yaxis()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise
