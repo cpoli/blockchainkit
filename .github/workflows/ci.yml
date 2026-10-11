@@ -38,7 +38,7 @@ jobs:
       # 100% statement and branch coverage is enforced by pyproject.toml.
       - run: MPLBACKEND=Agg pytest -q --cov=blockchainkit --cov-branch --cov-report=term-missing --cov-report=xml
       - name: Upload coverage to Codecov
-        if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
+        if: always() && (matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12')
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
