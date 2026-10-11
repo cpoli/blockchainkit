@@ -73,9 +73,14 @@ class BloomFilter:
     @staticmethod
     def false_positive_rate(size: int, hashes: int, items: int) -> float:
         """Return Bloom's estimate ``(1 - exp(-k n / m))**k``."""
+        integer(size, "size", 1)
+        integer(hashes, "hashes", 1)
+        integer(items, "items")
         return float((1 - exp(-hashes * items / size)) ** hashes)
 
     @staticmethod
     def optimal_hash_count(size: int, items: int) -> int:
         """Return the k minimizing false positives, ``round((m / n) ln 2)``."""
+        integer(size, "size", 1)
+        integer(items, "items", 1)
         return max(1, round(size / items * log(2)))

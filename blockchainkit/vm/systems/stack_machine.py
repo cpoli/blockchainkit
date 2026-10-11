@@ -143,8 +143,6 @@ def execute(
     code = validate_program(program)
     state = dict(storage or {})
     for key, value in state.items():
-        if type(key) is not int or type(value) is not int:
-            raise VMError("storage keys and values must be integers")
         check_word(key, "storage keys and values")
         check_word(value, "storage keys and values")
     stack = list(arguments)

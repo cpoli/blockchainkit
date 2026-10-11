@@ -1,5 +1,138 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- `blockchainkit.contracts`, a sixth subpackage on designing, breaking and
+  verifying smart contracts, with a history page of 17 breakthroughs, each
+  with its own gallery example, from Floyd and Hoare (1967-1969) to
+  Beanstalk's flash-loan governance attack (2022), and an exercise page.
+  New APIs: the world-state model `World` and `Contract` (`call`,
+  `delegatecall`, `send`, CREATE and CREATE2, events, `selfdestruct`, gas,
+  per-call rollback, invariants) with `create_address` and
+  `create2_address`; `weakest_precondition`, `check_triple` and
+  `run_program`; `symbolic_execute`, `symbolic_bytecode` (for `vm`
+  programs) and `solve`; `requires` and `ensures`; `fuzz` and `shrink`;
+  Ricardian contracts; `Mint` and `Purse`; ERC-20 and ERC-721 tokens; King
+  of the Ether, GovernMental, block-hash and commit-reveal lotteries; the
+  Parity wallet libraries; naive and EIP-1967 proxies; a CREATE2 factory;
+  and flash-loan governance. Plots: `plot_call_tree`,
+  `plot_symbolic_paths` and `plot_storage`.
+- `blockchainkit.economics`, a seventh subpackage on incentives, fees and
+  markets, with a history page of 16 breakthroughs, each with its own
+  gallery example, from Schelling's focal points (1960) to proposer-builder
+  separation (2022), and an exercise page. New APIs: `coordination_probability`
+  and `schelling_round`; first- and second-price auctions, virtual values,
+  equilibrium bids and expected revenue; the logarithmic market scoring
+  rule; `block_subsidy`, `issued_supply` and `double_spend_incentive`;
+  `simulate_block_rewards`, `mining_gap` and `undercutting_payoffs`;
+  `optimal_mining_revenue` and `honest_mining_is_equilibrium`;
+  `next_base_fee` and `simulate_fee_market`; `amount_out`,
+  `impermanent_loss` and the `ConstantProductPool` contract; Dai's
+  `VaultEngine` with `Stablecoin` and `PriceFeed`; the `OracleLender` and
+  `OracleAttacker` contracts; `priority_gas_auction`, `sandwich_profit` and
+  `sandwich_attack`; and `simulate_pbs`. Plots: `plot_fee_market`,
+  `plot_constant_product` and `plot_gas_auction`. The model boundaries page
+  gains an "Economic models" section.
+- `blockchainkit.channels`, an eighth subpackage on layer-2 scaling and
+  interoperability, with a history page of 16 breakthroughs, each with its
+  own gallery example, from Reed-Solomon codes (1960) to the Ronin and
+  Wormhole bridge exploits (2022), and an exercise page. New APIs:
+  `rs_encode`, `rs_recover` and `rs_decode` (Berlekamp-Welch);
+  `SpilmanChannel`, `DuplexChannel` with `invalidation_locktimes`,
+  `LightningChannel` (revocation keys, shachain secrets, penalties),
+  `EltooChannel`, and the `StateChannel` and `PreimageManager` contracts,
+  all with Script outputs checked by `vm.verify_script`; `Watchtower`,
+  `make_appointment` and PISA's `tower_liable`; `ChannelNetwork` for
+  multi-hop HTLC routing and `probe_balance`; `AtomicSwap`; the `BTCRelay`
+  contract and `mine_header`; `ValidatorBridge`, `GuardianVerifier` and
+  `WormholeBridge`; `PlasmaChain` with Plasma Cash exits;
+  `shard_failure_probability` and `atomix_transfer`; `ZKRollup`,
+  `OptimisticRollup` and `bisect`; and `extend`, `simulate_sampling` and
+  encoding fraud proofs for data availability. Plots: `plot_shares`,
+  `plot_route` and `plot_detection`. The model boundaries page gains a
+  "Channels, rollups and bridges" section.
+- `blockchainkit.proofs`, a ninth subpackage on zero-knowledge and succinct
+  proof systems, with a history page of 16 breakthroughs, each with its own
+  gallery example, from the Schwartz-Zippel lemma (1980) to Halo (2019),
+  and an exercise page. New APIs: polynomial arithmetic, interpolation and
+  the FFT over the BabyBear field (`FIELD_PRIME`) and a Fiat-Shamir
+  `Transcript`; `identity_test`; `sumcheck` and `multilinear_extension`;
+  `tqbf_protocol`; `hadamard_proof` and `pcp_verify`; `kilian_argument`,
+  `micali_proof` and `verify_cs_proof`; a toy supersingular
+  `PAIRING_CURVE` with the Tate `pairing`; KZG (`trusted_setup`,
+  `kzg_commit`, `kzg_open`, `kzg_verify`, `forge_opening`); powers-of-tau
+  ceremonies (`contribute`, `verify_contribution`); the R1CS builder
+  `Circuit`, `r1cs_to_qap` and `qap_divide`; Groth16; MiMC and a Zerocash
+  `ShieldedPool` with `prove_spend`; `PlonkCircuit` and PLONK with
+  `permutation_product`; Bulletproofs `range_proof`; `fri_prove` and
+  `fri_verify`; a Fibonacci `stark_prove`; and Halo's `ipa_open`,
+  `ipa_defer`, `accumulate` and `decide`. Plots: `plot_field_polynomials`,
+  `plot_proof_sizes` and `plot_copy_constraints`. The model boundaries page
+  gains a "Proof systems" section, and `blockchainkit.constants` the
+  `TRANSCRIPT_DOMAIN`, `IPA_GENERATOR_DOMAIN` and `MIMC_DOMAIN` tags.
+- `blockchainkit.fraud`, a tenth subpackage on financial fraud on and
+  around blockchains, with a history page of 17 breakthroughs, each with its
+  own gallery example, from Ponzi's scheme (1920) to address poisoning
+  (2022-2023), and an exercise page. New APIs: `simulate_ponzi`,
+  `breakeven_growth`, `simulate_lending_ponzi` and `referral_commissions`;
+  the `ChainPonzi` contract with `value_flows` and `ponzi_features`;
+  `benford_test`; the `MerkleSumTree` with `verify_sum_proof`,
+  `liability_tree`, `audit` and `reserve_ratio`; Provisions-style proofs of
+  solvency (`SolvencyProver`, `verify_solvency`, OR proofs and bitwise
+  range proofs over Pedersen commitments); `reissue_missing` and the
+  `Custodian` contract; `verify_source` and `effective_code`; the
+  `TokenSale` (DAICO) contract; seven Torres et al. honeypot contracts with
+  `explorer_view`; `SellBlockToken`, `HiddenMintToken` and `sell_test`;
+  `simulate_bot_market`, `return_by_activity`, `simulate_pump_and_dump`
+  and `detect_pumps`; `find_wash_trades` and `simulate_nft_market`; the
+  `Drainer` contract with `open_approvals` and `allowance_exposure`; and
+  `grind_lookalike` and `poisoning_suspects`. Plots: `plot_ponzi`,
+  `plot_benford` and `plot_price_spikes`. The model boundaries page gains
+  a "Fraud models" section, and `blockchainkit.constants` the
+  `SUM_LEAF_DOMAIN`, `SUM_NODE_DOMAIN`, `SOLVENCY_DOMAIN` and
+  `LOOKALIKE_DOMAIN` tags.
+- `World.fork()` in `blockchainkit.contracts`: an independent copy of the
+  world state on which to try transactions, as a wallet simulates one
+  before sending it.
+- Domain tags for contract addresses, block hashes, Ricardian contracts,
+  lottery commitments and wallet approvals in `blockchainkit.constants`,
+  and for channel states, Plasma transfers, rollup state, bridge
+  withdrawals and watchtower appointments,
+  and a "Contract world model" section in the model boundaries page.
+
+### Fixed
+
+- `consensus.systems.fork_choice` imports `structures` only for type
+  checking, so a subpackage that loads `structures` before `consensus` no
+  longer hits a circular import.
+- `FinalityGadget` no longer depends on vote arrival order: justification and
+  finality are recomputed over every recorded vote, so a supermajority link
+  recorded before its source was justified now counts once it is.
+- `spread_rumor` validates `source` before using it, raising `ValueError`
+  rather than `IndexError` for a peer outside the graph.
+- `BloomFilter.false_positive_rate` and `BloomFilter.optimal_hash_count`
+  validate their arguments (`optimal_hash_count(m, 0)` raised
+  `ZeroDivisionError`).
+- The GHOST history, module docstring and example no longer claim that
+  Ethereum's proof-of-work chain used GHOST for fork choice: it adopted uncle
+  rewards but kept heaviest-chain selection.
+
+### Changed
+
+- History pages follow mathematicskit's entry form: an epigraph per page, and
+  per entry one prose account with its formula, an *Implementation:* line that
+  also states the teaching-vs-production difference, *References:*, and the
+  gallery link. The "In plain language", "Reading the experiment" and
+  "Experiment" blocks, the admonitions and the in-entry doctests are folded
+  in or removed. The history index is reduced to its overview.
+- Gallery examples follow mathematicskit's layout: raw docstrings without
+  section headings or trailing links, one import cell, and `plt.show()`. The
+  Merkle-proof example's exercise moved to the end, and the capstone is now
+  `structures/chain/plot_01_payment_lifecycle.py`.
+- `subtree_work` and `ghost_tip` compute every subtree's work in one pass.
+
 ## [0.2.0] - 2026-10-04
 
 The package is aligned with its kit-family siblings, and every subpackage now

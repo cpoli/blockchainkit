@@ -18,4 +18,9 @@ The constants shared by every subpackage are documented in :doc:`constants`.
    consensus
    network
    vm
+   contracts
+   economics
+   channels
+   proofs
+   fraud
    constants

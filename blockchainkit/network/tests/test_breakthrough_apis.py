@@ -138,6 +138,11 @@ def test_rumor_on_a_graph_stops_at_the_component():
     assert N.spread_rumor(10, seed=1, max_rounds=1).informed == (1, 2)
 
 
+def test_rumor_source_outside_the_graph_is_a_value_error():
+    with pytest.raises(ValueError):
+        N.spread_rumor(N.Graph(3, [(0, 1)]), source=3)
+
+
 # Byzantine reliable broadcast ----------------------------------------------
 
 

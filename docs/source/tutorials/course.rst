@@ -40,7 +40,7 @@ specific claim; it is not proof that a complete system is secure.
      - Why finding a block takes work and why peers temporarily disagree
      - Lesson 1 / 50 min
    * - 6
-     - :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`, then :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle`
+     - :doc:`/api/gallery/consensus/nakamoto/plot_01_longest_chain`, then :doc:`/api/gallery/structures/chain/plot_01_payment_lifecycle`
      - Pending versus included payments; how a fork changes balances and queues
      - Lessons 2, 4, 5 / 60 min
    * - 7
@@ -78,7 +78,7 @@ assuming every displaced payment is still spendable.
 A capstone experiment
 ---------------------
 
-Run :doc:`/api/gallery/structures/chain/plot_02_payment_lifecycle`. Draw its two branches on paper,
+Run :doc:`/api/gallery/structures/chain/plot_01_payment_lifecycle`. Draw its two branches on paper,
 label Bob's balance at each block, and compare your predictions with the
 balance and queue table. Then make the winning branch contain a conflicting
 payment. Explain why a valid signature is insufficient to restore the original

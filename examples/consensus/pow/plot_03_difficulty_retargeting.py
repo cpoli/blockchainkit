@@ -1,4 +1,4 @@
-"""
+r"""
 Difficulty retargeting: keeping ten-minute blocks (Bitcoin 2009)
 ================================================================
 
@@ -7,24 +7,20 @@ its target every 2016 blocks by the ratio of the actual to the expected
 time, clamped to a factor of four, so blocks return to ten minutes after
 hashrate rises or falls.
 
-What to look for
-----------------
-
 When the hashrate quadruples, blocks come every 2.5 minutes until the next
 retarget, which lowers the target and restores the interval. The clamp
 limits how far one adjustment can go.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%
-# A hashrate jump
-# ---------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# A hashrate jump
+# ---------------
 
 hashrates = [1.0] * 3000 + [4.0] * 5000 + [2.0] * 4000
 run = bk.consensus.simulate_difficulty(hashrates, interval=600, window=500, seed=2009)
@@ -48,8 +44,12 @@ bottom.set(xlabel="block height", ylabel="relative value")
 bottom.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Bitcoin's original code measured 2015 intervals for 2016 blocks, an
 # off-by-one. Estimate the effect on the long-run average block time.
+#
+# A worked solution is in :doc:`/exercises/consensus`.

@@ -1,4 +1,4 @@
-"""
+r"""
 Vector clocks: detecting concurrency (Fidge and Mattern 1988)
 =============================================================
 
@@ -9,28 +9,24 @@ events at process ``q`` that happened before or at it, so comparing two
 vectors entry by entry answers exactly whether one event caused the other
 or the two are concurrent.
 
-What to look for
-----------------
-
 For every pair of events, vectors and Lamport timestamps never disagree on a
 causal pair, but only vectors recognize the concurrent pairs. Concurrent
 updates are the ones a replicated system must reconcile; two conflicting
 transactions broadcast at the same time are concurrent in exactly this
 sense.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%
-# The same history as the Lamport example
-# ---------------------------------------
 import itertools
 
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# The same history as the Lamport example
+# ---------------------------------------
 
 history = [
     [("send", "m1"), ("local", "a"), ("receive", "m3")],
@@ -66,6 +62,8 @@ ax.set_yticks(range(len(events)), names)
 ax.set_title("row -> column (red), column -> row (blue), concurrent (grey)")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
@@ -73,3 +71,5 @@ fig.tight_layout()
 # clock capture concurrency exactly? Hint: in this history, find events x,
 # y, z with x concurrent to y and y concurrent to z, but x before z. Could
 # "equal timestamps" ever mean "concurrent"?
+#
+# A worked solution is in :doc:`/exercises/network`.

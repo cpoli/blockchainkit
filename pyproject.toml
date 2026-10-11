@@ -24,6 +24,10 @@ keywords = [
   "elliptic-curves",
   "digital-signatures",
   "gossip-protocol",
+  "smart-contracts",
+  "mechanism-design",
+  "zero-knowledge",
+  "zk-snarks",
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -91,6 +95,11 @@ testpaths = [
     "blockchainkit/consensus/tests",
     "blockchainkit/network/tests",
     "blockchainkit/vm/tests",
+    "blockchainkit/contracts/tests",
+    "blockchainkit/economics/tests",
+    "blockchainkit/channels/tests",
+    "blockchainkit/proofs/tests",
+    "blockchainkit/fraud/tests",
     "blockchainkit/tests",
 ]
 addopts = "--strict-markers"

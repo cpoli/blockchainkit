@@ -1,4 +1,4 @@
-"""
+r"""
 Replay protection with a chain identifier (EIP-155, 2016)
 =========================================================
 
@@ -8,21 +8,18 @@ other: anyone could replay it, moving the sender's coins on both. EIP-155
 added the chain id to what is signed, so a signature belongs to exactly one
 network.
 
-What to look for
-----------------
-
 A payment signed for one chain is rejected by a ledger with a different
 chain id, while an account nonce still prevents replay within one chain.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Two networks, same keys, same balances
 # --------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 alice_key = 7
 alice_pub = bk.crypto.public_key(alice_key)
@@ -64,6 +61,8 @@ ax.set(
     ylabel="accepted", yticks=[0, 1], title="Nonce stops replay in time; chain id across networks"
 )
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

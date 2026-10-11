@@ -2,7 +2,7 @@
 
 from math import exp
 
-from blockchainkit._validation import integer
+from blockchainkit._validation import integer, probability
 
 
 def eventual_catch_up(attacker_fraction: float, deficit: int) -> float:
@@ -15,10 +15,7 @@ def eventual_catch_up(attacker_fraction: float, deficit: int) -> float:
     >>> eventual_catch_up(0.25, 2)
     0.1111111111111111
     """
-    if isinstance(attacker_fraction, bool) or not isinstance(attacker_fraction, (int, float)):
-        raise TypeError("attacker_fraction must be a real number in [0, 1]")
-    if not 0 <= attacker_fraction <= 1:
-        raise ValueError("attacker_fraction must be in [0, 1]")
+    probability(attacker_fraction, "attacker_fraction")
     integer(deficit, "deficit")
     if deficit == 0 or attacker_fraction >= 0.5:
         return 1.0
@@ -42,10 +39,7 @@ def attacker_success_probability(attacker_fraction: float, confirmations: int) -
     >>> round(attacker_success_probability(0.1, 5), 7)
     0.0009137
     """
-    if isinstance(attacker_fraction, bool) or not isinstance(attacker_fraction, (int, float)):
-        raise TypeError("attacker_fraction must be a real number in [0, 1]")
-    if not 0 <= attacker_fraction <= 1:
-        raise ValueError("attacker_fraction must be in [0, 1]")
+    probability(attacker_fraction, "attacker_fraction")
     integer(confirmations, "confirmations")
     q, z = attacker_fraction, confirmations
     if q >= 0.5:

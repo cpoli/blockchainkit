@@ -1,4 +1,4 @@
-"""
+r"""
 Propagation delay causes forks (Decker and Wattenhofer 2013)
 ============================================================
 
@@ -9,25 +9,22 @@ the old tip, and one of them may find a competing block. Since blocks are
 found as a Poisson process, the chance of a fork per block is about
 ``1 - exp(-delay / interval)``.
 
-What to look for
-----------------
-
 With the authors' measured mean delay of about 12.6 seconds and a 10-minute
 interval, about 2% of blocks fork, close to the 1.69% they observed. The
 rate climbs quickly as the interval shrinks toward the delay, which is why
 faster blockchains must also relay faster, or accept many more stale blocks
 and the security loss that comes with them.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
 
 # %%
-# Model and simulation agree
-# --------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Model and simulation agree
+# --------------------------
 
 delay = 12.6
 bitcoin = bk.network.fork_rate(delay, 600)
@@ -60,6 +57,8 @@ left.legend()
 right.loglog(intervals, budget, "o-")
 right.set(xlabel="block interval T (s)", ylabel="max delay (s)", title="Delay for 1% forks")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

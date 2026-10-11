@@ -1,32 +1,29 @@
-"""
+r"""
 One payment from signature to reorganization and reinclusion
 ============================================================
 
-Prerequisites: the quick start, gossip, and the fork experiment.
-By the end you should distinguish a signed, pending, included, and displaced
-payment. A pending queue (often called a mempool) is local to each peer.
+This capstone follows one payment through every subpackage: Alice signs it,
+peers gossip it into their pending queues (mempools), a miner includes it in
+a block, a competing branch with more work displaces that block, and the
+payment is included again. :doc:`/tutorials/life_of_a_payment` tells the
+same story step by step.
 
-What to look for
-----------------
-
-Bob's balance goes from 0 to 25, back to 0 after a competing history wins,
-and finally to 25 after reinclusion. Queueing a payment never changes balances.
-A signature remains valid throughout. Read the event table from top to bottom.
-
-This deliberately small scenario has one pending payment per peer. It has no
-fees or queue replacement policy. Hash announcements resolve through a shared
-in-memory object registry; synchronization explicitly sends parents first.
-
-This capstone ties the subpackages together; :doc:`/tutorials/life_of_a_payment` tells
-the same story step by step. See :doc:`/exercises/structures` for a worked solution to the exercise.
+Bob's balance goes from 0 to 25, back to 0 when the competing branch wins,
+and to 25 again after reinclusion. Queueing a payment never changes a
+balance, and the signature stays valid throughout. The scenario is
+deliberately small: one pending payment per peer, no fees, and a shared
+in-memory registry that resolves announced hashes, with parents sent before
+children.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Sign and validate before queueing
 # ---------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 alice_key = 7
 alice_public = bk.crypto.public_key(alice_key)
@@ -158,6 +155,8 @@ fig.tight_layout()
 for event in events:
     print(event)
 
+plt.show()
+
 # %%
 # Exercise
 # --------
@@ -165,3 +164,5 @@ for event in events:
 # of Alice's funds. Predict whether the original payment returns to the queue.
 # Explain why the single-payment queue is insufficient for dependent payments
 # with consecutive account nonces.
+#
+# A worked solution is in :doc:`/exercises/structures`.

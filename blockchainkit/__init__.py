@@ -5,8 +5,33 @@
 'ba7816bf'
 """
 
-from blockchainkit import consensus, constants, crypto, network, structures, vm
+from blockchainkit import (
+    channels,
+    consensus,
+    constants,
+    contracts,
+    crypto,
+    economics,
+    fraud,
+    network,
+    proofs,
+    structures,
+    vm,
+)
 
 __version__ = "0.2.0"
 
-__all__ = ["__version__", "consensus", "constants", "crypto", "network", "structures", "vm"]
+__all__ = [
+    "__version__",
+    "channels",
+    "consensus",
+    "constants",
+    "contracts",
+    "crypto",
+    "economics",
+    "fraud",
+    "network",
+    "proofs",
+    "structures",
+    "vm",
+]

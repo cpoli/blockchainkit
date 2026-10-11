@@ -1,4 +1,4 @@
-"""
+r"""
 Pedersen commitments: perfectly hiding and additive (1991)
 ==========================================================
 
@@ -8,22 +8,21 @@ other value there is a blinding factor giving the same C, so the commitment
 hides v perfectly; opening it to a different value would reveal log_g(h).
 And commitments multiply to a commitment of the sum.
 
-What to look for
-----------------
-
 Two commitments multiply into a commitment to the total, without anyone
 seeing the amounts. This homomorphism is how confidential transactions
 (Monero, Mimblewimble) let anyone check that inputs equal outputs.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
+
+# %%
+from random import Random
+
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Commit and add
 # --------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 G = bk.crypto.TEACHING_GROUP
 g, h = bk.crypto.pedersen_generators(G)
@@ -50,7 +49,6 @@ for value in (7, 8, 500):
 # %%
 # Commitments look uniform whatever the value
 # -------------------------------------------
-from random import Random
 
 rng = Random(1991)
 zeros = [bk.crypto.pedersen_commit(0, rng.randrange(small.q), small) for _ in range(2000)]
@@ -60,6 +58,8 @@ ax.hist([zeros, hundreds], bins=20, label=["commit(0, r)", "commit(100, r)"])
 ax.set(xlabel="commitment value", ylabel="count", title="Random blinding hides the amount")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

@@ -49,6 +49,20 @@ def test_bloom_false_positive_rate_matches_the_formula():
     assert s.BloomFilter.optimal_hash_count(2048, 300) == 5
 
 
+@pytest.mark.parametrize(
+    "call",
+    [
+        lambda: s.BloomFilter.false_positive_rate(0, 3, 10),
+        lambda: s.BloomFilter.false_positive_rate(64, 0, 10),
+        lambda: s.BloomFilter.false_positive_rate(64, 3, -1),
+        lambda: s.BloomFilter.optimal_hash_count(64, 0),
+    ],
+)
+def test_bloom_estimators_reject_bad_sizes(call):
+    with pytest.raises(ValueError):
+        call()
+
+
 def test_bloom_filter_validation():
     with pytest.raises(ValueError):
         s.BloomFilter(0, 1)

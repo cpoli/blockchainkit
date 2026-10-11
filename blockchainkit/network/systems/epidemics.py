@@ -78,13 +78,16 @@ def spread_rumor(
     integer(max_rounds, "max_rounds", 1)
     if isinstance(network, Graph):
         n = network.n
-        reachable = sum(1 for d in network.distances(source) if d is not None)
     else:
         integer(network, "n", 1)
-        n = reachable = network
+        n = network
     integer(source, "source")
     if source >= n:
         raise ValueError("source must be a peer in range(n)")
+    if isinstance(network, Graph):
+        reachable = sum(1 for d in network.distances(source) if d is not None)
+    else:
+        reachable = n
     random = Random(seed)
 
     def call(peer: int) -> int | None:

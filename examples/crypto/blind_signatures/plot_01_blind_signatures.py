@@ -1,4 +1,4 @@
-"""
+r"""
 Chaum's blind signatures: authenticate a message the signer cannot see (1982)
 =============================================================================
 
@@ -6,18 +6,9 @@ Chaum's construction separates authorization from knowledge of a message.
 This experiment exposes RSA's multiplicative blinding identity with tiny
 integers; a usable payment system needs encoding, issuance, and spent-token rules.
 
-What to look for
-----------------
-
 Follow the original message, its hidden form, and the final signature. The final check
 succeeds after removing the hiding factor; this is only the signing step of a payment
 system.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%
@@ -25,6 +16,7 @@ import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 
+# %%
 key = bk.crypto.rsa_keypair()
 message, factor = 42, 7
 blinded = bk.crypto.rsa_blind(message, factor, key)
@@ -64,8 +56,12 @@ for start, end in [
 ax.set_title("Authorization and message visibility are different properties")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Try an r that shares a factor with n. Why can it not be removed? Explain
 # why blind signatures alone do not prevent spending the same token twice.
+#
+# A worked solution is in :doc:`/exercises/crypto`.

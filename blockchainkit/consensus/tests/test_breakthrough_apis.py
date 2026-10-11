@@ -311,6 +311,16 @@ def test_a_minority_vote_does_not_justify():
     assert ffg.justified == {0}
 
 
+def test_casper_finality_does_not_depend_on_vote_arrival_order():
+    ffg = k.FinalityGadget({"a": 1, "b": 1, "c": 1})
+    for v in "abc":
+        ffg.vote(v, source=1, target=2)  # Source 1 is not justified yet.
+    assert ffg.justified == {0}
+    for v in "abc":
+        ffg.vote(v, source=0, target=1)
+    assert ffg.justified == {0, 1, 2} and ffg.finalized == {0, 1}
+
+
 def test_justifying_a_skipped_checkpoint_finalizes_nothing_new():
     ffg = k.FinalityGadget({"a": 1, "b": 1, "c": 1})
     for v in "abc":

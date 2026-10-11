@@ -1,4 +1,4 @@
-"""
+r"""
 Nakamoto consensus: a payment, a fork, and a reorganization (2008)
 ==================================================================
 
@@ -6,18 +6,9 @@ This is the full teaching chain: keys authorize a transfer, a Merkle root
 commits to it, proof of work secures a header, and peers compare valid forks.
 The example uses an account ledger, not Bitcoin's UTXO model.
 
-What to look for
-----------------
-
 Follow Alice and Bob’s balances after a payment, then after a competing branch wins. The
 old payment’s signature can still verify even though its effect disappears from the
 selected ledger.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
 
 # %%
@@ -25,6 +16,7 @@ import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 
+# %%
 alice_private, bob_private = 7, 11
 alice = bk.structures.address(bk.crypto.public_key(alice_private))
 bob = bk.structures.address(bk.crypto.public_key(bob_private))
@@ -94,9 +86,13 @@ ax.set(
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Reinclude the payment on the winning fork, then attempt to replay it. Check
 # that its first inclusion succeeds and its second fails on the account nonce.
 # Change the chain ID and explain why the existing signature no longer works.
+#
+# A worked solution is in :doc:`/exercises/structures`.

@@ -1,4 +1,4 @@
-"""
+r"""
 Gas repricing after denial-of-service attacks (EIP-150, 2016)
 =============================================================
 
@@ -9,24 +9,20 @@ with them, slowing nodes to a crawl. EIP-150 ("Tangerine Whistle") raised
 their prices: reading storage went from 50 to 200 gas, and ``EXTCODESIZE``
 and ``CALL`` from 20 and 40 to 700.
 
-What to look for
-----------------
-
 An attacker picks the instruction with the most real work per unit of gas.
 Under the old schedule, a block of storage reads takes several times longer
 to process than a block of arithmetic with the same gas; after repricing the
 gap shrinks. A gas schedule is a security parameter.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Fill a block with each program
 # ------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 # Teaching estimate of each instruction's real cost, in arithmetic units:
 # reading storage means a disk access.
@@ -71,9 +67,13 @@ ax.set(ylabel="real work per 200,000-gas block", title="Same gas, different work
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Choose a LOAD price that makes the two programs equally expensive per unit
 # of real work. Why did EIP-150 not simply set every price that way, and
 # what did EIP-2929 (2021) change about pricing storage reads?
+#
+# A worked solution is in :doc:`/exercises/vm`.

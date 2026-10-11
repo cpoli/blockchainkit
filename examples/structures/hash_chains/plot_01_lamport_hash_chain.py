@@ -1,4 +1,4 @@
-"""
+r"""
 Hash chains and one-time passwords (Lamport 1981)
 =================================================
 
@@ -9,23 +9,19 @@ captured password is useless, because the next one is its *preimage*.
 This became S/KEY (1995), and hash chains reappear in blockchains as
 commit-reveal randomness and in Lamport-style signatures.
 
-What to look for
-----------------
-
 Each password verifies against the previous anchor, and the anchor moves
 back along the chain. Replaying a captured password fails, and the attacker
 cannot step backwards without inverting SHA-256.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Log in five times
 # -----------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 chain = bk.structures.hash_chain(b"Alice's secret seed", 100)
 anchor = chain[-1]  # Registered with the server once.
@@ -55,8 +51,12 @@ ax.barh(
 ax.set(xlabel="passwords", title="A chain of 100 hashes gives 99 logins")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Why must passwords be revealed in reverse order of computation? What does
 # a server learn if it is breached, compared with storing a password hash?
+#
+# A worked solution is in :doc:`/exercises/structures`.

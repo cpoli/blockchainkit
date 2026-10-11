@@ -1,4 +1,4 @@
-"""
+r"""
 MuSig: Schnorr multi-signatures and the rogue-key attack (2018)
 ===============================================================
 
@@ -8,23 +8,20 @@ attacker who announces Q_rogue = xG - Q_honest controls the sum alone.
 Maxwell, Poelstra, Seurin and Wuille's MuSig weights each key by a hash of
 the whole key list, a_i = H(L, Q_i), so no key can cancel the others.
 
-What to look for
-----------------
-
 The rogue key takes over a naive aggregate. With MuSig coefficients the
 attack fails, and three signers produce one 64-byte-style signature that
 verifies like any other. This is how Taproot multisig spends look like
 single-signer spends on Bitcoin.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # The rogue-key attack on naive aggregation
 # -----------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 curve = bk.crypto.SECP256K1
 honest = bk.crypto.public_key(3)
@@ -69,6 +66,8 @@ results = {
 ax.bar(results.keys(), [int(v) for v in results.values()], color=["#dc2626", "#16a34a", "#2563eb"])
 ax.set(ylabel="verifies", yticks=[0, 1], title="Key aggregation with and without MuSig")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

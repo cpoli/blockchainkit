@@ -15,16 +15,16 @@ blockchainkit is a Python toolkit for learning and teaching how blockchains
 work, from the one-time pad to Ethereum's gas. Each idea is followed from its
 history and mathematics to a small, typed, inspectable implementation, a
 figure, and an experiment you can change. Every subpackage's documentation
-walks through the field's breakthroughs in historical order, 87 of them in
+walks through the field's breakthroughs in historical order, 120 of them in
 all, each linked to the code and the gallery example that reproduce it.
 
 ![A Merkle proof, Nakamoto's double-spend probabilities, and a Lamport space-time diagram, all drawn with blockchainkit](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_hero.png)
 
 - **For students:** recover a private key from a reused signing nonce, find
   hash collisions at the birthday bound, watch a fork undo a payment, mine
-  selfishly, eclipse a node, and drain a DAO-style contract, in a few lines
-  each.
-- **For instructors:** five subpackages, one consistent API, 88 gallery
+  selfishly, eclipse a node, drain a DAO-style contract, take over a
+  Parity wallet, and sandwich a swap, in a few lines each.
+- **For instructors:** seven subpackages, one consistent API, 121 gallery
   examples (each downloadable as a notebook or runnable in the browser),
   exercise pages with worked solutions, and cross-cutting tutorials.
 - **Honest about its limits:** tiny keys, variable-time arithmetic and
@@ -102,6 +102,45 @@ Open it in Colab using the badge above.
   overflow. 16 breakthroughs.
 
   ![Stack height of two expressions, halting times of two-state Turing machines, and a reentrancy attack](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_vm.png)
+
+- [`blockchainkit.contracts`](https://cpoli.github.io/blockchainkit/api/gallery/contracts/) -- a world-state
+  model of contracts calling contracts, with Floyd-Hoare proofs, symbolic execution, design by contract,
+  Ricardian contracts, capabilities and `tx.origin`, ERC-20 and its approval race, unchecked sends, gas
+  denial of service, commit-reveal randomness, the two Parity wallet incidents, ERC-721, proxy storage
+  collisions, CREATE2, Oyente and Echidna, and Beanstalk's flash-loan governance attack. 17 breakthroughs.
+
+  ![The execution paths of a withdrawal, GovernMental's payout outgrowing the block, and push versus pull payments](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_contracts.png)
+
+- [`blockchainkit.economics`](https://cpoli.github.io/blockchainkit/api/gallery/economics/) -- incentives,
+  fees and markets: Schelling's focal points and SchellingCoin, Vickrey's and Myerson's auctions, Hanson's
+  market scoring rule, block rewards and the halving, Bitcoin without the subsidy, mining games, EIP-1559,
+  Dai and liquidation, Uniswap and impermanent loss, flash-loan oracle manipulation, priority gas auctions,
+  sandwich attacks, and proposer-builder separation. 16 breakthroughs.
+
+  ![EIP-1559's base fee during a demand surge, a miner's best response against honest miners, and sandwich profits against slippage tolerance](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_economics.png)
+
+- [`blockchainkit.channels`](https://cpoli.github.io/blockchainkit/api/gallery/channels/) -- layer-2
+  scaling and interoperability: Reed-Solomon codes, Spilman's and duplex channels, Lightning's revocation,
+  Sprites and state channels, eltoo, watchtowers, balance probing, atomic swaps, BTC Relay, the Ronin and
+  Wormhole exploits, Plasma, OmniLedger sharding, zk and optimistic rollups, and data-availability
+  sampling. 16 breakthroughs.
+
+  ![Light clients detecting withheld data, collateral locked by Lightning and Sprites routes, and a rollup's gas per transfer](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_channels.png)
+
+- [`blockchainkit.proofs`](https://cpoli.github.io/blockchainkit/api/gallery/proofs/) -- zero-knowledge
+  and succinct proofs: the Schwartz-Zippel lemma, sum-check, IP = PSPACE, the PCP theorem, Kilian's and
+  Micali's arguments, KZG commitments, QAPs and Pinocchio, Zerocash, Groth16, trusted-setup ceremonies,
+  Bulletproofs, FRI, STARKs, PLONK, and Halo. 16 breakthroughs.
+
+  ![How often a random test is fooled by a polynomial's roots, STARK proof size against computation length, and range-proof sizes](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_proofs.png)
+
+- [`blockchainkit.fraud`](https://cpoli.github.io/blockchainkit/api/gallery/fraud/) -- financial fraud on
+  and around blockchains: Ponzi's scheme, Benford's law, Maxwell's proof of reserves, Mt. Gox and the
+  malleability excuse, Provisions, deceptive verified sources, Ethereum's Ponzi contracts, ICO exit scams and
+  the DAICO, the Willy bot, BitConnect, honeypots, pump-and-dumps, the Squid Game rug pull, NFT wash trading,
+  ice phishing, FTX, and address poisoning. 17 breakthroughs.
+
+  ![A Ponzi scheme's deposits and payouts until its collapse, invented amounts against Benford's law, and a pump-and-dump flagged by its spike](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_fraud.png)
 
 ## Learn
 

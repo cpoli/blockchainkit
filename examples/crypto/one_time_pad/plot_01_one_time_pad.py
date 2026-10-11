@@ -1,4 +1,4 @@
-"""
+r"""
 The one-time pad and perfect secrecy (Vernam 1917, Shannon 1949)
 ================================================================
 
@@ -7,23 +7,20 @@ character. Shannon later proved that if the key is truly random, as long as
 the message, and used once, the ciphertext reveals *nothing*: every
 plaintext of that length is equally consistent with it.
 
-What to look for
-----------------
-
 For one ciphertext, find a key that "decrypts" it to any message you like:
 that is perfect secrecy. Then reuse a key for two messages and watch the
 pad cancel out, leaving the XOR of the plaintexts.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
 
 # %%
-# Encrypt and decrypt with the same operation
-# -------------------------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Encrypt and decrypt with the same operation
+# -------------------------------------------
 
 message = b"ATTACK AT DAWN"
 key = bytes([23, 199, 5, 88, 241, 7, 130, 61, 17, 250, 92, 3, 144, 66])  # Fixed for the lesson.
@@ -64,6 +61,8 @@ axes[0].set(title="Plaintext byte values", xlabel="byte")
 axes[1].hist(list(bk.crypto.one_time_pad(text, pad)), bins=64, range=(0, 256), color="#2563eb")
 axes[1].set(title="One-time-pad ciphertext", xlabel="byte")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

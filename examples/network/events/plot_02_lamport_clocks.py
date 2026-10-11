@@ -1,4 +1,4 @@
-"""
+r"""
 Lamport clocks: ordering events without a shared clock (Lamport 1978)
 =====================================================================
 
@@ -8,27 +8,23 @@ precedes the later events at its own process, a message's send precedes its
 receive, and the relation is transitive. A counter that ticks at every event
 and jumps past every timestamp it receives respects that order.
 
-What to look for
-----------------
-
 Every arrow in the space-time diagram points forward in Lamport time: that
 is the clock condition. Ordering events by ``(timestamp, process)`` gives one
 total order that all processes can compute alike, which Lamport used for
 mutual exclusion and which underlies state-machine replication. But a
 smaller timestamp does not prove an event came first: events that are
 concurrent still receive ordered numbers.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%
-# Three processes exchange three messages
-# ---------------------------------------
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 from blockchainkit.network.visualizers import plot_space_time
+
+# %%
+# Three processes exchange three messages
+# ---------------------------------------
 
 history = [
     [("send", "m1"), ("local", "a"), ("receive", "m3")],
@@ -79,8 +75,12 @@ fig, ax = plt.subplots(figsize=(8, 3.5))
 plot_space_time(history, ax=ax)
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Add a message from P0 to P2 sent right after ``a`` and received before
 # ``b``. Which timestamps change, and is ``a`` still concurrent with ``b``?
+#
+# A worked solution is in :doc:`/exercises/network`.

@@ -1,4 +1,4 @@
-"""
+r"""
 Hashcash: proof of work you can verify in one hash (Back 1997)
 ==============================================================
 
@@ -6,17 +6,8 @@ With d leading zero bits, a uniform hash succeeds with probability 2**(-d).
 The expected search is 2**d trials, but any one run can finish much earlier
 or later. Nonce search changes a commitment without changing the payload.
 
-What to look for
-----------------
-
 Compare measured mining attempts with the average predicted by difficulty. Individual
 searches fluctuate: the average is not a deadline.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%
@@ -25,6 +16,7 @@ import numpy as np
 
 import blockchainkit as bk
 
+# %%
 difficulties = list(range(2, 10))
 samples = []
 for difficulty in difficulties:
@@ -70,9 +62,13 @@ axes[1].set(
 axes[1].legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Repeat with more trials and compare means and medians. The right plot
 # assumes independent block discoveries and an infinite horizon; it is not
 # Nakamoto's Poisson confirmation calculation and omits propagation effects.
+#
+# A worked solution is in :doc:`/exercises/consensus`.

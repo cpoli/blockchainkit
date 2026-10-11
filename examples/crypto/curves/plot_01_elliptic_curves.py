@@ -1,4 +1,4 @@
-"""
+r"""
 Elliptic-curve cryptography: a finite group you can draw (Miller and Koblitz 1985)
 ==================================================================================
 
@@ -6,17 +6,8 @@ Replace modular exponentiation with repeated addition of curve points.
 The public key Q=xG is easy to compute; recovering x is the discrete-log
 problem. Our 19-element example is small enough to solve exhaustively.
 
-What to look for
-----------------
-
 Follow repeated addition around a tiny set of points. Exhaustive search recovers the
 private step count here because this example is deliberately small.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%
@@ -24,6 +15,7 @@ import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 
+# %%
 curve = bk.crypto.TOY_CURVE
 points = [(x, y) for x in range(curve.p) for y in range(curve.p) if curve.contains((x, y))]
 assert len(points) + 1 == curve.order  # Include infinity.
@@ -57,9 +49,13 @@ large_public = bk.crypto.public_key(7)  # secp256k1 by default.
 assert bk.crypto.SECP256K1.contains(large_public)
 print("secp256k1 public point:", bk.crypto.encode_point(large_public).hex())
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Verify G + (-G) = infinity and (a+b)G = aG+bG. Explain why the plot consists
 # of isolated points rather than a smooth curve. Inspect double-and-add and
 # identify where its control flow depends on private scalar bits.
+#
+# A worked solution is in :doc:`/exercises/crypto`.

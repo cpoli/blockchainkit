@@ -1,4 +1,4 @@
-"""
+r"""
 The account model and nonces (Ethereum 2014)
 ============================================
 
@@ -7,22 +7,19 @@ Ethereum replaced Bitcoin's coins with accounts: a balance per address, and a
 carry the next expected nonce, so it can be applied once and only in order.
 Without it, anyone could replay a signed payment again and again.
 
-What to look for
-----------------
-
 The same signed transfer is accepted once and rejected on replay. A transfer
 with a skipped nonce waits until the gap is filled. Account balances make
 wallets simple, at the cost of this global ordering per sender.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Replay is rejected by the nonce
 # -------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 alice_key = 7
 alice_pub = bk.crypto.public_key(alice_key)
@@ -71,6 +68,8 @@ ax.set(
     xlabel="Alice's account nonce", ylabel="Alice's balance", title="One nonce per transaction sent"
 )
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

@@ -1,4 +1,4 @@
-"""
+r"""
 Shamir's secret sharing: reconstruct a secret without storing it whole (1979)
 =============================================================================
 
@@ -6,17 +6,8 @@ The secret is the constant coefficient of a random polynomial. Any threshold
 number of evaluations determines it; fewer evaluations leave it undetermined.
 Arithmetic takes place in a prime field, not over floating-point reals.
 
-What to look for
-----------------
-
 Watch every three-person subset recover the same secret. Two shares fit several possible
 secrets; the curves illustrate why the missing share matters.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
 
 # %%
@@ -27,6 +18,7 @@ import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 
+# %%
 secret, prime = 42, 101
 shares = bk.crypto.split_secret(secret, 3, 5, prime, randbelow=Random(7).randrange)
 for subset in combinations(shares, 3):
@@ -65,9 +57,13 @@ ax.set(
 ax.legend(ncol=2)
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Change a share before reconstruction. The result may be wrong without any
 # error: plain Shamir sharing does not authenticate shares. What additional
 # mechanism would participants need to detect dishonest contributions?
+#
+# A worked solution is in :doc:`/exercises/crypto`.

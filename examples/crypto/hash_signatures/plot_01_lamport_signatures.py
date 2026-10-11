@@ -1,4 +1,4 @@
-"""
+r"""
 Lamport one-time signatures: signing with only a hash (1979)
 ============================================================
 
@@ -6,25 +6,21 @@ Lamport built a signature from nothing but a one-way function. The private
 key is 256 pairs of random strings; the public key is their hashes. To sign,
 reveal one string from each pair, chosen by the bits of the message digest.
 
-What to look for
-----------------
-
 A signature verifies, and changing the message breaks it. But every
 signature reveals half the private key: after a few signatures an attacker
 can sign new messages. The key must sign exactly once. Because security
 needs only a one-way hash, the idea survives quantum computers; it is the
 ancestor of today's standardized SPHINCS+ (SLH-DSA).
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
-See :doc:`/exercises/crypto` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Sign once, verify
 # -----------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 key = bk.crypto.lamport_keypair(b"teaching seed, never reuse")
 signature = bk.crypto.lamport_sign(b"pay Bob 10", key)
@@ -71,9 +67,13 @@ ax.set(
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # A Lamport public key is 16 KiB. Merkle (1979) signed many messages by
 # putting many one-time public keys in a hash tree and publishing only its
 # root. How big is a proof that one key belongs to a tree of 2**20 keys?
+#
+# A worked solution is in :doc:`/exercises/crypto`.

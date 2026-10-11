@@ -1,4 +1,4 @@
-"""
+r"""
 Small-world networks: a few shortcuts (Watts and Strogatz 1998)
 ===============================================================
 
@@ -9,25 +9,22 @@ random peer with a small probability and found that a handful of shortcuts
 collapses path lengths almost to those of a random graph while clustering
 barely changes: a *small world*, like "six degrees of separation".
 
-What to look for
-----------------
-
 On the log scale of the rewiring probability, the path length L falls long
 before the clustering C does. Around 1% rewiring, paths are already short
 and the network is still clustered. Gossip benefits directly: it crosses
 the network in a few hops.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
 
 # %%
-# Reproduce the 1998 figure
-# -------------------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
 from blockchainkit.network.visualizers import plot_graph
+
+# %%
+# Reproduce the 1998 figure
+# -------------------------
 
 n, k = 400, 10
 lattice = bk.network.ring_lattice(n, k)
@@ -65,6 +62,8 @@ plot_graph(bk.network.watts_strogatz(30, 4, 0.1, seed=3), ax=right)
 mid.set_title("lattice")
 right.set_title("10% rewired")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

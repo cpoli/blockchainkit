@@ -1,4 +1,4 @@
-"""
+r"""
 Hash time-locked contracts: pay for a secret, or get a refund (2015-2016)
 =========================================================================
 
@@ -9,23 +9,20 @@ the deadline enforceable in Script, and Poon and Dryja's Lightning Network
 (2016) chains HTLCs with the same hash across many channels, so a payment
 either completes along the whole route or nowhere.
 
-What to look for
-----------------
-
 Bob can claim at any time with the secret, never with a guess. Alice's
 refund fails before the deadline and succeeds from it on. Revealing the
 secret to claim on one hop is exactly what lets the previous hop claim too.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
 
 # %%
-# Alice pays Bob for the secret behind a hash
-# -------------------------------------------
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 from blockchainkit.crypto import public_key, sha256, sign
+
+# %%
+# Alice pays Bob for the secret behind a hash
+# -------------------------------------------
 
 alice, bob = public_key(7), public_key(5)
 secret = b"invoice 42 preimage"
@@ -68,6 +65,8 @@ ax.set(
 )
 ax.legend(loc="center left")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

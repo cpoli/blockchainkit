@@ -1,4 +1,4 @@
-"""
+r"""
 Practical Byzantine Fault Tolerance (Castro and Liskov 1999)
 ============================================================
 
@@ -8,24 +8,20 @@ least f + 1 replicas, so in at least one honest replica. A replica prepares
 a value after 2f matching prepares and commits after 2f + 1 matching
 commits; no two honest replicas can commit different values in one view.
 
-What to look for
-----------------
-
 With one faulty replica among four, even an equivocating leader cannot make
 honest replicas commit different values. With two faulty replicas the
 quorums no longer intersect in an honest replica, and safety breaks.
 Tendermint, HotStuff and many proof-of-stake chains descend from PBFT.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # An equivocating leader, one fault: still safe
 # ---------------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 safe = bk.consensus.pbft_round(4, faulty={0}, value="A", equivocate=True)
 print("one faulty leader:", safe.commits)
@@ -54,8 +50,12 @@ ax.set(
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Why does a replica wait for 2f + 1 commits and not 2f? Find the run where
 # 2f would let two honest replicas commit different values.
+#
+# A worked solution is in :doc:`/exercises/consensus`.

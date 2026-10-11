@@ -1,4 +1,4 @@
-"""
+r"""
 The Byzantine generals problem (Lamport, Shostak and Pease 1982)
 ================================================================
 
@@ -9,24 +9,20 @@ and only if more than two thirds of the generals are loyal, and gave the
 oral-messages algorithm OM(m): every lieutenant relays what it heard, and
 everyone takes a majority.
 
-What to look for
-----------------
-
 With four generals and one traitor, the loyal ones always agree, and follow
 a loyal commander. With three generals and one traitor, a loyal lieutenant
 can be talked out of the commander's order: n > 3m is necessary. This
 3f + 1 bound reappears in every Byzantine fault-tolerant blockchain.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Four generals, one traitor anywhere
 # -----------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 for traitor in range(4):
     result = bk.consensus.oral_messages(4, {traitor}, "attack", rounds=1)
@@ -59,9 +55,13 @@ ax.set(
 )
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Run ``oral_messages(7, {a, b}, "attack", rounds=2)`` for every pair of
 # traitors, then with rounds=1. Why does tolerating m traitors need m + 1
 # rounds of relaying?
+#
+# A worked solution is in :doc:`/exercises/consensus`.

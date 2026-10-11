@@ -1,4 +1,4 @@
-"""
+r"""
 Sparse Merkle trees: proofs of absence (Dahlberg, Pulls and Peeters 2016)
 =========================================================================
 
@@ -9,24 +9,21 @@ have precomputed digests, so only paths to stored keys cost anything.
 Dahlberg, Pulls and Peeters made them efficient and gave non-membership
 proofs.
 
-What to look for
-----------------
-
 The root does not depend on insertion order. A key that is absent has a
 proof too: the leaf at its position is empty. Ethereum's state root plays
 this role with a related structure, the Merkle Patricia trie.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
 """
 
 # %%
-# Commit to balances
-# ------------------
 from dataclasses import replace
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Commit to balances
+# ------------------
 
 balances = {b"alice": b"100", b"bob": b"5", b"carol": b"42"}
 tree = bk.structures.SparseMerkleTree()
@@ -67,6 +64,8 @@ ax.set(
     title="Proofs compress to about log2(keys) hashes",
 )
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

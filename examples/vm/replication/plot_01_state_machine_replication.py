@@ -1,4 +1,4 @@
-"""
+r"""
 State-machine replication: same inputs, same order, same state (Lamport 1978, Schneider 1990)
 =============================================================================================
 
@@ -8,25 +8,22 @@ introduced the idea; Schneider's tutorial made it the standard recipe for
 fault tolerance. A blockchain is exactly this: consensus agrees on the
 order of transactions, and every node executes them.
 
-What to look for
-----------------
-
 Replicas that apply the same log agree. Applying the same commands in a
 different order generally gives a different state, because the commands do
 not commute. And one nondeterministic input, here each replica reading its
 own clock, makes replicas diverge even with the same log.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
 
 # %%
-# Three commands on one counter
-# -----------------------------
 import itertools
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Three commands on one counter
+# -----------------------------
 
 commands = {
     "add 5": bk.vm.assemble("LOAD 0\nPUSH 5\nADD\nSTORE 0"),
@@ -67,6 +64,8 @@ fig, ax = plt.subplots(figsize=(7, 3.5))
 ax.barh(list(orders), list(orders.values()), color="#7c3aed")
 ax.set(xlabel="final counter", title="Same commands, different orders")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

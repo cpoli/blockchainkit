@@ -1,4 +1,4 @@
-"""
+r"""
 Batching timestamps with a Merkle tree (Bayer, Haber and Stornetta 1993)
 ========================================================================
 
@@ -7,22 +7,18 @@ Haber and Stornetta batched them: put a round's documents in a Merkle tree
 and timestamp only the root. Each document keeps a short proof linking it
 to that root. This is exactly how a block commits to its transactions.
 
-What to look for
-----------------
-
 One 32-byte root timestamps a thousand documents, and each proof grows only
 logarithmically. A block's header commits to its transactions the same way.
-
-The history behind this experiment: :doc:`/history/structures_breakthroughs`.
-See :doc:`/exercises/structures` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Timestamp a round of documents with one root
 # --------------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 documents = [f"contract {i}".encode() for i in range(1000)]
 tree = bk.structures.MerkleTree(documents)
@@ -56,8 +52,12 @@ ax.set(xlabel="documents per round", title="Batching: one timestamp, logarithmic
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # OpenTimestamps batches documents worldwide into one Bitcoin transaction per
 # round. Estimate the proof length for a round of a million documents.
+#
+# A worked solution is in :doc:`/exercises/structures`.

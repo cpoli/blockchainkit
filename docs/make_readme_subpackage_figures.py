@@ -192,12 +192,192 @@ def vm(axes):
     ax3.set_title("The DAO: reentrancy")
 
 
+def contracts(axes):
+    from blockchainkit.contracts.visualizers import plot_symbolic_paths
+
+    ax1, ax2, ax3 = axes
+    program = """
+require(amount <= balance)
+if amount > 100:
+    fee = 2
+else:
+    fee = 1
+balance = balance - amount - fee
+assert balance >= 0
+"""
+    plot_symbolic_paths(bk.contracts.symbolic_execute(program), ax=ax1)
+    ax1.set_title("Symbolic execution: every path of a withdrawal")
+
+    sizes = [100, 300, 500, 700, 900, 1_100]
+    for lazy, color, label in (
+        (False, "#dc2626", "clear every creditor"),
+        (True, "#16a34a", "start a new round"),
+    ):
+        gas = []
+        for n in sizes:
+            world = bk.contracts.World(block_gas_limit=4_712_388)
+            game = world.deploy("operator", bk.contracts.GovernMental, lazy)
+            for index in range(n):
+                world.fund(f"p{index}", 1)
+                world.transact(f"p{index}", game, "invest", value=1)
+            world.advance(seconds=43_200)
+            gas.append(world.transact("anyone", game, "payout").gas_used)
+        ax2.plot(sizes, gas, "o-", color=color, label=label)
+    ax2.axhline(4_712_388, color="#64748b", linestyle="--", label="2016 block gas limit")
+    ax2.set(xlabel="creditors", ylabel="payout gas")
+    ax2.set_title("GovernMental: a loop outgrows the block")
+    ax2.legend()
+
+    paid = []
+    for code in (bk.contracts.KingOfTheEther, bk.contracts.PullKingOfTheEther):
+        world = bk.contracts.World()
+        world.fund("bob", 10_000)
+        throne = world.deploy("owner", code, 100)
+        wallet = world.deploy("alice", bk.contracts.ContractWallet)
+        world.fund(wallet, 1_000)
+        world.transact("alice", wallet, "forward", throne, "claim_throne", 100)
+        world.transact("bob", throne, "claim_throne", value=1_000)
+        if code is bk.contracts.PullKingOfTheEther:
+            world.transact("alice", wallet, "forward", throne, "withdraw", 0)
+        paid.append(world.balance(wallet) - 900)
+    ax3.bar(["unchecked send", "pull payment"], paid, color=["#dc2626", "#16a34a"])
+    ax3.set(ylabel="ether reaching the deposed king (owed 990)")
+    ax3.set_title("King of the Ether: push versus pull")
+
+
+def economics(axes):
+    from blockchainkit.economics.visualizers import plot_fee_market
+
+    ax1, ax2, ax3 = axes
+    target = 20 * 21_000
+    run = bk.economics.simulate_fee_market(
+        [20] * 40 + [45] * 40 + [20] * 40, gas_target=target, seed=7
+    )
+    plot_fee_market(run, gas_target=target, ax=ax1)
+    ax1.set_title("EIP-1559: the base fee prices a demand surge")
+
+    alphas = np.round(np.arange(0.05, 0.46, 0.05), 2)
+    ax2.plot(alphas, alphas, "--", color="black", label="honest: share = alpha")
+    for gamma, color in ((0.0, "#2563eb"), (0.5, "#16a34a")):
+        best = [bk.economics.optimal_mining_revenue(a, gamma, max_lead=8) for a in alphas]
+        ax2.plot(alphas, best, "o-", color=color, label=f"best response, gamma = {gamma}")
+    ax2.set(xlabel="hashrate alpha", ylabel="share of the chain's blocks")
+    ax2.set_title("Mining games: when honest mining is a best response")
+    ax2.legend()
+
+    tolerances = [10, 25, 50, 100, 200, 300, 500, 800]
+    attacks = [
+        bk.economics.sandwich_attack(10_000_000, 10_000_000, 100_000, slippage_bps=s)
+        for s in tolerances
+    ]
+    percent = [s / 100 for s in tolerances]
+    ax3.plot(percent, [a.profit for a in attacks], "o-", color="#dc2626", label="attacker profit")
+    ax3.plot(percent, [a.victim_loss for a in attacks], "s-", color="#2563eb", label="victim loss")
+    ax3.set(xlabel="victim's slippage tolerance (%)", ylabel="tokens")
+    ax3.set_title("Sandwich attacks: a loose tolerance invites them")
+    ax3.legend()
+
+
+def channels(axes):
+    from blockchainkit.channels.visualizers import plot_detection
+
+    ax1, ax2, ax3 = axes
+    plot_detection(range(1, 16), withheld=(0.25, 33 / 64), ax=ax1)
+    ax1.set_title("Data-availability sampling catches withholding")
+
+    hops = range(1, 21)
+    staggered = [
+        bk.channels.collateral_time([1] * n, bk.channels.htlc_expiries(n, delta=40)) for n in hops
+    ]
+    shared = [
+        bk.channels.collateral_time([1] * n, bk.channels.sprites_expiries(n, delta=40))
+        for n in hops
+    ]
+    ax2.plot(hops, staggered, "o-", color="#dc2626", label="Lightning: staggered expiries")
+    ax2.plot(hops, shared, "s-", color="#16a34a", label="Sprites: one shared deadline")
+    ax2.set(xlabel="hops in the route", ylabel="coins x blocks locked")
+    ax2.set_title("Collateral locked by a multi-hop payment")
+    ax2.legend()
+
+    sizes = [1, 10, 30, 100, 300, 1_000, 3_000, 10_000]
+    gas = [bk.channels.batch_gas(n, bytes_per_transaction=12, fixed_gas=300_000) / n for n in sizes]
+    ax3.loglog(sizes, gas, "o-", color="#2563eb", label="zk-rollup")
+    ax3.axhline(21_000, color="#dc2626", linestyle="--", label="transfer on chain")
+    ax3.set(xlabel="transfers per batch", ylabel="gas per transfer")
+    ax3.set_title("A rollup shares one proof across a batch")
+    ax3.legend()
+
+
+def proofs(axes):
+    from blockchainkit.proofs.visualizers import plot_proof_sizes
+
+    ax1, ax2, ax3 = axes
+    prime = 97
+    degrees = range(1, 25, 2)
+    fooled = []
+    for d in degrees:
+        roots = bk.proofs.vanishing_polynomial(range(1, d + 1), prime)
+        fooled.append(sum(bk.proofs.poly_eval(roots, x, prime) == 0 for x in range(prime)) / prime)
+    ax1.plot(degrees, fooled, "o", color="#2563eb", label="points where f = 0")
+    ax1.plot(degrees, [d / prime for d in degrees], color="#dc2626", label="bound d / |F|")
+    ax1.set(xlabel="degree d", ylabel="chance a random test is fooled")
+    ax1.set_title("Schwartz-Zippel over a field of 97 elements")
+    ax1.legend()
+
+    points = []
+    for log_t in range(4, 11):
+        t = 2**log_t
+        points.append((t, bk.proofs.stark_prove(t).size))
+    plot_proof_sizes(
+        {"the trace (8 bytes a step)": [(t, 8 * t) for t, _ in points], "STARK proof": points},
+        xlabel="steps of computation",
+        ax=ax2,
+    )
+    ax2.set_title("STARKs: proof grows like log² T, the trace like T")
+
+    bits = [2, 4, 8, 16, 32, 64]
+    sizes = [sum(bk.proofs.range_proof(2**n - 1, 3, n).size) for n in bits]
+    ax3.plot(bits, [4 * n for n in bits], "o-", color="#dc2626", label="a proof per bit")
+    ax3.plot(bits, sizes, "o-", color="#2563eb", label="Bulletproofs")
+    ax3.axhline(3, color="#16a34a", linestyle="--", label="Groth16 (trusted setup)")
+    ax3.set_xscale("log", base=2)
+    ax3.set(xlabel="range bits", ylabel="elements in the proof")
+    ax3.set_title("Range proofs: setup-free, logarithmic")
+    ax3.legend()
+
+
+def fraud(axes):
+    import random
+
+    from blockchainkit.fraud.visualizers import plot_benford, plot_ponzi, plot_price_spikes
+
+    ax1, ax2, ax3 = axes
+    deposits = [min(100 * 1.6**t, 2_000) for t in range(15)]
+    plot_ponzi(bk.fraud.simulate_ponzi(deposits, promised_return=0.5), ax=ax1)
+    ax1.set_title("Ponzi's scheme: new money pays old, until it cannot")
+
+    rng = random.Random(1938)
+    invented = bk.fraud.benford_test(rng.uniform(100, 9_999) for _ in range(3_000))
+    plot_benford(invented, ax=ax2, label="invented amounts")
+    ax2.set_title("Benford's law: invented figures stand out")
+
+    run = bk.fraud.simulate_pump_and_dump(seed=1)
+    plot_price_spikes(run.prices, bk.fraud.detect_pumps(run.prices, run.volumes), ax=ax3)
+    ax3.set(xlabel="hour", ylabel="price (BTC)")
+    ax3.set_title("A pump-and-dump, flagged by its spike")
+
+
 FIGURES = {
     "crypto": crypto,
     "structures": structures,
     "consensus": consensus,
     "network": network,
     "vm": vm,
+    "contracts": contracts,
+    "economics": economics,
+    "channels": channels,
+    "proofs": proofs,
+    "fraud": fraud,
 }
 
 if __name__ == "__main__":

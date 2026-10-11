@@ -1,4 +1,4 @@
-"""
+r"""
 Proof of stake: a stake-weighted proposer lottery (Peercoin 2012)
 =================================================================
 
@@ -6,18 +6,9 @@ Weighting proposer selection by stake changes the resource used to allocate
 influence. This sampler isolates that one mechanism; it has no voting,
 slashing, randomness beacon, or finality and is not a full PoS protocol.
 
-What to look for
-----------------
-
 Compare observed selection frequencies with stake proportions. More trials tend to bring
 them closer; splitting one stake among names does not increase its combined expected
 share.
-
-Read cells in order. An ``assert`` that produces no output has passed.
-The final exercise asks you to change an input and explain the result.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%
@@ -27,6 +18,7 @@ import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 
+# %%
 stakes = {"alice": 10, "bob": 30, "carol": 60}
 rounds = 10_000
 proposers = bk.consensus.StakeSampler(stakes, seed=42).sample(rounds)
@@ -52,6 +44,8 @@ ax.set(
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
@@ -59,3 +53,5 @@ fig.tight_layout()
 # change? Why is choosing a proposer insufficient to decide between two
 # conflicting blocks that proposer might sign? Why is a public seed unsuitable
 # as the sole randomness mechanism for a live consensus protocol?
+#
+# A worked solution is in :doc:`/exercises/consensus`.

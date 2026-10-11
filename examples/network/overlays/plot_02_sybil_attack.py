@@ -1,4 +1,4 @@
-"""
+r"""
 The Sybil attack: identities are cheap (Douceur 2002)
 =====================================================
 
@@ -9,26 +9,23 @@ protocol that counts identities, such as voting or choosing which nodes
 store a key, can be taken over. Proof of work is one answer: it makes
 influence cost computation instead of counting identities.
 
-What to look for
-----------------
-
 When nodes choose their own identifiers, eight Sybils placed next to a key
 become the eight closest nodes, so every honest lookup lands on the
 attacker. When identifiers must be the hash of a public key, the attacker
 has to grind keys instead: the cost doubles with every extra bit it must
 match, but it is only a cost, not a barrier.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
 
 # %%
-# Chosen identifiers
-# ------------------
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Chosen identifiers
+# ------------------
 
 bits = 20
 honest = Random(2).sample(range(2**bits), 300)
@@ -67,6 +64,8 @@ ax.semilogy(list(costs), [2**d for d in costs], color="black", label="2**d")
 ax.set(xlabel="leading bits matched d", ylabel="key attempts per Sybil", title="Grinding cost")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

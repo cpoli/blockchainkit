@@ -1,4 +1,4 @@
-"""
+r"""
 Stack hardware: a bounded stack (Burroughs B5000, Barton 1961)
 ==============================================================
 
@@ -8,25 +8,21 @@ registers to allocate. A real stack has finite size, so the machine must
 know how deep a computation goes. The EVM limits its stack to 1024 words
 for the same reason.
 
-What to look for
-----------------
-
 The same sum needs very different stack depths depending on its shape:
 ``((1 + 2) + 3) + ...`` never holds more than two values, while
 ``1 + (2 + (3 + ...))`` holds every operand at once. With a small stack
 limit, the right-nested form overflows.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
 
 # %%
-# Two shapes of the same sum
-# --------------------------
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
 from blockchainkit.vm.visualizers import plot_stack_height
+
+# %%
+# Two shapes of the same sum
+# --------------------------
 
 n = 12
 left = "(" * (n - 2) + "1 + 2" + "".join(f") + {k}" for k in range(3, n + 1))
@@ -56,8 +52,12 @@ ax.axhline(8, color="black", linestyle="--")
 ax.set_title("Same sum, different stack needs")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # For a balanced tree of additions over 2**k numbers, what is the peak stack
 # height? (This is the Ershov or Strahler number of the expression tree.)
+#
+# A worked solution is in :doc:`/exercises/vm`.

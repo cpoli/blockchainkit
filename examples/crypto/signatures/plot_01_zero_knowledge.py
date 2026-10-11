@@ -1,4 +1,4 @@
-"""
+r"""
 Zero-knowledge proofs: convincing without revealing (Goldwasser, Micali and Rackoff 1985)
 =========================================================================================
 
@@ -8,23 +8,20 @@ replies with a random challenge c, and the prover answers s = k + c*x. The
 verifier checks sG = R + cQ and learns that the prover knows x, but nothing
 else: a *simulator* can produce transcripts that look identical without x.
 
-What to look for
-----------------
-
 An honest run verifies. A simulated transcript, built backwards by choosing
 c and s first, verifies too, so a recorded transcript proves nothing to a
 third party. Soundness comes only from the order of messages: R first,
 unpredictable c second.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # An honest interactive proof
 # ---------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 curve = bk.crypto.SECP256K1
 x = 42  # The prover's secret.
@@ -61,6 +58,8 @@ for y, label, reverse in [
     ax.annotate("", xy=end, xytext=start, arrowprops={"arrowstyle": "->", "lw": 1.5})
     ax.text(0.485, y + 0.04, label, ha="center")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

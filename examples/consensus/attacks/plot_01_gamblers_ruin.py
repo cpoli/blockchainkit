@@ -1,4 +1,4 @@
-"""
+r"""
 The gambler's ruin: catching up from behind (Pascal, Fermat and Huygens 1656)
 =============================================================================
 
@@ -8,24 +8,21 @@ recovering a deficit of z is (q/p)**z when q < p. Nakamoto used exactly
 this random walk for an attacker trying to overtake the honest chain from z
 blocks behind.
 
-What to look for
-----------------
-
 Simulated random walks match (q/p)**z. An attacker with less than half the
 hashrate falls exponentially further from success with every block of lead,
 and at q = 1/2 the walk always catches up eventually.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
 """
 
 # %%
-# Simulate the race
-# -----------------
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# Simulate the race
+# -----------------
 
 
 def caught_up(q, deficit, rng, horizon=500):
@@ -55,6 +52,8 @@ fig.tight_layout()
 
 # %%
 assert bk.consensus.eventual_catch_up(0.5, 20) == 1.0
+
+plt.show()
 
 # %%
 # Exercise

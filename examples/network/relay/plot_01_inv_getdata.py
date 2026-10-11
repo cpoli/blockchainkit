@@ -1,4 +1,4 @@
-"""
+r"""
 Announce, then fetch: Bitcoin's inv/getdata relay (Nakamoto 2009)
 =================================================================
 
@@ -8,23 +8,20 @@ Bitcoin client instead *announces*: it sends a small ``inv`` message
 carrying the block's hash, and sends the block only to peers that ask for it
 with ``getdata``. Each peer downloads each block once.
 
-What to look for
-----------------
-
 Announcing cuts the traffic by roughly the average degree, and the saving
 grows as peers keep more connections. The price is latency: each hop now
 needs three one-way messages (inv, getdata, block) instead of one, which is
 the delay that compact blocks later attacked.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # A 1 MB block on a random network of 500 peers
 # ---------------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 size = 1_000_000
 degrees = [4, 8, 16, 32]
@@ -61,6 +58,8 @@ right.plot(degrees, [a.completion for a in announce], "s-", label="inv/getdata")
 right.set(xlabel="links per peer", ylabel="one-way latencies", title="Time to reach every peer")
 right.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

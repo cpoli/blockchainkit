@@ -1,3 +1,5 @@
+:orphan:
+
 Exercises
 =========
 
@@ -44,6 +46,41 @@ run by every documentation build.
       RPN, stack depth, Forth words, busy beavers, atomicity, overflow checks,
       and gas prices.
 
+   .. grid-item-card:: Contracts
+      :link: contracts
+      :link-type: doc
+
+      Weakest preconditions, overflow search in bytecode, approval races,
+      gas limits, last revealers, and proxy collisions.
+
+   .. grid-item-card:: Economics
+      :link: economics
+      :link-type: doc
+
+      Large focal-point games, posted prices, the halving's rounding, doubling
+      the base fee, liquidation gaps, and split trades against sandwiches.
+
+   .. grid-item-card:: Channels and scaling
+      :link: channels
+      :link-type: doc
+
+      Erasures with errors, invalidation trees, the last chance to punish,
+      shard counts, validium gas, and challenge windows.
+
+   .. grid-item-card:: Proof systems
+      :link: proofs
+      :link-type: doc
+
+      Repeated identity tests, who evaluates in sum-check, PCP sizes, two-point
+      KZG openings, squaring circuits, Zerocash's range check, and any range.
+
+   .. grid-item-card:: Fraud
+      :link: fraud
+      :link-type: doc
+
+      A skimming Ponzi operator, multiples of seven, a fake negative balance,
+      a shared reserve address, window dressing, and the cost of a look-alike.
+
 .. toctree::
    :hidden:
 
@@ -52,3 +89,8 @@ run by every documentation build.
    consensus
    network
    vm
+   contracts
+   economics
+   channels
+   proofs
+   fraud

@@ -79,14 +79,26 @@ class FinalityGadget:
             elif old[0] < source and target < old[1] or source < old[0] and old[1] < target:
                 self._offenses.append(Offense(validator, "surround vote", old, new))
         self._votes[validator].append(new)
-        if source not in self._justified:
-            return
-        support = sum(
-            self._stakes[v]
-            for v, votes in self._votes.items()
-            if any(vote == new for vote in votes)
-        )
-        if 3 * support >= 2 * self._total:
-            self._justified.add(target)
-            if target == source + 1:
-                self._finalized.add(source)
+        self._update()
+
+    def _update(self) -> None:
+        """Justify and finalize from every recorded vote, until nothing changes.
+
+        Justification depends on the whole vote set, not on arrival order: a
+        supermajority link recorded before its source was justified counts
+        once that source is.
+        """
+        support: dict[Vote, int] = {}
+        for validator, votes in self._votes.items():
+            for vote in votes:
+                support[vote] = support.get(vote, 0) + self._stakes[validator]
+        changed = True
+        while changed:
+            changed = False
+            for (source, target, _), stake in support.items():
+                if source in self._justified and 3 * stake >= 2 * self._total:
+                    if target not in self._justified:
+                        self._justified.add(target)
+                        changed = True
+                    if target == source + 1:
+                        self._finalized.add(source)

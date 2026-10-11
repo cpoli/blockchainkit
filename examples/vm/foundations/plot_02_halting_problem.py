@@ -1,4 +1,4 @@
-"""
+r"""
 The halting problem: why every call needs a budget (Turing 1936)
 ================================================================
 
@@ -9,23 +9,20 @@ machine that has not halted yet may halt later, or never. A blockchain that
 lets anyone submit programs therefore cannot check in advance that they
 terminate. It bounds them instead, with a step budget.
 
-What to look for
-----------------
-
 All 20,736 two-state Turing machines are run from a blank tape with growing
 step budgets. Those that halt do so within six steps; some are caught
 repeating a configuration, which proves they loop. But a large group stays
 *unknown* at every budget: no finite budget sorts them.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Classify every two-state machine
 # --------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 machines = list(bk.vm.enumerate_machines(2))
 budgets = [2, 4, 6, 10, 20, 50]
@@ -59,6 +56,8 @@ for outcome, values in counts.items():
 ax.set(xlabel="step budget", ylabel="machines", title="20,736 two-state machines")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

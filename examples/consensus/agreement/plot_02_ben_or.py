@@ -1,4 +1,4 @@
-"""
+r"""
 Randomized consensus: agreeing by flipping coins (Ben-Or 1983)
 ==============================================================
 
@@ -8,23 +8,19 @@ any value held by a strict majority, and adopt a proposal they see, or flip
 a coin if they see none. A decision follows once enough processes propose
 the same value.
 
-What to look for
-----------------
-
 Against a scheduler that delivers messages to keep processes split, the
 protocol still decides: eventually the coins all land the same way. The
 number of rounds is random, with an exponential tail.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Decide despite an adversarial scheduler
 # ---------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 run = bk.consensus.ben_or([0, 0, 1, 1], faults=1, seed=1983)
 assert run.decided and len(set(run.decisions.values())) == 1
@@ -51,9 +47,13 @@ ax.set(
 ax.legend()
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # The adversary here stalls unless all four coins agree, which happens with
 # probability 2/16 per round. Derive the expected number of rounds and
 # compare it with the histogram's mean.
+#
+# A worked solution is in :doc:`/exercises/consensus`.

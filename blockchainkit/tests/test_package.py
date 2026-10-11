@@ -7,7 +7,18 @@ import pytest
 
 import blockchainkit as bk
 
-SUBPACKAGES = ["crypto", "structures", "consensus", "network", "vm"]
+SUBPACKAGES = [
+    "crypto",
+    "structures",
+    "consensus",
+    "network",
+    "vm",
+    "contracts",
+    "economics",
+    "channels",
+    "proofs",
+    "fraud",
+]
 
 
 def test_top_level_import_exposes_declared_names():

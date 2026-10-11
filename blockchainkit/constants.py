@@ -64,3 +64,63 @@ SORTITION_DOMAIN = b"blockchainkit:sortition:v1"
 
 COMPACT_BLOCK_DOMAIN = b"blockchainkit:compact-block:v1"
 """bytes: Domain tag for the salted short transaction IDs of compact blocks."""
+
+CREATE_DOMAIN = b"blockchainkit:create:v1"
+"""bytes: Domain tag for contract addresses derived from the deployer and its nonce."""
+
+CREATE2_DOMAIN = b"blockchainkit:create2:v1"
+"""bytes: Domain tag for contract addresses derived from the deployer, a salt and the code."""
+
+BLOCKHASH_DOMAIN = b"blockchainkit:blockhash:v1"
+"""bytes: Domain tag for the block hashes of the contract world model."""
+
+RICARDIAN_DOMAIN = b"blockchainkit:ricardian:v1"
+"""bytes: Domain tag for the identifier of a Ricardian contract."""
+
+CONTRACT_COMMIT_DOMAIN = b"blockchainkit:contract-commit:v1"
+"""bytes: Domain tag for the commitments of the commit-reveal lottery."""
+
+WALLET_DOMAIN = b"blockchainkit:wallet:v1"
+"""bytes: Domain tag for the messages that multisig wallet owners sign."""
+
+EIP1967_IMPLEMENTATION_LABEL = b"eip1967.proxy.implementation"
+"""bytes: Label hashed to the storage slot of a proxy's implementation address (EIP-1967)."""
+
+EIP1967_ADMIN_LABEL = b"eip1967.proxy.admin"
+"""bytes: Label hashed to the storage slot of a proxy's admin address (EIP-1967)."""
+
+CHANNEL_DOMAIN = b"blockchainkit:channel:v1"
+"""bytes: Domain tag for the off-chain states, commitments and penalties channel parties sign."""
+
+PLASMA_DOMAIN = b"blockchainkit:plasma:v1"
+"""bytes: Domain tag for the coin transfers of the Plasma child chain."""
+
+ROLLUP_DOMAIN = b"blockchainkit:rollup:v1"
+"""bytes: Domain tag for the account leaves of a rollup's state root."""
+
+BRIDGE_DOMAIN = b"blockchainkit:bridge:v1"
+"""bytes: Domain tag for the withdrawals and messages that bridge validators sign."""
+
+WATCHTOWER_DOMAIN = b"blockchainkit:watchtower:v1"
+"""bytes: Domain tag for watchtower blob encryption and appointment receipts."""
+
+TRANSCRIPT_DOMAIN = b"blockchainkit:transcript:v1"
+"""bytes: Domain tag for the Fiat-Shamir transcripts of the proof systems."""
+
+IPA_GENERATOR_DOMAIN = b"blockchainkit:ipa-generators:v1"
+"""bytes: Domain tag for deriving the independent generators of inner-product arguments."""
+
+MIMC_DOMAIN = b"blockchainkit:mimc:v1"
+"""bytes: Domain tag for deriving the round constants of the MiMC hash."""
+
+SUM_LEAF_DOMAIN = b"blockchainkit:sum-leaf:v1"
+"""bytes: Domain tag for hashing a customer's balance into a Merkle-sum-tree leaf."""
+
+SUM_NODE_DOMAIN = b"blockchainkit:sum-node:v1"
+"""bytes: Domain tag for hashing two children and both their sums into a Merkle-sum-tree node."""
+
+SOLVENCY_DOMAIN = b"blockchainkit:solvency:v1"
+"""bytes: Domain tag for the Fiat-Shamir challenges of the proofs of solvency."""
+
+LOOKALIKE_DOMAIN = b"blockchainkit:lookalike:v1"
+"""bytes: Domain tag for the candidate addresses ground out by an address poisoner."""

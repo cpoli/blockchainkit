@@ -1,4 +1,4 @@
-"""
+r"""
 Cryptographic sortition: a secret, stake-weighted committee (Algorand 2017)
 ===========================================================================
 
@@ -8,23 +8,20 @@ function on the round seed to learn how many of their tickets won. Nobody
 can target the committee in advance, because members reveal themselves only
 when they vote.
 
-What to look for
-----------------
-
 Seats are proportional to stake, and splitting stake into many accounts
 earns the same expected seats: there is no Sybil advantage. Committee size
 varies from round to round around its expected value.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
 """
 
 # %%
-# Run 300 rounds
-# --------------
 import matplotlib.pyplot as plt
 import numpy as np
 
 import blockchainkit as bk
+
+# %%
+# Run 300 rounds
+# --------------
 
 stakes = {"alice": 4000, "bob": 3000, "carol": 2000, "dave": 1000}
 total, expected = sum(stakes.values()), 30
@@ -69,6 +66,8 @@ right.hist(committee, bins=20, color="#16a34a", edgecolor="white")
 right.axvline(expected, color="black", linestyle="--")
 right.set(xlabel="committee size", title=f"Committee size around {expected}")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

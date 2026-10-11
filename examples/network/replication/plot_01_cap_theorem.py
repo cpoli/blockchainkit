@@ -1,4 +1,4 @@
-"""
+r"""
 The CAP theorem: consistency or availability (Brewer 2000, Gilbert and Lynch 2002)
 ==================================================================================
 
@@ -8,9 +8,6 @@ and *availability* (every request to a live replica gets an answer) when
 the network may *partition*. During a split, each side must either refuse
 requests or answer without the other side.
 
-What to look for
-----------------
-
 The same sequence of requests runs against two policies on five replicas
 split 2 to 3. The consistent register refuses every request on the minority
 side, and every read it does answer is up to date. The available register
@@ -18,16 +15,16 @@ answers everything, but returns stale values during the split and silently
 discards one side's write when the partition heals. Bitcoin is on the
 available side: both halves of a split keep extending their own chain, and
 the shorter chain's blocks are discarded at reconnection.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # One workload, two policies
 # --------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 
 def workload(mode):
@@ -87,6 +84,8 @@ ax.set_xticks(list(x), list(counts))
 ax.set(ylabel="requests", title="Pick one during a partition")
 ax.legend()
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

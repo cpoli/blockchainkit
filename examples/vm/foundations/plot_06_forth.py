@@ -1,4 +1,4 @@
-"""
+r"""
 Forth: programming with stack words (Moore 1970)
 ================================================
 
@@ -9,23 +9,19 @@ fast and easy to implement, Forth ran telescopes and spacecraft. Bitcoin
 Script is described as Forth-like, and the EVM's ``DUP`` and ``SWAP`` families
 serve the same purpose.
 
-What to look for
-----------------
-
 Each stack word matches its diagram. The polynomial ``a x**2 + b x + c``
 is computed by Horner's rule with stack words only, and gives the same
 values as Python for every input.
-
-The history behind this experiment: :doc:`/history/vm_breakthroughs`.
-See :doc:`/exercises/vm` for a worked solution to the exercise.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # Check every stack diagram
 # -------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 diagrams = {
     "DUP": ((1,), (1, 1)),
@@ -62,8 +58,12 @@ ax.plot(xs, values, "o")
 ax.set(xlabel="x", ylabel="result", title=f"{a}x² + {b}x + {c} from stack words")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Define ``NIP ( a b -- b )`` and ``TUCK ( a b -- b a b )`` from the five
 # words above and check them with ``bk.vm.execute``.
+#
+# A worked solution is in :doc:`/exercises/vm`.

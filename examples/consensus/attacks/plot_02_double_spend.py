@@ -1,4 +1,4 @@
-"""
+r"""
 How many confirmations? Nakamoto's double-spend calculation (2008)
 ==================================================================
 
@@ -8,25 +8,21 @@ a Poisson-distributed amount with mean z q/p; from each possible lead the
 gambler's ruin gives the chance to catch up. The whitepaper tabulates the
 result, and concludes that the risk drops exponentially with z.
 
-What to look for
-----------------
-
 The function reproduces the whitepaper's table, and a Monte-Carlo race
 between two chains agrees. Six confirmations against a 10% attacker leave
 about a 0.02% risk; against 30% it takes 24.
-
-The history behind this experiment: :doc:`/history/consensus_breakthroughs`.
-See :doc:`/exercises/consensus` for a worked solution to the exercise.
 """
 
 # %%
-# The whitepaper's table
-# ----------------------
 from random import Random
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# The whitepaper's table
+# ----------------------
 
 for z, expected in ((0, 1.0), (1, 0.2045873), (2, 0.0509779), (5, 0.0009137), (10, 0.0000012)):
     assert abs(bk.consensus.attacker_success_probability(0.1, z) - expected) < 5e-8
@@ -71,8 +67,12 @@ ax.set(
 ax.legend(fontsize=8)
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
 # Find the smallest z with risk below 0.1% for q = 0.1, 0.2 and 0.3. Why does
 # the required z grow so quickly as q approaches 1/2?
+#
+# A worked solution is in :doc:`/exercises/consensus`.

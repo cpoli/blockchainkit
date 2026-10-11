@@ -1,4 +1,4 @@
-"""
+r"""
 The Fiat-Shamir heuristic: from interaction to signatures (1986)
 ================================================================
 
@@ -8,23 +8,20 @@ a random function, the prover cannot choose R after knowing c, and the
 transcript becomes a non-interactive proof bound to the message: a
 signature.
 
-What to look for
-----------------
-
 The hashed challenge changes completely with the message. The simulator
 trick from the zero-knowledge example fails, because R must be fixed before
 the hash reveals c. Schnorr signatures, EdDSA, and most zero-knowledge proof
 systems used by blockchains rely on this transformation.
-
-The history behind this experiment: :doc:`/history/crypto_breakthroughs`.
 """
+
+# %%
+import matplotlib.pyplot as plt
+
+import blockchainkit as bk
 
 # %%
 # The challenge is a hash of everything said so far
 # -------------------------------------------------
-import matplotlib.pyplot as plt
-
-import blockchainkit as bk
 
 x, k = 42, 17
 Q, R = bk.crypto.public_key(x), bk.crypto.public_key(k)
@@ -70,6 +67,8 @@ ax.bar(
 )
 ax.set(ylabel="probability", title="Forging = guessing the hash output")
 fig.tight_layout()
+
+plt.show()
 
 # %%
 # Exercise

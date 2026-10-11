@@ -1,4 +1,4 @@
-"""
+r"""
 Byzantine reliable broadcast: echo, then ready (Bracha 1987)
 ============================================================
 
@@ -9,27 +9,23 @@ quorum echoed it (or once ``t + 1`` peers are ready for it), and *deliver*
 once ``2t + 1`` peers are ready. With ``n > 3t``, all correct peers deliver
 the same value, or none delivers at all.
 
-What to look for
-----------------
-
 Naively trusting the sender splits the correct peers. Bracha's quorums never
 do, for any split the faulty sender and its accomplices try, as long as at
 most a third are faulty. One faulty peer too many breaks agreement. Block
 gossip uses the same idea: a peer forwards what enough others vouch for.
-
-The history behind this experiment: :doc:`/history/network_breakthroughs`.
-See :doc:`/exercises/network` for a worked solution to the exercise.
 """
 
 # %%
-# An equivocating sender
-# ----------------------
-# Sender 0 is faulty and tells peers 1-3 "a" and peers 4-6 "b".
 import itertools
 
 import matplotlib.pyplot as plt
 
 import blockchainkit as bk
+
+# %%
+# An equivocating sender
+# ----------------------
+# Sender 0 is faulty and tells peers 1-3 "a" and peers 4-6 "b".
 
 proposals = ["a", "a", "a", "a", "b", "b", "b"]
 naive = {p: proposals[p] for p in range(1, 7)}
@@ -74,6 +70,8 @@ ax.bar(outcomes.keys(), outcomes.values(), color=["#16a34a", "#94a3b8", "#dc2626
 ax.set(ylabel="runs", title="n = 7, faulty sender plus up to one accomplice")
 fig.tight_layout()
 
+plt.show()
+
 # %%
 # Exercise
 # --------
@@ -81,3 +79,5 @@ fig.tight_layout()
 # that size among n peers share at least ``t + 1`` peers, so at least one
 # correct peer, which echoes only one value. What goes wrong with a simple
 # majority threshold?
+#
+# A worked solution is in :doc:`/exercises/network`.
