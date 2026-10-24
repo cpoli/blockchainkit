@@ -38,7 +38,7 @@ The project conventions apply to every new subpackage:
 Finished items move here with the release they shipped in, as in
 CHANGELOG.md.
 
-### Unreleased
+### 0.3.0 (2026-10-24)
 
 - `wallets`: keys as users actually hold them, with 15 history
   breakthroughs from BCH codes to ERC-4337, each with its own gallery
