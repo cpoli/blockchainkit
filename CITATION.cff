@@ -5,7 +5,7 @@ type: software
 version: 0.3.0
 # This release's own Zenodo version DOI, not the concept DOI. Update both
 # lines with every release.
-doi: 10.5281/zenodo.23134958
+doi: 10.5281/zenodo.23617941
 date-released: 2026-10-24
 license: MIT
 repository-code: "https://github.com/cpoli/blockchainkit"

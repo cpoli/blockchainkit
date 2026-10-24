@@ -2,7 +2,7 @@
 
 | | |
 |:--|:-:|
-| Package | [![PyPI version](https://badgen.net/pypi/v/blockchainkit)](https://pypi.org/project/blockchainkit/) [![Python versions](https://badgen.net/pypi/python/blockchainkit)](https://pypi.org/project/blockchainkit/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23134958.svg)](https://doi.org/10.5281/zenodo.23134958) |
+| Package | [![PyPI version](https://badgen.net/pypi/v/blockchainkit)](https://pypi.org/project/blockchainkit/) [![Python versions](https://badgen.net/pypi/python/blockchainkit)](https://pypi.org/project/blockchainkit/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23617941.svg)](https://doi.org/10.5281/zenodo.23617941) |
 | Quality | [![License](https://img.shields.io/github/license/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit/blob/main/LICENSE) [![CI](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml/badge.svg)](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml) [![Coverage](https://badgen.net/badge/coverage/100%25/green)](#development) |
 | Documentation | [![Docs](https://badgen.net/badge/docs/cpoli.github.io%2Fblockchainkit/blue)](https://cpoli.github.io/blockchainkit/) |
 | Code style | [![Ruff](https://badgen.net/badge/code%20style/ruff/purple)](https://github.com/astral-sh/ruff) |
