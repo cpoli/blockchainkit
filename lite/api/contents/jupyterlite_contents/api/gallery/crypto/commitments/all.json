@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.221693Z",
+      "created": "2026-10-24T08:04:53.411715Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.221693Z",
+      "last_modified": "2026-10-24T08:04:53.411715Z",
       "mimetype": null,
       "name": "plot_01_coin_flipping.ipynb",
       "path": "jupyterlite_contents/api/gallery/crypto/commitments/plot_01_coin_flipping.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.221833Z",
+      "created": "2026-10-24T08:04:53.411857Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.221833Z",
+      "last_modified": "2026-10-24T08:04:53.411857Z",
       "mimetype": null,
       "name": "plot_02_pedersen.ipynb",
       "path": "jupyterlite_contents/api/gallery/crypto/commitments/plot_02_pedersen.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.602784Z",
+  "created": "2026-10-24T08:04:54.693853Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.603079Z",
+  "last_modified": "2026-10-24T08:04:54.694164Z",
   "mimetype": null,
   "name": "commitments",
   "path": "jupyterlite_contents/api/gallery/crypto/commitments",

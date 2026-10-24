@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.230716Z",
+      "created": "2026-10-24T08:04:53.427403Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.230716Z",
+      "last_modified": "2026-10-24T08:04:53.427403Z",
       "mimetype": null,
       "name": "plot_01_p2pkh.ipynb",
       "path": "jupyterlite_contents/api/gallery/vm/script/plot_01_p2pkh.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.230824Z",
+      "created": "2026-10-24T08:04:53.427519Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.230824Z",
+      "last_modified": "2026-10-24T08:04:53.427519Z",
       "mimetype": null,
       "name": "plot_02_htlc.ipynb",
       "path": "jupyterlite_contents/api/gallery/vm/script/plot_02_htlc.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.618952Z",
+  "created": "2026-10-24T08:04:54.724915Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.619205Z",
+  "last_modified": "2026-10-24T08:04:54.725297Z",
   "mimetype": null,
   "name": "script",
   "path": "jupyterlite_contents/api/gallery/vm/script",

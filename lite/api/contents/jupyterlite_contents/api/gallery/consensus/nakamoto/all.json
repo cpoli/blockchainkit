@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.218317Z",
+      "created": "2026-10-24T08:04:53.408586Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.218317Z",
+      "last_modified": "2026-10-24T08:04:53.408586Z",
       "mimetype": null,
       "name": "plot_02_ghost.ipynb",
       "path": "jupyterlite_contents/api/gallery/consensus/nakamoto/plot_02_ghost.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.218183Z",
+      "created": "2026-10-24T08:04:53.408446Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.218183Z",
+      "last_modified": "2026-10-24T08:04:53.408446Z",
       "mimetype": null,
       "name": "plot_01_longest_chain.ipynb",
       "path": "jupyterlite_contents/api/gallery/consensus/nakamoto/plot_01_longest_chain.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.595839Z",
+  "created": "2026-10-24T08:04:54.687099Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.596280Z",
+  "last_modified": "2026-10-24T08:04:54.687386Z",
   "mimetype": null,
   "name": "nakamoto",
   "path": "jupyterlite_contents/api/gallery/consensus/nakamoto",

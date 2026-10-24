@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-08T18:24:15.634643Z",
+      "created": "2026-10-24T08:04:53.416603Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-08T18:24:15.634643Z",
+      "last_modified": "2026-10-24T08:04:53.416603Z",
       "mimetype": null,
       "name": "plot_01_benford_law.ipynb",
       "path": "jupyterlite_contents/api/gallery/fraud/figures/plot_01_benford_law.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-08T18:24:16.619438Z",
+  "created": "2026-10-24T08:04:54.703885Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-08T18:24:16.619508Z",
+  "last_modified": "2026-10-24T08:04:54.703957Z",
   "mimetype": null,
   "name": "figures",
   "path": "jupyterlite_contents/api/gallery/fraud/figures",

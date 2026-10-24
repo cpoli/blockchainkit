@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.220089Z",
+      "created": "2026-10-24T08:04:53.410230Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.220089Z",
+      "last_modified": "2026-10-24T08:04:53.410230Z",
       "mimetype": null,
       "name": "plot_01_erc20_approve_race.ipynb",
       "path": "jupyterlite_contents/api/gallery/contracts/tokens/plot_01_erc20_approve_race.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.220217Z",
+      "created": "2026-10-24T08:04:53.410347Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.220217Z",
+      "last_modified": "2026-10-24T08:04:53.410347Z",
       "mimetype": null,
       "name": "plot_02_erc721_safe_transfers.ipynb",
       "path": "jupyterlite_contents/api/gallery/contracts/tokens/plot_02_erc721_safe_transfers.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.599678Z",
+  "created": "2026-10-24T08:04:54.690770Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.599977Z",
+  "last_modified": "2026-10-24T08:04:54.691152Z",
   "mimetype": null,
   "name": "tokens",
   "path": "jupyterlite_contents/api/gallery/contracts/tokens",

@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -444,15 +466,49 @@
 – Whitfield Diffie and Martin Hellman, <em>New Directions in Cryptography</em>,
 1976</p>
 </div></blockquote>
-<p>Every later idea in a blockchain rests on cryptography: a way to agree on a
-secret in public, to prove who authorized a message, and to commit to data
-without revealing it. This chronology traces the ideas behind
-<a class="reference internal" href="../api/crypto.html#module-blockchainkit.crypto" title="blockchainkit.crypto"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.crypto</span></code></a>, from the one-time pad to Schnorr
-multi-signatures. Each entry states the problem, the mechanism that solves it,
-and the reason the mechanism works, so the argument can be followed step by
-step. Parameters are deliberately small so every value can be inspected;
-<a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists exactly where the package departs from deployed
-systems.</p>
+<p>Cryptography is the study of keeping and checking secrets when other people
+can read, copy or change your messages. A blockchain is a shared record, like
+a list of blocks of transactions. Many computers keep copies of it in
+step, without trusting each other. Every later idea in a blockchain rests on
+three things that cryptography provides:</p>
+<ul class="simple">
+<li><p>a way to agree on a secret in public;</p></li>
+<li><p>a way to prove who authorized a message;</p></li>
+<li><p>a way to <em>commit</em> to data without revealing it: to fix a value now, keep it
+hidden, and be unable to change it later.</p></li>
+</ul>
+<p>This chronology traces the ideas behind <a class="reference internal" href="../api/crypto.html#module-blockchainkit.crypto" title="blockchainkit.crypto"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.crypto</span></code></a>, from the
+one-time pad to Schnorr multi-signatures. Each entry follows the same order.
+It states the problem. It gives the idea in plain words. It lists the steps of
+the mechanism. Then it says why the mechanism works and where it stops
+working. The parameters are deliberately small, so you can print and inspect
+every value. <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists exactly where the package departs from
+deployed systems.</p>
+<p>The page uses a few conventions throughout:</p>
+<ul class="simple">
+<li><p><em>Alice</em> and <em>Bob</em> are the honest parties. An <em>attacker</em> is anyone trying to
+read, forge or change what they send.</p></li>
+<li><p><span class="math notranslate nohighlight">\(a \bmod p\)</span> is <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">p</span></code>. <span class="math notranslate nohighlight">\(g^x \bmod p\)</span> is <code class="docutils literal notranslate"><span class="pre">pow(g,</span> <span class="pre">x,</span> <span class="pre">p)</span></code>,
+which takes only about <span class="math notranslate nohighlight">\(\log_2 x\)</span> multiplications because it squares
+repeatedly. <span class="math notranslate nohighlight">\(a \equiv b \pmod p\)</span> means <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">==</span> <span class="pre">b</span> <span class="pre">%</span> <span class="pre">p</span></code>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(a^{-1} \bmod p\)</span> is the <em>inverse</em> of <span class="math notranslate nohighlight">\(a\)</span>: the number that undoes
+multiplication by <span class="math notranslate nohighlight">\(a\)</span>, so that <span class="math notranslate nohighlight">\(a \cdot a^{-1} \equiv 1\)</span>. In
+Python it is <code class="docutils literal notranslate"><span class="pre">pow(a,</span> <span class="pre">-1,</span> <span class="pre">p)</span></code>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\oplus\)</span> is bitwise XOR (<code class="docutils literal notranslate"><span class="pre">^</span></code> in Python), <span class="math notranslate nohighlight">\(\|\)</span> joins two byte
+strings (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>), and <span class="math notranslate nohighlight">\(|r|\)</span> is the length <code class="docutils literal notranslate"><span class="pre">len(r)</span></code>.</p></li>
+</ul>
+<p>Cryptographers measure strength in bits. A system has <em>b-bit security</em> if the
+best known attack needs about <span class="math notranslate nohighlight">\(2^b\)</span> basic operations. Each extra bit
+doubles the attacker’s work.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(2^{64} \approx 1.8 \times 10^{19}\)</span> operations is within reach: 100,000
+computers doing <span class="math notranslate nohighlight">\(10^9\)</span> operations a second finish in about two days.</p></li>
+<li><p><span class="math notranslate nohighlight">\(2^{128} \approx 3.4 \times 10^{38}\)</span> operations is not. One such
+computer would need about <span class="math notranslate nohighlight">\(10^{22}\)</span> years. The whole Bitcoin mining
+network, the largest computation on Earth at around <span class="math notranslate nohighlight">\(10^{21}\)</span> hashes a
+second in the mid-2020s, would need about <span class="math notranslate nohighlight">\(10^{10}\)</span> years. That is
+close to the age of the universe.</p></li>
+</ul>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
 <ul class="simple">
@@ -482,25 +538,52 @@ systems.</p>
 </nav>
 <section id="the-one-time-pad-and-perfect-secrecy">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1917-1949 – The One-Time Pad and Perfect Secrecy</a><a class="headerlink" href="#the-one-time-pad-and-perfect-secrecy" title="Link to this heading">#</a></h2>
-<p>Gilbert Vernam built a teleprinter in 1917 that combined each character of a
-message with a character of a key tape, and Joseph Mauborgne added the rule
-that the tape must be random and never reused. Claude Shannon’s 1949 theory
-of secrecy systems proved why this is unbreakable. Fix a ciphertext
-<span class="math notranslate nohighlight">\(c\)</span>. For every candidate message <span class="math notranslate nohighlight">\(m\)</span> of the same length there is
-exactly one key, <span class="math notranslate nohighlight">\(k = c \oplus m\)</span>, that produces it, and a uniformly
-random key makes all of those keys equally likely. The ciphertext therefore
-gives no reason to prefer one message over another:</p>
+<p>Alice wants to send Bob a message that nobody else can read. This should hold
+even against an attacker with unlimited computing power.</p>
+<p>A <em>cipher</em> is a method for scrambling (encrypting) and unscrambling
+(decrypting) a message with a <em>key</em>, a secret value. The scrambled message is
+the <em>ciphertext</em>. Gilbert Vernam built a teleprinter in 1917 that combined
+each character of a message with a character of a key tape. Joseph Mauborgne
+added the rule that the tape must be random and never reused. In modern terms
+the key is a random bit string as long as the message, and the two are
+XORed.</p>
+<ol class="arabic simple">
+<li><p>Alice and Bob meet in advance and share a random key <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p>Alice computes the ciphertext <span class="math notranslate nohighlight">\(c = m \oplus k\)</span>
+(<code class="docutils literal notranslate"><span class="pre">bytes(a</span> <span class="pre">^</span> <span class="pre">b</span> <span class="pre">for</span> <span class="pre">a,</span> <span class="pre">b</span> <span class="pre">in</span> <span class="pre">zip(m,</span> <span class="pre">k))</span></code>) and sends <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p>Bob computes <span class="math notranslate nohighlight">\(c \oplus k\)</span>. XORing with the same key twice cancels
+out, because <span class="math notranslate nohighlight">\(k \oplus k = 0\)</span>, so he gets <span class="math notranslate nohighlight">\(m\)</span> back.</p></li>
+<li><p>Both destroy the part of the key they used.</p></li>
+</ol>
+<p>Claude Shannon’s 1949 theory of secrecy systems proved why this is
+unbreakable. Fix a ciphertext <span class="math notranslate nohighlight">\(c\)</span>. For every candidate message <span class="math notranslate nohighlight">\(m\)</span>
+of the same length there is exactly one key, <span class="math notranslate nohighlight">\(k = c \oplus m\)</span>, that
+produces it. A <em>uniformly random</em> key is one where every bit string of that
+length is equally likely. Such a key makes all of those candidate keys equally
+likely. The ciphertext therefore gives no reason to prefer one message over
+another:</p>
 <div class="math notranslate nohighlight">
 \[c = m \oplus k, \qquad m = c \oplus k, \qquad
 \Pr[M = m \mid C = c] = \Pr[M = m].\]</div>
-<p>The argument needs both rules. Reusing the key gives
-<span class="math notranslate nohighlight">\(c_1 \oplus c_2 = m_1 \oplus m_2\)</span>, in which the key has cancelled out;
-Soviet reuse of pads let the US Venona project read thousands of messages.
-Shannon also showed that every perfectly secret cipher needs at least as much
-key as message, which makes the pad impractical for exactly the reason it
-works: the two parties must already share a secret as long as everything they
-will ever say. That key-distribution problem is what public-key cryptography
-would solve.</p>
+<p>The first two equations are encryption and decryption. The third says that
+seeing <span class="math notranslate nohighlight">\(c\)</span> does not change the probability of any message <span class="math notranslate nohighlight">\(m\)</span>.
+This is called <em>perfect secrecy</em>.</p>
+<p>The pad is secure only if both rules hold:</p>
+<ul class="simple">
+<li><p><strong>The key is random.</strong> Otherwise some messages become more likely than
+others.</p></li>
+<li><p><strong>The key is never reused.</strong> Reusing it gives
+<span class="math notranslate nohighlight">\(c_1 \oplus c_2 = m_1 \oplus m_2\)</span>, in which the key has cancelled out.
+The attacker then holds the XOR of two messages, which guesses about the
+language can unpick. Soviet reuse of pads let the US Venona project read
+thousands of messages.</p></li>
+</ul>
+<p>Shannon also showed that every perfectly secret cipher needs at least as much
+key as message. That makes the pad impractical for exactly the reason it
+works. The two parties must already share a secret as long as everything they
+will ever say. Getting such a secret to both parties is the <em>key-distribution
+problem</em>. <em>Public-key cryptography</em>, where part of each key can be published
+openly, would solve it.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.one_time_pad.one_time_pad" title="blockchainkit.crypto.systems.one_time_pad.one_time_pad"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.one_time_pad.one_time_pad()</span></code></a>
 refuses a key of the wrong length;
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.one_time_pad.xor_bytes" title="blockchainkit.crypto.systems.one_time_pad.xor_bytes"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.one_time_pad.xor_bytes()</span></code></a> is the underlying
@@ -515,26 +598,53 @@ of Secrecy Systems</em>, Bell System Technical Journal 28(4), 656–715 (1949). 
 </div></div></section>
 <section id="baby-step-giant-step-square-root-discrete-logs">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1971 – Baby-Step Giant-Step: Square-Root Discrete Logs</a><a class="headerlink" href="#baby-step-giant-step-square-root-discrete-logs" title="Link to this heading">#</a></h2>
-<p>In a cyclic group of order <span class="math notranslate nohighlight">\(n\)</span> generated by <span class="math notranslate nohighlight">\(g\)</span>, computing
-<span class="math notranslate nohighlight">\(h = g^x\)</span> from <span class="math notranslate nohighlight">\(x\)</span> is fast, but the reverse, the <em>discrete
-logarithm</em> <span class="math notranslate nohighlight">\(x\)</span> of <span class="math notranslate nohighlight">\(h\)</span>, has no obvious shortcut: trying every
-exponent takes up to <span class="math notranslate nohighlight">\(n\)</span> steps. Most of the public-key systems below
-are secure only because this reverse direction is hard, so the first question
-is how hard it really is. Daniel Shanks, studying class numbers of quadratic
-fields, traded memory for time to need only about <span class="math notranslate nohighlight">\(\sqrt n\)</span> steps.
-Every exponent below <span class="math notranslate nohighlight">\(n\)</span> can be written as <span class="math notranslate nohighlight">\(x = im + j\)</span> with
-<span class="math notranslate nohighlight">\(m = \lceil\sqrt n\,\rceil\)</span> and <span class="math notranslate nohighlight">\(0 \le i, j &lt; m\)</span>. Multiplying
-<span class="math notranslate nohighlight">\(g^{im + j} = h\)</span> by <span class="math notranslate nohighlight">\(g^{-im}\)</span> separates the two unknowns:</p>
+<p>Most public-key systems on this page are secure only because one particular
+calculation is hard to reverse. So the first question is how hard it really
+is.</p>
+<p>Take a prime <span class="math notranslate nohighlight">\(p\)</span> and a number <span class="math notranslate nohighlight">\(g\)</span>. The powers
+<span class="math notranslate nohighlight">\(g, g^2, g^3, \dots \bmod p\)</span> eventually return to 1 and then repeat in a
+loop. The values in that loop form a <em>cyclic group</em>. <span class="math notranslate nohighlight">\(g\)</span> is its
+<em>generator</em>, and the length <span class="math notranslate nohighlight">\(n\)</span> of the loop is its <em>order</em>. (In general
+a <em>group</em> is any set with one operation that can be combined and undone, like
+multiplication modulo <span class="math notranslate nohighlight">\(p\)</span>. The 1985 entry builds another one from
+elliptic curves.) Computing <span class="math notranslate nohighlight">\(h = g^x\)</span> from <span class="math notranslate nohighlight">\(x\)</span> is fast with
+<code class="docutils literal notranslate"><span class="pre">pow</span></code>. The reverse, finding <span class="math notranslate nohighlight">\(x\)</span> from <span class="math notranslate nohighlight">\(h\)</span>, is the <em>discrete
+logarithm</em> of <span class="math notranslate nohighlight">\(h\)</span>. It has no obvious shortcut. Brute force, which means
+trying every possibility, takes up to <span class="math notranslate nohighlight">\(n\)</span> steps.</p>
+<p>Daniel Shanks, while working on a problem in number theory, traded memory for
+time to need only about <span class="math notranslate nohighlight">\(\sqrt n\)</span> steps. The trick is the same one that
+makes a Python dict fast: store values once, then look them up in
+<span class="math notranslate nohighlight">\(O(1)\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Set <span class="math notranslate nohighlight">\(m = \lceil\sqrt n\,\rceil\)</span>. Every exponent below <span class="math notranslate nohighlight">\(n\)</span> can be
+written as <span class="math notranslate nohighlight">\(x = im + j\)</span> with <span class="math notranslate nohighlight">\(0 \le i, j &lt; m\)</span>. This is like
+writing a number as tens and units: <code class="docutils literal notranslate"><span class="pre">i,</span> <span class="pre">j</span> <span class="pre">=</span> <span class="pre">divmod(x,</span> <span class="pre">m)</span></code>.</p></li>
+<li><p><strong>Baby steps.</strong> Compute <span class="math notranslate nohighlight">\(g^0, g^1, \dots, g^{m-1}\)</span> and store them in a
+table, <code class="docutils literal notranslate"><span class="pre">table[pow(g,</span> <span class="pre">j,</span> <span class="pre">p)]</span> <span class="pre">=</span> <span class="pre">j</span></code>.</p></li>
+<li><p><strong>Giant steps.</strong> Compute <span class="math notranslate nohighlight">\(h, hg^{-m}, hg^{-2m}, \dots\)</span>. Each step
+multiplies by <span class="math notranslate nohighlight">\(g^{-m}\)</span>, the inverse of <span class="math notranslate nohighlight">\(g^m\)</span>.</p></li>
+<li><p>Stop when the giant step <span class="math notranslate nohighlight">\(h\,(g^{-m})^{i}\)</span> is in the table, at some
+<span class="math notranslate nohighlight">\(j\)</span>. Then <span class="math notranslate nohighlight">\(x = im + j\)</span>.</p></li>
+</ol>
+<p>Step 4 works because multiplying <span class="math notranslate nohighlight">\(g^{im + j} = h\)</span> by <span class="math notranslate nohighlight">\(g^{-im}\)</span>
+separates the two unknowns:</p>
 <div class="math notranslate nohighlight">
 \[g^{x} = h \iff g^{j} = h\,(g^{-m})^{i}, \qquad
 \text{cost} \approx 2\sqrt{n}.\]</div>
-<p>So store the <span class="math notranslate nohighlight">\(m\)</span> “baby steps” <span class="math notranslate nohighlight">\(g^j\)</span> in a table, then take “giant
-steps” <span class="math notranslate nohighlight">\(h, hg^{-m}, hg^{-2m}, \dots\)</span> until one appears in the table;
-the matching <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> give <span class="math notranslate nohighlight">\(x\)</span>. Generic algorithms cannot
-do fundamentally better: Shoup proved in 1997 that any algorithm using only
-the group operations needs about <span class="math notranslate nohighlight">\(\sqrt n\)</span> steps. For well-chosen
-elliptic curves no attack better than these generic ones is known, which is
-why a group of about <span class="math notranslate nohighlight">\(2^{256}\)</span> elements gives about 128-bit security.</p>
+<p>In words: <span class="math notranslate nohighlight">\(x\)</span> is found when some giant step lands on some baby step.
+There are only <span class="math notranslate nohighlight">\(m\)</span> of each, so the cost is about <span class="math notranslate nohighlight">\(2\sqrt n\)</span>
+multiplications, plus a table of <span class="math notranslate nohighlight">\(m\)</span> entries.</p>
+<ul class="simple">
+<li><p>For <span class="math notranslate nohighlight">\(n \approx 10^{12}\)</span> this is about two million steps instead of a
+trillion.</p></li>
+<li><p>Generic algorithms cannot do fundamentally better. A <em>generic</em> algorithm
+uses only the group operations (multiply, invert, compare) and never looks
+at how the elements are written down. Shoup proved in 1997 that any such
+algorithm needs about <span class="math notranslate nohighlight">\(\sqrt n\)</span> steps.</p></li>
+<li><p>For well-chosen elliptic curves no attack better than these generic ones is
+known. That is why a group of about <span class="math notranslate nohighlight">\(2^{256}\)</span> elements gives about
+128-bit security: <span class="math notranslate nohighlight">\(\sqrt{2^{256}} = 2^{128}\)</span>.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.discrete_log.baby_step_giant_step" title="blockchainkit.crypto.systems.discrete_log.baby_step_giant_step"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.discrete_log.baby_step_giant_step()</span></code></a>
 returns the exponent and the number of table multiplications.</p>
 <p><em>References:</em> D. Shanks, <em>Class Number, a Theory of Factorization, and
@@ -546,28 +656,48 @@ Society, 415–440 (1971).</p>
 </div></div></section>
 <section id="merkle-s-puzzles-key-agreement-in-public">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1974-1978 – Merkle’s Puzzles: Key Agreement in Public</a><a class="headerlink" href="#merkle-s-puzzles-key-agreement-in-public" title="Link to this heading">#</a></h2>
-<p>As an undergraduate in 1974, Ralph Merkle proposed the first scheme for two
-parties to agree on a secret over a public channel, attacking the
-key-distribution problem left by the one-time pad. Alice publishes
-<span class="math notranslate nohighlight">\(N\)</span> puzzles. Each one seals a random identifier and a random session key
-under a deliberately weak key, so it can be opened by brute force in about
-<span class="math notranslate nohighlight">\(N\)</span> trials. Alice keeps a private table from identifiers to session keys.
-Bob opens one puzzle chosen at random and announces only its identifier; Alice
-looks the identifier up, and both now hold the same session key. An
-eavesdropper hears the identifier but does not know which puzzle contains it,
-so they must open puzzles until they find it, about <span class="math notranslate nohighlight">\(N/2\)</span> of them on
+<p>Can two people agree on a secret when every message between them is public?
+That would solve the key-distribution problem left by the one-time pad.</p>
+<p>As an undergraduate in 1974, Ralph Merkle proposed the first scheme that does
+this. The idea: Alice hides many secrets in locked boxes that are each slow,
+but possible, to open. Bob opens one box. An eavesdropper, who reads
+everything sent but changes nothing, does not know which box Bob opened. So
+they must open about half of them.</p>
+<ol class="arabic simple">
+<li><p>Alice makes <span class="math notranslate nohighlight">\(N\)</span> puzzles. Each one seals a random identifier and a
+random <em>session key</em> (a fresh key for one conversation). The seal is a
+deliberately weak key, so one puzzle can be opened by brute force in about
+<span class="math notranslate nohighlight">\(N\)</span> trials.</p></li>
+<li><p>Alice keeps a private table, a dict from identifiers to session keys. She
+sends all <span class="math notranslate nohighlight">\(N\)</span> puzzles to Bob in public.</p></li>
+<li><p>Bob opens one puzzle chosen at random, which costs about <span class="math notranslate nohighlight">\(N\)</span> trials.</p></li>
+<li><p>Bob announces only its identifier.</p></li>
+<li><p>Alice looks the identifier up in her table. Both now hold the same session
+key.</p></li>
+</ol>
+<p>The eavesdropper hears the identifier but does not know which puzzle contains
+it. So they must open puzzles until they find it, about <span class="math notranslate nohighlight">\(N/2\)</span> of them on
 average:</p>
 <div class="math notranslate nohighlight">
 \[W_{\text{honest}} = O(N), \qquad
 W_{\text{attacker}} \approx \tfrac{N}{2} \cdot N = O(N^2).\]</div>
+<p>In words: the honest work grows like <span class="math notranslate nohighlight">\(N\)</span> and the attacker’s work like
+<span class="math notranslate nohighlight">\(N^2\)</span>.</p>
 <p>The idea was hard to publish, and the paper appeared in 1978, after Diffie and
-Hellman’s. A quadratic gap is not practical security: an attacker with a
-thousand times Bob’s computing power can still keep up with a thousand-fold
-larger <span class="math notranslate nohighlight">\(N\)</span>. Diffie-Hellman replaced it with a gap that grows
-exponentially in the key size. But the puzzles showed that public key
-agreement was possible at all, and Barak and Mahmoody later proved (2009) that
-the quadratic gap is the best any scheme built only from a random function can
-achieve.</p>
+Hellman’s. Its limits and legacy:</p>
+<ul class="simple">
+<li><p>A quadratic gap is not practical security. The attacker’s work is only about
+<span class="math notranslate nohighlight">\(N/2\)</span> times Bob’s. An attacker with a thousand times Bob’s computing
+power can still keep up with a thousand-fold larger <span class="math notranslate nohighlight">\(N\)</span>.</p></li>
+<li><p>Diffie-Hellman replaced it with a gap that grows exponentially in the key
+size: under the generic attacks, doubling the key length squares the
+attacker’s work.</p></li>
+<li><p>The puzzles showed that public key agreement was possible at all.</p></li>
+<li><p>Barak and Mahmoody later proved (2009) that the quadratic gap is the best
+any scheme built only from a <em>random function</em> can achieve. A random
+function is one whose every output is an independent random value, like a
+dict filled by coin flips.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.puzzles.merkle_puzzles" title="blockchainkit.crypto.systems.puzzles.merkle_puzzles"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.puzzles.merkle_puzzles()</span></code></a>
 creates the puzzles and Alice’s table;
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.puzzles.solve_puzzle" title="blockchainkit.crypto.systems.puzzles.solve_puzzle"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.puzzles.solve_puzzle()</span></code></a> opens one by brute
@@ -582,23 +712,56 @@ Communications of the ACM 21(4), 294–299 (1978). <a class="reference external"
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1976 – Diffie-Hellman: Agreeing on a Secret over a Public Channel</a><a class="headerlink" href="#diffie-hellman-agreeing-on-a-secret-over-a-public-channel" title="Link to this heading">#</a></h2>
 <p>Sharing an encryption key used to require a secret channel in advance. Diffie
 and Hellman asked whether two people could reach the same secret by
-exchanging only public values. In their construction each party raises a
-public generator <span class="math notranslate nohighlight">\(g\)</span> to a private exponent, publishes the result, and
-raises the other’s public value to the same private exponent. Because
-exponents multiply in either order, both arrive at the same element:</p>
+exchanging only public values.</p>
+<p>Their idea uses a one-way street: <code class="docutils literal notranslate"><span class="pre">pow</span></code> is fast forwards, but the discrete
+log (1971 entry) is slow backwards. Each party keeps a private exponent and
+publishes only a power of <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Everyone agrees on public numbers: a prime <span class="math notranslate nohighlight">\(p\)</span> and a generator
+<span class="math notranslate nohighlight">\(g\)</span>.</p></li>
+<li><p>Alice picks a private <span class="math notranslate nohighlight">\(a\)</span> and sends <span class="math notranslate nohighlight">\(A = g^a \bmod p\)</span>.</p></li>
+<li><p>Bob picks a private <span class="math notranslate nohighlight">\(b\)</span> and sends <span class="math notranslate nohighlight">\(B = g^b \bmod p\)</span>.</p></li>
+<li><p>Alice computes <code class="docutils literal notranslate"><span class="pre">pow(B,</span> <span class="pre">a,</span> <span class="pre">p)</span></code>. Bob computes <code class="docutils literal notranslate"><span class="pre">pow(A,</span> <span class="pre">b,</span> <span class="pre">p)</span></code>.</p></li>
+<li><p>Because exponents multiply in either order, both arrive at the same
+element:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[A=g^a\bmod p,\qquad B=g^b\bmod p,\qquad
 B^a=(g^b)^a=g^{ab}=(g^a)^b=A^b \pmod p.\]</div>
-<p>An observer sees <span class="math notranslate nohighlight">\(g, p, A, B\)</span>. The only known general way to compute
-<span class="math notranslate nohighlight">\(g^{ab}\)</span> from them is to recover <span class="math notranslate nohighlight">\(a\)</span> or <span class="math notranslate nohighlight">\(b\)</span>, which is a
+<p>In words: Alice raises Bob’s public value to her secret, Bob raises Alice’s to
+his, and both get <span class="math notranslate nohighlight">\(g^{ab}\)</span>.</p>
+<p>Why it is secure, and what it does not do:</p>
+<ul class="simple">
+<li><p>An observer sees <span class="math notranslate nohighlight">\(g, p, A, B\)</span>. The only known general way to compute
+<span class="math notranslate nohighlight">\(g^{ab}\)</span> from them is to recover <span class="math notranslate nohighlight">\(a\)</span> or <span class="math notranslate nohighlight">\(b\)</span>. That is a
 discrete logarithm, and the 1971 entry shows its generic cost is about
-<span class="math notranslate nohighlight">\(\sqrt n\)</span>. The honest parties do one exponentiation each, about
-<span class="math notranslate nohighlight">\(\log_2 n\)</span> multiplications, so the gap between them and the attacker
-grows exponentially with the key size. The exchange does not say who is at
-the other end: an attacker who substitutes their own public value shares one
-secret with each party and can relay between them. Deployed protocols
-therefore authenticate the exchange and pass the shared element through a key
-derivation function.</p>
+<span class="math notranslate nohighlight">\(\sqrt n\)</span>.</p></li>
+<li><p>The honest parties do one exponentiation each, about <span class="math notranslate nohighlight">\(\log_2 n\)</span>
+multiplications. So the gap between them and the attacker grows
+exponentially with the key size. For <span class="math notranslate nohighlight">\(n \approx 2^{256}\)</span> it is a few
+hundred multiplications against <span class="math notranslate nohighlight">\(2^{128}\)</span>.</p></li>
+<li><p>The exchange does not say who is at the other end. This allows a
+<em>man-in-the-middle</em> attack:</p>
+<ol class="arabic simple">
+<li><p>The attacker intercepts <span class="math notranslate nohighlight">\(A\)</span> and sends Bob their own public value
+instead.</p></li>
+<li><p>The attacker intercepts <span class="math notranslate nohighlight">\(B\)</span> and sends Alice their own public value
+instead.</p></li>
+<li><p>The attacker now shares one secret with each party, and can decrypt,
+read and re-encrypt everything relayed between them.</p></li>
+</ol>
+</li>
+<li><p>Deployed protocols therefore <em>authenticate</em> the exchange: they sign the
+public values, so each side can check who sent them. They also pass the
+shared element through a <em>key derivation function</em>. This feeds it to a
+<em>hash function</em>, which is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code> but with a long output,
+built so that nobody can find two inputs with the same output or work back
+from an output to an input. The result is uniformly random key bytes.</p></li>
+</ul>
+<p>In practice <span class="math notranslate nohighlight">\(g\)</span> is chosen so that its order is a large prime. Its loop
+of powers is then a <em>prime-order subgroup</em> of all the numbers modulo
+<span class="math notranslate nohighlight">\(p\)</span>; the 1978 Pohlig-Hellman entry explains why. X25519 is
+Diffie-Hellman on an elliptic curve (1985 entry).</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.DHGroup" title="blockchainkit.crypto.systems.asymmetric.DHGroup"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.DHGroup</span></code></a>
 validates the prime-order subgroup and peer elements. It runs in a 62-bit
 teaching group with no authentication; deployments use 2048-bit groups or
@@ -611,22 +774,51 @@ IEEE Transactions on Information Theory 22(6), 644–654 (1976). <a class="refer
 </div></div></section>
 <section id="rsa-and-the-public-trapdoor">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">1978 – RSA and the Public Trapdoor</a><a class="headerlink" href="#rsa-and-the-public-trapdoor" title="Link to this heading">#</a></h2>
-<p>Diffie-Hellman agrees on a key but does not let anyone encrypt to, or verify a
-signature from, a published key. Rivest, Shamir and Adleman gave the first
-concrete system with a <em>trapdoor</em>: a public operation that anyone can apply,
-and a private one that reverses it. Choose distinct primes <span class="math notranslate nohighlight">\(p, q\)</span>,
-publish <span class="math notranslate nohighlight">\(n = pq\)</span> and an exponent <span class="math notranslate nohighlight">\(e\)</span>, and keep the inverse
-exponent <span class="math notranslate nohighlight">\(d\)</span>:</p>
+<p>Diffie-Hellman agrees on a key. It does not let anyone encrypt to a published
+key, so that only the key’s owner can decrypt. Nor does it give signatures. A
+<em>digital signature</em> is a value that only the key’s owner can compute, but that
+anyone can check with the published key. It is like a handwritten signature
+that cannot be copied onto another document.</p>
+<p>Rivest, Shamir and Adleman gave the first concrete system with a <em>trapdoor</em>:
+a public operation that anyone can apply, and a private one that reverses it.
+It works like a padlock that anyone can snap shut but only the keyholder can
+open.</p>
+<ol class="arabic simple">
+<li><p>Bob chooses distinct primes <span class="math notranslate nohighlight">\(p, q\)</span> and computes <span class="math notranslate nohighlight">\(n = pq\)</span>.</p></li>
+<li><p>Bob picks an exponent <span class="math notranslate nohighlight">\(e\)</span> and computes the inverse exponent
+<span class="math notranslate nohighlight">\(d\)</span>: <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">pow(e,</span> <span class="pre">-1,</span> <span class="pre">(p</span> <span class="pre">-</span> <span class="pre">1)</span> <span class="pre">*</span> <span class="pre">(q</span> <span class="pre">-</span> <span class="pre">1))</span></code>.</p></li>
+<li><p>Bob publishes <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(e\)</span>, his <em>public key</em>, and keeps
+<span class="math notranslate nohighlight">\(d\)</span>, his <em>private key</em>.</p></li>
+<li><p>To send a number <span class="math notranslate nohighlight">\(m &lt; n\)</span>, Alice computes <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">pow(m,</span> <span class="pre">e,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p>Bob decrypts with <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">pow(c,</span> <span class="pre">d,</span> <span class="pre">n)</span></code>.</p></li>
+<li><p>To sign <span class="math notranslate nohighlight">\(m\)</span>, Bob instead computes <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">pow(m,</span> <span class="pre">d,</span> <span class="pre">n)</span></code>. Anyone can
+check that <code class="docutils literal notranslate"><span class="pre">pow(s,</span> <span class="pre">e,</span> <span class="pre">n)</span> <span class="pre">==</span> <span class="pre">m</span></code>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[ed\equiv1\pmod{(p-1)(q-1)},\qquad
 c=m^e\bmod n,\qquad m=c^d\bmod n.\]</div>
-<p>Decryption works because <span class="math notranslate nohighlight">\(ed = 1 + k(p-1)(q-1)\)</span> for some integer
-<span class="math notranslate nohighlight">\(k\)</span>, and Euler’s theorem gives <span class="math notranslate nohighlight">\(m^{(p-1)(q-1)} \equiv 1\)</span>, so
-<span class="math notranslate nohighlight">\(c^d = m^{ed} = m \cdot (m^{(p-1)(q-1)})^k \equiv m \pmod n\)</span>. Finding
-<span class="math notranslate nohighlight">\(d\)</span> requires <span class="math notranslate nohighlight">\((p-1)(q-1)\)</span>, which requires the factors of
-<span class="math notranslate nohighlight">\(n\)</span>; computing <span class="math notranslate nohighlight">\(d\)</span> from <span class="math notranslate nohighlight">\(e\)</span> is in fact as hard as factoring.
-Security therefore rests on factoring being hard, though no proof shows that
-decrypting without <span class="math notranslate nohighlight">\(d\)</span> is equally hard.</p>
+<p>In words: raising to <span class="math notranslate nohighlight">\(e\)</span> and then to <span class="math notranslate nohighlight">\(d\)</span> brings back the original
+number modulo <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Why decryption works:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(ed = 1 + k(p-1)(q-1)\)</span> for some integer <span class="math notranslate nohighlight">\(k\)</span>, by the choice of
+<span class="math notranslate nohighlight">\(d\)</span>.</p></li>
+<li><p>Euler’s theorem says <span class="math notranslate nohighlight">\(m^{(p-1)(q-1)} \equiv 1 \pmod n\)</span> for every
+<span class="math notranslate nohighlight">\(m\)</span> that shares no factor with <span class="math notranslate nohighlight">\(n\)</span>. (The final result below also
+holds for the rare <span class="math notranslate nohighlight">\(m\)</span> that do.)</p></li>
+<li><p>So <span class="math notranslate nohighlight">\(c^d = m^{ed} = m \cdot (m^{(p-1)(q-1)})^k \equiv m \pmod n\)</span>.</p></li>
+</ul>
+<p>Why it is secure, as far as anyone knows:</p>
+<ul class="simple">
+<li><p>Finding <span class="math notranslate nohighlight">\(d\)</span> requires <span class="math notranslate nohighlight">\((p-1)(q-1)\)</span>, which requires the factors of
+<span class="math notranslate nohighlight">\(n\)</span>. Computing <span class="math notranslate nohighlight">\(d\)</span> from <span class="math notranslate nohighlight">\(e\)</span> is in fact as hard as
+factoring.</p></li>
+<li><p>Security therefore rests on factoring being hard, though no proof shows that
+decrypting without <span class="math notranslate nohighlight">\(d\)</span> is equally hard.</p></li>
+<li><p>Real systems add <em>padding</em>: random bytes and a fixed structure mixed into
+the message before exponentiating. Without it, RSA has the two weaknesses
+listed below.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.rsa_keypair" title="blockchainkit.crypto.systems.asymmetric.rsa_keypair"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.rsa_keypair()</span></code></a>
 exposes the arithmetic, with the familiar <span class="math notranslate nohighlight">\(61\times53\)</span> example. This is
 textbook RSA: tiny primes and no padding, so it is deterministic (equal
@@ -643,23 +835,43 @@ Digital Signatures and Public-Key Cryptosystems</em>, Communications of the ACM
 <section id="pohlig-hellman-why-the-group-order-needs-a-large-prime-factor">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">1978 – Pohlig-Hellman: Why the Group Order Needs a Large Prime Factor</a><a class="headerlink" href="#pohlig-hellman-why-the-group-order-needs-a-large-prime-factor" title="Link to this heading">#</a></h2>
 <p>The <span class="math notranslate nohighlight">\(\sqrt n\)</span> cost of the 1971 entry assumes the group cannot be taken
-apart. Pohlig and Hellman showed that if its order factors as
-<span class="math notranslate nohighlight">\(n = \prod p_i^{e_i}\)</span>, the problem splits into one small problem per
-prime power. Raising <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> to the power
-<span class="math notranslate nohighlight">\(n/p_i^{e_i}\)</span> maps them into the subgroup of order <span class="math notranslate nohighlight">\(p_i^{e_i}\)</span>,
-where the same equation reveals <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(p_i^{e_i}\)</span>:</p>
+apart. Pohlig and Hellman showed that if the order <span class="math notranslate nohighlight">\(n\)</span> has small prime
+factors, the discrete log splits into one small problem per factor.</p>
+<p>The idea is like rebuilding a number from its remainders. If you know
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">4</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">9</span></code>, you know <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">36</span></code>. The <em>Chinese Remainder Theorem</em>
+says this always works when the moduli share no factor. So it is enough to
+find <span class="math notranslate nohighlight">\(x\)</span> modulo each prime power in <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Factor the order as <span class="math notranslate nohighlight">\(n = \prod p_i^{e_i}\)</span>, for example
+<span class="math notranslate nohighlight">\(36 = 2^2 \cdot 3^2\)</span>.</p></li>
+<li><p>For each prime power, raise <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> to the power
+<span class="math notranslate nohighlight">\(n/p_i^{e_i}\)</span>. This lands them in a smaller loop, a <em>subgroup</em> of
+order <span class="math notranslate nohighlight">\(p_i^{e_i}\)</span>: since <span class="math notranslate nohighlight">\(g^n = 1\)</span>, the new <span class="math notranslate nohighlight">\(g_i\)</span>
+returns to 1 after <span class="math notranslate nohighlight">\(p_i^{e_i}\)</span> steps. There the same equation
+reveals <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(p_i^{e_i}\)</span>.</p></li>
+<li><p>Solve each of these one base-<span class="math notranslate nohighlight">\(p_i\)</span> digit at a time. Each digit is a
+discrete log in a subgroup of order only <span class="math notranslate nohighlight">\(p_i\)</span>, found with
+baby-step giant-step.</p></li>
+<li><p>Combine the remainders with the Chinese Remainder Theorem into
+<span class="math notranslate nohighlight">\(x \bmod n\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[g_i = g^{n/p_i^{e_i}},\quad h_i = h^{n/p_i^{e_i}}
 \;\Longrightarrow\; h_i = g_i^{\,x \bmod p_i^{e_i}}, \qquad
 \text{cost} \approx \sum_i e_i \sqrt{p_i}.\]</div>
-<p>Each of these is solved one base-<span class="math notranslate nohighlight">\(p_i\)</span> digit at a time, each digit a
-discrete log in a subgroup of order only <span class="math notranslate nohighlight">\(p_i\)</span>, and the Chinese
-Remainder Theorem combines the residues into <span class="math notranslate nohighlight">\(x \bmod n\)</span>. The cost is
-governed by the largest prime factor of <span class="math notranslate nohighlight">\(n\)</span>, not by <span class="math notranslate nohighlight">\(n\)</span> itself.
-That is why Diffie-Hellman and Schnorr run in a subgroup of large prime order,
-and why <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP" title="blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP"><code class="xref py py-data docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP</span></code></a> uses a
-safe prime <span class="math notranslate nohighlight">\(p = 2q + 1\)</span> with <span class="math notranslate nohighlight">\(q\)</span> prime: the subgroup of order
-<span class="math notranslate nohighlight">\(q\)</span> has no smaller pieces to split off.</p>
+<p>In words: after the change of base, only <span class="math notranslate nohighlight">\(x \bmod p_i^{e_i}\)</span> matters,
+and the total cost adds up <span class="math notranslate nohighlight">\(\sqrt{p_i}\)</span> for each digit of each prime.</p>
+<p>Consequences:</p>
+<ul class="simple">
+<li><p>The cost is governed by the largest prime factor of <span class="math notranslate nohighlight">\(n\)</span>, not by
+<span class="math notranslate nohighlight">\(n\)</span> itself. A group of order <span class="math notranslate nohighlight">\(n = 2^{64}\)</span> falls in about a hundred
+tiny steps.</p></li>
+<li><p>That is why Diffie-Hellman and Schnorr run in a subgroup of large prime
+order.</p></li>
+<li><p>It is also why <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP" title="blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP"><code class="xref py py-data docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP</span></code></a>
+uses a <em>safe prime</em> <span class="math notranslate nohighlight">\(p = 2q + 1\)</span> with <span class="math notranslate nohighlight">\(q\)</span> prime: the subgroup of
+order <span class="math notranslate nohighlight">\(q\)</span> has no smaller pieces to split off.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.discrete_log.pohlig_hellman" title="blockchainkit.crypto.systems.discrete_log.pohlig_hellman"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.discrete_log.pohlig_hellman()</span></code></a>
 factors the order by trial division, solves each prime-power part with
 baby-step giant-step, and combines the answers.</p>
@@ -672,21 +884,40 @@ Information Theory 24(1), 106–110 (1978). <a class="reference external" href="
 </div></div></section>
 <section id="shamir-s-threshold-secret-sharing">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">1979 – Shamir’s Threshold Secret Sharing</a><a class="headerlink" href="#shamir-s-threshold-secret-sharing" title="Link to this heading">#</a></h2>
-<p>A secret stored in one place is a single point of loss or compromise. Shamir
-split it among <span class="math notranslate nohighlight">\(n\)</span> people so that any <span class="math notranslate nohighlight">\(t\)</span> of them can recover it,
-while fewer learn nothing. The secret <span class="math notranslate nohighlight">\(s\)</span> is the constant term of a
-random polynomial of degree at most <span class="math notranslate nohighlight">\(t-1\)</span> over a prime field, and person
-<span class="math notranslate nohighlight">\(i\)</span> holds the share <span class="math notranslate nohighlight">\(f(i)\)</span>:</p>
+<p>A secret stored in one place can be lost or stolen in one go. Shamir split it
+among <span class="math notranslate nohighlight">\(n\)</span> people so that any <span class="math notranslate nohighlight">\(t\)</span> of them can recover it, while
+fewer learn nothing.</p>
+<p>The idea: two points fix a line, three points fix a parabola, and in general
+<span class="math notranslate nohighlight">\(t\)</span> points fix a polynomial of degree <span class="math notranslate nohighlight">\(t-1\)</span>. Hide the secret in a
+random polynomial and give each person one point on it.</p>
+<ol class="arabic simple">
+<li><p>The dealer, who knows the secret <span class="math notranslate nohighlight">\(s\)</span>, picks a prime <span class="math notranslate nohighlight">\(p\)</span> larger than both
+<span class="math notranslate nohighlight">\(s\)</span> and <span class="math notranslate nohighlight">\(n\)</span>, and random coefficients <span class="math notranslate nohighlight">\(a_1, \dots, a_{t-1}\)</span> below <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+<li><p>The dealer forms the polynomial <span class="math notranslate nohighlight">\(f\)</span>, doing all arithmetic modulo
+<span class="math notranslate nohighlight">\(p\)</span>. (Numbers modulo a prime, with <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> and division by
+inverses, are called a <em>prime field</em>.)</p></li>
+<li><p>The dealer gives person <span class="math notranslate nohighlight">\(i\)</span> the share <span class="math notranslate nohighlight">\(f(i)\)</span>, for
+<span class="math notranslate nohighlight">\(i = 1, \dots, n\)</span>.</p></li>
+<li><p>Any <span class="math notranslate nohighlight">\(t\)</span> people pool their shares. <em>Lagrange interpolation</em>, a formula
+that rebuilds the unique polynomial through given points, returns
+<span class="math notranslate nohighlight">\(f(0)\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[f(x)=s+a_1x+\cdots+a_{t-1}x^{t-1}\pmod p,
 \qquad s=f(0).\]</div>
-<p>A polynomial of degree at most <span class="math notranslate nohighlight">\(t-1\)</span> is determined by any <span class="math notranslate nohighlight">\(t\)</span> of
-its points, so <span class="math notranslate nohighlight">\(t\)</span> shares fix <span class="math notranslate nohighlight">\(f\)</span> and Lagrange interpolation
-returns <span class="math notranslate nohighlight">\(f(0)\)</span>. With only <span class="math notranslate nohighlight">\(t-1\)</span> shares, every candidate secret
-<span class="math notranslate nohighlight">\(s'\)</span> still fits: the <span class="math notranslate nohighlight">\(t-1\)</span> points together with <span class="math notranslate nohighlight">\((0, s')\)</span>
-are <span class="math notranslate nohighlight">\(t\)</span> points, which define exactly one polynomial. Since the
-coefficients are uniform, each candidate is equally likely, so the guarantee
-is information-theoretic, not a computational hardness assumption.</p>
+<p>In words: the secret is the polynomial’s value at <span class="math notranslate nohighlight">\(x = 0\)</span>.</p>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>A polynomial of degree at most <span class="math notranslate nohighlight">\(t-1\)</span> is determined by any <span class="math notranslate nohighlight">\(t\)</span> of
+its points, so <span class="math notranslate nohighlight">\(t\)</span> shares fix <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+<li><p>With only <span class="math notranslate nohighlight">\(t-1\)</span> shares, every candidate secret <span class="math notranslate nohighlight">\(s'\)</span> still fits.
+The <span class="math notranslate nohighlight">\(t-1\)</span> points together with <span class="math notranslate nohighlight">\((0, s')\)</span> are <span class="math notranslate nohighlight">\(t\)</span> points,
+which define exactly one polynomial.</p></li>
+<li><p>Since the coefficients are uniform, each candidate is equally likely.</p></li>
+<li><p>So the guarantee is <em>information-theoretic</em>: it holds against unlimited
+computing power. It does not rest on a computational hardness assumption,
+that is, on some problem being too slow to solve.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.split_secret" title="blockchainkit.crypto.systems.sharing.split_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.split_secret()</span></code></a> and
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.recover_secret" title="blockchainkit.crypto.systems.sharing.recover_secret"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.recover_secret()</span></code></a> use integer field
 arithmetic.</p>
@@ -698,25 +929,49 @@ arithmetic.</p>
 </div></div></section>
 <section id="lamport-s-one-time-signatures-from-a-hash">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">1979 – Lamport’s One-Time Signatures from a Hash</a><a class="headerlink" href="#lamport-s-one-time-signatures-from-a-hash" title="Link to this heading">#</a></h2>
-<p>RSA signatures rest on number theory. Leslie Lamport showed that a one-way
-function alone suffices. The private key is 256 pairs of random strings
-<span class="math notranslate nohighlight">\(x_{i,b}\)</span> and the public key their hashes. For each bit <span class="math notranslate nohighlight">\(b_i\)</span> of
-<span class="math notranslate nohighlight">\(H(m)\)</span>, the signer reveals <span class="math notranslate nohighlight">\(x_{i,b_i}\)</span>, and the verifier checks
-<span class="math notranslate nohighlight">\(H(x_{i,b_i}) = y_{i,b_i}\)</span>:</p>
+<p>RSA signatures rest on number theory. Leslie Lamport showed that a <em>one-way
+function</em> alone suffices: a function that is easy to compute but practically
+impossible to reverse. A cryptographic hash <span class="math notranslate nohighlight">\(H\)</span>, such as SHA-256, is
+used as one.</p>
+<p>The idea: publish the hashes of many secret strings. To sign, reveal the
+secrets that the message picks out. Anyone can hash them and compare.</p>
+<ol class="arabic simple">
+<li><p><strong>Key generation.</strong> Pick 256 pairs of random strings
+<span class="math notranslate nohighlight">\(x_{i,0}, x_{i,1}\)</span>. They are the private key. Their hashes are the
+public key.</p></li>
+<li><p><strong>Signing.</strong> Compute the 256-bit hash <span class="math notranslate nohighlight">\(H(m)\)</span>, with bits
+<span class="math notranslate nohighlight">\(b_1, \dots, b_{256}\)</span>. For each bit <span class="math notranslate nohighlight">\(b_i\)</span>, reveal
+<span class="math notranslate nohighlight">\(x_{i,b_i}\)</span>: one string of each pair, chosen by the bit.</p></li>
+<li><p><strong>Verifying.</strong> For each <span class="math notranslate nohighlight">\(i\)</span>, check that
+<span class="math notranslate nohighlight">\(H(x_{i,b_i}) = y_{i,b_i}\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\text{public key } y_{i,b} = H(x_{i,b}), \qquad
 \sigma = (x_{1,b_1}, \dots, x_{256,b_{256}}).\]</div>
-<p>A forger needs, for every position, the preimage selected by the new
-message’s hash bit, and producing an unrevealed one means inverting
-<span class="math notranslate nohighlight">\(H\)</span>. Each signature, however, reveals half of the private key. After
-<span class="math notranslate nohighlight">\(k\)</span> signatures on random messages, a given preimage has been revealed
-with probability <span class="math notranslate nohighlight">\(1 - 2^{-k}\)</span>, so a fresh random message can be forged
+<p>In words: the public key is the hashes of all 512 secrets, and a signature
+<span class="math notranslate nohighlight">\(\sigma\)</span> is the 256 secrets that the message’s hash bits select.</p>
+<p>Why it works, and its limits:</p>
+<ul class="simple">
+<li><p>A forger needs, for every position, the <em>preimage</em> selected by the new
+message’s hash bit. A preimage of <span class="math notranslate nohighlight">\(y\)</span> is an input that hashes to
+<span class="math notranslate nohighlight">\(y\)</span>. Producing an unrevealed one means inverting <span class="math notranslate nohighlight">\(H\)</span>.</p></li>
+<li><p>Each signature, however, reveals half of the private key. After <span class="math notranslate nohighlight">\(k\)</span>
+signatures on random messages, a given preimage has been revealed with
+probability <span class="math notranslate nohighlight">\(1 - 2^{-k}\)</span>. A fresh random message can then be forged
 with probability about <span class="math notranslate nohighlight">\((1 - 2^{-k})^{256}\)</span>, which reaches 78% at
-<span class="math notranslate nohighlight">\(k = 10\)</span>. An attacker who can try many messages does far better, so a
-key must sign only once. Merkle’s trees, invented the same year, authenticate
-many one-time keys under one root. Because they rely only on hashing, these
-signatures resist quantum computers: the standardized SPHINCS+ (SLH-DSA)
-descends from them.</p>
+<span class="math notranslate nohighlight">\(k = 10\)</span>.</p></li>
+<li><p>An attacker who can try many messages does far better, so a key must sign
+only once.</p></li>
+<li><p>Merkle’s trees, invented the same year, authenticate many one-time keys
+under one root. They hash the public keys in pairs, then hash those results
+in pairs, and so on up to a single root hash, which is published.</p></li>
+<li><p>Because they rely only on hashing, these signatures resist quantum
+computers. A large quantum computer could quickly break RSA, Diffie-Hellman
+and elliptic curves, but it speeds up attacks on hashes only modestly. The
+standardized SPHINCS+ (SLH-DSA) descends from Lamport’s scheme.</p></li>
+<li><p>Winternitz chains shrink the keys by hashing one secret many times over, so
+that one chain signs several bits at once.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.lamport.lamport_keypair" title="blockchainkit.crypto.systems.lamport.lamport_keypair"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.lamport.lamport_keypair()</span></code></a>,
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.lamport.lamport_sign" title="blockchainkit.crypto.systems.lamport.lamport_sign"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.lamport.lamport_sign()</span></code></a>, and
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.lamport.lamport_verify" title="blockchainkit.crypto.systems.lamport.lamport_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.lamport.lamport_verify()</span></code></a> use full Lamport
@@ -731,20 +986,37 @@ Function</em>, Technical Report CSL-98, SRI International (1979).</p>
 <section id="yuval-s-birthday-attack">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">1979 – Yuval’s Birthday Attack</a><a class="headerlink" href="#yuval-s-birthday-attack" title="Link to this heading">#</a></h2>
 <p>Finding two people with the same birthday in a room is much easier than
-finding someone with <em>your</em> birthday, because every pair of people is a
-chance for a match. Gideon Yuval turned this into an attack on signatures,
-which sign the hash of a message rather than the message itself: prepare many
-harmless and many harmful variants of a contract until one of each shares a
-hash, have the victim sign the harmless one, and the signature also fits the
-harmful one. Among <span class="math notranslate nohighlight">\(q\)</span> random <span class="math notranslate nohighlight">\(n\)</span>-bit values there are about
-<span class="math notranslate nohighlight">\(q^2/2\)</span> pairs, each equal with probability <span class="math notranslate nohighlight">\(2^{-n}\)</span>, so a repeat
-appears with probability about <span class="math notranslate nohighlight">\(q^2/2^{n+1}\)</span> while that is small:</p>
+finding someone with <em>your</em> birthday. Every pair of people is a chance for a
+match, and the number of pairs grows like the square of the room size. Gideon
+Yuval turned this into an attack on signatures. Signatures sign the hash of a
+message rather than the message itself. So two messages with the same hash,
+a <em>collision</em>, share every signature.</p>
+<ol class="arabic simple">
+<li><p>The attacker writes many harmless variants of a contract (extra spaces,
+swapped synonyms) and many harmful variants.</p></li>
+<li><p>The attacker hashes them all, storing the harmless hashes in a dict.</p></li>
+<li><p>The attacker stops when a harmful variant’s hash is already in the dict.</p></li>
+<li><p>The victim signs the harmless variant.</p></li>
+<li><p>The signature also fits the harmful one.</p></li>
+</ol>
+<p>Among <span class="math notranslate nohighlight">\(q\)</span> random <span class="math notranslate nohighlight">\(n\)</span>-bit values there are about <span class="math notranslate nohighlight">\(q^2/2\)</span>
+pairs. Each pair is equal with probability <span class="math notranslate nohighlight">\(2^{-n}\)</span>. So a repeat appears
+with probability about <span class="math notranslate nohighlight">\(q^2/2^{n+1}\)</span> while that is small:</p>
 <div class="math notranslate nohighlight">
 \[\Pr[\text{collision}] \approx 1 - e^{-q^2 / 2^{n+1}}, \qquad
 E[q] \approx \sqrt{\tfrac{\pi}{2}\, 2^{n}}.\]</div>
-<p>A collision is expected after about <span class="math notranslate nohighlight">\(2^{n/2}\)</span> hashes, so an
-<span class="math notranslate nohighlight">\(n\)</span>-bit hash gives only <span class="math notranslate nohighlight">\(n/2\)</span> bits of collision resistance. That
-is why SHA-256’s 256-bit output is chosen for 128-bit collision security.</p>
+<p>In words: the chance of a collision approaches 1 once <span class="math notranslate nohighlight">\(q\)</span> passes about
+<span class="math notranslate nohighlight">\(2^{n/2}\)</span>, and <span class="math notranslate nohighlight">\(E[q]\)</span> is the expected number of hashes before the
+first one.</p>
+<p>Consequences:</p>
+<ul class="simple">
+<li><p>A collision is expected after about <span class="math notranslate nohighlight">\(2^{n/2}\)</span> hashes. So an
+<span class="math notranslate nohighlight">\(n\)</span>-bit hash gives only <span class="math notranslate nohighlight">\(n/2\)</span> bits of <em>collision resistance</em>
+(the difficulty of finding any two inputs with the same hash).</p></li>
+<li><p>A 64-bit hash collides after about four billion tries, minutes on a laptop.</p></li>
+<li><p>That is why SHA-256’s 256-bit output is chosen for 128-bit collision
+security.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.hashing.find_collision" title="blockchainkit.crypto.systems.hashing.find_collision"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.hashing.find_collision()</span></code></a>
 searches truncated SHA-256;
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.hashing.truncated_hash" title="blockchainkit.crypto.systems.hashing.truncated_hash"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.hashing.truncated_hash()</span></code></a> does the
@@ -758,23 +1030,44 @@ truncation.</p>
 <section id="blum-s-coin-flipping-by-telephone-commitments">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">1981 – Blum’s Coin Flipping by Telephone: Commitments</a><a class="headerlink" href="#blum-s-coin-flipping-by-telephone-commitments" title="Link to this heading">#</a></h2>
 <p>Manuel Blum asked how two people who do not trust each other can flip a fair
-coin over the telephone. Alice seals her call, heads or tails, in an envelope
-and sends it; Bob then announces a coin flip; Alice opens the envelope, and
-she wins if the call matches. Each property of the envelope stops one cheat.
-It must be <em>binding</em>, so Alice cannot open it to the other call after hearing
-the flip, and <em>hiding</em>, so Bob cannot read the call and announce the opposite.
-Such an envelope is a <em>commitment</em>. With a hash and a random salt <span class="math notranslate nohighlight">\(r\)</span>:</p>
+coin over the telephone. His answer uses a sealed envelope.</p>
+<ol class="arabic simple">
+<li><p>Alice seals her call, heads or tails, in an envelope and sends it.</p></li>
+<li><p>Bob announces a coin flip.</p></li>
+<li><p>Alice opens the envelope.</p></li>
+<li><p>Alice wins if her call matches the flip.</p></li>
+</ol>
+<p>Each property of the envelope stops one cheat:</p>
+<ul class="simple">
+<li><p>It must be <em>binding</em>, so Alice cannot open it to the other call after
+hearing the flip.</p></li>
+<li><p>It must be <em>hiding</em>, so Bob cannot read the call and announce the opposite.</p></li>
+</ul>
+<p>Such an envelope is a <em>commitment</em>. It can be built from a hash and a <em>salt</em>
+<span class="math notranslate nohighlight">\(r\)</span>, a random byte string mixed into the input:</p>
 <div class="math notranslate nohighlight">
 \[C = H(\text{domain} \,\|\, |r| \,\|\, r \,\|\, m), \qquad
 \text{open}: (m, r) \ \text{with}\ H(\dots) = C.\]</div>
-<p>Opening to a different value means finding a second input with the same hash,
-so binding rests on collision resistance. Without the salt, hiding would fail:
-Bob could simply hash “heads” and “tails” and compare. A long random salt
-makes such guessing hopeless. Encoding the salt’s length <span class="math notranslate nohighlight">\(|r|\)</span> fixes
-where the salt ends and the message begins, so one input cannot be split two
-ways. Commitments became a basic building block: a Schnorr prover commits to
-<span class="math notranslate nohighlight">\(R\)</span> before seeing a challenge, and a block header commits to its
-transactions.</p>
+<p>In words: the commitment <span class="math notranslate nohighlight">\(C\)</span> is the hash of a label, the salt’s length,
+the salt and the message. To open it, Alice reveals <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(r\)</span>,
+and Bob recomputes the hash.</p>
+<p>Why each part is there:</p>
+<ul class="simple">
+<li><p>Opening to a different value means finding a second input with the same
+hash, so binding rests on collision resistance.</p></li>
+<li><p>Without the salt, hiding would fail. Bob could simply hash “heads” and
+“tails” and compare. A long random salt makes such guessing hopeless.</p></li>
+<li><p>Encoding the salt’s length <span class="math notranslate nohighlight">\(|r|\)</span> fixes where the salt ends and the
+message begins, so one input cannot be split two ways.</p></li>
+<li><p>The domain label separates uses: a hash made for a commitment can never be
+mistaken for a hash made for something else. This is <em>domain separation</em>.</p></li>
+<li><p>Checking should take <em>constant time</em>: the same time whether the first
+differing byte is early or late (like <code class="docutils literal notranslate"><span class="pre">hmac.compare_digest</span></code>). Otherwise
+timing leaks how much of a guess was right.</p></li>
+</ul>
+<p>Commitments became a basic building block. A Schnorr prover commits to
+<span class="math notranslate nohighlight">\(R\)</span> before seeing a challenge (1985 entry), and a block header commits
+to its transactions.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.commit" title="blockchainkit.crypto.systems.commitments.commit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.commit()</span></code></a> adds
 domain separation and explicit salt framing;
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.verify_commitment" title="blockchainkit.crypto.systems.commitments.verify_commitment"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.verify_commitment()</span></code></a> compares in
@@ -789,19 +1082,35 @@ Impossible Problems</em>, CRYPTO ‘81, 11–15 (1981); reprinted in ACM SIGACT 
 <section id="chaum-s-blind-signatures-and-private-payments">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">1982-1983 – Chaum’s Blind Signatures and Private Payments</a><a class="headerlink" href="#chaum-s-blind-signatures-and-private-payments" title="Link to this heading">#</a></h2>
 <p>To spend digital cash privately, a bank must authorize a token without
-learning which token it signed: like stamping an envelope without seeing the
-letter inside. David Chaum introduced blind signatures at CRYPTO ‘82
-(proceedings 1983). RSA’s algebra lets the requester hide a message with an
-invertible random factor <span class="math notranslate nohighlight">\(r\)</span> and remove it after signing:</p>
+learning which token it signed. Otherwise it could link each payment back to
+the customer who withdrew it.</p>
+<p>The idea is like stamping an envelope without seeing the letter inside. David
+Chaum introduced <em>blind signatures</em> at CRYPTO ‘82 (proceedings 1983). RSA’s
+algebra lets the requester hide a message with a random factor <span class="math notranslate nohighlight">\(r\)</span> and
+remove it after signing. <span class="math notranslate nohighlight">\(r\)</span> must be <em>invertible</em> modulo <span class="math notranslate nohighlight">\(n\)</span>,
+meaning <code class="docutils literal notranslate"><span class="pre">pow(r,</span> <span class="pre">-1,</span> <span class="pre">n)</span></code> exists.</p>
+<ol class="arabic simple">
+<li><p>The requester picks a random invertible <span class="math notranslate nohighlight">\(r\)</span> and sends the bank
+<span class="math notranslate nohighlight">\(m' = mr^e \bmod n\)</span>.</p></li>
+<li><p>The bank signs what it sees: <span class="math notranslate nohighlight">\(s' = (m')^d \bmod n\)</span>.</p></li>
+<li><p>The requester removes the factor: <span class="math notranslate nohighlight">\(s = s'r^{-1} \bmod n\)</span>.</p></li>
+<li><p>Anyone can check the result as an ordinary RSA signature on <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[m'=mr^e\bmod n,\qquad
 s'=(m')^d\bmod n,\qquad
 s=s'r^{-1}\bmod n.\]</div>
-<p>The factor cancels because <span class="math notranslate nohighlight">\((r^e)^d = r\)</span>: <span class="math notranslate nohighlight">\(s' = m^d r\)</span>, so
-<span class="math notranslate nohighlight">\(s = m^d\)</span> and <span class="math notranslate nohighlight">\(s^e = m \pmod n\)</span>. The requester holds an ordinary
-signature on <span class="math notranslate nohighlight">\(m\)</span>. The signer saw only <span class="math notranslate nohighlight">\(m'\)</span>, and since <span class="math notranslate nohighlight">\(r\)</span> is
-uniform and raising to <span class="math notranslate nohighlight">\(e\)</span> permutes the residues, <span class="math notranslate nohighlight">\(m'\)</span> is uniform
-whatever <span class="math notranslate nohighlight">\(m\)</span> is, so it reveals nothing about the token.</p>
+<p>In words: blind, sign, unblind.</p>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>The factor cancels because <span class="math notranslate nohighlight">\((r^e)^d = r\)</span>. So <span class="math notranslate nohighlight">\(s' = m^d r\)</span>, then
+<span class="math notranslate nohighlight">\(s = m^d\)</span> and <span class="math notranslate nohighlight">\(s^e = m \pmod n\)</span>.</p></li>
+<li><p>The requester holds an ordinary signature on <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+<li><p>The signer saw only <span class="math notranslate nohighlight">\(m'\)</span>. Raising to <span class="math notranslate nohighlight">\(e\)</span> <em>permutes the
+residues</em>: it shuffles the remainders modulo <span class="math notranslate nohighlight">\(n\)</span> with no repeats. Since
+<span class="math notranslate nohighlight">\(r\)</span> is uniform, <span class="math notranslate nohighlight">\(m'\)</span> is uniform whatever <span class="math notranslate nohighlight">\(m\)</span> is. So it
+reveals nothing about the token.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.rsa_blind" title="blockchainkit.crypto.systems.asymmetric.rsa_blind"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.rsa_blind()</span></code></a> and
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.rsa_unblind" title="blockchainkit.crypto.systems.asymmetric.rsa_unblind"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.rsa_unblind()</span></code></a> expose this
 identity with textbook RSA over a tiny modulus. Standardized blind RSA (RFC
@@ -814,25 +1123,54 @@ identity with textbook RSA over a tiny modulus. Standardized blind RSA (RFC
 </div></div></section>
 <section id="elliptic-curves-as-a-cryptographic-group">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">1985 – Elliptic Curves as a Cryptographic Group</a><a class="headerlink" href="#elliptic-curves-as-a-cryptographic-group" title="Link to this heading">#</a></h2>
-<p>Diffie-Hellman needs only a group in which discrete logs are hard, not
-specifically the integers modulo <span class="math notranslate nohighlight">\(p\)</span>. Victor Miller proposed elliptic
-curves for this at CRYPTO ‘85, and Neal Koblitz independently developed
-elliptic-curve cryptosystems. The group is a finite set of curve points with
-a special addition rule, not a smooth curve over the real numbers. A private
-key is an integer <span class="math notranslate nohighlight">\(x\)</span>; the public key is the base point <span class="math notranslate nohighlight">\(G\)</span> added
-to itself <span class="math notranslate nohighlight">\(x\)</span> times:</p>
+<p>Diffie-Hellman needs only a group in which discrete logs are hard. It does
+not need the integers modulo <span class="math notranslate nohighlight">\(p\)</span> specifically. Victor Miller proposed
+elliptic curves for this at CRYPTO ‘85, and Neal Koblitz independently
+developed elliptic-curve cryptosystems.</p>
+<p>An <em>elliptic curve</em> here is the set of integer pairs <span class="math notranslate nohighlight">\((x, y)\)</span> that solve
+the equation below modulo <span class="math notranslate nohighlight">\(p\)</span>, plus one extra “point at infinity”. It
+is a finite set of curve points with a special addition rule, not a smooth
+curve over the real numbers. The rule comes from geometry over the reals:
+draw the line through two points, find where it meets the curve a third
+time, and reflect that point. The same formulas work modulo <span class="math notranslate nohighlight">\(p\)</span>. The
+point at infinity acts as zero. Because the operation is written as addition,
+<span class="math notranslate nohighlight">\(xG\)</span> plays the role that <code class="docutils literal notranslate"><span class="pre">pow(g,</span> <span class="pre">x,</span> <span class="pre">p)</span></code> played before: the base point
+<span class="math notranslate nohighlight">\(G\)</span> added to itself <span class="math notranslate nohighlight">\(x\)</span> times.</p>
+<ol class="arabic simple">
+<li><p>Everyone agrees on a curve and a base point <span class="math notranslate nohighlight">\(G\)</span>.</p></li>
+<li><p>A private key is an integer <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>The public key is <span class="math notranslate nohighlight">\(Q = xG\)</span>, computed by <em>double-and-add</em>, the
+addition version of <code class="docutils literal notranslate"><span class="pre">pow</span></code>’s repeated squaring:</p>
+<ol class="arabic simple">
+<li><p>Start with the point at infinity.</p></li>
+<li><p>For each bit of <span class="math notranslate nohighlight">\(x\)</span>, from the top: double the running point, and
+if the bit is 1, add <span class="math notranslate nohighlight">\(G\)</span>.</p></li>
+</ol>
+</li>
+</ol>
 <div class="math notranslate nohighlight">
 \[y^2=x^3+ax+b\pmod p,\qquad Q=xG.\]</div>
-<p>Double-and-add computes <span class="math notranslate nohighlight">\(Q\)</span> in about <span class="math notranslate nohighlight">\(2\log_2 x\)</span> additions;
-recovering <span class="math notranslate nohighlight">\(x\)</span> from <span class="math notranslate nohighlight">\(G, Q\)</span> is the elliptic-curve discrete-log
-problem. The integers modulo <span class="math notranslate nohighlight">\(p\)</span> have extra structure, such as
-factorization into primes, that index-calculus algorithms exploit to solve
-discrete logs (and factor RSA moduli) in subexponential time, so those keys
-must be thousands of bits long. No such attack is known for well-chosen
-curves, leaving only the <span class="math notranslate nohighlight">\(\sqrt n\)</span> generic attacks, so a 256-bit curve
-key matches a roughly 3072-bit RSA key. “Well-chosen” matters: a curve whose
-order has only small prime factors falls to Pohlig-Hellman, and some special
-families reduce to easier problems.</p>
+<p>In words: points satisfy the curve equation, and a public key is the base
+point multiplied by the private integer.</p>
+<p>Why curves allow short keys:</p>
+<ul class="simple">
+<li><p>Double-and-add computes <span class="math notranslate nohighlight">\(Q\)</span> in about <span class="math notranslate nohighlight">\(2\log_2 x\)</span> additions.
+Recovering <span class="math notranslate nohighlight">\(x\)</span> from <span class="math notranslate nohighlight">\(G, Q\)</span> is the elliptic-curve discrete-log
+problem.</p></li>
+<li><p>The integers modulo <span class="math notranslate nohighlight">\(p\)</span> have extra structure, such as factorization
+into primes. <em>Index-calculus</em> algorithms exploit it to solve discrete logs
+(and factor RSA moduli) in <em>subexponential</em> time: much faster than
+<span class="math notranslate nohighlight">\(2^{c \cdot \text{bits}}\)</span> for any fixed <span class="math notranslate nohighlight">\(c\)</span>, though still slower
+than any polynomial. So those keys must be thousands of bits long.</p></li>
+<li><p>No such attack is known for well-chosen curves. That leaves only the
+<span class="math notranslate nohighlight">\(\sqrt n\)</span> generic attacks, so a 256-bit curve key matches a roughly
+3072-bit RSA key.</p></li>
+<li><p>“Well-chosen” matters. A curve whose order has only small prime factors
+falls to Pohlig-Hellman, and some special families reduce to easier
+problems.</p></li>
+<li><p>Production code must also run in <em>constant time</em> (the same time for every
+key), because timing differences can reveal the private key.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.curves.Curve" title="blockchainkit.crypto.systems.curves.Curve"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.curves.Curve</span></code></a>,
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.curves.add" title="blockchainkit.crypto.systems.curves.add"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.curves.add()</span></code></a>, and
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.curves.multiply" title="blockchainkit.crypto.systems.curves.multiply"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.curves.multiply()</span></code></a> implement the group law,
@@ -849,30 +1187,51 @@ Cryptosystems</em>, Mathematics of Computation 48(177), 203–209 (1987). <a cla
 </div></div></section>
 <section id="zero-knowledge-proofs-that-reveal-nothing">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">1985 – Zero Knowledge: Proofs That Reveal Nothing</a><a class="headerlink" href="#zero-knowledge-proofs-that-reveal-nothing" title="Link to this heading">#</a></h2>
-<p>Goldwasser, Micali and Rackoff formalized a striking possibility: an
-interaction can convince a verifier that a statement is true while revealing
-nothing else. A proof is <em>zero-knowledge</em> if a simulator, without the secret,
-can produce transcripts indistinguishable from real ones. The verifier could
-have generated such transcripts alone, so the real ones cannot have taught
-them anything.</p>
-<p>Schnorr’s later identification protocol shows the idea concretely. A prover
-with secret <span class="math notranslate nohighlight">\(x\)</span> and public key <span class="math notranslate nohighlight">\(Q = xG\)</span> commits to <span class="math notranslate nohighlight">\(R = kG\)</span>
-for a random <span class="math notranslate nohighlight">\(k\)</span>, receives a random challenge <span class="math notranslate nohighlight">\(c\)</span>, and answers
-<span class="math notranslate nohighlight">\(s = k + cx\)</span>; the verifier checks <span class="math notranslate nohighlight">\(sG = R + cQ\)</span>. A simulator who
-picks <span class="math notranslate nohighlight">\(c\)</span> and <span class="math notranslate nohighlight">\(s\)</span> first can solve that equation for a matching
-<span class="math notranslate nohighlight">\(R\)</span>:</p>
+<p>Can you convince someone that you know a secret without revealing anything
+about it? Goldwasser, Micali and Rackoff formalized this striking
+possibility. An interaction between a <em>prover</em> and a <em>verifier</em> can convince
+the verifier that a statement is true while revealing nothing else.</p>
+<p>The test for “revealing nothing” uses a <em>simulator</em>: a program that does not
+know the secret. A <em>transcript</em> is the record of every message exchanged. A
+proof is <em>zero-knowledge</em> if the simulator can produce transcripts
+indistinguishable from real ones, meaning no efficient test can tell them
+apart. The verifier could have generated such transcripts alone. So the real
+ones cannot have taught them anything.</p>
+<p>Schnorr’s later identification protocol shows the idea concretely. The prover
+has a secret <span class="math notranslate nohighlight">\(x\)</span> and public key <span class="math notranslate nohighlight">\(Q = xG\)</span>. A <em>nonce</em> is a random
+number used once.</p>
+<ol class="arabic simple">
+<li><p>The prover picks a random nonce <span class="math notranslate nohighlight">\(k\)</span> and sends the commitment
+<span class="math notranslate nohighlight">\(R = kG\)</span>.</p></li>
+<li><p>The verifier sends a random <em>challenge</em> <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p>The prover answers <span class="math notranslate nohighlight">\(s = k + cx\)</span>.</p></li>
+<li><p>The verifier checks <span class="math notranslate nohighlight">\(sG = R + cQ\)</span>.</p></li>
+</ol>
+<p>The simulator fakes a transcript by working backwards:</p>
+<ol class="arabic simple">
+<li><p>Pick <span class="math notranslate nohighlight">\(c\)</span> and <span class="math notranslate nohighlight">\(s\)</span> at random.</p></li>
+<li><p>Solve the check for a matching <span class="math notranslate nohighlight">\(R = sG - cQ\)</span>.</p></li>
+<li><p>Output <span class="math notranslate nohighlight">\((R, c, s)\)</span>, which passes the check without <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[R = kG,\quad c \xleftarrow{\$} \mathbb{Z}_n,\quad s = k + cx;
 \qquad \text{simulator: } R = sG - cQ.\]</div>
-<p>The proof still convinces a live verifier, because a prover who could answer
-two different challenges <span class="math notranslate nohighlight">\(c_1 \ne c_2\)</span> for the same <span class="math notranslate nohighlight">\(R\)</span> would know
-<span class="math notranslate nohighlight">\(x = (s_1 - s_2)/(c_1 - c_2)\)</span>. Without <span class="math notranslate nohighlight">\(x\)</span>, a cheating prover
-succeeds only by guessing <span class="math notranslate nohighlight">\(c\)</span> before committing, with probability
-<span class="math notranslate nohighlight">\(1/n\)</span>. So a real prover must commit to <span class="math notranslate nohighlight">\(R\)</span> before seeing an
-unpredictable <span class="math notranslate nohighlight">\(c\)</span>. That order is the only thing separating a proof from
-a simulation, so a recorded transcript proves nothing to a third party. (The
-simulation argument assumes the verifier picks <span class="math notranslate nohighlight">\(c\)</span> at random, as an
-honest one does.)</p>
+<p>In words: <span class="math notranslate nohighlight">\(c \xleftarrow{\$} \mathbb{Z}_n\)</span> means <span class="math notranslate nohighlight">\(c\)</span> is drawn
+uniformly from <span class="math notranslate nohighlight">\(0, \dots, n-1\)</span>. A real prover fixes <span class="math notranslate nohighlight">\(R\)</span> first; the
+simulator fixes <span class="math notranslate nohighlight">\(c\)</span> first.</p>
+<p>Why the real proof still convinces:</p>
+<ul class="simple">
+<li><p>A prover who could answer two different challenges <span class="math notranslate nohighlight">\(c_1 \ne c_2\)</span> for
+the same <span class="math notranslate nohighlight">\(R\)</span> would know <span class="math notranslate nohighlight">\(x = (s_1 - s_2)/(c_1 - c_2)\)</span>.</p></li>
+<li><p>Without <span class="math notranslate nohighlight">\(x\)</span>, a cheating prover succeeds only by guessing <span class="math notranslate nohighlight">\(c\)</span>
+before committing, with probability <span class="math notranslate nohighlight">\(1/n\)</span>.</p></li>
+<li><p>So a real prover must commit to <span class="math notranslate nohighlight">\(R\)</span> before seeing an unpredictable
+<span class="math notranslate nohighlight">\(c\)</span>. That order is the only thing separating a proof from a
+simulation.</p></li>
+<li><p>Hence a recorded transcript proves nothing to a third party.</p></li>
+<li><p>The simulation argument assumes the verifier picks <span class="math notranslate nohighlight">\(c\)</span> at random, as
+an honest one does.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.verify_transcript" title="blockchainkit.crypto.systems.signatures.verify_transcript"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.verify_transcript()</span></code></a>
 checks the group equation;
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.simulate_transcript" title="blockchainkit.crypto.systems.signatures.simulate_transcript"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.simulate_transcript()</span></code></a> is the
@@ -887,21 +1246,37 @@ Complexity of Interactive Proof-Systems</em>, STOC ‘85, 291–304 (1985). <a c
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">1986 – The Fiat-Shamir Heuristic: From Interaction to Signatures</a><a class="headerlink" href="#the-fiat-shamir-heuristic-from-interaction-to-signatures" title="Link to this heading">#</a></h2>
 <p>An interactive proof convinces only the verifier who took part. Fiat and
 Shamir replaced the verifier’s random challenge with a hash of the transcript
-so far. The proof no longer needs a live conversation, and putting the message
-into the hash turns it into a signature:</p>
+so far. The proof no longer needs a live conversation. Putting the message
+into the hash turns it into a signature.</p>
+<ol class="arabic simple">
+<li><p>The signer picks a nonce <span class="math notranslate nohighlight">\(k\)</span> and computes <span class="math notranslate nohighlight">\(R = kG\)</span>.</p></li>
+<li><p>The signer computes the challenge itself, <span class="math notranslate nohighlight">\(c = H(R, Q, m)\)</span>.</p></li>
+<li><p>The signer computes <span class="math notranslate nohighlight">\(s = k + cx\)</span>. The signature is <span class="math notranslate nohighlight">\((R, s)\)</span>.</p></li>
+<li><p>A verifier recomputes <span class="math notranslate nohighlight">\(c\)</span> from <span class="math notranslate nohighlight">\(R, Q, m\)</span> and checks
+<span class="math notranslate nohighlight">\(sG = R + cQ\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[c = H(R, Q, m), \qquad \sigma = (R,\ s = k + cx).\]</div>
-<p>The simulator’s trick was to pick <span class="math notranslate nohighlight">\(c\)</span> first and then solve for
-<span class="math notranslate nohighlight">\(R\)</span>. Now <span class="math notranslate nohighlight">\(c\)</span> is computed from <span class="math notranslate nohighlight">\(R\)</span>, and if <span class="math notranslate nohighlight">\(H\)</span> behaves
-like a random function, any change to <span class="math notranslate nohighlight">\(R\)</span> produces an unpredictable new
-<span class="math notranslate nohighlight">\(c\)</span>, so the trick no longer works and a valid <span class="math notranslate nohighlight">\((R, s)\)</span> again shows
-knowledge of <span class="math notranslate nohighlight">\(x\)</span>. Pointcheval and Stern later proved such signatures
-secure in this random-oracle model. Everything the verifier would have seen
-must go into the hash: leaving out <span class="math notranslate nohighlight">\(Q\)</span>, for instance, lets an attacker
-choose the public key after the challenge. Schnorr signatures, EdDSA, and most
-zero-knowledge proof systems used by blockchains (SNARKs, STARKs) rely on this
-transform, and such omissions have broken real implementations (the 2022
-“Frozen Heart” disclosures).</p>
+<p>In words: the hash plays the honest verifier, and the signature
+<span class="math notranslate nohighlight">\(\sigma\)</span> is the prover’s commitment and answer.</p>
+<p>Why it works, and what can go wrong:</p>
+<ul class="simple">
+<li><p>The simulator’s trick was to pick <span class="math notranslate nohighlight">\(c\)</span> first and then solve for
+<span class="math notranslate nohighlight">\(R\)</span>. Now <span class="math notranslate nohighlight">\(c\)</span> is computed from <span class="math notranslate nohighlight">\(R\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(H\)</span> behaves like a random function, any change to <span class="math notranslate nohighlight">\(R\)</span>
+produces an unpredictable new <span class="math notranslate nohighlight">\(c\)</span>. The trick no longer works, and a
+valid <span class="math notranslate nohighlight">\((R, s)\)</span> again shows knowledge of <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Pointcheval and Stern later proved such signatures secure in this
+<em>random-oracle model</em>: the analysis pretends <span class="math notranslate nohighlight">\(H\)</span> is a truly random
+function that everyone can query.</p></li>
+<li><p>Everything the verifier would have seen must go into the hash. Leaving out
+<span class="math notranslate nohighlight">\(Q\)</span>, for instance, lets an attacker choose the public key after the
+challenge.</p></li>
+<li><p>Schnorr signatures, EdDSA, and most zero-knowledge proof systems used by
+blockchains (SNARKs, STARKs: short proofs that a computation was done
+correctly) rely on this transform. Such omissions have broken real
+implementations (the 2022 “Frozen Heart” disclosures).</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.challenge" title="blockchainkit.crypto.systems.signatures.challenge"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.challenge()</span></code></a>
 hashes the curve domain, public key, commitment, and message.</p>
 <p><em>References:</em> A. Fiat and A. Shamir, <em>How To Prove Yourself: Practical
@@ -913,22 +1288,42 @@ Solutions to Identification and Signature Problems</em>, CRYPTO ‘86, LNCS 263,
 </div></div></section>
 <section id="feldman-s-verifiable-secret-sharing">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">1987 – Feldman’s Verifiable Secret Sharing</a><a class="headerlink" href="#feldman-s-verifiable-secret-sharing" title="Link to this heading">#</a></h2>
-<p>In Shamir’s scheme everyone must trust the dealer who hands out the shares: a
-dishonest dealer can hand out points that lie on no common polynomial, and
-nobody notices until recovery fails. Paul Feldman made the shares checkable
-without interaction. The dealer publishes <span class="math notranslate nohighlight">\(C_j = g^{a_j}\)</span> for each
-polynomial coefficient (with <span class="math notranslate nohighlight">\(a_0 = s\)</span>), and share holder <span class="math notranslate nohighlight">\(i\)</span>
-checks</p>
+<p>In Shamir’s scheme everyone must trust the dealer who hands out the shares. A
+dishonest dealer can hand out points that lie on no common polynomial. Nobody
+notices until recovery fails.</p>
+<p>Paul Feldman made the shares checkable without interaction. The dealer
+publishes a “locked” copy of each polynomial coefficient, <span class="math notranslate nohighlight">\(g^{a_j}\)</span>.
+These reveal no coefficient directly, but let each share holder test their
+own share.</p>
+<ol class="arabic simple">
+<li><p>The dealer picks a Shamir polynomial with coefficients <span class="math notranslate nohighlight">\(a_j\)</span> and
+<span class="math notranslate nohighlight">\(a_0 = s\)</span>.</p></li>
+<li><p>The dealer publishes <span class="math notranslate nohighlight">\(C_j = g^{a_j}\)</span> for each coefficient.</p></li>
+<li><p>The dealer sends share <span class="math notranslate nohighlight">\(f(i)\)</span> privately to share holder <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p>Share holder <span class="math notranslate nohighlight">\(i\)</span> checks the equation below, and complains publicly if
+it fails.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[g^{f(i)} = \prod_{j=0}^{t-1} C_j^{\,i^{j}} \pmod p.\]</div>
-<p>Exponentiation turns sums into products, so the right side equals
-<span class="math notranslate nohighlight">\(g^{\sum_j a_j i^j} = g^{f(i)}\)</span>. Because <span class="math notranslate nohighlight">\(g\)</span> has prime order
-<span class="math notranslate nohighlight">\(q\)</span>, the check passes exactly when the share equals <span class="math notranslate nohighlight">\(f(i)\)</span> modulo
-<span class="math notranslate nohighlight">\(q\)</span>, that is, when it lies on the committed polynomial. The price is
-that <span class="math notranslate nohighlight">\(C_0 = g^{s}\)</span> is public, so the secret is protected only by the
-hardness of the discrete log rather than information-theoretically.
-Verifiable sharing underlies distributed key generation, which threshold
-wallets use to create a key that no single party ever holds.</p>
+<p>In words: from the public values alone, anyone can compute what
+<span class="math notranslate nohighlight">\(g^{f(i)}\)</span> should be, and compare it with the share.</p>
+<p>Why it works, and its price:</p>
+<ul class="simple">
+<li><p>Exponentiation turns sums into products, since <span class="math notranslate nohighlight">\(g^{a+b} = g^a g^b\)</span>.
+So the right side equals <span class="math notranslate nohighlight">\(g^{\sum_j a_j i^j} = g^{f(i)}\)</span>.</p></li>
+<li><p>Because <span class="math notranslate nohighlight">\(g\)</span> has prime order <span class="math notranslate nohighlight">\(q\)</span>, the check passes exactly when
+the share equals <span class="math notranslate nohighlight">\(f(i)\)</span> modulo <span class="math notranslate nohighlight">\(q\)</span>, that is, when it lies on the
+committed polynomial.</p></li>
+<li><p>The price is that <span class="math notranslate nohighlight">\(C_0 = g^{s}\)</span> is public. So the secret is protected
+only by the hardness of the discrete log rather than
+information-theoretically.</p></li>
+<li><p>Complaints need a <em>broadcast channel</em>, where everyone is sure to see the
+same message.</p></li>
+<li><p>Verifiable sharing underlies <em>distributed key generation</em>. Every party
+deals a random secret, and the group key combines them. Threshold wallets,
+which need <span class="math notranslate nohighlight">\(t\)</span> of <span class="math notranslate nohighlight">\(n\)</span> parties to sign, use it to create a key
+that no single party ever holds.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.feldman_split" title="blockchainkit.crypto.systems.sharing.feldman_split"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.feldman_split()</span></code></a> and
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.sharing.feldman_verify" title="blockchainkit.crypto.systems.sharing.feldman_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.sharing.feldman_verify()</span></code></a> work over
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP" title="blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP"><code class="xref py py-data docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.asymmetric.TEACHING_GROUP</span></code></a>, where discrete
@@ -943,24 +1338,48 @@ Secret Sharing</em>, 28th Symposium on Foundations of Computer Science (FOCS),
 </div></div></section>
 <section id="the-merkle-damgard-construction-and-length-extension">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">1989 – The Merkle-Damgård Construction and Length Extension</a><a class="headerlink" href="#the-merkle-damgard-construction-and-length-extension" title="Link to this heading">#</a></h2>
-<p>A hash function must accept messages of any length, but it is much easier to
-design and analyze a <em>compression function</em> <span class="math notranslate nohighlight">\(f\)</span> that maps a fixed-size
-state and one fixed-size block to a new state. Ralph Merkle and Ivan Damgård
-independently showed at CRYPTO ‘89 how to chain one: pad the message with its
-length, split it into blocks, and feed each block through <span class="math notranslate nohighlight">\(f\)</span>; the final
-state is the digest:</p>
+<p>A hash function must accept messages of any length. It is much easier to
+design and analyze a <em>compression function</em> <span class="math notranslate nohighlight">\(f\)</span>. This maps a fixed-size
+state and one fixed-size block of input to a new state. Ralph Merkle and Ivan
+Damgård independently showed at CRYPTO ‘89 how to chain one into a full hash.
+The idea is a loop: <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">f(h,</span> <span class="pre">block)</span></code> for each block.</p>
+<ol class="arabic simple">
+<li><p>Pad the message so that it ends with its own length and fills a whole
+number of blocks.</p></li>
+<li><p>Split it into blocks <span class="math notranslate nohighlight">\(m_1, \dots, m_\ell\)</span>.</p></li>
+<li><p>Start the state at a fixed constant, <span class="math notranslate nohighlight">\(h_0 = IV\)</span> (the <em>initial
+value</em>).</p></li>
+<li><p>Feed each block through <span class="math notranslate nohighlight">\(f\)</span>, updating the state.</p></li>
+<li><p>The final state is the digest, the hash output.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[h_0 = IV, \qquad h_i = f(h_{i-1}, m_i), \qquad H(m) = h_\ell.\]</div>
-<p>If <span class="math notranslate nohighlight">\(f\)</span> is collision-resistant, so is <span class="math notranslate nohighlight">\(H\)</span>. Trace two colliding
-messages backward from their equal digests: at the last step where the inputs
-to <span class="math notranslate nohighlight">\(f\)</span> differ, the outputs are still equal, which is a collision in
-<span class="math notranslate nohighlight">\(f\)</span>. The encoded length guarantees that such a step exists. MD5, SHA-1
-and SHA-256 all follow this design. Its side effect: since <span class="math notranslate nohighlight">\(H(m)\)</span> <em>is</em>
-the chaining state, anyone can resume the chain from it and compute
+<p>In words: the digest is the state after the last block.</p>
+<p>Why collision resistance carries over:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is collision-resistant, so is <span class="math notranslate nohighlight">\(H\)</span>.</p></li>
+<li><p>Trace two colliding messages backward from their equal digests. At the last
+step where the inputs to <span class="math notranslate nohighlight">\(f\)</span> differ, the outputs are still equal.
+That is a collision in <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+<li><p>The encoded length guarantees that such a step exists.</p></li>
+<li><p>MD5, SHA-1 and SHA-256 all follow this design.</p></li>
+</ul>
+<p>Its side effect is <em>length extension</em>. Since <span class="math notranslate nohighlight">\(H(m)\)</span> <em>is</em> the chaining
+state, anyone can resume the chain from it. They can compute
 <span class="math notranslate nohighlight">\(H(m \,\|\, \text{pad} \,\|\, s)\)</span> knowing only <span class="math notranslate nohighlight">\(H(m)\)</span> and
-<span class="math notranslate nohighlight">\(|m|\)</span>. A “MAC” computed as <span class="math notranslate nohighlight">\(H(k \,\|\, m)\)</span> is therefore forgeable:
-from one valid tag an attacker can tag an extended message without knowing
-<span class="math notranslate nohighlight">\(k\)</span>.</p>
+<span class="math notranslate nohighlight">\(|m|\)</span>. This breaks a naive <em>MAC</em> (message authentication code): a short
+tag, computed from a message and a shared key, that proves the message came
+from a key holder unchanged. A “MAC” computed as <span class="math notranslate nohighlight">\(H(k \,\|\, m)\)</span> is
+therefore forgeable:</p>
+<ol class="arabic simple">
+<li><p>The attacker sees one valid tag <span class="math notranslate nohighlight">\(t = H(k \,\|\, m)\)</span> and knows the
+length of <span class="math notranslate nohighlight">\(k \,\|\, m\)</span>.</p></li>
+<li><p>The attacker sets the state to <span class="math notranslate nohighlight">\(t\)</span> and works out the padding that
+followed <span class="math notranslate nohighlight">\(k \,\|\, m\)</span>.</p></li>
+<li><p>The attacker continues the loop over any extra blocks <span class="math notranslate nohighlight">\(s\)</span>.</p></li>
+<li><p>The result is a valid tag for the extended message
+<span class="math notranslate nohighlight">\(m \,\|\, \text{pad} \,\|\, s\)</span>, made without knowing <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+</ol>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256" title="blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256()</span></code></a>
 reimplements SHA-256 block by block (checked against the standard library);
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.length_extension" title="blockchainkit.crypto.systems.merkle_damgard.length_extension"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.merkle_damgard.length_extension()</span></code></a> performs
@@ -975,21 +1394,37 @@ Damgård, <em>A Design Principle for Hash Functions</em>, CRYPTO ‘89, LNCS 435
 </div></div></section>
 <section id="schnorr-identification-and-compact-signatures">
 <h2><a class="toc-backref" href="#id17" role="doc-backlink">1989-1991 – Schnorr Identification and Compact Signatures</a><a class="headerlink" href="#schnorr-identification-and-compact-signatures" title="Link to this heading">#</a></h2>
-<p>Claus Schnorr made discrete-log proofs short and fast. In additive notation, a
-prover with secret <span class="math notranslate nohighlight">\(x\)</span> and public key <span class="math notranslate nohighlight">\(Q = xG\)</span> commits with a
-fresh nonce <span class="math notranslate nohighlight">\(k\)</span>, then answers a challenge <span class="math notranslate nohighlight">\(c\)</span>. The verifier’s
-check holds because <span class="math notranslate nohighlight">\(sG = (k + cx)G = kG + c(xG)\)</span>:</p>
+<p>Claus Schnorr made discrete-log proofs short and fast. This is the protocol
+already used in the 1985 entry. It is written in <em>additive notation</em>, where
+the group operation is <code class="docutils literal notranslate"><span class="pre">+</span></code> and repeated addition <span class="math notranslate nohighlight">\(xG\)</span> replaces
+<span class="math notranslate nohighlight">\(g^x\)</span>, as on elliptic curves.</p>
+<ol class="arabic simple">
+<li><p>The prover, with secret <span class="math notranslate nohighlight">\(x\)</span> and public key <span class="math notranslate nohighlight">\(Q = xG\)</span>, picks a
+fresh nonce <span class="math notranslate nohighlight">\(k\)</span> and commits with <span class="math notranslate nohighlight">\(R = kG\)</span>.</p></li>
+<li><p>The prover receives a challenge <span class="math notranslate nohighlight">\(c\)</span>.</p></li>
+<li><p>The prover answers <span class="math notranslate nohighlight">\(s = k + cx \bmod n\)</span>.</p></li>
+<li><p>The verifier checks <span class="math notranslate nohighlight">\(sG = R + cQ\)</span>. The check holds because
+<span class="math notranslate nohighlight">\(sG = (k + cx)G = kG + c(xG)\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[R=kG,\qquad s=k+cx\pmod n,\qquad sG=R+cQ.\]</div>
-<p>The Fiat-Shamir transform with <span class="math notranslate nohighlight">\(c = H(R, Q, m)\)</span> turns this into a
-signature <span class="math notranslate nohighlight">\((R, s)\)</span>: one group element and one scalar. The nonce must be
-fresh, since two signatures with the same <span class="math notranslate nohighlight">\(k\)</span> give two linear equations
-in <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(x\)</span> (the 2010-2013 entry). The equation is also linear
-in the keys: if two signers use the same <span class="math notranslate nohighlight">\(c\)</span>, their <span class="math notranslate nohighlight">\(R\)</span> and
-<span class="math notranslate nohighlight">\(s\)</span> values add to a valid signature for <span class="math notranslate nohighlight">\(Q_1 + Q_2\)</span>, which later
-enabled multi-signatures (the 2018 entry). A patent kept Schnorr signatures
-out of standards until it expired in 2008; Bitcoin adopted them in 2021 as
-BIP-340.</p>
+<p>In words: the answer <span class="math notranslate nohighlight">\(s\)</span> mixes the nonce and the secret, and the check
+confirms the mix using only public points.</p>
+<p>Properties:</p>
+<ul class="simple">
+<li><p>The Fiat-Shamir transform with <span class="math notranslate nohighlight">\(c = H(R, Q, m)\)</span> turns this into a
+signature <span class="math notranslate nohighlight">\((R, s)\)</span>: one group element and one scalar (an integer
+modulo <span class="math notranslate nohighlight">\(n\)</span>).</p></li>
+<li><p>The nonce must be fresh. Two signatures with the same <span class="math notranslate nohighlight">\(k\)</span> give two
+linear equations in <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(x\)</span> (the 2010-2013 entry).</p></li>
+<li><p>The equation is also linear in the keys. If two signers use the same
+<span class="math notranslate nohighlight">\(c\)</span>, their <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(s\)</span> values add to a valid signature for
+<span class="math notranslate nohighlight">\(Q_1 + Q_2\)</span>. This later enabled multi-signatures (the 2018 entry).</p></li>
+<li><p>A patent kept Schnorr signatures out of standards until it expired in 2008.
+Bitcoin adopted them in 2021 as BIP-340 (Bitcoin Improvement Proposal 340).
+BIP-340 stores only the x-coordinate of a public key and hashes with a
+tagged hash, a hash prefixed by a label.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.sign" title="blockchainkit.crypto.systems.signatures.sign"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.sign()</span></code></a>,
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.verify" title="blockchainkit.crypto.systems.signatures.verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.verify()</span></code></a>, and
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.recover_reused_nonce_key" title="blockchainkit.crypto.systems.signatures.recover_reused_nonce_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.recover_reused_nonce_key()</span></code></a> use a
@@ -1006,23 +1441,40 @@ Journal of Cryptology 4, 161–174 (1991); following the CRYPTO ‘89 work. <a c
 <section id="pedersen-commitments-perfectly-hiding-and-additive">
 <h2><a class="toc-backref" href="#id18" role="doc-backlink">1991 – Pedersen Commitments: Perfectly Hiding and Additive</a><a class="headerlink" href="#pedersen-commitments-perfectly-hiding-and-additive" title="Link to this heading">#</a></h2>
 <p>A hash commitment hides its contents only from an attacker who cannot invert
-the hash, and nothing useful can be computed on sealed values. Torben Pedersen
-introduced a commitment that hides its contents even from an attacker with
-unlimited computing power, and where multiplying sealed commitments adds the
-amounts inside them. With two generators <span class="math notranslate nohighlight">\(g, h\)</span> of a group of prime
-order <span class="math notranslate nohighlight">\(q\)</span>:</p>
+the hash. Also, nothing useful can be computed on sealed values. Torben
+Pedersen introduced a commitment with two better properties:</p>
+<ul class="simple">
+<li><p>it hides its contents even from an attacker with unlimited computing power;</p></li>
+<li><p>multiplying sealed commitments adds the amounts inside them.</p></li>
+</ul>
+<p>It uses two generators <span class="math notranslate nohighlight">\(g, h\)</span> of a group of prime order <span class="math notranslate nohighlight">\(q\)</span>.</p>
+<ol class="arabic simple">
+<li><p>Setup: <span class="math notranslate nohighlight">\(h\)</span> is derived by hashing, so that nobody knows the exponent
+<span class="math notranslate nohighlight">\(w\)</span> with <span class="math notranslate nohighlight">\(h = g^w\)</span>.</p></li>
+<li><p>Commit: to commit to a value <span class="math notranslate nohighlight">\(v\)</span>, pick a random <em>blinding</em>
+<span class="math notranslate nohighlight">\(r\)</span> and publish <span class="math notranslate nohighlight">\(C = g^v h^r \bmod p\)</span>.</p></li>
+<li><p>Open: reveal <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(r\)</span>. Anyone recomputes <span class="math notranslate nohighlight">\(C\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[C(v, r) = g^{v} h^{r} \bmod p, \qquad C(a, r)\,C(b, s) = C(a + b,\ r + s).\]</div>
-<p>Write <span class="math notranslate nohighlight">\(h = g^{w}\)</span>. Then <span class="math notranslate nohighlight">\(C = g^{v + wr}\)</span>, and for any other value
-<span class="math notranslate nohighlight">\(v'\)</span> the blinding <span class="math notranslate nohighlight">\(r' = r + (v - v')/w \bmod q\)</span> gives the same
-<span class="math notranslate nohighlight">\(C\)</span>. Every value is equally consistent with <span class="math notranslate nohighlight">\(C\)</span>, so hiding is
-perfect. Conversely, anyone who opens one commitment to two values
-<span class="math notranslate nohighlight">\((v, r) \ne (v', r')\)</span> has <span class="math notranslate nohighlight">\(v + wr = v' + wr'\)</span> and can solve for
-<span class="math notranslate nohighlight">\(w = \log_g h\)</span>. Binding is therefore only as strong as that discrete
-log, which is why <span class="math notranslate nohighlight">\(h\)</span> is derived by hashing, so that nobody knows
-<span class="math notranslate nohighlight">\(w\)</span>. The additive property lets anyone check that hidden inputs equal
-hidden outputs: the basis of confidential transactions in Monero and
-Mimblewimble.</p>
+<p>In words: a commitment is <span class="math notranslate nohighlight">\(g\)</span> to the value times <span class="math notranslate nohighlight">\(h\)</span> to the
+blinding. Multiplying two commitments gives a commitment to the sum of the
+values, because exponents add.</p>
+<p>Why it hides perfectly, and binds only computationally:</p>
+<ul class="simple">
+<li><p>Write <span class="math notranslate nohighlight">\(h = g^{w}\)</span>. Then <span class="math notranslate nohighlight">\(C = g^{v + wr}\)</span>.</p></li>
+<li><p>For any other value <span class="math notranslate nohighlight">\(v'\)</span>, the blinding
+<span class="math notranslate nohighlight">\(r' = r + (v - v')/w \bmod q\)</span> gives the same <span class="math notranslate nohighlight">\(C\)</span>. Every value is
+equally consistent with <span class="math notranslate nohighlight">\(C\)</span>, so hiding is perfect.</p></li>
+<li><p>Conversely, anyone who opens one commitment to two values
+<span class="math notranslate nohighlight">\((v, r) \ne (v', r')\)</span> has <span class="math notranslate nohighlight">\(v + wr = v' + wr'\)</span>. They can solve for
+<span class="math notranslate nohighlight">\(w = \log_g h\)</span>.</p></li>
+<li><p>So binding is only as strong as that discrete log. That is why <span class="math notranslate nohighlight">\(h\)</span> is
+derived by hashing, so that nobody knows <span class="math notranslate nohighlight">\(w\)</span>.</p></li>
+<li><p>The additive property lets anyone check that hidden inputs equal hidden
+outputs. This is the basis of <em>confidential transactions</em>, whose amounts
+stay hidden, in Monero and Mimblewimble.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.pedersen_commit" title="blockchainkit.crypto.systems.commitments.pedersen_commit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.pedersen_commit()</span></code></a>
 and <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.commitments.pedersen_generators" title="blockchainkit.crypto.systems.commitments.pedersen_generators"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.commitments.pedersen_generators()</span></code></a> work in
 the teaching group, so binding holds only while its small discrete logarithm
@@ -1036,18 +1488,31 @@ Verifiable Secret Sharing</em>, CRYPTO ‘91, LNCS 576, 129–140 (1992). <a cla
 <section id="hmac-keyed-hashing-done-right">
 <h2><a class="toc-backref" href="#id19" role="doc-backlink">1996 – HMAC: Keyed Hashing Done Right</a><a class="headerlink" href="#hmac-keyed-hashing-done-right" title="Link to this heading">#</a></h2>
 <p>To prove that a message came from someone holding a shared key, the key must
-be mixed into the hash in a way that leaves an attacker nothing to extend; the
-1989 entry shows that <span class="math notranslate nohighlight">\(H(k \,\|\, m)\)</span> fails this test. Bellare, Canetti
-and Krawczyk defined HMAC, which hashes twice with two keys derived from
-<span class="math notranslate nohighlight">\(k\)</span>, and proved it secure under assumptions about the compression
-function:</p>
+be mixed into the hash in a way that leaves an attacker nothing to extend.
+The 1989 entry shows that <span class="math notranslate nohighlight">\(H(k \,\|\, m)\)</span> fails this test.</p>
+<p>Bellare, Canetti and Krawczyk defined HMAC. It hashes twice, with two keys
+derived from <span class="math notranslate nohighlight">\(k\)</span>. They proved it secure under assumptions about the
+compression function. <em>ipad</em> and <em>opad</em> are two fixed byte patterns (<code class="docutils literal notranslate"><span class="pre">0x36</span></code>
+and <code class="docutils literal notranslate"><span class="pre">0x5c</span></code> repeated), XORed into the key after it is padded to one block.</p>
+<ol class="arabic simple">
+<li><p>Inner hash: compute <span class="math notranslate nohighlight">\(H((k \oplus ipad) \,\|\, m)\)</span>.</p></li>
+<li><p>Outer hash: compute <span class="math notranslate nohighlight">\(H((k \oplus opad) \,\|\, \text{inner digest})\)</span>.</p></li>
+<li><p>The outer digest is the tag.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\mathrm{HMAC}(k, m) = H\bigl((k \oplus opad) \,\|\, H((k \oplus ipad) \,\|\, m)\bigr).\]</div>
-<p>Length extension now fails. Resuming the outer hash from the tag only appends
-data after the inner digest. A tag for <span class="math notranslate nohighlight">\(m \,\|\, s\)</span> needs the inner
-digest of <span class="math notranslate nohighlight">\(m \,\|\, s\)</span>, which the attacker cannot compute without the
-key. HMAC became RFC 2104 in 1997 and is everywhere: TLS, key derivation
-(HKDF), and the deterministic nonces of RFC 6979.</p>
+<p>In words: hash the message with one version of the key, then hash that
+result with another version of the key.</p>
+<p>Why length extension now fails:</p>
+<ul class="simple">
+<li><p>Resuming the outer hash from the tag only appends data after the inner
+digest.</p></li>
+<li><p>A tag for <span class="math notranslate nohighlight">\(m \,\|\, s\)</span> needs the inner digest of
+<span class="math notranslate nohighlight">\(m \,\|\, s\)</span>, which the attacker cannot compute without the key.</p></li>
+</ul>
+<p>HMAC became RFC 2104 in 1997. (An RFC is an internet standards document.) It
+is everywhere: TLS (the protocol behind <code class="docutils literal notranslate"><span class="pre">https</span></code>), key derivation (HKDF), and
+the deterministic nonces of RFC 6979.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.mac.hmac_sha256" title="blockchainkit.crypto.systems.mac.hmac_sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.mac.hmac_sha256()</span></code></a>,
 contrasted with the broken <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.mac.naive_mac" title="blockchainkit.crypto.systems.mac.naive_mac"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.mac.naive_mac()</span></code></a>.</p>
 <p><em>References:</em> M. Bellare, R. Canetti, and H. Krawczyk, <em>Keying Hash Functions
@@ -1058,23 +1523,37 @@ for Message Authentication</em>, CRYPTO ‘96, LNCS 1109, 1–15 (1996). <a clas
 </div></div></section>
 <section id="sha-256-as-a-standardized-hash-primitive">
 <h2><a class="toc-backref" href="#id20" role="doc-backlink">2002 – SHA-256 as a Standardized Hash Primitive</a><a class="headerlink" href="#sha-256-as-a-standardized-hash-primitive" title="Link to this heading">#</a></h2>
-<p>Different programs must compute the same fingerprint for the same data, or a
-signature made by one cannot be checked by another. NIST’s FIPS 180-2
-specified SHA-256 alongside other secure hash algorithms, with test vectors
-that independent implementations can check themselves against. A good hash
-behaves like a random function, so related inputs must give unrelated
-outputs: changing one input bit should flip each of the 256 output bits
-independently with probability one half (the <em>avalanche</em> effect). The number
-of flipped bits is then binomial:</p>
+<p>Different programs must compute the same fingerprint for the same data.
+Otherwise a signature made by one cannot be checked by another. NIST, the US
+standards agency, specified SHA-256 in FIPS 180-2 alongside other secure hash
+algorithms. The standard includes <em>test vectors</em>, known input-output pairs
+that independent implementations can check themselves against.</p>
+<p>A good hash behaves like a random function, so related inputs must give
+unrelated outputs. Changing one input bit should flip each of the 256 output
+bits independently with probability one half. This is the <em>avalanche</em>
+effect. You can measure it:</p>
+<ol class="arabic simple">
+<li><p>Hash a message <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+<li><p>Flip one bit to get <span class="math notranslate nohighlight">\(m'\)</span>, and hash it.</p></li>
+<li><p>XOR the two digests and count the 1-bits (the <em>popcount</em>,
+<code class="docutils literal notranslate"><span class="pre">int.bit_count()</span></code>).</p></li>
+</ol>
+<p>The number of flipped bits is then binomial, like the number of heads in 256
+fair coin tosses:</p>
 <div class="math notranslate nohighlight">
 \[d = \mathrm{popcount}\bigl(H(m) \oplus H(m')\bigr)
 \sim \mathrm{Binomial}\bigl(256, \tfrac12\bigr), \qquad
 E[d] = 128, \quad \sigma_d = 8.\]</div>
-<p>If outputs clustered by input instead, an attacker could steer toward a
-target digest faster than the <span class="math notranslate nohighlight">\(2^{256}\)</span> (preimage) or <span class="math notranslate nohighlight">\(2^{128}\)</span>
-(collision, the 1979 entry) work that a random function forces. A digest is a
-compact fingerprint; it does not encrypt the input, and a guessable input can
-be found by hashing candidates.</p>
+<p>In words: on average 128 bits change, with a standard deviation of 8 bits.</p>
+<p>Why it matters, and what a hash is not:</p>
+<ul class="simple">
+<li><p>If outputs clustered by input instead, an attacker could steer toward a
+target digest. That would beat the <span class="math notranslate nohighlight">\(2^{256}\)</span> (preimage) or
+<span class="math notranslate nohighlight">\(2^{128}\)</span> (collision, the 1979 entry) work that a random function
+forces.</p></li>
+<li><p>A digest is a compact fingerprint. It does not encrypt the input.</p></li>
+<li><p>A guessable input can be found by hashing candidates.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.hashing.sha256" title="blockchainkit.crypto.systems.hashing.sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.hashing.sha256()</span></code></a> delegates
 to Python’s standard library;
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256" title="blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.merkle_damgard.merkle_damgard_sha256()</span></code></a> is a
@@ -1088,24 +1567,44 @@ historical context rather than as current standards guidance.</p>
 </div></div></section>
 <section id="nonce-reuse-in-practice-and-deterministic-nonces">
 <h2><a class="toc-backref" href="#id21" role="doc-backlink">2010-2013 – Nonce Reuse in Practice, and Deterministic Nonces</a><a class="headerlink" href="#nonce-reuse-in-practice-and-deterministic-nonces" title="Link to this heading">#</a></h2>
-<p>A signature hides the private key behind a fresh random nonce. With
-<span class="math notranslate nohighlight">\(s_i = k + c_i x\)</span>, two signatures that share <span class="math notranslate nohighlight">\(k\)</span> but sign
-different messages (so <span class="math notranslate nohighlight">\(c_1 \ne c_2\)</span>) are two linear equations in two
-unknowns. Subtracting them eliminates <span class="math notranslate nohighlight">\(k\)</span>:</p>
+<p>A signature hides the private key behind a fresh random nonce. If the nonce
+repeats, the key leaks. With <span class="math notranslate nohighlight">\(s_i = k + c_i x\)</span>, two signatures that
+share <span class="math notranslate nohighlight">\(k\)</span> but sign different messages (so <span class="math notranslate nohighlight">\(c_1 \ne c_2\)</span>) are two
+linear equations in two unknowns.</p>
+<ol class="arabic simple">
+<li><p>The attacker finds two signatures with the same <span class="math notranslate nohighlight">\(R\)</span>, which means the
+same <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p>The attacker recomputes both challenges <span class="math notranslate nohighlight">\(c_1, c_2\)</span> from the public
+data.</p></li>
+<li><p>Subtracting the equations eliminates <span class="math notranslate nohighlight">\(k\)</span>. Dividing by
+<span class="math notranslate nohighlight">\(c_1 - c_2\)</span> (multiplying by <code class="docutils literal notranslate"><span class="pre">pow(c1</span> <span class="pre">-</span> <span class="pre">c2,</span> <span class="pre">-1,</span> <span class="pre">n)</span></code>) gives <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[s_1 - s_2 = (c_1 - c_2)\,x
 \quad\Longrightarrow\quad
 x = \frac{s_1 - s_2}{c_1 - c_2} \bmod n.\]</div>
-<p>ECDSA’s equation is different, <span class="math notranslate nohighlight">\(s = k^{-1}(z + rx)\)</span>, but the same
-counting applies: a repeated nonce leaves two equations in <span class="math notranslate nohighlight">\(k\)</span> and
-<span class="math notranslate nohighlight">\(x\)</span>. In December 2010 the fail0verflow team showed that Sony’s
-PlayStation 3 signed software with a constant ECDSA nonce, and recovered
-Sony’s private key. Weak random number generators in Android wallets led to
-Bitcoin thefts in 2013. The fix was to stop needing randomness: Thomas
-Pornin’s RFC 6979 derives the nonce from an HMAC-based deterministic generator
-seeded with the private key and the message hash. Distinct messages get
-distinct nonces, so the equations above never arise, and the nonce is
-unpredictable without the key.</p>
+<p>In words: two answers to two challenges with the same nonce reveal the
+secret, just as in the 1985 soundness argument.</p>
+<p>It happened in practice:</p>
+<ul class="simple">
+<li><p>ECDSA, the elliptic-curve signature standard used by Bitcoin and Ethereum,
+has a different equation, <span class="math notranslate nohighlight">\(s = k^{-1}(z + rx)\)</span>. The same counting
+applies: a repeated nonce leaves two equations in <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>In December 2010 the fail0verflow team showed that Sony’s PlayStation 3
+signed software with a constant ECDSA nonce, and recovered Sony’s private
+key.</p></li>
+<li><p>Weak random number generators in Android wallets led to Bitcoin thefts in
+2013.</p></li>
+</ul>
+<p>The fix was to stop needing randomness. Thomas Pornin’s RFC 6979 derives the
+nonce from an HMAC-based deterministic generator. It is seeded with the
+private key and the message hash.</p>
+<ul class="simple">
+<li><p>Distinct messages get distinct nonces, so the equations above never arise.</p></li>
+<li><p>The nonce is unpredictable without the key.</p></li>
+<li><p>It does not stop <em>fault attacks</em>, which disturb the hardware (for example
+with a voltage glitch) so that it computes a wrong signature.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.recover_reused_nonce_key" title="blockchainkit.crypto.systems.signatures.recover_reused_nonce_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.recover_reused_nonce_key()</span></code></a>
 performs the extraction;
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.signatures.deterministic_nonce" title="blockchainkit.crypto.systems.signatures.deterministic_nonce"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.signatures.deterministic_nonce()</span></code></a> implements
@@ -1122,23 +1621,47 @@ Curve Digital Signature Algorithm (ECDSA)</em>, RFC 6979 (2013). <a class="refer
 </div></div></section>
 <section id="musig-schnorr-multi-signatures-and-the-rogue-key-attack">
 <h2><a class="toc-backref" href="#id22" role="doc-backlink">2018 – MuSig: Schnorr Multi-Signatures and the Rogue-Key Attack</a><a class="headerlink" href="#musig-schnorr-multi-signatures-and-the-rogue-key-attack" title="Link to this heading">#</a></h2>
-<p>Schnorr signatures are linear, so with a shared challenge <span class="math notranslate nohighlight">\(c\)</span>, partial
-signatures <span class="math notranslate nohighlight">\(s_i = k_i + c x_i\)</span> add up to one ordinary signature for the
-aggregate key <span class="math notranslate nohighlight">\(\sum Q_i\)</span> and nonce <span class="math notranslate nohighlight">\(\sum R_i\)</span>. Done naively, the
-last signer to announce a key can wait for the others and announce
-<span class="math notranslate nohighlight">\(Q_{\text{rogue}} = xG - Q_{\text{honest}}\)</span> for an <span class="math notranslate nohighlight">\(x\)</span> they know.
-They do not know the private key of <span class="math notranslate nohighlight">\(Q_{\text{rogue}}\)</span>, but they do not
-need it: the aggregate is <span class="math notranslate nohighlight">\(xG\)</span>, so they can sign alone. Maxwell,
-Poelstra, Seurin and Wuille’s MuSig weights every key by a hash of the whole
-key list <span class="math notranslate nohighlight">\(L\)</span>:</p>
+<p>A <em>multi-signature</em> is one signature, produced jointly by several key
+holders, that is valid for one combined public key. Schnorr signatures are
+linear, so this looks easy. With a shared challenge <span class="math notranslate nohighlight">\(c\)</span>, partial
+signatures <span class="math notranslate nohighlight">\(s_i = k_i + c x_i\)</span> add up to one ordinary signature. It is
+valid for the aggregate key <span class="math notranslate nohighlight">\(\sum Q_i\)</span> and nonce <span class="math notranslate nohighlight">\(\sum R_i\)</span>.</p>
+<p>Done naively, this allows a <em>rogue-key attack</em>:</p>
+<ol class="arabic simple">
+<li><p>The honest signer announces <span class="math notranslate nohighlight">\(Q_{\text{honest}}\)</span>.</p></li>
+<li><p>The last signer to announce a key waits for the others. They pick an
+<span class="math notranslate nohighlight">\(x\)</span> they know and announce
+<span class="math notranslate nohighlight">\(Q_{\text{rogue}} = xG - Q_{\text{honest}}\)</span>.</p></li>
+<li><p>The aggregate key is now
+<span class="math notranslate nohighlight">\(Q_{\text{honest}} + Q_{\text{rogue}} = xG\)</span>.</p></li>
+<li><p>The attacker does not know the private key of <span class="math notranslate nohighlight">\(Q_{\text{rogue}}\)</span>, but
+does not need it. They know <span class="math notranslate nohighlight">\(x\)</span>, so they can sign alone.</p></li>
+</ol>
+<p>Maxwell, Poelstra, Seurin and Wuille’s MuSig weights every key by a hash of
+the whole key list <span class="math notranslate nohighlight">\(L\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Every signer computes the weight <span class="math notranslate nohighlight">\(a_i = H(L, Q_i)\)</span> of each key.</p></li>
+<li><p>The aggregate key is <span class="math notranslate nohighlight">\(Q_{\text{agg}} = \sum_i a_i Q_i\)</span>.</p></li>
+<li><p>Each signer contributes a nonce point <span class="math notranslate nohighlight">\(R_i\)</span>, and the shared challenge
+<span class="math notranslate nohighlight">\(c\)</span> is computed from their sum, the aggregate key and the message.</p></li>
+<li><p>Each signer sends <span class="math notranslate nohighlight">\(k_i + c\, a_i x_i\)</span>. The sum <span class="math notranslate nohighlight">\(s\)</span> completes the
+signature.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[a_i = H(L, Q_i), \qquad Q_{\text{agg}} = \sum_i a_i Q_i, \qquad
 s = \sum_i (k_i + c\, a_i x_i).\]</div>
-<p>The cancellation needs a key chosen as a function of the others’ weighted
-keys, but the weights depend on the attacker’s own key through <span class="math notranslate nohighlight">\(L\)</span>.
-Changing the key changes every coefficient unpredictably, so the attacker is
-left guessing, as with any hash. Bitcoin’s Taproot upgrade (2021) made such
-aggregate spends indistinguishable from single-signer spends.</p>
+<p>In words: each key is scaled by a hash of the whole list before adding, and
+the partial signatures are scaled the same way.</p>
+<p>Why the attack fails:</p>
+<ul class="simple">
+<li><p>The cancellation needs a key chosen as a function of the others’ weighted
+keys.</p></li>
+<li><p>But the weights depend on the attacker’s own key through <span class="math notranslate nohighlight">\(L\)</span>.</p></li>
+<li><p>Changing the key changes every coefficient unpredictably, so the attacker
+is left guessing, as with any hash.</p></li>
+</ul>
+<p>Bitcoin’s Taproot upgrade (2021) made such aggregate spends indistinguishable
+from single-signer spends.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.multisig.musig_coefficients" title="blockchainkit.crypto.systems.multisig.musig_coefficients"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.multisig.musig_coefficients()</span></code></a>,
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.multisig.aggregate_public_keys" title="blockchainkit.crypto.systems.multisig.aggregate_public_keys"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.multisig.aggregate_public_keys()</span></code></a>, and
 <a class="reference internal" href="../api/crypto.html#blockchainkit.crypto.systems.multisig.musig_sign" title="blockchainkit.crypto.systems.multisig.musig_sign"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.crypto.systems.multisig.musig_sign()</span></code></a>. All signers run in

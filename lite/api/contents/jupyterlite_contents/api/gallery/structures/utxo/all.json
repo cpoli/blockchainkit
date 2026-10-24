@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.229048Z",
+      "created": "2026-10-24T08:04:53.425537Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.229048Z",
+      "last_modified": "2026-10-24T08:04:53.425537Z",
       "mimetype": null,
       "name": "plot_01_utxo.ipynb",
       "path": "jupyterlite_contents/api/gallery/structures/utxo/plot_01_utxo.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.615649Z",
+  "created": "2026-10-24T08:04:54.720583Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.615709Z",
+  "last_modified": "2026-10-24T08:04:54.720646Z",
   "mimetype": null,
   "name": "utxo",
   "path": "jupyterlite_contents/api/gallery/structures/utxo",

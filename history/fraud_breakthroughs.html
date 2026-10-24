@@ -10,10 +10,10 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://cpoli.github.io/blockchainkit/history/fraud_breakthroughs.html" />
 <meta property="og:site_name" content="blockchainkit" />
-<meta property="og:description" content="blockchainkit.fraud hub · History · Examples · API reference “Trust, but verify.” – Russian proverb, as quoted by Ronald Reagan, 1987 Most of the money lost in cryptocurrencies is lost to fraud, no..." />
+<meta property="og:description" content="blockchainkit.fraud hub · History · Examples · API reference “Trust, but verify.” – Russian proverb, as quoted by Ronald Reagan, 1987 A cryptocurrency is digital money. Its record of who owns what ..." />
 <meta property="og:image" content="https://cpoli.github.io/blockchainkit/_static/images/blockchainkit_logo.png" />
 <meta property="og:image:alt" content="blockchainkit" />
-<meta name="description" content="blockchainkit.fraud hub · History · Examples · API reference “Trust, but verify.” – Russian proverb, as quoted by Ronald Reagan, 1987 Most of the money lost in cryptocurrencies is lost to fraud, no..." />
+<meta name="description" content="blockchainkit.fraud hub · History · Examples · API reference “Trust, but verify.” – Russian proverb, as quoted by Ronald Reagan, 1987 A cryptocurrency is digital money. Its record of who owns what ..." />
 
     <title>Breakthroughs in Blockchain Fraud &#8212; blockchainkit</title>
   
@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -443,25 +465,70 @@
 <div><p>“Trust, but verify.”
 – Russian proverb, as quoted by Ronald Reagan, 1987</p>
 </div></blockquote>
-<p>Most of the money lost in cryptocurrencies is lost to fraud, not to broken
-cryptography or consensus: Ponzi schemes, pump-and-dumps, rug pulls,
-phishing, and custodians that lose or lend their customers’ coins. The
-schemes are old; the blockchain changes how they run and what evidence they
-leave. A public ledger makes fraud measurable, and some honesty provable:
-an exchange can prove what it holds and what it owes. This chronology
-follows both sides, from Ponzi’s scheme and Benford’s law to proofs of
-solvency, the contracts whose source deceives the reader who checks it, and
-the manipulation and phishing of the last few years.</p>
+<p>A <em>cryptocurrency</em> is digital money. Its record of who owns what is kept on a
+<em>blockchain</em>: a shared record, like a Python list of blocks of transactions.
+Many computers keep copies of it in step, and nobody can quietly edit an old
+entry. The rules by which those computers agree on one copy are called
+<em>consensus</em>. <em>Cryptography</em> is the mathematics of keeping and checking
+secrets.</p>
+<p>Most of the money lost in cryptocurrencies is lost to fraud. Little of it is
+lost to broken cryptography or broken consensus. The usual culprits are:</p>
+<ul class="simple">
+<li><p><strong>Ponzi schemes</strong>, which pay old investors with new investors’ money;</p></li>
+<li><p><strong>pump-and-dumps</strong>, which push a price up and sell into the rush;</p></li>
+<li><p><strong>rug pulls</strong>, where the creators of a coin run off with the buyers’ money;</p></li>
+<li><p><strong>phishing</strong>, which tricks a victim into handing over control;</p></li>
+<li><p><strong>custodians</strong> that lose or lend their customers’ coins. A custodian is
+anyone who holds coins for someone else. The commonest is an <em>exchange</em>: a
+company that holds customers’ coins and lets them trade, as a bank holds
+deposits.</p></li>
+</ul>
+<p>The schemes are old. The blockchain changes how they run and what evidence
+they leave. Anyone can read the blockchain’s <em>ledger</em>, its list of every
+transaction ever made. So fraud on it can be measured. Some honesty can even
+be proved: an exchange can prove what it holds and what it owes. This
+chronology follows both sides. It runs from Ponzi’s scheme and Benford’s law
+to <em>proofs of solvency</em> (proofs that an exchange holds at least what it
+owes), to contracts whose source code deceives the reader who checks it, and
+to the manipulation and phishing of the last few years.</p>
+<p>A few terms recur on every page:</p>
+<ul class="simple">
+<li><p>A <em>key pair</em> is a secret number, the <em>private key</em>, and a public number
+computed from it, the <em>public key</em>. The owner proves a payment is theirs
+with a <em>digital signature</em>: a value that only the private key could
+produce, but that anyone can check with the public key. An <em>address</em> is a
+short public name for a key, like an account number.</p></li>
+<li><p>A <em>hash function</em> is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code>, but built so that nobody can
+find two inputs with the same output, or an input with a chosen output.
+SHA-256 is the standard one; its output is 256 bits. The best known way to
+find two inputs with the same SHA-256 output takes about <span class="math notranslate nohighlight">\(2^{128}\)</span>
+tries. That is far more than every computer on Earth could do in the age of
+the universe.</p></li>
+<li><p>A <em>smart contract</em> (or just <em>contract</em>) is a program stored on a blockchain
+at its own address. Anyone can call its functions by sending a
+transaction. It keeps its own <em>storage</em>, like an object’s attributes, and
+its own coins. <em>Ethereum</em> is the main blockchain for contracts, and <em>ether</em>
+is its currency. <em>Solidity</em> is the language most contracts are written in.</p></li>
+<li><p>A <em>token</em> is a currency built on top of a blockchain by a contract. At
+heart it is a dict from address to balance, with functions to move
+balances. <em>ERC-20</em> is Ethereum’s standard interface for tokens.</p></li>
+</ul>
 <p>Several neighbours live elsewhere: the GovernMental Ponzi game and ERC-20’s
 approve race are in <a class="reference internal" href="contracts_breakthroughs.html"><span class="doc">Breakthroughs in Smart Contracts</span></a>, transaction
 malleability itself in <a class="reference internal" href="structures_breakthroughs.html"><span class="doc">Breakthroughs in Authenticated Data Structures</span></a>, and flash loans,
-oracle manipulation and front-running in <a class="reference internal" href="economics_breakthroughs.html"><span class="doc">Breakthroughs in Blockchain Economics</span></a>.</p>
-<p>The models in <a class="reference internal" href="../api/fraud.html#module-blockchainkit.fraud" title="blockchainkit.fraud"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.fraud</span></code></a> are pure functions, small seeded
-simulations, and contracts on
-<a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a>. Solidity appears only
-as what a victim reads: each scam contract’s example shows the source, then
-reproduces its behavior in Python. <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists where the models
-depart from deployed systems.</p>
+oracle manipulation and front-running in <a class="reference internal" href="economics_breakthroughs.html"><span class="doc">Breakthroughs in Blockchain Economics</span></a>.
+Those pages explain their own terms.</p>
+<p>The models in <a class="reference internal" href="../api/fraud.html#module-blockchainkit.fraud" title="blockchainkit.fraud"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.fraud</span></code></a> come in three kinds:</p>
+<ul class="simple">
+<li><p><em>pure functions</em>, whose output depends only on their input;</p></li>
+<li><p>small <em>seeded simulations</em>, random but reproducible, as after
+<code class="docutils literal notranslate"><span class="pre">random.seed(0)</span></code>;</p></li>
+<li><p>contracts on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a>, a
+Python model of Ethereum.</p></li>
+</ul>
+<p>Solidity appears only as what a victim reads. Each scam contract’s example
+shows the source, then reproduces its behavior in Python. <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a>
+lists where the models depart from deployed systems.</p>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
 <ul class="simple">
@@ -486,23 +553,37 @@ depart from deployed systems.</p>
 </nav>
 <section id="ponzi-s-scheme-paying-old-investors-with-new-money">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1920 – Ponzi’s Scheme: Paying Old Investors with New Money</a><a class="headerlink" href="#ponzi-s-scheme-paying-old-investors-with-new-money" title="Link to this heading">#</a></h2>
-<p>Charles Ponzi promised Boston investors a 50% return in 45 days, supposedly
-from buying international reply coupons cheaply abroad and redeeming them
-in the United States. He bought almost none: every payout came from later
-deposits. Such a scheme meets its promises only while new money grows fast
-enough. A deposit <span class="math notranslate nohighlight">\(D\)</span> made <span class="math notranslate nohighlight">\(\tau\)</span> periods ago is owed
-<span class="math notranslate nohighlight">\((1 + r)D\)</span> today, and must be paid from today’s deposits, of which
-the operator keeps a fraction <span class="math notranslate nohighlight">\(s\)</span>. If deposits grow by <span class="math notranslate nohighlight">\(g\)</span> per
-period, today’s are <span class="math notranslate nohighlight">\((1 + g)^\tau D\)</span>, so the scheme keeps up exactly
-when</p>
+<p>Charles Ponzi promised Boston investors a 50% return in 45 days. The profit
+was supposed to come from international reply coupons: vouchers bought in
+one country and swapped for postage stamps in another. They were cheaper
+abroad, so he claimed to buy them there and redeem them in the United
+States. He bought almost none. Every payout came from later deposits.</p>
+<p>Such a scheme keeps its promises only while new money grows fast enough. It
+is like paying off one credit card with another: it works until the next card
+is not big enough.</p>
+<ol class="arabic simple">
+<li><p>An investor deposits <span class="math notranslate nohighlight">\(D\)</span>.</p></li>
+<li><p>After <span class="math notranslate nohighlight">\(\tau\)</span> periods the investor is owed <span class="math notranslate nohighlight">\((1 + r)D\)</span>.</p></li>
+<li><p>The operator pays this from the deposits arriving that period. It first
+keeps a fraction <span class="math notranslate nohighlight">\(s\)</span> of them for itself.</p></li>
+<li><p>Deposits grow by a fraction <span class="math notranslate nohighlight">\(g\)</span> per period. So today’s deposits are
+<span class="math notranslate nohighlight">\((1 + g)^\tau D\)</span>.</p></li>
+</ol>
+<p>The scheme keeps up exactly when</p>
 <div class="math notranslate nohighlight">
 \[(1 - s)(1 + g)^\tau \ge 1 + r .\]</div>
-<p>On Ponzi’s terms, with one 45-day period and nothing kept, deposits must
-grow by half every 45 days, and no pool of investors grows like that for
-long. Once growth falls below that rate, each payout is larger than the
-deposits that fund it, the cash runs out, and the latest investors lose
-what they paid in. Ponzi collapsed
-within eight months, in August 1920.</p>
+<p>In words: what is left of today’s deposits, after the operator’s cut, must
+cover what is owed on the old deposit.</p>
+<ul class="simple">
+<li><p><strong>Ponzi’s own terms</strong> were one 45-day period, <span class="math notranslate nohighlight">\(r = 0.5\)</span>, and nothing
+kept. So deposits had to grow by half every 45 days. Over a year, about
+eight periods, that is <span class="math notranslate nohighlight">\(1.5^8 \approx 26\)</span> times as much new money. No
+pool of investors grows like that for long.</p></li>
+<li><p><strong>Once growth falls below that rate</strong>, each payout is larger than the
+deposits that fund it. The cash runs out. The latest investors lose what
+they paid in.</p></li>
+<li><p>Ponzi collapsed within eight months, in August 1920.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.ponzi.simulate_ponzi" title="blockchainkit.fraud.systems.ponzi.simulate_ponzi"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.ponzi.simulate_ponzi()</span></code></a>
 and <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.ponzi.breakeven_growth" title="blockchainkit.fraud.systems.ponzi.breakeven_growth"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.ponzi.breakeven_growth()</span></code></a>. Every
 deposit is repaid once, after a fixed term, and nobody reinvests; Ponzi’s
@@ -516,24 +597,45 @@ schemes</em>, Mathematical Social Sciences 58(2), 190–201 (2009).</p>
 </div></div></section>
 <section id="benford-s-law-detecting-fabricated-figures">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1938 – Benford’s Law: Detecting Fabricated Figures</a><a class="headerlink" href="#benford-s-law-detecting-fabricated-figures" title="Link to this heading">#</a></h2>
-<p>Simon Newcomb noticed in 1881 that the first pages of books of logarithms
-were dirtier than the last. Frank Benford tested the observation on 20,229
-numbers, from river areas to street addresses, and found the same law: in
-data spread over several orders of magnitude, the leading digit is
-<span class="math notranslate nohighlight">\(d\)</span> with probability</p>
+<p>An auditor wants to spot invented figures without checking every one.</p>
+<p>Before calculators, people multiplied using printed books of logarithms.
+Simon Newcomb noticed in 1881 that the first pages of these books were
+dirtier than the last. People looked up numbers starting with 1 more often
+than numbers starting with 9. Frank Benford tested the observation on 20,229
+numbers, from river areas to street addresses, and found the same law. Take
+data spread over several <em>orders of magnitude</em> (powers of ten, say from 10
+to 100,000). Then the leading digit is <span class="math notranslate nohighlight">\(d\)</span> with probability</p>
 <div class="math notranslate nohighlight">
 \[P(d) = \log_{10}\left(1 + \frac{1}{d}\right),\]</div>
-<p>30.1% for 1 and 4.6% for 9. The reason is logarithmic: a number has
-leading digit <span class="math notranslate nohighlight">\(d\)</span> exactly when the fractional part of its base-10
-logarithm lies between <span class="math notranslate nohighlight">\(\log_{10} d\)</span> and <span class="math notranslate nohighlight">\(\log_{10}(d + 1)\)</span>, an
-interval of length <span class="math notranslate nohighlight">\(P(d)\)</span>. If that fractional part is spread evenly,
-as it is for data covering several orders of magnitude, each digit occurs
-in proportion to its interval. Products of many random factors, such as
-payments and prices, have logarithms that are sums of many terms and so
-spread widely. People inventing numbers instead spread the first digit far
-more evenly. That difference is why auditors, following Nigrini, test
-reported figures against the law, and why it has been used to question the
-volumes cryptocurrency exchanges report.</p>
+<p>That is 30.1% for 1 and only 4.6% for 9. The reason is logarithmic:</p>
+<ol class="arabic simple">
+<li><p>Write a positive number as <span class="math notranslate nohighlight">\(x = 10^{n + f}\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is a
+whole number and <span class="math notranslate nohighlight">\(f\)</span>, between 0 and 1, is the fractional part of
+<span class="math notranslate nohighlight">\(\log_{10} x\)</span> (<code class="docutils literal notranslate"><span class="pre">math.log10(x)</span> <span class="pre">%</span> <span class="pre">1</span></code>).</p></li>
+<li><p>The leading digit of <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(d\)</span> exactly when <span class="math notranslate nohighlight">\(f\)</span> lies
+between <span class="math notranslate nohighlight">\(\log_{10} d\)</span> and <span class="math notranslate nohighlight">\(\log_{10}(d + 1)\)</span>.</p></li>
+<li><p>That interval has length <span class="math notranslate nohighlight">\(P(d)\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is spread evenly between 0 and 1, each digit occurs in
+proportion to its interval.</p></li>
+</ol>
+<p>When does that hold, and when does it fail?</p>
+<ul class="simple">
+<li><p><strong>Data covering several orders of magnitude</strong> has an evenly spread
+<span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+<li><p><strong>Products of many random factors</strong>, such as payments and prices, spread
+widely too. The logarithm of a product is a sum of many terms, and sums of
+many random terms spread out.</p></li>
+<li><p><strong>People inventing numbers</strong> spread the first digit far more evenly.</p></li>
+</ul>
+<p>That difference is why auditors, following Mark Nigrini, test reported
+figures against the law. It has been used to question the trading volumes
+that cryptocurrency exchanges report. A test measures how far the observed
+digit counts are from the law. <em>Pearson’s chi-square statistic</em> adds up
+<span class="math notranslate nohighlight">\((\text{observed} - \text{expected})^2 / \text{expected}\)</span> over the nine
+digits. Its <em>p-value</em> is the probability that honest data would give a value
+at least that large by chance. A small p-value is evidence against the data.
+Nigrini’s <em>mean absolute deviation</em> is the average gap
+<code class="docutils literal notranslate"><span class="pre">abs(observed_share</span> <span class="pre">-</span> <span class="pre">expected_share)</span></code> over the digits.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.benford.benford_test" title="blockchainkit.fraud.systems.benford.benford_test"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.benford.benford_test()</span></code></a>,
 which returns Pearson’s chi-square statistic with its exact p-value
 (<a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.benford.chi_square_survival" title="blockchainkit.fraud.systems.benford.chi_square_survival"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.benford.chi_square_survival()</span></code></a>) and
@@ -552,25 +654,50 @@ Wiley (2012).</p>
 </div></div></section>
 <section id="maxwell-s-merkle-sum-tree-proof-of-reserves">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">2013 – Maxwell’s Merkle-Sum-Tree Proof of Reserves</a><a class="headerlink" href="#maxwell-s-merkle-sum-tree-proof-of-reserves" title="Link to this heading">#</a></h2>
-<p>An exchange can prove that it holds coins by moving them or signing with
-their keys, but holdings mean nothing without the debts they must cover.
-Gregory Maxwell proposed that the exchange also prove its liabilities, by
-publishing the root of a Merkle tree over its customer balances in which
-every node carries the sum of the balances below it, and every hash covers
-both children’s sums:</p>
+<p>An exchange can prove that it holds coins. It moves them, or signs a message
+with their keys. That is a <em>proof of reserves</em>. But holdings mean nothing
+without the debts they must cover: the <em>liabilities</em>, what the exchange owes
+its customers.</p>
+<p>Gregory Maxwell proposed that the exchange also prove its liabilities. The
+tool is a <em>Merkle tree</em>: a tree of hashes. Each leaf is the hash of one
+record, each parent is the hash of its two children, and the top hash, the
+<em>root</em>, depends on every leaf. Change any leaf and the root changes. It works
+like a checksum of a whole list that can also prove one item is in it.
+Maxwell’s version is a <em>Merkle sum tree</em>: every node also carries the sum of
+the balances below it.</p>
+<ol class="arabic simple">
+<li><p>The exchange puts each customer’s balance in a leaf.</p></li>
+<li><p>It builds each parent from its children’s hashes <span class="math notranslate nohighlight">\(h_L, h_R\)</span> and
+sums <span class="math notranslate nohighlight">\(s_L, s_R\)</span>, as below. The symbol <span class="math notranslate nohighlight">\(\|\)</span> joins byte strings,
+like <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> on <code class="docutils literal notranslate"><span class="pre">bytes</span></code>.</p></li>
+<li><p>It publishes the root: a hash and a sum. The sum is the declared total
+liabilities.</p></li>
+<li><p>The public compares that total with the reserves.</p></li>
+<li><p>Each customer asks for a proof that its balance is counted. The proof is
+the sibling hashes and sums on the path from its leaf to the root. There
+are about <span class="math notranslate nohighlight">\(\log_2 n\)</span> of them for <span class="math notranslate nohighlight">\(n\)</span> customers: 20 for a
+million.</p></li>
+<li><p>The customer recomputes the path and checks that it reaches the published
+root.</p></li>
+</ol>
+<p>Each node is</p>
 <div class="math notranslate nohighlight">
 \[\text{node} = \big(H(s_L \,\|\, s_R \,\|\, h_L \,\|\, h_R),\; s_L + s_R\big).\]</div>
-<p>Because the sums are hashed, the root fixes every sum in the tree, and the
-exchange cannot show different customers different totals. The root’s sum
-is the declared total liabilities, which the public compares with the
-reserves; each customer checks a proof of logarithmic size, the sibling
-hashes and sums on its path, that its balance is counted. The exchange can
-lower the declared total in only two ways. It can leave customers out, but
-those left out can notice: if each checks independently with probability
-<span class="math notranslate nohighlight">\(f\)</span>, cheating <span class="math notranslate nohighlight">\(k\)</span> of them goes unnoticed with probability
-<span class="math notranslate nohighlight">\((1 - f)^k\)</span>. Or it can add a fake account with a negative balance to
-cancel real ones; customers reject any negative sibling sum on their path,
-so such an account is caught by those whose proofs include it.</p>
+<p>In words: a node’s hash covers both children’s sums and hashes, and its sum
+is their total.</p>
+<ul class="simple">
+<li><p><strong>Because the sums are hashed</strong>, the root fixes every sum in the tree. The
+exchange cannot show different customers different totals.</p></li>
+<li><p><strong>Leaving customers out</strong> lowers the declared total. But those left out can
+notice. Suppose each customer checks independently with probability
+<span class="math notranslate nohighlight">\(f\)</span>. Then cheating <span class="math notranslate nohighlight">\(k\)</span> of them goes unnoticed with probability
+<span class="math notranslate nohighlight">\((1 - f)^k\)</span>. With <span class="math notranslate nohighlight">\(f = 0.05\)</span> and <span class="math notranslate nohighlight">\(k = 100\)</span> that is about
+0.006.</p></li>
+<li><p><strong>Adding a fake account with a negative balance</strong> would cancel real ones.
+But customers reject any negative sibling sum on their path. So such an
+account is caught by those whose proofs include it.</p></li>
+<li><p>These are the only two ways to lower the declared total.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.utils.merkle_sum.MerkleSumTree" title="blockchainkit.fraud.utils.merkle_sum.MerkleSumTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.utils.merkle_sum.MerkleSumTree</span></code></a>,
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.utils.merkle_sum.verify_sum_proof" title="blockchainkit.fraud.utils.merkle_sum.verify_sum_proof"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.utils.merkle_sum.verify_sum_proof()</span></code></a>,
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.reserves.liability_tree" title="blockchainkit.fraud.systems.reserves.liability_tree"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.reserves.liability_tree()</span></code></a>,
@@ -588,21 +715,45 @@ reserves side, signing with the exchange’s keys, is not modelled.</p>
 <section id="the-mt-gox-collapse-and-the-malleability-excuse">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">2014 – The Mt. Gox Collapse and the Malleability Excuse</a><a class="headerlink" href="#the-mt-gox-collapse-and-the-malleability-excuse" title="Link to this heading">#</a></h2>
 <p>On 7 February 2014 Mt. Gox, the largest bitcoin exchange, halted
-withdrawals and blamed transaction malleability: an attacker could alter a
-withdrawal’s signature in flight, so that it confirmed under a different
-txid; the exchange, which looked for its withdrawals by txid, would believe
-them failed and pay again. Within three weeks it filed for bankruptcy,
-about 850,000 bitcoins short. An exchange losing to malleability loses
-exactly the withdrawals it re-sends, those whose original txid never
-appears on the chain:</p>
+withdrawals. It blamed <em>transaction malleability</em>. Each bitcoin transaction
+is named by its <em>txid</em>, a hash of the whole transaction, signature included.
+Anyone could re-encode a transaction’s signature in a different but still
+valid form, without the private key. That changes the bytes, so it changes
+the txid. But the payment is the same.</p>
+<p>The claimed attack went like this:</p>
+<ol class="arabic simple">
+<li><p>The exchange signs a withdrawal <span class="math notranslate nohighlight">\(w\)</span>, <em>broadcasts</em> it (sends it to
+the network), and records <span class="math notranslate nohighlight">\(\mathrm{txid}(w)\)</span>.</p></li>
+<li><p>An attacker sees it in flight, alters the signature’s encoding, and
+broadcasts the copy.</p></li>
+<li><p>Miners <em>confirm</em> the copy, that is, put it in a block on the chain. The
+coins arrive. The original is now invalid, since it spends the same coins.</p></li>
+<li><p>The exchange looks for <span class="math notranslate nohighlight">\(\mathrm{txid}(w)\)</span>, does not find it, and
+believes the withdrawal failed.</p></li>
+<li><p>The exchange pays again.</p></li>
+</ol>
+<p>Within three weeks it filed for bankruptcy, about 850,000 bitcoins short. An
+exchange losing to malleability loses exactly the withdrawals it re-sends:
+those whose original txid never appears on the chain.</p>
 <div class="math notranslate nohighlight">
 \[\text{loss} = \sum_{w \,:\, \mathrm{txid}(w) \notin \text{chain}} a_w .\]</div>
-<p>Each such loss therefore requires a malleated copy of the withdrawal to
-have been broadcast and confirmed, and broadcasts are public. Decker and
-Wattenhofer had been recording the network’s transactions and counted the
-malleated ones: before the announcement, they could account for at most 386
-bitcoins, a tiny fraction of the shortfall. The coins had been leaving for
-years; the excuse covered a long insolvency.</p>
+<p>In words: add up the amounts <span class="math notranslate nohighlight">\(a_w\)</span> of every withdrawal whose original
+txid is missing from the chain.</p>
+<p>The excuse failed on the evidence:</p>
+<ul class="simple">
+<li><p><strong>Each such loss leaves a trace.</strong> A malleated copy of the withdrawal must
+have been broadcast and confirmed, and broadcasts are public.</p></li>
+<li><p><strong>Someone was watching.</strong> Decker and Wattenhofer had been recording the
+network’s transactions and counted the malleated ones. Before the
+announcement they could account for at most 386 bitcoins. That is under
+0.05% of the shortfall.</p></li>
+<li><p><strong>The coins had been leaving for years.</strong> The excuse covered a long
+<em>insolvency</em>: owing more than it held.</p></li>
+</ul>
+<p>The lasting fix was <em>segregated witness</em> (SegWit), activated in 2017. It
+computes a transaction’s txid without its signature, so altering the
+signature no longer changes it.
+This package signs with <em>Schnorr signatures</em>, a different signature scheme.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.custody.reissue_missing" title="blockchainkit.fraud.systems.custody.reissue_missing"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.custody.reissue_missing()</span></code></a>
 on <a class="reference internal" href="../api/structures.html#blockchainkit.structures.systems.transaction.Transaction" title="blockchainkit.structures.systems.transaction.Transaction"><code class="xref py py-class docutils literal notranslate"><span class="pre">Transaction</span></code></a>.
 Bitcoin’s malleation re-encoded a signature without its key; here a
@@ -618,26 +769,67 @@ malleability and MtGox</em>, ESORICS 2014, LNCS 8713, 313–326.
 </div></div></section>
 <section id="provisions-privacy-preserving-proofs-of-solvency">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">2015 – Provisions: Privacy-Preserving Proofs of Solvency</a><a class="headerlink" href="#provisions-privacy-preserving-proofs-of-solvency" title="Link to this heading">#</a></h2>
-<p>Maxwell’s proof reveals the total liabilities, and a proof of reserves
-reveals which addresses the exchange owns; few exchanges were willing to
-publish either. Dagher, Bünz, Bonneau, Clark and Boneh hid both behind
-Pedersen commitments <span class="math notranslate nohighlight">\(C(v, r) = g^v h^r\)</span>, which hide <span class="math notranslate nohighlight">\(v\)</span> behind
-the random <span class="math notranslate nohighlight">\(r\)</span> and multiply into a commitment to the sum. For every
-address <span class="math notranslate nohighlight">\(i\)</span> of a large public set, with public balance <span class="math notranslate nohighlight">\(b_i\)</span>,
-the exchange commits to <span class="math notranslate nohighlight">\(s_i b_i\)</span>, where <span class="math notranslate nohighlight">\(s_i\)</span> is 1 if it owns
-the address and 0 if not, so the set hides which addresses are its own. It
-also commits to every customer balance <span class="math notranslate nohighlight">\(\ell_j\)</span>, and the quotient</p>
+<p>Maxwell’s proof reveals the total liabilities. A proof of reserves reveals
+which addresses the exchange owns. Few exchanges were willing to publish
+either.</p>
+<p>Dagher, Bünz, Bonneau, Clark and Boneh hid both behind <em>commitments</em>. A
+commitment is like a sealed envelope. You fix a value now and keep it hidden.
+Later you cannot change it. They used <em>Pedersen commitments</em>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(C(v, r) = g^v h^r \bmod p\)</span>, in Python
+<code class="docutils literal notranslate"><span class="pre">pow(g,</span> <span class="pre">v,</span> <span class="pre">p)</span> <span class="pre">*</span> <span class="pre">pow(h,</span> <span class="pre">r,</span> <span class="pre">p)</span> <span class="pre">%</span> <span class="pre">p</span></code>. Here <span class="math notranslate nohighlight">\(p\)</span> is a large prime, and
+<span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> are fixed public numbers.</p></li>
+<li><p>The random <span class="math notranslate nohighlight">\(r\)</span>, the <em>blinding factor</em>, hides <span class="math notranslate nohighlight">\(v\)</span>. Every value
+is equally consistent with what you see.</p></li>
+<li><p>Nobody knows the power <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(h = g^x\)</span>. Finding it is the
+<em>discrete logarithm problem</em>. That is what stops the committer from
+opening <span class="math notranslate nohighlight">\(C\)</span> to a different value.</p></li>
+<li><p><strong>Multiplying commitments adds the hidden values:</strong>
+<span class="math notranslate nohighlight">\(C(a, r)\,C(b, t) = C(a + b, r + t)\)</span>. Dividing subtracts them. The
+values add <em>modulo</em> a large number <span class="math notranslate nohighlight">\(q\)</span>, so a negative result wraps
+around to a huge positive one.</p></li>
+</ul>
+<p>They also used <em>zero-knowledge proofs</em>. Such a proof convinces a checker that
+a statement is true, and reveals nothing beyond that.</p>
+<ol class="arabic simple">
+<li><p>The public sees a large set of addresses. Address <span class="math notranslate nohighlight">\(i\)</span> has public
+balance <span class="math notranslate nohighlight">\(b_i\)</span>, which anyone can read on the chain.</p></li>
+<li><p>For each address the exchange commits to <span class="math notranslate nohighlight">\(s_i b_i\)</span>. Here
+<span class="math notranslate nohighlight">\(s_i\)</span> is 1 if it owns the address and 0 if not. So the set hides
+which addresses are its own.</p></li>
+<li><p>It commits to every customer balance <span class="math notranslate nohighlight">\(\ell_j\)</span>, with blinding factor
+<span class="math notranslate nohighlight">\(t_j\)</span>. It sends each customer that blinding factor privately.</p></li>
+<li><p>Each customer opens its own commitment and checks its balance.</p></li>
+<li><p>Anyone multiplies the asset commitments and divides by the liability
+commitments.</p></li>
+<li><p>The exchange attaches zero-knowledge proofs (below) that close the
+remaining gaps.</p></li>
+</ol>
+<p>Step 5 gives</p>
 <div class="math notranslate nohighlight">
 \[\frac{\prod_i C(s_i b_i, r_i)}{\prod_j C(\ell_j, t_j)}
 = C\Big(\sum_i s_i b_i - \sum_j \ell_j,\; \sum_i r_i - \sum_j t_j\Big)\]</div>
-<p>commits to its surplus, reserves minus liabilities. Commitments alone
-would let the exchange cheat, so zero-knowledge proofs close each gap: each
-asset commitment holds 0 or the public balance, so assets cannot be
-inflated; and every liability and the surplus lie in a range
-<span class="math notranslate nohighlight">\([0, 2^n)\)</span>, so no fake negative balance cancels real ones and the
-surplus is not negative. A range proof commits to each bit and proves it
-is 0 or 1. Customers check their own commitment with a blinding factor
-sent to them privately. Nothing else is revealed.</p>
+<p>In words: the product of the asset commitments, divided by the product of
+the liability commitments, is a commitment to the <em>surplus</em>, reserves minus
+liabilities.</p>
+<p>Commitments alone would let the exchange cheat. The zero-knowledge proofs
+close each gap:</p>
+<ul class="simple">
+<li><p><strong>Each asset commitment holds 0 or the public balance.</strong> An <em>OR proof</em>
+shows “this holds 0, or this holds <span class="math notranslate nohighlight">\(b_i\)</span>” without saying which. So
+assets cannot be inflated.</p></li>
+<li><p><strong>Every liability and the surplus lie in a range</strong> <span class="math notranslate nohighlight">\([0, 2^n)\)</span>. So no
+fake negative balance cancels real ones, and the surplus is not negative
+(a negative one would wrap around to a huge number, outside the range).</p></li>
+<li><p><strong>A range proof</strong> commits to each bit of the number and proves each bit is
+0 or 1. The bit commitments combine into a commitment to the number, as
+<code class="docutils literal notranslate"><span class="pre">sum(bit</span> <span class="pre">&lt;&lt;</span> <span class="pre">k</span> <span class="pre">for</span> <span class="pre">k,</span> <span class="pre">bit</span> <span class="pre">in</span> <span class="pre">enumerate(bits))</span></code> rebuilds an int.</p></li>
+<li><p>Nothing else is revealed.</p></li>
+</ul>
+<p>The binding rests on the discrete logarithm being hard to find. In the
+62-bit group used here, a search with a lookup table (baby-step giant-step)
+takes about <span class="math notranslate nohighlight">\(2^{31}\)</span> steps, within reach of one computer. Real systems
+use groups where the best known attack takes about <span class="math notranslate nohighlight">\(2^{128}\)</span> steps.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.provisions.SolvencyProver" title="blockchainkit.fraud.systems.provisions.SolvencyProver"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.provisions.SolvencyProver</span></code></a>
 and <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.provisions.verify_solvency" title="blockchainkit.fraud.systems.provisions.verify_solvency"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.provisions.verify_solvency()</span></code></a>, with
 Cramer-Damgård-Schoenmakers OR proofs
@@ -658,21 +850,46 @@ and simplified design of witness hiding protocols</em>, CRYPTO 1994, LNCS 839,
 </div></div></section>
 <section id="verified-source-code-and-why-a-verified-source-can-still-deceive">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">2016 – Verified Source Code, and Why a Verified Source Can Still Deceive</a><a class="headerlink" href="#verified-source-code-and-why-a-verified-source-can-still-deceive" title="Link to this heading">#</a></h2>
-<p>Contracts are deployed as bytecode. Block explorers let authors publish the
-source and <em>verify</em> it by recompiling it and comparing the result with the
-code at the address; Solidity’s metadata hash, added in version 0.4.7 in
-December 2016, pins the compiler and settings so that the match is exact.
-Users came to read the “verified” badge as “safe”. It certifies only which
-code sits at one address. A proxy’s verified source shows that every call
-is forwarded, by <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code>, to an implementation address held in
-storage, which its admin may change at any time, so the behavior that runs
-is</p>
+<p>Contracts are deployed as <em>bytecode</em>: low-level instructions for Ethereum’s
+virtual machine, the <em>EVM</em>, much as Python compiles source to <code class="docutils literal notranslate"><span class="pre">.pyc</span></code>
+files. Nobody can read bytecode easily. <em>Block explorers</em>, websites that
+display the blockchain, let authors publish the source and <em>verify</em> it. The
+explorer recompiles the source and compares the result with the code at the
+address. Solidity’s <em>metadata hash</em>, added in version 0.4.7 in December
+2016, records the compiler version and settings so that the match is exact.</p>
+<p>Users came to read the “verified” badge as “safe”. It certifies only which
+code sits at one address. A <em>proxy</em> shows the gap:</p>
+<ul class="simple">
+<li><p>A proxy is a contract that forwards every call to another contract, the
+<em>implementation</em>.</p></li>
+<li><p>It keeps the implementation’s address in its storage, in a numbered
+<em>slot</em>. Its admin may change that address at any time.</p></li>
+<li><p>It forwards with <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code>, which runs the other contract’s code on
+the proxy’s own storage and coins. It is like calling a function from
+another module but passing your own <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+</ul>
+<p>The attack:</p>
+<ol class="arabic simple">
+<li><p>The admin deploys a proxy and a harmless implementation, and verifies
+both.</p></li>
+<li><p>Users read the source, trust it, and deposit.</p></li>
+<li><p>The admin writes a new implementation address into the proxy’s slot.</p></li>
+<li><p>Every later call runs the new code, which can, for example, take any
+balance.</p></li>
+</ol>
+<p>So the behavior that runs is</p>
 <div class="math notranslate nohighlight">
 \[\text{code}(\text{proxy}) \circ \text{code}\big(\text{storage}_{\text{proxy}}[\text{slot}]\big),\]</div>
-<p>and only the first factor was verified: the admin can swap the second after
-users have read the source. The same holds for code reached
-through a constructor argument, an external library, or a parent contract
-the reader skips.</p>
+<p>In words: the proxy’s code, combined with whatever code sits at the address
+stored in its slot right now. Only the first factor was verified. The admin
+can swap the second after users have read the source. The same holds for
+code reached through:</p>
+<ul class="simple">
+<li><p>a <em>constructor</em> argument (the constructor runs once at deployment, like
+<code class="docutils literal notranslate"><span class="pre">__init__</span></code>);</p></li>
+<li><p>an external library;</p></li>
+<li><p>a parent contract the reader skips.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.verification.verify_source" title="blockchainkit.fraud.systems.verification.verify_source"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.verification.verify_source()</span></code></a>
 compares the class at an address, and
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.verification.effective_code" title="blockchainkit.fraud.systems.verification.effective_code"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.verification.effective_code()</span></code></a> follows an
@@ -689,23 +906,45 @@ Proxy storage slots</em> (2019). <a class="reference external" href="https://eip
 </div></div></section>
 <section id="bartoletti-et-al-dissecting-ponzi-schemes-on-ethereum">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">2017 – Bartoletti et al.: Dissecting Ponzi Schemes on Ethereum</a><a class="headerlink" href="#bartoletti-et-al-dissecting-ponzi-schemes-on-ethereum" title="Link to this heading">#</a></h2>
+<p>Ponzi schemes moved onto Ethereum as contracts. There the rules are written
+in code that anyone can read, and every payment is on the public ledger.</p>
 <p>Bartoletti, Carta, Cimoli and Saia collected 184 Ponzi schemes running as
-Ethereum contracts, most of them with public source code, and classified
-them by how they pay: <em>chain-shaped</em>, where each deposit is queued and paid
-a multiple of itself out of later deposits in order of arrival;
-<em>tree-shaped</em>, paying the investor who referred each newcomer;
-<em>waterfall</em>, pouring each deposit down the list of earlier investors from
-the first; and <em>handover</em>, passing each newcomer’s payment to the investor
-before. In a chain paying <span class="math notranslate nohighlight">\(m\)</span> times every deposit, with an owner’s
-fee <span class="math notranslate nohighlight">\(f\)</span>, all payouts come from the <span class="math notranslate nohighlight">\(1 - f\)</span> of deposits left
-after the fee. With <span class="math notranslate nohighlight">\(N\)</span> equal deposits, at most
-<span class="math notranslate nohighlight">\((1 - f)N/m\)</span> investors can be paid, so at least a fraction</p>
+Ethereum contracts. Most had public source code. They classified them by how
+they pay:</p>
+<ul class="simple">
+<li><p><strong>chain-shaped</strong>: each deposit joins a queue, like a
+<code class="docutils literal notranslate"><span class="pre">collections.deque</span></code>. It is paid a multiple of itself out of later
+deposits, in order of arrival;</p></li>
+<li><p><strong>tree-shaped</strong>: each newcomer’s money pays the investor who referred them;</p></li>
+<li><p><strong>waterfall</strong>: each deposit is poured down the list of earlier investors,
+starting from the first;</p></li>
+<li><p><strong>handover</strong>: each newcomer’s payment goes to the investor just before.</p></li>
+</ul>
+<p>A chain scheme works like this:</p>
+<ol class="arabic simple">
+<li><p>An investor deposits; the deposit joins the back of the queue.</p></li>
+<li><p>The owner takes a fee, a fraction <span class="math notranslate nohighlight">\(f\)</span> of the deposit.</p></li>
+<li><p>The rest goes to the investor at the front of the queue.</p></li>
+<li><p>Once that investor has received <span class="math notranslate nohighlight">\(m\)</span> times their deposit, they leave
+the queue.</p></li>
+</ol>
+<p>All payouts come from the <span class="math notranslate nohighlight">\(1 - f\)</span> of deposits left after the fee. With
+<span class="math notranslate nohighlight">\(N\)</span> equal deposits, at most <span class="math notranslate nohighlight">\((1 - f)N/m\)</span> investors can be paid.
+So at least a fraction</p>
 <div class="math notranslate nohighlight">
 \[1 - \frac{1 - f}{m}\]</div>
-<p>of the investors is unpaid when deposits stop. Their transactions show the
-mechanism: payouts leave in the same transactions as newer deposits, and
-most investors end below what they paid. They found that such schemes had
-taken about 10 million dollars from thousands of users.</p>
+<p>of the investors is unpaid when deposits stop. For example, with a 10% fee
+and a promise to double (<span class="math notranslate nohighlight">\(f = 0.1\)</span>, <span class="math notranslate nohighlight">\(m = 2\)</span>), at least 55% of
+investors are never paid.</p>
+<ul class="simple">
+<li><p><strong>The transactions show the mechanism</strong>: payouts leave in the same
+transactions as newer deposits.</p></li>
+<li><p><strong>Most investors end below</strong> what they paid.</p></li>
+<li><p><strong>The scale</strong>: such schemes had taken about 10 million dollars from
+thousands of users.</p></li>
+</ul>
+<p>Later detectors used <em>classifiers</em>, models that learn to label a contract
+“Ponzi” or “not Ponzi” from examples.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.ponzi.ChainPonzi" title="blockchainkit.fraud.systems.ponzi.ChainPonzi"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.ponzi.ChainPonzi</span></code></a>,
 with <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.ponzi.value_flows" title="blockchainkit.fraud.systems.ponzi.value_flows"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.ponzi.value_flows()</span></code></a>, which lists
 the transfers a block explorer shows, and
@@ -722,18 +961,33 @@ Generation Computer Systems 102, 259–277 (2020); arXiv:1703.03779 (2017).
 </div></div></section>
 <section id="ico-exit-scams-and-the-daico">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">2017-2018 – ICO Exit Scams and the DAICO</a><a class="headerlink" href="#ico-exit-scams-and-the-daico" title="Link to this heading">#</a></h2>
-<p>Initial coin offerings raised billions of dollars in 2017 for projects that
-existed only as white papers, and nothing tied the team to the money. An
-<em>exit scam</em> takes the proceeds and disappears; in December 2017 the SEC’s
-new Cyber Unit obtained an emergency freeze of the PlexCoin sale, whose
-promoters had promised a 1,354% return in under a month. Buterin’s DAICO
-proposal of January 2018 keeps the ether in the sale contract, releases it
-to the team at a capped <em>tap</em> rate <span class="math notranslate nohighlight">\(\tau\)</span>, and lets contributors vote
-to refund the rest. Since the team can withdraw no faster than the tap, a
-team that vanishes after time <span class="math notranslate nohighlight">\(t\)</span> takes at most</p>
+<p>An <em>initial coin offering</em> (ICO) sells a new token for ether to fund a
+project. It is like crowdfunding in which backers receive tokens. ICOs
+raised billions of dollars in 2017 for projects that existed only as <em>white
+papers</em>, documents describing a plan. Nothing tied the team to the money. An
+<em>exit scam</em> takes the proceeds and disappears. In December 2017 the SEC’s new
+Cyber Unit got an emergency freeze of the PlexCoin sale. Its promoters had
+promised a 1,354% return in under a month.</p>
+<p>Vitalik Buterin’s DAICO proposal of January 2018 limits what a team can take:</p>
+<ol class="arabic simple">
+<li><p>Contributors send ether to the sale contract and receive tokens.</p></li>
+<li><p>The contract keeps the ether.</p></li>
+<li><p>The team may withdraw it only at a capped <em>tap</em> rate <span class="math notranslate nohighlight">\(\tau\)</span>, in
+ether per second.</p></li>
+<li><p>Contributors can vote to refund the rest. If the vote passes, each
+contributor gets a share in proportion to their tokens.</p></li>
+</ol>
+<p>Since the team can withdraw no faster than the tap, a team that vanishes
+after time <span class="math notranslate nohighlight">\(t\)</span> takes at most</p>
 <div class="math notranslate nohighlight">
 \[\min(\tau t,\ \text{raised}),\]</div>
-<p>and contributors recover the remainder in proportion to their tokens.</p>
+<p>In words: the tap rate times the time elapsed, or everything raised if that
+is smaller.</p>
+<ul class="simple">
+<li><p>Contributors recover the remainder in proportion to their tokens.</p></li>
+<li><p>The longer the team stays, the more it can take, so contributors must keep
+watching and vote in time.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.token_sales.TokenSale" title="blockchainkit.fraud.systems.token_sales.TokenSale"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.token_sales.TokenSale</span></code></a>,
 with <code class="docutils literal notranslate"><span class="pre">tap</span> <span class="pre">=</span> <span class="pre">0</span></code> for an ordinary sale. Tokens are a per-contributor count
 rather than an ERC-20; the tap can only be set at deployment, and a refund
@@ -751,20 +1005,39 @@ Scam</em>, press release (4 December 2017).</p>
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">2018 – Gandal et al.: Price Manipulation in the Bitcoin Ecosystem</a><a class="headerlink" href="#gandal-et-al-price-manipulation-in-the-bitcoin-ecosystem" title="Link to this heading">#</a></h2>
 <p>Between February and November 2013, two accounts on Mt. Gox, later dubbed
 the Markus and Willy bots, bought about 600,000 bitcoins without paying for
-them, credited with dollars the exchange did not have. Over the same months
-the price rose from about 150 to over 1,000 dollars. Gandal, Hamrick, Moore
-and Oberman used the leaked Mt. Gox trade records to compare the price
-change on days the bots traded with the other days: about 4% a day against
-a slight fall. In a thin market buying moves the price; with a net purchase
-<span class="math notranslate nohighlight">\(q_t\)</span> on day <span class="math notranslate nohighlight">\(t\)</span>, a linear impact <span class="math notranslate nohighlight">\(\lambda\)</span> and random
-noise <span class="math notranslate nohighlight">\(\sigma \varepsilon_t\)</span>,</p>
+them. The exchange credited them with dollars it did not have. Over the same
+months the price rose from about 150 to over 1,000 dollars.</p>
+<p>Gandal, Hamrick, Moore and Oberman used the leaked Mt. Gox trade records.
+They compared the price change on days the bots traded with the other days:
+about 4% a day against a slight fall.</p>
+<p>The idea: in a <em>thin market</em>, one with few traders, buying moves the price.
+A simple model of daily prices <span class="math notranslate nohighlight">\(p_t\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(q_t\)</span> is the net purchase on day <span class="math notranslate nohighlight">\(t\)</span>: coins bought minus coins
+sold.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> is the <em>price impact</em>: how far the log price moves per coin
+bought.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma \varepsilon_t\)</span> is random noise. <span class="math notranslate nohighlight">\(\varepsilon_t\)</span> is a
+standard normal random number (<code class="docutils literal notranslate"><span class="pre">random.gauss(0,</span> <span class="pre">1)</span></code>) and <span class="math notranslate nohighlight">\(\sigma\)</span>
+sets its size.</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[\log p_{t+1} = \log p_t + \lambda q_t + \sigma \varepsilon_t .\]</div>
-<p>A genuine buyer is limited by its money; a buyer who need not pay for
-<span class="math notranslate nohighlight">\(q_t\)</span> can raise the price as far as it likes. The noise averages out
-across days, so the bots’ effect shows up as a higher mean return on the
-days they traded and none on the others, which is the pattern Gandal et
-al. found.</p>
+<p>In words: each day the log of the price moves by an amount proportional to
+the net buying, plus noise. A change in log price is close to a percentage
+change, so this is the day’s <em>return</em>.</p>
+<ul class="simple">
+<li><p><strong>A genuine buyer is limited by its money.</strong> A buyer who need not pay for
+<span class="math notranslate nohighlight">\(q_t\)</span> can raise the price as far as it likes.</p></li>
+<li><p><strong>The noise averages out across days.</strong> So the bots’ effect shows up as a
+higher mean return on the days they traded, and none on the others. That
+is the pattern Gandal et al. found.</p></li>
+</ul>
+<p>This model is a <em>random walk</em>: each day adds a random step. Because it is
+the logarithm that walks, the price itself is <em>log-normal</em>. The
+<span class="math notranslate nohighlight">\(\lambda q_t\)</span> term comes from Albert Kyle’s 1985 model of trading. To
+<em>regress</em> returns on activity is to fit a line through them; <em>controls</em> are
+other factors included in the fit.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.manipulation.simulate_bot_market" title="blockchainkit.fraud.systems.manipulation.simulate_bot_market"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.manipulation.simulate_bot_market()</span></code></a>
 and <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.manipulation.return_by_activity" title="blockchainkit.fraud.systems.manipulation.return_by_activity"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.manipulation.return_by_activity()</span></code></a>.
 The price is a log-normal random walk with Kyle’s linear impact; Gandal et
@@ -778,20 +1051,33 @@ manipulation in the Bitcoin ecosystem</em>, Journal of Monetary Economics 95,
 </div></div></section>
 <section id="bitconnect-and-lending-platform-ponzis">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">2018 – BitConnect and Lending-Platform Ponzis</a><a class="headerlink" href="#bitconnect-and-lending-platform-ponzis" title="Link to this heading">#</a></h2>
-<p>BitConnect took bitcoin deposits into a “lending program” said to earn
-around 1% a day from a trading bot, and paid recruiters commissions down
-several levels of the investors they brought in. Nothing was traded:
-interest and withdrawals came from new deposits. Credited balances
-compound at the daily rate <span class="math notranslate nohighlight">\(i\)</span>, so with deposits <span class="math notranslate nohighlight">\(D_t\)</span> and
-withdrawals <span class="math notranslate nohighlight">\(W_t\)</span> the liabilities grow as</p>
+<p>BitConnect took bitcoin deposits into a “lending program”. It claimed to earn
+around 1% a day from a trading bot. It also paid recruiters commissions on
+the investors they brought in, and on those investors’ recruits, several
+levels down. Nothing was traded. Interest and withdrawals came from new
+deposits.</p>
+<p>The trick is <em>compound interest</em>: interest is paid on interest. Each day
+<span class="math notranslate nohighlight">\(t\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Every credited balance grows by the daily rate <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p>New deposits <span class="math notranslate nohighlight">\(D_t\)</span> are added to balances and to the cash.</p></li>
+<li><p>Withdrawals <span class="math notranslate nohighlight">\(W_t\)</span> are taken from balances and from the cash.</p></li>
+</ol>
+<p>So the liabilities grow as</p>
 <div class="math notranslate nohighlight">
 \[L_t = L_{t-1}(1 + i) + D_t - W_t, \qquad (1.01)^{365} \approx 38,\]</div>
-<p>while the cash grows only by <span class="math notranslate nohighlight">\(D_t - W_t\)</span>. A balance left for a year
-is owed 38 times over, so the gap between what is owed and what is held
-widens every day, and only ever-faster deposits can hide it. In January
-2018 the Texas and North Carolina securities regulators ordered it to stop;
-deposits dried up and the lending platform closed on 16 January. The SEC later charged its
-founder and promoters with a fraud of about two billion dollars.</p>
+<p>In words: what is owed grows by the interest plus the net deposits. At 1% a
+day, a balance multiplies by about 38 in a year. Meanwhile the cash grows
+only by <span class="math notranslate nohighlight">\(D_t - W_t\)</span>.</p>
+<ul class="simple">
+<li><p><strong>A balance left for a year is owed 38 times over.</strong></p></li>
+<li><p><strong>The gap widens every day.</strong> What is owed outruns what is held, and only
+ever-faster deposits can hide it.</p></li>
+<li><p><strong>The end:</strong> in January 2018 the Texas and North Carolina securities
+regulators ordered it to stop. Deposits dried up, and the lending platform
+closed on 16 January. The SEC later charged its founder and promoters with
+a fraud of about two billion dollars.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.ponzi.simulate_lending_ponzi" title="blockchainkit.fraud.systems.ponzi.simulate_lending_ponzi"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.ponzi.simulate_lending_ponzi()</span></code></a>
 and <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.ponzi.referral_commissions" title="blockchainkit.fraud.systems.ponzi.referral_commissions"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.ponzi.referral_commissions()</span></code></a>.
 Withdrawals are a fixed fraction of balances each day and commissions are
@@ -807,25 +1093,48 @@ emergency cease and desist order against BitConnect (4 January 2018).</p>
 </div></div></section>
 <section id="torres-et-al-honeypots-that-trap-would-be-thieves">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">2019 – Torres et al.: Honeypots That Trap Would-Be Thieves</a><a class="headerlink" href="#torres-et-al-honeypots-that-trap-would-be-thieves" title="Link to this heading">#</a></h2>
-<p>A honeypot is a contract that holds ether and seems to leak it to anyone
-who reads its source closely enough to spot a flaw. The reader sends ether
-to exploit it, and the flaw is a trap: the ether stays in the contract,
-where only its creator can reach it. Torres, Steichen and State found 690
-honeypots and classified eight techniques. Four rest on EVM semantics or on
-what the explorer shows. In <em>balance disorder</em>, the source seems to pay
-anyone who sends at least the contract’s balance <span class="math notranslate nohighlight">\(b\)</span>; but by the time
-the check runs, <code class="docutils literal notranslate"><span class="pre">this.balance</span></code> already includes the sender’s
-<span class="math notranslate nohighlight">\(v\)</span>, so the condition becomes <span class="math notranslate nohighlight">\(v \ge b + v\)</span>, which fails for
-any bait <span class="math notranslate nohighlight">\(b &gt; 0\)</span>. A <em>hidden state update</em> changes the contract
-through a call carrying no ether, which the explorer did not list, so the
-reader judges stale state. A <em>hidden transfer</em> is pushed out of sight past
-the right edge of the explorer’s code view by whitespace. The <em>straw man
-contract</em> is given, in its constructor, an address holding different code
-from the source shown. The other four are quirks of Solidity:
-<em>inheritance disorder</em>, an <em>uninitialised storage struct</em> overwriting slot
-0, <em>type deduction overflow</em> of a <code class="docutils literal notranslate"><span class="pre">var</span></code> loop counter in <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, and
-the <em>skipped empty string literal</em> of compilers before 0.4.12. Their tool,
-HoneyBadger, finds them by symbolic execution of the bytecode.</p>
+<p>A <em>honeypot</em> is a contract that holds ether and seems to leak it. It targets
+anyone who reads its source closely enough to spot a flaw.</p>
+<ol class="arabic simple">
+<li><p>The creator deploys the contract with some ether as bait.</p></li>
+<li><p>A reader studies the source and spots what looks like a flaw.</p></li>
+<li><p>The reader sends ether to exploit it.</p></li>
+<li><p>The flaw is a trap. The ether stays in the contract, where only its
+creator can reach it.</p></li>
+</ol>
+<p>Torres, Steichen and State found 690 honeypots and classified eight
+techniques. Four rest on the exact rules by which the EVM runs code, or on
+what the explorer shows:</p>
+<ul class="simple">
+<li><p><strong>Balance disorder.</strong> The source seems to pay anyone who sends at least
+the contract’s balance <span class="math notranslate nohighlight">\(b\)</span>. But by the time the check runs,
+<code class="docutils literal notranslate"><span class="pre">this.balance</span></code> already includes the sender’s <span class="math notranslate nohighlight">\(v\)</span>. So the condition
+becomes <span class="math notranslate nohighlight">\(v \ge b + v\)</span>, which fails for any bait <span class="math notranslate nohighlight">\(b &gt; 0\)</span>.</p></li>
+<li><p><strong>Hidden state update.</strong> The contract is changed through a call carrying
+no ether. The explorer did not list such calls, so the reader judges stale
+state.</p></li>
+<li><p><strong>Hidden transfer.</strong> Whitespace pushes a line of code past the right edge
+of the explorer’s code view, out of sight.</p></li>
+<li><p><strong>Straw man contract.</strong> The constructor is given an address holding
+different code from the source shown.</p></li>
+</ul>
+<p>The other four are quirks of Solidity:</p>
+<ul class="simple">
+<li><p><strong>Inheritance disorder.</strong> A child contract’s <code class="docutils literal notranslate"><span class="pre">owner</span></code> is a different
+variable from its parent’s.</p></li>
+<li><p><strong>Uninitialised storage struct.</strong> A contract’s storage is a numbered array
+of slots. A local struct declared without the <code class="docutils literal notranslate"><span class="pre">memory</span></code> keyword points at slot 0 and
+overwrites what is stored there.</p></li>
+<li><p><strong>Type deduction overflow.</strong> A loop counter declared with <code class="docutils literal notranslate"><span class="pre">var</span></code> becomes a
+<code class="docutils literal notranslate"><span class="pre">uint8</span></code>, an 8-bit number from 0 to 255. So it wraps around, like
+<code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">(i</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">%</span> <span class="pre">256</span></code>.</p></li>
+<li><p><strong>Skipped empty string literal.</strong> Compilers before 0.4.12 dropped an empty
+string <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> argument and shifted the others into the wrong places.</p></li>
+</ul>
+<p>Their tool, HoneyBadger, finds them by <em>symbolic execution</em> of the bytecode.
+It runs the program with unknown inputs kept as symbols. Along each path it
+records the conditions those inputs must meet. Then it asks whether any input
+could really reach a payout.</p>
 <p><em>Implementation:</em> the contracts in <a class="reference internal" href="../api/fraud.html#module-blockchainkit.fraud.systems.honeypots" title="blockchainkit.fraud.systems.honeypots"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.honeypots</span></code></a>.
 Three of the EVM and explorer techniques are modelled directly:
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.honeypots.MultiplicatorX3" title="blockchainkit.fraud.systems.honeypots.MultiplicatorX3"><code class="xref py py-class docutils literal notranslate"><span class="pre">MultiplicatorX3</span></code></a>,
@@ -853,24 +1162,44 @@ Demystifying honeypots in Ethereum smart contracts</em>, USENIX Security 2019,
 </div></div></section>
 <section id="xu-and-livshits-the-anatomy-of-a-pump-and-dump">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">2019 – Xu and Livshits: The Anatomy of a Pump-and-Dump</a><a class="headerlink" href="#xu-and-livshits-the-anatomy-of-a-pump-and-dump" title="Link to this heading">#</a></h2>
-<p>Telegram groups with tens of thousands of members announce a coin at a set
-minute; members rush to buy, and the price jumps within seconds. The
-organizers bought beforehand and sell into the rush. Xu and Livshits
-studied 412 such pumps between June 2018 and February 2019, measured who
-gained, and predicted which coin would be pumped from its market’s
-features. On a constant-product market with <span class="math notranslate nohighlight">\(x\)</span> coins against
-<span class="math notranslate nohighlight">\(y\)</span> of the quote currency, a buyer paying <span class="math notranslate nohighlight">\(\Delta y\)</span> gets
-<span class="math notranslate nohighlight">\(x\,\Delta y / (y + \Delta y)\)</span> coins, and each purchase raises the
-price for the next. A fee-free pool neither gains nor loses on a round
-trip: once every coin bought has been sold back, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>
-are where they started. The traders’ profits therefore sum to zero, so
-whoever buys early and sells first, above all the organizers, wins exactly
-what the late buyers lose:</p>
+<p>A pump-and-dump runs in a chat group, often on Telegram, with tens of
+thousands of members:</p>
+<ol class="arabic simple">
+<li><p>The organizers quietly buy a coin.</p></li>
+<li><p>They announce the coin to the group at a set minute.</p></li>
+<li><p>Members rush to buy. The price jumps within seconds.</p></li>
+<li><p>The organizers sell into the rush.</p></li>
+<li><p>The price falls back, and the late buyers lose.</p></li>
+</ol>
+<p>Xu and Livshits studied 412 such pumps between June 2018 and February 2019.
+They measured who gained. They also predicted which coin would be pumped
+from its market’s features.</p>
+<p>Why must someone lose? Take a <em>constant-product market</em>: a pool holding
+<span class="math notranslate nohighlight">\(x\)</span> coins and <span class="math notranslate nohighlight">\(y\)</span> of the <em>quote currency</em>, the currency prices
+are given in. Every trade keeps <span class="math notranslate nohighlight">\(xy\)</span> fixed.</p>
+<ul class="simple">
+<li><p>A buyer paying <span class="math notranslate nohighlight">\(\Delta y\)</span> gets <span class="math notranslate nohighlight">\(x\,\Delta y / (y + \Delta y)\)</span>
+coins. (Solve <span class="math notranslate nohighlight">\((x - \Delta x)(y + \Delta y) = xy\)</span> for
+<span class="math notranslate nohighlight">\(\Delta x\)</span>.)</p></li>
+<li><p>Each purchase raises the price for the next buyer.</p></li>
+<li><p>A fee-free pool neither gains nor loses on a round trip. Its product
+<span class="math notranslate nohighlight">\(xy = k\)</span> never changes, so <span class="math notranslate nohighlight">\(y = k/x\)</span> depends only on
+<span class="math notranslate nohighlight">\(x\)</span>. Once every coin bought has been sold back, <span class="math notranslate nohighlight">\(x\)</span> and
+<span class="math notranslate nohighlight">\(y\)</span> are where they started.</p></li>
+<li><p>So the traders’ profits sum to zero. Whoever buys early and sells first,
+above all the organizers, wins exactly what the late buyers lose:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[\pi_{\text{organizers}} + \sum_i \pi_i \approx 0 ,\]</div>
-<p>approximately only because some late buyers are still holding coins.</p>
+<p>In words: the organizers’ profit plus every other trader’s profit is about
+zero. It is only approximately zero because some late buyers are still
+holding coins.</p>
 <p>The pump leaves a spike in both price and volume far above their recent
 averages, which simple anomaly rules catch.</p>
+<p>The pumps Xu and Livshits studied ran on <em>centralized exchanges</em>, run by a
+company. These match trades through <em>order books</em>: lists of buy and sell
+offers. A <em>random forest</em> is a kind of classifier built from many decision
+trees.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.manipulation.simulate_pump_and_dump" title="blockchainkit.fraud.systems.manipulation.simulate_pump_and_dump"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.manipulation.simulate_pump_and_dump()</span></code></a>
 on a fee-free constant-product market, and
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.manipulation.detect_pumps" title="blockchainkit.fraud.systems.manipulation.detect_pumps"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.manipulation.detect_pumps()</span></code></a>, Kamps and
@@ -888,24 +1217,48 @@ pump-and-dumps</em>, Crime Science 7, 18 (2018).
 </div></div></section>
 <section id="rug-pulls-and-hidden-mint-tokens-the-squid-game-token">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">2021 – Rug Pulls and Hidden-Mint Tokens: the Squid Game Token</a><a class="headerlink" href="#rug-pulls-and-hidden-mint-tokens-the-squid-game-token" title="Link to this heading">#</a></h2>
-<p>Anyone can issue a token and open a market for it on a decentralized
-exchange, and many do so to take the buyers’ money: by withdrawing the
-liquidity they supplied, by minting themselves tokens through a function
-with an innocent name, or by blocking everyone else from selling. Xia et
-al. found that a large share of the tokens listed on Uniswap were scams. In
-November 2021 a token named after the Squid Game series rose from a cent to
-2,861 dollars in a week while its holders could not sell; its creators sold
-and vanished, and the price fell to nothing in minutes. On a
-constant-product market <span class="math notranslate nohighlight">\(xy = k\)</span>, with <span class="math notranslate nohighlight">\(x\)</span> tokens against
+<p>Anyone can issue a token and open a market for it on a <em>decentralized
+exchange</em> (DEX). A DEX is an exchange run by a contract, such as a
+constant-product pool, rather than by a company. To open a market, the
+creator supplies <em>liquidity</em>: it deposits both the token and the quote
+currency into the pool so that others can trade. Many creators do this only
+to take the buyers’ money. They can:</p>
+<ul class="simple">
+<li><p>withdraw the liquidity they supplied;</p></li>
+<li><p><em>mint</em> themselves new tokens out of nothing, through a function with an
+innocent name;</p></li>
+<li><p>block everyone else from selling.</p></li>
+</ul>
+<p>Xia et al. found that a large share of the tokens listed on Uniswap, the
+largest DEX on Ethereum, were scams. In November 2021 a token named after the
+Squid Game series rose from a cent to 2,861 dollars in a week. Its holders
+could not sell. Its creators sold and vanished, and the price fell to
+nothing in minutes.</p>
+<p>A hidden-mint rug pull:</p>
+<ol class="arabic simple">
+<li><p>The creator opens a pool for the token.</p></li>
+<li><p>Buyers pay quote currency into the pool. If the token also blocks
+selling, nobody can take it out again.</p></li>
+<li><p>The creator mints itself a huge amount <span class="math notranslate nohighlight">\(\Delta x\)</span> of tokens.</p></li>
+<li><p>The creator sells them all to the pool.</p></li>
+</ol>
+<p>On a constant-product market <span class="math notranslate nohighlight">\(xy = k\)</span>, with <span class="math notranslate nohighlight">\(x\)</span> tokens against
 <span class="math notranslate nohighlight">\(y\)</span> of the quote currency, selling <span class="math notranslate nohighlight">\(\Delta x\)</span> tokens returns</p>
 <div class="math notranslate nohighlight">
 \[\frac{y\,\Delta x}{x + \Delta x} \to y \quad \text{as } \Delta x \to \infty .\]</div>
-<p>Blocking other sellers keeps the buyers’ money in the pool, and a hidden
-mint lets the creator make <span class="math notranslate nohighlight">\(\Delta x\)</span> as large as it likes, so the
-creator’s sale takes almost the whole quote reserve. Neither trap is
-visible when buying; it shows only on selling. The defence is therefore to
-buy a little and sell it back on a fork of the chain, which costs nothing,
-before buying for real.</p>
+<p>In words: a seller always gets less than the whole quote reserve <span class="math notranslate nohighlight">\(y\)</span>,
+but with enough tokens gets almost all of it.</p>
+<ul class="simple">
+<li><p><strong>Blocking other sellers</strong> keeps the buyers’ money in the pool.</p></li>
+<li><p><strong>A hidden mint</strong> lets the creator make <span class="math notranslate nohighlight">\(\Delta x\)</span> as large as it
+likes. So the creator’s sale takes almost the whole quote reserve.</p></li>
+<li><p><strong>Neither trap is visible when buying.</strong> It shows only on selling.</p></li>
+<li><p><strong>The defence</strong> is to buy a little and sell it back on a <em>fork</em> of the
+chain before buying for real. A fork here is a private copy of the current
+state, like <code class="docutils literal notranslate"><span class="pre">copy.deepcopy(world)</span></code>, where trades are not real and cost
+nothing.</p></li>
+</ul>
+<p>BNB Chain is another blockchain, and PancakeSwap its Uniswap-like DEX.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.rug_pulls.SellBlockToken" title="blockchainkit.fraud.systems.rug_pulls.SellBlockToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.rug_pulls.SellBlockToken</span></code></a>,
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.rug_pulls.HiddenMintToken" title="blockchainkit.fraud.systems.rug_pulls.HiddenMintToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.rug_pulls.HiddenMintToken</span></code></a> and
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.rug_pulls.sell_test" title="blockchainkit.fraud.systems.rug_pulls.sell_test"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.rug_pulls.sell_test()</span></code></a>, on
@@ -923,17 +1276,39 @@ and Analysis of Computing Systems 5(3) (2021).</p>
 </div></div></section>
 <section id="von-wachter-et-al-wash-trading-in-nft-markets">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">2022 – Von Wachter et al.: Wash Trading in NFT Markets</a><a class="headerlink" href="#von-wachter-et-al-wash-trading-in-nft-markets" title="Link to this heading">#</a></h2>
-<p>A wash trade is a sale between parties who are really one. On NFT markets
-it fakes a price history for a token or earns trading rewards: in early
-2022 LooksRare paid its own token to traders in proportion to volume, and
-most of that volume was washed. Von Wachter, Jensen, Regner and Ross looked
-for the shape such trading leaves on a public ledger, a token passing
-through a few accounts and returning to one that held it,</p>
+<p>An <em>NFT</em> (non-fungible token) is a token whose units are each unique. Instead
+of a dict from address to balance, it keeps a dict from token ID to owner.
+NFTs are used for digital art and collectibles.</p>
+<p>A <em>wash trade</em> is a sale between parties who are really one. On NFT markets
+it serves two ends:</p>
+<ul class="simple">
+<li><p><strong>faking a price history</strong> for a token, so that it looks valuable;</p></li>
+<li><p><strong>earning trading rewards.</strong> In early 2022 the LooksRare market paid its
+own token to traders in proportion to their volume. Most of that volume
+was washed.</p></li>
+</ul>
+<p>Von Wachter, Jensen, Regner and Ross looked for the shape such trading
+leaves on a public ledger:</p>
+<ol class="arabic simple">
+<li><p>Treat each account as a node of a graph, and each sale as an edge from
+seller to buyer.</p></li>
+<li><p>Follow each token through its sales.</p></li>
+<li><p>Flag any token that passes through a few accounts and returns to one that
+held it before.</p></li>
+</ol>
+<p>That shape is a <em>cycle</em>:</p>
 <div class="math notranslate nohighlight">
 \[a_1 \to a_2 \to \cdots \to a_\ell \to a_1 ,\]</div>
-<p>which changes nobody’s holdings, only the volume. They found suspicious
-activity in a few percent of the collections they studied, accounting for
-a far larger share of their volume.</p>
+<p>In words: the token goes from account <span class="math notranslate nohighlight">\(a_1\)</span> through
+<span class="math notranslate nohighlight">\(\ell - 1\)</span> other accounts and back to <span class="math notranslate nohighlight">\(a_1\)</span>.</p>
+<ul class="simple">
+<li><p><strong>A cycle changes nobody’s holdings</strong>, only the volume.</p></li>
+<li><p><strong>The findings</strong>: suspicious activity in a few percent of the collections
+they studied, accounting for a far larger share of their volume.</p></li>
+</ul>
+<p>Their method also used <em>strongly connected components</em>: groups of accounts
+in which each can reach every other along sales. <em>Common funding</em> means
+accounts whose ether came from the same source.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.wash_trading.find_wash_trades" title="blockchainkit.fraud.systems.wash_trading.find_wash_trades"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.wash_trading.find_wash_trades()</span></code></a>
 flags every trade on a cycle of at most <code class="docutils literal notranslate"><span class="pre">max_length</span></code> sales and groups
 the accounts into rings as the components of a
@@ -951,18 +1326,35 @@ Cryptography and Data Security workshops (2022); arXiv:2202.03866.</p>
 </div></div></section>
 <section id="approval-ice-phishing-on-erc-20-allowances">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">2022 – Approval (“Ice”) Phishing on ERC-20 Allowances</a><a class="headerlink" href="#approval-ice-phishing-on-erc-20-allowances" title="Link to this heading">#</a></h2>
-<p>An ERC-20 <code class="docutils literal notranslate"><span class="pre">approve</span></code> lets a spender move the owner’s tokens later without
-asking again, and exchanges ask once for an unlimited allowance to spare
-their users a transaction per trade. In February 2022 Microsoft named <em>ice
-phishing</em> the attack that exploits the habit: a fake airdrop or mint page
-asks the victim to approve the attacker’s contract, which can then call
-<code class="docutils literal notranslate"><span class="pre">transferFrom</span></code> to empty the wallet whenever the attacker likes, months
-later if need be. No key is stolen. Each token can be taken up to the
-total its spenders are allowed, but no more than the wallet holds, so what
-a wallet stands to lose is</p>
+<p>An ERC-20 token’s <code class="docutils literal notranslate"><span class="pre">approve</span></code> function lets a <em>spender</em> move the owner’s tokens later without asking again.
+The token stores the limit as an <em>allowance</em>, like a nested dict
+<code class="docutils literal notranslate"><span class="pre">allowance[owner][spender]</span></code>. The spender then calls <code class="docutils literal notranslate"><span class="pre">transferFrom</span></code> to
+move up to that amount. Exchanges ask once for an unlimited allowance, to
+spare their users a transaction per trade.</p>
+<p>In February 2022 Microsoft named the attack that exploits this habit <em>ice
+phishing</em>:</p>
+<ol class="arabic simple">
+<li><p>The attacker builds a fake <em>airdrop</em> (free token giveaway) or mint page.</p></li>
+<li><p>The page asks the victim to approve the attacker’s contract. The victim
+signs and sends the approval.</p></li>
+<li><p>Whenever the attacker likes, months later if need be, its contract calls
+<code class="docutils literal notranslate"><span class="pre">transferFrom</span></code> and empties the wallet.</p></li>
+</ol>
+<p>No key is stolen. Each token can be taken up to the total its spenders are
+allowed, but no more than the wallet holds. So what a wallet stands to lose
+is</p>
 <div class="math notranslate nohighlight">
 \[\sum_{\text{tokens}} \min\Big(\text{balance},\; \sum_{\text{spenders}} \text{allowance}\Big),\]</div>
-<p>and revoking an approval, setting it to 0, removes that spender’s share.</p>
+<p>In words: for each token, the smaller of the balance and the total
+allowance, added up over all tokens.</p>
+<ul class="simple">
+<li><p><strong>Revoking an approval</strong>, setting it to 0, removes that spender’s share.</p></li>
+<li><p><strong>Approvals are public.</strong> Each <code class="docutils literal notranslate"><span class="pre">approve</span></code> writes an <code class="docutils literal notranslate"><span class="pre">Approval</span></code> <em>event</em>,
+a log entry that anyone can read later. So a wallet’s standing allowances
+can be listed.</p></li>
+<li><p>A newer route, <code class="docutils literal notranslate"><span class="pre">permit</span></code>, grants an approval by signing a message rather
+than sending a transaction.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.phishing.Drainer" title="blockchainkit.fraud.systems.phishing.Drainer"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.phishing.Drainer</span></code></a>,
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.phishing.open_approvals" title="blockchainkit.fraud.systems.phishing.open_approvals"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.phishing.open_approvals()</span></code></a>, which reads a
 wallet’s standing allowances from its <code class="docutils literal notranslate"><span class="pre">Approval</span></code> events, and
@@ -978,20 +1370,34 @@ blockchain</em>, Microsoft Security Blog (16 February 2022).
 </div></div></section>
 <section id="ftx-commingled-customer-funds-and-proof-of-liabilities">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">2022 – FTX, Commingled Customer Funds, and Proof of Liabilities</a><a class="headerlink" href="#ftx-commingled-customer-funds-and-proof-of-liabilities" title="Link to this heading">#</a></h2>
-<p>In November 2022 FTX, one of the largest exchanges, could not meet a rush
-of withdrawals and filed for bankruptcy. Its affiliated trading firm,
-Alameda Research, had been exempt from the exchange’s liquidation engine
-and allowed a negative balance, and had spent billions of dollars of
-customer deposits. The books still showed every customer’s balance; the
-coins were gone. With reserves <span class="math notranslate nohighlight">\(R\)</span> and liabilities <span class="math notranslate nohighlight">\(L\)</span>, a run
-on an exchange whose reserve ratio is below one pays the first customers
-in full until the reserves run out, and the rest nothing:</p>
+<p>In November 2022 FTX, one of the largest exchanges, could not meet a rush of
+withdrawals and filed for bankruptcy. Its affiliated trading firm was
+Alameda Research. FTX had a <em>liquidation engine</em>: a system that
+automatically sells a trader’s positions when their balance runs too low.
+Alameda was exempt from it and allowed a negative balance. It had spent
+billions of dollars of customer deposits. The books still showed every
+customer’s balance; the coins were gone.</p>
+<p>A rush of withdrawals is a <em>run</em>, as on a bank. Write <span class="math notranslate nohighlight">\(R\)</span> for the
+reserves and <span class="math notranslate nohighlight">\(L\)</span> for the liabilities. If the <em>reserve ratio</em> <span class="math notranslate nohighlight">\(R/L\)</span>
+is below one, the run goes like this:</p>
+<ol class="arabic simple">
+<li><p>Customers withdraw one after another.</p></li>
+<li><p>Each is paid in full while the reserves last.</p></li>
+<li><p>When the reserves run out, the rest get nothing.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\rho = \frac{R}{L} &lt; 1, \qquad \text{paid} = \min(R, L) = \rho L .\]</div>
-<p>Solvency depends on <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(L\)</span> together. A proof of reserves
-shows only <span class="math notranslate nohighlight">\(R\)</span>, and FTX’s reserves were real and large; the shortfall
-appears only beside the liabilities. Weeks after the collapse, exchanges began publishing Merkle-sum
-proofs of liabilities beside their reserves.</p>
+<p>In words: the total paid out is the reserves, a fraction <span class="math notranslate nohighlight">\(\rho\)</span> of
+what was owed.</p>
+<ul class="simple">
+<li><p><strong>Solvency depends on</strong> <span class="math notranslate nohighlight">\(R\)</span> <strong>and</strong> <span class="math notranslate nohighlight">\(L\)</span> <strong>together.</strong></p></li>
+<li><p><strong>A proof of reserves shows only</strong> <span class="math notranslate nohighlight">\(R\)</span>. FTX’s reserves were real and
+large. The shortfall appears only beside the liabilities.</p></li>
+<li><p><strong>The response:</strong> weeks after the collapse, exchanges began publishing
+Merkle-sum proofs of liabilities beside their reserves.</p></li>
+</ul>
+<p>FTX also issued its own token, FTT. Alameda pledged it as <em>collateral</em>:
+assets handed over as security for a loan.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.custody.Custodian" title="blockchainkit.fraud.systems.custody.Custodian"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.custody.Custodian</span></code></a>,
 whose operator may lend deposits to an affiliate up to a credit line, with
 <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.reserves.liability_tree" title="blockchainkit.fraud.systems.reserves.liability_tree"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.reserves.liability_tree()</span></code></a> and
@@ -1007,20 +1413,36 @@ FTX Trading Ltd., No. 22-11068 (Bankr. D. Del., 9 April 2023).</p>
 </div></div></section>
 <section id="address-poisoning-with-look-alike-addresses">
 <h2><a class="toc-backref" href="#id17" role="doc-backlink">2022-2023 – Address Poisoning with Look-Alike Addresses</a><a class="headerlink" href="#address-poisoning-with-look-alike-addresses" title="Link to this heading">#</a></h2>
-<p>An Ethereum address is 40 hexadecimal digits, and wallets show only the
-first and last few. From late 2022, poisoners watched for payments, ground
-out an address matching the ends of the payee’s, and sent the payer a
-worthless transfer from it, so that the look-alike sat in the payer’s
-history next to the real one; the next payment copied from there went to
-the poisoner. Tsuchiya, Dong, Soska and Christin measured hundreds of
-millions of such attempts on Ethereum and BNB Chain. The attack is cheap
-because the poisoner need match only the digits users look at. Each random
-candidate address matches <span class="math notranslate nohighlight">\(k\)</span> chosen hex digits with probability
-<span class="math notranslate nohighlight">\(16^{-k}\)</span>, so the number of candidates to try is geometric with mean</p>
+<p>An Ethereum address is 40 hexadecimal digits (0-9 and a-f), like
+<code class="docutils literal notranslate"><span class="pre">0x52908400098527886E0F7030069857D2E4169EE7</span></code>. <em>Wallets</em>, the apps that hold
+keys and send payments, show only the first and last few digits. From late
+2022, <em>poisoners</em> exploited this:</p>
+<ol class="arabic simple">
+<li><p>The poisoner watches the chain for a payment from a payer to a payee.</p></li>
+<li><p>It <em>grinds</em> out a look-alike address: a brute-force loop over random
+candidates until one matches the ends of the payee’s address.</p></li>
+<li><p>It sends the payer a worthless transfer from the look-alike. Now the
+look-alike sits in the payer’s history next to the real one.</p></li>
+<li><p>The payer copies an address from the history for the next payment, picks
+the look-alike, and pays the poisoner.</p></li>
+</ol>
+<p>Tsuchiya, Dong, Soska and Christin measured hundreds of millions of such
+attempts on Ethereum and BNB Chain.</p>
+<p>The attack is cheap because the poisoner need match only the digits users
+look at. Each random candidate matches <span class="math notranslate nohighlight">\(k\)</span> chosen hex digits with
+probability <span class="math notranslate nohighlight">\(16^{-k}\)</span>. So the number of candidates to try is
+<em>geometric</em>, like the number of rolls of a <span class="math notranslate nohighlight">\(16^k\)</span>-sided die until a
+chosen face comes up. Its mean is</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E}[\text{trials}] = 16^{k},\]</div>
-<p>about four billion for the eight digits a hurried user checks: seconds on a
-graphics card.</p>
+<p>In words: on average the poisoner tries <span class="math notranslate nohighlight">\(16^k\)</span> candidates.</p>
+<ul class="simple">
+<li><p><strong>Eight digits</strong>, as a hurried user checks, need about
+<span class="math notranslate nohighlight">\(16^8 \approx 4.3\)</span> billion trials: seconds on a graphics card.</p></li>
+<li><p><strong>All 40 digits</strong> would need <span class="math notranslate nohighlight">\(16^{40} = 2^{160}\)</span> trials. That is far
+more than every computer on Earth could do in the age of the universe.</p></li>
+<li><p>So the defence is to check the whole address, not just its ends.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.poisoning.grind_lookalike" title="blockchainkit.fraud.systems.poisoning.grind_lookalike"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.poisoning.grind_lookalike()</span></code></a>
 over hash-derived candidates
 (<a class="reference internal" href="../api/fraud.html#blockchainkit.fraud.systems.poisoning.candidate_address" title="blockchainkit.fraud.systems.poisoning.candidate_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.fraud.systems.poisoning.candidate_address()</span></code></a>),

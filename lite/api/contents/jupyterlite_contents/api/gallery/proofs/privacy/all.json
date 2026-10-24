@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-08T18:24:15.640196Z",
+      "created": "2026-10-24T08:04:53.422077Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-08T18:24:15.640196Z",
+      "last_modified": "2026-10-24T08:04:53.422077Z",
       "mimetype": null,
       "name": "plot_01_zerocash.ipynb",
       "path": "jupyterlite_contents/api/gallery/proofs/privacy/plot_01_zerocash.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-08T18:24:16.626907Z",
+  "created": "2026-10-24T08:04:54.714123Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-08T18:24:16.626973Z",
+  "last_modified": "2026-10-24T08:04:54.714185Z",
   "mimetype": null,
   "name": "privacy",
   "path": "jupyterlite_contents/api/gallery/proofs/privacy",

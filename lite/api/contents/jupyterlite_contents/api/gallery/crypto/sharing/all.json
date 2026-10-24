@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.223656Z",
+      "created": "2026-10-24T08:04:53.413607Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.223656Z",
+      "last_modified": "2026-10-24T08:04:53.413607Z",
       "mimetype": null,
       "name": "plot_02_feldman_vss.ipynb",
       "path": "jupyterlite_contents/api/gallery/crypto/sharing/plot_02_feldman_vss.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.223515Z",
+      "created": "2026-10-24T08:04:53.413475Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.223515Z",
+      "last_modified": "2026-10-24T08:04:53.413475Z",
       "mimetype": null,
       "name": "plot_01_secret_sharing.ipynb",
       "path": "jupyterlite_contents/api/gallery/crypto/sharing/plot_01_secret_sharing.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.606122Z",
+  "created": "2026-10-24T08:04:54.697475Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.606393Z",
+  "last_modified": "2026-10-24T08:04:54.697811Z",
   "mimetype": null,
   "name": "sharing",
   "path": "jupyterlite_contents/api/gallery/crypto/sharing",

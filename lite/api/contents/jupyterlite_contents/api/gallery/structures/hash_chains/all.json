@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.227342Z",
+      "created": "2026-10-24T08:04:53.423712Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.227342Z",
+      "last_modified": "2026-10-24T08:04:53.423712Z",
       "mimetype": null,
       "name": "plot_01_lamport_hash_chain.ipynb",
       "path": "jupyterlite_contents/api/gallery/structures/hash_chains/plot_01_lamport_hash_chain.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.612590Z",
+  "created": "2026-10-24T08:04:54.717120Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.612649Z",
+  "last_modified": "2026-10-24T08:04:54.717192Z",
   "mimetype": null,
   "name": "hash_chains",
   "path": "jupyterlite_contents/api/gallery/structures/hash_chains",

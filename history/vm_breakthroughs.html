@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -444,17 +466,49 @@
 including protocols within which the parties perform on these promises.”
 – Nick Szabo, <em>Smart Contracts: Building Blocks for Digital Markets</em>, 1996</p>
 </div></blockquote>
-<p>When every node must reach the same state, every node must run the same
-program and get the same result, within bounded resources. This chronology
-traces the ideas behind <a class="reference internal" href="../api/vm.html#module-blockchainkit.vm" title="blockchainkit.vm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.vm</span></code></a>, from reverse Polish notation
-to the overflow bugs of token contracts. The argument runs in four steps.
-Stack machines give a simple, portable way to run programs (1924-1970).
-Computability theory shows that nobody can predict whether an arbitrary
-program stops, so execution must be bounded by a budget instead (1936-1966).
-Replication needs execution to be deterministic and all-or-nothing
-(1978-1981). Smart contracts and blockchains then put these pieces together,
-and their attacks show what happens when one piece is missing (1994-2018).
-The stack machine is a small teaching design, not the EVM; <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists exactly where it differs.
+<p>A <em>blockchain</em> is a shared record, like a Python list of blocks of
+transactions. Many computers keep copies of it in step, without trusting
+each other. Each of these computers is called a <em>node</em>. Some blockchains
+also run programs. Then every node runs every program, and all nodes must
+end up with the same <em>state</em>: the same stored data, like the same contents
+in a big Python dict. That only works if every node gets exactly the same
+result from the same program, and if no program can run forever.</p>
+<p>The page uses a few terms throughout:</p>
+<ul class="simple">
+<li><p><em>Bitcoin</em> (2009) is the first blockchain. Its coins are guarded by tiny
+programs in a language called <em>Script</em>.</p></li>
+<li><p><em>Ethereum</em> (2015) is a blockchain that stores general programs as well as
+payments. Its currency is <em>ether</em>.</p></li>
+<li><p>A <em>smart contract</em>, or just <em>contract</em>, is a program stored on a
+blockchain. Think of it as a Python object that lives on the blockchain.
+It has saved data and public methods, and anyone can call those methods.</p></li>
+<li><p>A <em>virtual machine</em> is a computer simulated in software, like the
+interpreter that runs Python’s bytecode. The <em>EVM</em> (Ethereum Virtual
+Machine) is the one that runs Ethereum’s contracts.</p></li>
+<li><p>A <em>stack</em> is a list used only at one end, like a Python list with only
+<code class="docutils literal notranslate"><span class="pre">append</span></code> (<em>push</em>) and <code class="docutils literal notranslate"><span class="pre">pop</span></code>. A <em>stack machine</em> is a machine that keeps
+all its working values on such a stack.</p></li>
+<li><p>A computation is <em>deterministic</em> if the same inputs always give the same
+output. Python’s <code class="docutils literal notranslate"><span class="pre">sorted</span></code> is deterministic. <code class="docutils literal notranslate"><span class="pre">random.random()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">time.time()</span></code> are not.</p></li>
+<li><p><em>All-or-nothing</em> means a call either completes fully or leaves no trace.</p></li>
+</ul>
+<p>This chronology traces the ideas behind <a class="reference internal" href="../api/vm.html#module-blockchainkit.vm" title="blockchainkit.vm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.vm</span></code></a>, from
+reverse Polish notation to the <em>overflow</em> bugs of <em>token</em> contracts. (An
+overflow is a number that grows too big for its slot and wraps round to a
+small one. A token is a balance kept by a contract, such as a dict
+<code class="docutils literal notranslate"><span class="pre">{owner:</span> <span class="pre">amount}</span></code>.) The argument runs in four steps.</p>
+<ol class="arabic simple">
+<li><p>Stack machines give a simple, portable way to run programs (1924-1970).</p></li>
+<li><p>Computability theory, the mathematics of what programs can and cannot
+do, shows that nobody can predict whether an arbitrary program stops. So
+execution must be bounded by a budget instead (1936-1966).</p></li>
+<li><p>Keeping many copies in step (<em>replication</em>) needs execution to be
+deterministic and all-or-nothing (1978-1981).</p></li>
+<li><p>Smart contracts and blockchains then put these pieces together. Their
+attacks show what happens when one piece is missing (1994-2018).</p></li>
+</ol>
+<p>The stack machine is a small teaching design, not the EVM; <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists exactly where it differs.
 How contracts are designed, broken and verified continues in
 <a class="reference internal" href="contracts_breakthroughs.html"><span class="doc">Breakthroughs in Smart Contracts</span></a>.</p>
 <nav class="contents local" id="timeline">
@@ -480,16 +534,44 @@ How contracts are designed, broken and verified continues in
 </nav>
 <section id="polish-and-reverse-polish-notation">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1924-1957 – Polish and Reverse Polish Notation</a><a class="headerlink" href="#polish-and-reverse-polish-notation" title="Link to this heading">#</a></h2>
-<p>Łukasiewicz wrote logical formulas with each operator before its operands, so
-that no parentheses or precedence rules are needed. Hamblin, designing
-compilers for early Australian computers, reversed the order. In <em>reverse</em>
-Polish notation each operator follows its operands, which is exactly the order
-in which a machine with one stack computes, left to right:</p>
+<p>We write <code class="docutils literal notranslate"><span class="pre">(1</span> <span class="pre">+</span> <span class="pre">2)</span> <span class="pre">*</span> <span class="pre">3</span></code> with brackets, and rely on rules such as “<code class="docutils literal notranslate"><span class="pre">*</span></code>
+before <code class="docutils literal notranslate"><span class="pre">+</span></code>” (<em>precedence</em>). A machine must sort all of that out before it
+can compute anything. Is there a way of writing formulas that needs neither?</p>
+<p>Jan Łukasiewicz, a Polish logician, found one. He wrote each <em>operator</em>
+(<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, …) before its <em>operands</em> (the values it acts on): <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">1</span> <span class="pre">2</span></code>
+instead of <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code>. Then no brackets and no precedence rules are needed.
+Charles Hamblin was writing <em>compilers</em> for early Australian computers. (A
+compiler is a program that translates a programming language into machine
+instructions.) He reversed the order. In <em>reverse Polish notation</em> (RPN)
+each operator comes after its operands. That is exactly the order in which a
+stack machine computes, reading left to right:</p>
+<ol class="arabic simple">
+<li><p>Read the next item.</p></li>
+<li><p>If it is a number, push it onto the stack.</p></li>
+<li><p>If it is an operator, pop two values, apply the operator, and push the
+result.</p></li>
+<li><p>Repeat until the input ends. The answer is the one value left on the
+stack.</p></li>
+</ol>
+<p>The ordinary formula on the left becomes the RPN sequence on the right:</p>
 <div class="math notranslate nohighlight">
 \[(1 + 2) \times 3 \quad\longrightarrow\quad 1\ 2\ +\ 3\ \times.\]</div>
-<p>Dijkstra’s shunting-yard algorithm (1961) converts ordinary infix notation to
-this order. Every stack virtual machine, including Bitcoin Script and the EVM,
-runs code in this form.</p>
+<p>Run the steps on it. Push 1, push 2. <code class="docutils literal notranslate"><span class="pre">+</span></code> pops both and pushes 3. Push 3.
+<code class="docutils literal notranslate"><span class="pre">×</span></code> pops both and pushes 9.</p>
+<p>Edsger Dijkstra’s <em>shunting-yard algorithm</em> (1961) converts ordinary
+<em>infix</em> notation (operator between operands, as we usually write) into RPN.
+It is named after a railway yard where wagons are sorted onto side tracks.
+Operators wait on a side stack until their operands have passed:</p>
+<ol class="arabic simple">
+<li><p>Send each number straight to the output.</p></li>
+<li><p>Before pushing an operator onto the side stack, first move to the output
+every waiting operator of higher or equal precedence.</p></li>
+<li><p>Push <code class="docutils literal notranslate"><span class="pre">(</span></code> onto the side stack. On <code class="docutils literal notranslate"><span class="pre">)</span></code>, move operators to the output
+until the matching <code class="docutils literal notranslate"><span class="pre">(</span></code>, then drop both brackets.</p></li>
+<li><p>At the end, move every remaining operator to the output.</p></li>
+</ol>
+<p>Every stack virtual machine, including Bitcoin Script and the EVM, runs code
+in this form.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.expressions.to_rpn" title="blockchainkit.vm.systems.expressions.to_rpn"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.expressions.to_rpn()</span></code></a> (shunting
 yard) and <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.expressions.compile_expression" title="blockchainkit.vm.systems.expressions.compile_expression"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.expressions.compile_expression()</span></code></a>.</p>
 <p><em>References:</em> J. Łukasiewicz, <em>Elementy logiki matematycznej</em> (1929);
@@ -501,14 +583,48 @@ C. L. Hamblin, <em>Translation to and from Polish notation</em>, The Computer Jo
 </div></div></section>
 <section id="turing-machines-and-the-halting-problem">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1936 – Turing Machines and the Halting Problem</a><a class="headerlink" href="#turing-machines-and-the-halting-problem" title="Link to this heading">#</a></h2>
-<p>Turing modeled computation as a machine reading and writing an unbounded tape
-under a finite table of rules, and proved by diagonalization that no machine
-decides, for every machine and input, whether it halts. Rice’s theorem extends
-this to every nontrivial property of a program’s behavior.</p>
+<p>Can a program look at any other program and tell whether it will ever stop?
+Alan Turing proved that it cannot.</p>
+<p>First he needed a precise model of “a program”. A <em>Turing machine</em> has:</p>
+<ul class="simple">
+<li><p>a <em>tape</em>, an unbounded row of cells, each holding one symbol, like a
+Python list that grows whenever you walk off its end;</p></li>
+<li><p>a head that reads and writes one cell at a time and moves one step left
+or right;</p></li>
+<li><p>a finite table of rules, like a dict
+<code class="docutils literal notranslate"><span class="pre">{(state,</span> <span class="pre">symbol):</span> <span class="pre">(write,</span> <span class="pre">move,</span> <span class="pre">next_state)}</span></code>. One special state means
+“halt” (stop).</p></li>
+</ul>
+<p>A problem is <em>decidable</em> if some program answers it correctly for every
+input and always finishes. Turing showed that the <em>halting problem</em> is not
+decidable: no machine can say, for every machine and input, whether it
+halts. His proof uses <em>diagonalization</em>, which here means feeding a program
+its own code. In Python terms:</p>
+<ol class="arabic simple">
+<li><p>Suppose someone has written <code class="docutils literal notranslate"><span class="pre">halts(prog,</span> <span class="pre">data)</span></code>. It always finishes,
+and returns <code class="docutils literal notranslate"><span class="pre">True</span></code> exactly when <code class="docutils literal notranslate"><span class="pre">prog(data)</span></code> would eventually stop.</p></li>
+<li><p>Write <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">g(p):</span></code> that calls <code class="docutils literal notranslate"><span class="pre">halts(p,</span> <span class="pre">p)</span></code>. If the answer is
+<code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code> loops forever (<code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span> <span class="pre">pass</span></code>). Otherwise it
+returns.</p></li>
+<li><p>Ask what <code class="docutils literal notranslate"><span class="pre">g(g)</span></code> does. If it stops, then <code class="docutils literal notranslate"><span class="pre">halts(g,</span> <span class="pre">g)</span></code> was <code class="docutils literal notranslate"><span class="pre">True</span></code>,
+so <code class="docutils literal notranslate"><span class="pre">g</span></code> loops forever. If it loops forever, then <code class="docutils literal notranslate"><span class="pre">halts(g,</span> <span class="pre">g)</span></code> was
+<code class="docutils literal notranslate"><span class="pre">False</span></code>, so <code class="docutils literal notranslate"><span class="pre">g</span></code> returns. Both cases contradict themselves.</p></li>
+<li><p>So <code class="docutils literal notranslate"><span class="pre">halts</span></code> cannot exist.</p></li>
+</ol>
+<p>Rice’s theorem extends this to every <em>nontrivial</em> property of a program’s
+behavior. A property is nontrivial if some programs have it and some do
+not, for example “returns 0 on every input” or “never divides by zero”.
+None of these can be decided by a program.</p>
 <p>For a blockchain, this means a node cannot inspect a stranger’s contract and
-reject it in advance for never finishing. It can only give each call a budget.
-Ethereum’s answer is gas: every step costs gas and every call carries a finite
-amount, so every call ends, either by finishing or by running out of gas. The
+reject it in advance for never finishing. It can only give each call a
+budget. Ethereum’s answer is <em>gas</em>, a step budget for each call:</p>
+<ol class="arabic simple">
+<li><p>Whoever sends a call attaches a finite amount of gas to it.</p></li>
+<li><p>Every instruction the call runs subtracts its fixed cost from that
+amount.</p></li>
+<li><p>If the amount would drop below zero, execution stops with an error.</p></li>
+</ol>
+<p>So every call ends, either by finishing or by running out of gas. The
 budget does not decide halting. It makes the question irrelevant.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.turing.run_turing_machine" title="blockchainkit.vm.systems.turing.run_turing_machine"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.turing.run_turing_machine()</span></code></a>
 (with exact cycle detection) and
@@ -522,16 +638,30 @@ s2-42(1), 230–265 (1937; read 1936). <a class="reference external" href="https
 </div></div></section>
 <section id="a-hardware-stack-the-burroughs-b5000">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1961 – A Hardware Stack: The Burroughs B5000</a><a class="headerlink" href="#a-hardware-stack-the-burroughs-b5000" title="Link to this heading">#</a></h2>
-<p>Robert Barton designed the Burroughs B5000 to keep intermediate results on a
-hardware stack instead of in named registers, so that compiled Algol programs
-mapped directly onto machine operations. The stack needs no register
-allocation, but it is a finite resource, and the shape of an expression decides
-how much stack its evaluation needs. Evaluated left to right,
-<span class="math notranslate nohighlight">\(((1 + 2) + 3) + 4\)</span> never holds more than two values, because each sum is
-finished before the next operand arrives. <span class="math notranslate nohighlight">\(1 + (2 + (3 + 4))\)</span> holds all
-four at once, because every addition waits for the one inside it. Virtual machines
-inherit the limit: the EVM caps its stack at 1024 words, and Bitcoin caps the
-combined stacks at 1000 items.</p>
+<p>Most processors hold intermediate results in <em>registers</em>: a few named,
+very fast storage slots, like a handful of fixed global variables. The
+compiler must decide which value goes in which register at each moment.
+This is called <em>register allocation</em>, and it is hard to do well.</p>
+<p>Robert Barton designed the Burroughs B5000 computer to keep intermediate
+results on a hardware stack instead. Programs written in Algol, an early
+programming language, then mapped directly onto machine operations. The
+stack needs no register allocation. But it has a cost:</p>
+<ul class="simple">
+<li><p>The stack is a finite resource.</p></li>
+<li><p>The shape of an expression decides how much stack its evaluation needs.</p></li>
+</ul>
+<p>Evaluated left to right, <span class="math notranslate nohighlight">\(((1 + 2) + 3) + 4\)</span> never holds more than two
+values, because each sum is finished before the next operand arrives. In RPN
+it is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">+</span> <span class="pre">4</span> <span class="pre">+</span></code>. <span class="math notranslate nohighlight">\(1 + (2 + (3 + 4))\)</span> holds all four at once,
+because every addition waits for the one inside it. In RPN it is
+<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">2</span> <span class="pre">3</span> <span class="pre">4</span> <span class="pre">+</span> <span class="pre">+</span> <span class="pre">+</span></code>.</p>
+<p>Virtual machines inherit the limit. A <em>word</em> is the machine’s basic unit of
+data, one stack slot.</p>
+<ul class="simple">
+<li><p>The EVM caps its stack at 1024 words.</p></li>
+<li><p>Bitcoin has a main stack and a second “alt” stack, and caps the two
+together at 1000 items.</p></li>
+</ul>
 <p><em>Implementation:</em> the <code class="docutils literal notranslate"><span class="pre">stack_limit</span></code> of
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>;
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.visualizers.plots.plot_stack_height" title="blockchainkit.vm.visualizers.plots.plot_stack_height"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.visualizers.plots.plot_stack_height()</span></code></a>.</p>
@@ -544,21 +674,40 @@ digital computer</em>, Proc. Western Joint Computer Conference, 393–396 (1961)
 </div></div></section>
 <section id="rado-s-busy-beaver">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1962 – Radó’s Busy Beaver</a><a class="headerlink" href="#rado-s-busy-beaver" title="Link to this heading">#</a></h2>
-<p>Among all tiny programs that eventually stop, which runs longest? Radó defined
-the busy-beaver function <span class="math notranslate nohighlight">\(S(n)\)</span>, the most steps any halting
-<span class="math notranslate nohighlight">\(n\)</span>-state, 2-symbol machine takes from a blank tape, and proved that
-<span class="math notranslate nohighlight">\(S\)</span> is not computable. The reason is short. If <span class="math notranslate nohighlight">\(S\)</span> were computable,
-one could decide halting on a blank tape: run an <span class="math notranslate nohighlight">\(n\)</span>-state machine for
-<span class="math notranslate nohighlight">\(S(n)\)</span> steps, and if it has not stopped by then, it never will. Radó also
-proved more: <span class="math notranslate nohighlight">\(S\)</span> eventually grows faster than every computable function.
-The known values are</p>
+<p>Among all tiny programs that eventually stop, which runs longest? Tibor
+Radó turned this into a precise question.</p>
+<p>Take every Turing machine with <span class="math notranslate nohighlight">\(n\)</span> states and two tape symbols (0 and
+1). Start each one on a <em>blank</em> tape (all 0s). Some run forever. Among those
+that halt, the <em>busy-beaver function</em> <span class="math notranslate nohighlight">\(S(n)\)</span> is the largest number of
+steps any of them takes. For each <span class="math notranslate nohighlight">\(n\)</span> there are only finitely many
+such machines, so <span class="math notranslate nohighlight">\(S(n)\)</span> is a well-defined whole number.</p>
+<p>Radó proved that <span class="math notranslate nohighlight">\(S\)</span> is not <em>computable</em>: no program can output
+<span class="math notranslate nohighlight">\(S(n)\)</span> for every <span class="math notranslate nohighlight">\(n\)</span>. The reason is short. Suppose such a
+program existed. Then this procedure would decide halting on a blank tape:</p>
+<ol class="arabic simple">
+<li><p>Given an <span class="math notranslate nohighlight">\(n\)</span>-state machine, compute <span class="math notranslate nohighlight">\(S(n)\)</span>.</p></li>
+<li><p>Run the machine for <span class="math notranslate nohighlight">\(S(n)\)</span> steps.</p></li>
+<li><p>If it has stopped, answer “halts”. If not, answer “runs forever”: any
+halting <span class="math notranslate nohighlight">\(n\)</span>-state machine stops within <span class="math notranslate nohighlight">\(S(n)\)</span> steps, by the
+definition of <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+</ol>
+<p>But halting on a blank tape is just as undecidable as Turing’s halting
+problem. So no such program exists.</p>
+<p>Radó also proved more: <span class="math notranslate nohighlight">\(S\)</span> eventually grows faster than every
+computable function. Pick any function <code class="docutils literal notranslate"><span class="pre">f</span></code> you could write in Python.
+Then <span class="math notranslate nohighlight">\(S(n) &gt; f(n)\)</span> for every large enough <span class="math notranslate nohighlight">\(n\)</span>. The known values
+show how fast it takes off:</p>
 <div class="math notranslate nohighlight">
 \[S(1) = 1,\quad S(2) = 6,\quad S(3) = 21,\quad S(4) = 107,\quad
 S(5) = 47{,}176{,}870.\]</div>
-<p>Lin and Radó settled <span class="math notranslate nohighlight">\(S(3)\)</span> by computer in 1965; <span class="math notranslate nohighlight">\(S(5)\)</span> was proved
-by the bbchallenge collaboration in 2024. A gas limit plays the role that
-<span class="math notranslate nohighlight">\(S(n)\)</span> would play, a step count beyond which execution stops. Because the
-true bound cannot be computed, the limit is chosen by policy instead.</p>
+<p>So the longest-running halting 5-state machine takes about 47 million
+steps, while the 4-state record is only 107.</p>
+<p>Lin and Radó settled <span class="math notranslate nohighlight">\(S(3)\)</span> by computer in 1965. <span class="math notranslate nohighlight">\(S(5)\)</span> was
+proved by the bbchallenge collaboration, an online group of volunteers, in
+2024.</p>
+<p>A gas limit plays the role that <span class="math notranslate nohighlight">\(S(n)\)</span> would play: a step count
+beyond which execution stops. Because the true bound cannot be computed,
+the limit is chosen by policy instead.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.turing.busy_beaver" title="blockchainkit.vm.systems.turing.busy_beaver"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.turing.busy_beaver()</span></code></a> searches
 every machine of a given size.</p>
 <p><em>References:</em> T. Radó, <em>On non-computable functions</em>, Bell System Technical
@@ -571,16 +720,43 @@ Journal 41(3), 877–884 (1962). <a class="reference external" href="https://doi
 </div></div></section>
 <section id="bohm-and-jacopini-sequence-selection-iteration">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">1966 – Böhm and Jacopini: Sequence, Selection, Iteration</a><a class="headerlink" href="#bohm-and-jacopini-sequence-selection-iteration" title="Link to this heading">#</a></h2>
-<p>Böhm and Jacopini proved that three building blocks suffice to express any
-flowchart, given extra Boolean variables if needed: do this then that, choose
-between two paths, and repeat while a condition holds. Dijkstra’s
-<em>Go To Statement Considered Harmful</em> (1968) turned
-the result into a discipline. On a stack machine the three constructs are
-straight-line code, a conditional jump, and a backward jump.</p>
-<p>Only iteration can make a program run longer than it is. Without backward
-jumps, each instruction runs at most once, so running time is bounded by program
-length. With them, a loop can run for as long as its input asks, and that is
-what makes gas necessary. Bitcoin Script leaves out backward jumps entirely.</p>
+<p>Early programs were drawn as <em>flowcharts</em>: boxes joined by arrows, where any
+arrow could jump anywhere, like <code class="docutils literal notranslate"><span class="pre">goto</span></code>. Which kinds of jump does a
+programmer really need?</p>
+<p>Corrado Böhm and Giuseppe Jacopini proved that three building blocks
+suffice to express any flowchart. Sometimes the program needs extra
+Boolean (<code class="docutils literal notranslate"><span class="pre">True</span></code>/<code class="docutils literal notranslate"><span class="pre">False</span></code>) flag variables to do it. The blocks are the
+ones Python offers:</p>
+<ul class="simple">
+<li><p><em>sequence</em>: do this, then that (one statement after another);</p></li>
+<li><p><em>selection</em>: choose between two paths (<code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>);</p></li>
+<li><p><em>iteration</em>: repeat while a condition holds (<code class="docutils literal notranslate"><span class="pre">while</span></code>).</p></li>
+</ul>
+<p>Dijkstra’s <em>Go To Statement Considered Harmful</em> (1968) turned the result
+into a discipline: write programs from these three blocks only. On a stack
+machine the three blocks become:</p>
+<ul class="simple">
+<li><p>straight-line code, run in order;</p></li>
+<li><p>a <em>conditional jump</em>: “go to instruction number L if the top of the stack
+is nonzero”;</p></li>
+<li><p>a <em>backward jump</em>: a jump to an earlier instruction, which makes a loop.</p></li>
+</ul>
+<p>Only iteration can make a program run longer than it is:</p>
+<ul class="simple">
+<li><p>Without backward jumps, each instruction runs at most once. So running
+time is bounded by program length: O(n) steps for n instructions.</p></li>
+<li><p>With them, a loop can run for as long as its input asks. That is what
+makes gas necessary.</p></li>
+<li><p>Bitcoin Script leaves out backward jumps entirely.</p></li>
+</ul>
+<p>Programs with jumps are usually written with named <em>labels</em> in place of
+instruction numbers. An <em>assembler</em> turns this readable text into the list
+of instructions. A <em>two-pass</em> assembler goes over the text twice:</p>
+<ol class="arabic simple">
+<li><p>On the first pass, it records the address (position) of each label in a
+dict <code class="docutils literal notranslate"><span class="pre">{label:</span> <span class="pre">address}</span></code>.</p></li>
+<li><p>On the second pass, it replaces each label in a jump by its address.</p></li>
+</ol>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.assembler.assemble" title="blockchainkit.vm.systems.assembler.assemble"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.assembler.assemble()</span></code></a>, a
 two-pass assembler that resolves labels to addresses.</p>
 <p><em>References:</em> C. Böhm and G. Jacopini, <em>Flow diagrams, Turing machines and
@@ -592,12 +768,25 @@ languages with only two formation rules</em>, Communications of the ACM 9(5),
 </div></div></section>
 <section id="forth-and-stack-words">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">1970 – Forth and Stack Words</a><a class="headerlink" href="#forth-and-stack-words" title="Link to this heading">#</a></h2>
-<p>Charles Moore developed Forth around 1970 to control radio telescopes. Instead
-of naming variables, a Forth program shuffles the values on its data stack with
-a few small words, documented by stack diagrams such as <code class="docutils literal notranslate"><span class="pre">OVER</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">--</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">a</span> <span class="pre">)</span></code>
-and <code class="docutils literal notranslate"><span class="pre">ROT</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">--</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">a</span> <span class="pre">)</span></code>. The language is tiny, fast, and easy to
-implement on small machines. Bitcoin’s Script is explicitly Forth-like, and the
-EVM has whole families of <code class="docutils literal notranslate"><span class="pre">DUP</span></code> and <code class="docutils literal notranslate"><span class="pre">SWAP</span></code> instructions.</p>
+<p>Without named variables, how does a stack program get at a value that is
+not on top of the stack?</p>
+<p>Charles Moore developed the Forth language around 1970 to control radio
+telescopes. Instead of naming variables, a Forth program shuffles the values
+on its data stack with a few small commands, called <em>words</em>. Each word is
+documented by a <em>stack diagram</em> <code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">before</span> <span class="pre">--</span> <span class="pre">after</span> <span class="pre">)</span></code>, with the top of the
+stack on the right. For a Python list <code class="docutils literal notranslate"><span class="pre">s</span></code> used as a stack:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DUP</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">--</span> <span class="pre">a</span> <span class="pre">a</span> <span class="pre">)</span></code> copies the top value: <code class="docutils literal notranslate"><span class="pre">s.append(s[-1])</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">--</span> <span class="pre">)</span></code> discards it: <code class="docutils literal notranslate"><span class="pre">s.pop()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SWAP</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">--</span> <span class="pre">b</span> <span class="pre">a</span> <span class="pre">)</span></code> swaps the top two: <code class="docutils literal notranslate"><span class="pre">s[-2],</span> <span class="pre">s[-1]</span> <span class="pre">=</span> <span class="pre">s[-1],</span> <span class="pre">s[-2]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVER</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">--</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">a</span> <span class="pre">)</span></code> copies the second value to the top:
+<code class="docutils literal notranslate"><span class="pre">s.append(s[-2])</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ROT</span> <span class="pre">(</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">--</span> <span class="pre">b</span> <span class="pre">c</span> <span class="pre">a</span> <span class="pre">)</span></code> moves the third value to the top:
+<code class="docutils literal notranslate"><span class="pre">s.append(s.pop(-3))</span></code>.</p></li>
+</ul>
+<p>The language is tiny, fast, and easy to implement on small machines.
+Bitcoin’s Script is explicitly Forth-like, and the EVM has whole families
+of <code class="docutils literal notranslate"><span class="pre">DUP</span></code> and <code class="docutils literal notranslate"><span class="pre">SWAP</span></code> instructions.</p>
 <p><em>Implementation:</em> the <code class="docutils literal notranslate"><span class="pre">DUP</span></code>, <code class="docutils literal notranslate"><span class="pre">DROP</span></code>, <code class="docutils literal notranslate"><span class="pre">SWAP</span></code>, <code class="docutils literal notranslate"><span class="pre">OVER</span></code> and <code class="docutils literal notranslate"><span class="pre">ROT</span></code> opcodes
 of <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>, whose stack effects
 are listed in <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.STACK_EFFECTS" title="blockchainkit.vm.systems.stack_machine.STACK_EFFECTS"><code class="xref py py-data docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.STACK_EFFECTS</span></code></a>.</p>
@@ -609,14 +798,31 @@ Forth</em>, HOPL-II, 177–199 (1993). <a class="reference external" href="https
 </div></div></section>
 <section id="state-machine-replication">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">1978-1990 – State-Machine Replication</a><a class="headerlink" href="#state-machine-replication" title="Link to this heading">#</a></h2>
-<p>Lamport’s 1978 paper showed how a total order of commands lets distributed
-processes simulate one state machine, and Schneider’s 1990 tutorial made
-<em>state machine replication</em> the general recipe for fault-tolerant services:
-copies that start alike and apply the same requests in the same order stay
-identical. The recipe needs two things, agreement on the order of inputs and
-deterministic execution. A blockchain supplies the first with consensus and the
-second with a virtual machine that has no access to clocks, randomness or the
-network.</p>
+<p>One computer can crash. How do you build a service that keeps working when
+some of its computers fail (a <em>fault-tolerant</em> service)?</p>
+<p>Run several copies. Here a <em>state machine</em> is any program whose state
+changes only when it applies a command, like an object whose only method
+is <code class="docutils literal notranslate"><span class="pre">apply(command)</span></code>. Leslie Lamport’s 1978 paper showed how separate
+computers can act as one state machine: they agree on a <em>total order</em> of
+commands, one single sequence that everyone follows. Fred Schneider’s 1990
+tutorial made <em>state machine replication</em> the general recipe:</p>
+<ol class="arabic simple">
+<li><p>Start every copy in the same state.</p></li>
+<li><p>Agree on one order for all incoming requests.</p></li>
+<li><p>Each copy applies the requests, one by one, in that order.</p></li>
+</ol>
+<p>Copies that start alike and apply the same requests in the same order stay
+identical. The recipe needs two things:</p>
+<ul class="simple">
+<li><p>agreement on the order of inputs;</p></li>
+<li><p>deterministic execution, so that the same request has the same effect on
+every copy.</p></li>
+</ul>
+<p>A blockchain supplies the first with <em>consensus</em>, a protocol by which nodes
+agree on one list of transactions. It supplies the second with a virtual
+machine that has no access to clocks, randomness or the network. Each of
+those could give different answers on different nodes, as <code class="docutils literal notranslate"><span class="pre">time.time()</span></code>
+does.</p>
 <p><em>Implementation:</em> the determinism of
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>: the same program,
 storage and arguments always give the same result.</p>
@@ -630,12 +836,29 @@ approach: a tutorial</em>, ACM Computing Surveys 22(4), 299–319 (1990). <a cla
 </div></div></section>
 <section id="gray-s-transaction-concept">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">1981 – Gray’s Transaction Concept</a><a class="headerlink" href="#gray-s-transaction-concept" title="Link to this heading">#</a></h2>
-<p>A transfer must either fully happen or not happen at all. Jim Gray defined
-transactions as units of work that are atomic, consistent and durable
-(isolation was added later to make the ACID properties). Atomicity means that a
-failure at any point leaves no partial effects. Every Ethereum call is a
-transaction in this sense: when execution reverts or runs out of gas, all of
-its storage writes are discarded, although the gas spent is still paid.</p>
+<p>A bank transfer takes money from one account and adds it to another. If the
+computer fails between the two steps, money vanishes. A transfer must either
+fully happen or not happen at all.</p>
+<p>Jim Gray defined a <em>transaction</em> as a unit of work with these properties:</p>
+<ul class="simple">
+<li><p><em>atomic</em>: it happens completely or not at all;</p></li>
+<li><p><em>consistent</em>: it takes valid data to valid data (for example, the total
+money stays the same);</p></li>
+<li><p><em>durable</em>: once it has completed, its effect survives later crashes.</p></li>
+</ul>
+<p>Isolation (transactions running at the same time do not see each other’s
+half-done work) was added later, giving the four <em>ACID</em> properties.</p>
+<p>Atomicity means that a failure at any point leaves no partial effects. A
+common way to get it is to work on a copy, as in
+<code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">=</span> <span class="pre">dict(storage)</span></code>, and keep the copy only if every step succeeds.</p>
+<p>Every Ethereum call is a transaction in this sense. A contract’s <em>storage</em>
+is its saved data, like a dict that persists between calls. A call
+<em>reverts</em> when it fails or deliberately aborts:</p>
+<ul class="simple">
+<li><p>When execution reverts or runs out of gas, all of its storage writes are
+discarded.</p></li>
+<li><p>The gas spent is still paid, because the nodes did the work.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a> runs
 on a copy of storage and returns it only on success; <code class="docutils literal notranslate"><span class="pre">REVERT</span></code> aborts
 deliberately.</p>
@@ -647,13 +870,23 @@ Proc. 7th International Conference on Very Large Data Bases, 144–154 (1981).</
 </div></div></section>
 <section id="szabo-s-smart-contracts">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">1994 – Szabo’s Smart Contracts</a><a class="headerlink" href="#szabo-s-smart-contracts" title="Link to this heading">#</a></h2>
-<p>Some agreements can be enforced by a machine instead of a court: a vending
-machine sells to anyone who pays, and nobody can take the goods without paying.
-Nick Szabo coined <em>smart contract</em> for computerized protocols that execute the
-terms of a contract, gave the vending machine as their ancestor, and argued
-that they could reduce the need for trusted intermediaries. Ethereum made the
-idea practical by putting contract code and state on a blockchain, where every
-node executes it and anyone can check the result.</p>
+<p>Some agreements can be enforced by a machine instead of a court. A vending
+machine sells to anyone who pays, and nobody can take the goods without
+paying:</p>
+<ol class="arabic simple">
+<li><p>The buyer inserts coins.</p></li>
+<li><p>The machine checks that the amount covers the price.</p></li>
+<li><p>If it does, the machine releases the item and returns the change.
+Otherwise it returns the coins.</p></li>
+</ol>
+<p>Nick Szabo coined <em>smart contract</em> for computer protocols that carry out
+the terms of a contract. He gave the vending machine as their ancestor. He
+argued that they could reduce the need for <em>trusted intermediaries</em>: the
+banks, escrow agents and courts that parties rely on today to make sure
+everyone keeps their promises.</p>
+<p>Ethereum made the idea practical by putting contract code and state on a
+blockchain. There every node runs the code, and anyone can check the
+result.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.programs.vending_machine" title="blockchainkit.vm.systems.programs.vending_machine"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.programs.vending_machine()</span></code></a>,
 run with the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> of
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>.</p>
@@ -665,15 +898,39 @@ securing relationships on public networks</em>, First Monday 2(9) (1997). <a cla
 </div></div></section>
 <section id="bytecode-verification">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">1995 – Bytecode Verification</a><a class="headerlink" href="#bytecode-verification" title="Link to this heading">#</a></h2>
-<p>Gosling’s design of the Java virtual machine checked downloaded bytecode before
-running it, by a data-flow analysis over every path: no instruction may pop more
-values than are present, and paths that meet must agree on the stack’s shape.
-Because the check covers every path, verified code can run without run-time
-stack checks, and its stack size is known in advance. Rice’s theorem is not
-contradicted: the verifier checks the form of the code on every path, whether
-or not that path can ever run, so it is decidable, and it rejects some programs
-that would in fact behave well. The same idea of validating code once, at
-deployment, is behind Ethereum’s EVM Object Format proposals.</p>
+<p>Java programs are downloaded from strangers and run as <em>bytecode</em>: a list
+of simple machine instructions, like the output of Python’s <code class="docutils literal notranslate"><span class="pre">dis</span></code> module.
+A malformed program could pop values that are not there and corrupt the
+machine. Checking the stack before every instruction is slow.</p>
+<p>James Gosling’s design of the Java virtual machine checks downloaded
+bytecode once, before running it. The check is a <em>data-flow analysis</em>: it
+follows every path through the code and tracks what the stack looks like at
+each instruction, without running the program on real values.</p>
+<ol class="arabic simple">
+<li><p>Start at the first instruction with an empty stack.</p></li>
+<li><p>For each instruction, compute the stack height after it from the height
+before it.</p></li>
+<li><p>Follow every possible next instruction, on both sides of each jump.</p></li>
+<li><p>Where two paths meet, check that they agree on the stack’s shape.</p></li>
+<li><p>Reject the program if any instruction would pop more values than are
+present.</p></li>
+</ol>
+<p>This has useful consequences:</p>
+<ul class="simple">
+<li><p>Because the check covers every path, verified code can run without
+run-time stack checks.</p></li>
+<li><p>Its maximum stack size is known in advance.</p></li>
+</ul>
+<p>Rice’s theorem is not contradicted. The verifier checks the <em>form</em> of the
+code on every path, whether or not that path can ever run. That question
+is decidable. The price is that it rejects some programs that would in fact
+behave well.</p>
+<p>The same idea of validating code once, at deployment, is behind Ethereum’s
+<em>EVM Object Format</em> (EOF) proposals, a planned container for contract code
+that is checked when the contract is created. The implementation below is
+an <em>abstract interpretation</em>: it runs the program on a summary of each value
+(here, only how many values are on the stack) instead of on the values
+themselves.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.verifier.verify_bytecode" title="blockchainkit.vm.systems.verifier.verify_bytecode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.verifier.verify_bytecode()</span></code></a>, an
 abstract interpretation of stack heights only; the JVM verifier also infers the
 type of every stack slot and local variable.</p>
@@ -685,20 +942,52 @@ on Intermediate Representations, 111–118 (1995). <a class="reference external"
 </div></div></section>
 <section id="bitcoin-script-and-pay-to-public-key-hash">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">2009 – Bitcoin Script and Pay-to-Public-Key-Hash</a><a class="headerlink" href="#bitcoin-script-and-pay-to-public-key-hash" title="Link to this heading">#</a></h2>
-<p>Bitcoin’s first release locked each coin with a tiny program in Script, a stack
-language with no loops. To spend the coin, one supplies the inputs that make the
-program succeed. The common lock
-<code class="docutils literal notranslate"><span class="pre">OP_DUP</span> <span class="pre">OP_HASH160</span> <span class="pre">&lt;hash&gt;</span> <span class="pre">OP_EQUALVERIFY</span> <span class="pre">OP_CHECKSIG</span></code> pays whoever shows a
-public key with that hash and a valid signature by it. The spender pushes a
-signature and a public key. <code class="docutils literal notranslate"><span class="pre">OP_DUP</span></code> copies the key, <code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code> hashes the
-copy, <code class="docutils literal notranslate"><span class="pre">OP_EQUALVERIFY</span></code> stops unless that hash matches the lock, and
-<code class="docutils literal notranslate"><span class="pre">OP_CHECKSIG</span></code> checks the signature against the key. Without loops, execution
-time is bounded by script length, so Bitcoin needs no gas.</p>
-<p>Until 2010 the unlocking and locking scripts were concatenated and run as one
-program. <code class="docutils literal notranslate"><span class="pre">OP_RETURN</span></code> then ended execution early with whatever was on the
-stack, so an unlocking script ending in <code class="docutils literal notranslate"><span class="pre">OP_TRUE</span> <span class="pre">OP_RETURN</span></code> succeeded before
-the lock’s checks ever ran (CVE-2010-5141). The two scripts are now run
+<p>How do you say who may spend a coin, when there is no bank to check?</p>
+<p>Bitcoin’s first release locked each coin with a tiny program in Script, a
+stack language with no loops. To spend the coin, one supplies the inputs
+that make the program succeed. Two ideas from cryptography do the work:</p>
+<ul class="simple">
+<li><p>A <em>hash function</em> is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code>, but built so that nobody
+can find two inputs with the same output, or an input for a given output.
+Its output, the <em>hash</em>, works as a short fingerprint of any data.
+<code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code> computes a 160-bit hash.</p></li>
+<li><p>A <em>digital signature</em> uses a pair of keys. The owner keeps the <em>private
+key</em> secret and publishes the <em>public key</em>. Only the private key can
+produce a valid signature on a message. Anyone with the public key can
+check it.</p></li>
+</ul>
+<p>The common lock, <em>pay-to-public-key-hash</em>, is
+<code class="docutils literal notranslate"><span class="pre">OP_DUP</span> <span class="pre">OP_HASH160</span> <span class="pre">&lt;hash&gt;</span> <span class="pre">OP_EQUALVERIFY</span> <span class="pre">OP_CHECKSIG</span></code>. It pays whoever
+shows a public key with that hash and a valid signature by it. Spending
+runs like this:</p>
+<ol class="arabic simple">
+<li><p>The spender pushes a signature and a public key onto the stack.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_DUP</span></code> copies the key.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code> hashes the copy.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;hash&gt;</span></code> pushes the hash written in the lock.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_EQUALVERIFY</span></code> stops with failure unless the two hashes match.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_CHECKSIG</span></code> checks the signature against the key. The spend is valid
+if it succeeds.</p></li>
+</ol>
+<p>Without loops, execution time is bounded by script length, so Bitcoin needs
+no gas.</p>
+<p>Until 2010 the unlocking and locking scripts were joined end to end and run
+as one program. That allowed an attack:</p>
+<ol class="arabic simple">
+<li><p>The attacker wrote an unlocking script ending in <code class="docutils literal notranslate"><span class="pre">OP_TRUE</span> <span class="pre">OP_RETURN</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_TRUE</span></code> pushed a “true” value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OP_RETURN</span></code> then ended execution early with whatever was on the stack.</p></li>
+<li><p>The program succeeded before the lock’s checks ever ran.</p></li>
+</ol>
+<p>The bug is listed as CVE-2010-5141. (A <em>CVE</em> number is an entry in the
+public catalogue of security flaws.) The two scripts are now run
 separately.</p>
+<p>The implementation below differs from Bitcoin in a few ways it names.
+<em>Big-endian</em> means the most significant byte comes first, as in
+<code class="docutils literal notranslate"><span class="pre">int.from_bytes(b,</span> <span class="pre">&quot;big&quot;)</span></code>. <code class="docutils literal notranslate"><span class="pre">OP_HASH256</span></code> applies the SHA-256 hash twice.
+<em>Schnorr signatures</em> are one kind of digital signature. A <em>transaction
+digest</em> is the hash of the spending transaction, which is the message
+real Bitcoin signs.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.verify_script()</span></code></a>,
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.p2pkh_locking" title="blockchainkit.vm.systems.script.p2pkh_locking"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.p2pkh_locking()</span></code></a> and
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.p2pkh_unlocking" title="blockchainkit.vm.systems.script.p2pkh_unlocking"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.p2pkh_unlocking()</span></code></a> support a small opcode
@@ -713,14 +1002,25 @@ than a transaction digest.</p>
 </div></div></section>
 <section id="ethereum-and-programmable-replicated-state">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">2014 – Ethereum and Programmable Replicated State</a><a class="headerlink" href="#ethereum-and-programmable-replicated-state" title="Link to this heading">#</a></h2>
-<p>Ethereum’s whitepaper describes a blockchain as a state-transition system whose
-rules can include programmable contracts, so participants agree on program
-results as well as payments. Replication requires deterministic execution, and
-a gas budget stops any one program from consuming unlimited computation:</p>
+<p>Bitcoin’s scripts can only decide whether a coin may be spent. Could a
+blockchain run any program instead?</p>
+<p>Ethereum’s whitepaper describes a blockchain as a <em>state-transition
+system</em>: a function <code class="docutils literal notranslate"><span class="pre">apply(state,</span> <span class="pre">transaction)</span></code> that returns the new
+state. Its rules can include programmable contracts, so participants agree
+on program results as well as payments. Two requirements follow:</p>
+<ul class="simple">
+<li><p>Replication requires deterministic execution.</p></li>
+<li><p>A gas budget stops any one program from consuming unlimited computation.</p></li>
+</ul>
+<p>In symbols, one step looks like this:</p>
 <div class="math notranslate nohighlight">
 \[(S,\mathrm{program},\mathrm{input},\mathrm{gas})\longrightarrow S'
 \quad\text{or an execution error leaving } S.\]</div>
-<p>Words are 256 bits, wide enough for hashes and keys.</p>
+<p>In words: running a program on state <span class="math notranslate nohighlight">\(S\)</span> with some input and a gas
+budget either produces a new state <span class="math notranslate nohighlight">\(S'\)</span>, or fails and leaves
+<span class="math notranslate nohighlight">\(S\)</span> exactly as it was.</p>
+<p>Words are 256 bits (32 bytes), wide enough for hashes and keys. Each word
+holds a number from 0 to <span class="math notranslate nohighlight">\(2^{256} - 1\)</span>.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a> is a
 256-bit stack machine with integer storage, branches, a stack bound, and an
 instruction budget. It works on a copy of storage and returns a new state only
@@ -735,16 +1035,48 @@ specification of the present-day Ethereum network.</p>
 </div></div></section>
 <section id="hash-time-locked-contracts">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">2015-2016 – Hash Time-Locked Contracts</a><a class="headerlink" href="#hash-time-locked-contracts" title="Link to this heading">#</a></h2>
-<p>“Bob gets this money if he reveals the secret behind this hash; if he does not
-by a deadline, Alice gets it back.” Peter Todd’s <code class="docutils literal notranslate"><span class="pre">OP_CHECKLOCKTIMEVERIFY</span></code>
-(BIP 65, activated in 2015) let a script refuse a spend before a given time.
-Combined with a hash lock it gives the hash time-locked contract: pay on
-revealing a preimage, or refund after a timeout. Poon and Dryja’s Lightning
-Network chains HTLCs that share one hash along a route of payment channels:
-revealing the preimage at the last hop lets every earlier hop claim too.
-Timeouts grow toward the sender, so an intermediary that is paid out
-downstream with the preimage still has time to claim from upstream before its
-own refund deadline passes.</p>
+<p>“Bob gets this money if he reveals the secret behind this hash; if he does
+not by a deadline, Alice gets it back.” Two script features make this
+possible:</p>
+<ul class="simple">
+<li><p>A <em>hash lock</em>. A <em>preimage</em> of a hash <span class="math notranslate nohighlight">\(h\)</span> is an input <code class="docutils literal notranslate"><span class="pre">s</span></code> with
+<code class="docutils literal notranslate"><span class="pre">H(s)</span> <span class="pre">==</span> <span class="pre">h</span></code>. Nobody can work it out from <span class="math notranslate nohighlight">\(h\)</span>, so revealing it
+proves you knew the secret.</p></li>
+<li><p>A <em>time lock</em>. Peter Todd’s <code class="docutils literal notranslate"><span class="pre">OP_CHECKLOCKTIMEVERIFY</span></code> (BIP 65, activated
+in 2015) let a script refuse a spend before a given time. (A <em>BIP</em> is a
+Bitcoin Improvement Proposal, a numbered design document.)</p></li>
+</ul>
+<p>Combined, they give the <em>hash time-locked contract</em> (HTLC). The money can
+be spent in one of two ways:</p>
+<ul class="simple">
+<li><p>pay on revealing a preimage;</p></li>
+<li><p>or refund after a timeout.</p></li>
+</ul>
+<p>A <em>payment channel</em> lets two people pay each other many times while
+touching the blockchain only to open and close it. Poon and Dryja’s
+Lightning Network chains HTLCs that share one hash along a route of payment
+channels. Each channel on the route is a <em>hop</em>. Say Alice pays Carol
+through Bob:</p>
+<ol class="arabic simple">
+<li><p>Carol picks a secret <code class="docutils literal notranslate"><span class="pre">s</span></code> and gives Alice its hash <code class="docutils literal notranslate"><span class="pre">H(s)</span></code>.</p></li>
+<li><p>Alice locks money for Bob in an HTLC on <code class="docutils literal notranslate"><span class="pre">H(s)</span></code> with a timeout
+<span class="math notranslate nohighlight">\(T_1\)</span>.</p></li>
+<li><p>Bob locks the same amount for Carol in an HTLC on <code class="docutils literal notranslate"><span class="pre">H(s)</span></code> with an
+earlier timeout <span class="math notranslate nohighlight">\(T_2 &lt; T_1\)</span>.</p></li>
+<li><p>Carol reveals <code class="docutils literal notranslate"><span class="pre">s</span></code> to claim Bob’s payment.</p></li>
+<li><p>Bob now knows <code class="docutils literal notranslate"><span class="pre">s</span></code>, and uses it to claim Alice’s payment.</p></li>
+</ol>
+<p>Revealing the preimage at the last hop lets every earlier hop claim too.
+Timeouts grow toward the sender (<span class="math notranslate nohighlight">\(T_1 &gt; T_2\)</span>). So an intermediary that
+is paid out downstream with the preimage still has time to claim from
+upstream before its own refund deadline passes.</p>
+<p>Real Lightning has more machinery than this model:</p>
+<ul class="simple">
+<li><p><em>relative timelocks</em>, which count a delay from the moment a payment was
+recorded rather than to a fixed time;</p></li>
+<li><p><em>penalty transactions</em>, which let one party take all the channel’s money
+if the other tries to cheat with an old balance.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.htlc_locking" title="blockchainkit.vm.systems.script.htlc_locking"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.htlc_locking()</span></code></a> and the
 <code class="docutils literal notranslate"><span class="pre">locktime</span></code> argument of <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.verify_script()</span></code></a>.
 Lock times are compared as plain numbers; Lightning also uses relative
@@ -759,17 +1091,35 @@ payments</em> (2016).</p>
 </div></div></section>
 <section id="the-dao-and-reentrancy">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">2016 – The DAO and Reentrancy</a><a class="headerlink" href="#the-dao-and-reentrancy" title="Link to this heading">#</a></h2>
-<p>The DAO was a crowdfunded investment contract holding about 14% of all ether.
-Its split function sent ether before zeroing the caller’s balance, and sending
-ether to a contract runs that contract’s code. In June 2016 an attacker’s
-contract called the function again from inside each payment. Because the
-balance had not yet been zeroed, every nested call passed the balance check
-and paid out the full deposit again, and the attacker drained about 3.6
-million ether. Ethereum
-hard-forked to reverse the theft, and the dissenting chain continues as
-Ethereum Classic. <em>Reentrancy</em> became the canonical smart-contract bug, avoided
-by the checks-effects-interactions order: update state before any external
-call.</p>
+<p>The DAO (Decentralized Autonomous Organization) was a crowdfunded
+investment contract holding about 14% of all ether. Its split function let
+an investor withdraw their deposit. It did two things in the wrong order:</p>
+<ul class="simple">
+<li><p>it sent ether before zeroing the caller’s balance;</p></li>
+<li><p>and sending ether to a contract runs that contract’s code, its <em>fallback</em>
+function.</p></li>
+</ul>
+<p>In June 2016 an attacker exploited this:</p>
+<ol class="arabic simple">
+<li><p>The attacker’s contract called the split function.</p></li>
+<li><p>The DAO checked the attacker’s balance, then sent the ether.</p></li>
+<li><p>Receiving the ether ran the attacker’s fallback, which called the split
+function again, from inside the payment.</p></li>
+<li><p>Because the balance had not yet been zeroed, every nested call passed
+the balance check and paid out the full deposit again.</p></li>
+<li><p>The attacker repeated this and drained about 3.6 million ether.</p></li>
+</ol>
+<p>Ethereum <em>hard-forked</em> to reverse the theft: nodes switched to new software
+whose rules moved the stolen ether back. Nodes that refused kept the old
+chain, which continues as Ethereum Classic.</p>
+<p><em>Reentrancy</em>, being called again before the first call has finished,
+became the canonical smart-contract bug. It is avoided by the
+<em>checks-effects-interactions</em> order:</p>
+<ol class="arabic simple">
+<li><p>Checks: verify the request (is the balance enough?).</p></li>
+<li><p>Effects: update the contract’s own state (set the balance to 0).</p></li>
+<li><p>Interactions: only then call or pay other contracts.</p></li>
+</ol>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.reentrancy.drain_bank" title="blockchainkit.vm.systems.reentrancy.drain_bank"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.reentrancy.drain_bank()</span></code></a>, a
 Python model of the call pattern with an attacker whose fallback re-enters, not
 EVM execution; the DAO’s real split function also involved token balances and a
@@ -782,14 +1132,30 @@ Ethereum smart contracts (SoK)</em>, POST 2017, LNCS 10204, 164–186 (2017). <a
 </div></div></section>
 <section id="gas-repricing-after-denial-of-service-attacks">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">2016 – Gas Repricing after Denial-of-Service Attacks</a><a class="headerlink" href="#gas-repricing-after-denial-of-service-attacks" title="Link to this heading">#</a></h2>
-<p>If an operation costs little gas but a lot of real work, an attacker can fill
-blocks with it and slow every node down. In September 2016 attackers spammed
-Ethereum with transactions calling underpriced, disk-heavy instructions such as
-<code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code>, making blocks take far longer to process. EIP-150 (the
-<em>Tangerine Whistle</em> fork, October 2016) raised their prices: <code class="docutils literal notranslate"><span class="pre">SLOAD</span></code> from 50
-to 200 gas, <code class="docutils literal notranslate"><span class="pre">BALANCE</span></code> from 20 to 400, <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> and <code class="docutils literal notranslate"><span class="pre">CALL</span></code> to 700.
-Gas prices are security parameters, because an attacker always picks the
-instruction with the most work per unit of gas.</p>
+<p>Gas is meant to reflect real work. If an operation costs little gas but a
+lot of real work, an attacker can fill blocks with it and slow every node
+down. This is a <em>denial-of-service</em> attack: overloading a service so that
+honest users cannot use it.</p>
+<p>In September 2016 this happened to Ethereum:</p>
+<ol class="arabic simple">
+<li><p>Attackers sent transactions that called underpriced, disk-heavy
+instructions over and over. One was <code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code>, which reads the
+size of another contract’s code from disk.</p></li>
+<li><p>Each such call cost little gas, so a block could hold very many.</p></li>
+<li><p>Every node had to do all those disk reads, and blocks took far longer to
+process.</p></li>
+</ol>
+<p>EIP-150 raised the prices. (An <em>EIP</em> is an Ethereum Improvement Proposal.)
+It took effect in the <em>Tangerine Whistle</em> fork, a coordinated rule upgrade
+in October 2016:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SLOAD</span></code> (read a storage slot) from 50 to 200 gas;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BALANCE</span></code> (read an account’s balance) from 20 to 400;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTCODESIZE</span></code> and <code class="docutils literal notranslate"><span class="pre">CALL</span></code> (call another contract) to 700.</p></li>
+</ul>
+<p>Gas prices are security parameters. An attacker always picks the
+instruction with the most work per unit of gas, so the cheapest instruction
+relative to its real cost sets how much damage a block can do.</p>
 <p><em>Implementation:</em> the <code class="docutils literal notranslate"><span class="pre">gas_costs</span></code> schedule of
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.stack_machine.execute" title="blockchainkit.vm.systems.stack_machine.execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.stack_machine.execute()</span></code></a>. The real-work costs in
 the experiment are teaching estimates, not measurements of any Ethereum client.</p>
@@ -801,18 +1167,35 @@ the experiment are teaching estimates, not measurements of any Ethereum client.<
 </div></div></section>
 <section id="integer-overflow-beautychain">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">2018 – Integer Overflow: BeautyChain</a><a class="headerlink" href="#integer-overflow-beautychain" title="Link to this heading">#</a></h2>
-<p>Machine integers wrap around like a car’s odometer. In April 2018 an attacker
-called the BeautyChain token’s <code class="docutils literal notranslate"><span class="pre">batchTransfer</span></code> with two recipients and
-<code class="docutils literal notranslate"><span class="pre">value</span></code> <span class="math notranslate nohighlight">\(= 2^{255}\)</span>. The contract computed the total as</p>
+<p>Machine integers wrap around like a car’s odometer. An EVM word holds 256
+bits, so arithmetic is done modulo <span class="math notranslate nohighlight">\(2^{256}\)</span>: every result is reduced
+as with <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">2**256</span></code> in Python. A result that is too big wraps round to a
+small number. This is an <em>integer overflow</em>.</p>
+<p>In April 2018 an attacker used this against the BeautyChain token (BEC):</p>
+<ol class="arabic simple">
+<li><p>The attacker called the token’s <code class="docutils literal notranslate"><span class="pre">batchTransfer</span></code> with two recipients
+and <code class="docutils literal notranslate"><span class="pre">value</span></code> <span class="math notranslate nohighlight">\(= 2^{255}\)</span> for each.</p></li>
+<li><p>The contract computed the total as <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">*</span> <span class="pre">value</span></code>, which wrapped
+round to 0.</p></li>
+<li><p>It checked that the sender held at least 0 tokens. That passed, even for
+a sender who had nothing.</p></li>
+<li><p>It subtracted 0 from the sender.</p></li>
+<li><p>It credited each recipient with <span class="math notranslate nohighlight">\(2^{255}\)</span> tokens, <span class="math notranslate nohighlight">\(2^{256}\)</span> in
+total, created from nothing.</p></li>
+</ol>
+<p>The wrapped total in step 2 is:</p>
 <div class="math notranslate nohighlight">
 \[2 \times 2^{255} \equiv 0 \pmod{2^{256}},\]</div>
-<p>so the contract checked that the sender held at least 0 tokens, which passed
-for a sender who had nothing, subtracted 0, and credited each recipient with
-<span class="math notranslate nohighlight">\(2^{255}\)</span> tokens, <span class="math notranslate nohighlight">\(2^{256}\)</span> in total, created from nothing
-(CVE-2018-10299). Exchanges suspended the token. Checked arithmetic, through
-the SafeMath library and since Solidity 0.8 by default, detects the wrap and
-reverts instead. SafeMath’s test is that dividing the product by one factor
-gives back the other, which fails here because <span class="math notranslate nohighlight">\(0 / 2 \ne 2^{255}\)</span>.</p>
+<p>that is, <code class="docutils literal notranslate"><span class="pre">(2</span> <span class="pre">*</span> <span class="pre">2**255)</span> <span class="pre">%</span> <span class="pre">2**256</span> <span class="pre">==</span> <span class="pre">0</span></code> in Python. The bug is listed as
+CVE-2018-10299. Exchanges suspended the token.</p>
+<p><em>Checked arithmetic</em> detects the wrap and reverts instead. It came first
+through the SafeMath library and, since version 0.8 of Solidity (the main
+language for Ethereum contracts), by default.</p>
+<ul class="simple">
+<li><p>SafeMath’s test is that dividing the product by one factor gives back the
+other.</p></li>
+<li><p>Here it fails, because <span class="math notranslate nohighlight">\(0 / 2 \ne 2^{255}\)</span>.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.programs.batch_transfer" title="blockchainkit.vm.systems.programs.batch_transfer"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.programs.batch_transfer()</span></code></a> is a
 stack-machine program with storage slots as accounts, not the Solidity
 contract; <code class="docutils literal notranslate"><span class="pre">checked=True</span></code> adds the SafeMath test <code class="docutils literal notranslate"><span class="pre">amount</span> <span class="pre">/</span> <span class="pre">count</span> <span class="pre">==</span> <span class="pre">value</span></code>.</p>

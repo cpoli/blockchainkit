@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.230618Z",
+      "created": "2026-10-24T08:04:53.427303Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.230618Z",
+      "last_modified": "2026-10-24T08:04:53.427303Z",
       "mimetype": null,
       "name": "plot_02_atomic_transactions.ipynb",
       "path": "jupyterlite_contents/api/gallery/vm/replication/plot_02_atomic_transactions.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.230511Z",
+      "created": "2026-10-24T08:04:53.427182Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.230511Z",
+      "last_modified": "2026-10-24T08:04:53.427182Z",
       "mimetype": null,
       "name": "plot_01_state_machine_replication.ipynb",
       "path": "jupyterlite_contents/api/gallery/vm/replication/plot_01_state_machine_replication.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.618498Z",
+  "created": "2026-10-24T08:04:54.724349Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.618777Z",
+  "last_modified": "2026-10-24T08:04:54.724686Z",
   "mimetype": null,
   "name": "replication",
   "path": "jupyterlite_contents/api/gallery/vm/replication",

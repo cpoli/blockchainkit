@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-08T17:17:50.648896Z",
+      "created": "2026-10-24T08:04:53.406685Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-08T17:17:50.648896Z",
+      "last_modified": "2026-10-24T08:04:53.406685Z",
       "mimetype": null,
       "name": "plot_01_balance_probing.ipynb",
       "path": "jupyterlite_contents/api/gallery/channels/routing/plot_01_balance_probing.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-08T17:17:51.619162Z",
+  "created": "2026-10-24T08:04:54.683657Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-08T17:17:51.619223Z",
+  "last_modified": "2026-10-24T08:04:54.683722Z",
   "mimetype": null,
   "name": "routing",
   "path": "jupyterlite_contents/api/gallery/channels/routing",

@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.219532Z",
+      "created": "2026-10-24T08:04:53.409730Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.219532Z",
+      "last_modified": "2026-10-24T08:04:53.409730Z",
       "mimetype": null,
       "name": "plot_01_beanstalk_flash_loan.ipynb",
       "path": "jupyterlite_contents/api/gallery/contracts/governance/plot_01_beanstalk_flash_loan.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.598698Z",
+  "created": "2026-10-24T08:04:54.689727Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.598760Z",
+  "last_modified": "2026-10-24T08:04:54.689811Z",
   "mimetype": null,
   "name": "governance",
   "path": "jupyterlite_contents/api/gallery/contracts/governance",

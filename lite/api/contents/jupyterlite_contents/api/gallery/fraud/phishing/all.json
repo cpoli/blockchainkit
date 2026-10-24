@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-08T18:24:15.635344Z",
+      "created": "2026-10-24T08:04:53.417101Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-08T18:24:15.635344Z",
+      "last_modified": "2026-10-24T08:04:53.417101Z",
       "mimetype": null,
       "name": "plot_01_ice_phishing_approvals.ipynb",
       "path": "jupyterlite_contents/api/gallery/fraud/phishing/plot_01_ice_phishing_approvals.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-08T18:24:15.635459Z",
+      "created": "2026-10-24T08:04:53.417235Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-08T18:24:15.635459Z",
+      "last_modified": "2026-10-24T08:04:53.417235Z",
       "mimetype": null,
       "name": "plot_02_address_poisoning.ipynb",
       "path": "jupyterlite_contents/api/gallery/fraud/phishing/plot_02_address_poisoning.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-08T18:24:16.620505Z",
+  "created": "2026-10-24T08:04:54.704882Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-08T18:24:16.620771Z",
+  "last_modified": "2026-10-24T08:04:54.705174Z",
   "mimetype": null,
   "name": "phishing",
   "path": "jupyterlite_contents/api/gallery/fraud/phishing",

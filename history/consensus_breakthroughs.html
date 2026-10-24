@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -444,17 +466,52 @@
 witnessed, but proof that it came from the largest pool of CPU power.”
 – Satoshi Nakamoto, <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em>, 2008</p>
 </div></blockquote>
-<p>Signatures say who authorized a payment; they cannot say which of two
-conflicting payments came first. Consensus mechanisms answer that question,
-either by voting among known participants or by making some resource scarce:
-computation, or stake. This chronology traces the ideas behind
-<a class="reference internal" href="../api/consensus.html#module-blockchainkit.consensus" title="blockchainkit.consensus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.consensus</span></code></a> along three threads that meet in Bitcoin and
-Ethereum. Voting among known participants runs from the Byzantine generals
-to PBFT. Scarce computation runs from pricing via processing to Nakamoto
-consensus, with the gambler’s ruin supplying the security argument. Scarce
-stake runs from Peercoin to Casper finality and Algorand’s committees. The
-models are deliberately idealized; <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists where they depart
-from deployed protocols.</p>
+<p>A <em>blockchain</em> is a shared record of payments, like a Python list of
+<em>blocks</em>, where each block holds a batch of transactions. Many computers,
+called <em>nodes</em>, each keep a copy. They do not trust each other, and some may
+lie or crash.</p>
+<p>A <em>digital signature</em> shows who authorized a payment. It is a short value
+computed from the message with a <em>secret key</em>, which only the owner knows.
+Anyone with the matching <em>public key</em> can check it. Nobody can forge it
+without the secret key. But a signature cannot say which of two conflicting
+payments came first.</p>
+<p><em>Consensus</em> answers that question. It is a method by which all honest nodes
+end up with the same list, in the same order. There are two broad ways to
+get it:</p>
+<ul class="simple">
+<li><p><strong>Voting among known participants.</strong> A fixed group votes, and a large
+enough majority decides.</p></li>
+<li><p><strong>Making some resource scarce.</strong> Anyone may join, but influence costs
+something that cannot be faked: computation (<em>proof of work</em>) or coins
+locked up as a deposit (<em>proof of stake</em>, where the coins are the <em>stake</em>).</p></li>
+</ul>
+<p>This chronology traces the ideas behind <a class="reference internal" href="../api/consensus.html#module-blockchainkit.consensus" title="blockchainkit.consensus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.consensus</span></code></a> along
+three threads that meet in Bitcoin and Ethereum, the two largest blockchains:</p>
+<ul class="simple">
+<li><p><strong>Voting</strong> runs from the Byzantine generals to PBFT.</p></li>
+<li><p><strong>Scarce computation</strong> runs from pricing via processing to Nakamoto
+consensus, with the gambler’s ruin supplying the security argument.</p></li>
+<li><p><strong>Scarce stake</strong> runs from Peercoin to Casper finality and Algorand’s
+committees.</p></li>
+</ul>
+<p>The models are deliberately idealized. <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists where they
+depart from deployed protocols.</p>
+<p>The page uses a few conventions throughout:</p>
+<ul class="simple">
+<li><p>A <em>hash function</em> <span class="math notranslate nohighlight">\(H\)</span> is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code>, but built so that
+nobody can find two inputs with the same output, or an input that gives a
+chosen output. SHA-256, used here, turns any bytes into a 256-bit number.
+Its output looks random: changing one input bit changes about half the
+output bits.</p></li>
+<li><p><span class="math notranslate nohighlight">\(a \bmod p\)</span> is <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">p</span></code>, and <span class="math notranslate nohighlight">\(a \equiv b \pmod p\)</span> means
+<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">==</span> <span class="pre">b</span> <span class="pre">%</span> <span class="pre">p</span></code>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\arg\max_x f(x)\)</span> is the <span class="math notranslate nohighlight">\(x\)</span> with the largest <span class="math notranslate nohighlight">\(f(x)\)</span>:
+<code class="docutils literal notranslate"><span class="pre">max(xs,</span> <span class="pre">key=f)</span></code>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Pr[A]\)</span> is the probability of <span class="math notranslate nohighlight">\(A\)</span>, and <span class="math notranslate nohighlight">\(E[X]\)</span> is the
+expected (average) value of <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> (or <span class="math notranslate nohighlight">\(m\)</span>) is the number of faulty nodes a protocol can
+survive, out of <span class="math notranslate nohighlight">\(n\)</span> in total.</p></li>
+</ul>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
 <ul class="simple">
@@ -479,19 +536,36 @@ from deployed protocols.</p>
 </nav>
 <section id="the-gambler-s-ruin-catching-up-from-behind">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1656 – The Gambler’s Ruin: Catching Up from Behind</a><a class="headerlink" href="#the-gambler-s-ruin-catching-up-from-behind" title="Link to this heading">#</a></h2>
-<p>In 1656 Pascal posed to Fermat the problem of two gamblers playing until one is
-ruined, and Huygens published it the next year. For a walk that steps toward
-the goal with probability <span class="math notranslate nohighlight">\(q\)</span> and away with <span class="math notranslate nohighlight">\(p = 1 - q\)</span>, the chance
-of ever making up a deficit of <span class="math notranslate nohighlight">\(z\)</span> is</p>
+<p>A player is <span class="math notranslate nohighlight">\(z\)</span> points behind. What is the chance of ever drawing level?</p>
+<p>In 1656 Pascal posed to Fermat the problem of two gamblers playing until one
+is ruined. Huygens published it the next year. Model the game as a <em>random
+walk</em>: a counter that, at every step, moves up or down by one at random.</p>
+<ol class="arabic simple">
+<li><p>Start <span class="math notranslate nohighlight">\(z\)</span> steps behind the goal.</p></li>
+<li><p>At each step, move one closer with probability <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
+<li><p>Otherwise, with probability <span class="math notranslate nohighlight">\(p = 1 - q\)</span>, move one further away.</p></li>
+<li><p>Repeat forever, and ask whether the goal is ever reached.</p></li>
+</ol>
+<p>The chance of ever making up a deficit of <span class="math notranslate nohighlight">\(z\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P_z = \begin{cases} 1 &amp; q \ge p, \\ (q/p)^{z} &amp; q &lt; p. \end{cases}\end{split}\]</div>
-<p>An attacker mining a secret chain is exactly this player. Each new block is
-one step: it is the attacker’s, closing the gap by one, with probability
-<span class="math notranslate nohighlight">\(q\)</span> equal to the attacker’s share of the hashrate, and otherwise the
-honest network’s, widening it by one. Section 11 of the Bitcoin whitepaper
-applies the result to an attacker racing the honest chain: below half the
-hashrate, the chance of ever catching up falls exponentially with every block
-of lead.</p>
+<p>In words: a player who wins at least half the steps catches up for certain,
+sooner or later. A weaker player’s chance shrinks by a factor <span class="math notranslate nohighlight">\(q/p\)</span>
+for every extra step of deficit.</p>
+<p>An attacker mining a secret chain is exactly this player. <em>Mining</em> means
+racing to find the next block, and a miner’s share of all the guesses made
+per second is its share of the <em>hashrate</em> (see the 1997 entry).</p>
+<ul class="simple">
+<li><p>Each new block is one step.</p></li>
+<li><p>With probability <span class="math notranslate nohighlight">\(q\)</span>, the attacker’s share of the hashrate, the
+attacker finds it and closes the gap by one.</p></li>
+<li><p>Otherwise the honest network finds it and widens the gap by one.</p></li>
+</ul>
+<p>Section 11 of the Bitcoin whitepaper applies the result to an attacker
+racing the honest chain. Below half the hashrate, the chance of ever catching
+up falls exponentially with every block of lead. For example, with
+<span class="math notranslate nohighlight">\(q = 0.1\)</span> and a lead of 6 blocks it is <span class="math notranslate nohighlight">\((1/9)^6 \approx 2
+\times 10^{-6}\)</span>. With <span class="math notranslate nohighlight">\(q = 0.3\)</span> it is <span class="math notranslate nohighlight">\((3/7)^6 \approx 0.006\)</span>.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.catch_up.eventual_catch_up" title="blockchainkit.consensus.systems.catch_up.eventual_catch_up"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.catch_up.eventual_catch_up()</span></code></a>.</p>
 <p><em>References:</em> C. Huygens, <em>De ratiociniis in ludo aleae</em> (1657), problem 5; the
 problem was posed in the Pascal-Fermat correspondence of 1656.</p>
@@ -501,23 +575,44 @@ problem was posed in the Pascal-Fermat correspondence of 1656.</p>
 </div></div></section>
 <section id="the-byzantine-generals-problem">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1982 – The Byzantine Generals Problem</a><a class="headerlink" href="#the-byzantine-generals-problem" title="Link to this heading">#</a></h2>
-<p>Generals surrounding a city must all attack or all retreat, but some are
-traitors who tell different generals different things. Lamport, Shostak and
-Pease gave the problem its name and its answer: with oral (unsigned) messages,
-the loyal generals can agree despite <span class="math notranslate nohighlight">\(m\)</span> traitors if and only if</p>
+<p>Several computers must agree on one decision. Some of them are faulty and
+may send different, false messages to different computers. How many faulty
+ones can the rest survive?</p>
+<p>Lamport, Shostak and Pease told it as a story. Generals surround a city.
+They must all attack or all retreat. One general, the <em>commander</em>, gives the
+order. The others, the <em>lieutenants</em>, carry it out. Some generals are
+<em>traitors</em> who tell different generals different things. A fault of this
+kind, where a node may do anything at all, is called <em>Byzantine</em>. The
+authors gave the problem its name and its answer. With <em>oral messages</em> the
+loyal generals can agree despite <span class="math notranslate nohighlight">\(m\)</span> traitors if and only if</p>
 <div class="math notranslate nohighlight">
 \[n \ge 3m + 1.\]</div>
-<p>Their algorithm OM(<span class="math notranslate nohighlight">\(m\)</span>) has each lieutenant relay the order it received,
-recursively for <span class="math notranslate nohighlight">\(m\)</span> rounds, and decide by majority. The bound is tight
-already for three generals and one traitor. If the commander says “attack” to
-one lieutenant and “retreat” to the other, the first lieutenant hears
-“attack” from the commander and “retreat” relayed by its peer. A loyal
-commander and a lying peer would produce exactly the same messages, so the
-lieutenant cannot tell which one is the traitor, and no rule can be right in
-both cases. With signed messages a forged relay would be detected, and the
-bound disappears. Later papers write the number of faults as <span class="math notranslate nohighlight">\(f\)</span>, and
-the <span class="math notranslate nohighlight">\(3f + 1\)</span> bound reappears in every Byzantine fault-tolerant
-blockchain protocol.</p>
+<p>Oral messages are unsigned: a general can claim that someone else said
+something they never said. The formula says that the loyal generals must
+number more than twice the traitors. One traitor needs at least four
+generals in total.</p>
+<p>Their algorithm OM(<span class="math notranslate nohighlight">\(m\)</span>) works like this:</p>
+<ol class="arabic simple">
+<li><p>The commander sends its order to every lieutenant.</p></li>
+<li><p>Each lieutenant relays the order it received to every other lieutenant.</p></li>
+<li><p>The relaying repeats recursively, for <span class="math notranslate nohighlight">\(m\)</span> rounds in total.</p></li>
+<li><p>Each lieutenant decides by majority over all the versions it has heard.</p></li>
+</ol>
+<p>The bound is tight already for three generals and one traitor:</p>
+<ol class="arabic simple">
+<li><p>Suppose the commander says “attack” to one lieutenant and “retreat” to
+the other.</p></li>
+<li><p>The first lieutenant hears “attack” from the commander and “retreat”
+relayed by its peer.</p></li>
+<li><p>A loyal commander and a lying peer would produce exactly the same
+messages.</p></li>
+<li><p>So the lieutenant cannot tell which one is the traitor, and no rule can
+be right in both cases.</p></li>
+</ol>
+<p>With signed messages a forged relay would be detected, and the bound
+disappears. Later papers write the number of faults as <span class="math notranslate nohighlight">\(f\)</span>, and the
+<span class="math notranslate nohighlight">\(3f + 1\)</span> bound reappears in every Byzantine fault-tolerant blockchain
+protocol.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.byzantine.oral_messages" title="blockchainkit.consensus.systems.byzantine.oral_messages"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.byzantine.oral_messages()</span></code></a>
 runs OM(<span class="math notranslate nohighlight">\(m\)</span>) with a configurable traitor strategy.</p>
 <p><em>References:</em> L. Lamport, R. Shostak, and M. Pease, <em>The Byzantine Generals
@@ -529,25 +624,62 @@ Problem</em>, ACM Transactions on Programming Languages and Systems 4(3), 382–
 </div></div></section>
 <section id="ben-or-s-randomized-consensus">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1983 – Ben-Or’s Randomized Consensus</a><a class="headerlink" href="#ben-or-s-randomized-consensus" title="Link to this heading">#</a></h2>
-<p>The same year, Fischer, Lynch and Paterson presented the impossibility result
-of the 1985 entry below: no deterministic protocol can guarantee agreement in
-an asynchronous network where a process may crash. Michael Ben-Or escaped it
-by letting processes flip coins, giving the first asynchronous consensus
-protocol that tolerates <span class="math notranslate nohighlight">\(f\)</span> crashes among <span class="math notranslate nohighlight">\(n &gt; 2f\)</span> processes.</p>
-<p>Each round has two exchanges, and in each a process waits for only
-<span class="math notranslate nohighlight">\(n - f\)</span> messages, because the other <span class="math notranslate nohighlight">\(f\)</span> may never arrive. First,
-every process reports its current value. A process then proposes <span class="math notranslate nohighlight">\(v\)</span> if
-more than <span class="math notranslate nohighlight">\(n/2\)</span> of the reports it received are <span class="math notranslate nohighlight">\(v\)</span>, a strict
-majority of all processes, and otherwise proposes nothing. Two values cannot both have a strict majority, so
-all proposals in a round name the same value. A process decides <span class="math notranslate nohighlight">\(v\)</span>
-after receiving <span class="math notranslate nohighlight">\(f + 1\)</span> proposals of <span class="math notranslate nohighlight">\(v\)</span>, adopts <span class="math notranslate nohighlight">\(v\)</span> after
-receiving at least one, and otherwise flips a coin for its next value. Once
-all correct processes hold the same value, every one of them proposes it and
-decides. Fresh coins are flipped in every round, so that moment comes sooner
-or later.</p>
-<p>Against any message scheduler, termination therefore has probability one. With
-<span class="math notranslate nohighlight">\(n\)</span> independent coins the expected number of rounds can be exponential
-in <span class="math notranslate nohighlight">\(n\)</span>, which later common-coin protocols reduced to a constant.</p>
+<p>Can computers agree when messages may take any amount of time to arrive?</p>
+<p>Some terms first:</p>
+<ul class="simple">
+<li><p>A <em>process</em> is one participant, a program running on one computer.</p></li>
+<li><p>A network is <em>asynchronous</em> if messages always arrive eventually, but with
+no upper limit on the delay. A slow process and a crashed one then look the
+same.</p></li>
+<li><p>A protocol is <em>deterministic</em> if it makes no random choices: the same
+inputs and message order always give the same result.</p></li>
+<li><p>A <em>crash</em> fault is milder than a Byzantine one. The process simply stops
+and never lies.</p></li>
+</ul>
+<p>The same year, Fischer, Lynch and Paterson presented the impossibility
+result of the 1985 entry below. No deterministic protocol can guarantee
+agreement in an asynchronous network where a process may crash.</p>
+<p>Michael Ben-Or escaped it by letting processes flip coins. This gave the
+first asynchronous consensus protocol that tolerates <span class="math notranslate nohighlight">\(f\)</span> crashes among
+<span class="math notranslate nohighlight">\(n &gt; 2f\)</span> processes. Each process holds a current value, 0 or 1, and
+the protocol runs in rounds:</p>
+<ol class="arabic simple">
+<li><p><strong>Report.</strong> Every process sends its current value to all.</p></li>
+<li><p>It waits for <span class="math notranslate nohighlight">\(n - f\)</span> reports, not all <span class="math notranslate nohighlight">\(n\)</span>, because the other
+<span class="math notranslate nohighlight">\(f\)</span> may never arrive.</p></li>
+<li><p><strong>Propose.</strong> A process proposes <span class="math notranslate nohighlight">\(v\)</span> if more than <span class="math notranslate nohighlight">\(n/2\)</span> of the
+reports it received are <span class="math notranslate nohighlight">\(v\)</span>. That is a strict majority of all
+processes, not just of those it heard from. Otherwise it proposes nothing.</p></li>
+<li><p>It again waits for <span class="math notranslate nohighlight">\(n - f\)</span> proposals.</p></li>
+<li><p><strong>Decide or adopt.</strong></p>
+<ul class="simple">
+<li><p>After at least <span class="math notranslate nohighlight">\(f + 1\)</span> proposals of <span class="math notranslate nohighlight">\(v\)</span>, it decides
+<span class="math notranslate nohighlight">\(v\)</span>.</p></li>
+<li><p>After at least one proposal of <span class="math notranslate nohighlight">\(v\)</span>, it adopts <span class="math notranslate nohighlight">\(v\)</span> as its
+next value.</p></li>
+<li><p>After none, it flips a coin for its next value.</p></li>
+</ul>
+</li>
+<li><p>Start the next round.</p></li>
+</ol>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>Two values cannot both have a strict majority. So all proposals in a round
+name the same value.</p></li>
+<li><p>Once all correct processes hold the same value, every one of them proposes
+it and decides.</p></li>
+<li><p>Fresh coins are flipped in every round, so that moment comes sooner or
+later.</p></li>
+</ul>
+<p>The <em>message scheduler</em> is whatever decides the order in which messages
+arrive; think of it as an adversary trying to stall the protocol. Against
+any scheduler, termination therefore has probability one. Its limits:</p>
+<ul class="simple">
+<li><p>With <span class="math notranslate nohighlight">\(n\)</span> independent coins, the expected number of rounds can be
+exponential in <span class="math notranslate nohighlight">\(n\)</span>. All the coins must happen to agree.</p></li>
+<li><p>Later <em>common-coin</em> protocols, in which all processes see the same random
+bit each round, reduced this to a constant.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.randomized.ben_or" title="blockchainkit.consensus.systems.randomized.ben_or"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.randomized.ben_or()</span></code></a>,
 with an adversarial or random message scheduler.</p>
 <p><em>References:</em> M. Ben-Or, <em>Another Advantage of Free Choice: Completely
@@ -558,15 +690,31 @@ Asynchronous Agreement Protocols</em>, PODC ‘83, 27–30 (1983). <a class="ref
 </div></div></section>
 <section id="flp-no-deterministic-consensus-in-an-asynchronous-network">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1985 – FLP: No Deterministic Consensus in an Asynchronous Network</a><a class="headerlink" href="#flp-no-deterministic-consensus-in-an-asynchronous-network" title="Link to this heading">#</a></h2>
-<p>Fischer, Lynch and Paterson proved that if messages can be delayed arbitrarily
-and even one process might crash, every deterministic protocol has a schedule
-in which it never decides. The proof finds a <em>bivalent</em> configuration, from
-which both decisions are still reachable, and shows that an adversary who only
-chooses the order of delivery can always keep it bivalent.</p>
+<p>Is there any deterministic protocol that always reaches agreement when
+messages can be delayed?</p>
+<p>Fischer, Lynch and Paterson (FLP) proved there is not. Suppose messages can
+be delayed arbitrarily and even one process might crash. Then every
+deterministic protocol has a delivery order, a <em>schedule</em>, in which it never
+decides.</p>
+<p>The idea of the proof is a game against an adversary. The adversary cannot
+change messages. It only chooses the order in which they are delivered.</p>
+<ol class="arabic simple">
+<li><p>Call a state of the whole system <em>bivalent</em> if both decisions, 0 and 1,
+are still reachable from it.</p></li>
+<li><p>The proof shows that some starting state is bivalent.</p></li>
+<li><p>It then shows that from any bivalent state, the adversary can deliver
+the next message at a moment that keeps the state bivalent.</p></li>
+<li><p>Repeating this forever, the protocol never decides.</p></li>
+</ol>
 <p>The conference version appeared in 1983; this is the journal version. Every
-practical consensus protocol escapes by weakening an assumption:
-randomization (Ben-Or), partial synchrony (Dwork, Lynch and Stockmeyer), or
-probabilistic finality (Nakamoto).</p>
+practical consensus protocol escapes by weakening one assumption:</p>
+<ul class="simple">
+<li><p><strong>Randomization</strong> (Ben-Or). The protocol is no longer deterministic.</p></li>
+<li><p><strong>Partial synchrony</strong> (Dwork, Lynch and Stockmeyer). Delays are eventually
+bounded.</p></li>
+<li><p><strong>Probabilistic finality</strong> (Nakamoto). A decision is never certain, only
+ever less likely to be reversed.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.randomized.ben_or" title="blockchainkit.consensus.systems.randomized.ben_or"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.randomized.ben_or()</span></code></a>
 with a deterministic <code class="docutils literal notranslate"><span class="pre">coin</span></code> shows one such stalling schedule: without its
 coins, Ben-Or’s protocol is deterministic again and falls under the theorem.</p>
@@ -579,22 +727,44 @@ Distributed Consensus with One Faulty Process</em>, Journal of the ACM 32(2),
 </div></div></section>
 <section id="partial-synchrony-progress-after-an-unknown-stabilization-time">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">1988 – Partial Synchrony: Progress after an Unknown Stabilization Time</a><a class="headerlink" href="#partial-synchrony-progress-after-an-unknown-stabilization-time" title="Link to this heading">#</a></h2>
-<p>Networks are usually fast and sometimes slow. Dwork, Lynch and Stockmeyer
-introduced partially synchronous models, in which a delay bound <span class="math notranslate nohighlight">\(\Delta\)</span>
-exists but is unknown, or holds only after an unknown global stabilization time
-(GST), and showed that consensus is then solvable for <span class="math notranslate nohighlight">\(n \ge 3f + 1\)</span>
-Byzantine faults. The design separates safety from progress. Safety rests on
-overlapping quorums, never on timing, so the protocol stays safe even while
-the network misbehaves. Progress needs a leader whose messages arrive before
-the others give up on it. Each view’s leader gets a timeout that doubles after
-every failed view, <span class="math notranslate nohighlight">\(T_v = T_0\,2^{v}\)</span>. Views keep starting and timeouts
-grow without bound, so some view eventually starts after GST with a timeout
-longer than the delay:</p>
+<p>Networks are usually fast and sometimes slow. Can a protocol rely on that
+without knowing how fast “fast” is?</p>
+<p>Dwork, Lynch and Stockmeyer introduced <em>partially synchronous</em> models. In
+these, a delay bound <span class="math notranslate nohighlight">\(\Delta\)</span> exists but is unknown. Or it holds only
+after an unknown moment, the <em>global stabilization time</em> (GST). Think of GST
+as the time a network outage ends: nobody knows when, but it does end. They
+showed that consensus is then solvable for <span class="math notranslate nohighlight">\(n \ge 3f + 1\)</span> Byzantine
+faults.</p>
+<p>The design separates two goals:</p>
+<ul class="simple">
+<li><p><strong>Safety</strong>: honest nodes never decide different things. It rests on
+overlapping <em>quorums</em>, never on timing. A quorum is a set of votes large
+enough that any two such sets share a member (see the 1999 entry). So the
+protocol stays safe even while the network misbehaves.</p></li>
+<li><p><strong>Progress</strong>: something is eventually decided. It needs a <em>leader</em>, one
+node that proposes, whose messages arrive before the others give up on it.</p></li>
+</ul>
+<p>Progress comes from <em>views</em>, numbered attempts, each with its own leader:</p>
+<ol class="arabic simple">
+<li><p>View <span class="math notranslate nohighlight">\(v\)</span> starts at time <span class="math notranslate nohighlight">\(t_v\)</span> with a new leader.</p></li>
+<li><p>The others wait for the leader up to a timeout <span class="math notranslate nohighlight">\(T_v = T_0\,2^{v}\)</span>.
+The timeout doubles after every failed view.</p></li>
+<li><p>If the leader’s messages do not arrive in time, everyone moves to view
+<span class="math notranslate nohighlight">\(v + 1\)</span>.</p></li>
+</ol>
+<p>Views keep starting and timeouts grow without bound. So some view eventually
+starts after GST with a timeout longer than the delay:</p>
 <div class="math notranslate nohighlight">
 \[\exists\, v:\ t_v \ge \text{GST} \ \wedge\ T_v \ge \Delta.\]</div>
-<p>Rotating the leader among the views that follow reaches an honest one within
-<span class="math notranslate nohighlight">\(f + 1\)</span> views. Progress is guaranteed without ever knowing
-<span class="math notranslate nohighlight">\(\Delta\)</span>. PBFT, Tendermint and HotStuff all assume this model.</p>
+<p>Read <span class="math notranslate nohighlight">\(\exists\)</span> as “there is some” and <span class="math notranslate nohighlight">\(\wedge\)</span> as “and”. In
+Python: <code class="docutils literal notranslate"><span class="pre">any(t[v]</span> <span class="pre">&gt;=</span> <span class="pre">GST</span> <span class="pre">and</span> <span class="pre">T[v]</span> <span class="pre">&gt;=</span> <span class="pre">Delta</span> <span class="pre">for</span> <span class="pre">v</span> <span class="pre">in</span> <span class="pre">views)</span></code> is eventually
+true.</p>
+<ul class="simple">
+<li><p>Rotating the leader among the views that follow reaches an honest one
+within <span class="math notranslate nohighlight">\(f + 1\)</span> views, since at most <span class="math notranslate nohighlight">\(f\)</span> leaders are faulty.</p></li>
+<li><p>Progress is guaranteed without ever knowing <span class="math notranslate nohighlight">\(\Delta\)</span>.</p></li>
+<li><p>PBFT, Tendermint and HotStuff all assume this model.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.synchrony.view_changes" title="blockchainkit.consensus.systems.synchrony.view_changes"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.synchrony.view_changes()</span></code></a>.</p>
 <p><em>References:</em> C. Dwork, N. Lynch, and L. Stockmeyer, <em>Consensus in the Presence
 of Partial Synchrony</em>, Journal of the ACM 35(2), 288–323 (1988). <a class="reference external" href="https://doi.org/10.1145/42282.42283">DOI</a>.</p>
@@ -604,21 +774,48 @@ of Partial Synchrony</em>, Journal of the ACM 35(2), 288–323 (1988). <a class=
 </div></div></section>
 <section id="pricing-via-processing">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">1992 – Pricing via Processing</a><a class="headerlink" href="#pricing-via-processing" title="Link to this heading">#</a></h2>
-<p>To fight junk mail, Dwork and Naor proposed that every message should cost its
-sender a little computation: too little to bother an ordinary user, too much
-for someone sending millions, and instantly checkable by the recipient. Their
-<em>pricing functions</em> are moderately hard to compute, easy to verify, and cannot
-be amortized across messages. One example is the modular square root, for
-<span class="math notranslate nohighlight">\(p \equiv 3 \pmod 4\)</span>:</p>
+<p>Sending an email costs nothing, so sending a million junk emails costs
+nothing too. How can a message be made to cost something?</p>
+<p>Dwork and Naor proposed that every message should cost its sender a little
+computation. It should be:</p>
+<ul class="simple">
+<li><p>too little to bother an ordinary user;</p></li>
+<li><p>too much for someone sending millions;</p></li>
+<li><p>instantly checkable by the recipient.</p></li>
+</ul>
+<p>Their <em>pricing functions</em> are puzzles with three properties:</p>
+<ul class="simple">
+<li><p><strong>Moderately hard to compute.</strong></p></li>
+<li><p><strong>Easy to verify.</strong></p></li>
+<li><p><strong>Cannot be amortized across messages.</strong> Solving one puzzle gives no
+shortcut for the next, so a million messages cost a million times as much.</p></li>
+</ul>
+<p>One example is the <em>modular square root</em>. Given <span class="math notranslate nohighlight">\(x\)</span> and a prime
+<span class="math notranslate nohighlight">\(p\)</span>, find <span class="math notranslate nohighlight">\(r\)</span> with <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">*</span> <span class="pre">r</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">==</span> <span class="pre">x</span></code>. This works when <span class="math notranslate nohighlight">\(x\)</span>
+has a square root modulo <span class="math notranslate nohighlight">\(p\)</span> at all, and when <span class="math notranslate nohighlight">\(p\)</span> leaves
+remainder 3 on division by 4 (<code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">%</span> <span class="pre">4</span> <span class="pre">==</span> <span class="pre">3</span></code>):</p>
+<ol class="arabic simple">
+<li><p>The sender computes <span class="math notranslate nohighlight">\(r\)</span> with <code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">(p</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">//</span> <span class="pre">4,</span> <span class="pre">p)</span></code>.</p></li>
+<li><p>The sender attaches <span class="math notranslate nohighlight">\(r\)</span> to the message.</p></li>
+<li><p>The recipient checks <code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">*</span> <span class="pre">r</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">==</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">p</span></code>.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[r = x^{(p+1)/4} \bmod p \quad (\approx 1.5 \log_2 p \text{ multiplications}),
 \qquad r^2 \equiv x \pmod p \quad (1 \text{ multiplication}).\]</div>
-<p>The gap between computing and checking is only a factor of about
-<span class="math notranslate nohighlight">\(\log_2 p\)</span>. Raising the price means enlarging <span class="math notranslate nohighlight">\(p\)</span>, which also
-makes the verifier’s multiplication more expensive. Later designs therefore
-moved to puzzles whose cost grows exponentially in a tunable parameter while
-checking stays a single cheap step. The idea of attaching a verifiable
-computational cost is the root of proof of work.</p>
+<p>The left side is the sender’s work. <code class="docutils literal notranslate"><span class="pre">pow</span></code> uses <em>square-and-multiply</em>: one
+squaring per bit of the exponent, plus a multiplication for about half of
+the bits, so about <span class="math notranslate nohighlight">\(1.5 \log_2 p\)</span> in all. The right side is the
+recipient’s single multiplication.</p>
+<p>The limits:</p>
+<ul class="simple">
+<li><p>The gap between computing and checking is only a factor of about
+<span class="math notranslate nohighlight">\(\log_2 p\)</span>.</p></li>
+<li><p>Raising the price means enlarging <span class="math notranslate nohighlight">\(p\)</span>. That also makes the
+verifier’s one multiplication more expensive.</p></li>
+</ul>
+<p>Later designs therefore moved to puzzles whose cost grows exponentially in a
+tunable parameter while checking stays a single cheap step. The idea of
+attaching a verifiable computational cost is the root of proof of work.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pricing.modular_square_root" title="blockchainkit.consensus.systems.pricing.modular_square_root"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pricing.modular_square_root()</span></code></a>
 counts its multiplications.</p>
 <p><em>References:</em> C. Dwork and M. Naor, <em>Pricing via Processing or Combatting Junk
@@ -629,20 +826,46 @@ Mail</em>, CRYPTO ‘92, LNCS 740, 139–147 (1993). <a class="reference externa
 </div></div></section>
 <section id="hashcash-and-proofs-of-computational-effort">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">1997-2002 – Hashcash and Proofs of Computational Effort</a><a class="headerlink" href="#hashcash-and-proofs-of-computational-effort" title="Link to this heading">#</a></h2>
+<p>Pricing via processing needs a puzzle whose cost can be raised as far as
+wanted, while checking stays one cheap step.</p>
 <p>Adam Back’s Hashcash (proposed in 1997, described in a 2002 paper) priced
-requests with a hash puzzle: the sender varies a nonce until the hash meets a
-target, and the recipient checks the answer with a single hash. With
-<span class="math notranslate nohighlight">\(d\)</span> required leading zero bits, each attempt succeeds with probability
-<span class="math notranslate nohighlight">\(2^{-d}\)</span>:</p>
+requests with a hash puzzle. Because a hash’s output looks random, the only
+way to find an input with a rare output is brute force.</p>
+<ol class="arabic simple">
+<li><p>The sender writes a <em>header</em>: the message details plus a counter called
+the <em>nonce</em> (a “number used once”).</p></li>
+<li><p>The sender hashes the header and checks whether the hash starts with
+<span class="math notranslate nohighlight">\(d\)</span> zero bits.</p></li>
+<li><p>If not, it increments the nonce and tries again.</p></li>
+<li><p>When a hash succeeds, the sender attaches the header.</p></li>
+<li><p>The recipient checks the answer with a single hash.</p></li>
+</ol>
+<p>Each attempt succeeds with probability <span class="math notranslate nohighlight">\(2^{-d}\)</span>, like flipping
+<span class="math notranslate nohighlight">\(d\)</span> coins and needing all tails:</p>
 <div class="math notranslate nohighlight">
 \[H(\mathrm{header})\leq 2^{256-d}-1,\qquad
 \Pr[\mathrm{success}]=2^{-d},\qquad \mathbb{E}[T]=2^d.\]</div>
-<p>Here <span class="math notranslate nohighlight">\(T\)</span> counts attempts. The cost is tunable and exponential in
-<span class="math notranslate nohighlight">\(d\)</span>. Each attempt is an independent trial, so <span class="math notranslate nohighlight">\(T\)</span> is geometric and
-any one search can finish much earlier or later than the average. Bitcoin’s
-proof of work is Hashcash applied to block headers. Because the trials are
-memoryless, blocks across the whole network arrive as a Poisson process,
-which the 2008 double-spend calculation relies on.</p>
+<p>The first condition says that the 256-bit hash, read as a number, is below a
+<em>target</em>. That is the same as its first <span class="math notranslate nohighlight">\(d\)</span> bits being zero:
+<code class="docutils literal notranslate"><span class="pre">H(header)</span> <span class="pre">&gt;&gt;</span> <span class="pre">(256</span> <span class="pre">-</span> <span class="pre">d)</span> <span class="pre">==</span> <span class="pre">0</span></code>. Here <span class="math notranslate nohighlight">\(T\)</span> counts attempts, and on
+average it takes <span class="math notranslate nohighlight">\(2^d\)</span> of them.</p>
+<ul class="simple">
+<li><p><strong>The cost is tunable and exponential in</strong> <span class="math notranslate nohighlight">\(d\)</span>. Each extra bit
+doubles it. At <span class="math notranslate nohighlight">\(d = 20\)</span>, about a million hashes, the search takes
+about a second in Python. Bitcoin’s network made around <span class="math notranslate nohighlight">\(10^{21}\)</span>
+hashes a second in the mid-2020s. At one block per ten minutes, each block
+then needs about <span class="math notranslate nohighlight">\(2^{79}\)</span> attempts.</p></li>
+<li><p><strong>The time is random.</strong> Each attempt is an independent trial, so <span class="math notranslate nohighlight">\(T\)</span>
+is <em>geometric</em>: it is the number of coin flips up to the first success. Any
+one search can finish much earlier or later than the average.</p></li>
+<li><p><strong>The trials are memoryless.</strong> Past failures do not bring success closer,
+so a search that has already run for a while has no head start.</p></li>
+</ul>
+<p>Bitcoin’s proof of work is Hashcash applied to block headers. Because the
+trials are memoryless, blocks across the whole network arrive as a <em>Poisson
+process</em>: events that happen independently at a constant average rate, like
+the clicks of a Geiger counter. The 2008 double-spend calculation relies on
+this.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pow.mine" title="blockchainkit.consensus.systems.pow.mine"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pow.mine()</span></code></a> searches a
 bounded nonce interval; <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pow.valid_pow" title="blockchainkit.consensus.systems.pow.valid_pow"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pow.valid_pow()</span></code></a>
 checks one hash. Difficulty counts leading zero bits of SHA-256 over this
@@ -656,19 +879,41 @@ describing the earlier 1997 proposal. <a class="reference external" href="http:/
 </div></div></section>
 <section id="practical-byzantine-fault-tolerance">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">1999 – Practical Byzantine Fault Tolerance</a><a class="headerlink" href="#practical-byzantine-fault-tolerance" title="Link to this heading">#</a></h2>
-<p>Castro and Liskov made Byzantine fault tolerance practical: a group of
-<span class="math notranslate nohighlight">\(3f + 1\)</span> replicas keeps one consistent log even if <span class="math notranslate nohighlight">\(f\)</span> of them lie,
-using a three-phase protocol (pre-prepare, prepare, commit) and view changes for
-faulty leaders. A replica cannot wait for all <span class="math notranslate nohighlight">\(3f + 1\)</span> votes, because
-<span class="math notranslate nohighlight">\(f\)</span> faulty replicas may stay silent, so it acts on a quorum of the
-<span class="math notranslate nohighlight">\(2f + 1\)</span> it can count on. Safety then rests on quorum intersection:</p>
+<p>The Byzantine generals’ algorithm sends a number of messages that grows
+exponentially with the number of traitors. Can a real service survive lying
+servers at a reasonable cost?</p>
+<p>Castro and Liskov made Byzantine fault tolerance practical. A group of
+<span class="math notranslate nohighlight">\(3f + 1\)</span> <em>replicas</em>, copies of the same service, keeps one consistent
+<em>log</em>, an ordered list of requests, even if <span class="math notranslate nohighlight">\(f\)</span> of them lie. One
+replica, the <em>leader</em>, orders requests. For each request:</p>
+<ol class="arabic simple">
+<li><p><strong>Pre-prepare.</strong> The leader sends the request and its position in the log
+to all replicas.</p></li>
+<li><p><strong>Prepare.</strong> Each replica sends every other replica a vote for that
+request at that position.</p></li>
+<li><p><strong>Commit.</strong> A replica that has collected a quorum of prepare votes sends
+a commit vote to all.</p></li>
+<li><p>A replica that has collected a quorum of commit votes executes the
+request.</p></li>
+</ol>
+<p>If the leader seems faulty, the replicas run a <em>view change</em> to a new
+leader.</p>
+<p>A replica cannot wait for all <span class="math notranslate nohighlight">\(3f + 1\)</span> votes, because <span class="math notranslate nohighlight">\(f\)</span> faulty
+replicas may stay silent. So it acts on a <em>quorum</em> of the <span class="math notranslate nohighlight">\(2f + 1\)</span> it
+can count on. Safety then rests on <em>quorum intersection</em>:</p>
 <div class="math notranslate nohighlight">
 \[|Q_1 \cap Q_2| \ \ge\ 2(2f + 1) - (3f + 1) = f + 1.\]</div>
-<p>Two quorums share at least <span class="math notranslate nohighlight">\(f + 1\)</span> replicas, so at least one of them is
-honest. That replica never votes for two values in one view, so two
-conflicting values can never both gather a quorum. With more than <span class="math notranslate nohighlight">\(f\)</span> faults that guarantee
-disappears. Tendermint, HotStuff and many proof-of-stake chains descend from
-PBFT.</p>
+<p>In words: two quorums of <span class="math notranslate nohighlight">\(2f + 1\)</span> drawn from <span class="math notranslate nohighlight">\(3f + 1\)</span> replicas
+must share at least <span class="math notranslate nohighlight">\(f + 1\)</span>. There are not enough replicas for them to
+be separate. With <span class="math notranslate nohighlight">\(f = 1\)</span>: two quorums of 3 out of 4 share at least 2.</p>
+<ul class="simple">
+<li><p>Two quorums share at least <span class="math notranslate nohighlight">\(f + 1\)</span> replicas, so at least one of them
+is honest.</p></li>
+<li><p>That replica never votes for two values in one view.</p></li>
+<li><p>So two conflicting values can never both gather a quorum.</p></li>
+<li><p>With more than <span class="math notranslate nohighlight">\(f\)</span> faults that guarantee disappears.</p></li>
+</ul>
+<p>Tendermint, HotStuff and many proof-of-stake chains descend from PBFT.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pbft.pbft_round" title="blockchainkit.consensus.systems.pbft.pbft_round"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pbft.pbft_round()</span></code></a> runs
 one normal-case round with a fixed leader and synchronous delivery, with
 <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pbft.quorum_size" title="blockchainkit.consensus.systems.pbft.quorum_size"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pbft.quorum_size()</span></code></a>. It has no view
@@ -682,19 +927,46 @@ changes, checkpoints, request batching or message authentication.</p>
 </div></div></section>
 <section id="nakamoto-consensus-bitcoin-combines-the-ingredients">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">2008-2009 – Nakamoto Consensus: Bitcoin Combines the Ingredients</a><a class="headerlink" href="#nakamoto-consensus-bitcoin-combines-the-ingredients" title="Link to this heading">#</a></h2>
-<p>Alice could sign two payments that each spend her entire balance: both
-signatures are valid, but both payments cannot be accepted. Nakamoto’s 2008
-proposal solved this double-spending problem without a trusted party by
-combining earlier ingredients: signatures, hash-linked blocks, proof of work,
-and peer-to-peer gossip. Peers accept the valid chain with the most cumulative
-work, and switch when a heavier one appears:</p>
+<p>Alice could sign two payments that each spend her entire balance. Both
+signatures are valid, but both payments cannot be accepted. This is the
+<em>double-spending problem</em>. Working digital cash systems before 2008 solved
+it with a trusted party, such as a bank, that kept the one official list.</p>
+<p>Nakamoto’s 2008 proposal solved it without a trusted party. It combined
+earlier ingredients:</p>
+<ul class="simple">
+<li><p><strong>Signatures</strong> to authorize payments.</p></li>
+<li><p><strong>Hash-linked blocks.</strong> Each block stores the hash of the block before it,
+so changing an old block changes every hash after it.</p></li>
+<li><p><strong>Proof of work</strong> (Hashcash) to make each block expensive to produce.</p></li>
+<li><p><strong>Peer-to-peer gossip.</strong> Each node passes what it hears to its
+neighbours, with no central server.</p></li>
+</ul>
+<p>The rule for choosing a chain:</p>
+<ol class="arabic simple">
+<li><p>Miners do proof of work on a new block that extends the chain they
+accept.</p></li>
+<li><p>A miner that finds one broadcasts it.</p></li>
+<li><p>Every node accepts the valid chain with the most cumulative work, the sum
+of the work done on all its blocks.</p></li>
+<li><p>If a heavier valid chain appears, the node switches to it.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\text{tip} = \arg\max_{\text{valid chains } C} \sum_{b \in C} \text{work}(b).\]</div>
-<p>Work cannot be faked, so to replace a block an attacker must redo it and then
-outpace the rest of the network. With less than half the hashrate this is the
-losing gambler of 1656. An earlier payment can still be undone by a reorganization, so no finite number
-of confirmations gives unconditional finality; the 2008 entry below computes
-how fast the risk falls.</p>
+<p>The <em>tip</em>, the newest block a node builds on, is the end of the heaviest
+valid chain: <code class="docutils literal notranslate"><span class="pre">max(valid_chains,</span> <span class="pre">key=lambda</span> <span class="pre">C:</span> <span class="pre">sum(work(b)</span> <span class="pre">for</span> <span class="pre">b</span> <span class="pre">in</span> <span class="pre">C))</span></code>.</p>
+<p>Why it works, and its limits:</p>
+<ul class="simple">
+<li><p>Work cannot be faked. To replace a block, an attacker must redo it and
+then outpace the rest of the network.</p></li>
+<li><p>With less than half the hashrate, this is the losing gambler of 1656.</p></li>
+<li><p>When a node switches chains, that is a <em>reorganization</em>. Blocks on the
+abandoned chain, and the payments in them, are undone.</p></li>
+<li><p>A <em>confirmation</em> is a block built on top of a payment’s block. An earlier
+payment can still be undone by a reorganization, so no finite number of
+confirmations gives unconditional <em>finality</em> (a guarantee it will never be
+reversed).</p></li>
+<li><p>The 2008 entry below computes how fast the risk falls.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/structures.html#blockchainkit.structures.systems.chain.Blockchain" title="blockchainkit.structures.systems.chain.Blockchain"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.structures.systems.chain.Blockchain</span></code></a>
 validates account transfers and selects the greatest cumulative work. Each fork
 keeps its own <a class="reference internal" href="../api/structures.html#blockchainkit.structures.systems.ledger.Ledger" title="blockchainkit.structures.systems.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.structures.systems.ledger.Ledger</span></code></a>, so a
@@ -711,23 +983,49 @@ protocol: fork choice by cumulative work is the part reproduced.</p>
 </div></div></section>
 <section id="how-many-confirmations-nakamoto-s-double-spend-calculation">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">2008 – How Many Confirmations? Nakamoto’s Double-Spend Calculation</a><a class="headerlink" href="#how-many-confirmations-nakamoto-s-double-spend-calculation" title="Link to this heading">#</a></h2>
-<p>A merchant who waits for more blocks on top of a payment is safer, because an
-attacker must secretly build a longer chain. Section 11 of the whitepaper
-computes how much safer, for an attacker with hashrate share <span class="math notranslate nohighlight">\(q\)</span> (and
-<span class="math notranslate nohighlight">\(p = 1 - q\)</span> for the honest network) and a merchant waiting for
-<span class="math notranslate nohighlight">\(z\)</span> confirmations. The attacker mines at <span class="math notranslate nohighlight">\(q/p\)</span> times the honest
-rate, so while the honest network finds <span class="math notranslate nohighlight">\(z\)</span> blocks the attacker’s
-progress <span class="math notranslate nohighlight">\(k\)</span> is Poisson with mean <span class="math notranslate nohighlight">\(\lambda = zq/p\)</span>. An attacker
-with <span class="math notranslate nohighlight">\(k \le z\)</span> blocks still trails by <span class="math notranslate nohighlight">\(z - k\)</span> and, by the
-gambler’s ruin, catches up with probability <span class="math notranslate nohighlight">\((q/p)^{z-k}\)</span>; one with
-more blocks has already won. Subtracting the chance of failure from one:</p>
+<p>A merchant hands over goods once a payment has some confirmations. How many
+should the merchant wait for?</p>
+<p>Waiting for more blocks on top of a payment is safer, because an attacker
+must secretly build a longer chain. Section 11 of the whitepaper computes how
+much safer. Take an attacker with hashrate share <span class="math notranslate nohighlight">\(q\)</span>, the honest
+network with <span class="math notranslate nohighlight">\(p = 1 - q\)</span>, and a merchant waiting for <span class="math notranslate nohighlight">\(z\)</span>
+confirmations. The attack runs like this:</p>
+<ol class="arabic simple">
+<li><p>The attacker pays the merchant on the public chain.</p></li>
+<li><p>At the same time, the attacker secretly mines a chain in which that
+payment is replaced by one back to the attacker.</p></li>
+<li><p>The merchant waits for <span class="math notranslate nohighlight">\(z\)</span> confirmations and hands over the goods.</p></li>
+<li><p>If the secret chain ever becomes longer, the attacker publishes it. Nodes
+switch to it, and the payment to the merchant disappears.</p></li>
+</ol>
+<p>The calculation follows the attack:</p>
+<ol class="arabic simple">
+<li><p>The attacker mines at <span class="math notranslate nohighlight">\(q/p\)</span> times the honest rate. So while the
+honest network finds <span class="math notranslate nohighlight">\(z\)</span> blocks, the attacker’s progress <span class="math notranslate nohighlight">\(k\)</span>
+is Poisson with mean <span class="math notranslate nohighlight">\(\lambda = zq/p\)</span>. The Poisson formula below,
+<span class="math notranslate nohighlight">\(\lambda^k e^{-\lambda}/k!\)</span>, is the chance of exactly <span class="math notranslate nohighlight">\(k\)</span>
+blocks.</p></li>
+<li><p>An attacker with <span class="math notranslate nohighlight">\(k \le z\)</span> blocks still trails by <span class="math notranslate nohighlight">\(z - k\)</span>.
+By the gambler’s ruin, it catches up with probability
+<span class="math notranslate nohighlight">\((q/p)^{z-k}\)</span>.</p></li>
+<li><p>An attacker with more blocks has already won.</p></li>
+<li><p>So the attack fails only if <span class="math notranslate nohighlight">\(k \le z\)</span> and the attacker never
+catches up. Add up the chance of that over every <span class="math notranslate nohighlight">\(k\)</span>, and subtract
+it from one:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[P(q, z) = 1 - \sum_{k=0}^{z} \frac{\lambda^k e^{-\lambda}}{k!}
 \left(1 - (q/p)^{z-k}\right).\]</div>
-<p>The whitepaper tabulates <span class="math notranslate nohighlight">\(P\)</span> (for example 0.0009137 at <span class="math notranslate nohighlight">\(q = 0.1\)</span>,
-<span class="math notranslate nohighlight">\(z = 5\)</span>) and the <span class="math notranslate nohighlight">\(z\)</span> needed for <span class="math notranslate nohighlight">\(P &lt; 0.1\%\)</span>. Later work
-refined the model (Rosenfeld 2014; Grunspan and Pérez-Marco 2017), but the
-exponential decay remains.</p>
+<p>Each term of the sum is “the chance the attacker has exactly <span class="math notranslate nohighlight">\(k\)</span>
+blocks” times “the chance it then never catches up”. <span class="math notranslate nohighlight">\(P\)</span> is the chance
+the attack succeeds.</p>
+<ul class="simple">
+<li><p>The whitepaper tabulates <span class="math notranslate nohighlight">\(P\)</span>. For example, it is 0.0009137 at
+<span class="math notranslate nohighlight">\(q = 0.1\)</span>, <span class="math notranslate nohighlight">\(z = 5\)</span>: about 1 in 1,100.</p></li>
+<li><p>It also tabulates the <span class="math notranslate nohighlight">\(z\)</span> needed for <span class="math notranslate nohighlight">\(P &lt; 0.1\%\)</span>.</p></li>
+<li><p>Later work refined the model (Rosenfeld 2014; Grunspan and Pérez-Marco
+2017), but the exponential decay remains.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.catch_up.attacker_success_probability" title="blockchainkit.consensus.systems.catch_up.attacker_success_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.catch_up.attacker_success_probability()</span></code></a>
 reproduces the whitepaper’s table.</p>
 <p><em>References:</em> S. Nakamoto, <em>Bitcoin: A Peer-to-Peer Electronic Cash System</em>
@@ -738,21 +1036,41 @@ reproduces the whitepaper’s table.</p>
 </div></div></section>
 <section id="difficulty-retargeting">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">2009 – Difficulty Retargeting</a><a class="headerlink" href="#difficulty-retargeting" title="Link to this heading">#</a></h2>
-<p>If more miners join, blocks come faster. The whitepaper says difficulty is set
-by a moving average targeting an average number of blocks per hour, and
-Bitcoin’s first release (January 2009) recomputes the target <span class="math notranslate nohighlight">\(T\)</span> every
-2016 blocks, scaled by how long they actually took and clamped to a factor of
-four:</p>
+<p>If more miners join, blocks come faster. How does the chain keep a steady
+pace?</p>
+<p>The <em>difficulty</em> is how hard the proof-of-work puzzle is, set by the target
+<span class="math notranslate nohighlight">\(T\)</span> of the 1997 entry. The whitepaper says difficulty is set by a
+moving average targeting an average number of blocks per hour. Bitcoin’s
+first release (January 2009) does it like this:</p>
+<ol class="arabic simple">
+<li><p>Every 2016 blocks, measure how long they actually took,
+<span class="math notranslate nohighlight">\(t_{\text{actual}}\)</span>.</p></li>
+<li><p>Compare with the expected time, <span class="math notranslate nohighlight">\(t_{\text{expected}}\)</span>: 2016 blocks
+at ten minutes each, two weeks.</p></li>
+<li><p>Clamp the measured time to between a quarter and four times the expected
+time.</p></li>
+<li><p>Scale the target by the clamped time divided by the expected time.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[T' = T \cdot \frac{\min\!\bigl(\max(t_{\text{actual}}, t_{\text{expected}}/4),\
 4\,t_{\text{expected}}\bigr)}{t_{\text{expected}}}.\]</div>
-<p>A larger target is easier to hit, so blocks that came too slowly raise
-<span class="math notranslate nohighlight">\(T\)</span> and blocks that came too fast lower it. The clamp limits
-manipulation and shocks. Retargeting turns proof of work into a clock that
-returns to about ten minutes per block whatever the hashrate. It also matters
-for selfish mining (2014 entry below). Orphaned blocks slow the chain, so
-retargeting lowers the difficulty, and a pool that holds a larger share of
-the chain then also earns more blocks per hour.</p>
+<p>In words: the new target is the old one times “how much too slow the blocks
+were”, but never by more than a factor of four either way.</p>
+<ul class="simple">
+<li><p><strong>A larger target is easier to hit.</strong> Blocks that came too slowly raise
+<span class="math notranslate nohighlight">\(T\)</span>. Blocks that came too fast lower it.</p></li>
+<li><p><strong>The clamp limits manipulation and shocks.</strong> One odd period cannot move
+the difficulty very far.</p></li>
+<li><p><strong>Proof of work becomes a clock.</strong> It returns to about ten minutes per
+block, whatever the hashrate.</p></li>
+</ul>
+<p>It also matters for selfish mining (2014 entry below):</p>
+<ol class="arabic simple">
+<li><p><em>Orphaned</em> blocks are valid blocks left off the winning chain.</p></li>
+<li><p>Orphaned blocks slow the chain, so retargeting lowers the difficulty.</p></li>
+<li><p>A pool (a group of miners working together) that holds a larger share of
+the chain then also earns more blocks per hour.</p></li>
+</ol>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.difficulty.retarget" title="blockchainkit.consensus.systems.difficulty.retarget"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.difficulty.retarget()</span></code></a>
 and <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.difficulty.simulate_difficulty" title="blockchainkit.consensus.systems.difficulty.simulate_difficulty"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.difficulty.simulate_difficulty()</span></code></a> use
 Bitcoin’s clamp on an integer target, in a simulation with given hashrates;
@@ -765,17 +1083,31 @@ they do not reproduce the off-by-one in Bitcoin’s interval count.</p>
 </div></div></section>
 <section id="peercoin-stake-as-an-alternative-to-work">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">2012 – Peercoin: Stake as an Alternative to Work</a><a class="headerlink" href="#peercoin-stake-as-an-alternative-to-work" title="Link to this heading">#</a></h2>
-<p>King and Nadal’s Peercoin explored proof of stake alongside proof of work: the
-right to propose blocks could be weighted by coins held rather than by
-computation performed. Coins are as scarce as computation, so an attacker
-still needs a large share of a limited resource, but using them burns no
-electricity. The basic building block is a weighted lottery, in which twice
-the stake gives twice the chance of being selected:</p>
+<p>Proof of work burns electricity on purpose. Is there another scarce resource
+that could do the same job?</p>
+<p>King and Nadal’s Peercoin explored proof of stake alongside proof of work.
+The right to propose blocks could be weighted by coins held rather than by
+computation performed. The participants who hold stake and propose or vote
+on blocks are called <em>validators</em>.</p>
+<ul class="simple">
+<li><p>Coins are as scarce as computation. An attacker still needs a large share
+of a limited resource.</p></li>
+<li><p>But using them burns no electricity.</p></li>
+</ul>
+<p>The basic building block is a <em>weighted lottery</em>, in which twice the stake
+gives twice the chance of being selected. In Python this is
+<code class="docutils literal notranslate"><span class="pre">random.choices(validators,</span> <span class="pre">weights=stakes)</span></code>:</p>
 <div class="math notranslate nohighlight">
 \[\Pr[\text{proposer}=i]=\frac{w_i}{\sum_j w_j}.\]</div>
-<p>A lottery alone is not consensus: a proof-of-stake protocol still needs an
-unbiasable source of randomness, voting, and penalties, which the following
-entries add.</p>
+<p>Validator <span class="math notranslate nohighlight">\(i\)</span> holds stake <span class="math notranslate nohighlight">\(w_i\)</span>. Its chance of proposing is its
+fraction of all the stake.</p>
+<p>A lottery alone is not consensus. A proof-of-stake protocol still needs:</p>
+<ul class="simple">
+<li><p>an <em>unbiasable</em> source of randomness, one that no validator can steer;</p></li>
+<li><p>voting;</p></li>
+<li><p>penalties.</p></li>
+</ul>
+<p>The following entries add them.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.pos.StakeSampler" title="blockchainkit.consensus.systems.pos.StakeSampler"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.pos.StakeSampler</span></code></a>
 samples integer weights exactly, from a private seeded generator. It does not
 model Peercoin’s coin age, voting, slashing or finality; deployed protocols
@@ -789,21 +1121,42 @@ Proof-of-Stake</em> (2012). <a class="reference external" href="https://www.peer
 </div></div></section>
 <section id="ghost-the-heaviest-observed-subtree">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">2013 – GHOST: The Heaviest Observed Subtree</a><a class="headerlink" href="#ghost-the-heaviest-observed-subtree" title="Link to this heading">#</a></h2>
+<p>Faster blocks mean faster payments. Why can’t a chain simply produce blocks
+every few seconds?</p>
 <p>When blocks are frequent, honest miners often build on the same parent at
-once, and the longest-chain rule throws their extra blocks away. Sompolinsky and
-Zohar showed that this degrades security at high block rates. An attacker’s
-private chain has no forks, so all its work counts, while honest work split
-across sibling blocks only partly lengthens the main chain. An attacker can
-therefore win with less than half the hashrate. GHOST (Greedy Heaviest
-Observed SubTree) counts the work in sibling blocks too. It descends from
-genesis, at each fork choosing</p>
+once. The result is a <em>fork</em>: two or more sibling blocks with the same
+parent. The longest-chain rule keeps one and throws the others away.
+Sompolinsky and Zohar showed that this degrades security at high block
+rates:</p>
+<ul class="simple">
+<li><p>An attacker’s private chain has no forks, so all its work counts.</p></li>
+<li><p>Honest work split across sibling blocks only partly lengthens the main
+chain.</p></li>
+<li><p>So an attacker can win with less than half the hashrate.</p></li>
+</ul>
+<p>GHOST (Greedy Heaviest Observed SubTree) counts the work in sibling blocks
+too. Picture the blocks as a tree with the first block, <em>genesis</em>, at the
+root:</p>
+<ol class="arabic simple">
+<li><p>Start at genesis.</p></li>
+<li><p>Among the current block’s children, pick the one whose <em>subtree</em> (the
+child plus everything built on it) holds the most work.</p></li>
+<li><p>Move to that child and repeat.</p></li>
+<li><p>Stop at a block with no children. That is the tip.</p></li>
+</ol>
+<p>At each fork, GHOST chooses</p>
 <div class="math notranslate nohighlight">
 \[\text{child} = \arg\max_{c} \sum_{b \in \text{subtree}(c)} \text{work}(b).\]</div>
-<p>Sibling blocks still add weight to their common branch. Without forks, GHOST
-picks the same tip as the longest-chain rule. Ethereum’s proof-of-work chain
-adopted GHOST’s uncle rewards but kept
-heaviest-chain selection; a GHOST variant, LMD-GHOST, became its fork-choice
-rule with proof of stake.</p>
+<p>That is <code class="docutils literal notranslate"><span class="pre">max(children,</span> <span class="pre">key=subtree_work)</span></code>, inside a loop that walks down
+from genesis.</p>
+<ul class="simple">
+<li><p>Sibling blocks still add weight to their common branch.</p></li>
+<li><p>Without forks, GHOST picks the same tip as the longest-chain rule.</p></li>
+<li><p>Ethereum’s proof-of-work chain adopted GHOST’s <em>uncle</em> rewards (payments
+for sibling blocks) but kept heaviest-chain selection.</p></li>
+<li><p>A GHOST variant, LMD-GHOST, became its <em>fork-choice rule</em> (its rule for
+picking the tip) with proof of stake.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.fork_choice.ghost_tip" title="blockchainkit.consensus.systems.fork_choice.ghost_tip"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.fork_choice.ghost_tip()</span></code></a>
 and <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.fork_choice.subtree_work" title="blockchainkit.consensus.systems.fork_choice.subtree_work"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.fork_choice.subtree_work()</span></code></a> apply
 GHOST to a static block tree.</p>
@@ -816,22 +1169,42 @@ preprint IACR ePrint 2013/881. <a class="reference external" href="https://doi.o
 </div></div></section>
 <section id="nothing-at-stake-and-slashing">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">2014 – Nothing at Stake, and Slashing</a><a class="headerlink" href="#nothing-at-stake-and-slashing" title="Link to this heading">#</a></h2>
-<p>A proof-of-work miner must spend electricity on one fork or another. In early
-2014 critics pointed out that a proof-of-stake validator can sign every fork
-for free and collect the reward whichever wins, so forks never settle.
-Buterin’s Slasher answered with penalties: evidence of two signatures at the
-same height destroys the validator’s deposit. Take reward <span class="math notranslate nohighlight">\(R\)</span> for
-voting on the winning fork, probability <span class="math notranslate nohighlight">\(p_A\)</span> that fork <span class="math notranslate nohighlight">\(A\)</span> wins,
-and penalty <span class="math notranslate nohighlight">\(S\)</span>, and assume that a double vote is always caught. Voting
-only for <span class="math notranslate nohighlight">\(A\)</span> pays when <span class="math notranslate nohighlight">\(A\)</span> wins, and voting for both always pays
-but is always punished:</p>
+<p>A proof-of-work miner must spend electricity on one fork or another. In
+early 2014 critics pointed out a problem with proof of stake:</p>
+<ul class="simple">
+<li><p>Signing a block costs a validator nothing.</p></li>
+<li><p>So it can sign every fork for free and collect the reward whichever wins.</p></li>
+<li><p>If every validator does this, forks never settle.</p></li>
+</ul>
+<p>Buterin’s Slasher answered with penalties. Each validator locks up a
+<em>deposit</em>. Evidence of two signatures at the same height destroys it. This
+is called <em>slashing</em>.</p>
+<ol class="arabic simple">
+<li><p>A validator signs two different blocks at the same height.</p></li>
+<li><p>Anyone who sees both signatures submits them to the chain as evidence.</p></li>
+<li><p>The chain destroys the validator’s deposit.</p></li>
+</ol>
+<p>Is slashing enough? Take:</p>
+<ul class="simple">
+<li><p>reward <span class="math notranslate nohighlight">\(R\)</span> for voting on the winning fork;</p></li>
+<li><p>probability <span class="math notranslate nohighlight">\(p_A\)</span> that fork <span class="math notranslate nohighlight">\(A\)</span> wins;</p></li>
+<li><p>penalty <span class="math notranslate nohighlight">\(S\)</span>;</p></li>
+<li><p>and assume that a double vote is always caught.</p></li>
+</ul>
+<p>Voting only for <span class="math notranslate nohighlight">\(A\)</span> pays when <span class="math notranslate nohighlight">\(A\)</span> wins. Voting for both always
+pays but is always punished:</p>
 <div class="math notranslate nohighlight">
 \[E[\text{vote } A] = p_A R, \qquad E[\text{vote both}] = R - S,\]</div>
-<p>so voting for one fork is the best response once <span class="math notranslate nohighlight">\(S &gt; (1 - p_A) R\)</span>.
-Slashing is now part of every major proof-of-stake protocol. It works only
-while the deposit is still locked. Keys whose deposits were already withdrawn
-can sign an alternative history at no cost, which is the <em>long-range
-attack</em>.</p>
+<p>so voting for one fork is the best response once <span class="math notranslate nohighlight">\(S &gt; (1 - p_A) R\)</span>.</p>
+<p>The left formula is the average payoff of voting only for <span class="math notranslate nohighlight">\(A\)</span>. The
+right is the payoff of voting for both. The penalty must exceed the extra
+reward that double voting would bring.</p>
+<ul class="simple">
+<li><p>Slashing is now part of every major proof-of-stake protocol.</p></li>
+<li><p>It works only while the deposit is still locked.</p></li>
+<li><p>Keys whose deposits were already withdrawn can sign an alternative history
+at no cost. This is the <em>long-range attack</em>.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.stake_games.fork_voting_payoffs" title="blockchainkit.consensus.systems.stake_games.fork_voting_payoffs"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.stake_games.fork_voting_payoffs()</span></code></a>
 is a payoff table, not a protocol; real slashing needs on-chain evidence and
 deposits that are still locked.</p>
@@ -843,20 +1216,40 @@ Ethereum blog (January 2014). <a class="reference external" href="https://blog.e
 </div></div></section>
 <section id="selfish-mining-majority-is-not-enough">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">2014 – Selfish Mining: Majority Is Not Enough</a><a class="headerlink" href="#selfish-mining-majority-is-not-enough" title="Link to this heading">#</a></h2>
-<p>Eyal and Sirer showed that a large pool can earn more than its fair share by
-withholding the blocks it finds and releasing them just in time to orphan
-honest blocks. The pool sometimes loses its own blocks too, but honest miners
-lose more, so the pool’s fraction of the final chain rises. They modelled the strategy as a Markov chain on the pool’s
-private lead and derived its share of the chain, for hashrate share
-<span class="math notranslate nohighlight">\(\alpha\)</span> and fraction <span class="math notranslate nohighlight">\(\gamma\)</span> of honest miners that build on the
-pool’s block during a tie:</p>
+<p>Bitcoin’s incentive argument was that mining honestly pays best. Is that
+true?</p>
+<p>Eyal and Sirer showed that a large pool can earn more than its fair share.
+It withholds the blocks it finds and releases them just in time to orphan
+honest blocks. In outline:</p>
+<ol class="arabic simple">
+<li><p>The pool finds a block and keeps it secret, so its private chain leads.</p></li>
+<li><p>It keeps mining on its private chain.</p></li>
+<li><p>When the honest network finds a block, the pool publishes enough of its
+private chain to match or beat it.</p></li>
+<li><p>If the pool was only one block ahead, there is a tie. Some honest miners
+build on the pool’s block, some on the honest one.</p></li>
+</ol>
+<p>The pool sometimes loses its own blocks too, but honest miners lose more. So
+the pool’s fraction of the final chain rises.</p>
+<p>They modelled the strategy as a <em>Markov chain</em>: a state machine whose next
+state is chosen at random, depending only on the current state. Here the
+state is the pool’s private lead. They derived the pool’s share of the
+chain, for hashrate share <span class="math notranslate nohighlight">\(\alpha\)</span> and fraction <span class="math notranslate nohighlight">\(\gamma\)</span> of
+honest miners that build on the pool’s block during a tie:</p>
 <div class="math notranslate nohighlight">
 \[R(\alpha, \gamma) = \frac{\alpha(1-\alpha)^2\bigl(4\alpha + \gamma(1-2\alpha)\bigr)
 - \alpha^3}{1 - \alpha\bigl(1 + (2-\alpha)\alpha\bigr)}.\]</div>
-<p>This exceeds <span class="math notranslate nohighlight">\(\alpha\)</span> whenever <span class="math notranslate nohighlight">\(\alpha &gt; (1-\gamma)/(3-2\gamma)\)</span>: a
-third of the hashrate when ties go to honest blocks, and any share when the
-pool wins every tie. Honest miners then gain by joining the pool, so Bitcoin’s
-incentive argument needs more than an honest majority.</p>
+<p><span class="math notranslate nohighlight">\(R\)</span> is the fraction of blocks on the final chain that are the pool’s.
+An honest pool would get exactly <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R\)</span> exceeds <span class="math notranslate nohighlight">\(\alpha\)</span> whenever
+<span class="math notranslate nohighlight">\(\alpha &gt; (1-\gamma)/(3-2\gamma)\)</span>.</p></li>
+<li><p>That is a third of the hashrate when ties go to honest blocks
+(<span class="math notranslate nohighlight">\(\gamma = 0\)</span>).</p></li>
+<li><p>It is any share when the pool wins every tie (<span class="math notranslate nohighlight">\(\gamma = 1\)</span>).</p></li>
+<li><p>Honest miners then gain by joining the pool. So Bitcoin’s incentive
+argument needs more than an honest majority.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.selfish.selfish_mining_revenue" title="blockchainkit.consensus.systems.selfish.selfish_mining_revenue"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.selfish.selfish_mining_revenue()</span></code></a>,
 <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.selfish.selfish_mining_threshold" title="blockchainkit.consensus.systems.selfish.selfish_mining_threshold"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.selfish.selfish_mining_threshold()</span></code></a>, and
 the state-machine simulation
@@ -871,24 +1264,44 @@ Is Vulnerable</em>, Financial Cryptography 2014, LNCS 8437, 436–454 (2014). <a
 </div></div></section>
 <section id="casper-ffg-finality-from-two-thirds-votes">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">2017 – Casper FFG: Finality from Two-Thirds Votes</a><a class="headerlink" href="#casper-ffg-finality-from-two-thirds-votes" title="Link to this heading">#</a></h2>
-<p>Buterin and Griffith’s Casper the Friendly Finality Gadget overlays finality on
-any block-proposal mechanism. Validators vote for links
-<span class="math notranslate nohighlight">\(s \to t\)</span> from a source checkpoint to a later target. A checkpoint is
-<em>justified</em> when two thirds of the stake vote for a link to it from a
-justified checkpoint, and it is <em>final</em> when the link that justifies its
-direct successor starts from it. Two slashing conditions forbid, for one
-validator, two distinct votes for the same target height and a vote that
-surrounds another:</p>
+<p>A chain built by a lottery, as in proof of stake, never gives final
+answers, only ever more likely ones. Can a vote make a block final?</p>
+<p>Buterin and Griffith’s Casper the Friendly Finality Gadget (FFG) overlays
+finality on any block-proposal mechanism. Some blocks are <em>checkpoints</em>, say
+every hundredth one. Validators vote on checkpoints, each vote weighted by
+stake:</p>
+<ol class="arabic simple">
+<li><p>A validator votes for a <em>link</em> <span class="math notranslate nohighlight">\(s \to t\)</span>, from a source checkpoint
+<span class="math notranslate nohighlight">\(s\)</span> to a later target <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
+<li><p>A checkpoint is <em>justified</em> when two thirds of the stake vote for a link
+to it from a justified checkpoint. Genesis starts justified.</p></li>
+<li><p>A checkpoint is <em>final</em> when the link that justifies its direct successor
+starts from it.</p></li>
+</ol>
+<p>Two <em>slashing conditions</em> say what a single validator must never do:</p>
+<ul class="simple">
+<li><p>cast two distinct votes for the same target height;</p></li>
+<li><p>cast a vote that <em>surrounds</em> another, starting before it and ending after
+it.</p></li>
+</ul>
+<p>Write <span class="math notranslate nohighlight">\(h(c)\)</span> for the height of checkpoint <span class="math notranslate nohighlight">\(c\)</span>. The two
+conditions are</p>
 <div class="math notranslate nohighlight">
 \[h(t_1) = h(t_2) \ \text{for distinct votes}, \qquad
 h(s_1) &lt; h(s_2) &lt; h(t_2) &lt; h(t_1).\]</div>
-<p>They prove <em>accountable safety</em>: two conflicting finalized checkpoints imply
-that validators holding at least a third of the stake violated a condition and
-can be punished. The argument is PBFT’s quorum intersection. Two sets that
-each hold two thirds of the stake overlap in at least a third, and the
-validators in the overlap cannot have voted for both checkpoints without
-breaking one of the rules. Where PBFT assumes the overlap contains an honest
-replica, Casper makes it identifiable and punishable. Ethereum’s proof of stake combines Casper FFG with LMD-GHOST.</p>
+<p>The left is a double vote. The right is vote 1 surrounding vote 2.</p>
+<p>They prove <em>accountable safety</em>. Two conflicting finalized checkpoints imply
+that validators holding at least a third of the stake violated a condition
+and can be punished. The argument is PBFT’s quorum intersection:</p>
+<ul class="simple">
+<li><p>Two sets that each hold two thirds of the stake overlap in at least a
+third.</p></li>
+<li><p>The validators in the overlap cannot have voted for both checkpoints
+without breaking one of the rules.</p></li>
+<li><p>Where PBFT assumes the overlap contains an honest replica, Casper makes it
+identifiable and punishable.</p></li>
+</ul>
+<p>Ethereum’s proof of stake combines Casper FFG with LMD-GHOST.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.finality.FinalityGadget" title="blockchainkit.consensus.systems.finality.FinalityGadget"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.finality.FinalityGadget</span></code></a>
 tracks justification, finality and offenses for a fixed validator set. It has no
 deposits, rewards, inactivity leak or fork choice.</p>
@@ -900,20 +1313,43 @@ arXiv:1710.09437 (2017). <a class="reference external" href="https://arxiv.org/a
 </div></div></section>
 <section id="algorand-s-cryptographic-sortition">
 <h2><a class="toc-backref" href="#id17" role="doc-backlink">2017 – Algorand’s Cryptographic Sortition</a><a class="headerlink" href="#algorand-s-cryptographic-sortition" title="Link to this heading">#</a></h2>
+<p>Voting protocols like PBFT need every node to talk to every other. That is
+too slow for millions of users. Can a small random committee vote instead,
+without an attacker knowing who to target?</p>
 <p>Gilad, Hemo, Micali, Vlachos and Zeldovich built Algorand around a private
-lottery: each round’s committee is drawn so that every unit of stake is a
-ticket, and each user checks their own tickets with a verifiable random
-function on the round seed. A user with stake <span class="math notranslate nohighlight">\(w\)</span>, out of total stake
-<span class="math notranslate nohighlight">\(W\)</span> and expected committee size <span class="math notranslate nohighlight">\(\tau\)</span>, holds <span class="math notranslate nohighlight">\(j\)</span> seats with</p>
+lottery, <em>sortition</em>. Each round’s committee is drawn so that every unit of
+stake is a ticket. Each user checks their own tickets with a <em>verifiable
+random function</em> (VRF). A VRF is like a hash of the user’s secret key and an
+input. Only the key’s owner can compute it. It comes with a proof that
+anyone can check with the public key.</p>
+<ol class="arabic simple">
+<li><p>Every round has a public random <em>seed</em>.</p></li>
+<li><p>Each user privately evaluates the VRF on the seed with their secret key.</p></li>
+<li><p>The output decides how many of their tickets win, so how many committee
+seats they hold.</p></li>
+<li><p>A user with seats sends their vote together with the VRF proof.</p></li>
+<li><p>Everyone checks the proof before counting the vote.</p></li>
+</ol>
+<p>A user with stake <span class="math notranslate nohighlight">\(w\)</span>, out of total stake <span class="math notranslate nohighlight">\(W\)</span> and expected
+committee size <span class="math notranslate nohighlight">\(\tau\)</span>, holds <span class="math notranslate nohighlight">\(j\)</span> seats with</p>
 <div class="math notranslate nohighlight">
 \[j \sim \text{Binomial}\!\left(w, \frac{\tau}{W}\right), \qquad
 E[j] = \tau\,\frac{w}{W}.\]</div>
-<p>The function needs the user’s secret key, so nobody else knows who is on the
-committee until its members speak and attach their proofs. They therefore
-cannot be attacked in advance, and Algorand replaces the committee after
-every step, so attacking a member after it speaks is too late. Independent
-binomials with the same probability add, so splitting stake across accounts
-leaves the distribution of seats unchanged: there is no Sybil advantage.</p>
+<p><em>Binomial</em> means <span class="math notranslate nohighlight">\(j\)</span> is the number of heads in <span class="math notranslate nohighlight">\(w\)</span> coin flips,
+each with probability <span class="math notranslate nohighlight">\(\tau/W\)</span>. On average a user’s seats are the
+committee size times their fraction of the stake.</p>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p><strong>The committee is secret.</strong> The function needs the user’s secret key. So
+nobody else knows who is on the committee until its members speak and
+attach their proofs. They therefore cannot be attacked in advance.</p></li>
+<li><p><strong>Attacking after it speaks is too late.</strong> Algorand replaces the
+committee after every step.</p></li>
+<li><p><strong>Splitting stake does not help.</strong> Independent binomials with the same
+probability add, so splitting stake across accounts leaves the
+distribution of seats unchanged. A <em>Sybil attack</em>, creating many fake
+identities, gains nothing.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/consensus.html#blockchainkit.consensus.systems.sortition.sortition" title="blockchainkit.consensus.systems.sortition.sortition"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.consensus.systems.sortition.sortition()</span></code></a>.
 A hash of the user’s secret replaces the verifiable random function, so others
 cannot check a claimed draw.</p>

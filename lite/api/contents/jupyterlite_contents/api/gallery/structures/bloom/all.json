@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.227044Z",
+      "created": "2026-10-24T08:04:53.423434Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.227044Z",
+      "last_modified": "2026-10-24T08:04:53.423434Z",
       "mimetype": null,
       "name": "plot_01_bloom_filter.ipynb",
       "path": "jupyterlite_contents/api/gallery/structures/bloom/plot_01_bloom_filter.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.612065Z",
+  "created": "2026-10-24T08:04:54.716585Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.612128Z",
+  "last_modified": "2026-10-24T08:04:54.716651Z",
   "mimetype": null,
   "name": "bloom",
   "path": "jupyterlite_contents/api/gallery/structures/bloom",

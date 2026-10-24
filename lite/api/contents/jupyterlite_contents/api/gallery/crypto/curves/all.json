@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.221969Z",
+      "created": "2026-10-24T08:04:53.411999Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.221969Z",
+      "last_modified": "2026-10-24T08:04:53.411999Z",
       "mimetype": null,
       "name": "plot_01_elliptic_curves.ipynb",
       "path": "jupyterlite_contents/api/gallery/crypto/curves/plot_01_elliptic_curves.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.603267Z",
+  "created": "2026-10-24T08:04:54.694365Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.603318Z",
+  "last_modified": "2026-10-24T08:04:54.694438Z",
   "mimetype": null,
   "name": "curves",
   "path": "jupyterlite_contents/api/gallery/crypto/curves",

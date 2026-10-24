@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.227601Z",
+      "created": "2026-10-24T08:04:53.423960Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.227601Z",
+      "last_modified": "2026-10-24T08:04:53.423960Z",
       "mimetype": null,
       "name": "plot_02_account_nonces.ipynb",
       "path": "jupyterlite_contents/api/gallery/structures/ledger/plot_02_account_nonces.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.227462Z",
+      "created": "2026-10-24T08:04:53.423828Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.227462Z",
+      "last_modified": "2026-10-24T08:04:53.423828Z",
       "mimetype": null,
       "name": "plot_01_double_entry.ipynb",
       "path": "jupyterlite_contents/api/gallery/structures/ledger/plot_01_double_entry.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.612817Z",
+  "created": "2026-10-24T08:04:54.717387Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.613064Z",
+  "last_modified": "2026-10-24T08:04:54.717670Z",
   "mimetype": null,
   "name": "ledger",
   "path": "jupyterlite_contents/api/gallery/structures/ledger",

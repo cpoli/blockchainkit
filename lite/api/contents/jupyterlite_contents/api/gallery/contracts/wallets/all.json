@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.221433Z",
+      "created": "2026-10-24T08:04:53.411478Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.221433Z",
+      "last_modified": "2026-10-24T08:04:53.411478Z",
       "mimetype": null,
       "name": "plot_02_parity_library_freeze.ipynb",
       "path": "jupyterlite_contents/api/gallery/contracts/wallets/plot_02_parity_library_freeze.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.221300Z",
+      "created": "2026-10-24T08:04:53.411356Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.221300Z",
+      "last_modified": "2026-10-24T08:04:53.411356Z",
       "mimetype": null,
       "name": "plot_01_parity_multisig_hack.ipynb",
       "path": "jupyterlite_contents/api/gallery/contracts/wallets/plot_01_parity_multisig_hack.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.602024Z",
+  "created": "2026-10-24T08:04:54.693063Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.602292Z",
+  "last_modified": "2026-10-24T08:04:54.693352Z",
   "mimetype": null,
   "name": "wallets",
   "path": "jupyterlite_contents/api/gallery/contracts/wallets",

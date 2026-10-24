@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -445,19 +467,66 @@ volume in all electronic payment systems today, without a single
 custodial third party holding funds.”
 – Joseph Poon and Thaddeus Dryja, <em>The Bitcoin Lightning Network</em>, 2016</p>
 </div></blockquote>
-<p>Every full node verifies every transaction, so adding nodes adds copies of
-the work, not capacity: a blockchain processes no more than one node can.
-The ideas below keep the chain’s security while moving most of the work
-elsewhere: payment and state channels, where two parties update a balance
-privately and the chain only judges disputes; child chains and rollups,
-which post commitments or compressed data instead of executing everything;
-sharding, which splits the work among groups of nodes; and data-availability
-sampling, which lets light clients check that the data behind a block
-exists without downloading it. Two of these tools, hash time-locks and
-light clients, also move value between chains, and bridges that do without
-them have been the costliest failures in the field. <a class="reference internal" href="vm_breakthroughs.html"><span class="doc">Breakthroughs in Replicated Execution</span></a> covers
-the hash time-locked contract itself, and <a class="reference internal" href="structures_breakthroughs.html"><span class="doc">Breakthroughs in Authenticated Data Structures</span></a>
-the Merkle proofs and light clients that much of this page builds on.</p>
+<p>A <em>blockchain</em> is a shared record of payments. Think of it as a Python list
+of blocks, where each block is a list of <em>transactions</em>: signed instructions
+such as “move 5 coins from Alice to Bob”. Many computers, called <em>nodes</em>,
+keep copies of the list. A <em>full node</em> checks every transaction itself. So
+adding nodes adds copies of the work, not capacity. The whole network
+processes no more than one node can.</p>
+<p>The chain itself is <em>layer 1</em>. A <em>layer-2</em> system is built on top of it. It
+does most of its work elsewhere and uses the chain only as a court of last
+resort, so it keeps the chain’s security. The ideas below do this in four
+ways:</p>
+<ul class="simple">
+<li><p><strong>Payment and state channels.</strong> Two parties update a balance privately.
+The chain only judges disputes.</p></li>
+<li><p><strong>Child chains and rollups.</strong> These post <em>commitments</em> (short fingerprints
+of data) or compressed data to the chain, instead of having the chain
+execute everything.</p></li>
+<li><p><strong>Sharding.</strong> This splits the work among groups of nodes.</p></li>
+<li><p><strong>Data-availability sampling.</strong> This lets <em>light clients</em>, nodes that
+download only a short summary of each block, check that the data behind a
+block exists without downloading it.</p></li>
+</ul>
+<p><em>Interoperability</em> means moving value between different chains. Two of
+these tools, hash time-locks and light clients, also do that. <em>Bridges</em>,
+systems that move coins from one chain to another, that do without them
+have been the costliest failures in the field. <a class="reference internal" href="vm_breakthroughs.html"><span class="doc">Breakthroughs in Replicated Execution</span></a>
+covers the hash time-locked contract itself, and
+<a class="reference internal" href="structures_breakthroughs.html"><span class="doc">Breakthroughs in Authenticated Data Structures</span></a> the Merkle proofs and light clients that
+much of this page builds on.</p>
+<p>The page uses a few terms throughout:</p>
+<ul class="simple">
+<li><p><em>Alice</em> and <em>Bob</em> are the honest parties. A <em>cheater</em> or <em>attacker</em> is
+anyone trying to take more than they are owed.</p></li>
+<li><p>A <em>hash function</em>, here SHA-256, is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code>. But it
+returns 256 bits, and it is built so that nobody can find two inputs with
+the same output, or an input that gives a chosen output. If
+<code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">sha256(s)</span></code>, then <code class="docutils literal notranslate"><span class="pre">s</span></code> is the <em>preimage</em> of <code class="docutils literal notranslate"><span class="pre">h</span></code>. Finding it by
+brute force takes about <span class="math notranslate nohighlight">\(2^{256}\)</span> guesses. Even <span class="math notranslate nohighlight">\(2^{128}\)</span>
+guesses is far more than every computer on Earth could make in the age of
+the universe.</p></li>
+<li><p>A <em>digital signature</em> is a value that only the holder of a secret key can
+produce for a given message. Anyone with the matching public key can check
+it. Changing one bit of the message makes the signature invalid.</p></li>
+<li><p>An <em>output</em> is how Bitcoin stores coins. There are no account balances.
+Each output holds an amount and a small program, its <em>script</em>, that says
+what is needed to spend it, such as “a signature by Alice’s key”. A
+transaction spends some outputs and creates new ones. Each output can be
+spent only once, like a dict entry that is deleted when it is used.</p></li>
+<li><p>A transaction is <em>published</em> when it is broadcast to the network, and
+<em>confirmed</em>, or <em>on chain</em>, once a block includes it. A transaction the
+parties hold but have not published is <em>off chain</em>. Every transaction
+pays a <em>fee</em> to the miner who includes it.</p></li>
+<li><p>A <em>lock time</em> makes a transaction invalid before a given block height,
+the number of blocks so far. Bitcoin adds a block about every ten minutes.
+A <em>relative</em> lock time counts blocks from when the spent output was
+confirmed.</p></li>
+<li><p>A <em>smart contract</em> is a program stored on a chain such as Ethereum. It
+has its own storage and can hold coins. Like a Python object, it runs a
+method when a transaction calls it, but nobody can change its code. Every
+operation and every byte of data costs <em>gas</em>, which is paid for in fees.</p></li>
+</ul>
 <p>Every channel output here is a <a class="reference internal" href="../api/vm.html#module-blockchainkit.vm.systems.script" title="blockchainkit.vm.systems.script"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script</span></code></a>
 program, judged by <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">verify_script()</span></code></a>;
 the contracts run on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a>.
@@ -485,22 +554,52 @@ the contracts run on <a class="reference internal" href="../api/contracts.html#b
 </nav>
 <section id="reed-and-solomon-s-polynomial-codes">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1960 – Reed and Solomon’s Polynomial Codes</a><a class="headerlink" href="#reed-and-solomon-s-polynomial-codes" title="Link to this heading">#</a></h2>
-<p>A communication line that loses or corrupts symbols needs redundancy, and
-Reed and Solomon found a code that tolerates as much damage as any code of
-its length and rate can. They read <code class="docutils literal notranslate"><span class="pre">k</span></code> symbols of a finite field as the
-coefficients of a polynomial of degree below <code class="docutils literal notranslate"><span class="pre">k</span></code> and transmitted its
-values at <code class="docutils literal notranslate"><span class="pre">n</span></code> points. Two different polynomials of degree below <code class="docutils literal notranslate"><span class="pre">k</span></code>
-agree on at most <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">-</span> <span class="pre">1</span></code> points, since their difference has at most
-<code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">-</span> <span class="pre">1</span></code> roots. So any <code class="docutils literal notranslate"><span class="pre">k</span></code> received values determine the polynomial, and
-two codewords differ in at least <span class="math notranslate nohighlight">\(n - k + 1\)</span> places. A decoder can
-therefore fill in up to <span class="math notranslate nohighlight">\(n - k\)</span> lost symbols, and correct a wrong
-symbol at the price of two lost ones, as long as</p>
+<p>A communication line can lose or corrupt symbols. It needs <em>redundancy</em>:
+extra symbols from which the damaged ones can be rebuilt. Reed and Solomon
+found a code that tolerates as much damage as any code of its length and
+rate can. A code’s <em>length</em> is the number <code class="docutils literal notranslate"><span class="pre">n</span></code> of symbols it sends, and its
+<em>rate</em> is the fraction <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">/</span> <span class="pre">n</span></code> of them that carry data.</p>
+<p>The idea rests on a school fact. Two points fix a line, and three points fix
+a parabola. In general, <code class="docutils literal notranslate"><span class="pre">k</span></code> points fix a polynomial of degree below <code class="docutils literal notranslate"><span class="pre">k</span></code>.
+So send more than <code class="docutils literal notranslate"><span class="pre">k</span></code> points of the polynomial. Any <code class="docutils literal notranslate"><span class="pre">k</span></code> that arrive
+rebuild it.</p>
+<p>The arithmetic happens in a <em>finite field</em>. Here that means the integers
+<code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">...,</span> <span class="pre">p</span> <span class="pre">-</span> <span class="pre">1</span></code> for a prime <code class="docutils literal notranslate"><span class="pre">p</span></code>, with every result taken <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">p</span></code>. Adding,
+subtracting and multiplying work as usual. Dividing by a nonzero <code class="docutils literal notranslate"><span class="pre">a</span></code> works
+too: multiply by <code class="docutils literal notranslate"><span class="pre">pow(a,</span> <span class="pre">-1,</span> <span class="pre">p)</span></code>. So algebra on polynomials works as it
+does for real numbers, but values never grow and nothing is rounded.</p>
+<ol class="arabic simple">
+<li><p>The sender reads <code class="docutils literal notranslate"><span class="pre">k</span></code> data symbols, which are field elements, as the
+coefficients of a polynomial <span class="math notranslate nohighlight">\(P\)</span> of degree below <code class="docutils literal notranslate"><span class="pre">k</span></code>.</p></li>
+<li><p>The sender evaluates <span class="math notranslate nohighlight">\(P\)</span> at <code class="docutils literal notranslate"><span class="pre">n</span></code> different points, with
+<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">&gt;</span> <span class="pre">k</span></code>, and sends the <code class="docutils literal notranslate"><span class="pre">n</span></code> values. This list is the <em>codeword</em>.</p></li>
+<li><p>The receiver takes any <code class="docutils literal notranslate"><span class="pre">k</span></code> correct values and solves for the
+coefficients of <span class="math notranslate nohighlight">\(P\)</span>. This step is <em>interpolation</em>. It gives back the
+data.</p></li>
+</ol>
+<p>Why does it work? Two different polynomials of degree below <code class="docutils literal notranslate"><span class="pre">k</span></code> agree on
+at most <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">-</span> <span class="pre">1</span></code> points. Their difference is a nonzero polynomial of degree
+below <code class="docutils literal notranslate"><span class="pre">k</span></code>, and such a polynomial has at most <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">-</span> <span class="pre">1</span></code> roots. So any <code class="docutils literal notranslate"><span class="pre">k</span></code>
+received values determine the polynomial, and two codewords differ in at
+least <span class="math notranslate nohighlight">\(n - k + 1\)</span> places.</p>
+<p>There are two kinds of damage:</p>
+<ul class="simple">
+<li><p>An <em>erasure</em> is a symbol that is known to be missing.</p></li>
+<li><p>An <em>error</em> is a symbol that is wrong, with nothing to say so.</p></li>
+</ul>
+<p>A decoder can therefore fill in up to <span class="math notranslate nohighlight">\(n - k\)</span> lost symbols, and
+correct a wrong symbol at the price of two lost ones, as long as</p>
 <div class="math notranslate nohighlight">
 \[2\,(\text{errors}) + (\text{erasures}) \le n - k.\]</div>
-<p>Decoding errors efficiently took longer; Berlekamp and Welch (1986) reduced
-it to linear algebra, by solving for an error-locator polynomial. With
-<span class="math notranslate nohighlight">\(n = 2k\)</span>, any half of the <code class="docutils literal notranslate"><span class="pre">n</span></code> values rebuilds the data, which is
-what data-availability sampling relies on.</p>
+<p>In words, each error uses up twice as much redundancy as an erasure. The
+decoder must spend some of it finding where the error is.</p>
+<p>Decoding errors efficiently took longer. Trying every possible set of
+wrong positions is brute force, and the number of sets grows exponentially.
+Berlekamp and Welch (1986) reduced the problem to linear algebra: solving a
+system of linear equations, as in Gaussian elimination. The unknown is an
+<em>error-locator polynomial</em>, whose roots are the positions of the errors.
+With <span class="math notranslate nohighlight">\(n = 2k\)</span>, any half of the <code class="docutils literal notranslate"><span class="pre">n</span></code> values rebuilds the data, which
+is what data-availability sampling relies on.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.reed_solomon.rs_encode" title="blockchainkit.channels.systems.reed_solomon.rs_encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.reed_solomon.rs_encode()</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.reed_solomon.rs_recover" title="blockchainkit.channels.systems.reed_solomon.rs_recover"><code class="xref py py-func docutils literal notranslate"><span class="pre">rs_recover()</span></code></a> and
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.reed_solomon.rs_decode" title="blockchainkit.channels.systems.reed_solomon.rs_decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">rs_decode()</span></code></a> (Berlekamp-Welch),
@@ -518,22 +617,40 @@ Mathematics 8(2), 300–304 (1960).
 </div></div></section>
 <section id="spilman-and-hearn-s-one-way-micropayment-channels">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">2013 – Spilman and Hearn’s One-Way Micropayment Channels</a><a class="headerlink" href="#spilman-and-hearn-s-one-way-micropayment-channels" title="Link to this heading">#</a></h2>
-<p>Paying a few satoshis per second for a service, one transaction per
-payment, costs more in fees than it pays. Jeremy Spilman described a
-channel that needs two transactions for any number of payments. The payer
-locks the channel’s capacity in an output that only both parties’ signatures
-can spend. Before doing so, the payer gets the payee’s signature on a
-refund that returns everything after a lock time, so a payee who vanishes
-cannot hold the coins hostage. Each payment is a new, unpublished
-transaction from that output, signed by the payer and paying the payee a
-little more than the last. The payee could countersign and publish any of
-them, but the last pays it the most, so it publishes only that one. Mike
-Hearn implemented the scheme in bitcoinj the same year. For <code class="docutils literal notranslate"><span class="pre">m</span></code> payments,
+<p>Suppose you pay a few <em>satoshis</em> per second for a service. A satoshi is the
+smallest unit of bitcoin, <span class="math notranslate nohighlight">\(10^{-8}\)</span> BTC. With one transaction per
+payment, the fees cost more than the payments.</p>
+<p>Jeremy Spilman described a <em>channel</em> that needs two transactions for any
+number of payments. It works like a bar tab. The payer first puts money in
+a box that needs both parties’ keys to open. Then the payer hands over a
+fresh IOU for each payment. Only the last IOU is ever cashed.</p>
+<ol class="arabic simple">
+<li><p>The payer builds a <em>funding</em> transaction. It locks the channel’s
+<em>capacity</em>, the most it can ever pay, in an output that only both
+parties’ signatures can spend. This is a <em>2-of-2</em> output.</p></li>
+<li><p>Before publishing it, the payer gets the payee’s signature on a
+<em>refund</em>. The refund returns everything to the payer after a lock time.
+So a payee who vanishes cannot hold the coins hostage.</p></li>
+<li><p>The payer publishes the funding transaction.</p></li>
+<li><p>For each payment, the payer signs a new transaction from the funding
+output and sends it to the payee. It pays the payee a little more than
+the last one. Nobody publishes it.</p></li>
+<li><p>To close the channel, the payee adds its own signature to the latest
+transaction (it <em>countersigns</em>) and publishes it.</p></li>
+</ol>
+<p>The payee could countersign and publish any of them. But the last pays it
+the most, so it publishes only that one. Mike Hearn implemented the scheme
+in bitcoinj, a Java library for Bitcoin, the same year. For <code class="docutils literal notranslate"><span class="pre">m</span></code> payments,
 only funding and closing reach the chain,</p>
 <div class="math notranslate nohighlight">
 \[\text{transactions on chain} = 2 \quad\text{for any } m,\]</div>
-<p>and the payee must close before the lock time, or the payer can take
-everything back with the refund.</p>
+<p>so the cost on chain stays the same however many payments are made. The
+scheme has two limits:</p>
+<ul class="simple">
+<li><p>Money flows one way only, from payer to payee.</p></li>
+<li><p>The payee must close before the lock time, or the payer can take
+everything back with the refund.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.micropayment.SpilmanChannel" title="blockchainkit.channels.systems.micropayment.SpilmanChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.micropayment.SpilmanChannel</span></code></a>,
 whose funding output is a 2-of-2 Script checked by
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">verify_script()</span></code></a>. The interpreter has
@@ -549,21 +666,38 @@ mailing list (April 2013); M. Hearn, micropayment channels in bitcoinj
 </div></div></section>
 <section id="tier-nolan-s-atomic-cross-chain-swaps">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">2013 – Tier Nolan’s Atomic Cross-Chain Swaps</a><a class="headerlink" href="#tier-nolan-s-atomic-cross-chain-swaps" title="Link to this heading">#</a></h2>
-<p>Two people who trade coins on different chains each want the other to pay
-first, and neither chain can see the other to enforce the deal. Tier
-Nolan’s protocol ties the two payments to one secret <code class="docutils literal notranslate"><span class="pre">s</span></code>, known only to
-Alice. Alice locks her coins on chain A to Bob behind <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">SHA256(s)</span></code>,
-refundable to her at <span class="math notranslate nohighlight">\(T_A\)</span>; Bob, seeing this, locks his on chain B to
-Alice behind the same <code class="docutils literal notranslate"><span class="pre">h</span></code>, refundable to him at <span class="math notranslate nohighlight">\(T_B\)</span>. Alice
-claims on B by revealing <code class="docutils literal notranslate"><span class="pre">s</span></code>, and Bob reads it from chain B and claims on
-A. Either both payments happen or neither does. Alice must claim on B
-before <span class="math notranslate nohighlight">\(T_B\)</span>, or Bob takes his coins back, so <code class="docutils literal notranslate"><span class="pre">s</span></code> is public by
-<span class="math notranslate nohighlight">\(T_B\)</span> at the latest; Bob then needs time to use it on A before Alice
-can refund there. Nobody can lose if</p>
+<p>Alice has coins on chain A and Bob has coins on chain B. They want to
+trade. Each wants the other to pay first, and neither chain can see the
+other to enforce the deal.</p>
+<p>Tier Nolan’s protocol ties the two payments to one secret <code class="docutils literal notranslate"><span class="pre">s</span></code>, known only
+to Alice. The same key opens both boxes, and opening one box shows Bob the
+key. Each payment sits behind a <em>hash time-lock</em>: an output that pays the
+recipient if they show a preimage of a given hash <code class="docutils literal notranslate"><span class="pre">h</span></code>, and refunds the
+sender after a deadline.</p>
+<ol class="arabic simple">
+<li><p>Alice picks a random secret <code class="docutils literal notranslate"><span class="pre">s</span></code> and computes <code class="docutils literal notranslate"><span class="pre">h</span> <span class="pre">=</span> <span class="pre">SHA256(s)</span></code>. Only she
+knows <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p></li>
+<li><p>Alice locks her coins on chain A to Bob behind <code class="docutils literal notranslate"><span class="pre">h</span></code>, refundable to her
+at time <span class="math notranslate nohighlight">\(T_A\)</span>.</p></li>
+<li><p>Bob sees this on chain A. He locks his coins on chain B to Alice behind
+the same <code class="docutils literal notranslate"><span class="pre">h</span></code>, refundable to him at <span class="math notranslate nohighlight">\(T_B\)</span>.</p></li>
+<li><p>Alice claims Bob’s coins on chain B. To do so she must publish <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p></li>
+<li><p>Bob reads <code class="docutils literal notranslate"><span class="pre">s</span></code> from chain B and uses it to claim Alice’s coins on chain
+A.</p></li>
+</ol>
+<p>Either both payments happen or neither does. This is what <em>atomic</em> means.
+The timeouts must be in the right order:</p>
+<ul class="simple">
+<li><p>Alice must claim on B before <span class="math notranslate nohighlight">\(T_B\)</span>, or Bob takes his coins back. So
+<code class="docutils literal notranslate"><span class="pre">s</span></code> is public by <span class="math notranslate nohighlight">\(T_B\)</span> at the latest.</p></li>
+<li><p>Bob then needs time to use <code class="docutils literal notranslate"><span class="pre">s</span></code> on A before Alice can refund there.</p></li>
+</ul>
+<p>Nobody can lose if</p>
 <div class="math notranslate nohighlight">
 \[T_A &gt; T_B + \text{the time Bob needs to react}.\]</div>
-<p>With the timeouts reversed, <span class="math notranslate nohighlight">\(T_A &lt; T_B\)</span>, Alice could wait until
-<span class="math notranslate nohighlight">\(T_A\)</span>, refund on A, and still claim on B.</p>
+<p>That is, Alice’s refund must open later than Bob’s, by at least Bob’s
+reaction time. With the timeouts reversed, <span class="math notranslate nohighlight">\(T_A &lt; T_B\)</span>, Alice could
+wait until <span class="math notranslate nohighlight">\(T_A\)</span>, refund on A, and still claim on B.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.swaps.AtomicSwap" title="blockchainkit.channels.systems.swaps.AtomicSwap"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.swaps.AtomicSwap</span></code></a>,
 two <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.htlc_locking" title="blockchainkit.vm.systems.script.htlc_locking"><code class="xref py py-func docutils literal notranslate"><span class="pre">htlc_locking()</span></code></a> outputs whose
 claims and refunds run through Script. Both chains share one block height,
@@ -577,23 +711,36 @@ forum (May 2013).</p>
 </div></div></section>
 <section id="decker-and-wattenhofer-s-duplex-micropayment-channels">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">2015 – Decker and Wattenhofer’s Duplex Micropayment Channels</a><a class="headerlink" href="#decker-and-wattenhofer-s-duplex-micropayment-channels" title="Link to this heading">#</a></h2>
-<p>A Spilman channel pays one way and is spent once. Decker and Wattenhofer
-combined two, one per direction, and <em>reset</em> the pair whenever one side ran
-dry, re-funding both from the current balances. Each reset leaves older
-pairs signed and publishable, and nothing punishes a party who publishes
-one, so the protocol must make sure the newest pair always reaches the
-chain first. An <em>invalidation tree</em> of time-locked transactions sees to
-that. Each reset replaces a node of the tree with a copy whose lock time
-is <span class="math notranslate nohighlight">\(\delta\)</span> lower. Where an old and a new branch part, both spend the
-same parent output, and the new branch becomes valid first, so it spends
-that output and the old branch can never confirm. Lock times only go down,
-so a tree of depth <code class="docutils literal notranslate"><span class="pre">d</span></code> with <code class="docutils literal notranslate"><span class="pre">s</span></code> lock-time values per level allows
-<span class="math notranslate nohighlight">\(s^d\)</span> resets before it runs out. At worst every level still has its
-highest lock time, and closing waits for up to</p>
+<p>A Spilman channel pays one way and can be spent only once. Decker and
+Wattenhofer combined two of them, one per direction. Whenever one side ran
+dry, they <em>reset</em> the pair, re-funding both channels from the current
+balances.</p>
+<p>Each reset leaves older pairs signed and publishable. Nothing punishes a
+party who publishes one. So the protocol must make sure the newest pair
+always reaches the chain first. An <em>invalidation tree</em> of time-locked
+transactions sees to that. It works like a race in which newer states always
+get a head start.</p>
+<ol class="arabic simple">
+<li><p>The funding output is spent by a chain of transactions that runs down a
+tree of depth <code class="docutils literal notranslate"><span class="pre">d</span></code>. Each transaction spends its parent’s output and has a
+lock time. The channel pair hangs from the bottom.</p></li>
+<li><p>Each reset replaces a node of the tree with a copy whose lock time is
+<span class="math notranslate nohighlight">\(\delta\)</span> blocks lower, and builds a new branch below it.</p></li>
+<li><p>Where an old and a new branch part, both spend the same parent output.
+The new branch becomes valid first, so it is confirmed first and spends
+that output.</p></li>
+<li><p>An output can be spent only once, so the old branch can never confirm.</p></li>
+</ol>
+<p>Lock times only go down, so a tree of depth <code class="docutils literal notranslate"><span class="pre">d</span></code> with <code class="docutils literal notranslate"><span class="pre">s</span></code> lock-time
+values per level allows <span class="math notranslate nohighlight">\(s^d\)</span> resets before it runs out. It counts
+down like a <code class="docutils literal notranslate"><span class="pre">d</span></code>-digit counter in base <code class="docutils literal notranslate"><span class="pre">s</span></code>. At worst every level still
+has its highest lock time, and closing waits for up to</p>
 <div class="math notranslate nohighlight">
 \[d\,(s - 1)\,\delta \text{ blocks}.\]</div>
-<p>The paper also built a payment network from these channels, routing over
-several hops with hash time-locks.</p>
+<p>That is, each of the <code class="docutils literal notranslate"><span class="pre">d</span></code> levels can make the closing party wait
+<span class="math notranslate nohighlight">\((s - 1)\,\delta\)</span> blocks. The paper also built a payment network from
+these channels, routing payments over several hops (intermediate channels)
+with hash time-locks.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.duplex.DuplexChannel" title="blockchainkit.channels.systems.duplex.DuplexChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.duplex.DuplexChannel</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.duplex.invalidation_locktimes" title="blockchainkit.channels.systems.duplex.invalidation_locktimes"><code class="xref py py-func docutils literal notranslate"><span class="pre">invalidation_locktimes()</span></code></a> and
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.duplex.first_confirmed" title="blockchainkit.channels.systems.duplex.first_confirmed"><code class="xref py py-func docutils literal notranslate"><span class="pre">first_confirmed()</span></code></a>. The channel
@@ -610,25 +757,44 @@ and Security of Distributed Systems (SSS 2015), LNCS 9212, 3–18 (2015).
 </div></div></section>
 <section id="poon-and-dryja-s-lightning-network-revocation-and-penalties">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">2016 – Poon and Dryja’s Lightning Network: Revocation and Penalties</a><a class="headerlink" href="#poon-and-dryja-s-lightning-network-revocation-and-penalties" title="Link to this heading">#</a></h2>
-<p>An invalidation tree runs out of lock times, so a duplex channel allows
-only so many resets. Lightning stops old states from being published by
-deterrence instead: publishing one costs the cheater everything, and since
-no lock time is used up, a channel can be updated without limit. Each party
-holds its own commitment transaction, signed by the other. It pays the
-counterparty at once, but its holder only after a delay, and during that
-delay the holder’s output can also be taken with a <em>revocation key</em>. To
-move to a new state, each party hands over the secret behind its previous
-commitment’s revocation key. From then on, a party that publishes that old
-commitment loses its whole balance to a counterparty who is watching,
-because the counterparty can sweep it with the revocation key before the
-delay ends. The key must be unusable until handed over, so it is split: it
-combines the holder’s per-commitment point <span class="math notranslate nohighlight">\(S_n = s_n G\)</span> with the
-counterparty’s base point <span class="math notranslate nohighlight">\(B = b G\)</span>,</p>
+<p>An invalidation tree runs out of lock times, so a duplex channel allows only
+so many resets. Lightning stops old states from being published by
+deterrence instead. Publishing one costs the cheater everything. No lock
+time is used up, so a channel can be updated without limit.</p>
+<p>Each party holds its own <em>commitment transaction</em>: a copy of the current
+balances, signed by the other party, ready to publish. It pays the
+counterparty at once, but its holder only after a delay. During that delay,
+the holder’s output can also be taken with a <em>revocation key</em>.</p>
+<ol class="arabic simple">
+<li><p>Alice and Bob each sign the other’s new commitment transaction.</p></li>
+<li><p>Each hands over the secret behind its <em>previous</em> commitment’s revocation
+key. That old state is now <em>revoked</em>.</p></li>
+<li><p>Suppose Alice later publishes a revoked commitment. Bob’s share is paid
+at once. Alice’s share is still waiting out the delay.</p></li>
+<li><p>Bob, who is watching the chain, signs with the revocation key before the
+delay ends. He sweeps Alice’s whole balance.</p></li>
+</ol>
+<p>The revocation key must be unusable until it is handed over, so it is split
+between the two parties. The keys here are points on an <em>elliptic curve</em>.
+All you need to know is this:</p>
+<ul class="simple">
+<li><p>A public key is <span class="math notranslate nohighlight">\(S = sG\)</span>: a fixed starting point <span class="math notranslate nohighlight">\(G\)</span>,
+“multiplied” by a secret number <span class="math notranslate nohighlight">\(s\)</span>. Like <code class="docutils literal notranslate"><span class="pre">pow(g,</span> <span class="pre">s,</span> <span class="pre">p)</span></code>, this is
+easy to compute from <span class="math notranslate nohighlight">\(s\)</span> and infeasible to undo.</p></li>
+<li><p>Points can be added, and <span class="math notranslate nohighlight">\(sG + bG = (s + b)G\)</span>. So adding two public
+keys gives the public key of the sum of the two secrets.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q\)</span> is the number of distinct multiples of <span class="math notranslate nohighlight">\(G\)</span>, so secrets are
+added <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">q</span></code>.</p></li>
+</ul>
+<p>The revocation key combines the holder’s per-commitment point
+<span class="math notranslate nohighlight">\(S_n = s_n G\)</span> with the counterparty’s base point <span class="math notranslate nohighlight">\(B = b G\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[R_n = S_n + B, \qquad r_n = s_n + b \pmod q.\]</div>
-<p>The counterparty knows only <code class="docutils literal notranslate"><span class="pre">b</span></code> and the holder only <span class="math notranslate nohighlight">\(s_n\)</span>, so
-neither can sign with <span class="math notranslate nohighlight">\(r_n\)</span> until the holder reveals <span class="math notranslate nohighlight">\(s_n\)</span>. The
-paper also linked channels into a network with hash time-locked contracts.</p>
+<p>The public revocation key <span class="math notranslate nohighlight">\(R_n\)</span> is the sum of the two points, and its
+secret <span class="math notranslate nohighlight">\(r_n\)</span> is the sum of the two secrets. The counterparty knows
+only <code class="docutils literal notranslate"><span class="pre">b</span></code> and the holder only <span class="math notranslate nohighlight">\(s_n\)</span>, so neither can sign with
+<span class="math notranslate nohighlight">\(r_n\)</span> until the holder reveals <span class="math notranslate nohighlight">\(s_n\)</span>. The paper also linked
+channels into a network with hash time-locked contracts.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.lightning.LightningChannel" title="blockchainkit.channels.systems.lightning.LightningChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.lightning.LightningChannel</span></code></a>,
 whose commitments, sweeps and penalties are Script spends of a 2-of-2
 funding output and a revocable output. Per-commitment secrets are a hash
@@ -645,21 +811,41 @@ Scalable off-chain instant payments</em>, white paper (January 2016).</p>
 </div></div></section>
 <section id="btc-relay-a-light-client-bridge-in-a-smart-contract">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">2016 – BTC Relay: a Light-Client Bridge in a Smart Contract</a><a class="headerlink" href="#btc-relay-a-light-client-bridge-in-a-smart-contract" title="Link to this heading">#</a></h2>
-<p>A contract on one chain cannot see another, so it cannot tell whether a
-payment there happened. BTC Relay, launched on Ethereum in 2016, ran a
-Bitcoin light client inside a contract. Relayers submitted Bitcoin block
-headers; the contract checked that each linked to a stored header and met
-its proof-of-work target, and followed the chain with the most cumulative
-work. A header whose hash needs <code class="docutils literal notranslate"><span class="pre">difficulty</span></code> leading zero bits takes
+<p>A contract on one chain cannot see another chain. So it cannot tell whether
+a payment there happened. BTC Relay, launched on Ethereum in 2016, ran a
+Bitcoin light client inside a contract.</p>
+<p>Three Bitcoin ideas make this possible:</p>
+<ul class="simple">
+<li><p>A <em>block header</em> is a short summary of a block. It includes the hash of
+the previous header, which links the blocks into a chain.</p></li>
+<li><p><em>Proof of work</em>: a miner must find, by brute force, a header whose hash
+starts with <code class="docutils literal notranslate"><span class="pre">difficulty</span></code> zero bits. Each try succeeds with probability
+<span class="math notranslate nohighlight">\(2^{-\text{difficulty}}\)</span>.</p></li>
+<li><p>A <em>Merkle proof</em> shows that a transaction is in a block. It is the list of
+hashes on the path from the transaction up to a root stored in the header,
+about <span class="math notranslate nohighlight">\(\log_2\)</span> (number of transactions) hashes long.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><em>Relayers</em>, who can be anyone, submit Bitcoin block headers to the
+contract.</p></li>
+<li><p>The contract checks that each header links to a stored header and meets
+its proof-of-work target.</p></li>
+<li><p>The contract follows the chain with the most cumulative work.</p></li>
+<li><p>A user submits a Merkle proof that a Bitcoin transaction is in a block of
+that chain, with enough <em>confirmations</em>: blocks built on top of it.</p></li>
+<li><p>The contract accepts the payment as real. This enabled trustless
+ether-for-bitcoin swaps.</p></li>
+</ol>
+<p>A header whose hash needs <code class="docutils literal notranslate"><span class="pre">difficulty</span></code> leading zero bits takes
 <span class="math notranslate nohighlight">\(2^{\text{difficulty}}\)</span> hashes on average, so a chain’s work is</p>
 <div class="math notranslate nohighlight">
 \[W = \sum_{\text{headers}} 2^{\text{difficulty}}.\]</div>
-<p>A contract could then accept a Merkle proof that a Bitcoin transaction was
-in a block of that chain under enough confirmations, enabling trustless
-ether-for-bitcoin swaps. Faking such a proof means building a heavier chain
-of headers than honest Bitcoin miners, so the relay is safe as long as no
-attacker can out-mine them: the light-client assumption of Nakamoto’s
-simplified payment verification.</p>
+<p>This is the expected number of hashes needed to build the whole chain.
+Faking a Merkle proof means building a heavier chain of headers than honest
+Bitcoin miners do. So the relay is safe as long as no attacker can out-mine
+them. This is the light-client assumption of Nakamoto’s <em>simplified payment
+verification</em>: trust the heaviest chain of headers without checking every
+transaction.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.relay.BTCRelay" title="blockchainkit.channels.systems.relay.BTCRelay"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.relay.BTCRelay</span></code></a>
 on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a>, storing
 <a class="reference internal" href="../api/structures.html#blockchainkit.structures.systems.block.BlockHeader" title="blockchainkit.structures.systems.block.BlockHeader"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlockHeader</span></code></a> objects mined
@@ -676,23 +862,36 @@ minimum difficulty instead, and relayers earn no fees.</p>
 </div></div></section>
 <section id="sprites-and-general-state-channels">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">2017 – Sprites and General State Channels</a><a class="headerlink" href="#sprites-and-general-state-channels" title="Link to this heading">#</a></h2>
-<p>On a chain with contracts, a channel can be judged by a contract instead of
-enforced by pre-signed transactions. An adjudicator contract holds the
-deposits; the parties sign successive numbered versions of any state,
-balances or the position of a game; and either can submit the latest. The
-other has a dispute period to answer with a newer version, and the contract
-settles on the highest, so publishing an old version gains nothing.</p>
-<p>Sprites also shortened multi-hop payments. In Lightning, a payment over
-<code class="docutils literal notranslate"><span class="pre">n</span></code> hops locks amount <span class="math notranslate nohighlight">\(a_i\)</span> on hop <code class="docutils literal notranslate"><span class="pre">i</span></code> until an expiry
-<span class="math notranslate nohighlight">\(\Delta\)</span> later than the next hop’s: each hop learns the preimage only
-when the next one claims, and needs time <span class="math notranslate nohighlight">\(\Delta\)</span> to claim in turn.
-Expiries thus grow towards the sender. Sprites added a global <em>preimage
-manager</em>, a contract where anyone can publish the preimage. Every hop
-settles by asking it whether the preimage was published by one common
-deadline, so no hop waits for the next, and collateral is locked for the
-same time on every hop,</p>
+<p>On a chain with contracts, a contract can judge a channel. It no longer has
+to be enforced by pre-signed transactions. The contract acts as a referee,
+and the state can be anything: balances, or the position of a game.</p>
+<ol class="arabic simple">
+<li><p>An <em>adjudicator</em> contract holds the deposits.</p></li>
+<li><p>The parties sign successive numbered versions of the state, off chain.</p></li>
+<li><p>Either party can submit the latest version to the contract.</p></li>
+<li><p>The other party has a <em>dispute period</em> to answer with a newer version.</p></li>
+<li><p>The contract settles on the highest version.</p></li>
+</ol>
+<p>So publishing an old version gains nothing.</p>
+<p>Sprites also shortened <em>multi-hop</em> payments. Alice can pay Carol through
+Bob, using two channels: Alice to Bob, and Bob to Carol. Each hop locks
+money, its <em>collateral</em>, behind the same hash time-lock. The lock’s
+deadline is its <em>expiry</em>.</p>
+<ul class="simple">
+<li><p>In Lightning, a payment over <code class="docutils literal notranslate"><span class="pre">n</span></code> hops locks amount <span class="math notranslate nohighlight">\(a_i\)</span> on hop
+<code class="docutils literal notranslate"><span class="pre">i</span></code> until an expiry <span class="math notranslate nohighlight">\(\Delta\)</span> later than the next hop’s. Each hop
+learns the preimage only when the next one claims, and needs time
+<span class="math notranslate nohighlight">\(\Delta\)</span> to claim in turn. Expiries thus grow towards the sender.</p></li>
+<li><p>Sprites added a global <em>preimage manager</em>, a contract where anyone can
+publish the preimage. Every hop settles by asking it whether the preimage
+was published by one common deadline. No hop waits for the next.</p></li>
+</ul>
+<p>So collateral is locked for the same time on every hop,</p>
 <div class="math notranslate nohighlight">
 \[\sum_i a_i\, (n - i)\,\Delta \;\longrightarrow\; \sum_i a_i\,\Delta.\]</div>
+<p>Each term is an amount times how long it is locked. In Lightning the lock
+time shrinks hop by hop; in Sprites it is the same <span class="math notranslate nohighlight">\(\Delta\)</span> on every
+hop.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.state_channels.StateChannel" title="blockchainkit.channels.systems.state_channels.StateChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.state_channels.StateChannel</span></code></a>
 and <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.state_channels.PreimageManager" title="blockchainkit.channels.systems.state_channels.PreimageManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">PreimageManager</span></code></a>,
 contracts on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a>, with
@@ -712,25 +911,41 @@ Lightning</em>, Financial Cryptography and Data Security (2019);
 </div></div></section>
 <section id="plasma-child-chains-with-exit-games">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">2017 – Plasma: Child Chains with Exit Games</a><a class="headerlink" href="#plasma-child-chains-with-exit-games" title="Link to this heading">#</a></h2>
-<p>Channels serve a fixed set of parties; Poon and Buterin’s Plasma moved
-whole chains off the main one. An operator runs a child chain and posts
-only its block roots to a root-chain contract, which cannot check the
-transactions behind them. Coins stay safe because their owners can always
-<em>exit</em>: prove ownership on the root chain and wait out a challenge period,
-in which anyone may prove the exit invalid. In Plasma Cash (2018) every coin
-has a slot in each block’s sparse Merkle tree, so its history is a chain of
-transfers, each proved by a Merkle branch. An exit names the coin’s last
-transfer, to the exiter, and the one before it; a challenger cancels it by
-showing</p>
+<p>Channels serve a fixed set of parties. Poon and Buterin’s Plasma moved whole
+chains off the main one.</p>
+<ol class="arabic simple">
+<li><p>An <em>operator</em> runs a <em>child chain</em> and collects its transactions into
+blocks.</p></li>
+<li><p>The operator posts only each block’s <em>root</em> to a contract on the main
+chain, the <em>root chain</em>. The root is a single hash, a fingerprint of every
+transaction in the block. The contract cannot check the transactions
+behind it.</p></li>
+<li><p>To withdraw, an owner <em>exits</em>: they prove ownership on the root chain and
+wait out a <em>challenge period</em>.</p></li>
+<li><p>During that period, anyone may prove the exit invalid, which cancels it.</p></li>
+</ol>
+<p>So coins stay safe because their owners can always exit.</p>
+<p>In Plasma Cash (2018) every coin has a slot in each block’s <em>sparse Merkle
+tree</em>. That is a Merkle tree with one leaf for every possible coin, like a
+dict keyed by coin ID where most entries are empty. A coin’s history is
+then a chain of transfers, each proved by a Merkle branch. An exit names the
+coin’s last transfer, to the exiter, and the one before it. A challenger
+cancels it by showing</p>
 <div class="math notranslate nohighlight">
 \[\text{a later spend by the exiter} \quad\text{or}\quad
 \text{an earlier spend of its parent}.\]</div>
-<p>The first proves the exiter has already given the coin away; the second,
-that the coin left the previous owner before the exiter’s transfer, so
-that transfer was a double spend. Exits only work while users can see the
-blocks. An operator who withholds them can hide invalid transactions, so
-every user must exit, and the root chain may not have room for them all:
-the data-availability problem that rollups later solved by posting the
+<p>The first proves the exiter has already given the coin away. The second
+proves that the coin left the previous owner before the exiter’s transfer,
+so that transfer was a <em>double spend</em>: the same coin spent twice. The
+design has a weak point:</p>
+<ul class="simple">
+<li><p>Exits only work while users can see the blocks.</p></li>
+<li><p>An operator who withholds them can hide invalid transactions.</p></li>
+<li><p>Then every user must exit, and the root chain may not have room for them
+all.</p></li>
+</ul>
+<p>This is the <em>data-availability problem</em>: how to know that the data behind a
+commitment has really been published. Rollups later solved it by posting the
 data.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.plasma.PlasmaChain" title="blockchainkit.channels.systems.plasma.PlasmaChain"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.plasma.PlasmaChain</span></code></a>
 with <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.plasma.sign_transfer" title="blockchainkit.channels.systems.plasma.sign_transfer"><code class="xref py py-func docutils literal notranslate"><span class="pre">sign_transfer()</span></code></a>, on
@@ -747,21 +962,37 @@ with much less per-user data checking</em>, ethresear.ch (March 2018).</p>
 </div></div></section>
 <section id="eltoo-channel-updates-without-penalties">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">2018 – eltoo: Channel Updates without Penalties</a><a class="headerlink" href="#eltoo-channel-updates-without-penalties" title="Link to this heading">#</a></h2>
-<p>Lightning’s penalty punishes an honest mistake, such as publishing a stale
-backup, as hard as theft. eltoo replaces punishment with replacement. Each
-state is an <em>update</em> transaction, which may spend the funding output or any
-earlier update, and a <em>settlement</em>, which pays out after a delay. If a
-party publishes an old update, the other answers within the delay with a
-newer one that spends it, so only the last update settles and nobody needs
-to be punished. This needs two properties. First, the latest update must be
-able to spend whichever earlier update appears, which a normal signature
-cannot do, since it commits to the exact output spent. Updates are
-therefore signed with <code class="docutils literal notranslate"><span class="pre">SIGHASH_NOINPUT</span></code>, which omits the spent output.
-Second, an old update must not be able to spend a newer one, so each update
-output requires the spending transaction’s lock time to exceed its own state
-number, and update <code class="docutils literal notranslate"><span class="pre">m</span></code> carries lock time <code class="docutils literal notranslate"><span class="pre">m</span></code>:</p>
+<p>Lightning’s penalty punishes an honest mistake as hard as theft. Publishing
+a stale backup, for example, loses the whole balance. eltoo replaces
+punishment with replacement. It works like a shared document where only the
+newest saved version counts.</p>
+<p>Each state is two transactions:</p>
+<ul class="simple">
+<li><p>an <em>update</em> transaction, which may spend the funding output or any earlier
+update;</p></li>
+<li><p>a <em>settlement</em> transaction, which pays out the balances after a delay.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>A party publishes an old update.</p></li>
+<li><p>Within the delay, the other party publishes a newer update that spends
+it.</p></li>
+<li><p>Only the last update survives, and its settlement pays out.</p></li>
+</ol>
+<p>Nobody needs to be punished. This needs two properties:</p>
+<ul class="simple">
+<li><p><strong>The latest update must be able to spend whichever earlier update
+appears.</strong> A normal signature cannot do this, since it commits to the
+exact output spent. Updates are therefore signed with
+<code class="docutils literal notranslate"><span class="pre">SIGHASH_NOINPUT</span></code>. This flag tells the signature to omit the spent
+output from what it covers.</p></li>
+<li><p><strong>An old update must not be able to spend a newer one.</strong> So each update
+output requires the spending transaction’s lock time to exceed its own
+state number, and update <code class="docutils literal notranslate"><span class="pre">m</span></code> carries lock time <code class="docutils literal notranslate"><span class="pre">m</span></code>:</p></li>
+</ul>
 <div class="math notranslate nohighlight">
 \[\text{update } m \text{ may spend update } n \iff m \ge n + 1.\]</div>
+<p>In words, a later state can always replace an earlier one, and never the
+reverse.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.eltoo.EltooChannel" title="blockchainkit.channels.systems.eltoo.EltooChannel"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.eltoo.EltooChannel</span></code></a>,
 whose update outputs are Script with both branches checked by
 <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">verify_script()</span></code></a>. A signature over a
@@ -776,21 +1007,40 @@ layer2 protocol for Bitcoin</em>, white paper (2018).</p>
 </div></div></section>
 <section id="omniledger-and-sharding">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">2018 – OmniLedger and Sharding</a><a class="headerlink" href="#omniledger-and-sharding" title="Link to this heading">#</a></h2>
-<p>Splitting validators into shards multiplies throughput, but each shard is
-as weak as its own committee. OmniLedger reshuffles validators every epoch
-using unbiasable randomness (RandHound), so an adversary with a fraction of
-all validators cannot gather them in one shard. A committee runs Byzantine
-agreement, which fails once a third or more of its members are malicious.
-A committee of <code class="docutils literal notranslate"><span class="pre">m</span></code> drawn at random from <code class="docutils literal notranslate"><span class="pre">N</span></code> validators, <code class="docutils literal notranslate"><span class="pre">M</span></code> of them
-malicious, reaches that point with the hypergeometric probability</p>
+<p><em>Validators</em> are the nodes that vote on which blocks to accept. <em>Sharding</em>
+splits them into groups, called <em>shards</em>. Each shard handles its own part
+of the transactions, like a dict split across several servers by key. Its
+group of validators is its <em>committee</em>. This multiplies throughput, but
+each shard is only as strong as its own committee.</p>
+<ol class="arabic simple">
+<li><p>At the start of every <em>epoch</em>, a fixed period of time, OmniLedger
+reshuffles validators into shards.</p></li>
+<li><p>The shuffle uses <em>unbiasable randomness</em> (RandHound): a random value that
+no group of participants can steer. So an adversary with a fraction of
+all validators cannot gather them in one shard.</p></li>
+<li><p>Each committee runs <em>Byzantine agreement</em>, a voting protocol that reaches
+a decision even if some members lie or crash.</p></li>
+</ol>
+<p>Byzantine agreement fails once a third or more of a committee’s members are
+malicious. A committee of <code class="docutils literal notranslate"><span class="pre">m</span></code> drawn at random from <code class="docutils literal notranslate"><span class="pre">N</span></code> validators,
+<code class="docutils literal notranslate"><span class="pre">M</span></code> of them malicious, reaches that point with the hypergeometric
+probability</p>
 <div class="math notranslate nohighlight">
 \[P(X \ge m/3) = \sum_{x \ge m/3}
 \frac{\binom{M}{x}\binom{N-M}{m-x}}{\binom{N}{m}},\]</div>
 <p>which falls exponentially with <code class="docutils literal notranslate"><span class="pre">m</span></code> while <span class="math notranslate nohighlight">\(M/N\)</span> stays below a third.
-A payment whose inputs live on several shards must not succeed on some and
-fail on others, so OmniLedger uses Atomix: every input shard locks its
-input, then the output shard commits the payment if all accepted, or every
-input is unlocked.</p>
+This is the chance of dealing at least <code class="docutils literal notranslate"><span class="pre">m/3</span></code> red cards when you deal
+<code class="docutils literal notranslate"><span class="pre">m</span></code> cards from a deck of <code class="docutils literal notranslate"><span class="pre">N</span></code> with <code class="docutils literal notranslate"><span class="pre">M</span></code> red ones. For example, with
+<code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">=</span> <span class="pre">1800</span></code> validators of whom a quarter are malicious, a committee of 100
+fails with probability about 2%. A committee of 600 fails with probability
+about <span class="math notranslate nohighlight">\(10^{-8}\)</span>.</p>
+<p>A payment whose inputs live on several shards must not succeed on some and
+fail on others. So OmniLedger uses Atomix:</p>
+<ol class="arabic simple">
+<li><p>Every input shard locks its input and says whether it accepts.</p></li>
+<li><p>If all accepted, the output shard commits the payment.</p></li>
+<li><p>Otherwise, every input is unlocked.</p></li>
+</ol>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.sharding.shard_failure_probability" title="blockchainkit.channels.systems.sharding.shard_failure_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.sharding.shard_failure_probability()</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.sharding.assign_shards" title="blockchainkit.channels.systems.sharding.assign_shards"><code class="xref py py-func docutils literal notranslate"><span class="pre">assign_shards()</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.sharding.compromised_epochs" title="blockchainkit.channels.systems.sharding.compromised_epochs"><code class="xref py py-func docutils literal notranslate"><span class="pre">compromised_epochs()</span></code></a> and
@@ -807,19 +1057,36 @@ ledger via sharding</em>, IEEE Symposium on Security and Privacy (2018),
 </div></div></section>
 <section id="zk-rollups-validity-proofs-for-batched-transactions">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">2018 – zk-Rollups: Validity Proofs for Batched Transactions</a><a class="headerlink" href="#zk-rollups-validity-proofs-for-batched-transactions" title="Link to this heading">#</a></h2>
-<p>Plasma kept data off chain and paid for it with exit games. A rollup posts
-its transactions, compressed, to the chain, so anyone can rebuild its
-state, and Barry Whitehat’s <em>roll_up</em> and Buterin’s proposal of 2018 added
-a succinct proof that the posted state root follows from them. The contract
-verifies the proof at a fixed cost <span class="math notranslate nohighlight">\(G_{\text{verify}}\)</span> and never
-re-executes, so in a batch of <code class="docutils literal notranslate"><span class="pre">n</span></code> transactions of <code class="docutils literal notranslate"><span class="pre">b</span></code> bytes each, at 16
-gas per byte of calldata, the gas per transaction tends to the cost of its
-data:</p>
+<p>Plasma kept data off chain and paid for it with exit games. A <em>rollup</em>
+posts its transactions, compressed, to the chain, so anyone can rebuild its
+state. The <em>state</em> is every account’s balance. Its <em>state root</em> is one hash
+that fingerprints all of it.</p>
+<p>Barry Whitehat’s <em>roll_up</em> and Buterin’s proposal of 2018 added a
+<em>succinct proof</em>. This is a short proof that the posted state root follows
+from the posted transactions. Checking it costs the same however many
+transactions it covers.</p>
+<ol class="arabic simple">
+<li><p>The rollup’s operator collects <code class="docutils literal notranslate"><span class="pre">n</span></code> transactions and applies them off
+chain.</p></li>
+<li><p>The operator posts the compressed transactions as <em>calldata</em> (data
+attached to an Ethereum transaction), together with the new state root
+and the proof.</p></li>
+<li><p>The contract verifies the proof at a fixed cost <span class="math notranslate nohighlight">\(G_{\text{verify}}\)</span>
+and never re-executes the transactions.</p></li>
+<li><p>The contract stores the new state root.</p></li>
+</ol>
+<p>In a batch of <code class="docutils literal notranslate"><span class="pre">n</span></code> transactions of <code class="docutils literal notranslate"><span class="pre">b</span></code> bytes each, at 16 gas per byte of
+calldata, the gas per transaction tends to the cost of its data:</p>
 <div class="math notranslate nohighlight">
 \[g(n) = \frac{G_{\text{verify}}}{n} + 16\,b
 \quad\text{vs.}\quad 21\,000 \text{ on chain}.\]</div>
-<p>A sound proof system admits no proof of a false state root, so a batch is
-final as soon as it is accepted, with no challenge period.</p>
+<p>The fixed verification cost is shared among the <code class="docutils literal notranslate"><span class="pre">n</span></code> transactions, and
+21,000 gas is the base cost of an ordinary Ethereum transaction. For
+example, if <span class="math notranslate nohighlight">\(G_{\text{verify}} = 500{,}000\)</span>, then 1,000 transactions of
+12 bytes cost <span class="math notranslate nohighlight">\(500 + 192 = 692\)</span> gas each, about 30 times less.</p>
+<p>A <em>sound</em> proof system admits no proof of a false state root. So a batch
+is <em>final</em>, never to be undone, as soon as it is accepted, with no
+challenge period.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.rollups.ZKRollup" title="blockchainkit.channels.systems.rollups.ZKRollup"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.rollups.ZKRollup</span></code></a>,
 with <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.rollups.batch_gas" title="blockchainkit.channels.systems.rollups.batch_gas"><code class="xref py py-func docutils literal notranslate"><span class="pre">batch_gas()</span></code></a> and
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.rollups.state_root" title="blockchainkit.channels.systems.rollups.state_root"><code class="xref py py-func docutils literal notranslate"><span class="pre">state_root()</span></code></a>. There is no
@@ -836,21 +1103,39 @@ mass tx validation</em>, ethresear.ch (September 2018).</p>
 </div></div></section>
 <section id="al-bassam-sonnino-and-buterin-fraud-proofs-and-data-availability-sampling">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">2018 – Al-Bassam, Sonnino and Buterin: Fraud Proofs and Data-Availability Sampling</a><a class="headerlink" href="#al-bassam-sonnino-and-buterin-fraud-proofs-and-data-availability-sampling" title="Link to this heading">#</a></h2>
-<p>Fraud proofs let a light client reject an invalid block once an honest full
-node objects, but only if the block’s data is available: a producer can
-publish a header and withhold the data, and then nobody can prove fraud.
-Al-Bassam, Sonnino and Buterin extend the data with a Reed-Solomon code and
-commit to the shares, so that any half rebuilds the block. Withholding a
-few shares then hides nothing: to keep any data out of reach, the producer
-must withhold a fraction <span class="math notranslate nohighlight">\(f &gt; 1/2\)</span> of the shares. Each share a client
-samples at random is then missing with probability <code class="docutils literal notranslate"><span class="pre">f</span></code>, so a client that
-samples <code class="docutils literal notranslate"><span class="pre">s</span></code> of them notices with probability</p>
+<p>A <em>fraud proof</em> is a short proof that a block is invalid, such as a pointer
+to one bad transaction. It lets a light client reject an invalid block once
+an honest full node objects. But this works only if the block’s data is
+available. A producer can publish a header and withhold the data, and then
+nobody can prove fraud.</p>
+<p>Al-Bassam, Sonnino and Buterin make withholding easy to catch. The block’s
+data is cut into pieces, its <em>shares</em>.</p>
+<ol class="arabic simple">
+<li><p>The producer extends the data with a Reed-Solomon code, so that any half
+of the shares rebuilds the block.</p></li>
+<li><p>The producer commits to all the shares, with a Merkle root in the header.</p></li>
+<li><p>Each light client asks for <code class="docutils literal notranslate"><span class="pre">s</span></code> shares chosen at random, and checks each
+one against the commitment.</p></li>
+<li><p>If every requested share arrives, the client accepts the block as
+available.</p></li>
+</ol>
+<p>Withholding a few shares then hides nothing. To keep any data out of reach,
+the producer must withhold a fraction <span class="math notranslate nohighlight">\(f &gt; 1/2\)</span> of the shares. Each
+share a client samples at random is then missing with probability <code class="docutils literal notranslate"><span class="pre">f</span></code>, so
+a client that samples <code class="docutils literal notranslate"><span class="pre">s</span></code> of them notices with probability</p>
 <div class="math notranslate nohighlight">
 \[1 - (1 - f)^s \ge 1 - 2^{-s}.\]</div>
-<p>A producer could instead publish shares that are not a valid codeword, so
-that different halves rebuild different blocks; any node that rebuilds the
-data catches this with an encoding fraud proof. Once enough clients’
-samples are published, together they rebuild the block.</p>
+<p>The chance that all <code class="docutils literal notranslate"><span class="pre">s</span></code> samples miss the withheld shares is
+<span class="math notranslate nohighlight">\((1 - f)^s\)</span>, which is below <span class="math notranslate nohighlight">\(2^{-s}\)</span>. With 30 samples, it is
+below one in a billion.</p>
+<p>The scheme closes two more gaps:</p>
+<ul class="simple">
+<li><p>A producer could instead publish shares that are not a valid codeword, so
+that different halves rebuild different blocks. Any node that rebuilds the
+data catches this with an <em>encoding fraud proof</em>.</p></li>
+<li><p>Once enough clients’ samples are published, together they rebuild the
+block.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.data_availability.extend" title="blockchainkit.channels.systems.data_availability.extend"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.data_availability.extend()</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.data_availability.simulate_sampling" title="blockchainkit.channels.systems.data_availability.simulate_sampling"><code class="xref py py-func docutils literal notranslate"><span class="pre">simulate_sampling()</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.data_availability.encoding_fraud_proof" title="blockchainkit.channels.systems.data_availability.encoding_fraud_proof"><code class="xref py py-func docutils literal notranslate"><span class="pre">encoding_fraud_proof()</span></code></a>
@@ -870,20 +1155,34 @@ blockchains with dishonest majorities</em>,
 <section id="optimistic-rollups-and-fraud-proof-challenge-windows">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">2019 – Optimistic Rollups and Fraud-Proof Challenge Windows</a><a class="headerlink" href="#optimistic-rollups-and-fraud-proof-challenge-windows" title="Link to this heading">#</a></h2>
 <p>Validity proofs were expensive to generate for general computation. An
-optimistic rollup, as Adler and Quintyne-Collins proposed in 2019, posts
-batches and state roots without proofs, and a root becomes final once a
-challenge window has passed with no fraud proven. Re-executing a whole
-batch on chain to settle a dispute would cost what the rollup saves, so the
-dispute is narrowed by bisection, as in Arbitrum. Asserter and challenger
-agree on the state before the batch and disagree on the state after it.
-The asserter posts the state root at the midpoint; the challenger says
-which half it disputes, and that half is split in turn, until they disagree
-about one transaction, which the chain re-executes. A batch of <code class="docutils literal notranslate"><span class="pre">n</span></code>
-transactions takes</p>
+<em>optimistic</em> rollup, as Adler and Quintyne-Collins proposed in 2019, treats
+every batch as innocent until proven guilty.</p>
+<ol class="arabic simple">
+<li><p>The rollup posts batches and state roots without proofs.</p></li>
+<li><p>A <em>challenge window</em> opens, during which anyone can prove fraud.</p></li>
+<li><p>If the window passes with no fraud proven, the root becomes final.</p></li>
+</ol>
+<p>Re-executing a whole batch on chain to settle a dispute would cost what the
+rollup saves. So the dispute is narrowed by <em>bisection</em>, as in Arbitrum.
+This is binary search on the batch:</p>
+<ol class="arabic simple">
+<li><p>The <em>asserter</em>, who posted the root, and the <em>challenger</em> agree on the
+state before the batch and disagree on the state after it.</p></li>
+<li><p>The asserter posts the state root at the midpoint.</p></li>
+<li><p>The challenger says which half it disputes.</p></li>
+<li><p>That half is split in turn, and so on.</p></li>
+<li><p>When they disagree about one transaction, the chain re-executes it and
+decides who was right.</p></li>
+</ol>
+<p>A batch of <code class="docutils literal notranslate"><span class="pre">n</span></code> transactions takes</p>
 <div class="math notranslate nohighlight">
 \[\lceil \log_2 n \rceil \text{ rounds}.\]</div>
-<p>Any one honest watcher can win the game, so one suffices; the price is that
-withdrawals wait for the window.</p>
+<p>Each round halves the disputed range. A batch of a million
+transactions needs only 20 rounds. The trade-offs are:</p>
+<ul class="simple">
+<li><p>Any one honest watcher can win the game, so one suffices.</p></li>
+<li><p>The price is that withdrawals wait for the window.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.rollups.OptimisticRollup" title="blockchainkit.channels.systems.rollups.OptimisticRollup"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.rollups.OptimisticRollup</span></code></a>
 and <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.rollups.bisect" title="blockchainkit.channels.systems.rollups.bisect"><code class="xref py py-func docutils literal notranslate"><span class="pre">bisect()</span></code></a>. The bisection
 game runs in one call rather than as alternating transactions, and the
@@ -900,23 +1199,42 @@ Symposium (2018).</p>
 </div></div></section>
 <section id="watchtowers-and-pisa-guarding-offline-channel-parties">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">2019 – Watchtowers and PISA: Guarding Offline Channel Parties</a><a class="headerlink" href="#watchtowers-and-pisa-guarding-offline-channel-parties" title="Link to this heading">#</a></h2>
-<p>A Lightning party is safe only while it watches the chain: a revoked
-commitment must be answered within its delay. A <em>watchtower</em> watches for
-it. After each update the party gives the tower half the revoked
-commitment’s transaction identifier as a hint, and a presigned penalty
-encrypted under the whole identifier (Dryja, 2016). The tower watches for
-a transaction whose identifier starts with the hint; until one appears it
-cannot decrypt the penalty and learns nothing about the channel, and then
-it can publish only a penalty that pays the party. PISA made towers
-accountable: a tower signs a receipt for each appointment and locks a
-deposit, which the party claims if the revoked commitment named in the
-receipt was published and its funds were taken by the cheater. A party
-that checks the chain every <code class="docutils literal notranslate"><span class="pre">T</span></code> blocks, with a delay of <code class="docutils literal notranslate"><span class="pre">d</span></code> blocks,
-misses a cheat published at a random time with probability
+<p>A Lightning party is safe only while it watches the chain. A revoked
+commitment must be answered within its delay. A <em>watchtower</em> is a service
+that watches on the party’s behalf. Each transaction has an <em>identifier</em>,
+its hash. Dryja’s 2016 design uses it as both a search key and an
+encryption key.</p>
+<ol class="arabic simple">
+<li><p>After each update, the party gives the tower half the revoked
+commitment’s transaction identifier, as a <em>hint</em>.</p></li>
+<li><p>The party also gives a presigned penalty transaction, encrypted under the
+whole identifier.</p></li>
+<li><p>The tower watches for a transaction whose identifier starts with the
+hint.</p></li>
+<li><p>When one appears, the tower uses its full identifier to decrypt the
+penalty, and publishes it.</p></li>
+</ol>
+<p>This protects the party in two ways:</p>
+<ul class="simple">
+<li><p>Until a cheat appears, the tower cannot decrypt the penalty, and learns
+nothing about the channel.</p></li>
+<li><p>The tower can publish only a penalty that pays the party.</p></li>
+</ul>
+<p>PISA made towers <em>accountable</em>:</p>
+<ol class="arabic simple">
+<li><p>A tower signs a receipt for each appointment and locks a deposit.</p></li>
+<li><p>If the revoked commitment named in the receipt was published and its
+funds were taken by the cheater, the party claims the deposit.</p></li>
+</ol>
+<p>A party that checks the chain every <code class="docutils literal notranslate"><span class="pre">T</span></code> blocks, with a delay of <code class="docutils literal notranslate"><span class="pre">d</span></code>
+blocks, misses a cheat published at a random time with probability
 <span class="math notranslate nohighlight">\(1 - d/T\)</span> when <span class="math notranslate nohighlight">\(d &lt; T\)</span>, and loses only if the tower also fails:</p>
 <div class="math notranslate nohighlight">
 \[P(\text{loss}) = \max\!\left(0,\, 1 - \tfrac{d}{T}\right)
 \cdot P(\text{tower fails}).\]</div>
+<p>The party catches a cheat itself only if one of its checks falls within the
+<code class="docutils literal notranslate"><span class="pre">d</span></code> blocks after it. If <span class="math notranslate nohighlight">\(d \ge T\)</span> it always does, and the first
+factor is 0.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.watchtowers.Watchtower" title="blockchainkit.channels.systems.watchtowers.Watchtower"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.watchtowers.Watchtower</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.watchtowers.make_appointment" title="blockchainkit.channels.systems.watchtowers.make_appointment"><code class="xref py py-func docutils literal notranslate"><span class="pre">make_appointment()</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.watchtowers.verify_receipt" title="blockchainkit.channels.systems.watchtowers.verify_receipt"><code class="xref py py-func docutils literal notranslate"><span class="pre">verify_receipt()</span></code></a> and
@@ -936,19 +1254,27 @@ Conference on Advances in Financial Technologies (AFT 2019).
 </div></div></section>
 <section id="balance-probing-and-payment-privacy-in-lightning">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">2019 – Balance Probing and Payment Privacy in Lightning</a><a class="headerlink" href="#balance-probing-and-payment-privacy-in-lightning" title="Link to this heading">#</a></h2>
-<p>Lightning announces each channel’s capacity but hides how it is split, and
-so how much each side has paid. Herrera-Joancomartí and co-authors showed
-that anyone with a channel can learn the split. The prober routes a payment
-through the target channel with a payment hash nobody can claim: if the
-channel cannot forward the amount, the error comes from that hop; if it
-can, the payment fails at the recipient with a different error. Either way
-no money moves, and each probe answers one question: is the balance at
-least the amount? Halving the range of possible balances each time, a
-binary search finds the balance of a channel of capacity <span class="math notranslate nohighlight">\(C\)</span>, one of
+<p>Lightning announces each channel’s capacity but hides how it is split
+between the two sides. The split reveals how much each side has paid.
+Herrera-Joancomartí and co-authors showed that anyone with a channel can
+learn it.</p>
+<ol class="arabic simple">
+<li><p>The prober routes a payment through the target channel. It uses a
+payment hash nobody can claim, because nobody knows its preimage.</p></li>
+<li><p>If the channel cannot forward the amount, the error comes from that hop.</p></li>
+<li><p>If it can, the payment fails at the recipient, with a different error.</p></li>
+<li><p>Either way no money moves. Each probe answers one question: is the
+balance at least the amount?</p></li>
+<li><p>The prober halves the range of possible balances each time, as in a
+binary search.</p></li>
+</ol>
+<p>A binary search finds the balance of a channel of capacity <span class="math notranslate nohighlight">\(C\)</span>, one of
 <span class="math notranslate nohighlight">\(C + 1\)</span> values, exactly in</p>
 <div class="math notranslate nohighlight">
 \[\lceil \log_2 (C + 1) \rceil \text{ probes}.\]</div>
-<p>Repeated over time, probing reveals payments themselves.</p>
+<p>For a channel of <span class="math notranslate nohighlight">\(2^{24} - 1\)</span> satoshis, that is 24 probes. Repeated
+over time, probing reveals payments themselves: a change in the balance
+between two probes shows a payment went through.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.probing.probe_balance" title="blockchainkit.channels.systems.probing.probe_balance"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.probing.probe_balance()</span></code></a>
 over <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.routing.ChannelNetwork" title="blockchainkit.channels.systems.routing.ChannelNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelNetwork</span></code></a>, which
 routes hash time-locked payments over a
@@ -967,22 +1293,39 @@ Communications Security (AsiaCCS 2019).
 </div></div></section>
 <section id="bridge-failures-the-ronin-and-wormhole-exploits">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">2022 – Bridge Failures: the Ronin and Wormhole Exploits</a><a class="headerlink" href="#bridge-failures-the-ronin-and-wormhole-exploits" title="Link to this heading">#</a></h2>
-<p>Most bridges do not verify the other chain at all: a committee signs
-withdrawals, and the bridge is as safe as its keys and the code that checks
-their signatures. In February 2022, Wormhole’s Solana program accepted an
-account supplied by the caller as evidence that the guardians’ signatures
-had been checked; an attacker supplied a forged one, skipped the check, and
-minted 120,000 wrapped ether. In March, Ronin, which released funds on 5 of
-9 validator signatures, lost 173,600 ether and 25.5 million USDC. One
-company ran four validators and still held permission to sign for a fifth,
-so breaking into that one company yielded all five signatures. For <code class="docutils literal notranslate"><span class="pre">n</span></code>
-independent keys each compromised with probability <code class="docutils literal notranslate"><span class="pre">p</span></code>, a <code class="docutils literal notranslate"><span class="pre">t</span></code>-of-<code class="docutils literal notranslate"><span class="pre">n</span></code>
-bridge falls with</p>
+<p>Most bridges do not verify the other chain at all. Instead a committee
+signs withdrawals, often as a <em>t-of-n</em> scheme: any <code class="docutils literal notranslate"><span class="pre">t</span></code> of <code class="docutils literal notranslate"><span class="pre">n</span></code> keys
+suffice, like a safe that opens with any 5 of 9 keys. Such a bridge is only
+as safe as its keys and the code that checks their signatures. A
+<em>wrapped</em> token is one the bridge mints on one chain to stand for coins it
+holds on another.</p>
+<p>In February 2022, Wormhole failed through its code:</p>
+<ol class="arabic simple">
+<li><p>Wormhole’s Solana program accepted an account supplied by the caller as
+evidence that the guardians’ signatures had been checked.</p></li>
+<li><p>An attacker supplied a forged one, and so skipped the check.</p></li>
+<li><p>The attacker minted 120,000 wrapped ether.</p></li>
+</ol>
+<p>In March, Ronin failed through its keys:</p>
+<ol class="arabic simple">
+<li><p>Ronin released funds on 5 of 9 validator signatures.</p></li>
+<li><p>One company ran four validators, and still held permission to sign for a
+fifth.</p></li>
+<li><p>Breaking into that one company yielded all five signatures.</p></li>
+<li><p>Ronin lost 173,600 ether and 25.5 million USDC, a token pegged to the US
+dollar.</p></li>
+</ol>
+<p>For <code class="docutils literal notranslate"><span class="pre">n</span></code> independent keys each compromised with probability <code class="docutils literal notranslate"><span class="pre">p</span></code>, a
+<code class="docutils literal notranslate"><span class="pre">t</span></code>-of-<code class="docutils literal notranslate"><span class="pre">n</span></code> bridge falls with</p>
 <div class="math notranslate nohighlight">
 \[\sum_{k=t}^{n} \binom{n}{k} p^k (1-p)^{n-k},\]</div>
-<p>which is tiny for small <code class="docutils literal notranslate"><span class="pre">p</span></code> and large <code class="docutils literal notranslate"><span class="pre">t</span></code>. But keys held by one party
-are not independent: they fall together, and Ronin’s five signatures took
-a single breach.</p>
+<p>the chance that at least <code class="docutils literal notranslate"><span class="pre">t</span></code> keys are stolen. This is tiny for small <code class="docutils literal notranslate"><span class="pre">p</span></code>
+and large <code class="docutils literal notranslate"><span class="pre">t</span></code>. With <code class="docutils literal notranslate"><span class="pre">p</span> <span class="pre">=</span> <span class="pre">0.01</span></code>, a 5-of-9 bridge falls with probability
+about <span class="math notranslate nohighlight">\(10^{-8}\)</span>. But the formula assumes independence:</p>
+<ul class="simple">
+<li><p>Keys held by one party are not independent. They fall together.</p></li>
+<li><p>Ronin’s five signatures took a single breach.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.bridges.ValidatorBridge" title="blockchainkit.channels.systems.bridges.ValidatorBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.channels.systems.bridges.ValidatorBridge</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.bridges.GuardianVerifier" title="blockchainkit.channels.systems.bridges.GuardianVerifier"><code class="xref py py-class docutils literal notranslate"><span class="pre">GuardianVerifier</span></code></a>,
 <a class="reference internal" href="../api/channels.html#blockchainkit.channels.systems.bridges.WormholeBridge" title="blockchainkit.channels.systems.bridges.WormholeBridge"><code class="xref py py-class docutils literal notranslate"><span class="pre">WormholeBridge</span></code></a> and

@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.229290Z",
+      "created": "2026-10-24T08:04:53.425779Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.229290Z",
+      "last_modified": "2026-10-24T08:04:53.425779Z",
       "mimetype": null,
       "name": "plot_02_bytecode_verification.ipynb",
       "path": "jupyterlite_contents/api/gallery/vm/contracts/plot_02_bytecode_verification.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.229177Z",
+      "created": "2026-10-24T08:04:53.425666Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.229177Z",
+      "last_modified": "2026-10-24T08:04:53.425666Z",
       "mimetype": null,
       "name": "plot_01_vending_machine.ipynb",
       "path": "jupyterlite_contents/api/gallery/vm/contracts/plot_01_vending_machine.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.615941Z",
+  "created": "2026-10-24T08:04:54.720893Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.616207Z",
+  "last_modified": "2026-10-24T08:04:54.721196Z",
   "mimetype": null,
   "name": "contracts",
   "path": "jupyterlite_contents/api/gallery/vm/contracts",

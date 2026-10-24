@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -444,16 +466,62 @@
 show their absence!”
 – Edsger W. Dijkstra, <em>Notes on Structured Programming</em>, 1970</p>
 </div></blockquote>
+<p>A <em>blockchain</em> is a shared record, like a Python list of blocks of
+transactions. Many computers keep copies of it in step, without trusting
+each other. <em>Ethereum</em> is a blockchain that stores programs as well as
+payments. A <em>smart contract</em> is one of those programs. Think of it as a
+Python object that lives on the blockchain. It has attributes (its
+<em>storage</em>) and public methods. It can also hold money. Anyone can call its
+methods, and every computer in the network runs the call and gets the same
+result. Once deployed, its code cannot be changed.</p>
+<p>The page uses a few terms throughout:</p>
+<ul class="simple">
+<li><p>An <em>account</em> is identified by an <em>address</em>, a 20-byte number. People
+have accounts, and so do contracts.</p></li>
+<li><p><em>Ether</em> is Ethereum’s currency.</p></li>
+<li><p>A <em>transaction</em> is a signed request from a person’s account: “send this
+ether” or “call this method with these arguments”. One transaction can
+set off a chain of calls from contract to contract.</p></li>
+<li><p><em>Gas</em> measures computing work. Every instruction costs a fixed amount of
+gas, and the sender of the transaction pays for it in ether. A transaction that runs out of
+gas fails.</p></li>
+<li><p>A call that fails <em>reverts</em>. All its changes are undone, as if it had
+never run, like a database transaction that is rolled back. This is
+called <em>atomic failure</em>: a call either completes fully or has no effect.</p></li>
+<li><p>The <em>EVM</em> (Ethereum Virtual Machine) is the machine that runs contracts.
+Contracts are written in a language such as Solidity, then compiled to
+<em>bytecode</em>, a list of simple machine instructions, like Python’s own
+bytecode.</p></li>
+<li><p>A <em>hash function</em> <span class="math notranslate nohighlight">\(H\)</span> is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code>, but built so that
+nobody can find two inputs with the same output. Its output, the <em>hash</em>
+or <em>digest</em>, works as a short fingerprint of any data. <span class="math notranslate nohighlight">\(\|\)</span> joins
+two byte strings (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> in Python).</p></li>
+<li><p>A <em>token</em> is a balance kept by a contract rather than by Ethereum itself:
+in effect a dict <code class="docutils literal notranslate"><span class="pre">balances</span> <span class="pre">=</span> <span class="pre">{address:</span> <span class="pre">amount}</span></code> plus methods to move
+amounts between keys.</p></li>
+<li><p><em>Formal verification</em> means proving, with logic, that a program meets
+its specification for every input, not just the inputs that were tested.</p></li>
+</ul>
 <p><a class="reference internal" href="vm_breakthroughs.html"><span class="doc">Breakthroughs in Replicated Execution</span></a> shows how contracts <em>execute</em>: the machine, gas,
 atomic failure and bytecode verification. This chronology follows how they
 are <em>engineered</em>: the standards that let contracts work together, the
 mistakes behind the field’s largest losses, and the methods that check a
 contract before it holds money. Three contract entries stay on the execution
-page: Szabo’s vending machine, the DAO’s reentrancy and the BeautyChain
-overflow; the Oyente entry below finds that overflow again, in bytecode.</p>
+page:</p>
+<ul class="simple">
+<li><p>Szabo’s vending machine, his example of a contract built into a
+machine.</p></li>
+<li><p>The DAO’s <em>reentrancy</em>: a contract was called back before it had updated
+its records.</p></li>
+<li><p>The BeautyChain <em>overflow</em>: a number grew too big for its 256-bit slot and
+wrapped round to a small one, as with <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">2**256</span></code>.</p></li>
+</ul>
+<p>The Oyente entry below finds that overflow again, in bytecode.</p>
 <p>Everything here runs on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a>,
 a model of the EVM’s call semantics in which contracts are short Python
-classes. <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists exactly where it differs from Ethereum.</p>
+classes. <em>Call semantics</em> means the rules for what happens when one
+contract calls another: who pays, whose storage changes, and what is undone
+on failure. <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists exactly where it differs from Ethereum.</p>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
 <ul class="simple">
@@ -478,19 +546,40 @@ classes. <a class="reference internal" href="../protocol.html"><span class="doc"
 </nav>
 <section id="floyd-and-hoare-proving-programs-correct-with-assertions">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1967-1969 – Floyd and Hoare: Proving Programs Correct with Assertions</a><a class="headerlink" href="#floyd-and-hoare-proving-programs-correct-with-assertions" title="Link to this heading">#</a></h2>
-<p>Floyd attached an assertion to every edge of a flowchart and required each
-instruction to carry a true assertion to a true one, so that the assertion
-at the exit described what the program computes. Hoare turned the method
-into a logic of triples: <span class="math notranslate nohighlight">\(\{P\}\,S\,\{Q\}\)</span> states that if P holds
-before S and S terminates, Q holds after. The assignment axiom runs
-backwards,</p>
+<p>Tests check a program on some inputs. Floyd and Hoare wanted to prove that
+a program is correct on <em>all</em> inputs.</p>
+<p>The idea is to attach an <em>assertion</em> to each point in the program. An
+assertion is a true-or-false statement about the variables, like a Python
+<code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>. Floyd drew programs as flowcharts and put an assertion on
+every arrow. He then required each instruction to turn a true assertion
+before it into a true assertion after it. If every step does that, the
+assertion at the exit describes what the program computes.</p>
+<p>Hoare turned the method into a logic of <em>triples</em>. The triple
+<span class="math notranslate nohighlight">\(\{P\}\,S\,\{Q\}\)</span> says: if the condition P holds before the code S,
+and S finishes, then the condition Q holds after it.</p>
+<ul class="simple">
+<li><p>P is the <em>precondition</em>: what must be true before.</p></li>
+<li><p>Q is the <em>postcondition</em>: what is then guaranteed after.</p></li>
+<li><p>The triple says nothing about whether S finishes at all. A program
+stuck in an endless loop satisfies every triple. Proving that it stops is
+a separate task.</p></li>
+</ul>
+<p>Hoare’s rule for an assignment <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">e</span></code> works backwards from the end:</p>
 <div class="math notranslate nohighlight">
 \[\{Q[e/x]\}\; x := e\; \{Q\},\]</div>
-<p>so a postcondition can be pushed through the code to a condition on the
-inputs, which Dijkstra later called the weakest precondition. Proving a
-program correct then means proving that its precondition implies it. Formal
-verification of contracts, from the K framework’s EVM semantics to
-Certora’s prover, rests on this idea.</p>
+<p>Here <span class="math notranslate nohighlight">\(Q[e/x]\)</span> means “Q with every x replaced by e”. In words: Q holds
+after the assignment exactly when Q, with e written in place of x, held
+before it. For example, take <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">1</span></code> and the postcondition
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>. The precondition is <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">&gt;</span> <span class="pre">0</span></code>.</p>
+<p>Applying this rule statement by statement, from the last to the first,
+pushes a postcondition back through the code. The result is a condition on
+the inputs alone. Dijkstra later called it the <em>weakest precondition</em>
+<span class="math notranslate nohighlight">\(\mathrm{wp}\)</span>: the least demanding condition on the inputs that still
+guarantees Q. To prove a triple <span class="math notranslate nohighlight">\(\{P\}\,S\,\{Q\}\)</span>, it then suffices to
+show that P implies <span class="math notranslate nohighlight">\(\mathrm{wp}(S, Q)\)</span>. Formal verification of
+contracts rests on this idea. Two examples are the K framework, which
+describes the EVM’s rules in logic, and Certora’s prover, a commercial
+contract checker.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.hoare.weakest_precondition" title="blockchainkit.contracts.systems.hoare.weakest_precondition"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.hoare.weakest_precondition()</span></code></a>
 computes <span class="math notranslate nohighlight">\(\mathrm{wp}\)</span> for straight-line code with branches, and
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.hoare.check_triple" title="blockchainkit.contracts.systems.hoare.check_triple"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.hoare.check_triple()</span></code></a> checks a triple on
@@ -507,16 +596,39 @@ for computer programming</em>, Communications of the ACM 12(10), 576–580 (1969
 </div></div></section>
 <section id="king-s-symbolic-execution">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1976 – King’s Symbolic Execution</a><a class="headerlink" href="#king-s-symbolic-execution" title="Link to this heading">#</a></h2>
-<p>Testing runs a program on chosen inputs; King ran it on <em>symbols</em>. Each
-variable holds an expression over the inputs, and each branch on such an
-expression forks the execution. A path then carries its <em>path condition</em>,
-the conjunction of the branch decisions it took,</p>
+<p>A test runs a program on chosen inputs, and may miss the one input that
+triggers a bug. James King wanted a way to find that input.</p>
+<p>His idea was to run the program on <em>symbols</em> instead of numbers. Picture
+calling <code class="docutils literal notranslate"><span class="pre">f(a,</span> <span class="pre">b)</span></code> where <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> stay unknown. Each variable then
+holds an expression over the inputs, such as <code class="docutils literal notranslate"><span class="pre">2*a</span> <span class="pre">+</span> <span class="pre">1</span></code>, not a value. This
+is <em>symbolic execution</em>.</p>
+<ol class="arabic simple">
+<li><p>Start with each input as a named symbol.</p></li>
+<li><p>Run each statement on expressions: after <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">2*a</span> <span class="pre">+</span> <span class="pre">1</span></code> the variable
+<code class="docutils literal notranslate"><span class="pre">y</span></code> holds the expression <code class="docutils literal notranslate"><span class="pre">2*a</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+<li><p>At a branch such as <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">y</span> <span class="pre">&gt;</span> <span class="pre">b:</span></code> the outcome is unknown, so fork. One
+copy assumes <code class="docutils literal notranslate"><span class="pre">2*a</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">&gt;</span> <span class="pre">b</span></code>. The other assumes it is false.</p></li>
+<li><p>Each copy records the branch decisions it has made. Their combination is
+its <em>path condition</em>.</p></li>
+<li><p>When a copy reaches a failed <code class="docutils literal notranslate"><span class="pre">assert</span></code>, search for inputs that make its
+path condition true. Those inputs trigger the bug.</p></li>
+</ol>
+<p>The path condition is an “and” of the decisions along the path:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{pc} = c_1 \wedge \neg c_2 \wedge \dots \wedge c_k,\]</div>
-<p>and every input satisfying it follows exactly that path. Solving the
-condition of a path that reaches a failed assertion produces an input that
-triggers the bug. The number of paths can grow exponentially with the
-number of branches, which is why symbolic executors bound their search.</p>
+<p>Here <span class="math notranslate nohighlight">\(\wedge\)</span> means “and” and <span class="math notranslate nohighlight">\(\neg\)</span> means “not”. This path
+took branch 1, did not take branch 2, and so on. Every input that satisfies
+pc follows exactly this path.</p>
+<p>Its limits:</p>
+<ul class="simple">
+<li><p>The number of paths can grow exponentially with the number of branches.
+Forty <code class="docutils literal notranslate"><span class="pre">if</span></code> statements in a row give up to <span class="math notranslate nohighlight">\(2^{40} \approx 10^{12}\)</span>
+paths. Symbolic executors therefore bound their search.</p></li>
+<li><p>Step 5 needs a <em>solver</em>: a program that finds values making a formula
+true, or shows that none exist. King used a theorem prover. Modern tools
+use <em>SMT solvers</em> such as Z3, which handle formulas over integers, bit
+strings and arrays.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.symbolic.symbolic_execute" title="blockchainkit.contracts.systems.symbolic.symbolic_execute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.symbolic.symbolic_execute()</span></code></a>
 explores every path of the same small language, and
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.symbolic.solve" title="blockchainkit.contracts.systems.symbolic.solve"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.symbolic.solve()</span></code></a> searches for inputs.
@@ -532,17 +644,33 @@ Communications of the ACM 19(7), 385–394 (1976).
 </div></div></section>
 <section id="meyer-s-design-by-contract">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1986 – Meyer’s Design by Contract</a><a class="headerlink" href="#meyer-s-design-by-contract" title="Link to this heading">#</a></h2>
-<p>Meyer’s Eiffel made a routine’s specification part of its code. The caller
-must establish the <em>precondition</em>, the routine then guarantees the
-<em>postcondition</em>, and every public routine preserves the class <em>invariant</em>:</p>
+<p>When a function goes wrong, is the bug in the function or in its caller?
+Bertrand Meyer answered this by writing the specification into the code
+itself, in his language Eiffel.</p>
+<p>A <em>routine</em> (a method, in Python terms) gets three kinds of check:</p>
+<ul class="simple">
+<li><p>The <em>precondition</em> is what the caller must make true before calling, for
+example “the amount is positive”.</p></li>
+<li><p>The <em>postcondition</em> is what the routine then guarantees on return.</p></li>
+<li><p>The class <em>invariant</em> is a condition on the object’s attributes that
+every public routine must leave true. For a token, an example is “the
+balances sum to the total supply”.</p></li>
+</ul>
+<p>Together they form a Hoare triple for each routine r:</p>
 <div class="math notranslate nohighlight">
 \[\{\mathrm{pre}_r \wedge \mathrm{INV}\}\; r\; \{\mathrm{post}_r \wedge \mathrm{INV}\}.\]</div>
-<p>Checked at run time, a violated clause points at the guilty party: a failed
-precondition is the caller’s bug, a failed postcondition or invariant the
-routine’s. Solidity’s <code class="docutils literal notranslate"><span class="pre">require</span></code> (an input check that reverts) and
-<code class="docutils literal notranslate"><span class="pre">assert</span></code> (an internal invariant) carry the same split, and token
-invariants such as “the balances sum to the supply” are the properties
-every later tool checks.</p>
+<p>In words: if the caller meets the precondition and the invariant holds,
+then r ends with its postcondition and the invariant both true.</p>
+<p>When the checks run while the program runs, a failed check names the
+guilty party:</p>
+<ul class="simple">
+<li><p>A failed precondition is the caller’s bug.</p></li>
+<li><p>A failed postcondition or invariant is the routine’s bug.</p></li>
+</ul>
+<p>Solidity has the same split. <code class="docutils literal notranslate"><span class="pre">require</span></code> checks inputs and reverts if they
+are bad. <code class="docutils literal notranslate"><span class="pre">assert</span></code> checks an internal invariant that should never fail.
+Token invariants such as “the balances sum to the supply” are the
+properties that every later tool on this page checks.</p>
 <p><em>Implementation:</em> the decorators
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.design_by_contract.requires" title="blockchainkit.contracts.systems.design_by_contract.requires"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.design_by_contract.requires()</span></code></a> and
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.design_by_contract.ensures" title="blockchainkit.contracts.systems.design_by_contract.ensures"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.design_by_contract.ensures()</span></code></a>, and
@@ -559,15 +687,38 @@ contract”</em>, IEEE Computer 25(10), 40–51 (1992).
 </div></div></section>
 <section id="grigg-s-ricardian-contracts">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1996 – Grigg’s Ricardian Contracts</a><a class="headerlink" href="#grigg-s-ricardian-contracts" title="Link to this heading">#</a></h2>
-<p>Ian Grigg designed the Ricardian contract to issue bonds and currencies on
-the Ricardo payment system. A single document is at once a legal contract
-that a person can read and a set of parameters that a program can parse;
-the issuer signs it, and its hash names the instrument:</p>
+<p>A digital payment should never leave doubt about which legal terms it
+falls under. Ian Grigg designed the <em>Ricardian contract</em> to issue bonds
+and currencies on the Ricardo payment system, so that every payment named
+its terms exactly. A <em>bond</em> is a promise to repay borrowed money. The
+<em>issuer</em> is whoever makes that promise.</p>
+<p>The idea is a single document that is two things at once:</p>
+<ul class="simple">
+<li><p>a legal contract that a person can read (the <em>prose</em>);</p></li>
+<li><p>a set of <em>parameters</em>, such as the currency and interest rate, that a
+program can parse.</p></li>
+</ul>
+<p>It works in three steps:</p>
+<ol class="arabic simple">
+<li><p>The issuer writes the document and <em>signs</em> it. A <em>digital signature</em> is
+a value that only the holder of a secret key can produce, but that
+anyone can check against the matching public key.</p></li>
+<li><p>The hash of the document becomes the name of the new <em>instrument</em> (the
+bond or currency it creates).</p></li>
+<li><p>Every payment cites that name.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\mathrm{id} = H(\mathrm{prose} \,\|\, \mathrm{parameters}).\]</div>
-<p>Every payment cites the identifier, so the terms of a payment are never in
-doubt, and editing one word of the prose creates a different instrument.
-The idea of binding code to legal text by hash recurs in token terms, in
+<p>In words: the instrument’s identifier is the fingerprint of its prose
+joined to its parameters.</p>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>Every payment cites the identifier, so the terms of a payment are never
+in doubt.</p></li>
+<li><p>Changing one word of the prose changes the hash, so it creates a
+different instrument. Nobody can quietly edit the terms.</p></li>
+</ul>
+<p>The idea of binding code to legal text by hash recurs in token terms, in
 the hashes that document registries record, and in the debate over whether
 code alone can be the contract.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.ricardian.ricardian_contract" title="blockchainkit.contracts.systems.ricardian.ricardian_contract"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.ricardian.ricardian_contract()</span></code></a>
@@ -584,19 +735,53 @@ International Workshop on Electronic Contracting, 25–31 (2004).
 </div></div></section>
 <section id="miller-s-e-language-and-capability-based-security">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">1997-2006 – Miller’s E Language and Capability-Based Security</a><a class="headerlink" href="#miller-s-e-language-and-capability-based-security" title="Link to this heading">#</a></h2>
-<p>In an object-capability system, the only way to act on an object is to hold
-a reference to it, and references are only created, received, or held from
-the start: there is no ambient authority to look up. Mark Miller’s E
-language built distributed programs and money on this rule. With its mint
-and purses, paying means handing over a purse holding exactly the payment,
-and the payee can reach nothing else.</p>
-<p>Ambient authority is what makes a <em>confused deputy</em> (Hardy, 1988): a program
-that uses authority it holds for one party on behalf of another. Ethereum’s
-<code class="docutils literal notranslate"><span class="pre">tx.origin</span></code> is ambient. A wallet that trusts it pays out whenever its
-owner’s transaction passes through, so an owner lured into calling a
-malicious contract empties the wallet:</p>
+<p>Programs from strangers must be able to work together without being able
+to harm each other. Mark Miller’s E language built distributed programs,
+and money, on one rule.</p>
+<p>That rule is <em>object capabilities</em>. The only way to act on an object is to
+hold a reference to it, as in Python, where you can call <code class="docutils literal notranslate"><span class="pre">obj.pay()</span></code> only
+if some variable points at <code class="docutils literal notranslate"><span class="pre">obj</span></code>. A program gets a reference in only
+three ways:</p>
+<ul class="simple">
+<li><p>it created the object;</p></li>
+<li><p>someone passed the reference to it;</p></li>
+<li><p>it held the reference from the start.</p></li>
+</ul>
+<p>There is no <em>ambient authority</em>: no global variable, like <code class="docutils literal notranslate"><span class="pre">os.environ</span></code>,
+or “current user”, that any code can look up to gain power.</p>
+<p>E’s money shows the rule at work. A <em>mint</em> creates a currency, and a
+<em>purse</em> holds an amount of it.</p>
+<ol class="arabic simple">
+<li><p>The payer asks the mint for a new, empty purse.</p></li>
+<li><p>The payer moves exactly the payment from their own purse into it.</p></li>
+<li><p>The payer hands the new purse to the payee.</p></li>
+<li><p>The payee moves its contents into their own purse.</p></li>
+</ol>
+<p>The payee receives a reference to that one purse and nothing else, so they
+can reach nothing else.</p>
+<p>Ambient authority is what makes a <em>confused deputy</em> (Hardy, 1988): a
+program that uses authority it holds for one party on behalf of another.
+Hardy’s example was a compiler that was allowed to write to a billing file.
+A user asked it to write its output to that file, and it obeyed.</p>
+<p>Ethereum has an ambient value of this kind, <code class="docutils literal notranslate"><span class="pre">tx.origin</span></code>: the account that
+signed the transaction that started the whole chain of calls. Compare
+<code class="docutils literal notranslate"><span class="pre">msg.sender</span></code>, the account or contract that made the current call. A
+wallet contract that trusts <code class="docutils literal notranslate"><span class="pre">tx.origin</span></code> can be emptied:</p>
+<ol class="arabic simple">
+<li><p>The wallet pays out whenever <code class="docutils literal notranslate"><span class="pre">tx.origin</span> <span class="pre">==</span> <span class="pre">owner</span></code>.</p></li>
+<li><p>An attacker deploys a malicious contract and lures the owner into
+calling it, for example by promising free tokens.</p></li>
+<li><p>The owner sends a transaction to the malicious contract. <code class="docutils literal notranslate"><span class="pre">tx.origin</span></code> is
+now the owner.</p></li>
+<li><p>The malicious contract calls the wallet: “pay everything to me”. The
+wallet sees <code class="docutils literal notranslate"><span class="pre">tx.origin</span> <span class="pre">==</span> <span class="pre">owner</span></code> and pays.</p></li>
+</ol>
+<p>A wallet that checks <code class="docutils literal notranslate"><span class="pre">msg.sender</span></code> instead sees the malicious contract and
+refuses. The flaw in one line:</p>
 <div class="math notranslate nohighlight">
 \[\texttt{tx.origin} = \text{owner} \;\not\Rightarrow\; \text{the owner intended this call}.\]</div>
+<p>In words: that the owner started the transaction does not mean that the
+owner meant this particular call to happen.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.capabilities.Mint" title="blockchainkit.contracts.systems.capabilities.Mint"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.capabilities.Mint</span></code></a>
 and <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.capabilities.Purse" title="blockchainkit.contracts.systems.capabilities.Purse"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.capabilities.Purse</span></code></a> in plain
 Python, whose attributes cannot be hidden the way E hides them; and the
@@ -616,19 +801,45 @@ concurrency control</em>, PhD thesis, Johns Hopkins University (2006); N. Hardy,
 </div></div></section>
 <section id="erc-20-tokens-and-the-approve-transferfrom-race">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">2015 – ERC-20 Tokens and the Approve/TransferFrom Race</a><a class="headerlink" href="#erc-20-tokens-and-the-approve-transferfrom-race" title="Link to this heading">#</a></h2>
-<p>ERC-20 gave fungible tokens one interface, so that any wallet or exchange
-could hold any token: <code class="docutils literal notranslate"><span class="pre">transfer</span></code>, <code class="docutils literal notranslate"><span class="pre">balanceOf</span></code>, and a two-step
-delegation in which <code class="docutils literal notranslate"><span class="pre">approve(spender,</span> <span class="pre">n)</span></code> lets the spender move up to n
-tokens with <code class="docutils literal notranslate"><span class="pre">transferFrom</span></code>. Thousands of tokens were issued on it.</p>
-<p><code class="docutils literal notranslate"><span class="pre">approve</span></code> overwrites the allowance. When an owner lowers an allowance
-from N to M, the spender can see the pending transaction and get a
-<code class="docutils literal notranslate"><span class="pre">transferFrom</span></code> of N mined first, then spend the fresh M as well:</p>
+<p>Each new token used to come with its own methods, so every wallet and
+exchange had to be adapted to it. ERC-20 fixed one <em>interface</em> for
+<em>fungible</em> tokens, ones where every unit is the same as every other, like
+coins. Any wallet or exchange could then hold any token. Thousands of tokens
+were issued on it.</p>
+<p>The interface is a short list of methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">balanceOf(a)</span></code> returns the balance of account <code class="docutils literal notranslate"><span class="pre">a</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transfer(to,</span> <span class="pre">n)</span></code> moves n tokens from the caller to <code class="docutils literal notranslate"><span class="pre">to</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">approve(spender,</span> <span class="pre">n)</span></code> lets <code class="docutils literal notranslate"><span class="pre">spender</span></code> move up to n of the caller’s
+tokens. This limit is the <em>allowance</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transferFrom(owner,</span> <span class="pre">to,</span> <span class="pre">n)</span></code>, called by the spender, moves n tokens
+and lowers the allowance by n.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">approve</span></code> overwrites the allowance; it does not adjust it. That opens a
+race. A transaction waits in public for a few seconds before it is mined,
+that is, added to a block. Anyone can watch the waiting ones. The owner
+(Alice) wants to lower the allowance of a spender (Bob) from N to M:</p>
+<ol class="arabic simple">
+<li><p>Earlier, Alice called <code class="docutils literal notranslate"><span class="pre">approve(Bob,</span> <span class="pre">N)</span></code>.</p></li>
+<li><p>Alice sends <code class="docutils literal notranslate"><span class="pre">approve(Bob,</span> <span class="pre">M)</span></code>. It waits to be mined.</p></li>
+<li><p>Bob sees it waiting. He sends <code class="docutils literal notranslate"><span class="pre">transferFrom(Alice,</span> <span class="pre">Bob,</span> <span class="pre">N)</span></code> with a
+higher fee, so that it is mined first.</p></li>
+<li><p>Bob’s transfer runs: he takes N.</p></li>
+<li><p>Alice’s <code class="docutils literal notranslate"><span class="pre">approve</span></code> runs: the allowance is now M.</p></li>
+<li><p>Bob calls <code class="docutils literal notranslate"><span class="pre">transferFrom</span></code> again and takes M more.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\text{spent} = N + M \quad\text{instead of at most}\quad \max(N, M).\]</div>
-<p>Vladimirov and Khovratovich described the attack in 2016. The common
-mitigations change the allowance relative to what is left
-(<code class="docutils literal notranslate"><span class="pre">increaseAllowance</span></code> and <code class="docutils literal notranslate"><span class="pre">decreaseAllowance</span></code>) or require it to be zero
-before a new value is set.</p>
+<p>In words: Alice meant Bob to spend either the old limit or the new one,
+whichever applied when he spent. He spent both.</p>
+<p>Vladimirov and Khovratovich described the attack in 2016. The common fixes:</p>
+<ul class="simple">
+<li><p>Change the allowance relative to what is left, with
+<code class="docutils literal notranslate"><span class="pre">increaseAllowance</span></code> and <code class="docutils literal notranslate"><span class="pre">decreaseAllowance</span></code>. If Bob has already
+spent the old allowance, a decrease reverts instead of handing him a
+fresh one.</p></li>
+<li><p>Require the allowance to be zero before a new value is set.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.tokens.ERC20" title="blockchainkit.contracts.systems.tokens.ERC20"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.tokens.ERC20</span></code></a>,
 with <code class="docutils literal notranslate"><span class="pre">decrease_allowance</span></code> reverting below zero. Function names follow
 Python style, functions are matched by name rather than by 4-byte selector,
@@ -644,21 +855,41 @@ approve/transferFrom methods</em> (2016).</p>
 </div></div></section>
 <section id="unchecked-send-and-the-pull-payment-pattern-king-of-the-ether">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">2016 – Unchecked Send and the Pull-Payment Pattern: King of the Ether</a><a class="headerlink" href="#unchecked-send-and-the-pull-payment-pattern-king-of-the-ether" title="Link to this heading">#</a></h2>
-<p><em>King of the Ether</em> sold a throne: each claimant paid more than the current
-price, and the deposed king received the payment less a fee. The contract
-paid with <code class="docutils literal notranslate"><span class="pre">send</span></code>, which forwards a stipend of only 2,300 gas and returns
-False on failure instead of reverting. In February 2016 kings using Mist’s
-contract wallets, whose code for receiving ether needed more gas than that,
-were never paid: the contract ignored the False and kept their money.</p>
-<p>Checking the result moves the problem: a king who refuses every payment
-then can never be deposed, since crowning anyone requires paying him. The
-lasting fix is the <em>pull-payment</em> pattern, in which the contract records
-what each recipient is owed and each withdraws it in a transaction of its
-own,</p>
+<p>A contract that pays other accounts can fail when one of them cannot, or
+will not, accept the payment. <em>King of the Ether</em> showed both failures.</p>
+<p>The contract sold a throne:</p>
+<ol class="arabic simple">
+<li><p>A claimant sends more ether than the current price.</p></li>
+<li><p>The contract pays that ether, less a fee, to the deposed king.</p></li>
+<li><p>The claimant becomes king, and the price rises.</p></li>
+</ol>
+<p>The contract paid with <code class="docutils literal notranslate"><span class="pre">send</span></code>. It has two quirks:</p>
+<ul class="simple">
+<li><p>It forwards only 2,300 gas, a <em>stipend</em>. That is enough for the
+recipient to record a log message, but not to write to its storage.</p></li>
+<li><p>It returns <code class="docutils literal notranslate"><span class="pre">False</span></code> on failure instead of reverting, so the caller
+carries on unless it checks.</p></li>
+</ul>
+<p>In February 2016 some kings used contract wallets made by the Mist app. The
+code these wallets ran on receiving ether needed more than 2,300 gas, so
+every <code class="docutils literal notranslate"><span class="pre">send</span></code> to them failed. The contract ignored the <code class="docutils literal notranslate"><span class="pre">False</span></code> and kept
+their money.</p>
+<p>Checking the result only moves the problem. If the contract reverts when
+<code class="docutils literal notranslate"><span class="pre">send</span></code> fails, a king whose contract refuses every payment can never be
+deposed, since crowning anyone requires paying him.</p>
+<p>The lasting fix is the <em>pull-payment</em> pattern. The contract never pushes
+money out during the game:</p>
+<ol class="arabic simple">
+<li><p>When a king is deposed, the contract adds the payment to a dict,
+<code class="docutils literal notranslate"><span class="pre">owed[king]</span> <span class="pre">+=</span> <span class="pre">payment</span></code>.</p></li>
+<li><p>Later, each recipient calls <code class="docutils literal notranslate"><span class="pre">withdraw()</span></code> in a transaction of their own.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">withdraw</span></code> sends the caller what they are owed.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\mathrm{owed}[k] \mathrel{+}= \text{payment}, \qquad
 \texttt{withdraw}(): \text{send } \mathrm{owed}[\texttt{msg.sender}],\]</div>
-<p>so a failing recipient harms only itself.</p>
+<p>In words: record the debt now, and let each creditor collect it later.
+A recipient who cannot accept payment harms only itself.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.payments.KingOfTheEther" title="blockchainkit.contracts.systems.payments.KingOfTheEther"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.payments.KingOfTheEther</span></code></a>,
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.payments.CheckedKingOfTheEther" title="blockchainkit.contracts.systems.payments.CheckedKingOfTheEther"><code class="xref py py-class docutils literal notranslate"><span class="pre">CheckedKingOfTheEther</span></code></a> and
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.payments.PullKingOfTheEther" title="blockchainkit.contracts.systems.payments.PullKingOfTheEther"><code class="xref py py-class docutils literal notranslate"><span class="pre">PullKingOfTheEther</span></code></a>, with
@@ -678,17 +909,36 @@ investigation</em> (February 2016); N. Atzei, M. Bartoletti and T. Cimoli,
 </div></div></section>
 <section id="unbounded-loops-and-gas-denial-of-service-governmental">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">2016 – Unbounded Loops and Gas Denial of Service: GovernMental</a><a class="headerlink" href="#unbounded-loops-and-gas-denial-of-service-governmental" title="Link to this heading">#</a></h2>
-<p>GovernMental was a Ponzi game that paid its jackpot to the last investor
-after 12 hours without a new one, then reset itself by clearing its array
-of creditors, one storage write per entry. In April 2016 the array had
-grown so long that clearing it needed more gas than a block allowed, so the
-payout could not run and its jackpot of about 1,100 ether was stuck. With
-<span class="math notranslate nohighlight">\(n\)</span> creditors the payout fails once</p>
+<p>Each block has a <em>block gas limit</em>: a cap on the total gas that all its
+transactions may use. A single transaction can never use more. So a loop
+whose length users can grow will, one day, cost more than any transaction
+can pay.</p>
+<p>GovernMental was a <em>Ponzi</em> game, one that pays earlier players with the
+money of later ones:</p>
+<ol class="arabic simple">
+<li><p>Investors paid in, and the contract stored each one in an array of
+creditors.</p></li>
+<li><p>If 12 hours passed with no new investor, the last investor could claim
+the jackpot.</p></li>
+<li><p>The payout then reset the game by clearing the array, one storage write
+per entry.</p></li>
+</ol>
+<p>In April 2016 the array had grown so long that clearing it needed more gas
+than a block allowed. The payout could not run, and its jackpot of about
+1,100 ether was stuck. With <span class="math notranslate nohighlight">\(n\)</span> creditors the payout fails once</p>
 <div class="math notranslate nohighlight">
 \[G_{\text{base}} + n\,G_{\text{write}} &gt; G_{\text{block}}.\]</div>
-<p>Any loop over a collection that users can grow is a denial of service in
-waiting; the cures are a constant-cost reset, as here, or letting each user
-process their own entry.</p>
+<p>In words: the fixed cost plus n storage writes exceeds the block’s gas
+limit. The cost grows as O(n), but the limit is fixed. With this model’s
+5,000 gas per write and the 2016 limit of 4,712,388 gas, about 940
+creditors are already too many.</p>
+<p>Any loop over a collection that users can grow is a <em>denial of service</em> in
+waiting: something that makes a service unusable for everyone. The cures:</p>
+<ul class="simple">
+<li><p>a constant-cost reset, as here: start a new round instead of deleting
+the old entries;</p></li>
+<li><p>letting each user process their own entry, in their own transaction.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.payments.GovernMental" title="blockchainkit.contracts.systems.payments.GovernMental"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.payments.GovernMental</span></code></a>,
 whose <code class="docutils literal notranslate"><span class="pre">lazy_reset</span></code> option starts a new round instead of deleting entries.
 The experiment uses the 2016 block gas limit of 4,712,388 and this model’s
@@ -703,18 +953,43 @@ Ethereum smart contracts (SoK)</em>, POST 2017, LNCS 10204, 164–186 (2017).
 </div></div></section>
 <section id="oyente-symbolic-execution-finds-contract-bugs">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">2016 – Oyente: Symbolic Execution Finds Contract Bugs</a><a class="headerlink" href="#oyente-symbolic-execution-finds-contract-bugs" title="Link to this heading">#</a></h2>
-<p>Luu, Chu, Olickel, Saxena and Hobor built Oyente, a symbolic executor for
-EVM bytecode backed by the Z3 solver, and ran it on 19,366 contracts then on
-Ethereum. It flagged 8,833 as potentially vulnerable, among them the DAO,
-to transaction-ordering dependence, timestamp dependence, mishandled
-exceptions and reentrancy. Analyzing bytecode means analyzing what actually
-runs, whatever the source said; the same paper proposed semantic changes to
-Ethereum to rule some bug classes out.</p>
-<p>A bug becomes a condition on the final state of a path. For a token
-transfer from slot 1 to slot 2, “tokens created from nothing” is</p>
+<p>By 2016 Ethereum held thousands of contracts, and nobody knew how many were
+broken. Luu, Chu, Olickel, Saxena and Hobor built Oyente to find out. It is
+a symbolic executor, as in King’s entry above, for EVM bytecode. It uses
+the Z3 solver to find inputs.</p>
+<p>They ran it on 19,366 contracts then on Ethereum. It flagged 8,833 as
+potentially vulnerable, among them the DAO. It looked for four kinds of
+bug:</p>
+<ul class="simple">
+<li><p><em>Transaction-ordering dependence</em>: the result depends on which of two
+waiting transactions is mined first, as in the ERC-20 race above.</p></li>
+<li><p><em>Timestamp dependence</em>: the result depends on the block’s time stamp,
+which the miner, the computer that builds the block, can shift a little.</p></li>
+<li><p><em>Mishandled exceptions</em>: a failed call returns <code class="docutils literal notranslate"><span class="pre">False</span></code> and the caller
+ignores it, as in King of the Ether.</p></li>
+<li><p><em>Reentrancy</em>: a contract calls out to another, and that one calls back
+in before the first has updated its records.</p></li>
+</ul>
+<p>Two further points:</p>
+<ul class="simple">
+<li><p>Analyzing bytecode means analyzing what actually runs, whatever the
+source code said.</p></li>
+<li><p>The same paper proposed changes to Ethereum’s rules that would rule
+some bug classes out entirely.</p></li>
+</ul>
+<p>A bug becomes a condition on the state at the end of a path. Take a token
+transfer that moves a balance from storage slot 1 (the sender) to slot 2
+(the receiver). Primes mark values after the transfer, and <span class="math notranslate nohighlight">\(s_1, s_2\)</span>
+are the values before. “Tokens created from nothing” is</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{slot}_1' \ge s_1 \;\wedge\; \mathrm{slot}_2' &gt; s_2,\]</div>
-<p>and a solution of the path condition together with it is an attack.</p>
+<p>In words: the sender lost nothing, yet the receiver gained. Any input that
+satisfies both the path condition and this formula is an attack.</p>
+<p>BeautyChain’s bug is an example. Its <code class="docutils literal notranslate"><span class="pre">batchTransfer</span></code> multiplied the
+number of receivers by the value each one gets. EVM numbers are 256 bits
+wide, so the product wraps: <code class="docutils literal notranslate"><span class="pre">(2</span> <span class="pre">*</span> <span class="pre">2**255)</span> <span class="pre">%</span> <span class="pre">2**256</span> <span class="pre">==</span> <span class="pre">0</span></code>. With two
+receivers and a value of <span class="math notranslate nohighlight">\(2^{255}\)</span>, the sender is charged 0, and each
+receiver gets <span class="math notranslate nohighlight">\(2^{255}\)</span> tokens.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.symbolic.symbolic_bytecode" title="blockchainkit.contracts.systems.symbolic.symbolic_bytecode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.symbolic.symbolic_bytecode()</span></code></a>
 executes programs of <a class="reference internal" href="../api/vm.html#module-blockchainkit.vm" title="blockchainkit.vm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.vm</span></code></a> symbolically, and the
 experiment finds BeautyChain’s <span class="math notranslate nohighlight">\(2^{255}\)</span> in
@@ -730,19 +1005,45 @@ not modeled.</p>
 </div></div></section>
 <section id="commit-reveal-schemes-and-on-chain-randomness">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">2016 – Commit-Reveal Schemes and On-Chain Randomness</a><a class="headerlink" href="#commit-reveal-schemes-and-on-chain-randomness" title="Link to this heading">#</a></h2>
-<p>Every node must compute the same result, so a contract has no secret
-randomness. Lotteries that drew from the previous block’s hash were beaten
-by contracts that read the same hash in the same block and played only to
-win, and a miner could discard a block whose hash it disliked.</p>
-<p>A commit-reveal scheme, as in RANDAO (2016), splits the draw in two phases.
-Each participant first publishes <span class="math notranslate nohighlight">\(c_i = H(\text{participant}, s_i,
-r_i)\)</span> for a secret <span class="math notranslate nohighlight">\(s_i\)</span> and a salt <span class="math notranslate nohighlight">\(r_i\)</span>, then reveals; the
-result combines every secret,</p>
+<p>Every computer in the network must compute the same result, so a contract
+cannot draw a secret random number. Everything it reads, everyone can
+read. Early lotteries drew from the previous block’s hash, and lost in two
+ways:</p>
+<ul class="simple">
+<li><p>An attacker’s contract read the same hash in the same block. It worked
+out the result first and played only when it would win.</p></li>
+<li><p>A miner could throw away a block whose hash it disliked and build
+another.</p></li>
+</ul>
+<p>A <em>commit-reveal</em> scheme, as in RANDAO (2016), splits the draw into two
+phases. It is like everyone writing a number in a sealed envelope before
+any envelope is opened.</p>
+<ol class="arabic simple">
+<li><p>Commit: each participant <span class="math notranslate nohighlight">\(i\)</span> picks a secret <span class="math notranslate nohighlight">\(s_i\)</span> and a
+random <em>salt</em> <span class="math notranslate nohighlight">\(r_i\)</span>, extra random bytes. They publish only the hash
+<span class="math notranslate nohighlight">\(c_i = H(\text{participant}, s_i, r_i)\)</span>, their <em>commitment</em>.</p></li>
+<li><p>Once every commitment is in, each participant reveals <span class="math notranslate nohighlight">\(s_i\)</span> and
+<span class="math notranslate nohighlight">\(r_i\)</span>.</p></li>
+<li><p>The contract recomputes each hash and checks it against <span class="math notranslate nohighlight">\(c_i\)</span>.</p></li>
+<li><p>The result combines every secret:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[R = s_1 \oplus s_2 \oplus \dots \oplus s_n,\]</div>
-<p>so nobody can choose a secret after seeing the others. The last revealer
-still sees R first and may withhold, which penalties and, later,
-verifiable delay functions address.</p>
+<p>Here <span class="math notranslate nohighlight">\(\oplus\)</span> is XOR (<code class="docutils literal notranslate"><span class="pre">^</span></code> in Python). If even one secret is random
+and was fixed without seeing the others, R is uniformly random.</p>
+<p>Why it works, and its limits:</p>
+<ul class="simple">
+<li><p>Nobody can choose a secret after seeing the others, since the hash fixes
+each secret before any is revealed.</p></li>
+<li><p>The salt stops anyone from guessing a small secret by hashing every
+possible value.</p></li>
+<li><p>Putting the participant’s address in the hash stops anyone copying
+another’s commitment.</p></li>
+<li><p>The last to reveal still sees R first, and may refuse to reveal. Fines
+for not revealing address this. So, later, did <em>verifiable delay
+functions</em>: computations that take a known long time even on many
+computers, so that nobody can learn R before the deadline.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.randomness.BlockhashLottery" title="blockchainkit.contracts.systems.randomness.BlockhashLottery"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.randomness.BlockhashLottery</span></code></a>
 and <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.randomness.LotteryPredictor" title="blockchainkit.contracts.systems.randomness.LotteryPredictor"><code class="xref py py-class docutils literal notranslate"><span class="pre">LotteryPredictor</span></code></a>,
 and <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.randomness.CommitRevealLottery" title="blockchainkit.contracts.systems.randomness.CommitRevealLottery"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommitRevealLottery</span></code></a>
@@ -758,16 +1059,30 @@ randomness source</em>, IACR Cryptology ePrint Archive 2015/1015 (2015);
 </div></div></section>
 <section id="the-parity-multisig-hack-an-unprotected-initializer">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">2017 – The Parity Multisig Hack: An Unprotected Initializer</a><a class="headerlink" href="#the-parity-multisig-hack-an-unprotected-initializer" title="Link to this heading">#</a></h2>
-<p>Parity’s multisig wallets kept their logic in a shared library. Each wallet
-was a stub holding the ether and storage, forwarding unknown calls to the
-library with <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code>, which runs the library’s code on the
-wallet’s own storage. The library’s <code class="docutils literal notranslate"><span class="pre">initWallet</span></code> set the owners and the
-number of approvals needed, and nothing stopped a second call. On 19 July
-2017 an attacker called it through three wallets, became each one’s sole
-owner, and withdrew 153,037 ether:</p>
+<p>A <em>multisig</em> (multi-signature) wallet is a contract that holds ether and
+moves it only when enough of its owners approve, say 2 of 3. Parity made
+such wallets. To save on deployment costs, every wallet shared one copy of
+the code, a <em>library</em>.</p>
+<p>Each wallet was a small <em>stub</em>. It held the ether and the storage, and
+forwarded every call it did not recognize to the library with
+<code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code>. <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> runs another contract’s code on the
+caller’s own storage. In Python terms, it is like calling a method of one
+class on an object of another: <code class="docutils literal notranslate"><span class="pre">Library.init_wallet(wallet,</span> <span class="pre">...)</span></code> runs the
+library’s code, but changes <code class="docutils literal notranslate"><span class="pre">wallet</span></code>’s attributes.</p>
+<p>The library’s <code class="docutils literal notranslate"><span class="pre">initWallet</span></code> set the owners and the number of approvals
+needed. It was meant to run once, at creation. Nothing stopped a second
+call. On 19 July 2017 an attacker:</p>
+<ol class="arabic simple">
+<li><p>called <code class="docutils literal notranslate"><span class="pre">initWallet</span></code> on three wallets. Each stub forwarded the call to
+the library, which ran on the wallet’s storage;</p></li>
+<li><p>named itself the sole owner;</p></li>
+<li><p>withdrew 153,037 ether.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\text{owners} \leftarrow \text{the last caller of } \texttt{initWallet}.\]</div>
-<p>A white-hat group then drained other vulnerable wallets to protect them.</p>
+<p>In words: whoever called the setup function last owned the wallet.</p>
+<p>A <em>white-hat</em> group, hackers acting to protect users, then drained other
+vulnerable wallets themselves to keep the ether safe.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.wallets.WalletLibrary" title="blockchainkit.contracts.systems.wallets.WalletLibrary"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.wallets.WalletLibrary</span></code></a>
 and <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.wallets.Wallet" title="blockchainkit.contracts.systems.wallets.Wallet"><code class="xref py py-class docutils literal notranslate"><span class="pre">Wallet</span></code></a> are m-of-n
 wallets approved by this package’s Schnorr signatures
@@ -783,18 +1098,33 @@ OpenZeppelin (2017).</p>
 </div></div></section>
 <section id="the-parity-library-freeze-selfdestruct-behind-delegatecall">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">2017 – The Parity Library Freeze: Selfdestruct behind DELEGATECALL</a><a class="headerlink" href="#the-parity-library-freeze-selfdestruct-behind-delegatecall" title="Link to this heading">#</a></h2>
-<p>The fixed library let <code class="docutils literal notranslate"><span class="pre">initWallet</span></code> run only on uninitialized storage, but
-the library was itself a contract with storage, and nobody had initialized
-it. On 6 November 2017 a user called <code class="docutils literal notranslate"><span class="pre">initWallet</span></code> on the library directly,
-became its owner, and called <code class="docutils literal notranslate"><span class="pre">kill</span></code>, which executed <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code>. A
-<code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> to an address without code does not fail; it runs nothing
-and succeeds. Every wallet built on the library kept its ether and lost
-every function that could move it, freezing 513,774 ether:</p>
+<p>Parity fixed <code class="docutils literal notranslate"><span class="pre">initWallet</span></code> so that it ran only on storage that had not yet
+been set up. But the library was itself a contract with its own storage,
+and nobody had ever set that storage up. <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code> is an instruction
+that deletes the contract running it.</p>
+<p>On 6 November 2017 a user:</p>
+<ol class="arabic simple">
+<li><p>called <code class="docutils literal notranslate"><span class="pre">initWallet</span></code> on the library directly, not through a wallet;</p></li>
+<li><p>became the library’s owner;</p></li>
+<li><p>called its <code class="docutils literal notranslate"><span class="pre">kill</span></code> function, which executed <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code>. The
+library’s code was gone.</p></li>
+</ol>
+<p>A <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> to an address without code does not fail. It runs
+nothing and reports success. So every wallet built on the library kept its
+ether, but lost every function that could move it. 513,774 ether was
+frozen.</p>
 <div class="math notranslate nohighlight">
 \[\texttt{DELEGATECALL}(\text{empty account}) \;\Rightarrow\; \text{success, no effect}.\]</div>
-<p>Code reached by <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> is part of every caller, so libraries are
-now written without state and without <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code>, and EIP-6780 (2024)
-has since restricted <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code> itself.</p>
+<p>In words: calling into deleted code is not an error; it silently does
+nothing.</p>
+<p>The lessons:</p>
+<ul class="simple">
+<li><p>Code reached by <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> is part of every contract that calls it.</p></li>
+<li><p>Libraries are therefore now written without state of their own and
+without <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code>.</p></li>
+<li><p>EIP-6780 (2024), a change to Ethereum’s rules, has since restricted
+<code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code> itself.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.wallets.PatchedWalletLibrary" title="blockchainkit.contracts.systems.wallets.PatchedWalletLibrary"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.wallets.PatchedWalletLibrary</span></code></a>
 on the same wallet stub. <code class="docutils literal notranslate"><span class="pre">selfdestruct</span></code> here removes the code at once
 rather than at the end of the transaction.</p>
@@ -806,18 +1136,32 @@ library self-destruct</em> (15 November 2017).</p>
 </div></div></section>
 <section id="erc-721-non-fungible-tokens">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">2018 – ERC-721 Non-Fungible Tokens</a><a class="headerlink" href="#erc-721-non-fungible-tokens" title="Link to this heading">#</a></h2>
-<p>ERC-721 gave each token an identity: a map from token ids to owners rather
-than a balance per owner,</p>
+<p>ERC-20 tokens are interchangeable, like coins. Collectibles, game items
+and property titles are not: each one is distinct. CryptoKitties, a game of
+collectible cats, had shown the demand in late 2017.</p>
+<p>ERC-721 gave each token an identity, a token id, creating the <em>non-fungible
+token</em> (NFT). The contract keeps a dict
+from token ids to owners, rather than a balance per owner:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{owner}: \mathrm{id} \mapsto \mathrm{address}, \qquad
 \mathrm{balance}(a) = |\{\mathrm{id} : \mathrm{owner}(\mathrm{id}) = a\}|,\]</div>
-<p>so that collectibles, game items and titles could be held and traded like
-coins; CryptoKitties had shown the demand in late 2017. Tokens sent to a
-contract that cannot move them are lost, so <code class="docutils literal notranslate"><span class="pre">safeTransferFrom</span></code> calls
-<code class="docutils literal notranslate"><span class="pre">onERC721Received</span></code> on a contract recipient and reverts unless it answers
-with the agreed value. That callback is itself an external call in the
-middle of a transfer, and several NFT mints were later drained through it
-by reentrancy.</p>
+<p>In words: <code class="docutils literal notranslate"><span class="pre">owner</span></code> is a dict <code class="docutils literal notranslate"><span class="pre">{id:</span> <span class="pre">address}</span></code>, and an account’s balance
+is the number of ids it owns,
+<code class="docutils literal notranslate"><span class="pre">sum(1</span> <span class="pre">for</span> <span class="pre">o</span> <span class="pre">in</span> <span class="pre">owner.values()</span> <span class="pre">if</span> <span class="pre">o</span> <span class="pre">==</span> <span class="pre">a)</span></code>. Collectibles could then be
+held and traded like coins.</p>
+<p>Tokens sent to a contract that cannot move them are lost for good.
+<code class="docutils literal notranslate"><span class="pre">safeTransferFrom</span></code> guards against this:</p>
+<ol class="arabic simple">
+<li><p>It moves the token to the recipient.</p></li>
+<li><p>If the recipient is a contract, it calls the recipient’s
+<code class="docutils literal notranslate"><span class="pre">onERC721Received</span></code> method.</p></li>
+<li><p>It reverts unless the recipient answers with an agreed value, which
+proves that the recipient knows how to handle NFTs.</p></li>
+</ol>
+<p>That check has a cost. The callback is an external call in the middle of a
+transfer, which is exactly the setting for reentrancy. Several NFT
+mints (sales of newly created tokens) were later drained through it: the
+recipient called back into the mint and took more tokens than allowed.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.tokens.ERC721" title="blockchainkit.contracts.systems.tokens.ERC721"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.tokens.ERC721</span></code></a>
 and <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.tokens.NFTVault" title="blockchainkit.contracts.systems.tokens.NFTVault"><code class="xref py py-class docutils literal notranslate"><span class="pre">NFTVault</span></code></a>. There is no
 metadata or enumeration extension, no operator approval for all tokens,
@@ -831,18 +1175,39 @@ Non-fungible token standard</em> (2018).
 </div></div></section>
 <section id="upgradeable-proxies-and-storage-collisions">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">2018 – Upgradeable Proxies and Storage Collisions</a><a class="headerlink" href="#upgradeable-proxies-and-storage-collisions" title="Link to this heading">#</a></h2>
-<p>Deployed code cannot change, so upgradeable contracts split into a <em>proxy</em>
-that holds the address and storage and forwards every call by
-<code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> to an <em>implementation</em> that holds the code; upgrading
-re-points the proxy. EIP-897 (2018) standardized such proxies. Both
-contracts then read one storage through two layouts, so a proxy field and
-an implementation field in the same slot overwrite each other: a <em>storage
-collision</em>, behind the 2022 Audius hack among others. EIP-1967 moves the
-proxy’s fields to slots derived from a hash,</p>
+<p>Deployed code cannot change, so a bug in a contract is permanent. To make a
+contract upgradeable, developers split it in two:</p>
+<ul class="simple">
+<li><p>a <em>proxy</em>, which holds the address, the ether and the storage;</p></li>
+<li><p>an <em>implementation</em>, which holds the code.</p></li>
+</ul>
+<p>It works like this:</p>
+<ol class="arabic simple">
+<li><p>A user calls the proxy.</p></li>
+<li><p>The proxy forwards every call by <code class="docutils literal notranslate"><span class="pre">DELEGATECALL</span></code> to the implementation.
+The implementation’s code then runs on the proxy’s storage.</p></li>
+<li><p>To upgrade, the owner points the proxy at a new implementation. The
+address and the data stay the same.</p></li>
+</ol>
+<p>EIP-897 (2018) standardized such proxies.</p>
+<p>Storage is a numbered row of 32-byte <em>slots</em>, like a list. Each contract
+gives its fields slots in order: the first field gets slot 0, the next
+slot 1, and so on. The proxy and the implementation now read one storage
+through two different layouts. A proxy field, such as “address of the
+implementation”, and an implementation field in the same slot overwrite
+each other. This is a <em>storage collision</em>. It was behind the 2022 Audius
+hack, among others.</p>
+<p>EIP-1967 moves the proxy’s own fields to slots computed from a hash:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{slot} = H(\texttt{&quot;eip1967.proxy.implementation&quot;}) - 1,\]</div>
-<p>and new implementation versions must keep old fields in place and only
-append.</p>
+<p>In words: hash a fixed string and subtract one. The result is a
+random-looking number between 0 and <span class="math notranslate nohighlight">\(2^{256}\)</span>. Ordinary fields use
+slots 0, 1, 2, …, so they will never reach it. Subtracting one ensures
+that the slot is not the hash of any known input, so no other hashed slot
+lands on it either.</p>
+<p>The second rule: a new implementation must keep the old fields where they
+are and only add new fields at the end. Reordering them makes the new code
+read the old data in the wrong slots.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.proxies.NaiveProxy" title="blockchainkit.contracts.systems.proxies.NaiveProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.proxies.NaiveProxy</span></code></a>,
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.proxies.EIP1967Proxy" title="blockchainkit.contracts.systems.proxies.EIP1967Proxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">EIP1967Proxy</span></code></a>, and the
 implementations <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.proxies.BoxV1" title="blockchainkit.contracts.systems.proxies.BoxV1"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoxV1</span></code></a>,
@@ -860,18 +1225,35 @@ hashes, and the hashed slots use SHA-256.</p>
 </div></div></section>
 <section id="create2-and-counterfactual-addresses">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">2019 – CREATE2 and Counterfactual Addresses</a><a class="headerlink" href="#create2-and-counterfactual-addresses" title="Link to this heading">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">CREATE</span></code> derives a new contract’s address from its deployer and the
-deployer’s nonce, so the address depends on the deployer’s history.
-EIP-1014, activated in the Constantinople upgrade of February 2019, added
+<p>The old <code class="docutils literal notranslate"><span class="pre">CREATE</span></code> instruction gives a new contract an address computed
+from two things: the deployer’s address and the deployer’s <em>nonce</em>. The
+nonce is a counter of how many transactions (or, for a contract, how many
+contracts) the deployer has made so far. So the address depends on the
+deployer’s history, and is hard to predict.</p>
+<p>EIP-1014, activated in the Constantinople upgrade of February 2019, added
 <code class="docutils literal notranslate"><span class="pre">CREATE2</span></code>:</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{address} = H(\mathtt{0xff} \,\|\, \mathrm{deployer} \,\|\,
 \mathrm{salt} \,\|\, H(\mathrm{init\ code}))_{[12:]}.\]</div>
-<p>The address depends only on the deployer, a salt and the code, so it is
-known before deployment, and funds can be sent to a contract that does not
-exist yet: it is <em>counterfactual</em>. State channels deploy their dispute
-contracts only when a dispute happens, and smart-contract wallets are
-deployed on first use at the address their owner has already been using.</p>
+<p>In words: hash a fixed byte, the deployer, a chosen number (the <em>salt</em>)
+and the hash of the code that sets up the contract (the <em>init code</em>). Keep
+the last 20 bytes of the 32-byte result, <code class="docutils literal notranslate"><span class="pre">digest[12:]</span></code> in Python.</p>
+<p>Nothing in the formula depends on the past, so the address is known before
+the contract exists. That has a striking consequence:</p>
+<ol class="arabic simple">
+<li><p>Compute the address from the deployer, salt and code.</p></li>
+<li><p>Send funds to that address, though no contract is there yet.</p></li>
+<li><p>Deploy the contract later, only if it is needed. It appears at exactly
+that address and finds the funds waiting.</p></li>
+</ol>
+<p>Such a contract is <em>counterfactual</em>: it acts as if it existed before it
+does. Two uses:</p>
+<ul class="simple">
+<li><p><em>State channels</em>, where two parties trade signed updates off the chain,
+deploy their dispute contract only when a dispute actually happens.</p></li>
+<li><p>Smart-contract wallets are deployed on first use, at the address their
+owner has already been receiving money on.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.create2_address" title="blockchainkit.contracts.systems.world.create2_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.world.create2_address()</span></code></a>,
 the <code class="docutils literal notranslate"><span class="pre">salt</span></code> of <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World.deploy" title="blockchainkit.contracts.systems.world.World.deploy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">deploy()</span></code></a>
 and <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.Contract.create" title="blockchainkit.contracts.systems.world.Contract.create"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create()</span></code></a>, and
@@ -886,17 +1268,38 @@ constructor arguments.</p>
 </div></div></section>
 <section id="property-based-fuzzing-of-contracts-echidna">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">2020 – Property-Based Fuzzing of Contracts: Echidna</a><a class="headerlink" href="#property-based-fuzzing-of-contracts-echidna" title="Link to this heading">#</a></h2>
-<p>QuickCheck (Claessen and Hughes, 2000) tested a function by checking a
-stated property on many random inputs and shrinking any failure to a small
-one. Echidna, from Trail of Bits, applies this to contracts: the author
-writes properties such as</p>
+<p>Unit tests check the cases their author thought of. Bugs live in the cases
+nobody thought of.</p>
+<p>QuickCheck (Claessen and Hughes, 2000) introduced <em>property-based
+testing</em>. Instead of writing single cases, the author states a property
+that must always hold, and the tool tries it on many random inputs. When it
+finds a failure, it <em>shrinks</em> it: it simplifies the input step by step
+while the failure persists, to report the smallest one. Python’s
+<code class="docutils literal notranslate"><span class="pre">hypothesis</span></code> library works this way.</p>
+<p>Echidna, from Trail of Bits, applies this to contracts. It is a <em>fuzzer</em>: a
+tool that feeds a program random inputs to make it fail.</p>
+<ol class="arabic simple">
+<li><p>The author writes properties, such as “the balances sum to the
+supply”.</p></li>
+<li><p>Echidna builds a random sequence of transactions, with random senders
+and arguments.</p></li>
+<li><p>It runs them one by one, checking the properties after each.</p></li>
+<li><p>On a failure, it shrinks the sequence and reports it.</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\forall\ \text{transaction sequences}: \quad \sum_a \mathrm{balance}(a) = \mathrm{supply},\]</div>
-<p>and the fuzzer sends random sequences of transactions, with random senders
-and arguments, checking the properties after each one. Fuzzing needs no
-model of the code and never reports a false bug, but finds only what random
-sequences reach; it is now run on most audited contracts, alongside Foundry
-and Medusa.</p>
+<p>In words: for every possible sequence of transactions, the balances of all
+accounts add up to the total supply.</p>
+<p>Strengths and limits:</p>
+<ul class="simple">
+<li><p>Fuzzing needs no model of the code.</p></li>
+<li><p>It never reports a false bug: every failure comes with a sequence that
+really breaks the property.</p></li>
+<li><p>It finds only what random sequences reach, so a bug behind one exact
+value can be missed.</p></li>
+<li><p>It is now run on most audited contracts, alongside the tools Foundry and
+Medusa.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.fuzzing.fuzz" title="blockchainkit.contracts.systems.fuzzing.fuzz"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.fuzzing.fuzz()</span></code></a> and
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.fuzzing.shrink" title="blockchainkit.contracts.systems.fuzzing.shrink"><code class="xref py py-func docutils literal notranslate"><span class="pre">shrink()</span></code></a>. Arguments are drawn
 uniformly from given candidates; Echidna also uses coverage feedback and
@@ -913,19 +1316,35 @@ testing of Haskell programs</em>, Proc. ICFP 2000, 268–279 (2000).
 </div></div></section>
 <section id="governance-attacks-beanstalk-s-flash-loan-vote">
 <h2><a class="toc-backref" href="#id17" role="doc-backlink">2022 – Governance Attacks: Beanstalk’s Flash-Loan Vote</a><a class="headerlink" href="#governance-attacks-beanstalk-s-flash-loan-vote" title="Link to this heading">#</a></h2>
-<p>A flash loan lends any amount without collateral on one condition: repay
-within the same transaction, or the whole transaction reverts. For one
-transaction anyone can be as rich as the lender. Beanstalk let holders pass
-a proposal at once by <code class="docutils literal notranslate"><span class="pre">emergencyCommit</span></code> with two thirds of the voting
-power, a day after it was proposed. On 17 April 2022 an attacker who had
-proposed sending the treasury to itself the day before borrowed about a
-billion dollars in flash loans, turned them into voting power, voted,
-committed, and repaid, keeping about 80 million dollars. The vote held
-because, within that single transaction,</p>
+<p>Some projects are run by <em>governance</em>: holders of a token vote on
+proposals, and a passed proposal runs automatically. A vote that counts
+balances at the moment of voting can be bought for the length of one
+transaction.</p>
+<p>A <em>flash loan</em> lends any amount, with no <em>collateral</em> (no security
+deposit), on one condition: repay within the same transaction, or the whole
+transaction reverts. It is like a <code class="docutils literal notranslate"><span class="pre">try</span></code> block where the lender’s money is
+handed back automatically if the loan is not repaid. For one transaction,
+anyone can be as rich as the lender.</p>
+<p>Beanstalk let holders pass a proposal at once, by <code class="docutils literal notranslate"><span class="pre">emergencyCommit</span></code>, with
+two thirds of the voting power, a day after it was proposed. On 17 April
+2022 an attacker:</p>
+<ol class="arabic simple">
+<li><p>the day before, proposed sending Beanstalk’s treasury, its pool of
+funds, to the attacker;</p></li>
+<li><p>borrowed about a billion dollars in flash loans;</p></li>
+<li><p>turned them into voting power;</p></li>
+<li><p>voted for the proposal and committed it, which sent the treasury out;</p></li>
+<li><p>repaid the loans, all in the same transaction, keeping about 80
+million dollars.</p></li>
+</ol>
+<p>The vote held because, within that single transaction,</p>
 <div class="math notranslate nohighlight">
 \[\frac{\text{borrowed} + \text{own}}{\text{supply}} \ge \frac{2}{3}.\]</div>
-<p>Counting votes at a <em>snapshot</em>, the balances at the block before the
-proposal, defeats it: no flash loan can change the past.</p>
+<p>In words: borrowed and owned tokens together made up at least two thirds
+of all voting power.</p>
+<p>The fix is to count votes at a <em>snapshot</em>: the balances in the block before
+the proposal was made. No flash loan can change the past, since the loan
+exists only inside a later transaction.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.governance.Governance" title="blockchainkit.contracts.systems.governance.Governance"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.contracts.systems.governance.Governance</span></code></a>
 with <code class="docutils literal notranslate"><span class="pre">snapshot</span></code> voting over
 <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.governance.VotesToken" title="blockchainkit.contracts.systems.governance.VotesToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">VotesToken</span></code></a>’s

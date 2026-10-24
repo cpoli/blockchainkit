@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.220356Z",
+      "created": "2026-10-24T08:04:53.410471Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.220356Z",
+      "last_modified": "2026-10-24T08:04:53.410471Z",
       "mimetype": null,
       "name": "plot_01_proxy_storage_collision.ipynb",
       "path": "jupyterlite_contents/api/gallery/contracts/upgrades/plot_01_proxy_storage_collision.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.220494Z",
+      "created": "2026-10-24T08:04:53.410596Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.220494Z",
+      "last_modified": "2026-10-24T08:04:53.410596Z",
       "mimetype": null,
       "name": "plot_02_create2_counterfactual.ipynb",
       "path": "jupyterlite_contents/api/gallery/contracts/upgrades/plot_02_create2_counterfactual.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.600172Z",
+  "created": "2026-10-24T08:04:54.691348Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.600466Z",
+  "last_modified": "2026-10-24T08:04:54.691634Z",
   "mimetype": null,
   "name": "upgrades",
   "path": "jupyterlite_contents/api/gallery/contracts/upgrades",

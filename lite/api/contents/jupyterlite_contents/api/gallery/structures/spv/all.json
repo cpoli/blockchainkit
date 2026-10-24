@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-04T19:00:13.228215Z",
+      "created": "2026-10-24T08:04:53.424572Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-04T19:00:13.228215Z",
+      "last_modified": "2026-10-24T08:04:53.424572Z",
       "mimetype": null,
       "name": "plot_01_light_clients.ipynb",
       "path": "jupyterlite_contents/api/gallery/structures/spv/plot_01_light_clients.ipynb",
@@ -15,11 +15,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-04T19:00:14.614152Z",
+  "created": "2026-10-24T08:04:54.718932Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-04T19:00:14.614227Z",
+  "last_modified": "2026-10-24T08:04:54.718996Z",
   "mimetype": null,
   "name": "spv",
   "path": "jupyterlite_contents/api/gallery/structures/spv",

@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -445,35 +467,84 @@ that the theorem is true.”
 – Shafi Goldwasser, Silvio Micali and Charles Rackoff, <em>The Knowledge
 Complexity of Interactive Proof-Systems</em>, 1985</p>
 </div></blockquote>
-<p>A blockchain asks every node to re-execute every transaction. Proof systems
-offer another bargain: one party does the work and writes a short proof,
-and everyone else checks the proof instead, quickly, and without learning
-the secrets behind it. <a class="reference internal" href="crypto_breakthroughs.html"><span class="doc">Breakthroughs in Cryptography</span></a> covers the beginning,
-zero-knowledge identification and the Fiat-Shamir heuristic. This
-chronology follows the argument from there in five steps:</p>
+<p>A blockchain is a shared record of transactions that thousands of computers
+(<em>nodes</em>) keep in step. It asks every node to re-run every transaction.
+<em>Proof systems</em> offer another bargain:</p>
+<ul class="simple">
+<li><p>One party, the <em>prover</em>, does the work and writes a short <em>proof</em> that the
+result is right.</p></li>
+<li><p>Everyone else, the <em>verifiers</em>, check the proof instead. Checking is quick.</p></li>
+<li><p>In a <em>zero-knowledge</em> proof, checking also reveals nothing about the secrets
+behind the result, only that it is right.</p></li>
+</ul>
+<p><a class="reference internal" href="crypto_breakthroughs.html"><span class="doc">Breakthroughs in Cryptography</span></a> covers the beginning: zero-knowledge
+identification, and the Fiat-Shamir heuristic, which replaces the verifier’s
+random questions by a hash of the conversation so far, so that the prover can
+write the whole proof alone. This chronology follows the argument from there
+in five steps:</p>
 <ol class="arabic simple">
-<li><p>Randomness lets a verifier check a polynomial identity, and through it a
-sum over exponentially many points, by evaluating at one random point
-(Schwartz-Zippel, sum-check, IP = PSPACE).</p></li>
-<li><p>A proof can be written so that reading a few random bits of it suffices
-(the PCP theorem), and committing to it with a Merkle tree makes it short
-enough to send (Kilian, Micali).</p></li>
-<li><p>Pairings let a verifier check a polynomial identity at a <em>secret</em> point,
-which gives constant-size proofs (KZG, QAPs, Groth16, PLONK), at the
-price of a trusted setup (the parameter ceremonies), and they made
-private payments practical (Zerocash).</p></li>
-<li><p>Hash functions alone can replace the setup, at the cost of larger proofs
-(FRI, STARKs).</p></li>
-<li><p>Discrete-logarithm groups can replace it too, with logarithmic proofs and,
-eventually, recursion (Bulletproofs, Halo).</p></li>
+<li><p><strong>Random checks.</strong> To test whether two polynomials are equal, evaluate
+both at one random point. Repeating the trick lets a verifier check a sum
+over exponentially many points (Schwartz-Zippel, sum-check, IP = PSPACE).</p></li>
+<li><p><strong>Spot checks of a written proof.</strong> A proof can be written so that reading
+a few random bits of it is enough (the PCP theorem). Committing to it with
+a Merkle tree makes it short enough to send (Kilian, Micali).</p></li>
+<li><p><strong>Checks at a secret point.</strong> Pairings let a verifier check a polynomial
+identity at a point nobody knows. That gives proofs of constant size (KZG,
+QAPs, Groth16, PLONK). The price is a <em>trusted setup</em>: someone must create
+the secret point and then destroy it (the parameter ceremonies). These
+proofs made private payments practical (Zerocash).</p></li>
+<li><p><strong>Hashes only.</strong> Hash functions alone can replace the setup, at the cost of
+larger proofs (FRI, STARKs).</p></li>
+<li><p><strong>Discrete-log groups.</strong> These can replace the setup too. They give proofs
+of logarithmic size and, eventually, proofs that check other proofs
+(Bulletproofs, Halo).</p></li>
 </ol>
+<p>The page uses a few conventions throughout:</p>
+<ul class="simple">
+<li><p>A <em>field</em> <span class="math notranslate nohighlight">\(\mathbb{F}\)</span> here means arithmetic modulo a prime <span class="math notranslate nohighlight">\(p\)</span>:
+the numbers <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">..</span> <span class="pre">p</span> <span class="pre">-</span> <span class="pre">1</span></code>, with every result reduced <code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">p</span></code>. Division by
+<span class="math notranslate nohighlight">\(a \ne 0\)</span> is multiplication by its <em>inverse</em> <code class="docutils literal notranslate"><span class="pre">pow(a,</span> <span class="pre">-1,</span> <span class="pre">p)</span></code>.
+<span class="math notranslate nohighlight">\(|\mathbb{F}|\)</span> is the number of elements, <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+<li><p>A <em>polynomial</em> is like a list of coefficients <code class="docutils literal notranslate"><span class="pre">c</span></code>. Evaluating it at
+<span class="math notranslate nohighlight">\(r\)</span> gives <code class="docutils literal notranslate"><span class="pre">sum(ci</span> <span class="pre">*</span> <span class="pre">r**i</span> <span class="pre">for</span> <span class="pre">i,</span> <span class="pre">ci</span> <span class="pre">in</span> <span class="pre">enumerate(c))</span> <span class="pre">%</span> <span class="pre">p</span></code>. Its
+<em>degree</em> is the highest power with a nonzero coefficient. A <em>root</em> is a
+point where it is zero.</p></li>
+<li><p>A <em>hash function</em> is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code>, but built so that nobody can
+find two inputs with the same output (a <em>collision</em>), or an input with a
+chosen output.</p></li>
+<li><p>A <em>commitment</em> is like a sealed envelope. The prover fixes a value now. The
+value stays hidden, and the prover cannot change it later.</p></li>
+<li><p>A <em>Merkle tree</em> commits to a list of values. Hash the values in pairs, then
+hash the results in pairs, and so on, up to a single hash, the <em>root</em>. To
+show one value, the prover gives its <em>authentication path</em>: the
+<span class="math notranslate nohighlight">\(\lceil \log_2 N \rceil\)</span> sibling hashes on the way up, from which
+anyone can recompute the root.</p></li>
+<li><p>A <em>group</em> here is a set of elements that can be combined (written
+<span class="math notranslate nohighlight">\(+\)</span>) and the combination undone. Fix an element <span class="math notranslate nohighlight">\(G\)</span>. Then
+<span class="math notranslate nohighlight">\([x]G\)</span> means <span class="math notranslate nohighlight">\(G\)</span> combined with itself <span class="math notranslate nohighlight">\(x\)</span> times. It is
+fast to compute, by the same repeated doubling as <code class="docutils literal notranslate"><span class="pre">pow(g,</span> <span class="pre">x,</span> <span class="pre">p)</span></code>. Going
+back from <span class="math notranslate nohighlight">\([x]G\)</span> to <span class="math notranslate nohighlight">\(x\)</span> is the <em>discrete logarithm</em> problem. In
+a large, well-chosen group nobody knows a fast way to solve it, so
+<span class="math notranslate nohighlight">\([x]G\)</span> <em>hides</em> <span class="math notranslate nohighlight">\(x\)</span>. Hidden values can still be added:
+<span class="math notranslate nohighlight">\([a]G + [b]G = [a + b]G\)</span>. Some entries write the same group
+multiplicatively, as <span class="math notranslate nohighlight">\(G^x\)</span>.</p></li>
+</ul>
+<p>Cryptographers measure strength in bits. A system has <em>b-bit security</em> if the
+best known attack needs about <span class="math notranslate nohighlight">\(2^b\)</span> basic operations.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(2^{64} \approx 1.8 \times 10^{19}\)</span> operations is within reach of a
+large cluster in days.</p></li>
+<li><p><span class="math notranslate nohighlight">\(2^{128} \approx 3.4 \times 10^{38}\)</span> is not. Even the whole Bitcoin
+mining network, the largest computation on Earth, would need roughly the
+age of the universe.</p></li>
+</ul>
 <p>The models in <a class="reference internal" href="../api/proofs.html#module-blockchainkit.proofs" title="blockchainkit.proofs"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.proofs</span></code></a> work over the BabyBear field
-(<span class="math notranslate nohighlight">\(p = 15 \cdot 2^{27} + 1\)</span>), a 35-bit toy pairing curve, and the
-62-bit teaching group of <a class="reference internal" href="../api/crypto.html#module-blockchainkit.crypto" title="blockchainkit.crypto"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.crypto</span></code></a>. Every number is small
-enough to print, and the setup secrets of the pairing curve can be
-recovered by brute force, which shows concretely why they must be
-destroyed. <a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists where the models depart from deployed
-systems.</p>
+(<span class="math notranslate nohighlight">\(p = 15 \cdot 2^{27} + 1\)</span>, about two billion), a 35-bit toy pairing
+curve, and the 62-bit teaching group of <a class="reference internal" href="../api/crypto.html#module-blockchainkit.crypto" title="blockchainkit.crypto"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.crypto</span></code></a>. Every
+number is small enough to print. The setup secrets of the pairing curve can be
+recovered by brute force. That shows concretely why they must be destroyed.
+<a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists where the models depart from deployed systems.</p>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
 <ul class="simple">
@@ -497,25 +568,46 @@ systems.</p>
 </nav>
 <section id="the-schwartz-zippel-lemma-polynomial-identities-at-random-points">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1980 – The Schwartz-Zippel Lemma: Polynomial Identities at Random Points</a><a class="headerlink" href="#the-schwartz-zippel-lemma-polynomial-identities-at-random-points" title="Link to this heading">#</a></h2>
-<p>Deciding whether two arithmetic expressions define the same polynomial
-can take exponential time if one expands them. Schwartz, and independently
-Zippel and DeMillo and Lipton, observed that a nonzero polynomial cannot
-vanish at many points: if <span class="math notranslate nohighlight">\(f\)</span> is nonzero with total degree <span class="math notranslate nohighlight">\(d\)</span>
-over a field <span class="math notranslate nohighlight">\(\mathbb{F}\)</span> and <span class="math notranslate nohighlight">\(S \subseteq \mathbb{F}\)</span> is
-finite, then for <span class="math notranslate nohighlight">\(r_1, \dots, r_n\)</span> drawn uniformly from <span class="math notranslate nohighlight">\(S\)</span>,</p>
+<p>Are two formulas, such as <span class="math notranslate nohighlight">\((x + y)^{20}\)</span> and a long expanded sum, the
+same polynomial? Expanding them can take exponential time.</p>
+<p>Schwartz, and independently Zippel and DeMillo and Lipton, observed that a
+nonzero polynomial cannot be zero at many points. Precisely:</p>
+<ul class="simple">
+<li><p>let <span class="math notranslate nohighlight">\(f\)</span> be a nonzero polynomial in <span class="math notranslate nohighlight">\(n\)</span> variables over a field
+<span class="math notranslate nohighlight">\(\mathbb{F}\)</span>;</p></li>
+<li><p>let its <em>total degree</em> be <span class="math notranslate nohighlight">\(d\)</span>: the largest sum of exponents in any
+term, so <span class="math notranslate nohighlight">\(x^2 y\)</span> has total degree 3;</p></li>
+<li><p>let <span class="math notranslate nohighlight">\(S\)</span> be a finite set of field elements;</p></li>
+<li><p>draw <span class="math notranslate nohighlight">\(r_1, \dots, r_n\)</span> uniformly at random from <span class="math notranslate nohighlight">\(S\)</span>.</p></li>
+</ul>
+<p>Then</p>
 <div class="math notranslate nohighlight">
 \[\Pr\left[f(r_1, \dots, r_n) = 0\right] \le \frac{d}{|S|}.\]</div>
-<p>For one variable this is the familiar fact that a nonzero polynomial of
-degree <span class="math notranslate nohighlight">\(d\)</span> has at most <span class="math notranslate nohighlight">\(d\)</span> roots. Now apply it to
-<span class="math notranslate nohighlight">\(f = g - h\)</span>. If <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> are the same polynomial they
-agree everywhere; if they differ, <span class="math notranslate nohighlight">\(f\)</span> is nonzero, so they agree at a
-random point with probability at most <span class="math notranslate nohighlight">\(d/|S|\)</span>. One evaluation of
-each side therefore decides equality, with an error that a large field
-makes negligible. This is the single probabilistic fact behind every
-succinct proof system below: each reduces its claim to a polynomial
-identity and checks it at a point the prover could not predict, because a
-prover who knew the point in advance could make a false identity hold
-there.</p>
+<p>In words: a random point is a root with probability at most the degree divided
+by the number of choices. For one variable this is the familiar fact that a
+nonzero polynomial of degree <span class="math notranslate nohighlight">\(d\)</span> has at most <span class="math notranslate nohighlight">\(d\)</span> roots.</p>
+<p>To test whether <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> are equal:</p>
+<ol class="arabic simple">
+<li><p>Pick a random point <span class="math notranslate nohighlight">\(r\)</span>.</p></li>
+<li><p>Evaluate both sides there.</p></li>
+<li><p>Accept if <span class="math notranslate nohighlight">\(g(r) = h(r)\)</span>.</p></li>
+</ol>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>Apply the lemma to <span class="math notranslate nohighlight">\(f = g - h\)</span>. If <span class="math notranslate nohighlight">\(g\)</span> and <span class="math notranslate nohighlight">\(h\)</span> are the
+same polynomial, they agree everywhere.</p></li>
+<li><p>If they differ, <span class="math notranslate nohighlight">\(f\)</span> is nonzero. So they agree at a random point with
+probability at most <span class="math notranslate nohighlight">\(d/|S|\)</span>.</p></li>
+<li><p>One evaluation of each side therefore decides equality. A large field makes
+the error <em>negligible</em>: so small that it never happens in practice. With
+<span class="math notranslate nohighlight">\(d = 100\)</span> over a <span class="math notranslate nohighlight">\(2^{256}\)</span>-element field it is below
+<span class="math notranslate nohighlight">\(2^{-249}\)</span>.</p></li>
+<li><p>This is the single probabilistic fact behind every <em>succinct</em> (short,
+fast-to-check) proof system below. Each reduces its claim to a polynomial
+identity and checks it at a point the prover could not predict.</p></li>
+<li><p>The point must be unpredictable. A prover who knew it in advance could make
+a false identity hold there.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.identity.identity_test" title="blockchainkit.proofs.systems.identity.identity_test"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.identity.identity_test()</span></code></a>
 and <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.identity.schwartz_zippel_bound" title="blockchainkit.proofs.systems.identity.schwartz_zippel_bound"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.identity.schwartz_zippel_bound()</span></code></a>, on
 top of the polynomial arithmetic of <a class="reference internal" href="../api/proofs.html#module-blockchainkit.proofs.utils.polynomials" title="blockchainkit.proofs.utils.polynomials"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.proofs.utils.polynomials</span></code></a>.
@@ -533,32 +625,61 @@ verification of polynomial identities</em>, Journal of the ACM 27(4), 701–717
 </div></div></section>
 <section id="the-sum-check-protocol">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1990 – The Sum-Check Protocol</a><a class="headerlink" href="#the-sum-check-protocol" title="Link to this heading">#</a></h2>
-<p>Lund, Fortnow, Karloff and Nisan used this fact to let a verifier check a
-claimed sum <span class="math notranslate nohighlight">\(H = \sum_{b \in \{0,1\}^n} f(b)\)</span> over all <span class="math notranslate nohighlight">\(2^n\)</span>
-points of the Boolean cube while evaluating <span class="math notranslate nohighlight">\(f\)</span> at a single point.
-The idea is to strip off one variable per round. In round <span class="math notranslate nohighlight">\(i\)</span> the
-prover sends the univariate polynomial</p>
+<p>A prover claims a sum over <span class="math notranslate nohighlight">\(2^n\)</span> points. Can a verifier check it
+without computing all <span class="math notranslate nohighlight">\(2^n\)</span> terms?</p>
+<p>The <em>Boolean cube</em> <span class="math notranslate nohighlight">\(\{0,1\}^n\)</span> is the set of all <span class="math notranslate nohighlight">\(n\)</span>-bit
+strings, <code class="docutils literal notranslate"><span class="pre">itertools.product((0,</span> <span class="pre">1),</span> <span class="pre">repeat=n)</span></code>. Lund, Fortnow, Karloff and
+Nisan used the previous fact to let a verifier check a claimed sum
+<span class="math notranslate nohighlight">\(H = \sum_{b \in \{0,1\}^n} f(b)\)</span> over all <span class="math notranslate nohighlight">\(2^n\)</span> points of the
+cube, while evaluating <span class="math notranslate nohighlight">\(f\)</span> at a single point. The idea is to strip off
+one variable per round. In round <span class="math notranslate nohighlight">\(i\)</span> the prover sends the <em>univariate</em>
+polynomial (a polynomial in one variable <span class="math notranslate nohighlight">\(X\)</span>)</p>
 <div class="math notranslate nohighlight">
 \[g_i(X) = \sum_{b_{i+1}, \dots, b_n \in \{0, 1\}} f(r_1, \dots, r_{i-1}, X, b_{i+1}, \dots, b_n),\]</div>
-<p>in which the earlier variables are fixed to the verifier’s past challenges
-and the later ones are summed out. The verifier checks that it is
-consistent with the previous claim, <span class="math notranslate nohighlight">\(g_i(0) + g_i(1) = g_{i-1}(r_{i-1})\)</span>
-(with <span class="math notranslate nohighlight">\(g_0(r_0) = H\)</span>), and replies with a random <span class="math notranslate nohighlight">\(r_i\)</span>; the new
-claim is the value <span class="math notranslate nohighlight">\(g_i(r_i)\)</span>. After <span class="math notranslate nohighlight">\(n\)</span> rounds every variable
-is fixed, and the verifier compares <span class="math notranslate nohighlight">\(g_n(r_n)\)</span> with one evaluation
-<span class="math notranslate nohighlight">\(f(r_1, \dots, r_n)\)</span>.</p>
-<p>Soundness follows round by round. If the claim entering a round is false,
-the true <span class="math notranslate nohighlight">\(g_i\)</span> fails the consistency check, so a prover that passes
-must send some other polynomial. Two distinct polynomials of degree at most
-<span class="math notranslate nohighlight">\(d\)</span> (the degree of <span class="math notranslate nohighlight">\(f\)</span> in each variable) agree at no more than
-<span class="math notranslate nohighlight">\(d\)</span> points, so the random <span class="math notranslate nohighlight">\(r_i\)</span> exposes the lie with
-probability at least <span class="math notranslate nohighlight">\(1 - d/|\mathbb{F}|\)</span>; otherwise the prover
-carries a false claim into the next round. Over <span class="math notranslate nohighlight">\(n\)</span> rounds a false
-sum survives with probability at most <span class="math notranslate nohighlight">\(nd/|\mathbb{F}|\)</span>. Taking
-<span class="math notranslate nohighlight">\(f\)</span> to be the arithmetization of a Boolean formula, the sum counts its
-satisfying assignments, so even counting (#SAT, believed far harder than
-NP) has a short interactive proof. Sum-check is now the core of GKR,
-Spartan, Lasso and Jolt.</p>
+<p>In words: the earlier variables are fixed to the verifier’s past random
+challenges <span class="math notranslate nohighlight">\(r_1, \dots, r_{i-1}\)</span>, variable <span class="math notranslate nohighlight">\(i\)</span> is left free, and
+the later ones are summed out over 0 and 1. Each round then runs:</p>
+<ol class="arabic simple">
+<li><p>The prover sends <span class="math notranslate nohighlight">\(g_i\)</span>.</p></li>
+<li><p>The verifier checks that it is consistent with the previous claim:
+<span class="math notranslate nohighlight">\(g_i(0) + g_i(1) = g_{i-1}(r_{i-1})\)</span>. In round 1 the previous claim
+is <span class="math notranslate nohighlight">\(H\)</span> itself (write <span class="math notranslate nohighlight">\(g_0(r_0) = H\)</span>).</p></li>
+<li><p>The verifier replies with a random field element <span class="math notranslate nohighlight">\(r_i\)</span>.</p></li>
+<li><p>The new claim is the value <span class="math notranslate nohighlight">\(g_i(r_i)\)</span>.</p></li>
+</ol>
+<p>After <span class="math notranslate nohighlight">\(n\)</span> rounds every variable is fixed. The verifier compares
+<span class="math notranslate nohighlight">\(g_n(r_n)\)</span> with one evaluation <span class="math notranslate nohighlight">\(f(r_1, \dots, r_n)\)</span>.</p>
+<p>Why it is <em>sound</em> (a false claim is caught):</p>
+<ul class="simple">
+<li><p>Soundness follows round by round. If the claim entering a round is false,
+the true <span class="math notranslate nohighlight">\(g_i\)</span> fails the consistency check. So a prover that passes
+must send some other polynomial.</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(d\)</span> be the degree of <span class="math notranslate nohighlight">\(f\)</span> in each variable. Two distinct
+polynomials of degree at most <span class="math notranslate nohighlight">\(d\)</span> agree at no more than <span class="math notranslate nohighlight">\(d\)</span>
+points. So the random <span class="math notranslate nohighlight">\(r_i\)</span> exposes the lie with probability at least
+<span class="math notranslate nohighlight">\(1 - d/|\mathbb{F}|\)</span>. Otherwise the prover carries a false claim into
+the next round.</p></li>
+<li><p>Over <span class="math notranslate nohighlight">\(n\)</span> rounds a false sum survives with probability at most
+<span class="math notranslate nohighlight">\(nd/|\mathbb{F}|\)</span>.</p></li>
+</ul>
+<p>Why it matters:</p>
+<ul class="simple">
+<li><p>A <em>Boolean formula</em> is like a Python expression of <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> and
+<code class="docutils literal notranslate"><span class="pre">not</span></code> over <code class="docutils literal notranslate"><span class="pre">bool</span></code> variables. <em>Arithmetization</em> turns it into a
+polynomial that equals 1 when the formula is true and 0 when false:
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code> becomes <span class="math notranslate nohighlight">\(xy\)</span>, <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code> becomes <span class="math notranslate nohighlight">\(1 - x\)</span>.</p></li>
+<li><p>Take <span class="math notranslate nohighlight">\(f\)</span> to be the arithmetization of a formula. Then the sum counts
+its <em>satisfying assignments</em>: the inputs that make it true.</p></li>
+<li><p>So even counting has a short interactive proof. Counting (#SAT) is believed
+far harder than NP, the class of problems whose solutions are quick to check
+once found, like a filled-in sudoku.</p></li>
+<li><p>Sum-check is now the core of GKR, Spartan, Lasso and Jolt, modern proof
+systems for general computations.</p></li>
+</ul>
+<p>The model writes formulas in <em>CNF</em>: an AND of clauses, each an OR of
+variables or their negations. Its <em>multilinear extension</em> is the unique
+polynomial of degree at most one in each variable that matches given values on
+the cube.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.sumcheck.sumcheck" title="blockchainkit.proofs.systems.sumcheck.sumcheck"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.sumcheck.sumcheck()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.sumcheck.verify_sumcheck" title="blockchainkit.proofs.systems.sumcheck.verify_sumcheck"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.sumcheck.verify_sumcheck()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.sumcheck.multilinear_extension" title="blockchainkit.proofs.systems.sumcheck.multilinear_extension"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.sumcheck.multilinear_extension()</span></code></a>, with
@@ -575,29 +696,52 @@ methods for interactive proof systems</em>, Journal of the ACM 39(4), 859–868
 </div></div></section>
 <section id="shamir-s-ip-pspace">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1990 – Shamir’s IP = PSPACE</a><a class="headerlink" href="#shamir-s-ip-pspace" title="Link to this heading">#</a></h2>
-<p>A few weeks after sum-check, Shamir proved that interactive proofs capture
-exactly the problems solvable in polynomial space. One direction is easy: a
-polynomial-space machine can try every strategy of the verifier. For the
-other, it suffices to prove the truth of a fully quantified Boolean formula
-(TQBF), which is complete for PSPACE. On the values 0 and 1, “for all” is
-an AND and “there exists” an OR, so both become polynomials,</p>
+<p>How much can a quick, randomized verifier be convinced of by talking to an
+all-powerful prover?</p>
+<p>Two classes of problems matter here:</p>
+<ul class="simple">
+<li><p><strong>IP</strong> (<em>interactive proofs</em>): problems where a prover can convince a
+randomized verifier that runs in polynomial time, by exchanging messages.</p></li>
+<li><p><strong>PSPACE</strong>: problems solvable with a polynomial amount of memory, however
+long the computation takes.</p></li>
+</ul>
+<p>A few weeks after sum-check, Shamir proved that the two are equal. One
+direction is easy. A polynomial-space machine can explore every possible
+conversation with the verifier, one at a time, and so work out whether a
+prover could win.</p>
+<p>For the other direction, it suffices to prove the truth of a <em>fully quantified
+Boolean formula</em> (TQBF). Such a formula puts “for all” (<span class="math notranslate nohighlight">\(\forall\)</span>) or
+“there exists” (<span class="math notranslate nohighlight">\(\exists\)</span>) in front of every variable. For example,
+<span class="math notranslate nohighlight">\(\forall x\, \exists y\, (x \ne y)\)</span> is
+<code class="docutils literal notranslate"><span class="pre">all(any(x</span> <span class="pre">!=</span> <span class="pre">y</span> <span class="pre">for</span> <span class="pre">y</span> <span class="pre">in</span> <span class="pre">(0,</span> <span class="pre">1))</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">(0,</span> <span class="pre">1))</span></code>. Every PSPACE problem
+can be rewritten as such a formula (TQBF is <em>complete</em> for PSPACE).</p>
+<p>On the values 0 and 1, “for all” is an AND and “there exists” an OR. So both
+become polynomials:</p>
 <div class="math notranslate nohighlight">
 \[\forall_i f = f|_{x_i = 0} \cdot f|_{x_i = 1}, \qquad
 \exists_i f = 1 - \left(1 - f|_{x_i = 0}\right)\left(1 - f|_{x_i = 1}\right),\]</div>
-<p>and the prover peels the operators off one at a time as in sum-check, with
-products in place of sums. The obstacle is degree: each product doubles
-it, so after <span class="math notranslate nohighlight">\(n\)</span> quantifiers the prover would send polynomials of
-degree <span class="math notranslate nohighlight">\(2^n\)</span>, too long to send and too high for the
-<span class="math notranslate nohighlight">\(d/|\mathbb{F}|\)</span> bound to mean anything. Shen’s simplification
-inserts after every quantifier the linearization</p>
+<p>Here <span class="math notranslate nohighlight">\(f|_{x_i = 0}\)</span> means <span class="math notranslate nohighlight">\(f\)</span> with <span class="math notranslate nohighlight">\(x_i\)</span> set to 0. In words:
+“for all” multiplies the two cases, and “there exists” is one minus the
+product of their failures. The prover then peels the operators off one at a
+time as in sum-check, with products in place of sums.</p>
+<p>The obstacle is degree:</p>
+<ul class="simple">
+<li><p>Each product doubles the degree. After <span class="math notranslate nohighlight">\(n\)</span> quantifiers the prover
+would send polynomials of degree <span class="math notranslate nohighlight">\(2^n\)</span>.</p></li>
+<li><p>That is too long to send. It is also too high for the
+<span class="math notranslate nohighlight">\(d/|\mathbb{F}|\)</span> bound to mean anything.</p></li>
+</ul>
+<p>Shen’s simplification inserts after every quantifier the <em>linearization</em></p>
 <div class="math notranslate nohighlight">
 \[L_i f = (1 - x_i)\, f|_{x_i=0} + x_i\, f|_{x_i=1},\]</div>
-<p>which agrees with <span class="math notranslate nohighlight">\(f\)</span> whenever <span class="math notranslate nohighlight">\(x_i\)</span> is 0 or 1 (so the truth
-value is unchanged) but has degree one in <span class="math notranslate nohighlight">\(x_i\)</span>. Every polynomial the
-prover sends then stays of low degree, and the sum-check argument goes
-through. The result showed that interaction and randomness make a
-polynomial-time verifier far more powerful than one that only reads a
-static NP certificate.</p>
+<p>In words: draw the straight line between the values at <span class="math notranslate nohighlight">\(x_i = 0\)</span> and
+<span class="math notranslate nohighlight">\(x_i = 1\)</span>. It agrees with <span class="math notranslate nohighlight">\(f\)</span> whenever <span class="math notranslate nohighlight">\(x_i\)</span> is 0 or 1, so
+the truth value is unchanged. But it has degree one in <span class="math notranslate nohighlight">\(x_i\)</span>. Every
+polynomial the prover sends then stays of low degree, and the sum-check
+argument goes through.</p>
+<p>The result showed that interaction and randomness make a polynomial-time
+verifier far more powerful than one that only reads a fixed NP <em>certificate</em>,
+like the filled-in sudoku.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.ip_pspace.tqbf_protocol" title="blockchainkit.proofs.systems.ip_pspace.tqbf_protocol"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.ip_pspace.tqbf_protocol()</span></code></a>
 over <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.core.base.QBF" title="blockchainkit.proofs.core.base.QBF"><code class="xref py py-class docutils literal notranslate"><span class="pre">QBF</span></code></a>, with Shen’s operator
 order from <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.ip_pspace.tqbf_operators" title="blockchainkit.proofs.systems.ip_pspace.tqbf_operators"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.ip_pspace.tqbf_operators()</span></code></a>;
@@ -614,34 +758,53 @@ A. Shen, <em>IP = PSPACE: simplified proof</em>, Journal of the ACM 39(4),
 </div></div></section>
 <section id="the-pcp-theorem-checking-a-proof-by-reading-a-few-bits">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1992 – The PCP Theorem: Checking a Proof by Reading a Few Bits</a><a class="headerlink" href="#the-pcp-theorem-checking-a-proof-by-reading-a-few-bits" title="Link to this heading">#</a></h2>
-<p>Interactive proofs need a live prover. Arora and Safra, and Arora, Lund,
-Motwani, Sudan and Szegedy, showed that a fixed, written proof can be
-checked almost as cheaply: every NP statement has a proof in which a
-verifier, using <span class="math notranslate nohighlight">\(O(\log n)\)</span> random bits, reads a <em>constant</em> number of
-positions, always accepts a correct proof, and rejects any proof of a false
-statement with probability at least 1/2. In symbols,
-<span class="math notranslate nohighlight">\(\mathrm{NP} = \mathrm{PCP}(\log n, 1)\)</span>.</p>
-<p>The simplest piece of their construction shows why so few reads can
-suffice. To prove that quadratic equations over GF(2) have a solution
-<span class="math notranslate nohighlight">\(u\)</span>, the prover writes down every parity of <span class="math notranslate nohighlight">\(u\)</span> and of
-<span class="math notranslate nohighlight">\(u \otimes u\)</span>, the tables <span class="math notranslate nohighlight">\(f(x) = \langle u, x\rangle\)</span> and
-<span class="math notranslate nohighlight">\(h(y) = \langle u \otimes u, y\rangle\)</span>. This encoding is exponentially
-long but very redundant, and the verifier makes three random tests. First,
-Blum, Luby and Rubinfeld’s linearity test,</p>
+<p>Interactive proofs need a live prover. Can a fixed, written proof be checked
+by reading only a few of its bits?</p>
+<p>A <em>PCP</em> (probabilistically checkable proof) is such a proof. Arora and Safra,
+and Arora, Lund, Motwani, Sudan and Szegedy, showed that every NP statement
+has one. Its verifier:</p>
+<ul class="simple">
+<li><p>uses only <span class="math notranslate nohighlight">\(O(\log n)\)</span> random bits;</p></li>
+<li><p>reads a <em>constant</em> number of positions of the proof;</p></li>
+<li><p>always accepts a correct proof;</p></li>
+<li><p>rejects any proof of a false statement with probability at least 1/2.</p></li>
+</ul>
+<p>In symbols, <span class="math notranslate nohighlight">\(\mathrm{NP} = \mathrm{PCP}(\log n, 1)\)</span>: logarithmic
+randomness, a constant number of reads.</p>
+<p>The simplest piece of their construction shows why so few reads can suffice.
+<span class="math notranslate nohighlight">\(\mathrm{GF}(2)\)</span> is the field with two elements: addition is XOR
+(<code class="docutils literal notranslate"><span class="pre">^</span></code>) and multiplication is AND (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>). The prover wants to show that a
+system of quadratic equations over <span class="math notranslate nohighlight">\(\mathrm{GF}(2)\)</span> has a solution
+<span class="math notranslate nohighlight">\(u\)</span>, a bit string. It writes down two tables:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x) = \langle u, x\rangle\)</span>, the <em>parity</em> of the bits of <span class="math notranslate nohighlight">\(u\)</span>
+selected by <span class="math notranslate nohighlight">\(x\)</span>: <code class="docutils literal notranslate"><span class="pre">sum(ui</span> <span class="pre">&amp;</span> <span class="pre">xi</span> <span class="pre">for</span> <span class="pre">ui,</span> <span class="pre">xi</span> <span class="pre">in</span> <span class="pre">zip(u,</span> <span class="pre">x))</span> <span class="pre">%</span> <span class="pre">2</span></code>, for
+every <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(h(y) = \langle u \otimes u, y\rangle\)</span>, the same for the <em>tensor
+product</em> <span class="math notranslate nohighlight">\(u \otimes u\)</span>, the list of all products
+<code class="docutils literal notranslate"><span class="pre">[ui</span> <span class="pre">&amp;</span> <span class="pre">uj</span> <span class="pre">for</span> <span class="pre">ui</span> <span class="pre">in</span> <span class="pre">u</span> <span class="pre">for</span> <span class="pre">uj</span> <span class="pre">in</span> <span class="pre">u]</span></code>.</p></li>
+</ul>
+<p>This encoding is exponentially long but very redundant. The verifier makes
+three random tests. First, Blum, Luby and Rubinfeld’s <em>linearity test</em>,</p>
 <div class="math notranslate nohighlight">
 \[f(x) + f(y) = f(x + y)\]</div>
-<p>at random <span class="math notranslate nohighlight">\(x, y\)</span>, passes with high probability only if each table is
-close to a linear function, that is, to the parities of <em>some</em> vector.
-Second, the tensor test <span class="math notranslate nohighlight">\(f(x) f(y) = h(x \otimes y)\)</span> checks that the
-second table encodes <span class="math notranslate nohighlight">\(u \otimes u\)</span> for the <em>same</em> <span class="math notranslate nohighlight">\(u\)</span>. Third,
-the sum of a random subset of the equations is a single linear condition
-on <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(u \otimes u\)</span>, which one query to each table
-checks; if any equation fails, the random sum fails with probability 1/2.
-Because the tables are only known to be <em>close</em> to correct, every value is
-read through self-correction, <span class="math notranslate nohighlight">\(f(x) = f(x + r) - f(r)\)</span> for a random
-<span class="math notranslate nohighlight">\(r\)</span>, so that a few corrupted entries are unlikely to be hit. The
-theorem also founded the theory of hardness of approximation; for
-blockchains, it showed that checking a proof need not mean reading it.</p>
+<p>at random <span class="math notranslate nohighlight">\(x, y\)</span>. In words: a table of parities must respect XOR. It
+passes with high probability only if each table is close to a <em>linear</em>
+function, that is, to the parities of <em>some</em> vector. The other two tests:</p>
+<ul class="simple">
+<li><p><strong>Tensor test.</strong> <span class="math notranslate nohighlight">\(f(x) f(y) = h(x \otimes y)\)</span> checks that the second
+table encodes <span class="math notranslate nohighlight">\(u \otimes u\)</span> for the <em>same</em> <span class="math notranslate nohighlight">\(u\)</span>.</p></li>
+<li><p><strong>Equation test.</strong> The sum of a random subset of the equations is a single
+linear condition on <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(u \otimes u\)</span>. One query to each
+table checks it. If any equation fails, the random sum fails with
+probability 1/2.</p></li>
+</ul>
+<p>The tables are only known to be <em>close</em> to correct. So every value is read
+through <em>self-correction</em>: <span class="math notranslate nohighlight">\(f(x) = f(x + r) - f(r)\)</span> for a random
+<span class="math notranslate nohighlight">\(r\)</span>. A few corrupted entries are then unlikely to be hit.</p>
+<p>The theorem also showed that, for many optimization problems, even finding an
+approximately best answer is as hard as finding the best one. For blockchains,
+it showed that checking a proof need not mean reading it.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.pcp.hadamard_proof" title="blockchainkit.proofs.systems.pcp.hadamard_proof"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.pcp.hadamard_proof()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.pcp.pcp_verify" title="blockchainkit.proofs.systems.pcp.pcp_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.pcp.pcp_verify()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.pcp.run_pcp_verifier" title="blockchainkit.proofs.systems.pcp.run_pcp_verifier"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.pcp.run_pcp_verifier()</span></code></a> over
@@ -661,22 +824,40 @@ of approximation problems</em>, Journal of the ACM 45(3), 501–555 (1998); FOCS
 </div></div></section>
 <section id="kilian-s-succinct-arguments-from-merkle-commitments">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">1992 – Kilian’s Succinct Arguments from Merkle Commitments</a><a class="headerlink" href="#kilian-s-succinct-arguments-from-merkle-commitments" title="Link to this heading">#</a></h2>
-<p>A PCP is fast to check but no shorter to send: the verifier reads a few
-bits, yet the whole proof must still reach it. Kilian sent only the bits
-that are read. The prover first sends a Merkle root of the PCP; the
-verifier then chooses its queries, and the prover opens each queried
-position with its authentication path. The order matters. The PCP’s
-soundness assumes the proof is fixed before the queries are known, and the
-root fixes it: answering a query differently from the committed string
-would require a hash collision. A computationally bounded prover is thus
-bound to one proof, and the conversation costs</p>
+<p>A PCP is fast to check but no shorter to send. The verifier reads a few bits,
+yet the whole proof must still reach it.</p>
+<p>Kilian sent only the bits that are read:</p>
+<ol class="arabic simple">
+<li><p>The prover builds a Merkle tree over the PCP, one leaf per bit, and sends
+the root.</p></li>
+<li><p>The verifier then chooses its queries.</p></li>
+<li><p>The prover opens each queried position: it sends the bit and its
+authentication path.</p></li>
+<li><p>The verifier recomputes the root from each path and runs the PCP checks.</p></li>
+</ol>
+<p>The order matters:</p>
+<ul class="simple">
+<li><p>The PCP’s soundness assumes the proof is fixed before the queries are
+known.</p></li>
+<li><p>The root fixes it. Answering a query differently from the committed string
+would require a hash collision.</p></li>
+<li><p>A <em>computationally bounded</em> prover, one that cannot do infeasible amounts of
+work, is thus bound to one proof.</p></li>
+</ul>
+<p>The conversation costs</p>
 <div class="math notranslate nohighlight">
 \[|\text{root}| + q \cdot \left(1 + |\text{hash}| \cdot \lceil \log_2 N \rceil\right)\]</div>
-<p>bits for <span class="math notranslate nohighlight">\(q\)</span> queries into an <span class="math notranslate nohighlight">\(N\)</span>-bit PCP: one root, and for
-each query the bit and its path of <span class="math notranslate nohighlight">\(\lceil \log_2 N \rceil\)</span> hashes.
-Because soundness now rests on the hash rather than holding against every
-prover, this is an <em>argument</em> rather than a proof, but its size is
-polylogarithmic in the computation: the first succinct argument for NP.</p>
+<p>bits for <span class="math notranslate nohighlight">\(q\)</span> queries into an <span class="math notranslate nohighlight">\(N\)</span>-bit PCP. In words: one root, and
+for each query the bit and its path of <span class="math notranslate nohighlight">\(\lceil \log_2 N \rceil\)</span> hashes.</p>
+<p>Proof or argument?</p>
+<ul class="simple">
+<li><p>A <em>proof</em> is sound against every prover, even one with unlimited computing
+power.</p></li>
+<li><p>Here soundness rests on the hash: a prover who could find collisions could
+cheat. So this is an <em>argument</em> rather than a proof.</p></li>
+<li><p>Its size is <em>polylogarithmic</em> in the computation: it grows like a power of
+<span class="math notranslate nohighlight">\(\log N\)</span>. This was the first succinct argument for NP.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.kilian.kilian_argument" title="blockchainkit.proofs.systems.kilian.kilian_argument"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.kilian.kilian_argument()</span></code></a>
 and <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.kilian.commit_pcp" title="blockchainkit.proofs.systems.kilian.commit_pcp"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.kilian.commit_pcp()</span></code></a>, which commits
 with <a class="reference internal" href="../api/structures.html#blockchainkit.structures.systems.merkle.MerkleTree" title="blockchainkit.structures.systems.merkle.MerkleTree"><code class="xref py py-class docutils literal notranslate"><span class="pre">MerkleTree</span></code></a>, one leaf
@@ -693,26 +874,49 @@ arguments</em>, STOC 1992, 723–732.
 </div></div></section>
 <section id="micali-s-computationally-sound-proofs">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">1994 – Micali’s Computationally Sound Proofs</a><a class="headerlink" href="#micali-s-computationally-sound-proofs" title="Link to this heading">#</a></h2>
-<p>Kilian’s argument still needs the verifier online to choose queries after
-the commitment. Micali removed the interaction with the Fiat-Shamir idea:
-the queries are derived by hashing the Merkle root, so the prover writes
-the whole argument at once and anyone can check it later. If the hash
-behaves as a random oracle, the prover cannot know which positions will be
-read until it has committed, which preserves the order Kilian’s soundness
-relies on.</p>
-<p>What changes is that a cheater can now retry offline. Having committed to a
-bad PCP and seen unfavourable queries, it can alter the PCP, commit again,
-and get fresh queries, as often as it likes. If a cheating PCP passes each
-of <span class="math notranslate nohighlight">\(k\)</span> independent query repetitions with probability
-<span class="math notranslate nohighlight">\(\varepsilon\)</span>, one commitment succeeds with probability
-<span class="math notranslate nohighlight">\(\varepsilon^k\)</span>, so the cheater needs on average</p>
+<p>Kilian’s argument still needs the verifier online, to choose queries after the
+commitment.</p>
+<p>Micali removed the interaction with the Fiat-Shamir idea:</p>
+<ol class="arabic simple">
+<li><p>The prover commits to the PCP and computes the Merkle root.</p></li>
+<li><p>It derives the query positions by hashing the root.</p></li>
+<li><p>It opens those positions, and publishes root, answers and paths as one
+<em>computationally sound proof</em> (CS proof).</p></li>
+<li><p>Anyone can check it later, by recomputing the queries from the root.</p></li>
+</ol>
+<p>Why the order still holds:</p>
+<ul class="simple">
+<li><p>Model the hash as a <em>random oracle</em>: an ideal hash that behaves like a
+lookup table filled with truly random outputs.</p></li>
+<li><p>Then the prover cannot know which positions will be read until it has
+committed. That preserves the order Kilian’s soundness relies on.</p></li>
+</ul>
+<p>What changes is that a cheater can now retry offline:</p>
+<ol class="arabic simple">
+<li><p>It commits to a bad PCP and sees unfavourable queries.</p></li>
+<li><p>It alters the PCP, commits again, and gets fresh queries.</p></li>
+<li><p>It repeats as often as it likes.</p></li>
+</ol>
+<p>Suppose a cheating PCP passes each of <span class="math notranslate nohighlight">\(k\)</span> independent query repetitions
+with probability <span class="math notranslate nohighlight">\(\varepsilon\)</span>. Then one commitment succeeds with
+probability <span class="math notranslate nohighlight">\(\varepsilon^k\)</span>, so the cheater needs on average</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E}[\text{attempts}] = \varepsilon^{-k}\]</div>
-<p>commitments. Non-interactive soundness is therefore a cost in hashing, and
-<span class="math notranslate nohighlight">\(k\)</span> is chosen to make that cost infeasible. CS proofs are the
-template of every transparent SNARK, and this bound is why STARKs add a
-proof of work to each attempt: making every retry more expensive lets them
-use fewer queries for the same security.</p>
+<p>commitments. In words: each extra repetition multiplies the cheater’s work by
+<span class="math notranslate nohighlight">\(1/\varepsilon\)</span>.</p>
+<p>Consequences:</p>
+<ul class="simple">
+<li><p>Non-interactive soundness is therefore a cost in hashing. <span class="math notranslate nohighlight">\(k\)</span> is
+chosen to make that cost infeasible. With <span class="math notranslate nohighlight">\(\varepsilon = 1/2\)</span> and
+<span class="math notranslate nohighlight">\(k = 128\)</span>, a cheater needs <span class="math notranslate nohighlight">\(2^{128}\)</span> attempts, far beyond every
+computer on Earth.</p></li>
+<li><p>A <em>SNARK</em> is a succinct non-interactive argument of knowledge: a short proof
+that needs no conversation. It is <em>transparent</em> if it needs no trusted
+setup. CS proofs are the template of every transparent SNARK.</p></li>
+<li><p>This bound is why STARKs add a <em>proof of work</em> to each attempt: a small
+brute-force puzzle. Making every retry more expensive lets them use fewer
+queries for the same security.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.kilian.micali_proof" title="blockchainkit.proofs.systems.kilian.micali_proof"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.kilian.micali_proof()</span></code></a>
 and <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.kilian.verify_cs_proof" title="blockchainkit.proofs.systems.kilian.verify_cs_proof"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.kilian.verify_cs_proof()</span></code></a>, returning a
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.core.base.CSProof" title="blockchainkit.proofs.core.base.CSProof"><code class="xref py py-class docutils literal notranslate"><span class="pre">CSProof</span></code></a>. The queries come from a
@@ -728,27 +932,47 @@ Computing 30(4), 1253–1298 (2000); FOCS 1994.
 </div></div></section>
 <section id="kate-zaverucha-goldberg-polynomial-commitments">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">2010 – Kate-Zaverucha-Goldberg Polynomial Commitments</a><a class="headerlink" href="#kate-zaverucha-goldberg-polynomial-commitments" title="Link to this heading">#</a></h2>
-<p>Merkle commitments open one value per path of hashes. Kate, Zaverucha and
-Goldberg committed to a whole polynomial with one group element and opened
-it at any point with one more. A setup publishes <span class="math notranslate nohighlight">\([\tau^i]G\)</span>, the
-powers of a secret <span class="math notranslate nohighlight">\(\tau\)</span> hidden in a group, so anyone can compute
-<span class="math notranslate nohighlight">\([f(\tau)]G\)</span> for a polynomial <span class="math notranslate nohighlight">\(f\)</span> without learning
-<span class="math notranslate nohighlight">\(\tau\)</span>. The commitment is <span class="math notranslate nohighlight">\(C = [f(\tau)]G\)</span>.</p>
-<p>To prove <span class="math notranslate nohighlight">\(f(z) = y\)</span>, the prover uses the factor theorem:
-<span class="math notranslate nohighlight">\(f(z) = y\)</span> exactly when <span class="math notranslate nohighlight">\(X - z\)</span> divides <span class="math notranslate nohighlight">\(f(X) - y\)</span>. If the
-claim is true, <span class="math notranslate nohighlight">\(q(X) = (f(X) - y)/(X - z)\)</span> is a polynomial and the
-prover sends <span class="math notranslate nohighlight">\(W = [q(\tau)]G\)</span>; if it is false, no such polynomial
-exists. The verifier cannot see <span class="math notranslate nohighlight">\(\tau\)</span>, but a bilinear pairing
-multiplies hidden exponents, so it can check the division at the hidden
-point,</p>
+<p>A Merkle commitment opens one value per path of hashes. Can one commit to a
+whole polynomial, and open it anywhere, with a single small value each time?</p>
+<p>Kate, Zaverucha and Goldberg did this with one group element for the
+commitment and one more per opening. They need a <em>pairing</em>: a function
+<span class="math notranslate nohighlight">\(e\)</span> that takes two group elements and multiplies their hidden values,
+<span class="math notranslate nohighlight">\(e([a]G, [b]G) = e(G, G)^{ab}\)</span>. Nobody can compute <span class="math notranslate nohighlight">\([ab]G\)</span> from
+<span class="math notranslate nohighlight">\([a]G\)</span> and <span class="math notranslate nohighlight">\([b]G\)</span>. But with a pairing anyone can <em>check</em> whether
+a third element hides <span class="math notranslate nohighlight">\(ab\)</span>.</p>
+<ol class="arabic simple">
+<li><p><strong>Setup.</strong> Someone picks a secret <span class="math notranslate nohighlight">\(\tau\)</span> and publishes
+<span class="math notranslate nohighlight">\([\tau^i]G\)</span> for <span class="math notranslate nohighlight">\(i = 0, 1, \dots, D\)</span>: the powers of
+<span class="math notranslate nohighlight">\(\tau\)</span>, hidden in the group. Then <span class="math notranslate nohighlight">\(\tau\)</span> must be destroyed.</p></li>
+<li><p><strong>Commit.</strong> For a polynomial <span class="math notranslate nohighlight">\(f\)</span> with coefficients <span class="math notranslate nohighlight">\(c_i\)</span>,
+anyone can compute <span class="math notranslate nohighlight">\([f(\tau)]G = \sum_i c_i [\tau^i]G\)</span> without
+learning <span class="math notranslate nohighlight">\(\tau\)</span>. The commitment is <span class="math notranslate nohighlight">\(C = [f(\tau)]G\)</span>.</p></li>
+<li><p><strong>Open.</strong> To prove <span class="math notranslate nohighlight">\(f(z) = y\)</span>, the prover uses the <em>factor theorem</em>:
+<span class="math notranslate nohighlight">\(f(z) = y\)</span> exactly when <span class="math notranslate nohighlight">\(X - z\)</span> divides <span class="math notranslate nohighlight">\(f(X) - y\)</span>. If
+the claim is true, <span class="math notranslate nohighlight">\(q(X) = (f(X) - y)/(X - z)\)</span> is a polynomial, and
+the prover sends <span class="math notranslate nohighlight">\(W = [q(\tau)]G\)</span>. If it is false, no such
+polynomial exists.</p></li>
+<li><p><strong>Verify.</strong> The verifier cannot see <span class="math notranslate nohighlight">\(\tau\)</span>. But the pairing
+multiplies hidden values, so it can check the division at the hidden
+point:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[e(C - [y]G,\ G) = e(W,\ [\tau]G - [z]G),\]</div>
-<p>which says <span class="math notranslate nohighlight">\(f(\tau) - y = q(\tau)(\tau - z)\)</span>. A prover who does not
-know <span class="math notranslate nohighlight">\(\tau\)</span> cannot satisfy this with a false <span class="math notranslate nohighlight">\(y\)</span>, by the same
-Schwartz-Zippel reasoning: the identity would have to hold at a point it
-cannot predict. Commitments and openings are constant-size whatever the
-degree. KZG is the polynomial commitment of PLONK and its descendants, and
-of Ethereum’s blob transactions (EIP-4844).</p>
+<p>which says <span class="math notranslate nohighlight">\(f(\tau) - y = q(\tau)(\tau - z)\)</span>.</p>
+<p>Why it works, and where it is used:</p>
+<ul class="simple">
+<li><p>A prover who does not know <span class="math notranslate nohighlight">\(\tau\)</span> cannot satisfy this with a false
+<span class="math notranslate nohighlight">\(y\)</span>, by the same Schwartz-Zippel reasoning. The identity would have
+to hold at a point it cannot predict.</p></li>
+<li><p>Commitments and openings are constant-size, whatever the degree.</p></li>
+<li><p>KZG is the polynomial commitment of PLONK and its descendants. It is also
+used by Ethereum’s <em>blob transactions</em> (EIP-4844), which attach large
+chunks of data to blocks cheaply.</p></li>
+<li><p>Pairings exist only on special groups built from <em>elliptic curves</em>. This
+page’s toy curve has a <em>symmetric</em> pairing, whose two inputs come from the
+same group. Deployed curves use <em>asymmetric</em> pairings, whose inputs come
+from two different groups.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.kzg.trusted_setup" title="blockchainkit.proofs.systems.kzg.trusted_setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.kzg.trusted_setup()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.kzg.kzg_commit" title="blockchainkit.proofs.systems.kzg.kzg_commit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.kzg.kzg_commit()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.kzg.kzg_open" title="blockchainkit.proofs.systems.kzg.kzg_open"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.kzg.kzg_open()</span></code></a> and
@@ -767,28 +991,50 @@ commitments to polynomials and their applications</em>, ASIACRYPT 2010, LNCS
 </div></div></section>
 <section id="quadratic-arithmetic-programs-and-pinocchio">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">2013 – Quadratic Arithmetic Programs and Pinocchio</a><a class="headerlink" href="#quadratic-arithmetic-programs-and-pinocchio" title="Link to this heading">#</a></h2>
-<p>To prove arbitrary computations this way, a computation must become one
-polynomial identity. Gennaro, Gentry, Parno and Raykova showed how. Write
-the circuit as rank-1 constraints
-<span class="math notranslate nohighlight">\(\langle a_j, z\rangle \langle b_j, z\rangle = \langle c_j, z\rangle\)</span>,
-one per gate, over the vector <span class="math notranslate nohighlight">\(z\)</span> of all wire values. Assign
-constraint <span class="math notranslate nohighlight">\(j\)</span> to the point <span class="math notranslate nohighlight">\(\omega^j\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is
-a primitive <span class="math notranslate nohighlight">\(n\)</span>-th root of unity, and interpolate each column into
-polynomials <span class="math notranslate nohighlight">\(A_i, B_i, C_i\)</span> that take the constraint coefficients at
-those points. Then</p>
+<p>To prove an arbitrary computation this way, the computation must become one
+polynomial identity.</p>
+<p>Gennaro, Gentry, Parno and Raykova showed how. Write the computation as a
+<em>circuit</em>: a network of addition and multiplication gates, like a sequence of
+Python assignments <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code>. Then:</p>
+<ol class="arabic simple">
+<li><p>Collect all <em>wire values</em> (inputs, outputs and intermediate results), with
+a leading 1, in a vector <span class="math notranslate nohighlight">\(z\)</span>. The secret part of <span class="math notranslate nohighlight">\(z\)</span> is the
+<em>witness</em>: the values that make the computation work.</p></li>
+<li><p>Write each gate <span class="math notranslate nohighlight">\(j\)</span> as a <em>rank-1 constraint</em>
+<span class="math notranslate nohighlight">\(\langle a_j, z\rangle \langle b_j, z\rangle = \langle c_j, z\rangle\)</span>.
+Here <span class="math notranslate nohighlight">\(\langle a, z\rangle\)</span> is the dot product
+<code class="docutils literal notranslate"><span class="pre">sum(ai</span> <span class="pre">*</span> <span class="pre">zi</span> <span class="pre">for</span> <span class="pre">ai,</span> <span class="pre">zi</span> <span class="pre">in</span> <span class="pre">zip(a,</span> <span class="pre">z))</span></code>. So each constraint says “(one
+sum of wires) times (another) equals (a third)”.</p></li>
+<li><p>Assign constraint <span class="math notranslate nohighlight">\(j\)</span> to the point <span class="math notranslate nohighlight">\(\omega^j\)</span>. Here
+<span class="math notranslate nohighlight">\(\omega\)</span> is a <em>primitive</em> <span class="math notranslate nohighlight">\(n\)</span>-<em>th root of unity</em>: a field
+element with <code class="docutils literal notranslate"><span class="pre">pow(w,</span> <span class="pre">n,</span> <span class="pre">p)</span> <span class="pre">==</span> <span class="pre">1</span></code> but no smaller positive power equal to
+1. So <span class="math notranslate nohighlight">\(\omega^0, \dots, \omega^{n-1}\)</span> are <span class="math notranslate nohighlight">\(n\)</span> distinct points.</p></li>
+<li><p><em>Interpolate</em> each column into polynomials <span class="math notranslate nohighlight">\(A_i, B_i, C_i\)</span> that take
+the constraint coefficients at those points. Interpolation finds the
+polynomial through given points, as a line goes through two.</p></li>
+</ol>
+<p>Then</p>
 <div class="math notranslate nohighlight">
 \[P(X) = \sum_i z_i A_i(X) \cdot \sum_i z_i B_i(X) - \sum_i z_i C_i(X)\]</div>
-<p>evaluates at <span class="math notranslate nohighlight">\(\omega^j\)</span> to the error of constraint <span class="math notranslate nohighlight">\(j\)</span>. The
-witness satisfies every constraint exactly when <span class="math notranslate nohighlight">\(P\)</span> vanishes at all
-<span class="math notranslate nohighlight">\(n\)</span> points <span class="math notranslate nohighlight">\(\omega^j\)</span>, which are the roots of
-<span class="math notranslate nohighlight">\(X^n - 1\)</span>, so exactly when</p>
+<p>evaluates at <span class="math notranslate nohighlight">\(\omega^j\)</span> to the error of constraint <span class="math notranslate nohighlight">\(j\)</span>: left side
+minus right side. The witness satisfies every constraint exactly when
+<span class="math notranslate nohighlight">\(P\)</span> is zero at all <span class="math notranslate nohighlight">\(n\)</span> points <span class="math notranslate nohighlight">\(\omega^j\)</span>. Those points are
+the roots of <span class="math notranslate nohighlight">\(X^n - 1\)</span>. So, by the factor theorem, that happens exactly
+when</p>
 <div class="math notranslate nohighlight">
 \[P(X) = H(X)\,(X^n - 1)\]</div>
-<p>for some polynomial <span class="math notranslate nohighlight">\(H\)</span>. Pinocchio, by Parno, Howell, Gentry and
-Raykova, checked this identity with pairings at one secret setup point, as
-KZG does, and added a compiler from C; it was the first general-purpose
-SNARK efficient enough to use. Zcash’s first circuits ran on its successor
-by Ben-Sasson, Chiesa, Tromer and Virza.</p>
+<p>for some polynomial <span class="math notranslate nohighlight">\(H\)</span>. In words: a whole computation is correct
+exactly when one polynomial divides another. This is a <em>quadratic arithmetic
+program</em> (QAP).</p>
+<p>What followed:</p>
+<ul class="simple">
+<li><p>Pinocchio, by Parno, Howell, Gentry and Raykova, checked this identity with
+pairings at one secret setup point, as KZG does.</p></li>
+<li><p>It added a compiler from C programs to circuits.</p></li>
+<li><p>It was the first general-purpose SNARK efficient enough to use.</p></li>
+<li><p>Zcash’s first circuits ran on its successor, by Ben-Sasson, Chiesa, Tromer
+and Virza.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.circuits.Circuit" title="blockchainkit.proofs.systems.circuits.Circuit"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.circuits.Circuit</span></code></a>
 builds the rank-1 constraint system
 (<a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.core.base.R1CS" title="blockchainkit.proofs.core.base.R1CS"><code class="xref py py-class docutils literal notranslate"><span class="pre">R1CS</span></code></a>) and its witness together;
@@ -808,28 +1054,53 @@ verifiable computation</em>, IEEE S&amp;P 2013, 238–252.
 </div></div></section>
 <section id="zerocash-notes-nullifiers-and-private-payments">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">2014 – Zerocash: Notes, Nullifiers and Private Payments</a><a class="headerlink" href="#zerocash-notes-nullifiers-and-private-payments" title="Link to this heading">#</a></h2>
-<p>Ben-Sasson, Chiesa, Garman, Green, Miers, Tromer and Virza used such
-SNARKs to build a payment system that hides sender, receiver and amount.
-The design has to solve two problems at once: the ledger must stop a coin
-from being spent twice, yet must not learn which coin is spent.</p>
-<p>A coin is a <em>note</em> <span class="math notranslate nohighlight">\((\mathit{owner}, v, \rho, r)\)</span>, and the ledger
-stores only its commitment, as a leaf of a Merkle tree with root
-<span class="math notranslate nohighlight">\(\mathit{rt}\)</span>. Spending publishes three things: the note’s nullifier
-<span class="math notranslate nohighlight">\(\mathrm{nf} = \mathrm{PRF}_{\mathit{sk}}(\rho)\)</span>, the commitment to a
-new note, and a zero-knowledge SNARK of</p>
+<p>On Bitcoin, everyone can see who paid whom and how much. Ben-Sasson, Chiesa,
+Garman, Green, Miers, Tromer and Virza used SNARKs to build a payment system
+that hides sender, receiver and amount.</p>
+<p>The design has to solve two problems at once:</p>
+<ul class="simple">
+<li><p>the ledger must stop a coin from being spent twice (<em>double spending</em>);</p></li>
+<li><p>yet it must not learn which coin is spent.</p></li>
+</ul>
+<p>A coin is a <em>note</em> <span class="math notranslate nohighlight">\((\mathit{owner}, v, \rho, r)\)</span>: its owner, its value
+<span class="math notranslate nohighlight">\(v\)</span>, a random serial value <span class="math notranslate nohighlight">\(\rho\)</span>, and randomness <span class="math notranslate nohighlight">\(r\)</span> for
+hiding. The ledger stores only the note’s commitment, as a leaf of a Merkle
+tree with root <span class="math notranslate nohighlight">\(\mathit{rt}\)</span>. The owner holds a secret key
+<span class="math notranslate nohighlight">\(\mathit{sk}\)</span>. A <em>PRF</em> (pseudorandom function) is like a hash keyed by a
+secret: without the key, its outputs look random.</p>
+<p>To spend a note:</p>
+<ol class="arabic simple">
+<li><p>The spender computes the note’s <em>nullifier</em>
+<span class="math notranslate nohighlight">\(\mathrm{nf} = \mathrm{PRF}_{\mathit{sk}}(\rho)\)</span>.</p></li>
+<li><p>It creates a new note for the payee and computes its commitment.</p></li>
+<li><p>It writes a zero-knowledge SNARK of the statement below.</p></li>
+<li><p>It publishes the nullifier, the new commitment and the proof.</p></li>
+<li><p>The ledger checks the proof. It rejects the spend if it has already
+recorded <span class="math notranslate nohighlight">\(\mathrm{nf}\)</span>. Otherwise it records <span class="math notranslate nohighlight">\(\mathrm{nf}\)</span> and
+adds the new commitment to the tree.</p></li>
+</ol>
+<p>The proof states:</p>
 <div class="math notranslate nohighlight">
 \[\exists\,\text{note}, \mathit{sk}, \text{path}:\
 \mathrm{Com}(\text{note}) \in \mathrm{Tree}(\mathit{rt}),\
 \mathrm{nf} = \mathrm{PRF}_{\mathit{sk}}(\rho),\
 v_\text{in} = v_\text{out} + v_\text{pub}.\]</div>
-<p>The proof shows that the spent note exists, that the spender owns it, and
-that value is conserved, without saying which leaf it is. The nullifier
-handles double spending: it is a deterministic function of the note, so a
-second spend of the same note would publish the same <span class="math notranslate nohighlight">\(\mathrm{nf}\)</span>,
-which the ledger already recorded and rejects. Since a PRF output looks
-random to anyone without <span class="math notranslate nohighlight">\(\mathit{sk}\)</span>, nobody can link a nullifier
-to its commitment, so the anonymity set of each spend is every note ever
-created. Zcash launched on this design in 2016.</p>
+<p>In words: “I know a note, a key and a Merkle path such that the note is in the
+tree, this nullifier belongs to it, and the value in equals the value out plus
+any amount <span class="math notranslate nohighlight">\(v_\text{pub}\)</span> leaving the pool in public.”</p>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>The proof shows that the spent note exists, that the spender owns it, and
+that value is conserved, without saying which leaf it is.</p></li>
+<li><p>The nullifier handles double spending. It is a deterministic function of
+the note, so a second spend of the same note would publish the same
+<span class="math notranslate nohighlight">\(\mathrm{nf}\)</span>, which the ledger already recorded and rejects.</p></li>
+<li><p>A PRF output looks random to anyone without <span class="math notranslate nohighlight">\(\mathit{sk}\)</span>. So nobody
+can link a nullifier to its commitment.</p></li>
+<li><p>The <em>anonymity set</em> of each spend, the set of notes it could be, is
+therefore every note ever created.</p></li>
+</ul>
+<p>Zcash launched on this design in 2016.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.zerocash.ShieldedPool" title="blockchainkit.proofs.systems.zerocash.ShieldedPool"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.zerocash.ShieldedPool</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.zerocash.prove_spend" title="blockchainkit.proofs.systems.zerocash.prove_spend"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.zerocash.prove_spend()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.zerocash.spend_circuit" title="blockchainkit.proofs.systems.zerocash.spend_circuit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.zerocash.spend_circuit()</span></code></a>, proving with
@@ -847,26 +1118,51 @@ Bitcoin</em>, IEEE S&amp;P 2014, 459–474.
 </div></div></section>
 <section id="groth16-three-group-elements-per-proof">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">2016 – Groth16: Three Group Elements per Proof</a><a class="headerlink" href="#groth16-three-group-elements-per-proof" title="Link to this heading">#</a></h2>
-<p>Every byte of a proof stored on chain is paid for, and every pairing in its
-verification costs gas. Groth found the shortest pairing-based argument
-for a QAP known: three group elements <span class="math notranslate nohighlight">\(A, B, C\)</span>, checked by one
-equation,</p>
+<p>Every byte of a proof stored on a blockchain is paid for. On Ethereum, every
+pairing in its verification also costs <em>gas</em>, the fee charged per unit of
+computation.</p>
+<p>Groth found the shortest pairing-based argument for a QAP known. A proof is
+three group elements <span class="math notranslate nohighlight">\(A, B, C\)</span>, checked by one equation:</p>
 <div class="math notranslate nohighlight">
 \[e(A, B) = e(\alpha, \beta)\; e\Big(\sum_{i \le \ell} x_i L_i,\ \gamma\Big)\; e(C, \delta),\]</div>
-<p>where <span class="math notranslate nohighlight">\(x_i\)</span> are the public inputs. The setup encodes the QAP
-polynomials at a secret <span class="math notranslate nohighlight">\(\tau\)</span>, and each extra secret has a job.
-<span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> force <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> to be built
-from those encoded polynomials, so the prover cannot use arbitrary group
-elements. <span class="math notranslate nohighlight">\(\gamma\)</span> and <span class="math notranslate nohighlight">\(\delta\)</span> separate the part the verifier
-computes from public inputs (<span class="math notranslate nohighlight">\(L_i\)</span>) from the part only the prover
-can compute from the private witness (<span class="math notranslate nohighlight">\(C\)</span>). Expanded in the exponent,
-the equation then holds at <span class="math notranslate nohighlight">\(\tau\)</span> only if the QAP divisibility does,
-which a prover ignorant of <span class="math notranslate nohighlight">\(\tau\)</span> can arrange only by satisfying the
-circuit. The prover also adds fresh randomness to <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>,
-which makes proofs perfectly zero-knowledge. Groth further proved that
-arguments of this kind need at least two group elements, so three is close
-to optimal. Zcash Sapling, Tornado Cash, Filecoin and many rollups verify
-Groth16 proofs.</p>
+<p>where <span class="math notranslate nohighlight">\(x_i\)</span> are the public inputs. In words: the pairing of the prover’s
+<span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> must equal a fixed part, times a part the verifier
+builds from the public inputs, times a part built from the prover’s
+<span class="math notranslate nohighlight">\(C\)</span>. (The setup publishes <span class="math notranslate nohighlight">\(\alpha, \beta, \gamma, \delta\)</span> hidden
+in the group; the formula writes them without brackets.)</p>
+<p>The protocol:</p>
+<ol class="arabic simple">
+<li><p><strong>Setup.</strong> Encode the QAP polynomials at a secret <span class="math notranslate nohighlight">\(\tau\)</span>, together
+with extra secrets <span class="math notranslate nohighlight">\(\alpha, \beta, \gamma, \delta\)</span>. All of these
+secrets are the <em>toxic waste</em>: they must be destroyed.</p></li>
+<li><p><strong>Prove.</strong> The prover computes <span class="math notranslate nohighlight">\(A, B, C\)</span> from the witness and the
+published setup values. It adds fresh randomness to <span class="math notranslate nohighlight">\(A\)</span> and
+<span class="math notranslate nohighlight">\(B\)</span> (<em>blinding</em>).</p></li>
+<li><p><strong>Verify.</strong> The verifier computes <span class="math notranslate nohighlight">\(\sum x_i L_i\)</span> and checks the
+equation with three pairings, <span class="math notranslate nohighlight">\(e(\alpha, \beta)\)</span> being fixed.</p></li>
+</ol>
+<p>Each extra secret has a job:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> force <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> to be built
+from those encoded polynomials. So the prover cannot use arbitrary group
+elements.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> and <span class="math notranslate nohighlight">\(\delta\)</span> separate the part the verifier computes
+from public inputs (<span class="math notranslate nohighlight">\(L_i\)</span>) from the part only the prover can compute
+from the private witness (<span class="math notranslate nohighlight">\(C\)</span>).</p></li>
+</ul>
+<p>Why it works, and its limits:</p>
+<ul class="simple">
+<li><p>Expanded in the hidden values, the equation holds at <span class="math notranslate nohighlight">\(\tau\)</span> only if
+the QAP divisibility does. A prover ignorant of <span class="math notranslate nohighlight">\(\tau\)</span> can arrange
+that only by satisfying the circuit.</p></li>
+<li><p>The blinding makes proofs <em>perfectly</em> zero-knowledge: they reveal nothing
+about the witness, even to an unlimited attacker.</p></li>
+<li><p>Groth further proved that arguments of this kind need at least two group
+elements. So three is close to optimal.</p></li>
+<li><p>Zcash Sapling, Tornado Cash, Filecoin and many <em>rollups</em> (systems that
+batch many transactions off chain and post one proof) verify Groth16
+proofs.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.groth16.groth16_setup" title="blockchainkit.proofs.systems.groth16.groth16_setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.groth16.groth16_setup()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.groth16.groth16_prove" title="blockchainkit.proofs.systems.groth16.groth16_prove"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.groth16.groth16_prove()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.groth16.groth16_verify" title="blockchainkit.proofs.systems.groth16.groth16_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.groth16.groth16_verify()</span></code></a>, with the
@@ -885,25 +1181,43 @@ arguments</em>, EUROCRYPT 2016, LNCS 9666, 305–326.
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">2016 – Zcash’s Parameter Ceremony and the Powers of Tau</a><a class="headerlink" href="#zcash-s-parameter-ceremony-and-the-powers-of-tau" title="Link to this heading">#</a></h2>
 <p>The soundness of KZG, Pinocchio and Groth16 all rests on nobody knowing
 <span class="math notranslate nohighlight">\(\tau\)</span>. Whoever knows it can make a false identity hold at
-<span class="math notranslate nohighlight">\(\tau\)</span> and so prove false statements; in Zcash, that means printing
-money that nobody can see. The secret must be generated and then destroyed,
-and nobody can prove they destroyed it. The answer is to split it among
-many people so that it is safe if <em>any one</em> of them is honest.</p>
-<p>In October 2016 six participants generated Zcash’s parameters by a
-multi-party computation designed by Ben-Sasson, Chiesa, Green, Tromer and
-Virza, safe unless all six colluded. Bowe, Gabizon and Miers then made
-ceremonies scale to any number of participants. Each in turn multiplies the
-published powers by its own secret <span class="math notranslate nohighlight">\(s\)</span>,</p>
+<span class="math notranslate nohighlight">\(\tau\)</span>, and so prove false statements. In Zcash, that means printing
+money that nobody can see.</p>
+<p>The secret must be generated and then destroyed. Nobody can prove they
+destroyed it. The answer is to split it among many people, so that it is safe
+if <em>any one</em> of them is honest.</p>
+<p>In October 2016 six participants generated Zcash’s parameters. They used a
+<em>multi-party computation</em> (a calculation done jointly, in which no party
+learns the others’ inputs) designed by Ben-Sasson, Chiesa, Green, Tromer and
+Virza. It was safe unless all six colluded. Bowe, Gabizon and Miers then made
+ceremonies scale to any number of participants. Each participant in turn:</p>
+<ol class="arabic">
+<li><p>Picks its own secret <span class="math notranslate nohighlight">\(s\)</span>.</p></li>
+<li><p>Multiplies the published powers by it:</p>
 <div class="math notranslate nohighlight">
 \[[\tau^i]G \mapsto [(\tau s)^i]G,\]</div>
-<p>publishes <span class="math notranslate nohighlight">\([s]G\)</span>, and destroys <span class="math notranslate nohighlight">\(s\)</span>. The final secret is the
-product of all contributions, so recovering it needs every one of them.
-Anyone can check each step with pairings: <span class="math notranslate nohighlight">\(e([\tau s]G, G) = e([\tau]G, [s]G)\)</span>
-shows the new powers use the published <span class="math notranslate nohighlight">\(s\)</span>, and
-<span class="math notranslate nohighlight">\(e([\tau'^{i+1}]G, G) = e([\tau'^{i}]G, [\tau']G)\)</span> shows they are
-consecutive powers of one value <span class="math notranslate nohighlight">\(\tau' = \tau s\)</span>. The Powers of Tau
-(2017–2018) and Ethereum’s KZG ceremony (2023, over 140,000 contributions)
-followed this design.</p>
+<p>that is, it multiplies the <span class="math notranslate nohighlight">\(i\)</span>-th published element by
+<span class="math notranslate nohighlight">\(s^i\)</span>, which turns powers of <span class="math notranslate nohighlight">\(\tau\)</span> into powers of
+<span class="math notranslate nohighlight">\(\tau s\)</span>.</p>
+</li>
+<li><p>Publishes the new powers and <span class="math notranslate nohighlight">\([s]G\)</span>.</p></li>
+<li><p>Destroys <span class="math notranslate nohighlight">\(s\)</span>.</p></li>
+</ol>
+<p>Why it is safe, and how it is checked:</p>
+<ul class="simple">
+<li><p>The final secret is the product of all contributions. So recovering it
+needs every one of them.</p></li>
+<li><p>Anyone can check each step with pairings.
+<span class="math notranslate nohighlight">\(e([\tau s]G, G) = e([\tau]G, [s]G)\)</span> shows the new powers use the
+published <span class="math notranslate nohighlight">\(s\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(e([\tau'^{i+1}]G, G) = e([\tau'^{i}]G, [\tau']G)\)</span> shows they are
+consecutive powers of one value <span class="math notranslate nohighlight">\(\tau' = \tau s\)</span>.</p></li>
+<li><p>The Powers of Tau (2017–2018) and Ethereum’s KZG ceremony (2023, over
+140,000 contributions) followed this design.</p></li>
+</ul>
+<p>Deployed ceremonies also make each participant prove that it knows its
+<span class="math notranslate nohighlight">\(s\)</span>. Bowe, Gabizon and Miers’s design ends with a <em>random beacon</em>: public
+randomness that nobody controls, mixed in last.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.ceremony.start_ceremony" title="blockchainkit.proofs.systems.ceremony.start_ceremony"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.ceremony.start_ceremony()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.ceremony.contribute" title="blockchainkit.proofs.systems.ceremony.contribute"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.ceremony.contribute()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.ceremony.verify_contribution" title="blockchainkit.proofs.systems.ceremony.verify_contribution"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.ceremony.verify_contribution()</span></code></a>; with the
@@ -923,32 +1237,58 @@ zk-SNARK parameters in the random beacon model</em>, IACR ePrint 2017/1050.
 </div></div></section>
 <section id="bulletproofs-range-proofs-without-a-trusted-setup">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">2018 – Bulletproofs: Range Proofs without a Trusted Setup</a><a class="headerlink" href="#bulletproofs-range-proofs-without-a-trusted-setup" title="Link to this heading">#</a></h2>
-<p>Confidential transactions hide amounts in Pedersen commitments, which are
-additively homomorphic: a verifier can check that inputs equal outputs
-without seeing either. But the arithmetic is modulo the group order, so a
-“negative” output wraps around to a huge number, and outputs of 15 and
-<span class="math notranslate nohighlight">\(-5\)</span> would balance an input of 10 while minting 5 coins. Every amount
-must therefore be shown to lie in <span class="math notranslate nohighlight">\([0, 2^n)\)</span>, and with no trusted
-setup.</p>
-<p>Bünz, Bootle, Boneh, Poelstra, Wuille and Maxwell wrote the amount’s bits
-as a vector <span class="math notranslate nohighlight">\(a_L\)</span> and set <span class="math notranslate nohighlight">\(a_R = a_L - \mathbf{1}\)</span>; each entry
-of <span class="math notranslate nohighlight">\(a_L\)</span> is a bit exactly when <span class="math notranslate nohighlight">\(a_L \circ a_R = \mathbf{0}\)</span>.
-Random challenges combine this condition and “the bits sum to the
-committed amount” into a single inner product
-<span class="math notranslate nohighlight">\(\langle a, b\rangle = c\)</span>, which they proved by halving. Each round
-the prover sends two group elements <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, receives a
-challenge <span class="math notranslate nohighlight">\(x\)</span>, and both sides fold the vectors and generators to half
-their length,</p>
+<p><em>Confidential transactions</em> hide amounts. A hidden amount must still be shown
+to be in range, and with no trusted setup.</p>
+<p>The amounts are hidden in <em>Pedersen commitments</em>,
+<span class="math notranslate nohighlight">\(\mathrm{Com}(v, r) = [v]G + [r]H\)</span>, where <span class="math notranslate nohighlight">\(r\)</span> is random. They are
+<em>additively homomorphic</em>: adding two commitments gives a commitment to the sum.
+So a verifier can check that inputs equal outputs without seeing either. But
+there is a trap:</p>
+<ul class="simple">
+<li><p>The arithmetic is modulo the <em>group order</em>, the number of elements in the
+group. So a “negative” output wraps around to a huge number, as <code class="docutils literal notranslate"><span class="pre">-5</span> <span class="pre">%</span> <span class="pre">q</span></code>
+does in Python.</p></li>
+<li><p>Outputs of 15 and <span class="math notranslate nohighlight">\(-5\)</span> would then balance an input of 10, while
+minting 5 coins.</p></li>
+<li><p>Every amount must therefore be shown to lie in <span class="math notranslate nohighlight">\([0, 2^n)\)</span>. That is a
+<em>range proof</em>.</p></li>
+</ul>
+<p>Bünz, Bootle, Boneh, Poelstra, Wuille and Maxwell built a short one:</p>
+<ol class="arabic simple">
+<li><p>Write the amount’s bits as a vector <span class="math notranslate nohighlight">\(a_L\)</span>, and set
+<span class="math notranslate nohighlight">\(a_R = a_L - \mathbf{1}\)</span> (subtract 1 from every entry).</p></li>
+<li><p>Each entry of <span class="math notranslate nohighlight">\(a_L\)</span> is a bit exactly when
+<span class="math notranslate nohighlight">\(a_L \circ a_R = \mathbf{0}\)</span>, where <span class="math notranslate nohighlight">\(\circ\)</span> is the entrywise
+product <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">for</span> <span class="pre">x,</span> <span class="pre">y</span> <span class="pre">in</span> <span class="pre">zip(aL,</span> <span class="pre">aR)]</span></code>. This works because
+<span class="math notranslate nohighlight">\(b(b - 1) = 0\)</span> only for <span class="math notranslate nohighlight">\(b \in \{0, 1\}\)</span>.</p></li>
+<li><p>Random challenges combine this condition and “the bits sum to the
+committed amount” into a single <em>inner product</em> claim
+<span class="math notranslate nohighlight">\(\langle a, b\rangle = c\)</span>, that is <code class="docutils literal notranslate"><span class="pre">sum(x</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">for</span> <span class="pre">x,</span> <span class="pre">y</span> <span class="pre">in</span> <span class="pre">zip(a,</span> <span class="pre">b))</span>
+<span class="pre">==</span> <span class="pre">c</span></code>.</p></li>
+<li><p>They prove the inner product by halving. Each round the prover sends two
+group elements <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(R\)</span> and receives a challenge <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Both sides fold the vectors and generators to half their length, with
+<span class="math notranslate nohighlight">\(a_\text{lo}\)</span> and <span class="math notranslate nohighlight">\(a_\text{hi}\)</span> the two halves of <span class="math notranslate nohighlight">\(a\)</span>:</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[a' = x\, a_\text{lo} + x^{-1} a_\text{hi}, \qquad G' = G_\text{lo}^{x^{-1}} \circ G_\text{hi}^{x}.\]</div>
-<p>The cross terms that folding creates are exactly what <span class="math notranslate nohighlight">\(L\)</span> and
-<span class="math notranslate nohighlight">\(R\)</span> account for, so a valid claim stays valid and, because <span class="math notranslate nohighlight">\(x\)</span>
-comes after <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, a false one stays false except with
-negligible probability. After <span class="math notranslate nohighlight">\(\log_2 n\)</span> rounds one scalar remains. A
-proof is <span class="math notranslate nohighlight">\(2\log_2 n + 4\)</span> group elements and five scalars, and the
-generators are hashed into the group, so nobody knows a secret relating
-them and no setup is needed. Monero adopted Bulletproofs in 2018 and cut
-its transaction sizes by about 80%.</p>
+<p>In words: the new vector is a random-weighted sum of the two halves, and the
+new generators are combined the opposite way. (This formula writes the group
+multiplicatively.) After <span class="math notranslate nohighlight">\(\log_2 n\)</span> rounds one scalar remains, and the
+prover sends it.</p>
+<p>Why it works, and its cost:</p>
+<ul class="simple">
+<li><p>Folding creates cross terms, which mix the two halves. These are exactly
+what <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(R\)</span> account for. So a valid claim stays valid.</p></li>
+<li><p>Because <span class="math notranslate nohighlight">\(x\)</span> comes after <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(R\)</span>, a false claim stays
+false except with negligible probability.</p></li>
+<li><p>A proof is <span class="math notranslate nohighlight">\(2\log_2 n + 4\)</span> group elements and five scalars. For a
+64-bit range that is 16 group elements.</p></li>
+<li><p>The generators are hashed into the group. So nobody knows a secret relating
+them, and no setup is needed.</p></li>
+<li><p>Monero adopted Bulletproofs in 2018 and cut its transaction sizes by about
+80%.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.bulletproofs.range_proof" title="blockchainkit.proofs.systems.bulletproofs.range_proof"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.bulletproofs.range_proof()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.bulletproofs.verify_range_proof" title="blockchainkit.proofs.systems.bulletproofs.verify_range_proof"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.bulletproofs.verify_range_proof()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.bulletproofs.range_commitment" title="blockchainkit.proofs.systems.bulletproofs.range_commitment"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.bulletproofs.range_commitment()</span></code></a>, made
@@ -966,25 +1306,50 @@ more</em>, IEEE S&amp;P 2018, 315–334.
 </div></div></section>
 <section id="fri-fast-reed-solomon-proximity-testing">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">2018 – FRI: Fast Reed-Solomon Proximity Testing</a><a class="headerlink" href="#fri-fast-reed-solomon-proximity-testing" title="Link to this heading">#</a></h2>
-<p>KZG needs a trusted setup to bind a prover to a low-degree polynomial.
-Ben-Sasson, Bentov, Horesh and Riabzev did it with hashes alone. The
-prover Merkle-commits to a polynomial’s values on a domain much larger
-than its degree, a Reed-Solomon codeword, and FRI lets the verifier check,
-with logarithmically many queries, that the committed values are close to
-such a codeword. The key step halves the problem. Split <span class="math notranslate nohighlight">\(f\)</span> into its
-even and odd parts, <span class="math notranslate nohighlight">\(f(X) = f_e(X^2) + X f_o(X^2)\)</span>; both have half
-the degree, and both can be recovered from the two values at <span class="math notranslate nohighlight">\(x\)</span> and
-<span class="math notranslate nohighlight">\(-x\)</span>. A random <span class="math notranslate nohighlight">\(\alpha\)</span> from the verifier combines them into</p>
+<p>KZG needs a trusted setup to bind a prover to a <em>low-degree</em> polynomial (one
+whose degree is below a known bound <span class="math notranslate nohighlight">\(d\)</span>). Can hashes alone do it?</p>
+<p>Ben-Sasson, Bentov, Horesh and Riabzev showed they can. The prover evaluates
+the polynomial on a <em>domain</em> (a set of points) much larger than its degree.
+The resulting list of values is a <em>Reed-Solomon codeword</em>. It is very
+redundant: any <span class="math notranslate nohighlight">\(d\)</span> values fix all the others, so a few wrong values
+stand out. The prover commits to the list with a Merkle tree. <em>FRI</em> lets the
+verifier check, with logarithmically many queries, that the committed values
+are <em>close</em> to such a codeword (they differ from one in only a few places).</p>
+<p>The key step halves the problem. Split <span class="math notranslate nohighlight">\(f\)</span> into its even and odd parts,
+<span class="math notranslate nohighlight">\(f(X) = f_e(X^2) + X f_o(X^2)\)</span>:</p>
+<ul class="simple">
+<li><p>both parts have half the degree;</p></li>
+<li><p>both can be recovered from the two values at <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(-x\)</span>.</p></li>
+</ul>
+<p>A random <span class="math notranslate nohighlight">\(\alpha\)</span> from the verifier combines them into</p>
 <div class="math notranslate nohighlight">
 \[f'(x^2) = f_e(x^2) + \alpha f_o(x^2) = \frac{f(x) + f(-x)}{2} + \alpha\, \frac{f(x) - f(-x)}{2x},\]</div>
-<p>a function of half the degree on a domain of half the size (squaring maps
-<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(-x\)</span> to one point). If <span class="math notranslate nohighlight">\(f\)</span> has low degree, so
-does <span class="math notranslate nohighlight">\(f'\)</span>; if <span class="math notranslate nohighlight">\(f\)</span> is far from low degree, a random
-<span class="math notranslate nohighlight">\(\alpha\)</span> keeps <span class="math notranslate nohighlight">\(f'\)</span> far with high probability. After
-<span class="math notranslate nohighlight">\(\log_2 d\)</span> folds an honest codeword has become a constant. The prover
-commits to each layer with a Merkle tree, and the verifier checks, along a
-few random paths, that each layer is the fold of the one before. FRI is the
-low-degree test of STARKs, Plonky2, RISC Zero and SP1.</p>
+<p>In words: the folded value at <span class="math notranslate nohighlight">\(x^2\)</span> needs only the two values
+<span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(f(-x)\)</span>. It is a function of half the degree, on a
+domain of half the size, because squaring maps <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(-x\)</span> to
+one point.</p>
+<p>The protocol:</p>
+<ol class="arabic simple">
+<li><p>The prover commits to <span class="math notranslate nohighlight">\(f\)</span> on the domain.</p></li>
+<li><p>The verifier sends a random <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
+<li><p>The prover computes the folded function <span class="math notranslate nohighlight">\(f'\)</span> and commits to it with a
+new Merkle tree.</p></li>
+<li><p>Steps 2 and 3 repeat. After <span class="math notranslate nohighlight">\(\log_2 d\)</span> folds an honest codeword has
+become a constant.</p></li>
+<li><p>Along a few random paths, the verifier opens <span class="math notranslate nohighlight">\(f(x)\)</span>, <span class="math notranslate nohighlight">\(f(-x)\)</span>
+and <span class="math notranslate nohighlight">\(f'(x^2)\)</span> in each layer. It checks that each layer is the fold
+of the one before.</p></li>
+</ol>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> has low degree, so does <span class="math notranslate nohighlight">\(f'\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(f\)</span> is far from low degree, a random <span class="math notranslate nohighlight">\(\alpha\)</span> keeps
+<span class="math notranslate nohighlight">\(f'\)</span> far with high probability.</p></li>
+<li><p>FRI is the low-degree test of STARKs, Plonky2, RISC Zero and SP1.</p></li>
+</ul>
+<p>The domain must contain <span class="math notranslate nohighlight">\(-x\)</span> along with every <span class="math notranslate nohighlight">\(x\)</span>. The model uses
+<em>cosets</em> of power-of-two subgroups: shifted copies <code class="docutils literal notranslate"><span class="pre">[s</span> <span class="pre">*</span> <span class="pre">h</span> <span class="pre">%</span> <span class="pre">p</span> <span class="pre">for</span> <span class="pre">h</span> <span class="pre">in</span> <span class="pre">H]</span></code>
+of a set <span class="math notranslate nohighlight">\(H\)</span> of <span class="math notranslate nohighlight">\(2^k\)</span> powers of one element.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.fri.fri_prove" title="blockchainkit.proofs.systems.fri.fri_prove"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.fri.fri_prove()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.fri.fri_verify" title="blockchainkit.proofs.systems.fri.fri_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.fri.fri_verify()</span></code></a>, on cosets of
 power-of-two subgroups of BabyBear, with the FFT of
@@ -1000,25 +1365,57 @@ Reed-Solomon interactive oracle proofs of proximity</em>, ICALP 2018, LIPIcs
 </div></div></section>
 <section id="starks-transparent-proofs-of-computation-from-hashes">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">2018 – STARKs: Transparent Proofs of Computation from Hashes</a><a class="headerlink" href="#starks-transparent-proofs-of-computation-from-hashes" title="Link to this heading">#</a></h2>
-<p>The same authors used FRI to build scalable, transparent arguments of
-knowledge: proofs that need no trusted setup, rely only on hash functions
-(so no known quantum attack applies), and grow polylogarithmically with the
-computation. The computation is recorded as an execution trace, one value
-per step, interpolated as a polynomial <span class="math notranslate nohighlight">\(f\)</span> with <span class="math notranslate nohighlight">\(f(g^i)\)</span> the
-value at step <span class="math notranslate nohighlight">\(i\)</span> over a subgroup <span class="math notranslate nohighlight">\(\langle g\rangle\)</span>. Each rule
-of the computation is a polynomial in shifted copies of <span class="math notranslate nohighlight">\(f\)</span>; for the
-Fibonacci recurrence, <span class="math notranslate nohighlight">\(f(g^2 X) - f(gX) - f(X)\)</span> is zero at
-<span class="math notranslate nohighlight">\(X = g^i\)</span> exactly when step <span class="math notranslate nohighlight">\(i + 2\)</span> was computed correctly. As
-in a QAP, being zero at all those points is the same as being divisible by
-the polynomial with those roots, so the trace is correct exactly when</p>
+<p>FRI tests a single polynomial. A proof system must show that a whole
+computation was done correctly.</p>
+<p>The same authors used FRI to build <em>STARKs</em>: scalable, transparent arguments
+of knowledge. These proofs:</p>
+<ul class="simple">
+<li><p>need no trusted setup;</p></li>
+<li><p>rely only on hash functions, so no known quantum attack applies (large
+quantum computers would break discrete logarithms, which every
+pairing-based entry above relies on);</p></li>
+<li><p>grow polylogarithmically with the computation.</p></li>
+</ul>
+<p>The computation is recorded as an <em>execution trace</em>: one value per step, like
+the list <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">8,</span> <span class="pre">...]</span></code> for Fibonacci. The trace becomes a
+polynomial <span class="math notranslate nohighlight">\(f\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Pick a <em>subgroup</em> <span class="math notranslate nohighlight">\(\langle g\rangle\)</span>: the powers
+<span class="math notranslate nohighlight">\(g^0, g^1, \dots, g^{T-1}\)</span> of an element <span class="math notranslate nohighlight">\(g\)</span> with
+<span class="math notranslate nohighlight">\(g^T = 1\)</span>.</p></li>
+<li><p>Interpolate <span class="math notranslate nohighlight">\(f\)</span> so that <span class="math notranslate nohighlight">\(f(g^i)\)</span> is the value at step
+<span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p>Write each rule of the computation as a polynomial in shifted copies of
+<span class="math notranslate nohighlight">\(f\)</span>. Since <span class="math notranslate nohighlight">\(f(g \cdot g^i) = f(g^{i+1})\)</span>, the shift by
+<span class="math notranslate nohighlight">\(g\)</span> moves to the next step. For the Fibonacci recurrence,
+<span class="math notranslate nohighlight">\(f(g^2 X) - f(gX) - f(X)\)</span> is zero at <span class="math notranslate nohighlight">\(X = g^i\)</span> exactly when
+step <span class="math notranslate nohighlight">\(i + 2\)</span> was computed correctly.</p></li>
+</ol>
+<p>This way of writing rules is an <em>AIR</em> (algebraic intermediate
+representation). As in a QAP, being zero at all those points is the same as
+being divisible by the polynomial with those roots. So the trace is correct
+exactly when</p>
 <div class="math notranslate nohighlight">
 \[\frac{f(g^2 X) - f(gX) - f(X)}{\prod_{i=0}^{T-3} (X - g^i)} \quad \text{is a polynomial}\]</div>
-<p>for a trace of length <span class="math notranslate nohighlight">\(T\)</span>. If any step is wrong the quotient is not
-a polynomial, and its values on a large domain are far from every
-low-degree codeword. The prover therefore commits to a low-degree
-extension of the trace, and proves with FRI that a random combination of
-all the quotients has low degree. StarkWare’s StarkEx and StarkNet were
-built on this design.</p>
+<p>for a trace of length <span class="math notranslate nohighlight">\(T\)</span>. In words: the rule’s error divides evenly by
+the polynomial that is zero at every checked step.</p>
+<p>The proof then runs:</p>
+<ol class="arabic simple">
+<li><p>The prover evaluates the trace polynomial on a much larger domain (a
+<em>low-degree extension</em> of the trace) and commits to it with a Merkle tree.</p></li>
+<li><p>It forms the quotients, one per rule.</p></li>
+<li><p>It proves with FRI that a random combination of all the quotients has low
+degree.</p></li>
+</ol>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>If any step is wrong, the quotient is not a polynomial.</p></li>
+<li><p>Its values on a large domain are then far from every low-degree codeword,
+and FRI catches it.</p></li>
+<li><p>StarkWare’s StarkEx and StarkNet were built on this design.</p></li>
+</ul>
+<p><em>Boundary constraints</em> also fix chosen values, such as the first and last
+entries of the trace.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.stark.stark_prove" title="blockchainkit.proofs.systems.stark.stark_prove"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.stark.stark_prove()</span></code></a> and
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.stark.stark_verify" title="blockchainkit.proofs.systems.stark.stark_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.stark.stark_verify()</span></code></a> prove one fixed
 computation, the Fibonacci trace of
@@ -1035,29 +1432,52 @@ IACR ePrint 2018/046. <a class="reference external" href="https://eprint.iacr.or
 </div></div></section>
 <section id="plonk-permutation-arguments-and-a-universal-setup">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">2019 – PLONK: Permutation Arguments and a Universal Setup</a><a class="headerlink" href="#plonk-permutation-arguments-and-a-universal-setup" title="Link to this heading">#</a></h2>
-<p>Groth16 needs a new ceremony for every circuit, because its setup encodes
-the circuit itself. Gabizon, Williamson and Ciobotaru removed that by
-moving the circuit out of the setup. Every gate has the same form,
-<span class="math notranslate nohighlight">\(q_L a + q_R b + q_O c + q_M ab + q_C = 0\)</span>, with the selectors
-<span class="math notranslate nohighlight">\(q\)</span> choosing addition, multiplication or a constant, and the wiring
-becomes a separate check: wires that carry the same variable must hold the
-same value. Number every wire slot, and let the permutation <span class="math notranslate nohighlight">\(\sigma\)</span>
-send each slot to the next slot carrying the same variable. The values are
-consistent exactly when they are unchanged by <span class="math notranslate nohighlight">\(\sigma\)</span>, that is, when
-the multisets <span class="math notranslate nohighlight">\(\{(w, \mathrm{id})\}\)</span> and <span class="math notranslate nohighlight">\(\{(w, \sigma)\}\)</span> of
-(value, slot) pairs coincide. With random <span class="math notranslate nohighlight">\(\beta, \gamma\)</span> from the
-verifier, that is tested by</p>
+<p>Groth16 needs a new ceremony for every circuit, because its setup encodes the
+circuit itself.</p>
+<p>Gabizon, Williamson and Ciobotaru removed that by moving the circuit out of
+the setup. Every gate has the same form,
+<span class="math notranslate nohighlight">\(q_L a + q_R b + q_O c + q_M ab + q_C = 0\)</span>. Here <span class="math notranslate nohighlight">\(a, b, c\)</span> are the
+gate’s two inputs and output. The <em>selectors</em> <span class="math notranslate nohighlight">\(q\)</span> are fixed numbers, like
+flags, that choose the gate’s job:</p>
+<ul class="simple">
+<li><p>addition <span class="math notranslate nohighlight">\(a + b = c\)</span>: <span class="math notranslate nohighlight">\(q_L = q_R = 1\)</span>, <span class="math notranslate nohighlight">\(q_O = -1\)</span>, the
+rest 0;</p></li>
+<li><p>multiplication <span class="math notranslate nohighlight">\(ab = c\)</span>: <span class="math notranslate nohighlight">\(q_M = 1\)</span>, <span class="math notranslate nohighlight">\(q_O = -1\)</span>, the rest
+0;</p></li>
+<li><p>a constant <span class="math notranslate nohighlight">\(a = k\)</span>: <span class="math notranslate nohighlight">\(q_L = 1\)</span>, <span class="math notranslate nohighlight">\(q_C = -k\)</span>, the rest 0.</p></li>
+</ul>
+<p>The wiring becomes a separate check: wires that carry the same variable must
+hold the same value.</p>
+<ol class="arabic simple">
+<li><p>Number every wire slot (three per gate).</p></li>
+<li><p>Let the <em>permutation</em> <span class="math notranslate nohighlight">\(\sigma\)</span> send each slot to the next slot
+carrying the same variable. Think of a list <code class="docutils literal notranslate"><span class="pre">sigma</span></code> where
+<code class="docutils literal notranslate"><span class="pre">sigma[i]</span></code> is that next slot.</p></li>
+<li><p>The values are consistent exactly when they are unchanged by
+<span class="math notranslate nohighlight">\(\sigma\)</span>: <code class="docutils literal notranslate"><span class="pre">w[sigma[i]]</span> <span class="pre">==</span> <span class="pre">w[i]</span></code> for every slot.</p></li>
+<li><p>Equivalently, the <em>multisets</em> (collections that count repeats, like
+<code class="docutils literal notranslate"><span class="pre">collections.Counter</span></code>) <span class="math notranslate nohighlight">\(\{(w, \mathrm{id})\}\)</span> and
+<span class="math notranslate nohighlight">\(\{(w, \sigma)\}\)</span> of (value, slot) pairs coincide.</p></li>
+<li><p>With random <span class="math notranslate nohighlight">\(\beta, \gamma\)</span> from the verifier, that is tested by</p></li>
+</ol>
 <div class="math notranslate nohighlight">
 \[\prod_{\text{wires}} (w + \beta\, \mathrm{id} + \gamma) = \prod_{\text{wires}} (w + \beta\, \sigma + \gamma).\]</div>
-<p>Both sides are polynomials in <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> that are
-identical exactly when the multisets are, so by Schwartz-Zippel the
-equation holds at a random point with high probability only if the wiring
-is respected. The running product becomes a committed polynomial, and
-gates, copies and boundary conditions combine into one quotient checked at
-a random point with KZG. Since the circuit enters only through committed
-polynomials, the setup is <em>universal</em>: one powers of tau serves every
-circuit up to a given size. Aztec, zkSync, Scroll and Halo 2 descend from
-PLONK.</p>
+<p>In words: fold each (value, slot) pair into one number with random weights,
+and multiply all of them together; the two products agree only if the two
+collections of pairs do.</p>
+<p>Why it works, and its uses:</p>
+<ul class="simple">
+<li><p>Both sides are polynomials in <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> that are
+identical exactly when the multisets are.</p></li>
+<li><p>So, by Schwartz-Zippel, the equation holds at a random point with high
+probability only if the wiring is respected.</p></li>
+<li><p>The running product becomes a committed polynomial. Gates, copies and
+boundary conditions combine into one quotient, checked at a random point
+with KZG.</p></li>
+<li><p>The circuit enters only through committed polynomials. So the setup is
+<em>universal</em>: one powers of tau serves every circuit up to a given size.</p></li>
+<li><p>Aztec, zkSync, Scroll and Halo 2 descend from PLONK.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.plonk.PlonkCircuit" title="blockchainkit.proofs.systems.plonk.PlonkCircuit"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.plonk.PlonkCircuit</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.plonk.plonk_setup" title="blockchainkit.proofs.systems.plonk.plonk_setup"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.plonk.plonk_setup()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.plonk.plonk_prove" title="blockchainkit.proofs.systems.plonk.plonk_prove"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.plonk.plonk_prove()</span></code></a>,
@@ -1076,27 +1496,43 @@ of knowledge</em>, IACR ePrint 2019/953.
 </div></div></section>
 <section id="halo-recursive-proof-composition-without-a-trusted-setup">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">2019 – Halo: Recursive Proof Composition without a Trusted Setup</a><a class="headerlink" href="#halo-recursive-proof-composition-without-a-trusted-setup" title="Link to this heading">#</a></h2>
-<p>A proof that verifies the previous proof, at every block, would let
-anyone check a whole chain from one short proof. That requires
-verification cheap enough to run inside a circuit. Inner-product arguments
-such as Bulletproofs need no setup, but their verifier is not cheap: after
-the folding rounds it must compute the folded generator
-<span class="math notranslate nohighlight">\(G_\text{final}\)</span>, a multi-exponentiation as long as the vector.</p>
-<p>Bowe, Grigg and Hopwood observed that this expensive value has structure.
-The exponent of each original generator in <span class="math notranslate nohighlight">\(G_\text{final}\)</span> is a
+<p>Imagine a proof, at every block, that also verifies the previous block’s
+proof. Then anyone could check a whole chain from one short proof. This is
+<em>recursion</em>. It requires verification cheap enough to run inside a circuit.</p>
+<p>Inner-product arguments such as Bulletproofs need no setup. But their verifier
+is not cheap. After the folding rounds it must compute the folded generator
+<span class="math notranslate nohighlight">\(G_\text{final}\)</span>. That is a <em>multi-exponentiation</em>, a combination of all
+the original generators with a different exponent each, as long as the
+vector.</p>
+<p>Bowe, Grigg and Hopwood observed that this expensive value has structure. The
+exponent of each original generator in <span class="math notranslate nohighlight">\(G_\text{final}\)</span> is a
 coefficient of</p>
 <div class="math notranslate nohighlight">
 \[g(X) = \prod_{j=1}^{k} \left(1 + c_j X^{2^{k-j}}\right),\]</div>
-<p>built from the <span class="math notranslate nohighlight">\(k\)</span> round challenges, so <span class="math notranslate nohighlight">\(G_\text{final}\)</span> is just
-a commitment to <span class="math notranslate nohighlight">\(g\)</span>. Computing the commitment takes linear time, but
-<em>evaluating</em> <span class="math notranslate nohighlight">\(g\)</span> takes only <span class="math notranslate nohighlight">\(O(\log n)\)</span>. The verifier
-therefore skips the expensive step and keeps <span class="math notranslate nohighlight">\(G_\text{final}\)</span> as an
-unchecked claim, an accumulator. Two such claims merge into one by opening
-a random combination of them at a random point, which needs only cheap
-evaluations of each <span class="math notranslate nohighlight">\(g\)</span> and leaves a single new deferred claim. A
-chain of proofs thus carries one accumulator forward, and whoever finally
-needs certainty pays the linear cost once. Zcash’s Orchard pool (2022)
-runs on Halo 2.</p>
+<p>built from the <span class="math notranslate nohighlight">\(k\)</span> round challenges <span class="math notranslate nohighlight">\(c_j\)</span>. In words: the
+exponents are products of challenges, one choice per round, which is what
+expanding this product gives. So <span class="math notranslate nohighlight">\(G_\text{final}\)</span> is just a commitment
+to <span class="math notranslate nohighlight">\(g\)</span>.</p>
+<p>The asymmetry they exploited:</p>
+<ul class="simple">
+<li><p><em>Computing</em> the commitment takes linear time, <span class="math notranslate nohighlight">\(O(n)\)</span>.</p></li>
+<li><p><em>Evaluating</em> <span class="math notranslate nohighlight">\(g\)</span> at a point takes only <span class="math notranslate nohighlight">\(O(\log n)\)</span>, one factor
+per round.</p></li>
+</ul>
+<p>So the verifier works like this:</p>
+<ol class="arabic simple">
+<li><p>It runs every cheap check of the inner-product argument.</p></li>
+<li><p>It skips the expensive step. It keeps <span class="math notranslate nohighlight">\(G_\text{final}\)</span> as an
+unchecked claim, an <em>accumulator</em>.</p></li>
+<li><p>Two such claims merge into one by opening a random combination of them at
+a random point. That needs only cheap evaluations of each <span class="math notranslate nohighlight">\(g\)</span>, and
+leaves a single new deferred claim.</p></li>
+<li><p>A chain of proofs thus carries one accumulator forward.</p></li>
+<li><p>Whoever finally needs certainty pays the linear cost once.</p></li>
+</ol>
+<p>Zcash’s Orchard pool (2022) runs on Halo 2. Doing this inside circuits needs a
+<em>cycle of curves</em>: two elliptic curves, each able to check the other’s proofs
+efficiently.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.halo.ipa_open" title="blockchainkit.proofs.systems.halo.ipa_open"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.halo.ipa_open()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.halo.ipa_defer" title="blockchainkit.proofs.systems.halo.ipa_defer"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.halo.ipa_defer()</span></code></a>,
 <a class="reference internal" href="../api/proofs.html#blockchainkit.proofs.systems.halo.accumulate" title="blockchainkit.proofs.systems.halo.accumulate"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.proofs.systems.halo.accumulate()</span></code></a>,

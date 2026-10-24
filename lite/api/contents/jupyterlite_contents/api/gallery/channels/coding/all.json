@@ -2,11 +2,11 @@
   "content": [
     {
       "content": null,
-      "created": "2026-10-08T17:17:50.646863Z",
+      "created": "2026-10-24T08:04:53.405366Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-08T17:17:50.646863Z",
+      "last_modified": "2026-10-24T08:04:53.405366Z",
       "mimetype": null,
       "name": "plot_02_data_availability_sampling.ipynb",
       "path": "jupyterlite_contents/api/gallery/channels/coding/plot_02_data_availability_sampling.ipynb",
@@ -16,11 +16,11 @@
     },
     {
       "content": null,
-      "created": "2026-10-08T17:17:50.646642Z",
+      "created": "2026-10-24T08:04:53.405191Z",
       "format": null,
       "hash": null,
       "hash_algorithm": null,
-      "last_modified": "2026-10-08T17:17:50.646642Z",
+      "last_modified": "2026-10-24T08:04:53.405191Z",
       "mimetype": null,
       "name": "plot_01_reed_solomon.ipynb",
       "path": "jupyterlite_contents/api/gallery/channels/coding/plot_01_reed_solomon.ipynb",
@@ -29,11 +29,11 @@
       "writable": true
     }
   ],
-  "created": "2026-10-08T17:17:51.615563Z",
+  "created": "2026-10-24T08:04:54.680569Z",
   "format": "json",
   "hash": null,
   "hash_algorithm": null,
-  "last_modified": "2026-10-08T17:17:51.616017Z",
+  "last_modified": "2026-10-24T08:04:54.681043Z",
   "mimetype": null,
   "name": "coding",
   "path": "jupyterlite_contents/api/gallery/channels/coding",

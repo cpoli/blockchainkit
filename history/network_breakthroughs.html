@@ -231,6 +231,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
       
     </div>
@@ -344,6 +355,17 @@
           
           <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
         </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
 </ul></div>
         
       </div>
@@ -444,17 +466,42 @@
 even know existed can render your own computer unusable.”
 – Leslie Lamport, email message, 1987</p>
 </div></blockquote>
-<p>Agreement needs communication. Peers learn about transactions and blocks by
-gossip, find each other through overlays, and see the world only through the
-connections they happen to have. This chronology traces the ideas behind
-<a class="reference internal" href="../api/network.html#module-blockchainkit.network" title="blockchainkit.network"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.network</span></code></a>, from random graphs to Dandelion, along four
-questions: how peers are connected (random, small-world and scale-free graphs,
-Kademlia), how news spreads (gossip, reliable broadcast, block relay), how
-events are ordered without a shared clock (Lamport and vector clocks, CAP),
-and what an adversary can do to the network (Sybil and eclipse attacks,
-deanonymization). Every model runs
-in simulated time from a fixed seed; <a class="reference internal" href="../simulation.html"><span class="doc">Reproducible experiments and research scope</span></a> describes what the
-simulations do and do not capture.</p>
+<p>A blockchain is a shared record, like a Python list of <em>blocks</em>. Each block
+holds a batch of <em>transactions</em> (payments or other changes to the record).
+Thousands of computers keep copies of the list in step. Nobody runs a central
+server. Each computer is a <em>peer</em>, or <em>node</em>: an equal participant that talks
+directly to a few other peers. Such a network is <em>peer-to-peer</em>.</p>
+<p>Agreement needs communication. Peers learn about new transactions and blocks
+by <em>gossip</em>: each peer passes news on to the peers it is connected to, as
+people pass on a rumor. Peers find each other through an <em>overlay</em>: a network
+of “who knows whom” built on top of the internet. Each peer sees the world only
+through the connections it happens to have.</p>
+<p>This chronology traces the ideas behind <a class="reference internal" href="../api/network.html#module-blockchainkit.network" title="blockchainkit.network"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.network</span></code></a>, from
+random graphs to Dandelion. It follows four questions:</p>
+<ul class="simple">
+<li><p><strong>How are peers connected?</strong> Random, small-world and scale-free graphs, and
+the Kademlia overlay.</p></li>
+<li><p><strong>How does news spread?</strong> Gossip, reliable broadcast and block relay.</p></li>
+<li><p><strong>How are events ordered without a shared clock?</strong> Lamport and vector clocks,
+and the CAP theorem.</p></li>
+<li><p><strong>What can an attacker do to the network?</strong> Fake identities (Sybil attacks),
+cutting one peer off (eclipse attacks), and working out who sent a
+transaction (deanonymization).</p></li>
+</ul>
+<p>Every model runs in simulated time from a fixed seed. <a class="reference internal" href="../simulation.html"><span class="doc">Reproducible experiments and research scope</span></a>
+describes what the simulations do and do not capture.</p>
+<p>The page uses a few conventions throughout:</p>
+<ul class="simple">
+<li><p>A <em>graph</em> is a set of nodes joined by <em>links</em> (also called edges). In Python,
+think of a dict of sets: <code class="docutils literal notranslate"><span class="pre">graph[v]</span></code> is the set of <span class="math notranslate nohighlight">\(v\)</span>’s neighbors.</p></li>
+<li><p>The <em>degree</em> of a node is its number of links, <code class="docutils literal notranslate"><span class="pre">len(graph[v])</span></code>.</p></li>
+<li><p>A <em>path</em> is a chain of links from one node to another. Its <em>length</em> is the
+number of links, or <em>hops</em>. A graph is <em>connected</em> if there is a path between
+every pair of nodes.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\ln n\)</span> is <code class="docutils literal notranslate"><span class="pre">math.log(n)</span></code> and <span class="math notranslate nohighlight">\(\log_2 n\)</span> is <code class="docutils literal notranslate"><span class="pre">math.log2(n)</span></code>.
+<span class="math notranslate nohighlight">\(e \approx 2.718\)</span>.</p></li>
+<li><p>“With probability <span class="math notranslate nohighlight">\(p\)</span>” means “if <code class="docutils literal notranslate"><span class="pre">random.random()</span> <span class="pre">&lt;</span> <span class="pre">p</span></code>”.</p></li>
+</ul>
 <nav class="contents local" id="timeline">
 <p class="topic-title">Timeline</p>
 <ul class="simple">
@@ -479,21 +526,39 @@ simulations do and do not capture.</p>
 </nav>
 <section id="random-graphs-and-the-connectivity-threshold">
 <h2><a class="toc-backref" href="#id1" role="doc-backlink">1959 – Random Graphs and the Connectivity Threshold</a><a class="headerlink" href="#random-graphs-and-the-connectivity-threshold" title="Link to this heading">#</a></h2>
-<p>Erdős and Rényi founded the theory of random graphs by asking which properties
-appear, and how suddenly, as links are added at random. Connectivity has a
-sharp threshold: if every pair of <span class="math notranslate nohighlight">\(n\)</span> peers is linked with probability
-<span class="math notranslate nohighlight">\(p\)</span>, the network snaps from fragmented to connected once each peer has
-about <span class="math notranslate nohighlight">\(\ln n\)</span> links:</p>
+<p>Suppose peers connect to each other at random. How many links does each peer
+need before every peer can reach every other?</p>
+<p>Erdős and Rényi founded the theory of <em>random graphs</em> to answer questions like
+this. They asked which properties appear, and how suddenly, as links are added
+at random. Their model, written <span class="math notranslate nohighlight">\(G(n, p)\)</span>, is built like this:</p>
+<ol class="arabic simple">
+<li><p>Start with <span class="math notranslate nohighlight">\(n\)</span> peers and no links.</p></li>
+<li><p>For each of the <span class="math notranslate nohighlight">\(n(n-1)/2\)</span> pairs of peers, flip a biased coin. Add a
+link with probability <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
+</ol>
+<p>Each peer then has about <span class="math notranslate nohighlight">\(np\)</span> links on average. Connectivity has a
+<em>sharp threshold</em>. Below a certain value of <span class="math notranslate nohighlight">\(p\)</span> the network is almost
+surely in pieces. Just above it, the network is almost surely connected. The
+switch happens when each peer has about <span class="math notranslate nohighlight">\(\ln n\)</span> links:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}P\bigl(G(n, p) \text{ connected}\bigr) \to
 \begin{cases} 0 &amp; p &lt; (1 - \varepsilon) \ln n / n, \\
               1 &amp; p &gt; (1 + \varepsilon) \ln n / n. \end{cases}\end{split}\]</div>
-<p>Just below the threshold, what keeps the graph apart is almost always a few
-isolated peers, so the practical rule is to make sure no peer is left with too
-few links. Unstructured peer-to-peer networks such as Bitcoin’s rely on this
-result: <span class="math notranslate nohighlight">\(\ln n\)</span> grows so slowly that ten thousand peers need only about
-nine links each, and a Bitcoin node opens eight outbound connections and
-accepts inbound ones, which puts it above the threshold.</p>
+<p>In words: pick any small fixed number <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>. As <span class="math notranslate nohighlight">\(n\)</span>
+grows, the chance that the graph is connected tends to 0 if <span class="math notranslate nohighlight">\(p\)</span> is a
+little below <span class="math notranslate nohighlight">\(\ln n / n\)</span>, and to 1 if it is a little above.</p>
+<p>What this means in practice:</p>
+<ul class="simple">
+<li><p>Just below the threshold, what keeps the graph apart is almost always a few
+<em>isolated</em> peers, with no links at all. So the practical rule is to make sure
+no peer is left with too few links.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\ln n\)</span> grows very slowly. Ten thousand peers need only about nine
+links each, since <code class="docutils literal notranslate"><span class="pre">math.log(10_000)</span></code> is about 9.2.</p></li>
+<li><p>Unstructured peer-to-peer networks such as Bitcoin’s rely on this result. A
+Bitcoin node opens eight <em>outbound</em> connections (ones it starts itself) and
+also accepts <em>inbound</em> ones (ones other peers start). That puts it above the
+threshold.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.topology.erdos_renyi" title="blockchainkit.network.systems.topology.erdos_renyi"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.topology.erdos_renyi()</span></code></a>
 and <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.topology.Graph" title="blockchainkit.network.systems.topology.Graph"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.network.systems.topology.Graph</span></code></a>.</p>
 <p><em>References:</em> P. Erdős and A. Rényi, <em>On random graphs I</em>, Publicationes
@@ -504,13 +569,29 @@ Mathematicae Debrecen 6, 290–297 (1959).</p>
 </div></div></section>
 <section id="discrete-event-simulation">
 <h2><a class="toc-backref" href="#id2" role="doc-backlink">1961-1965 – Discrete-Event Simulation</a><a class="headerlink" href="#discrete-event-simulation" title="Link to this heading">#</a></h2>
+<p>Testing a network of thousands of peers on real machines is slow and costly.
+Runs also differ each time, so results are hard to repeat.</p>
 <p>Geoffrey Gordon’s GPSS (1961) and Dahl and Nygaard’s Simula (1965) made
-<em>discrete-event simulation</em> a standard tool. Instead of waiting for real time
-to pass, the simulator keeps future events in a queue ordered by time, pops the
-earliest, sets the clock to its time, and lets it schedule further events.
-Nothing happens between events, and with a fixed random seed every run is
-identical. Simula’s objects and classes, invented to model the simulated
-entities, went on to found object-oriented programming.</p>
+<em>discrete-event simulation</em> a standard tool. The idea is not to wait for real
+time to pass. The simulator jumps straight from one event to the next. It keeps
+future events in a <em>priority queue</em> ordered by time, like Python’s <code class="docutils literal notranslate"><span class="pre">heapq</span></code>:</p>
+<ol class="arabic simple">
+<li><p>Push the starting events as <code class="docutils literal notranslate"><span class="pre">(time,</span> <span class="pre">event)</span></code> pairs onto the queue.</p></li>
+<li><p>Pop the earliest event: <code class="docutils literal notranslate"><span class="pre">t,</span> <span class="pre">ev</span> <span class="pre">=</span> <span class="pre">heapq.heappop(queue)</span></code>.</p></li>
+<li><p>Set the simulated clock to <code class="docutils literal notranslate"><span class="pre">t</span></code>.</p></li>
+<li><p>Run the event. It may push further events, such as “this message arrives
+3 ticks from now”.</p></li>
+<li><p>Repeat until the queue is empty.</p></li>
+</ol>
+<p>This design has useful properties:</p>
+<ul class="simple">
+<li><p>Nothing happens between events, so no time is wasted waiting.</p></li>
+<li><p>A <em>seed</em> is the starting value of a random number generator, as in
+<code class="docutils literal notranslate"><span class="pre">random.seed(42)</span></code>. With a fixed seed, every run is identical.</p></li>
+<li><p>Simula’s <em>objects</em> and <em>classes</em> were invented to model the simulated
+entities. They went on to found object-oriented programming, the same idea
+as Python’s <code class="docutils literal notranslate"><span class="pre">class</span></code>.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.gossip.SimulatedNetwork" title="blockchainkit.network.systems.gossip.SimulatedNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.network.systems.gossip.SimulatedNetwork</span></code></a>
 schedules each message as a delivery event a seeded random number of ticks
 after it is sent, suppresses duplicates, and drops in-flight messages when a
@@ -525,20 +606,50 @@ Eastern Joint Computer Conference, 87–104 (1961); O.-J. Dahl and K. Nygaard,
 </div></div></section>
 <section id="lamport-clocks-time-from-messages">
 <h2><a class="toc-backref" href="#id3" role="doc-backlink">1978 – Lamport Clocks: Time from Messages</a><a class="headerlink" href="#lamport-clocks-time-from-messages" title="Link to this heading">#</a></h2>
-<p>Computers’ clocks disagree, so physical time cannot always say which of two
-events came first. Lamport defined <em>happened before</em> (<span class="math notranslate nohighlight">\(a \to b\)</span>) from the
-messages themselves: the smallest transitive relation in which each process’s
-events are ordered and each send precedes its receive. Each process keeps a
-counter <span class="math notranslate nohighlight">\(C\)</span>, increments it at every event, attaches it to messages, and on
-receiving a message with stamp <span class="math notranslate nohighlight">\(t\)</span> sets <span class="math notranslate nohighlight">\(C \leftarrow \max(C, t) + 1\)</span>.
-This guarantees the <em>clock condition</em></p>
+<p>Computers’ clocks disagree. So physical time cannot always say which of two
+events came first.</p>
+<p>Here a <em>process</em> is one computer running its part of the program. An <em>event</em>
+is one step of a process: a local step, sending a message, or receiving one.
+Lamport defined when event <span class="math notranslate nohighlight">\(a\)</span> <em>happened before</em> event <span class="math notranslate nohighlight">\(b\)</span>,
+written <span class="math notranslate nohighlight">\(a \to b\)</span>. He used only the messages, not the clocks:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> happen in the same process and <span class="math notranslate nohighlight">\(a\)</span> comes
+first, then <span class="math notranslate nohighlight">\(a \to b\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(a\)</span> sends a message and <span class="math notranslate nohighlight">\(b\)</span> receives that message, then
+<span class="math notranslate nohighlight">\(a \to b\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(a \to c\)</span> and <span class="math notranslate nohighlight">\(c \to b\)</span>, then <span class="math notranslate nohighlight">\(a \to b\)</span>. (The relation
+is <em>transitive</em>: chains count.)</p></li>
+</ul>
+<p>Nothing else counts. Formally, it is the smallest transitive relation that
+contains the first two rules. So <span class="math notranslate nohighlight">\(a \to b\)</span> means exactly that <span class="math notranslate nohighlight">\(a\)</span>
+could have influenced <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>A <em>Lamport clock</em> turns this into numbers. Each process keeps an integer
+counter <code class="docutils literal notranslate"><span class="pre">C</span></code>:</p>
+<ol class="arabic simple">
+<li><p>At every event, the process increments its counter: <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">+=</span> <span class="pre">1</span></code>.</p></li>
+<li><p>When it sends a message, it attaches the current value of <code class="docutils literal notranslate"><span class="pre">C</span></code> as the
+message’s <em>timestamp</em>.</p></li>
+<li><p>When it receives a message with timestamp <code class="docutils literal notranslate"><span class="pre">t</span></code>, it sets
+<code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">=</span> <span class="pre">max(C,</span> <span class="pre">t)</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+</ol>
+<p>This guarantees the <em>clock condition</em>:</p>
 <div class="math notranslate nohighlight">
 \[a \to b \implies C(a) &lt; C(b),\]</div>
-<p>and ordering events by <span class="math notranslate nohighlight">\((C, \text{process})\)</span> gives a total order that
-every process computes alike. Lamport used it to replicate a state machine: if
-all replicas apply the same commands in the same order, they stay identical,
-the principle behind every blockchain. The converse fails: <span class="math notranslate nohighlight">\(C(a) &lt; C(b)\)</span>
-does not mean that <span class="math notranslate nohighlight">\(a\)</span> could have influenced <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>that is, if <span class="math notranslate nohighlight">\(a\)</span> could have influenced <span class="math notranslate nohighlight">\(b\)</span>, then <span class="math notranslate nohighlight">\(a\)</span> has the
+smaller timestamp.</p>
+<p>Consequences and limits:</p>
+<ul class="simple">
+<li><p>Sorting events by the tuple <code class="docutils literal notranslate"><span class="pre">(C,</span> <span class="pre">process_id)</span></code> gives one <em>total order</em>:
+every pair of events is ordered, ties are broken by process number, and
+every process computes the same order.</p></li>
+<li><p>Lamport used this to <em>replicate a state machine</em>. A state machine is like a
+Python object whose state changes only through a sequence of commands. If
+all copies (<em>replicas</em>) apply the same commands in the same order, they stay
+identical. This is the principle behind every blockchain.</p></li>
+<li><p>The converse fails. <span class="math notranslate nohighlight">\(C(a) &lt; C(b)\)</span> does not mean that <span class="math notranslate nohighlight">\(a\)</span> could
+have influenced <span class="math notranslate nohighlight">\(b\)</span>. The two events may be unrelated. Vector clocks
+(1988) fix this.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.clocks.lamport_timestamps" title="blockchainkit.network.systems.clocks.lamport_timestamps"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.clocks.lamport_timestamps()</span></code></a>;
 <a class="reference internal" href="../api/network.html#blockchainkit.network.visualizers.plots.plot_space_time" title="blockchainkit.network.visualizers.plots.plot_space_time"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.visualizers.plots.plot_space_time()</span></code></a> draws the
 diagram.</p>
@@ -551,20 +662,35 @@ distributed system</em>, Communications of the ACM 21(7), 558–565 (1978). <a c
 <section id="rumor-spreading-in-log2-n-ln-n-rounds">
 <h2><a class="toc-backref" href="#id4" role="doc-backlink">1985-1987 – Rumor Spreading in log₂ n + ln n Rounds</a><a class="headerlink" href="#rumor-spreading-in-log2-n-ln-n-rounds" title="Link to this heading">#</a></h2>
 <p>If everyone who knows a rumor tells one random person per round, how long until
-everyone knows? Frieze and Grimmett showed that this <em>push</em> gossip on the
-complete graph informs all <span class="math notranslate nohighlight">\(n\)</span> peers in
-<span class="math notranslate nohighlight">\(\log_2 n + \ln n + o(\log n)\)</span> rounds, and Pittel sharpened the error to
-<span class="math notranslate nohighlight">\(O(1)\)</span>:</p>
+everyone knows?</p>
+<p>This is <em>push</em> gossip. Take <span class="math notranslate nohighlight">\(n\)</span> peers, any of whom can call any other
+(the <em>complete graph</em>):</p>
+<ol class="arabic simple">
+<li><p>One peer knows the rumor.</p></li>
+<li><p>In each round, every peer that knows it picks one peer uniformly at random
+(<code class="docutils literal notranslate"><span class="pre">random.choice(peers)</span></code>) and tells it.</p></li>
+<li><p>Repeat until every peer knows.</p></li>
+</ol>
+<p>Frieze and Grimmett showed that this informs all <span class="math notranslate nohighlight">\(n\)</span> peers in
+<span class="math notranslate nohighlight">\(\log_2 n + \ln n + o(\log n)\)</span> rounds. Here <span class="math notranslate nohighlight">\(o(\log n)\)</span> is an error
+term that grows more slowly than <span class="math notranslate nohighlight">\(\log n\)</span>. Pittel sharpened the error to
+<span class="math notranslate nohighlight">\(O(1)\)</span>, a term bounded by a constant that does not grow with <span class="math notranslate nohighlight">\(n\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[T_n = \log_2 n + \ln n + O(1).\]</div>
-<p>The <span class="math notranslate nohighlight">\(\log_2 n\)</span> term is the doubling phase: while few peers know the
-rumor, almost every call reaches someone new, so the informed set doubles each
-round. The <span class="math notranslate nohighlight">\(\ln n\)</span> term is a coupon-collector phase: once nearly all
-<span class="math notranslate nohighlight">\(n\)</span> peers are calling, a given uninformed peer is missed by every caller
-with probability <span class="math notranslate nohighlight">\((1 - 1/n)^n \approx 1/e\)</span>, so the uninformed shrink by a
-factor <span class="math notranslate nohighlight">\(e\)</span> per round and need about <span class="math notranslate nohighlight">\(\ln n\)</span> rounds to vanish. A
-million peers need about <span class="math notranslate nohighlight">\(20 + 14 = 34\)</span> rounds. Logarithmic
-spreading time is why gossip scales to networks of any size.</p>
+<p>In words: the number of rounds <span class="math notranslate nohighlight">\(T_n\)</span> is a doubling term plus a mop-up
+term, plus at most a constant. The two terms come from two phases:</p>
+<ul class="simple">
+<li><p><strong>Doubling phase</strong> (<span class="math notranslate nohighlight">\(\log_2 n\)</span>). While few peers know the rumor,
+almost every call reaches someone new. So the informed set doubles each
+round.</p></li>
+<li><p><strong>Mop-up phase</strong> (<span class="math notranslate nohighlight">\(\ln n\)</span>). This is like collecting the last few
+stickers of an album: most draws are repeats. Once nearly all <span class="math notranslate nohighlight">\(n\)</span>
+peers are calling, a given uninformed peer is missed by every caller with
+probability <span class="math notranslate nohighlight">\((1 - 1/n)^n \approx 1/e\)</span>. So the uninformed shrink by a
+factor <span class="math notranslate nohighlight">\(e\)</span> per round, and need about <span class="math notranslate nohighlight">\(\ln n\)</span> rounds to vanish.</p></li>
+</ul>
+<p>A million peers need about <span class="math notranslate nohighlight">\(20 + 14 = 34\)</span> rounds. Logarithmic spreading
+time is why gossip scales to networks of any size.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.epidemics.spread_rumor" title="blockchainkit.network.systems.epidemics.spread_rumor"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.epidemics.spread_rumor()</span></code></a>
 and <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.epidemics.pittel_rounds" title="blockchainkit.network.systems.epidemics.pittel_rounds"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.epidemics.pittel_rounds()</span></code></a>.</p>
 <p><em>References:</em> A. M. Frieze and G. R. Grimmett, <em>The shortest-path problem for
@@ -577,24 +703,40 @@ B. Pittel, <em>On spreading a rumor</em>, SIAM Journal on Applied Mathematics 47
 </div></div></section>
 <section id="epidemic-algorithms-for-replicated-databases">
 <h2><a class="toc-backref" href="#id5" role="doc-backlink">1987 – Epidemic Algorithms for Replicated Databases</a><a class="headerlink" href="#epidemic-algorithms-for-replicated-databases" title="Link to this heading">#</a></h2>
-<p>Demers and colleagues at Xerox PARC kept the replicas of the Clearinghouse name
-service consistent without a central server: each replica regularly contacts a
-random other one, like a disease passing from person to person. In <em>push</em> the
-caller tells, in <em>pull</em> it asks “what’s new?”. If a fraction <span class="math notranslate nohighlight">\(s_i\)</span> of
-replicas is uninformed after round <span class="math notranslate nohighlight">\(i\)</span>, then once most replicas know the
-update,</p>
+<p>Many copies of a database must stay the same. There is no central server to
+tell each copy about changes.</p>
+<p>Demers and colleagues at Xerox PARC faced this with the Clearinghouse, a
+directory that mapped names to network addresses. Each copy of it is a
+<em>replica</em>. Their idea: each replica regularly contacts a random other one, like
+a disease passing from person to person. There are two ways to talk:</p>
+<ol class="arabic simple">
+<li><p><strong>Push.</strong> The caller tells the other replica about the updates it knows.</p></li>
+<li><p><strong>Pull.</strong> The caller asks “what’s new?”, and the other replica answers.</p></li>
+</ol>
+<p>Let <span class="math notranslate nohighlight">\(s_i\)</span> be the fraction of replicas still uninformed after round
+<span class="math notranslate nohighlight">\(i\)</span>. Once most replicas know the update,</p>
 <div class="math notranslate nohighlight">
 \[\text{push: } s_{i+1} \approx s_i e^{-1}, \qquad
 \text{pull: } s_{i+1} \approx s_i^2,\]</div>
-<p>because an uninformed replica stays uninformed under push only if no informed
-caller picks it, with probability about <span class="math notranslate nohighlight">\(1/e\)</span> as above, and under pull
-only if it calls another uninformed replica, with probability <span class="math notranslate nohighlight">\(s_i\)</span>.
-Push therefore cuts the stragglers by a constant factor per round, while pull
-squares their fraction and finishes in a few rounds; combining the two gives
-push’s fast start and pull’s fast finish. They also introduced <em>anti-entropy</em> (periodically
-reconciling whole databases) and <em>rumor mongering</em> (spreading a new update
-until it seems old news). Block and transaction relay in Bitcoin descends from
-these ideas.</p>
+<p>so each push round divides the stragglers by <span class="math notranslate nohighlight">\(e\)</span>, while each pull round
+squares their fraction. The reasons:</p>
+<ul class="simple">
+<li><p>Under push, an uninformed replica stays uninformed only if no informed
+caller picks it. That happens with probability about <span class="math notranslate nohighlight">\(1/e\)</span>, as in the
+previous entry.</p></li>
+<li><p>Under pull, an uninformed replica stays uninformed only if it calls another
+uninformed replica. That happens with probability <span class="math notranslate nohighlight">\(s_i\)</span>.</p></li>
+</ul>
+<p>So push cuts the stragglers by a constant factor per round. Pull squares their
+fraction (0.1, then 0.01, then 0.0001) and finishes in a few rounds. Combining
+the two (<em>push-pull</em>) gives push’s fast start and pull’s fast finish.</p>
+<p>They also introduced two styles of gossip:</p>
+<ul class="simple">
+<li><p><em>Anti-entropy</em>: periodically compare and reconcile whole databases, so
+nothing is ever missed.</p></li>
+<li><p><em>Rumor mongering</em>: spread a new update until it seems old news, then stop.</p></li>
+</ul>
+<p>Block and transaction relay in Bitcoin descends from these ideas.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.epidemics.spread_rumor" title="blockchainkit.network.systems.epidemics.spread_rumor"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.epidemics.spread_rumor()</span></code></a>
 with <code class="docutils literal notranslate"><span class="pre">mode</span></code> set to <code class="docutils literal notranslate"><span class="pre">&quot;push&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pull&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;push-pull&quot;</span></code>;
 <a class="reference internal" href="../api/network.html#blockchainkit.network.visualizers.plots.plot_rumor_spread" title="blockchainkit.network.visualizers.plots.plot_rumor_spread"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.visualizers.plots.plot_rumor_spread()</span></code></a>.</p>
@@ -606,30 +748,55 @@ Maintenance</em>, PODC ‘87, 1–12 (1987). <a class="reference external" href=
 </div></div></section>
 <section id="bracha-s-reliable-broadcast">
 <h2><a class="toc-backref" href="#id6" role="doc-backlink">1987 – Bracha’s Reliable Broadcast</a><a class="headerlink" href="#bracha-s-reliable-broadcast" title="Link to this heading">#</a></h2>
-<p>A dishonest sender might tell half the group one thing and half another.
-Bracha built Byzantine <em>reliable broadcast</em>, which makes either every correct
-process deliver the same value or none deliver anything, from two all-to-all
-phases, tolerating <span class="math notranslate nohighlight">\(t\)</span> faulty processes out of <span class="math notranslate nohighlight">\(n\)</span>. On receiving
-the sender’s value, each process sends ECHO for it. On
-<span class="math notranslate nohighlight">\(\lceil (n + t + 1)/2 \rceil\)</span> echoes, or <span class="math notranslate nohighlight">\(t + 1\)</span> READY messages,
-for one value, it sends READY once. On <span class="math notranslate nohighlight">\(2t + 1\)</span> READY messages it
-delivers. All of this needs</p>
+<p>A dishonest sender might tell half the group one thing and half another.</p>
+<p>A <em>Byzantine</em> (or <em>faulty</em>) process is one that may do anything: lie, stay
+silent, or send different values to different peers. The name comes from a
+puzzle about Byzantine generals, some of them traitors, who must agree on a
+plan. A <em>correct</em> process follows the protocol. To <em>deliver</em> a value means to
+accept it as final and hand it to the application.</p>
+<p>Bracha built Byzantine <em>reliable broadcast</em>. It guarantees that either every
+correct process delivers the same value, or none delivers anything. It
+tolerates <span class="math notranslate nohighlight">\(t\)</span> faulty processes out of <span class="math notranslate nohighlight">\(n\)</span>. It uses two rounds in
+which everyone messages everyone (<em>all-to-all</em>):</p>
+<ol class="arabic simple">
+<li><p>The sender sends its value <span class="math notranslate nohighlight">\(v\)</span> to every process.</p></li>
+<li><p><strong>Echo.</strong> On receiving the sender’s value, each process sends ECHO(<span class="math notranslate nohighlight">\(v\)</span>)
+to everyone.</p></li>
+<li><p><strong>Ready.</strong> On receiving <span class="math notranslate nohighlight">\(\lceil (n + t + 1)/2 \rceil\)</span> ECHO messages
+(<code class="docutils literal notranslate"><span class="pre">math.ceil((n</span> <span class="pre">+</span> <span class="pre">t</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">/</span> <span class="pre">2)</span></code>), or <span class="math notranslate nohighlight">\(t + 1\)</span> READY messages, for one
+value, a process sends READY for that value to everyone. It does this only
+once.</p></li>
+<li><p><strong>Deliver.</strong> On receiving <span class="math notranslate nohighlight">\(2t + 1\)</span> READY messages for one value, it
+delivers that value.</p></li>
+</ol>
+<p>For example, with <span class="math notranslate nohighlight">\(n = 4\)</span> and <span class="math notranslate nohighlight">\(t = 1\)</span>, a process needs 3 echoes or
+2 READYs to send READY, and 3 READYs to deliver. All of this needs</p>
 <div class="math notranslate nohighlight">
 \[n &gt; 3t,\]</div>
-<p>so that the <span class="math notranslate nohighlight">\(n - t\)</span> correct processes can reach both thresholds on their
-own: <span class="math notranslate nohighlight">\(n - t \ge \lceil (n + t + 1)/2 \rceil\)</span> and <span class="math notranslate nohighlight">\(n - t \ge 2t + 1\)</span>
-both reduce to <span class="math notranslate nohighlight">\(n \ge 3t + 1\)</span>.</p>
-<p>Agreement comes from quorum overlap: two echo quorums together hold more than
-<span class="math notranslate nohighlight">\(n + t\)</span> messages, so they share at least <span class="math notranslate nohighlight">\(t + 1\)</span> processes, at
-least one of them correct. A correct process echoes only one value, so no two
-correct processes become ready for different values.</p>
-<p>Delivery is all-or-nothing: if one correct process delivers, it saw
-<span class="math notranslate nohighlight">\(2t + 1\)</span> READY messages, at least <span class="math notranslate nohighlight">\(t + 1\)</span> of them from correct
-processes, and those reach everyone. Every correct process therefore gets
-<span class="math notranslate nohighlight">\(t + 1\)</span> READY messages, sends READY itself, and so all
-<span class="math notranslate nohighlight">\(n - t \ge 2t + 1\)</span> correct processes deliver. Reliable broadcast is a
-building block of asynchronous Byzantine consensus and of modern DAG-based
-blockchain protocols.</p>
+<p>that is, fewer than a third of the processes may be faulty. Then the
+<span class="math notranslate nohighlight">\(n - t\)</span> correct processes can reach both thresholds on their own, without
+help from faulty ones. Both <span class="math notranslate nohighlight">\(n - t \ge \lceil (n + t + 1)/2 \rceil\)</span> and
+<span class="math notranslate nohighlight">\(n - t \ge 2t + 1\)</span> reduce to <span class="math notranslate nohighlight">\(n \ge 3t + 1\)</span>.</p>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p><strong>Agreement comes from quorum overlap.</strong> A <em>quorum</em> is a set of processes
+large enough that any two such sets must share members. Two echo quorums
+together hold more than <span class="math notranslate nohighlight">\(n + t\)</span> messages. So they share at least
+<span class="math notranslate nohighlight">\(t + 1\)</span> processes, and at least one of those is correct. A correct
+process echoes only one value. So no two correct processes become ready for
+different values.</p></li>
+<li><p><strong>The</strong> <span class="math notranslate nohighlight">\(t + 1\)</span> <strong>READY rule is safe.</strong> Among <span class="math notranslate nohighlight">\(t + 1\)</span> senders at
+least one is correct, so the value really did gather an echo quorum.</p></li>
+<li><p><strong>Delivery is all-or-nothing.</strong> If one correct process delivers, it saw
+<span class="math notranslate nohighlight">\(2t + 1\)</span> READY messages. At least <span class="math notranslate nohighlight">\(t + 1\)</span> of them came from
+correct processes, and those reach everyone. So every correct process gets
+<span class="math notranslate nohighlight">\(t + 1\)</span> READY messages and sends READY itself. Then all
+<span class="math notranslate nohighlight">\(n - t \ge 2t + 1\)</span> correct processes deliver.</p></li>
+</ul>
+<p>Reliable broadcast is a building block of Byzantine consensus in <em>asynchronous</em>
+networks (ones with no bound on how long a message may take). It is also a
+building block of modern DAG-based blockchain protocols, in which blocks form a
+web of references rather than a single chain.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.broadcast.reliable_broadcast" title="blockchainkit.network.systems.broadcast.reliable_broadcast"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.broadcast.reliable_broadcast()</span></code></a>
 runs the protocol in synchronous rounds against faulty processes that collude
 with the sender’s split.</p>
@@ -641,18 +808,34 @@ Information and Computation 75(2), 130–143 (1987). <a class="reference externa
 </div></div></section>
 <section id="vector-clocks-detecting-concurrency">
 <h2><a class="toc-backref" href="#id7" role="doc-backlink">1988 – Vector Clocks: Detecting Concurrency</a><a class="headerlink" href="#vector-clocks-detecting-concurrency" title="Link to this heading">#</a></h2>
-<p>A Lamport clock puts causes before effects but cannot say when two events
-happened independently. Fidge and Mattern independently replaced the scalar
-with a vector <span class="math notranslate nohighlight">\(V\)</span> of <span class="math notranslate nohighlight">\(n\)</span> counters, one per process. Process
-<span class="math notranslate nohighlight">\(p\)</span> increments <span class="math notranslate nohighlight">\(V[p]\)</span> at each event and, on receipt, first takes the
-entrywise maximum with the vector carried by the message. Then <span class="math notranslate nohighlight">\(V(a)[q]\)</span>
-counts the events at <span class="math notranslate nohighlight">\(q\)</span> that happened before or at <span class="math notranslate nohighlight">\(a\)</span>, and
-causality is characterized exactly:</p>
+<p>A Lamport clock puts causes before effects. But it cannot say when two events
+happened independently. Two events are <em>concurrent</em> if neither happened before
+the other.</p>
+<p>Fidge and Mattern, working independently, replaced the single counter with a
+list <span class="math notranslate nohighlight">\(V\)</span> of <span class="math notranslate nohighlight">\(n\)</span> counters, one per process. Process <span class="math notranslate nohighlight">\(p\)</span> runs:</p>
+<ol class="arabic simple">
+<li><p>Start with <code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">[0]</span> <span class="pre">*</span> <span class="pre">n</span></code>.</p></li>
+<li><p>At each event, increment its own entry: <code class="docutils literal notranslate"><span class="pre">V[p]</span> <span class="pre">+=</span> <span class="pre">1</span></code>.</p></li>
+<li><p>When sending, attach a copy of <code class="docutils literal notranslate"><span class="pre">V</span></code> to the message.</p></li>
+<li><p>On receiving a message carrying <code class="docutils literal notranslate"><span class="pre">W</span></code>, first take the entrywise maximum,
+<code class="docutils literal notranslate"><span class="pre">V</span> <span class="pre">=</span> <span class="pre">[max(a,</span> <span class="pre">b)</span> <span class="pre">for</span> <span class="pre">a,</span> <span class="pre">b</span> <span class="pre">in</span> <span class="pre">zip(V,</span> <span class="pre">W)]</span></code>. Then count the receipt as an
+event (step 2).</p></li>
+</ol>
+<p>Then <span class="math notranslate nohighlight">\(V(a)[q]\)</span> counts the events at process <span class="math notranslate nohighlight">\(q\)</span> that happened
+before or at <span class="math notranslate nohighlight">\(a\)</span>. This characterizes causality exactly:</p>
 <div class="math notranslate nohighlight">
 \[a \to b \iff V(a) \le V(b) \text{ entrywise and } V(a) \ne V(b).\]</div>
-<p>Events with incomparable vectors are concurrent. Replicated data stores use
-vector clocks and their descendants to detect conflicting updates that must be
-reconciled.</p>
+<p>In words: <span class="math notranslate nohighlight">\(a\)</span> happened before <span class="math notranslate nohighlight">\(b\)</span> exactly when every entry of
+<span class="math notranslate nohighlight">\(a\)</span>’s vector is at most the matching entry of <span class="math notranslate nohighlight">\(b\)</span>’s, and the two
+vectors differ. For example, <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">0,</span> <span class="pre">1]</span></code> comes before <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">1,</span> <span class="pre">1]</span></code>.</p>
+<p>Consequences:</p>
+<ul class="simple">
+<li><p>If neither vector is <span class="math notranslate nohighlight">\(\le\)</span> the other, as with <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">0]</span></code> and
+<code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code>, the events are concurrent.</p></li>
+<li><p>Replicated data stores use vector clocks and their descendants to detect
+conflicting updates. Such updates were made independently, so they must be
+reconciled.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.clocks.vector_timestamps" title="blockchainkit.network.systems.clocks.vector_timestamps"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.clocks.vector_timestamps()</span></code></a>,
 <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.clocks.happened_before" title="blockchainkit.network.systems.clocks.happened_before"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.clocks.happened_before()</span></code></a> and
 <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.clocks.concurrent" title="blockchainkit.network.systems.clocks.concurrent"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.clocks.concurrent()</span></code></a>.</p>
@@ -666,19 +849,38 @@ Parallel and Distributed Algorithms, 215–226 (North-Holland, 1989).</p>
 </div></div></section>
 <section id="small-world-networks">
 <h2><a class="toc-backref" href="#id8" role="doc-backlink">1998 – Small-World Networks</a><a class="headerlink" href="#small-world-networks" title="Link to this heading">#</a></h2>
-<p>In a network where everyone knows only their neighbors, messages crawl. Watts
-and Strogatz started from a ring lattice, in which each node links to its
-<span class="math notranslate nohighlight">\(k\)</span> nearest neighbors, and rewired each link to a random node with
-probability <span class="math notranslate nohighlight">\(p\)</span>. The lattice has high clustering but long paths:</p>
+<p>In a network where everyone knows only their neighbors, messages crawl.</p>
+<p>Watts and Strogatz measured networks with two numbers:</p>
+<ul class="simple">
+<li><p>The <em>average path length</em> <span class="math notranslate nohighlight">\(L\)</span>: the fewest hops between two nodes,
+averaged over all pairs. Breadth-first search finds it.</p></li>
+<li><p>The <em>clustering</em> <span class="math notranslate nohighlight">\(C\)</span>: how often two neighbors of a node are also
+neighbors of each other. (“Are my friends friends with each other?”)</p></li>
+</ul>
+<p>They built their networks in two steps:</p>
+<ol class="arabic simple">
+<li><p>Start from a <em>ring lattice</em>: <span class="math notranslate nohighlight">\(n\)</span> nodes in a circle, each linked to its
+<span class="math notranslate nohighlight">\(k\)</span> nearest neighbors (<span class="math notranslate nohighlight">\(k/2\)</span> on each side).</p></li>
+<li><p>Go through the links. With probability <span class="math notranslate nohighlight">\(p\)</span>, <em>rewire</em> a link: move one
+of its ends to a random node.</p></li>
+</ol>
+<p>The lattice (<span class="math notranslate nohighlight">\(p = 0\)</span>) has high clustering but long paths:</p>
 <div class="math notranslate nohighlight">
 \[C(0) = \frac{3(k-2)}{4(k-1)}, \qquad L(0) \approx \frac{n}{2k}.\]</div>
-<p>Already at <span class="math notranslate nohighlight">\(p \approx 0.01\)</span>, the average path length <span class="math notranslate nohighlight">\(L\)</span> drops close
-to the random-graph value <span class="math notranslate nohighlight">\(\ln n / \ln k\)</span>, while the clustering <span class="math notranslate nohighlight">\(C\)</span>
-barely moves: each shortcut shortens many paths but changes the clustering of
-only two nodes. They found such small worlds in actors’ collaborations, the
-power grid and a nervous system. For a peer-to-peer network the lesson is that
-a few random links are enough to make every peer close to every other, even if
-most links are local.</p>
+<p>In words: the clustering approaches <span class="math notranslate nohighlight">\(3/4\)</span> for large <span class="math notranslate nohighlight">\(k\)</span>, whatever
+the size. But the path length grows in proportion to <span class="math notranslate nohighlight">\(n\)</span>, so a huge ring
+is very slow to cross.</p>
+<p>What they found:</p>
+<ul class="simple">
+<li><p>Already at <span class="math notranslate nohighlight">\(p \approx 0.01\)</span>, the average path length <span class="math notranslate nohighlight">\(L\)</span> drops
+close to the random-graph value <span class="math notranslate nohighlight">\(\ln n / \ln k\)</span>.</p></li>
+<li><p>Meanwhile the clustering <span class="math notranslate nohighlight">\(C\)</span> barely moves. Each shortcut shortens many
+paths but changes the clustering of only two nodes.</p></li>
+<li><p>They found such <em>small worlds</em> in actors’ collaborations, the power grid and
+a worm’s nervous system.</p></li>
+</ul>
+<p>For a peer-to-peer network the lesson is that a few random links are enough to
+make every peer close to every other, even if most links are local.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.topology.watts_strogatz" title="blockchainkit.network.systems.topology.watts_strogatz"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.topology.watts_strogatz()</span></code></a>,
 <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.topology.ring_lattice" title="blockchainkit.network.systems.topology.ring_lattice"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.topology.ring_lattice()</span></code></a>,
 <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.topology.Graph.average_path_length" title="blockchainkit.network.systems.topology.Graph.average_path_length"><code class="xref py py-meth docutils literal notranslate"><span class="pre">blockchainkit.network.systems.topology.Graph.average_path_length()</span></code></a> and
@@ -691,20 +893,40 @@ most links are local.</p>
 </div></div></section>
 <section id="scale-free-networks">
 <h2><a class="toc-backref" href="#id9" role="doc-backlink">1999 – Scale-Free Networks</a><a class="headerlink" href="#scale-free-networks" title="Link to this heading">#</a></h2>
-<p>Barabási and Albert observed that the Web’s link counts follow a power law,
-unlike the Poisson degrees of a random graph, and explained it by growth with
-<em>preferential attachment</em>: each new node links to <span class="math notranslate nohighlight">\(m\)</span> existing nodes
-with probability proportional to their degree, so the popular become more
-popular still. Their continuum argument gives a degree distribution that does
-not depend on time or network size:</p>
+<p>Real networks have a few nodes with enormous numbers of links. Random graphs do
+not.</p>
+<p>The <em>degree distribution</em> <span class="math notranslate nohighlight">\(P(k)\)</span> is the fraction of nodes with exactly
+<span class="math notranslate nohighlight">\(k\)</span> links. In a random graph it is a <em>Poisson</em> distribution. Degrees then
+cluster tightly around the average, and a node with ten times the average
+degree essentially never appears. Barabási and Albert observed that the Web’s
+link counts instead follow a <em>power law</em>, <span class="math notranslate nohighlight">\(P(k) \propto k^{-\gamma}\)</span>.
+That curve falls off slowly, so very large degrees do occur.</p>
+<p>They explained it by growth with <em>preferential attachment</em>. The popular become
+more popular still:</p>
+<ol class="arabic simple">
+<li><p>Start with a small connected core.</p></li>
+<li><p>Add one new node at a time. Each new node links to <span class="math notranslate nohighlight">\(m\)</span> existing
+nodes.</p></li>
+<li><p>It picks each of them with probability proportional to its degree, roughly
+<code class="docutils literal notranslate"><span class="pre">random.choices(nodes,</span> <span class="pre">weights=degrees)</span></code>.</p></li>
+</ol>
+<p>Their <em>continuum argument</em> treats each node’s degree as a quantity that grows
+smoothly over time, and solves the resulting simple equation. It gives a
+degree distribution that does not depend on time or network size:</p>
 <div class="math notranslate nohighlight">
 \[P(k) \approx \frac{2m^2}{k^3}.\]</div>
-<p>The result is a few huge hubs and many small nodes. Hubs shorten paths and
-speed up gossip, but concentrate risk: Albert, Jeong and Barabási (2000) showed
-that such networks are robust to random failures yet fragile under targeted
-attacks on their hubs. A random failure almost always hits one of the many
-small nodes, which carry few paths; an attacker who removes the few hubs
-removes the shortcuts that hold the network together.</p>
+<p>In words: doubling the degree makes such nodes about 8 times rarer, since
+<span class="math notranslate nohighlight">\(2^3 = 8\)</span>. That is far slower than a Poisson tail.</p>
+<p>Consequences:</p>
+<ul class="simple">
+<li><p>The result is a few huge <em>hubs</em> and many small nodes.</p></li>
+<li><p>Hubs shorten paths and speed up gossip. But they concentrate risk.</p></li>
+<li><p>Albert, Jeong and Barabási (2000) showed that such networks are robust to
+random failures, yet fragile under targeted attacks on their hubs.</p></li>
+<li><p>A random failure almost always hits one of the many small nodes, which carry
+few paths. An attacker who removes the few hubs removes the shortcuts that
+hold the network together.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.topology.barabasi_albert" title="blockchainkit.network.systems.topology.barabasi_albert"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.topology.barabasi_albert()</span></code></a>.</p>
 <p><em>References:</em> A.-L. Barabási and R. Albert, <em>Emergence of scaling in random
 networks</em>, Science 286(5439), 509–512 (1999). <a class="reference external" href="https://doi.org/10.1126/science.286.5439.509">DOI</a>.</p>
@@ -714,20 +936,41 @@ networks</em>, Science 286(5439), 509–512 (1999). <a class="reference external
 </div></div></section>
 <section id="the-cap-theorem">
 <h2><a class="toc-backref" href="#id10" role="doc-backlink">2000-2002 – The CAP Theorem</a><a class="headerlink" href="#the-cap-theorem" title="Link to this heading">#</a></h2>
+<p>When the network breaks, replicas cannot talk to each other. What should they
+do?</p>
 <p>Brewer conjectured in a 2000 keynote that a distributed system can provide at
-most two of <em>consistency</em>, <em>availability</em> and <em>partition tolerance</em>. Gilbert
-and Lynch proved it: in an asynchronous network that may lose messages, no
-read/write register can guarantee both that every request to a live replica
-succeeds and that every operation is linearizable. The argument is short: cut
-the replicas into two sides that cannot exchange messages, write a new value on
-one side, then read on the other. Availability forces the reader’s replica to
-answer without hearing from the writer’s side, so it returns the old value,
-which linearizability forbids. Since partitions cannot be
-ruled out, the real choice is what to give up <em>during</em> a partition: refuse some
-requests, or answer them knowing the other side may disagree.</p>
-<p>Quorum systems such as PBFT choose consistency: the minority side stalls.
-Nakamoto consensus chooses availability: both sides keep extending a chain, and
-one side’s blocks are discarded when the network heals.</p>
+most two of three properties:</p>
+<ul class="simple">
+<li><p><strong>Consistency</strong>: the system behaves as if there were one copy of the data.
+The precise word is <em>linearizable</em>: each operation appears to happen at one
+instant, so a read always returns the latest completed write.</p></li>
+<li><p><strong>Availability</strong>: every request to a live replica succeeds.</p></li>
+<li><p><strong>Partition tolerance</strong>: the system keeps working when a <em>partition</em> splits
+the network into groups that cannot exchange messages.</p></li>
+</ul>
+<p>Gilbert and Lynch proved it. Take a <em>read/write register</em>, the simplest
+possible database: one variable that clients can read or overwrite. Take an
+asynchronous network that may lose messages. Then no register can guarantee
+both availability and linearizability. The argument is short:</p>
+<ol class="arabic simple">
+<li><p>Cut the replicas into two sides that cannot exchange messages.</p></li>
+<li><p>A client writes a new value on one side. The write succeeds.</p></li>
+<li><p>Another client then reads on the other side.</p></li>
+<li><p>Availability forces the reader’s replica to answer without hearing from the
+writer’s side. So it returns the old value.</p></li>
+<li><p>Linearizability forbids that, because the read came after the write.</p></li>
+</ol>
+<p>Partitions cannot be ruled out. So the real choice is what to give up <em>during</em>
+a partition: refuse some requests, or answer them knowing the other side may
+disagree. Blockchains make both choices:</p>
+<ul class="simple">
+<li><p><strong>Quorum systems such as PBFT choose consistency.</strong> In PBFT, an action needs
+votes from a large majority of a fixed group. The minority side cannot
+gather enough votes, so it stalls.</p></li>
+<li><p><strong>Nakamoto consensus chooses availability.</strong> This is Bitcoin’s rule: follow
+the chain with the most work behind it. Both sides keep extending a chain.
+When the network heals, one side’s blocks are discarded.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.replication.ReplicatedRegister" title="blockchainkit.network.systems.replication.ReplicatedRegister"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.network.systems.replication.ReplicatedRegister</span></code></a>
 with <code class="docutils literal notranslate"><span class="pre">mode=&quot;consistent&quot;</span></code> (majority quorums) or <code class="docutils literal notranslate"><span class="pre">mode=&quot;available&quot;</span></code> (answer
 locally, last writer wins on healing).</p>
@@ -741,21 +984,50 @@ consistent, available, partition-tolerant web services</em>, ACM SIGACT News 33(
 </div></div></section>
 <section id="kademlia-routing-by-xor-distance">
 <h2><a class="toc-backref" href="#id11" role="doc-backlink">2002 – Kademlia: Routing by XOR Distance</a><a class="headerlink" href="#kademlia-routing-by-xor-distance" title="Link to this heading">#</a></h2>
-<p>To find who stores a piece of data, Maymounkov and Mazières defined the distance
-between identifiers as <span class="math notranslate nohighlight">\(d(x, y) = x \oplus y\)</span>, read as an integer. It is
-symmetric, and for any point and distance there is exactly one point at that
-distance, so lookups from different nodes toward the same key converge on the
-same path. Node <span class="math notranslate nohighlight">\(x\)</span> keeps <em>k-buckets</em>: a few contacts at every scale of
-distance,</p>
+<p>A <em>distributed hash table</em> (DHT) is like a Python dict spread over many
+computers. Each key is stored on the nodes whose identifiers are closest to
+it. The problem is to find who stores a piece of data without knowing every
+node.</p>
+<p>Each node and each key gets a long integer <em>identifier</em> (in Kademlia, 160
+bits). Maymounkov and Mazières defined the distance between two identifiers as
+their XOR, read as an integer: <span class="math notranslate nohighlight">\(d(x, y) = x \oplus y\)</span>, or <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">y</span></code> in
+Python. This distance has useful properties:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(d(x, x) = 0\)</span>, and <span class="math notranslate nohighlight">\(d(x, y) = d(y, x)\)</span> (it is <em>symmetric</em>).</p></li>
+<li><p>For any point <span class="math notranslate nohighlight">\(x\)</span> and distance <span class="math notranslate nohighlight">\(\delta\)</span> there is exactly one
+point at that distance, namely <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">^</span> <span class="pre">delta</span></code>. So lookups from different
+nodes toward the same key converge on the same path.</p></li>
+</ul>
+<p>Node <span class="math notranslate nohighlight">\(x\)</span> keeps <em>k-buckets</em>: a few contacts at every scale of distance.
+Bucket <span class="math notranslate nohighlight">\(i\)</span> holds at most <span class="math notranslate nohighlight">\(k\)</span> contacts whose distance from
+<span class="math notranslate nohighlight">\(x\)</span> lies between <span class="math notranslate nohighlight">\(2^i\)</span> and <span class="math notranslate nohighlight">\(2^{i+1}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\text{bucket}_i(x) \subseteq \{\, y : 2^i \le d(x, y) &lt; 2^{i+1} \,\},
 \qquad |\text{bucket}_i| \le k.\]</div>
-<p>If the highest bit in which <span class="math notranslate nohighlight">\(x\)</span> and the key differ is bit <span class="math notranslate nohighlight">\(i\)</span>, any
-contact in <span class="math notranslate nohighlight">\(\text{bucket}_i(x)\)</span> agrees with the key on that bit and so is
-less than <span class="math notranslate nohighlight">\(2^i\)</span> from it: each hop at least halves the distance. Because
-<span class="math notranslate nohighlight">\(n\)</span> random identifiers are spread evenly, about <span class="math notranslate nohighlight">\(\log_2 n\)</span> halvings
-reach the node closest to the key, so a lookup takes <span class="math notranslate nohighlight">\(O(\log n)\)</span> hops. Kademlia runs BitTorrent’s distributed hash table,
-Ethereum’s node discovery and IPFS.</p>
+<p>In words: bucket <span class="math notranslate nohighlight">\(i\)</span> holds nodes whose highest bit differing from
+<span class="math notranslate nohighlight">\(x\)</span> is bit <span class="math notranslate nohighlight">\(i\)</span>, that is <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">^</span> <span class="pre">y).bit_length()</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">==</span> <span class="pre">i</span></code>. So
+<span class="math notranslate nohighlight">\(x\)</span> knows many nodes near it and a few far away. A lookup for key
+<span class="math notranslate nohighlight">\(K\)</span> runs:</p>
+<ol class="arabic simple">
+<li><p>Node <span class="math notranslate nohighlight">\(x\)</span> finds the highest bit <span class="math notranslate nohighlight">\(i\)</span> in which it differs from
+<span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p>It picks a contact <span class="math notranslate nohighlight">\(y\)</span> from <span class="math notranslate nohighlight">\(\text{bucket}_i(x)\)</span>. Both
+<span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(K\)</span> differ from <span class="math notranslate nohighlight">\(x\)</span> at bit <span class="math notranslate nohighlight">\(i\)</span>, so they
+agree with each other on bit <span class="math notranslate nohighlight">\(i\)</span> and on every higher bit. Hence
+<span class="math notranslate nohighlight">\(d(y, K) &lt; 2^i\)</span>.</p></li>
+<li><p>It asks <span class="math notranslate nohighlight">\(y\)</span> to continue the lookup from step 1.</p></li>
+<li><p>The lookup stops when no contact is closer to <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+</ol>
+<p>Why it is fast:</p>
+<ul class="simple">
+<li><p>Each hop removes at least one leading bit of the distance. So the upper
+bound on the distance at least halves.</p></li>
+<li><p><span class="math notranslate nohighlight">\(n\)</span> random identifiers are spread evenly. So about <span class="math notranslate nohighlight">\(\log_2 n\)</span>
+halvings reach the node closest to the key, and a lookup takes
+<span class="math notranslate nohighlight">\(O(\log n)\)</span> hops. A million nodes need about 20.</p></li>
+<li><p>Kademlia runs BitTorrent’s distributed hash table, Ethereum’s node discovery
+and IPFS.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.kademlia.KademliaNetwork" title="blockchainkit.network.systems.kademlia.KademliaNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.network.systems.kademlia.KademliaNetwork</span></code></a>
 and <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.kademlia.xor_distance" title="blockchainkit.network.systems.kademlia.xor_distance"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.kademlia.xor_distance()</span></code></a>. Buckets are
 filled from global knowledge and lookups are greedy and single-path; real
@@ -770,19 +1042,37 @@ information system based on the XOR metric</em>, IPTPS 2002, LNCS 2429, 53–65
 </div></div></section>
 <section id="the-sybil-attack">
 <h2><a class="toc-backref" href="#id12" role="doc-backlink">2002 – The Sybil Attack</a><a class="headerlink" href="#the-sybil-attack" title="Link to this heading">#</a></h2>
-<p>On an open network, one person can pretend to be many, and any rule that counts
-heads, such as a vote or a choice of who stores some data, can be taken over by
-whoever creates the most identities. Douceur proved that without a logically
-central, trusted authority that certifies identities, a peer-to-peer system
-cannot prevent one entity from presenting many identities, limited only by its
-resources. In Kademlia, for example, an attacker who chooses its own
-identifiers can place a few right next to a key, become the nodes closest to
-it, and answer every lookup for it. Systems can raise the cost of an identity
-(requiring the identifier to be the hash of a public key, so the attacker must
-grind keys; solving a puzzle) but cannot tie identities to people. Bitcoin
-sidesteps the
-problem by never counting identities: its consensus weighs computation, and its
-network layer assumes that some neighbors may be hostile.</p>
+<p>On an open network, one person can pretend to be many. Then any rule that
+counts heads can be taken over by whoever creates the most identities. Examples
+are a vote, or a choice of who stores some data. The attack is named after a
+book about a woman with many personalities.</p>
+<p>Douceur proved a limit. Suppose there is no <em>logically central</em> trusted
+authority: no single party, like a passport office, that certifies
+identities. Then a peer-to-peer system cannot prevent one entity from
+presenting many identities. Only the entity’s resources limit how many.</p>
+<p>In Kademlia, for example, an attacker who chooses its own identifiers can
+capture a key:</p>
+<ol class="arabic simple">
+<li><p>Pick a target key <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p>Create a few identifiers right next to <span class="math notranslate nohighlight">\(K\)</span>, such as <code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">^</span> <span class="pre">1</span></code> and
+<code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">^</span> <span class="pre">2</span></code>.</p></li>
+<li><p>Join the network with them. They are now the nodes closest to <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p>Every lookup for <span class="math notranslate nohighlight">\(K\)</span> ends at the attacker, who answers it however it
+likes.</p></li>
+</ol>
+<p>Systems can raise the cost of an identity, but not tie identities to people:</p>
+<ul class="simple">
+<li><p><strong>Derive the identifier from a key.</strong> A <em>hash function</em> is like Python’s
+<code class="docutils literal notranslate"><span class="pre">hash()</span></code>, but built so that nobody can find two inputs with the same
+output, or an input with a chosen output. A <em>public key</em> is the shareable
+half of a key pair that its owner generates. If the identifier must be the
+hash of a public key, the attacker cannot choose it. It must <em>grind</em> keys:
+generate them in a loop until one hashes near <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+<li><p><strong>Solve a puzzle.</strong> Make each new identity cost some computation.</p></li>
+</ul>
+<p>Bitcoin sidesteps the problem by never counting identities. Its consensus
+weighs computation instead. Its network layer assumes that some neighbors may
+be hostile.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.kademlia.node_id" title="blockchainkit.network.systems.kademlia.node_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.kademlia.node_id()</span></code></a> and
 <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.kademlia.KademliaNetwork.closest" title="blockchainkit.network.systems.kademlia.KademliaNetwork.closest"><code class="xref py py-meth docutils literal notranslate"><span class="pre">blockchainkit.network.systems.kademlia.KademliaNetwork.closest()</span></code></a>.</p>
 <p><em>References:</em> J. R. Douceur, <em>The Sybil attack</em>, IPTPS 2002, LNCS 2429,
@@ -793,20 +1083,39 @@ network layer assumes that some neighbors may be hostile.</p>
 </div></div></section>
 <section id="announce-then-fetch-inv-and-getdata">
 <h2><a class="toc-backref" href="#id13" role="doc-backlink">2009 – Announce, Then Fetch: inv and getdata</a><a class="headerlink" href="#announce-then-fetch-inv-and-getdata" title="Link to this heading">#</a></h2>
-<p>The first Bitcoin client relayed blocks and transactions by announcement rather
-than by sending them to every neighbor: an <code class="docutils literal notranslate"><span class="pre">inv</span></code> message carries hashes, a
-peer requests unknown items with <code class="docutils literal notranslate"><span class="pre">getdata</span></code>, and only then is the item sent, so
-each node downloads each block once. In a connected graph with <span class="math notranslate nohighlight">\(E\)</span> links
-and <span class="math notranslate nohighlight">\(n\)</span> peers, the origin sends to all its neighbors and every other peer
-to all but the one it heard from, so <span class="math notranslate nohighlight">\(2E - (n - 1)\)</span> messages cross the
-links either way; what changes is how many of them carry the whole block:</p>
+<p>Blocks are large. Sending every block to every neighbor wastes bandwidth,
+because most neighbors already got it from someone else.</p>
+<p>The first Bitcoin client relayed blocks and transactions by announcement
+instead. Each item is named by its hash, a short fingerprint of its contents.
+Relay runs like this:</p>
+<ol class="arabic simple">
+<li><p>A peer with a new item sends an <code class="docutils literal notranslate"><span class="pre">inv</span></code> (“inventory”) message to its
+neighbors. It carries only the item’s hash.</p></li>
+<li><p>A neighbor checks <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">h</span> <span class="pre">not</span> <span class="pre">in</span> <span class="pre">seen</span></code>. If the item is new to it, it replies
+with <code class="docutils literal notranslate"><span class="pre">getdata</span></code>, which asks for the item.</p></li>
+<li><p>Only then does the peer send the item itself.</p></li>
+<li><p>The neighbor now announces the item to its own neighbors, from step 1.</p></li>
+</ol>
+<p>So each node downloads each block once. Now count messages in a connected
+graph with <span class="math notranslate nohighlight">\(E\)</span> links and <span class="math notranslate nohighlight">\(n\)</span> peers. The origin sends to all its
+neighbors. Every other peer sends to all but the one it heard from. The degrees
+add up to <span class="math notranslate nohighlight">\(2E\)</span>, because each link has two ends. So <span class="math notranslate nohighlight">\(2E - (n - 1)\)</span>
+messages cross the links either way. What changes is how many of them carry
+the whole block. <em>Flooding</em> means sending the full item every time:</p>
 <div class="math notranslate nohighlight">
 \[\text{flooding: } 2E - (n - 1) \text{ full copies}, \qquad
 \text{announcing: } 2E - (n - 1) \text{ inv messages} + (n - 1) \text{ copies}.\]</div>
-<p>Every peer still hears about the block from each neighbor, but the redundant
-copies shrink from whole blocks to hashes of a few dozen bytes. The price is a
-round trip at every hop (<code class="docutils literal notranslate"><span class="pre">inv</span></code>, <code class="docutils literal notranslate"><span class="pre">getdata</span></code>, block: three messages instead
-of one), which later motivated compact blocks.</p>
+<p>In words: both schemes send the same number of announcements, but announcing
+sends only one full copy to each peer other than the origin.</p>
+<p>The trade-off:</p>
+<ul class="simple">
+<li><p>Every peer still hears about the block from each neighbor. But the redundant
+copies shrink from whole blocks to hashes of a few dozen bytes.</p></li>
+<li><p>The price is a <em>round trip</em> at every hop: a message there and a reply back
+before the block can move on. Each hop takes three messages (<code class="docutils literal notranslate"><span class="pre">inv</span></code>,
+<code class="docutils literal notranslate"><span class="pre">getdata</span></code>, block) instead of one. This later motivated compact blocks
+(2016).</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.relay.relay_cost" title="blockchainkit.network.systems.relay.relay_cost"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.relay.relay_cost()</span></code></a>,
 checked against the message count of
 <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.gossip.SimulatedNetwork" title="blockchainkit.network.systems.gossip.SimulatedNetwork"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.network.systems.gossip.SimulatedNetwork</span></code></a>. Costs are
@@ -820,19 +1129,39 @@ counted analytically, one item per message; Bitcoin batches many hashes per
 </div></div></section>
 <section id="information-propagation-and-forks">
 <h2><a class="toc-backref" href="#id14" role="doc-backlink">2013 – Information Propagation and Forks</a><a class="headerlink" href="#information-propagation-and-forks" title="Link to this heading">#</a></h2>
-<p>A new block takes seconds to reach everyone, and during those seconds other
-miners still work on the old chain; if one of them finds a block too, the chain
-forks. Decker and Wattenhofer connected to thousands of Bitcoin peers and timed
-how long blocks took to reach them: a median of 6.5 s and a mean of 12.6 s.
-Because block discovery is a Poisson process with mean interval <span class="math notranslate nohighlight">\(T\)</span>, the
-probability that a competing block appears while a block propagates for
-<span class="math notranslate nohighlight">\(\tau\)</span> is</p>
+<p>A new block takes seconds to reach everyone. During those seconds, some miners
+still build on the old chain.</p>
+<p><em>Miners</em> are the peers that create blocks. They race to solve a puzzle by
+brute force, and the winner adds the next block. In Bitcoin a block appears on
+average every <span class="math notranslate nohighlight">\(T = 600\)</span> seconds. A <em>fork</em> is a split in which two
+competing blocks extend the same chain. It happens like this:</p>
+<ol class="arabic simple">
+<li><p>Miner A finds a block and starts relaying it.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\tau\)</span> seconds, some miners have not heard of it yet. They keep
+working on the old chain.</p></li>
+<li><p>If one of them finds a block in that window, there are two competing
+blocks, and the chain forks.</p></li>
+<li><p>Later blocks extend one branch more than the other. The losing branch’s
+block is discarded.</p></li>
+</ol>
+<p>Decker and Wattenhofer connected to thousands of Bitcoin peers and timed how
+long blocks took to reach them. The median was 6.5 s and the mean 12.6 s.</p>
+<p>Block discovery is a <em>Poisson process</em> with mean interval <span class="math notranslate nohighlight">\(T\)</span>. That
+means blocks arrive at random, and the chance of one arriving in the next
+second does not depend on how long ago the last one came. So the probability
+that a competing block appears while a block propagates for <span class="math notranslate nohighlight">\(\tau\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[P_\text{fork} = 1 - e^{-\tau / T},\]</div>
-<p>which at <span class="math notranslate nohighlight">\(\tau = 12.6\text{ s}\)</span> and <span class="math notranslate nohighlight">\(T = 600\text{ s}\)</span> predicts
-about 2%, close to the 1.69% fork rate they observed. They showed that
-propagation delay is the main cause of forks, and that relaying a block before
-fully verifying it, or minimizing round trips, reduces them.</p>
+<p>which is one minus the chance that no block arrives in the window.
+For <span class="math notranslate nohighlight">\(\tau\)</span> much smaller than <span class="math notranslate nohighlight">\(T\)</span> it is close to <span class="math notranslate nohighlight">\(\tau / T\)</span>.</p>
+<p>What they found:</p>
+<ul class="simple">
+<li><p>At <span class="math notranslate nohighlight">\(\tau = 12.6\text{ s}\)</span> and <span class="math notranslate nohighlight">\(T = 600\text{ s}\)</span> the formula
+predicts about 2%. That is close to the 1.69% fork rate they observed.</p></li>
+<li><p>Propagation delay is the main cause of forks.</p></li>
+<li><p>Two changes reduce forks: relaying a block before fully verifying it, and
+minimizing round trips.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.propagation.fork_rate" title="blockchainkit.network.systems.propagation.fork_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.propagation.fork_rate()</span></code></a>
 and <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.propagation.simulate_fork_rate" title="blockchainkit.network.systems.propagation.simulate_fork_rate"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.propagation.simulate_fork_rate()</span></code></a> use one
 fixed delay; measured delays vary across peers and grow with block size, and
@@ -845,24 +1174,55 @@ Bitcoin network</em>, IEEE P2P 2013, 1–10 (2013). <a class="reference external
 </div></div></section>
 <section id="eclipse-attacks">
 <h2><a class="toc-backref" href="#id15" role="doc-backlink">2015 – Eclipse Attacks</a><a class="headerlink" href="#eclipse-attacks" title="Link to this heading">#</a></h2>
-<p>Heilman, Kendler, Zohar and Goldberg showed that an attacker with a few
-thousand IP addresses could monopolize a Bitcoin node’s connections by
-repeatedly advertising its addresses and waiting for a restart. The eclipsed
-node then sees only what the attacker shows it, and can be used to
-double-spend against it, to waste its mining power, or to split the network.
-If a fraction <span class="math notranslate nohighlight">\(f\)</span> of the address table were the attacker’s and
-connections were independent draws,</p>
+<p>A node sees the network only through its connections. If an attacker owns all
+of them, the node sees only what the attacker shows it. The node is
+<em>eclipsed</em>.</p>
+<p>A Bitcoin node keeps an <em>address table</em>: a list of IP addresses of peers it
+has heard of. When it starts, it picks its outbound connections from that
+table. Heilman, Kendler, Zohar and Goldberg showed that an attacker with a few
+thousand IP addresses could monopolize a node’s connections:</p>
+<ol class="arabic simple">
+<li><p>The attacker repeatedly sends the victim its own addresses.</p></li>
+<li><p>These gradually push honest addresses out of the victim’s table.</p></li>
+<li><p>The attacker waits for the victim to restart.</p></li>
+<li><p>On restart, the victim picks its connections from a table full of attacker
+addresses.</p></li>
+</ol>
+<p>The attacker can then use the eclipsed node:</p>
+<ul class="simple">
+<li><p>to <em>double-spend</em> against it: pay it with coins that the rest of the network
+sees spent elsewhere;</p></li>
+<li><p>to waste its mining power on blocks nobody else will build on;</p></li>
+<li><p>to split the network.</p></li>
+</ul>
+<p>Suppose a fraction <span class="math notranslate nohighlight">\(f\)</span> of the address table were the attacker’s, and
+each connection were an independent draw from the table. Then</p>
 <div class="math notranslate nohighlight">
 \[P_\text{eclipse} = f^{\,\text{outbound}}.\]</div>
-<p>With eight outbound connections, even <span class="math notranslate nohighlight">\(f = 0.9\)</span> gives only 43%, so the
-attacker must fill nearly the whole table, and its task is to push honest
-addresses out. Bitcoin’s address manager already placed each address in a
-bucket chosen by a
-secret hash of its network group, so an attacker with addresses in few groups
-reaches few buckets; that is why the attack needed addresses spread over many
-groups. The paper’s countermeasures, adopted by Bitcoin Core, strengthened this
-design with deterministic eviction, test-before-evict, feeler and anchor
-connections, and more buckets.</p>
+<p>In words: every one of the outbound connections must land on an attacker
+address. With eight outbound connections, even <span class="math notranslate nohighlight">\(f = 0.9\)</span> gives only 43%
+(<code class="docutils literal notranslate"><span class="pre">0.9</span> <span class="pre">**</span> <span class="pre">8</span></code>). So the attacker must fill nearly the whole table. Its real task
+is to push honest addresses out.</p>
+<p>Bitcoin’s address manager already made that hard:</p>
+<ul class="simple">
+<li><p>A <em>network group</em> is a block of IP addresses that share their first part and
+usually belong to one provider.</p></li>
+<li><p>The table is split into <em>buckets</em>. Each address goes into a bucket chosen by
+a secret hash of its network group.</p></li>
+<li><p>So an attacker with addresses in few groups reaches few buckets. That is why
+the attack needed addresses spread over many groups.</p></li>
+</ul>
+<p>The paper’s countermeasures, adopted by Bitcoin Core, strengthened this design:</p>
+<ul class="simple">
+<li><p><em>Deterministic eviction</em>: a hash fixes which slot a new address may replace,
+so flooding cannot pick its victims.</p></li>
+<li><p><em>Test-before-evict</em>: before dropping an old address, try to connect to it,
+and keep it if it answers.</p></li>
+<li><p><em>Feeler connections</em>: short test connections to newly heard addresses.</p></li>
+<li><p><em>Anchor connections</em>: remember a few outbound peers and reconnect to them
+after a restart.</p></li>
+<li><p>More buckets.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.addresses.AddressManager" title="blockchainkit.network.systems.addresses.AddressManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.network.systems.addresses.AddressManager</span></code></a>
 and <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.addresses.eclipse_probability" title="blockchainkit.network.systems.addresses.eclipse_probability"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.addresses.eclipse_probability()</span></code></a> model
 group bucketing and random eviction only; Bitcoin Core’s address manager also
@@ -877,22 +1237,55 @@ attacks on Bitcoin’s peer-to-peer network</em>, 24th USENIX Security Symposium
 </div></div></section>
 <section id="compact-block-relay">
 <h2><a class="toc-backref" href="#id16" role="doc-backlink">2016 – Compact Block Relay</a><a class="headerlink" href="#compact-block-relay" title="Link to this heading">#</a></h2>
-<p>Peers usually already hold most of a new block’s transactions in their
-mempools. BIP 152, by Matt Corallo, therefore sends a block as its 80-byte
-header, a nonce, and one 6-byte <em>short ID</em> per transaction, computed with
-SipHash keyed by the header and nonce. The receiver rebuilds the block from its
-mempool and requests the rest in one extra round trip:</p>
+<p>Peers usually already hold most of a new block’s transactions. Sending the
+whole block again wastes bandwidth and time.</p>
+<p>Each node keeps a <em>mempool</em>: its waiting room of transactions not yet in a
+block, like a dict from transaction hash to transaction. BIP 152, by Matt
+Corallo, uses it. (A BIP is a Bitcoin Improvement Proposal, a design document
+for a change to Bitcoin.) The block is sent as:</p>
+<ul class="simple">
+<li><p>its 80-byte <em>header</em>, a fixed-size summary of the block;</p></li>
+<li><p>a <em>nonce</em>, a random number chosen for this message;</p></li>
+<li><p>one 6-byte <em>short ID</em> per transaction.</p></li>
+</ul>
+<p>A short ID is computed with <em>SipHash</em>, a fast <em>keyed</em> hash: a hash function
+that also takes a key, so a different key gives different outputs. The key is
+derived from the header and nonce. Relay runs like this:</p>
+<ol class="arabic simple">
+<li><p>The sender computes the short ID of every transaction in the block and
+sends the header, nonce and short IDs.</p></li>
+<li><p>The receiver computes the same short IDs for its mempool and builds a
+lookup table, <code class="docutils literal notranslate"><span class="pre">{short_id(tx):</span> <span class="pre">tx</span> <span class="pre">for</span> <span class="pre">tx</span> <span class="pre">in</span> <span class="pre">mempool}</span></code>.</p></li>
+<li><p>It looks up each short ID in the block. It requests the missing
+transactions in one extra round trip.</p></li>
+<li><p>It rebuilds the block from the transactions it has.</p></li>
+</ol>
+<p>The message size is:</p>
 <div class="math notranslate nohighlight">
 \[\text{bytes} \approx 80 + 8 + 6\,n_{\text{tx}}
 + \sum_{\text{missing}} |\text{tx}|.\]</div>
-<p>Since a transaction is typically a few hundred bytes, the block shrinks by
-well over an order of magnitude. Six bytes are short enough that two
-transactions with equal short IDs can be found by brute force, and such a
-collision makes the receiver rebuild the wrong block; keying per block means an
-attacker cannot precompute transactions whose IDs collide in every block.
-Compact blocks cut the bandwidth and, in
-high-bandwidth mode, the latency of block relay, attacking both causes of the
-forks Decker and Wattenhofer measured.</p>
+<p>In words: header, plus 8-byte nonce, plus 6 bytes per transaction, plus the
+full size of each missing transaction.</p>
+<p>Why it works, and its limits:</p>
+<ul class="simple">
+<li><p>A transaction is typically a few hundred bytes. So the block shrinks by well
+over an order of magnitude. For 2,000 transactions of 400 bytes, 800 kB
+becomes about 12 kB.</p></li>
+<li><p>Six bytes are only 48 bits. That is short enough that two transactions with
+equal short IDs can be found by brute force. By the birthday paradox it takes
+only about <span class="math notranslate nohighlight">\(2^{24} \approx 17\)</span> million tries, seconds on a laptop.</p></li>
+<li><p>Such a <em>collision</em> makes the receiver rebuild the wrong block. Keying per
+block means an attacker cannot precompute transactions whose IDs collide in
+every block.</p></li>
+<li><p>In <em>high-bandwidth mode</em>, a peer sends the compact block without waiting to
+be asked, which saves a round trip.</p></li>
+<li><p>Compact blocks cut the bandwidth and, in high-bandwidth mode, the latency of
+block relay. They attack both causes of the forks Decker and Wattenhofer
+measured.</p></li>
+</ul>
+<p>The <em>coinbase</em>, mentioned below, is a block’s first transaction, which pays
+the miner. No peer has it in advance, so the sender can include (“prefill”)
+it.</p>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.relay.compact_block_relay" title="blockchainkit.network.systems.relay.compact_block_relay"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.relay.compact_block_relay()</span></code></a>
 and <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.relay.short_id" title="blockchainkit.network.systems.relay.short_id"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.relay.short_id()</span></code></a> use SHA-256 in place
 of SipHash, with no high-bandwidth mode or prefilled coinbase.</p>
@@ -905,21 +1298,37 @@ of SipHash, with no high-bandwidth mode or prefilled coinbase.</p>
 <section id="dandelion-transaction-origin-privacy">
 <h2><a class="toc-backref" href="#id17" role="doc-backlink">2017 – Dandelion: Transaction-Origin Privacy</a><a class="headerlink" href="#dandelion-transaction-origin-privacy" title="Link to this heading">#</a></h2>
 <p>The first node to announce a transaction is usually the one that created it.
-Bitcoin’s diffusion spreads a transaction outward from its source at roughly
-the same speed in every direction, so the spy that hears it first is usually
-next to the source. Bojja Venkatakrishnan, Fanti and Viswanath showed that
-well-connected spies can link transactions to IP addresses this way, and
-proposed
-Dandelion: a <em>stem</em> phase that passes the transaction to one peer at a time,
-continuing with probability <span class="math notranslate nohighlight">\(q\)</span> at each hop, followed by a <em>fluff</em> phase
-of ordinary diffusion. The expected stem length is</p>
+So a spy can link transactions to the IP addresses that sent them.</p>
+<p>Bitcoin used <em>diffusion</em>: each node forwards a transaction to each neighbor
+after an independent random delay. The transaction spreads outward from its
+source at roughly the same speed in every direction, like a ripple. A <em>spy</em>
+connects to many peers and logs when it first hears each transaction. The
+<em>first-spy estimator</em> guesses that the source is the peer the spy heard from
+first. That guess is usually right, because that peer is usually next to the
+source.</p>
+<p>Bojja Venkatakrishnan, Fanti and Viswanath showed that well-connected spies can
+link transactions to IP addresses this way. They proposed Dandelion:</p>
+<ol class="arabic simple">
+<li><p><strong>Stem.</strong> The source passes the transaction to one peer.</p></li>
+<li><p>Each stem node flips a biased coin. With probability <span class="math notranslate nohighlight">\(q\)</span> it passes
+the transaction to one more peer. Otherwise it switches to the fluff phase.</p></li>
+<li><p><strong>Fluff.</strong> From there the transaction spreads by ordinary diffusion.</p></li>
+</ol>
+<p>The expected stem length is</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{E}[\text{hops}] = \frac{1}{1 - q},\]</div>
-<p>and the diffusion that spies observe starts where the stem ended, a random
-number of hops away from the source. Routing stems over a line-shaped
-anonymity graph gives nearly optimal privacy against the first-spy estimator.
-Dandelion++ (2018) hardened the design, and variants are deployed in several
-cryptocurrencies.</p>
+<p>because on average the coin needs <span class="math notranslate nohighlight">\(1/(1 - q)\)</span> flips before it says
+“stop”. For <span class="math notranslate nohighlight">\(q = 0.9\)</span>, that is 10 hops.</p>
+<p>Why it works:</p>
+<ul class="simple">
+<li><p>The diffusion that spies observe starts where the stem ended. That point is
+a random number of hops away from the source.</p></li>
+<li><p>Routing stems over a line-shaped <em>anonymity graph</em> gives nearly optimal
+privacy against the first-spy estimator. That graph is a separate overlay in
+which each node forwards stems to one fixed successor.</p></li>
+<li><p>Dandelion++ (2018) hardened the design. Variants are deployed in several
+cryptocurrencies.</p></li>
+</ul>
 <p><em>Implementation:</em> <a class="reference internal" href="../api/network.html#blockchainkit.network.systems.privacy.first_spy_precision" title="blockchainkit.network.systems.privacy.first_spy_precision"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.network.systems.privacy.first_spy_precision()</span></code></a>
 runs both modes, with stems as random walks on the peer graph itself rather
 than over a separate anonymity graph.</p>
