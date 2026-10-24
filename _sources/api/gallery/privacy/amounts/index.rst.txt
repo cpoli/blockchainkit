@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_privacy_amounts:
+
+Hidden coins and amounts
+------------------------
+
+Coins that cannot be traced to their mint, and amounts that add up without being shown.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Miers, Garman, Green and Rubin proposed an extension to Bitcoin in which a user mints a coin by publishing a commitment C = g^S h^r to a random serial number S, and later spends it by revealing S with a zero-knowledge proof that some minted coin opens to it. Spent serials are recorded, so no coin is spent twice, but the spend points to no particular mint: every coin ever minted is in the anonymity set.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_01_zerocoin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_01_zerocoin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Zerocoin: spending a coin without saying which (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gregory Maxwell replaced each amount with a Pedersen commitment C = g^v h^r. Commitments multiply as amounts add, so anyone can check that nothing is created,">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_02_confidential_transactions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_02_confidential_transactions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Confidential transactions: amounts that add up unseen (2015)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shen Noether&#x27;s Ring Confidential Transactions combined Monero&#x27;s ring signatures with confidential amounts. Each ring member is a one-time key P_i and an amount commitment C_i. A second column proves the amounts balance for the same member that signs: its keys are">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_03_ringct_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_03_ringct`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">RingCT: hiding the input and the amounts together (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A pseudonymous author, &quot;Tom Elvis Jedusor&quot;, noticed that in confidential transactions the blinding factor can be the key. An output is just C = g^v h^r, owned by whoever knows r. When a transaction balances, outputs over inputs leave h^{k}, and a Schnorr signature under this excess E = h^k, kept in a kernel, proves it is h to a known power and not hidden coins.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_04_mimblewimble_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_04_mimblewimble`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mimblewimble: transactions with no addresses, and cut-through (2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/privacy/amounts/plot_01_zerocoin
+   /api/gallery/privacy/amounts/plot_02_confidential_transactions
+   /api/gallery/privacy/amounts/plot_03_ringct
+   /api/gallery/privacy/amounts/plot_04_mimblewimble
+

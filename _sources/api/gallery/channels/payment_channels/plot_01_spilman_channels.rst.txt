@@ -153,7 +153,7 @@ from publishing an *earlier* payment, and why would it never want to?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.671 seconds)
+   **Total running time of the script:** (0 minutes 0.865 seconds)
 
 
 .. _sphx_glr_download_api_gallery_channels_payment_channels_plot_01_spilman_channels.py:

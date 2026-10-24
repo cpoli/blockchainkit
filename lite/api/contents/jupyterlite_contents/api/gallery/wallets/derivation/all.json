@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.603268Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.692504Z",
+      "mimetype": null,
+      "name": "plot_01_bip32_hd_wallets.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/derivation/plot_01_bip32_hd_wallets.ipynb",
+      "size": 5267,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.603669Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.693096Z",
+      "mimetype": null,
+      "name": "plot_03_bip44_derivation_paths.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/derivation/plot_03_bip44_derivation_paths.ipynb",
+      "size": 3952,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.603467Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.692813Z",
+      "mimetype": null,
+      "name": "plot_02_bip39_mnemonic_seed_phrases.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/derivation/plot_02_bip39_mnemonic_seed_phrases.ipynb",
+      "size": 4876,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.603669Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.603669Z",
+  "mimetype": null,
+  "name": "derivation",
+  "path": "jupyterlite_contents/api/gallery/wallets/derivation",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

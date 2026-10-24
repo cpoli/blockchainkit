@@ -205,7 +205,7 @@ A worked solution is in :doc:`/exercises/structures`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.047 seconds)
+   **Total running time of the script:** (0 minutes 0.079 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_nakamoto_plot_01_longest_chain.py:

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.076** total execution time for 2 files **from api/gallery/contracts/tokens**:
+**00:00.110** total execution time for 2 files **from api/gallery/contracts/tokens**:
 
 .. container::
 
@@ -32,9 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_api_gallery_contracts_tokens_plot_02_erc721_safe_transfers.py` (``plot_02_erc721_safe_transfers.py``)
-     - 00:00.038
-     - 0.0
    * - :ref:`sphx_glr_api_gallery_contracts_tokens_plot_01_erc20_approve_race.py` (``plot_01_erc20_approve_race.py``)
-     - 00:00.038
+     - 00:00.061
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_contracts_tokens_plot_02_erc721_safe_transfers.py` (``plot_02_erc721_safe_transfers.py``)
+     - 00:00.049
      - 0.0

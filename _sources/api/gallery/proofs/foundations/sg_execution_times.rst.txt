@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.764** total execution time for 3 files **from api/gallery/proofs/foundations**:
+**00:02.458** total execution time for 3 files **from api/gallery/proofs/foundations**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_proofs_foundations_plot_02_sumcheck.py` (``plot_02_sumcheck.py``)
-     - 00:01.440
+     - 00:02.120
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_foundations_plot_01_schwartz_zippel.py` (``plot_01_schwartz_zippel.py``)
-     - 00:00.267
+     - 00:00.232
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_foundations_plot_03_ip_pspace.py` (``plot_03_ip_pspace.py``)
-     - 00:00.057
+     - 00:00.106
      - 0.0

@@ -115,7 +115,7 @@ instead, and why is it weaker?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.053 seconds)
+   **Total running time of the script:** (0 minutes 0.107 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fraud_manipulation_plot_01_willy_bot_price_manipulation.py:

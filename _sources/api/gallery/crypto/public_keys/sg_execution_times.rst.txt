@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.193** total execution time for 3 files **from api/gallery/crypto/public_keys**:
+**00:00.354** total execution time for 3 files **from api/gallery/crypto/public_keys**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_01_merkle_puzzles.py` (``plot_01_merkle_puzzles.py``)
-     - 00:00.135
+     - 00:00.247
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_03_rsa.py` (``plot_03_rsa.py``)
-     - 00:00.029
+     - 00:00.054
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_public_keys_plot_02_diffie_hellman.py` (``plot_02_diffie_hellman.py``)
-     - 00:00.028
+     - 00:00.053
      - 0.0

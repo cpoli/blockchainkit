@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.224** total execution time for 3 files **from api/gallery/contracts/payments**:
+**00:00.322** total execution time for 3 files **from api/gallery/contracts/payments**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_contracts_payments_plot_02_governmental_gas.py` (``plot_02_governmental_gas.py``)
-     - 00:00.132
+     - 00:00.172
      - 0.0
    * - :ref:`sphx_glr_api_gallery_contracts_payments_plot_03_commit_reveal.py` (``plot_03_commit_reveal.py``)
-     - 00:00.055
+     - 00:00.090
      - 0.0
    * - :ref:`sphx_glr_api_gallery_contracts_payments_plot_01_king_of_the_ether.py` (``plot_01_king_of_the_ether.py``)
-     - 00:00.038
+     - 00:00.060
      - 0.0

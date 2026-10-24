@@ -34,8 +34,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
@@ -48,12 +48,12 @@
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=865bd79b" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
-    <script src="_static/documentation_options.js?v=95e61db4"></script>
+    <script src="_static/documentation_options.js?v=f129cdf0"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/sg-tags.js?v=d80f6fa4"></script>
@@ -66,6 +66,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
   
@@ -806,6 +807,89 @@ or a fee-free constant-product market starting with a million coins
 addresses derived from key pairs.</p></li>
 </ul>
 </section>
+<section id="privacy-models">
+<h2>Privacy models<a class="headerlink" href="#privacy-models" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/privacy.html#module-blockchainkit.privacy" title="blockchainkit.privacy"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.privacy</span></code></a> adds no consensus rule. Every construction works
+in the 62-bit <code class="docutils literal notranslate"><span class="pre">TEACHING_GROUP</span></code>, written multiplicatively: a public key is
+<code class="docutils literal notranslate"><span class="pre">g**x</span> <span class="pre">mod</span> <span class="pre">p</span></code>. Hashes into the group are framed as
+<code class="docutils literal notranslate"><span class="pre">canonical_json([p,</span> <span class="pre">q,</span> <span class="pre">g,</span> <span class="pre">...])</span></code> after a domain tag; scalars are reduced
+modulo <code class="docutils literal notranslate"><span class="pre">q</span></code>, and group elements are squared into the order-<code class="docutils literal notranslate"><span class="pre">q</span></code> subgroup.</p>
+<ul class="simple">
+<li><p><strong>Layers.</strong> A mix or onion layer is <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">||</span> <span class="pre">plaintext</span> <span class="pre">XOR</span> <span class="pre">keystream</span></code>, with
+an 8-byte <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">=</span> <span class="pre">g**k</span></code> and the keystream
+<code class="docutils literal notranslate"><span class="pre">SHA256(MIX_DOMAIN</span> <span class="pre">||</span> <span class="pre">f&quot;{R**x}:{i}&quot;)</span></code>; the plaintext is a two-byte
+length, the next hop’s name and the inner layer. There is no padding and
+no authentication tag.</p></li>
+<li><p><strong>Ring signatures.</strong> Abe-Ohkubo-Suzuki rings with challenges
+<code class="docutils literal notranslate"><span class="pre">H(RING_DOMAIN,</span> <span class="pre">message.hex(),</span> <span class="pre">ring,</span> <span class="pre">commitment)</span> <span class="pre">mod</span> <span class="pre">q</span></code>. LSAG and MLSAG
+hash the ring, the key image and every column’s commitment, and the key
+image is <code class="docutils literal notranslate"><span class="pre">hash_to_group(KEY_IMAGE_DOMAIN,</span> <span class="pre">P)**x</span></code>, CryptoNote’s form,
+rather than Liu, Wei and Wong’s hash of the ring.</p></li>
+<li><p><strong>Stealth addresses.</strong> The one-time key is
+<code class="docutils literal notranslate"><span class="pre">g**H(STEALTH_DOMAIN,</span> <span class="pre">A**r,</span> <span class="pre">index)</span> <span class="pre">*</span> <span class="pre">B</span></code>.</p></li>
+<li><p><strong>Hidden amounts.</strong> Pedersen commitments with
+<a class="reference internal" href="api/crypto.html#blockchainkit.crypto.systems.commitments.pedersen_generators" title="blockchainkit.crypto.systems.commitments.pedersen_generators"><code class="xref py py-func docutils literal notranslate"><span class="pre">pedersen_generators()</span></code></a>.
+Range proofs commit to each bit and sign a two-member ring over base <code class="docutils literal notranslate"><span class="pre">h</span></code>
+per bit, not Borromean signatures over base-4 digits. RingCT has one input
+and no pseudo-outputs. Mimblewimble kernels are Schnorr signatures over
+<code class="docutils literal notranslate"><span class="pre">h</span></code> with challenge <code class="docutils literal notranslate"><span class="pre">H(KERNEL_DOMAIN,</span> <span class="pre">E,</span> <span class="pre">R,</span> <span class="pre">fee)</span></code>; outputs carry no
+range proofs, and offsets add modulo <code class="docutils literal notranslate"><span class="pre">q</span></code>.</p></li>
+<li><p><strong>Zerocoin.</strong> The accumulator’s modulus is a fixed 63-bit product of
+primes with base 4, and coins are hashed to 32-bit primes with
+<code class="docutils literal notranslate"><span class="pre">ACCUMULATOR_DOMAIN</span></code>. Spends prove membership with a ring signature over
+every coin, not against the accumulator.</p></li>
+<li><p><strong>TumbleBit.</strong> Puzzles use a 62-bit textbook RSA key with <code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">=</span> <span class="pre">65537</span></code>;
+tokens are encrypted with <code class="docutils literal notranslate"><span class="pre">TUMBLER_DOMAIN</span></code> keystreams. No escrow, fair
+exchange or cut-and-choose is modelled.</p></li>
+<li><p><strong>Mixer contract.</strong> Withdrawals reuse the Zerocash spend circuit on the toy
+pairing. The recipient is bound by requiring the new-note commitment to
+be that of <code class="docutils literal notranslate"><span class="pre">Note(H(recipient)</span> <span class="pre">mod</span> <span class="pre">FIELD_PRIME,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0)</span></code>.</p></li>
+<li><p><strong>Simulations.</strong> Clustering uses a toy economy that spends largest coins
+first; traceability creates one output per step, with geometric spending
+ages.</p></li>
+</ul>
+</section>
+<section id="wallet-models">
+<h2>Wallet models<a class="headerlink" href="#wallet-models" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/wallets.html#module-blockchainkit.wallets" title="blockchainkit.wallets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.wallets</span></code></a> adds no consensus rule. Where a standard
+exists, it is followed byte for byte and checked against the standard’s
+published test vectors: Base58Check, P2PKH addresses with <code class="docutils literal notranslate"><span class="pre">HASH160</span></code> (a
+pure-Python RIPEMD-160), Bech32 and Bech32m with segregated-witness
+programs, PBKDF2, scrypt (RFC 7914), BIP32 extended keys and their
+<code class="docutils literal notranslate"><span class="pre">xprv</span></code>/<code class="docutils literal notranslate"><span class="pre">xpub</span></code> serialization, BIP39’s seed derivation, and ECDSA on
+secp256k1 with RFC 6979 nonces and low <code class="docutils literal notranslate"><span class="pre">s</span></code>. The departures:</p>
+<ul class="simple">
+<li><p><strong>Word list.</strong> BIP39 phrases use 2048 four-letter words generated as
+consonant, vowel, consonant, vowel, in sorted order, not BIP39’s English
+list. Entropy, checksum and seed derivation follow BIP39, so
+<a class="reference internal" href="api/wallets.html#blockchainkit.wallets.systems.mnemonics.mnemonic_to_seed" title="blockchainkit.wallets.systems.mnemonics.mnemonic_to_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">mnemonic_to_seed()</span></code></a>
+reproduces BIP39’s seeds for English phrases.</p></li>
+<li><p><strong>P2SH.</strong> Spends run on <a class="reference internal" href="api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">verify_script()</span></code></a>
+in BIP16’s two stages, with Bitcoin’s opcode bytes and push prefixes
+(<a class="reference internal" href="api/wallets.html#blockchainkit.wallets.systems.p2sh.serialize_script" title="blockchainkit.wallets.systems.p2sh.serialize_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">serialize_script()</span></code></a>). The
+locking script commits with <code class="docutils literal notranslate"><span class="pre">OP_HASH256</span></code> (that Script has no
+<code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code>), signatures are this package’s Schnorr signatures over
+an explicit message, and m-of-n is one <code class="docutils literal notranslate"><span class="pre">OP_IF</span></code> branch per set of m
+signers (it has no <code class="docutils literal notranslate"><span class="pre">OP_CHECKMULTISIG</span></code>). Redeem scripts above
+<code class="docutils literal notranslate"><span class="pre">MAX_SCRIPT_ELEMENT_SIZE</span></code> (520) bytes are refused. The P2SH address is
+BIP16’s, <code class="docutils literal notranslate"><span class="pre">HASH160</span></code> of the script with version 5.</p></li>
+<li><p><strong>Threshold ECDSA.</strong> Keys are generated jointly with Feldman commitments
+on secp256k1; signing follows Gennaro and Goldfeder’s shares of
+<span class="math notranslate nohighlight">\(k\gamma\)</span> and <span class="math notranslate nohighlight">\(kx\)</span>, but the multiplicative-to-additive step is
+an ideal function rather than Paillier encryption with range proofs, and
+no step checks for a cheating party.</p></li>
+<li><p><strong>Brain wallets.</strong> Keys and addresses are real (uncompressed P2PKH); the
+population of owners and the thieves’ tables and delays are invented.</p></li>
+<li><p><strong>Social recovery.</strong> Guardians vote with transactions, not off-chain
+signatures; guardian changes wait <code class="docutils literal notranslate"><span class="pre">GUARDIAN_DELAY</span></code> (100) blocks, and a
+recovery cancels a pending change.</p></li>
+<li><p><strong>ERC-4337.</strong> A user operation is signed with a Schnorr signature over
+<code class="docutils literal notranslate"><span class="pre">SHA256(USER_OPERATION_DOMAIN</span> <span class="pre">||</span> <span class="pre">canonical_json([entry_point,</span> <span class="pre">chain_id,</span>
+<span class="pre">sender,</span> <span class="pre">nonce,</span> <span class="pre">function,</span> <span class="pre">args,</span> <span class="pre">fee]))</span></code>. The fee is a fixed amount, not
+gas used times a gas price; there are no paymasters, aggregators or
+factories, and validation may touch any storage.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -849,6 +933,8 @@ addresses derived from key pairs.</p></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#channels-rollups-and-bridges">Channels, rollups and bridges</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-systems">Proof systems</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fraud-models">Fraud models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privacy-models">Privacy models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wallet-models">Wallet models</a></li>
 </ul>
   </nav></div>
 
@@ -874,8 +960,8 @@ addresses derived from key pairs.</p></li>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -895,7 +981,7 @@ addresses derived from key pairs.</p></li>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
   </p>
 </div>
       
@@ -908,7 +994,7 @@ addresses derived from key pairs.</p></li>
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.116** total execution time for 2 files **from api/gallery/contracts/foundations**:
+**00:00.172** total execution time for 2 files **from api/gallery/contracts/foundations**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_contracts_foundations_plot_01_ricardian_contracts.py` (``plot_01_ricardian_contracts.py``)
-     - 00:00.061
+     - 00:00.105
      - 0.0
    * - :ref:`sphx_glr_api_gallery_contracts_foundations_plot_02_capabilities.py` (``plot_02_capabilities.py``)
-     - 00:00.055
+     - 00:00.067
      - 0.0

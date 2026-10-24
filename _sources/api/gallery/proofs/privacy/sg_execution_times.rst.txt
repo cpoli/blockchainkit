@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.294** total execution time for 1 file **from api/gallery/proofs/privacy**:
+**00:00.454** total execution time for 1 file **from api/gallery/proofs/privacy**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_proofs_privacy_plot_01_zerocash.py` (``plot_01_zerocash.py``)
-     - 00:00.294
+     - 00:00.454
      - 0.0

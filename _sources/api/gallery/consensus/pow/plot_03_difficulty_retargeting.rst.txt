@@ -114,7 +114,7 @@ A worked solution is in :doc:`/exercises/consensus`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.053 seconds)
+   **Total running time of the script:** (0 minutes 0.098 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pow_plot_03_difficulty_retargeting.py:

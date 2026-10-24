@@ -181,7 +181,7 @@ run of 100 sequences prove, and what does it not?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.072 seconds)
+   **Total running time of the script:** (0 minutes 0.118 seconds)
 
 
 .. _sphx_glr_download_api_gallery_contracts_verification_plot_05_echidna_fuzzing.py:

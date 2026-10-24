@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.263** total execution time for 2 files **from api/gallery/crypto/discrete_log**:
+**00:00.355** total execution time for 2 files **from api/gallery/crypto/discrete_log**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_crypto_discrete_log_plot_01_baby_step_giant_step.py` (``plot_01_baby_step_giant_step.py``)
-     - 00:00.232
+     - 00:00.300
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_discrete_log_plot_02_pohlig_hellman.py` (``plot_02_pohlig_hellman.py``)
-     - 00:00.031
+     - 00:00.055
      - 0.0

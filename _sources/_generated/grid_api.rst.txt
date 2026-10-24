@@ -15,6 +15,12 @@
 
       Zero-knowledge and succinct proofs: sum-check and PCPs, KZG, Groth16 and PLONK with their trusted setups, Zerocash, and transparent Bulletproofs, FRI, STARKs and Halo.
 
+   .. grid-item-card:: blockchainkit.privacy
+      :link: /api/privacy
+      :link-type: doc
+
+      Anonymity on public ledgers: mix-nets and Tor, ring signatures and stealth addresses, address clustering, CoinJoin and mixers, and hidden amounts from confidential transactions to Mimblewimble.
+
 
 .. rubric:: Ledgers
 
@@ -26,6 +32,12 @@
       :link-type: doc
 
       Merkle trees and proofs, signed transfers, blocks, ledger state, and cumulative-work fork selection.
+
+   .. grid-item-card:: blockchainkit.wallets
+      :link: /api/wallets
+      :link-type: doc
+
+      Keys as users hold them: check digits, Base58Check and Bech32 addresses, PBKDF2 and scrypt, brain wallets, HD keys and seed phrases, multisig and threshold ECDSA, social recovery, and ERC-4337 accounts.
 
 
 .. rubric:: Agreement

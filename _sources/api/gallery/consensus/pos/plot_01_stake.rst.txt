@@ -122,7 +122,7 @@ A worked solution is in :doc:`/exercises/consensus`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.034 seconds)
+   **Total running time of the script:** (0 minutes 0.059 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pos_plot_01_stake.py:

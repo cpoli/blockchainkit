@@ -153,7 +153,7 @@ above, and count how many gates the second circuit needed.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.107 seconds)
+   **Total running time of the script:** (0 minutes 0.157 seconds)
 
 
 .. _sphx_glr_download_api_gallery_proofs_snarks_plot_05_plonk.py:

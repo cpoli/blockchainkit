@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.077** total execution time for 2 files **from api/gallery/consensus/nakamoto**:
+**00:00.130** total execution time for 2 files **from api/gallery/consensus/nakamoto**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_consensus_nakamoto_plot_01_longest_chain.py` (``plot_01_longest_chain.py``)
-     - 00:00.047
+     - 00:00.079
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_nakamoto_plot_02_ghost.py` (``plot_02_ghost.py``)
-     - 00:00.030
+     - 00:00.051
      - 0.0

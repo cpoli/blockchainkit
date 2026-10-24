@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.064** total execution time for 2 files **from api/gallery/vm/contracts**:
+**00:00.107** total execution time for 2 files **from api/gallery/vm/contracts**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_vm_contracts_plot_01_vending_machine.py` (``plot_01_vending_machine.py``)
-     - 00:00.037
+     - 00:00.067
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_contracts_plot_02_bytecode_verification.py` (``plot_02_bytecode_verification.py``)
-     - 00:00.027
+     - 00:00.040
      - 0.0

@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:03.977** total execution time for 2 files **from api/gallery/structures/ledger**:
+**00:05.640** total execution time for 2 files **from api/gallery/structures/ledger**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structures_ledger_plot_01_double_entry.py` (``plot_01_double_entry.py``)
-     - 00:03.836
+     - 00:05.380
      - 0.0
    * - :ref:`sphx_glr_api_gallery_structures_ledger_plot_02_account_nonces.py` (``plot_02_account_nonces.py``)
-     - 00:00.141
+     - 00:00.260
      - 0.0

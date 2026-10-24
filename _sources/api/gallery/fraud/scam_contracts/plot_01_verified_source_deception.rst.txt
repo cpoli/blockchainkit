@@ -153,7 +153,7 @@ verified source alone?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.022 seconds)
+   **Total running time of the script:** (0 minutes 0.039 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fraud_scam_contracts_plot_01_verified_source_deception.py:

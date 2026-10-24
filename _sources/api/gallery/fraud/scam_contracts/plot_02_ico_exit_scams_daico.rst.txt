@@ -144,7 +144,7 @@ to take everything, and how could a DAICO defend against this?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.036 seconds)
+   **Total running time of the script:** (0 minutes 0.063 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fraud_scam_contracts_plot_02_ico_exit_scams_daico.py:

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.590345Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.670904Z",
+      "mimetype": null,
+      "name": "plot_02_linkable_ring_signatures.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/signatures/plot_02_linkable_ring_signatures.ipynb",
+      "size": 4083,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.590151Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.670650Z",
+      "mimetype": null,
+      "name": "plot_01_ring_signatures.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/signatures/plot_01_ring_signatures.ipynb",
+      "size": 3958,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.590523Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.671110Z",
+      "mimetype": null,
+      "name": "plot_03_cryptonote_stealth_addresses.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/signatures/plot_03_cryptonote_stealth_addresses.ipynb",
+      "size": 3819,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.590523Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.590523Z",
+  "mimetype": null,
+  "name": "signatures",
+  "path": "jupyterlite_contents/api/gallery/privacy/signatures",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

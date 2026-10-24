@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.609** total execution time for 3 files **from api/gallery/economics/mev**:
+**00:01.188** total execution time for 3 files **from api/gallery/economics/mev**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_economics_mev_plot_03_mev_boost_pbs.py` (``plot_03_mev_boost_pbs.py``)
-     - 00:00.436
+     - 00:00.881
      - 0.0
    * - :ref:`sphx_glr_api_gallery_economics_mev_plot_01_flash_boys_gas_auctions.py` (``plot_01_flash_boys_gas_auctions.py``)
-     - 00:00.093
+     - 00:00.170
      - 0.0
    * - :ref:`sphx_glr_api_gallery_economics_mev_plot_02_sandwich_attacks.py` (``plot_02_sandwich_attacks.py``)
-     - 00:00.080
+     - 00:00.137
      - 0.0

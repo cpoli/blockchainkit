@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.655** total execution time for 5 files **from api/gallery/proofs/snarks**:
+**00:01.081** total execution time for 5 files **from api/gallery/proofs/snarks**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_03_groth16.py` (``plot_03_groth16.py``)
-     - 00:00.384
+     - 00:00.623
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_05_plonk.py` (``plot_05_plonk.py``)
-     - 00:00.107
+     - 00:00.157
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_04_powers_of_tau.py` (``plot_04_powers_of_tau.py``)
-     - 00:00.063
+     - 00:00.133
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_01_kzg_commitments.py` (``plot_01_kzg_commitments.py``)
-     - 00:00.059
+     - 00:00.100
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_snarks_plot_02_qap_pinocchio.py` (``plot_02_qap_pinocchio.py``)
-     - 00:00.042
+     - 00:00.067
      - 0.0

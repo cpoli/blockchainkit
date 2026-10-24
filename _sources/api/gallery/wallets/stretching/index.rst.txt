@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_wallets_stretching:
+
+Key stretching
+--------------
+
+Making every guess at a password cost time and memory, and what happens without it.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A key derived from a password is only as hard to find as the password. Burt Kaliski&#x27;s PBKDF2, in RFC 2898, cannot add entropy, but it makes every guess expensive: it iterates HMAC c times, and mixes in a salt so that one precomputed table cannot serve every user,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/stretching/images/thumb/sphx_glr_plot_01_pbkdf2_key_stretching_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/stretching/plot_01_pbkdf2_key_stretching`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">PBKDF2 key stretching (2000)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="PBKDF2 makes each guess slow but needs almost no memory, so custom chips run millions of guesses in parallel. Colin Percival&#x27;s scrypt makes each guess need a large table as well. Its core, ROMix, fills a table of N blocks and then reads it at N data-dependent addresses,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/stretching/images/thumb/sphx_glr_plot_02_scrypt_memory_hardness_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/stretching/plot_02_scrypt_memory_hardness`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">scrypt and memory-hard key derivation (2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A brain wallet&#x27;s private key is the SHA-256 of a passphrase,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/stretching/images/thumb/sphx_glr_plot_03_brain_wallet_drain_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/stretching/plot_03_brain_wallet_drain`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">The brain-wallet drain (Vasek et al., 2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/wallets/stretching/plot_01_pbkdf2_key_stretching
+   /api/gallery/wallets/stretching/plot_02_scrypt_memory_hardness
+   /api/gallery/wallets/stretching/plot_03_brain_wallet_drain
+

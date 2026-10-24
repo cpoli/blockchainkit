@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.601999Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.690204Z",
+      "mimetype": null,
+      "name": "plot_01_bch_codes.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/codes/plot_01_bch_codes.ipynb",
+      "size": 4709,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.602194Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.690442Z",
+      "mimetype": null,
+      "name": "plot_02_verhoeff_check_digit.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/codes/plot_02_verhoeff_check_digit.ipynb",
+      "size": 4086,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.602194Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.602194Z",
+  "mimetype": null,
+  "name": "codes",
+  "path": "jupyterlite_contents/api/gallery/wallets/codes",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

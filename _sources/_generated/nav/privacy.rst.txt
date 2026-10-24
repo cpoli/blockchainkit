@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.privacy hub </_generated/subpackages/privacy>` · :doc:`History </history/privacy_breakthroughs>` · :doc:`Examples </api/gallery/privacy/index>` · :doc:`API reference </api/privacy>`

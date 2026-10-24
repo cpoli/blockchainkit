@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.350** total execution time for 1 file **from api/gallery/fraud/figures**:
+**00:00.326** total execution time for 1 file **from api/gallery/fraud/figures**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fraud_figures_plot_01_benford_law.py` (``plot_01_benford_law.py``)
-     - 00:00.350
+     - 00:00.326
      - 0.0

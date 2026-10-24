@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_privacy_mixing:
+
+Mixing coins
+------------
+
+Breaking the link between payer and payee: joint transactions, blind tumblers, and mixer contracts.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gregory Maxwell observed that the inputs of a Bitcoin transaction need not belong to one person. In a CoinJoin, several users each contribute an input and name an output; each checks the joint transaction and signs only its own input. If the mixed outputs all have one denomination d, an observer cannot tell whose is whose, and the common-input heuristic now merges strangers.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/mixing/images/thumb/sphx_glr_plot_01_coinjoin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/mixing/plot_01_coinjoin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">CoinJoin: many payers, one transaction (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A mixing service, a tumbler, takes coins from payers and pays payees. Heilman, Alshenibr, Baldimtsi, Scafuro and Goldberg made one that can neither steal nor tell who paid whom. The tumbler promises each payee a token locked under an RSA puzzle z = \epsilon^e \bmod N, which only it can solve. The payee blinds the puzzle with a random \rho,">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/mixing/images/thumb/sphx_glr_plot_02_tumblebit_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/mixing/plot_02_tumblebit`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">TumbleBit: an untrusted tumbler that cannot link payments (2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tornado Cash put Zerocash&#x27;s notes and nullifiers into an Ethereum contract. Each deposit is a fixed amount with the commitment to a secret note, appended to a Merkle tree. A withdrawal, from any address, reveals the note&#x27;s nullifier and a zk-SNARK that the note is a leaf under a recent root. The contract pays once per nullifier and never learns which leaf.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/mixing/images/thumb/sphx_glr_plot_03_tornado_cash_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/mixing/plot_03_tornado_cash`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tornado Cash: a mixer contract with zero-knowledge withdrawals (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/privacy/mixing/plot_01_coinjoin
+   /api/gallery/privacy/mixing/plot_02_tumblebit
+   /api/gallery/privacy/mixing/plot_03_tornado_cash
+

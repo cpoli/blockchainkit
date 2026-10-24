@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.153** total execution time for 1 file **from api/gallery/economics/fees**:
+**00:00.260** total execution time for 1 file **from api/gallery/economics/fees**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_economics_fees_plot_01_eip1559_base_fee.py` (``plot_01_eip1559_base_fee.py``)
-     - 00:00.153
+     - 00:00.260
      - 0.0

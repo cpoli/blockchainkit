@@ -1,0 +1,26 @@
+blockchainkit.privacy
+=====================
+
+Anonymity on public ledgers: mix-nets and Tor, ring signatures and stealth addresses, address clustering, CoinJoin and mixers, and hidden amounts from confidential transactions to Mimblewimble.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/privacy_breakthroughs
+      :link-type: doc
+
+      The breakthroughs behind this subpackage, linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/privacy/index
+      :link-type: doc
+
+      The runnable example gallery.
+
+   .. grid-item-card:: API reference
+      :link: /api/privacy
+      :link-type: doc
+
+      Every public class and function.
+

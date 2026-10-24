@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.601760Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.689722Z",
+      "mimetype": null,
+      "name": "plot_03_bech32m_checksum_flaw.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/addresses/plot_03_bech32m_checksum_flaw.ipynb",
+      "size": 4215,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.601574Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.689481Z",
+      "mimetype": null,
+      "name": "plot_02_bech32_addresses.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/addresses/plot_02_bech32_addresses.ipynb",
+      "size": 4094,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.601371Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.689360Z",
+      "mimetype": null,
+      "name": "plot_01_base58check_addresses.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/addresses/plot_01_base58check_addresses.ipynb",
+      "size": 3701,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.601760Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.601760Z",
+  "mimetype": null,
+  "name": "addresses",
+  "path": "jupyterlite_contents/api/gallery/wallets/addresses",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

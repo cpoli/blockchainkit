@@ -187,7 +187,7 @@ same data, and how does the ratio grow with ``k``?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.084 seconds)
+   **Total running time of the script:** (0 minutes 0.146 seconds)
 
 
 .. _sphx_glr_download_api_gallery_channels_coding_plot_02_data_availability_sampling.py:

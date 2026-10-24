@@ -1,0 +1,434 @@
+:orphan:
+
+Examples
+========
+
+This gallery walks through ``blockchainkit.privacy``, one experiment per
+breakthrough on the :doc:`privacy history page </history/privacy_breakthroughs>`:
+Chaum's mix-nets and Tor's onion routing; ring signatures, key images and
+stealth addresses; k-anonymity, address clustering and Monero's
+traceability; CoinJoin, TumbleBit and Tornado Cash; and the hidden amounts
+of Zerocoin, confidential transactions, RingCT and Mimblewimble.
+
+Each script is self-contained and runs with
+``python examples/privacy/<section>/<script>.py``.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Hidden coins and amounts
+------------------------
+
+Coins that cannot be traced to their mint, and amounts that add up without being shown.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Miers, Garman, Green and Rubin proposed an extension to Bitcoin in which a user mints a coin by publishing a commitment C = g^S h^r to a random serial number S, and later spends it by revealing S with a zero-knowledge proof that some minted coin opens to it. Spent serials are recorded, so no coin is spent twice, but the spend points to no particular mint: every coin ever minted is in the anonymity set.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_01_zerocoin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_01_zerocoin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Zerocoin: spending a coin without saying which (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gregory Maxwell replaced each amount with a Pedersen commitment C = g^v h^r. Commitments multiply as amounts add, so anyone can check that nothing is created,">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_02_confidential_transactions_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_02_confidential_transactions`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Confidential transactions: amounts that add up unseen (2015)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Shen Noether&#x27;s Ring Confidential Transactions combined Monero&#x27;s ring signatures with confidential amounts. Each ring member is a one-time key P_i and an amount commitment C_i. A second column proves the amounts balance for the same member that signs: its keys are">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_03_ringct_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_03_ringct`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">RingCT: hiding the input and the amounts together (2016)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A pseudonymous author, &quot;Tom Elvis Jedusor&quot;, noticed that in confidential transactions the blinding factor can be the key. An output is just C = g^v h^r, owned by whoever knows r. When a transaction balances, outputs over inputs leave h^{k}, and a Schnorr signature under this excess E = h^k, kept in a kernel, proves it is h to a known power and not hidden coins.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/amounts/images/thumb/sphx_glr_plot_04_mimblewimble_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/amounts/plot_04_mimblewimble`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mimblewimble: transactions with no addresses, and cut-through (2016)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Measuring anonymity
+-------------------
+
+What a public record reveals: anonymity sets, address clusters, and traceable rings.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Latanya Sweeney showed that a ZIP code, a birth date and a sex single out most Americans. A table is k-anonymous if every combination of these quasi-identifiers appears at least k times, so each person hides among k. Generalising values, a ZIP to its first three digits or a date to a year, merges rows until k is reached.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/analysis/images/thumb/sphx_glr_plot_01_k_anonymity_anonymity_sets_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/analysis/plot_01_k_anonymity_anonymity_sets`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">k-anonymity and anonymity sets: hiding among k (2002)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Meiklejohn, Pomarole, Jordan, Levchenko, McCoy, Voelker and Savage showed that fresh addresses hide much less than they seem. Two heuristics group addresses that one user controls:">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/analysis/images/thumb/sphx_glr_plot_02_fistful_of_bitcoins_clustering_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/analysis/plot_02_fistful_of_bitcoins_clustering`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">A Fistful of Bitcoins: clustering addresses by owner (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Möser, Soska, Heilman, Lee, Heffan, Srivastava, Hogan, Hennessey, Miller, Narayanan and Christin, and independently Kumar, Fischer, Tople and Saxena, showed that most early Monero inputs could be traced.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/analysis/images/thumb/sphx_glr_plot_03_monero_traceability_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/analysis/plot_03_monero_traceability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Traceability in Monero: when decoys fail (2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Mixing coins
+------------
+
+Breaking the link between payer and payee: joint transactions, blind tumblers, and mixer contracts.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Gregory Maxwell observed that the inputs of a Bitcoin transaction need not belong to one person. In a CoinJoin, several users each contribute an input and name an output; each checks the joint transaction and signs only its own input. If the mixed outputs all have one denomination d, an observer cannot tell whose is whose, and the common-input heuristic now merges strangers.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/mixing/images/thumb/sphx_glr_plot_01_coinjoin_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/mixing/plot_01_coinjoin`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">CoinJoin: many payers, one transaction (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A mixing service, a tumbler, takes coins from payers and pays payees. Heilman, Alshenibr, Baldimtsi, Scafuro and Goldberg made one that can neither steal nor tell who paid whom. The tumbler promises each payee a token locked under an RSA puzzle z = \epsilon^e \bmod N, which only it can solve. The payee blinds the puzzle with a random \rho,">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/mixing/images/thumb/sphx_glr_plot_02_tumblebit_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/mixing/plot_02_tumblebit`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">TumbleBit: an untrusted tumbler that cannot link payments (2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tornado Cash put Zerocash&#x27;s notes and nullifiers into an Ethereum contract. Each deposit is a fixed amount with the commitment to a secret note, appended to a Merkle tree. A withdrawal, from any address, reveals the note&#x27;s nullifier and a zk-SNARK that the note is a leaf under a recent root. The contract pays once per nullifier and never learns which leaf.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/mixing/images/thumb/sphx_glr_plot_03_tornado_cash_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/mixing/plot_03_tornado_cash`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Tornado Cash: a mixer contract with zero-knowledge withdrawals (2019)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Anonymous networks
+------------------
+
+Hiding who talks to whom: mixes that batch and shuffle, and low-latency onion routing.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="David Chaum wanted to hide who writes to whom, even from someone watching every wire. A sender wraps its message in one layer of encryption per mix, innermost for the last. Each mix collects a batch, removes one layer from every message, and sends them on in a random order. The bytes change at every hop and so does the order, so an observer cannot match what goes in to what comes out.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/networks/images/thumb/sphx_glr_plot_01_chaum_mix_nets_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/networks/plot_01_chaum_mix_nets`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Chaum's mix-nets: untraceable mail (1981)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tor wraps traffic in layers like a mix-net, through a circuit of three relays, but forwards each packet at once: no batching, no reordering. That makes browsing fast enough to use. The design paper states the price: an adversary that watches both ends of a circuit can match the packet timing going in to the timing coming out. Delays shift every packet alike, so the gaps between packets survive the trip.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/networks/images/thumb/sphx_glr_plot_02_tor_onion_routing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/networks/plot_02_tor_onion_routing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Onion routing in Tor: fast, but exposed end to end (2004)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+Ring signatures and stealth addresses
+-------------------------------------
+
+Signing for a group without saying who, spending only once, and paying a fresh key every time.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Rivest, Shamir and Tauman titled their paper How to Leak a Secret: a cabinet member wants to prove a leak comes from the cabinet without saying who leaked it. A ring signature does that. The signer lists any public keys, its own among them, and signs so that the signature checks against the whole list but not against any one key.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/signatures/images/thumb/sphx_glr_plot_01_ring_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/signatures/plot_01_ring_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ring signatures: leaking a secret for a group (2001)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A ring signature is too anonymous for money: a spender could sign twice with the same coin and nobody could tell. Liu, Wei and Wong added a key image I = H_p(P)^x, fixed by the signer&#x27;s key pair but revealing nothing about which key it is. Every signature by the key carries the same image, and the same response proves both">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/signatures/images/thumb/sphx_glr_plot_02_linkable_ring_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/signatures/plot_02_linkable_ring_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Linkable ring signatures and key images (2004)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A reused address links every payment it receives. CryptoNote let a payee publish one address (A, B) = (g^a, g^b) from which each payer derives a fresh one-time key. The payer picks r, publishes R = g^r, and pays to">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/signatures/images/thumb/sphx_glr_plot_03_cryptonote_stealth_addresses_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/signatures/plot_03_cryptonote_stealth_addresses`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">CryptoNote stealth addresses: a fresh key for every payment (2013)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+
+
+   /api/gallery/privacy/amounts/index.rst
+   /api/gallery/privacy/analysis/index.rst
+   /api/gallery/privacy/mixing/index.rst
+   /api/gallery/privacy/networks/index.rst
+   /api/gallery/privacy/signatures/index.rst
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: privacy_python.zip </api/gallery/privacy/privacy_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: privacy_jupyter.zip </api/gallery/privacy/privacy_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.588009Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.664858Z",
+      "mimetype": null,
+      "name": "plot_03_ringct.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/amounts/plot_03_ringct.ipynb",
+      "size": 4514,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.587819Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.664703Z",
+      "mimetype": null,
+      "name": "plot_02_confidential_transactions.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/amounts/plot_02_confidential_transactions.ipynb",
+      "size": 4345,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.588194Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.665670Z",
+      "mimetype": null,
+      "name": "plot_04_mimblewimble.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/amounts/plot_04_mimblewimble.ipynb",
+      "size": 5034,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.587619Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.664570Z",
+      "mimetype": null,
+      "name": "plot_01_zerocoin.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/amounts/plot_01_zerocoin.ipynb",
+      "size": 4441,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.588194Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.588194Z",
+  "mimetype": null,
+  "name": "amounts",
+  "path": "jupyterlite_contents/api/gallery/privacy/amounts",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

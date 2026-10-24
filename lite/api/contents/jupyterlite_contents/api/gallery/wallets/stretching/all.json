@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.603909Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.693416Z",
+      "mimetype": null,
+      "name": "plot_01_pbkdf2_key_stretching.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/stretching/plot_01_pbkdf2_key_stretching.ipynb",
+      "size": 3933,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.604279Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.693994Z",
+      "mimetype": null,
+      "name": "plot_03_brain_wallet_drain.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/stretching/plot_03_brain_wallet_drain.ipynb",
+      "size": 4182,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.604100Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.693748Z",
+      "mimetype": null,
+      "name": "plot_02_scrypt_memory_hardness.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/stretching/plot_02_scrypt_memory_hardness.ipynb",
+      "size": 3727,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.604279Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.604279Z",
+  "mimetype": null,
+  "name": "stretching",
+  "path": "jupyterlite_contents/api/gallery/wallets/stretching",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

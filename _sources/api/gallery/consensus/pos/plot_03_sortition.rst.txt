@@ -139,7 +139,7 @@ must the round seed itself be unpredictable?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.060 seconds)
+   **Total running time of the script:** (0 minutes 0.111 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_pos_plot_03_sortition.py:

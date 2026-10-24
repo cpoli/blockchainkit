@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.097** total execution time for 4 files **from api/gallery/proofs/transparent**:
+**00:01.466** total execution time for 4 files **from api/gallery/proofs/transparent**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_03_starks.py` (``plot_03_starks.py``)
-     - 00:00.729
+     - 00:00.971
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_02_fri.py` (``plot_02_fri.py``)
-     - 00:00.186
+     - 00:00.249
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_04_halo.py` (``plot_04_halo.py``)
-     - 00:00.103
+     - 00:00.126
      - 0.0
    * - :ref:`sphx_glr_api_gallery_proofs_transparent_plot_01_bulletproofs.py` (``plot_01_bulletproofs.py``)
-     - 00:00.079
+     - 00:00.121
      - 0.0

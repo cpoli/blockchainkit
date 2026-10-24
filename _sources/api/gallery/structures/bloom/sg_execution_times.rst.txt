@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.191** total execution time for 1 file **from api/gallery/structures/bloom**:
+**00:00.423** total execution time for 1 file **from api/gallery/structures/bloom**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_structures_bloom_plot_01_bloom_filter.py` (``plot_01_bloom_filter.py``)
-     - 00:00.191
+     - 00:00.423
      - 0.0

@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.588836Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.667409Z",
+      "mimetype": null,
+      "name": "plot_03_monero_traceability.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/analysis/plot_03_monero_traceability.ipynb",
+      "size": 4294,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.588438Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.666309Z",
+      "mimetype": null,
+      "name": "plot_01_k_anonymity_anonymity_sets.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/analysis/plot_01_k_anonymity_anonymity_sets.ipynb",
+      "size": 4605,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.588652Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.666862Z",
+      "mimetype": null,
+      "name": "plot_02_fistful_of_bitcoins_clustering.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/analysis/plot_02_fistful_of_bitcoins_clustering.ipynb",
+      "size": 4003,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.588836Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.588836Z",
+  "mimetype": null,
+  "name": "analysis",
+  "path": "jupyterlite_contents/api/gallery/privacy/analysis",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

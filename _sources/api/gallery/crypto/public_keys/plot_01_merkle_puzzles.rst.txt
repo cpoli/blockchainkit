@@ -157,7 +157,7 @@ much work does the attacker face? Compare with Diffie-Hellman.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.135 seconds)
+   **Total running time of the script:** (0 minutes 0.247 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_public_keys_plot_01_merkle_puzzles.py:

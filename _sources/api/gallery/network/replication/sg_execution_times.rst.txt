@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.028** total execution time for 1 file **from api/gallery/network/replication**:
+**00:00.048** total execution time for 1 file **from api/gallery/network/replication**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_network_replication_plot_01_cap_theorem.py` (``plot_01_cap_theorem.py``)
-     - 00:00.028
+     - 00:00.048
      - 0.0

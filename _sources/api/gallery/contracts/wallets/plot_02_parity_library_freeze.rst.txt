@@ -152,7 +152,7 @@ no signer can meet). Repeat the attack. Which call now fails?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.083 seconds)
+   **Total running time of the script:** (0 minutes 0.102 seconds)
 
 
 .. _sphx_glr_download_api_gallery_contracts_wallets_plot_02_parity_library_freeze.py:

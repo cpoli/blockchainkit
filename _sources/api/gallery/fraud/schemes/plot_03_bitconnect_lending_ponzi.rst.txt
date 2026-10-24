@@ -162,7 +162,7 @@ the breakeven growth of Ponzi's own scheme.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.146 seconds)
+   **Total running time of the script:** (0 minutes 0.274 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fraud_schemes_plot_03_bitconnect_lending_ponzi.py:

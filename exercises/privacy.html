@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercises: privacy" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/blockchainkit/exercises/privacy.html" />
+<meta property="og:site_name" content="blockchainkit" />
+<meta property="og:description" content="Each problem comes from the exercise at the end of a gallery example. Try it in the example’s notebook first, then open the solution. Every solution is run by the documentation build, so its code i..." />
+<meta property="og:image" content="https://cpoli.github.io/blockchainkit/_static/images/blockchainkit_logo.png" />
+<meta property="og:image:alt" content="blockchainkit" />
+<meta name="description" content="Each problem comes from the exercise at the end of a gallery example. Try it in the example’s notebook first, then open the solution. Every solution is run by the documentation build, so its code i..." />
+
+    <title>Exercises: privacy &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../_static/documentation_options.js?v=f129cdf0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises/privacy';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/blockchainkit/exercises/privacy.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../history/index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Exercises: privacy</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="exercises-privacy">
+<h1>Exercises: privacy<a class="headerlink" href="#exercises-privacy" title="Link to this heading">#</a></h1>
+<p>Each problem comes from the exercise at the end of a gallery example. Try it
+in the example’s notebook first, then open the solution. Every solution is
+run by the documentation build, so its code is known to work.</p>
+<section id="a-quiet-hour-at-the-mix">
+<h2>1. A quiet hour at the mix<a class="headerlink" href="#a-quiet-hour-at-the-mix" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/networks/plot_01_chaum_mix_nets.html"><span class="doc">Chaum’s mix-nets: untraceable mail (1981)</span></a>. Only two
+messages pass through the cascade. What is the chance of linking a sender,
+and what did Chaum propose to keep batches large?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">An honest mix can only shuffle what it holds, so each sender hides among
+two: a guess is right half the time.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">Random</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mixes</span> <span class="o">=</span> <span class="p">[</span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">MixNode</span><span class="p">(</span><span class="sa">f</span><span class="s2">"m</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="n">Random</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">onions</span> <span class="o">=</span> <span class="p">[</span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="sa">b</span><span class="s2">"hi"</span><span class="p">,</span> <span class="n">mixes</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"r</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">run</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">mix_cascade</span><span class="p">(</span><span class="n">onions</span><span class="p">,</span> <span class="n">mixes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">run</span><span class="o">.</span><span class="n">candidates</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Chaum had every participant send a message, real or dummy, in every
+batch, so the batch size never depends on who is active.</p>
+</div>
+</details></section>
+<section id="entry-guards">
+<h2>2. Entry guards<a class="headerlink" href="#entry-guards" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/networks/plot_02_tor_onion_routing.html"><span class="doc">Onion routing in Tor: fast, but exposed end to end (2004)</span></a>. With
+10% of relays malicious, how likely is a bad guard, and why is a long-lived
+guard better than a fresh entry for every circuit?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">A guard kept for months is bad with probability 0.1, once. A fresh entry
+for each of a hundred circuits is almost certain to be bad at least
+once, and a single exposed circuit can be enough.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">round</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mf">0.9</span><span class="o">**</span><span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">0.99997</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Guards turn “eventually exposed” into “exposed with probability 0.1, or
+never”.</p>
+</div>
+</details></section>
+<section id="two-rings-one-leaker">
+<h2>3. Two rings, one leaker<a class="headerlink" href="#two-rings-one-leaker" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/signatures/plot_01_ring_signatures.html"><span class="doc">Ring signatures: leaking a secret for a group (2001)</span></a>. Why do
+two leaks signed with rings that share only the leaker’s key reveal it?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If both leaks are known to come from one person, that person is in both
+rings, so in their intersection.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">TEACHING_GROUP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">second</span> <span class="o">=</span> <span class="p">{</span><span class="n">G</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">33</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">55</span><span class="p">)}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">first</span> <span class="o">&amp;</span> <span class="n">second</span> <span class="o">==</span> <span class="p">{</span><span class="n">G</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="mi">33</span><span class="p">)}</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p class="sd-card-text">A careful leaker signs every leak with the same ring, so that the
+intersection is the whole ring.</p>
+</div>
+</details></section>
+<section id="a-key-image-of-g">
+<h2>4. A key image of g<a class="headerlink" href="#a-key-image-of-g" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/signatures/plot_02_linkable_ring_signatures.html"><span class="doc">Linkable ring signatures and key images (2004)</span></a>.
+Why would <span class="math notranslate nohighlight">\(I = g^x\)</span> be a disaster?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><span class="math notranslate nohighlight">\(g^x\)</span> is the signer’s public key, which sits in the ring. The
+“image” would name the signer.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">TEACHING_GROUP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span> <span class="o">=</span> <span class="p">[</span><span class="n">G</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">p</span><span class="p">))</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">key_image</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ring</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Hashing the key into the group gives a base whose discrete logarithm
+nobody knows, so <span class="math notranslate nohighlight">\(H_p(P)^x\)</span> cannot be matched to <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</div>
+</details></section>
+<section id="handing-over-the-view-key">
+<h2>5. Handing over the view key<a class="headerlink" href="#handing-over-the-view-key" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/signatures/plot_03_cryptonote_stealth_addresses.html"><span class="doc">CryptoNote stealth addresses: a fresh key for every payment (2013)</span></a>.
+What can an auditor holding Bob’s view key do?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">It can find every output paid to Bob, but it cannot compute a one-time
+private key, which also needs the spend key. Nor can it see Bob’s
+spending: recognising a spend needs its key image, which needs the
+one-time private key.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bob</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">stealth_keys</span><span class="p">(</span><span class="mi">31_337</span><span class="p">,</span> <span class="mi">27_182</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">stealth_payment</span><span class="p">(</span><span class="n">bob</span><span class="o">.</span><span class="n">view_public</span><span class="p">,</span> <span class="n">bob</span><span class="o">.</span><span class="n">spend_public</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">owns_output</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">bob</span><span class="o">.</span><span class="n">view_secret</span><span class="p">,</span> <span class="n">bob</span><span class="o">.</span><span class="n">spend_public</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">one_time_secret</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">bob</span><span class="o">.</span><span class="n">view_secret</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">the output does not pay this wallet</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="five-patients-one-diagnosis">
+<h2>6. Five patients, one diagnosis<a class="headerlink" href="#five-patients-one-diagnosis" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/analysis/plot_01_k_anonymity_anonymity_sets.html"><span class="doc">k-anonymity and anonymity sets: hiding among k (2002)</span></a>.
+What does 5-anonymity protect when everyone in a class shares a
+diagnosis?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Nothing about the diagnosis: knowing the neighbour is in the class is
+knowing the neighbour’s diagnosis. Machanavajjhala et al. (2006) asked for
+<em>l-diversity</em>: at least <span class="math notranslate nohighlight">\(l\)</span> distinct sensitive values per class.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rows</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"zip"</span><span class="p">:</span> <span class="s2">"021*"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">:</span> <span class="s2">"30s"</span><span class="p">,</span> <span class="s2">"diagnosis"</span><span class="p">:</span> <span class="s2">"flu"</span><span class="p">}]</span> <span class="o">*</span> <span class="mi">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">k_anonymity</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="p">[</span><span class="s2">"zip"</span><span class="p">,</span> <span class="s2">"age"</span><span class="p">])</span>
+<span class="go">5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">({</span><span class="n">row</span><span class="p">[</span><span class="s2">"diagnosis"</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">})</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="one-coin-per-payment">
+<h2>7. One coin per payment<a class="headerlink" href="#one-coin-per-payment" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/analysis/plot_02_fistful_of_bitcoins_clustering.html"><span class="doc">A Fistful of Bitcoins: clustering addresses by owner (2013)</span></a>.
+Which heuristic still links a user who spends one coin at a time, and when
+does it abstain?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The common-input heuristic never fires, but the change heuristic does,
+whenever the payee’s address has been seen before. It abstains when both
+outputs are fresh.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">shop</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">TransactionRecord</span><span class="p">((),</span> <span class="p">((</span><span class="s2">"shop"</span><span class="p">,</span> <span class="mi">1</span><span class="p">),))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pay</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">TransactionRecord</span><span class="p">(((</span><span class="s2">"coin"</span><span class="p">,</span> <span class="mi">9</span><span class="p">),),</span> <span class="p">((</span><span class="s2">"shop"</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">"change"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s2">"coin"</span><span class="p">,</span> <span class="s2">"change"</span><span class="p">}</span> <span class="ow">in</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">cluster_addresses</span><span class="p">([</span><span class="n">shop</span><span class="p">,</span> <span class="n">pay</span><span class="p">],</span> <span class="n">change</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fresh</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">TransactionRecord</span><span class="p">(((</span><span class="s2">"coin"</span><span class="p">,</span> <span class="mi">9</span><span class="p">),),</span> <span class="p">((</span><span class="s2">"new"</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="s2">"change"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">{</span><span class="s2">"coin"</span><span class="p">,</span> <span class="s2">"change"</span><span class="p">}</span> <span class="ow">in</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">cluster_addresses</span><span class="p">([</span><span class="n">fresh</span><span class="p">],</span> <span class="n">change</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="rings-of-eleven">
+<h2>8. Rings of eleven<a class="headerlink" href="#rings-of-eleven" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/analysis/plot_03_monero_traceability.html"><span class="doc">Traceability in Monero: when decoys fail (2018)</span></a>.
+Monero made rings of size 11 mandatory in 2018. Using
+<a class="reference internal" href="../api/privacy.html#blockchainkit.privacy.systems.traceability.simulate_rings" title="blockchainkit.privacy.systems.traceability.simulate_rings"><code class="xref py py-func docutils literal notranslate"><span class="pre">simulate_rings()</span></code></a>, how much
+of a ledger with 60% zero-mixin rings of size 2 does the chain reaction
+trace, and how much once the other 40% have size 11?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">With rings of two, striking the zero-mixin outputs leaves many rings with
+one member: 663 of 900 inputs are traced, 118 more than the zero-mixin
+ones. A ring of eleven falls only once ten of its members are struck, and
+none does, so only the zero-mixin inputs are traced. Large rings stop the
+cascade; only forbidding rings without decoys protects those inputs too.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">rings</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">simulate_rings</span><span class="p">(</span><span class="mi">2_000</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="n">ring_size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">zero_mixin</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">report</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">trace_rings</span><span class="p">(</span><span class="n">rings</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rings</span><span class="p">),</span> <span class="n">report</span><span class="o">.</span><span class="n">zero_mixin</span><span class="p">,</span> <span class="n">report</span><span class="o">.</span><span class="n">deduced</span><span class="p">)</span>
+<span class="go">2 900 545 663</span>
+<span class="go">11 900 525 525</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="equal-inputs">
+<h2>9. Equal inputs<a class="headerlink" href="#equal-inputs" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/mixing/plot_01_coinjoin.html"><span class="doc">CoinJoin: many payers, one transaction (2013)</span></a>. Inputs of 15, 15
+and 25 join with denomination 10. Which change outputs link?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The two changes of 5 could each come from either 15-coin input, so
+neither links; the change of 15 can only come from the 25-coin input.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">people</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"ann"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="s2">"bob"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">round_</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">coinjoin</span><span class="p">(</span><span class="n">people</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">links</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">link_change</span><span class="p">(</span><span class="n">round_</span><span class="o">.</span><span class="n">transaction</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">round_</span><span class="o">.</span><span class="n">owners</span><span class="p">[</span><span class="n">change</span><span class="p">],</span> <span class="n">source</span><span class="p">)</span> <span class="k">for</span> <span class="n">change</span><span class="p">,</span> <span class="n">source</span> <span class="ow">in</span> <span class="n">links</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="go">[('cat', 'c')]</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Inputs of equal size, or of exactly the denomination, leave change that
+links nothing.</p>
+</div>
+</details></section>
+<section id="same-size-same-window">
+<h2>10. Same size, same window<a class="headerlink" href="#same-size-same-window" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/mixing/plot_02_tumblebit.html"><span class="doc">TumbleBit: an untrusted tumbler that cannot link payments (2017)</span></a>. Why must
+TumbleBit payments share one size and one time window?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Blinding hides the puzzles, but not the payments on the chain around
+them. If amounts differed, the tumbler, or anyone, could match each
+payer’s payment to the payee receiving the same amount; if times
+differed, it could match by order.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">run</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">run_tumbler</span><span class="p">([(</span><span class="s2">"p1"</span><span class="p">,</span> <span class="s2">"q1"</span><span class="p">),</span> <span class="p">(</span><span class="s2">"p2"</span><span class="p">,</span> <span class="s2">"q2"</span><span class="p">)],</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">tumbler_links</span><span class="p">(</span><span class="n">run</span><span class="p">)</span>
+<span class="go">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paid_in</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"p1"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"p2"</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">paid_out</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"q1"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"q2"</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[(</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">paid_in</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">paid_out</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">]</span>
+<span class="go">[('p1', 'q1'), ('p2', 'q2')]</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="waiting-before-withdrawing">
+<h2>11. Waiting before withdrawing<a class="headerlink" href="#waiting-before-withdrawing" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/mixing/plot_03_tornado_cash.html"><span class="doc">Tornado Cash: a mixer contract with zero-knowledge withdrawals (2019)</span></a>. Why wait
+before withdrawing?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">A withdrawal hides among the deposits made before it. Waiting lets more
+deposits arrive; it costs time, during which the coins are locked.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">deposits</span> <span class="o">=</span> <span class="p">[(</span><span class="sa">f</span><span class="s2">"user</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">mixer_report</span><span class="p">(</span><span class="n">deposits</span><span class="p">,</span> <span class="p">[(</span><span class="s2">"fresh"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)])</span><span class="o">.</span><span class="n">anonymity_sets</span>
+<span class="go">(1,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">mixer_report</span><span class="p">(</span><span class="n">deposits</span><span class="p">,</span> <span class="p">[(</span><span class="s2">"fresh"</span><span class="p">,</span> <span class="mi">95</span><span class="p">)])</span><span class="o">.</span><span class="n">anonymity_sets</span>
+<span class="go">(10,)</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="a-million-coins">
+<h2>12. A million coins<a class="headerlink" href="#a-million-coins" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/amounts/plot_01_zerocoin.html"><span class="doc">Zerocoin: spending a coin without saying which (2013)</span></a>. How large is a
+spend from a million coins here, and why did Zerocoin need a trusted RSA
+modulus to do better?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The ring signature has one response per coin plus a challenge: about a
+million numbers.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pool</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">ZerocoinPool</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">serial</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">_</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">mint</span><span class="p">(</span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">mint_coin</span><span class="p">(</span><span class="n">serial</span><span class="p">,</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">serial</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spend</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">prove_zerocoin_spend</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">coins</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="sa">b</span><span class="s2">"m"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">spend</span><span class="o">.</span><span class="n">proof</span><span class="o">.</span><span class="n">responses</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p class="sd-card-text">The accumulator makes the proof independent of the number of coins, but
+anyone who knows the factors of <span class="math notranslate nohighlight">\(N\)</span> can take <span class="math notranslate nohighlight">\(c\)</span>-th roots and
+forge a witness for a coin never minted. So the modulus had to be made
+by a party trusted to destroy its factors.</p>
+</div>
+</details></section>
+<section id="the-payee-s-opening">
+<h2>13. The payee’s opening<a class="headerlink" href="#the-payee-s-opening" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/amounts/plot_02_confidential_transactions.html"><span class="doc">Confidential transactions: amounts that add up unseen (2015)</span></a>.
+Why must the payee learn its amount and blinding factor, and how does it
+check them?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">To spend the output later, the payee must choose blinding factors that
+cancel, so it needs this one. It checks by recomputing the commitment.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">confidential_output</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">commitment</span> <span class="o">==</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">pedersen_commit</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">output</span><span class="o">.</span><span class="n">commitment</span> <span class="o">==</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">pedersen_commit</span><span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Real wallets send the amount and blinding factor encrypted to the
+payee, inside the transaction.</p>
+</div>
+</details></section>
+<section id="the-second-column">
+<h2>14. The second column<a class="headerlink" href="#the-second-column" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/amounts/plot_03_ringct.html"><span class="doc">RingCT: hiding the input and the amounts together (2016)</span></a>. Show that outputs
+worth more than the input fail verification.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The second column’s key for the real member is no longer a pure power of
+<span class="math notranslate nohighlight">\(h\)</span>, so the signature, made for the honest outputs, no longer
+closes.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">dataclasses</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">TEACHING_GROUP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ring</span> <span class="o">=</span> <span class="p">[(</span><span class="n">G</span><span class="o">.</span><span class="n">public</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">pedersen_commit</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">7</span> <span class="o">+</span> <span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">33</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tx</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">ringct_spend</span><span class="p">(</span><span class="n">ring</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="p">[(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">3</span><span class="p">)],</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bits</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">verify_ringct</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">richer</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">confidential_output</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">verify_ringct</span><span class="p">(</span><span class="n">dataclasses</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="p">(</span><span class="n">richer</span><span class="p">,)))</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+<section id="without-the-offset">
+<h2>15. Without the offset<a class="headerlink" href="#without-the-offset" title="Link to this heading">#</a></h2>
+<p>From <a class="reference internal" href="../api/gallery/privacy/amounts/plot_04_mimblewimble.html"><span class="doc">Mimblewimble: transactions with no addresses, and cut-through (2016)</span></a>. How could an
+observer split a merged block if there were no offset?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">Solution</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Each kernel’s excess would equal its own transaction’s outputs over
+inputs (times <span class="math notranslate nohighlight">\(g^{\text{fee}}\)</span>), so trying subsets of the block’s
+inputs and outputs against each kernel would find them. With the offset,
+no kernel matches its own transaction on its own.</p>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">G</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">TEACHING_GROUP</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pay</span> <span class="o">=</span> <span class="n">bk</span><span class="o">.</span><span class="n">privacy</span><span class="o">.</span><span class="n">mimblewimble_transaction</span><span class="p">([(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">11</span><span class="p">)],</span> <span class="p">[(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span> <span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">33</span><span class="p">)],</span> <span class="n">fee</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">product</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="n">pay</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">pay</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="n">G</span><span class="o">.</span><span class="n">p</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">product</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">pay</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">p</span><span class="p">)</span> <span class="o">%</span> <span class="n">G</span><span class="o">.</span><span class="n">p</span> <span class="o">==</span> <span class="n">pay</span><span class="o">.</span><span class="n">kernels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">excess</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pay</span><span class="o">.</span><span class="n">offset</span> <span class="o">!=</span> <span class="mi">0</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+</details></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-quiet-hour-at-the-mix">1. A quiet hour at the mix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entry-guards">2. Entry guards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-rings-one-leaker">3. Two rings, one leaker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-key-image-of-g">4. A key image of g</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handing-over-the-view-key">5. Handing over the view key</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#five-patients-one-diagnosis">6. Five patients, one diagnosis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-coin-per-payment">7. One coin per payment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rings-of-eleven">8. Rings of eleven</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equal-inputs">9. Equal inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#same-size-same-window">10. Same size, same window</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#waiting-before-withdrawing">11. Waiting before withdrawing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-million-coins">12. A million coins</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-payee-s-opening">13. The payee’s opening</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-second-column">14. The second column</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#without-the-offset">15. Without the offset</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/exercises/privacy.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

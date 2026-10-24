@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.172** total execution time for 3 files **from api/gallery/channels/interoperability**:
+**00:02.751** total execution time for 3 files **from api/gallery/channels/interoperability**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_channels_interoperability_plot_01_atomic_swaps.py` (``plot_01_atomic_swaps.py``)
-     - 00:01.810
+     - 00:02.249
      - 0.0
    * - :ref:`sphx_glr_api_gallery_channels_interoperability_plot_03_bridge_exploits.py` (``plot_03_bridge_exploits.py``)
-     - 00:00.275
+     - 00:00.412
      - 0.0
    * - :ref:`sphx_glr_api_gallery_channels_interoperability_plot_02_btc_relay.py` (``plot_02_btc_relay.py``)
-     - 00:00.087
+     - 00:00.091
      - 0.0

@@ -1,0 +1,26 @@
+blockchainkit.wallets
+=====================
+
+Keys as users hold them: check digits, Base58Check and Bech32 addresses, PBKDF2 and scrypt, brain wallets, HD keys and seed phrases, multisig and threshold ECDSA, social recovery, and ERC-4337 accounts.
+
+.. grid:: 1 2 3 3
+   :gutter: 2
+
+   .. grid-item-card:: History
+      :link: /history/wallets_breakthroughs
+      :link-type: doc
+
+      The breakthroughs behind this subpackage, linked to the implementation.
+
+   .. grid-item-card:: Examples
+      :link: /api/gallery/wallets/index
+      :link-type: doc
+
+      The runnable example gallery.
+
+   .. grid-item-card:: API reference
+      :link: /api/wallets
+      :link-type: doc
+
+      Every public class and function.
+

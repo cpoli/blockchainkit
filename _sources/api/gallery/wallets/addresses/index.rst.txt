@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_wallets_addresses:
+
+Address encodings
+-----------------
+
+Writing a key's hash so that a typo is refused rather than paid.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Bitcoin&#x27;s first release wrote an address as a version byte, the 20-byte HASH160 of a public key and a 4-byte checksum, in base 58: the digits and letters without 0, O, I and l, which are easily confused. A wallet refuses to pay an address whose checksum fails, so a typo is caught unless it happens to match the checksum, with probability">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/addresses/images/thumb/sphx_glr_plot_01_base58check_addresses_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/addresses/plot_01_base58check_addresses`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Base58Check addresses (2009)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Pieter Wuille and Gregory Maxwell designed Bech32 for segregated-witness addresses. It uses one case and 32 characters chosen to avoid look-alikes, and a 6-character checksum that is a BCH code over GF(32): the string, read as a polynomial, must satisfy">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/addresses/images/thumb/sphx_glr_plot_02_bech32_addresses_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/addresses/plot_02_bech32_addresses`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bech32 addresses (BIP173, 2017)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In 2019 it was found that Bech32 has a blind spot: when a string ends in p, inserting or deleting q characters just before that p leaves the checksum valid. q is the value 0, and p is 1, the constant the checksum must leave, so the extra zeros multiply the polynomial by powers of x without changing its remainder. Witness version 0 survives, because its programs must be 20 or 32 bytes, but Taproot&#x27;s version 1 and later allow other lengths. Pieter Wuille&#x27;s Bech32m changes only the constant,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/addresses/images/thumb/sphx_glr_plot_03_bech32m_checksum_flaw_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/addresses/plot_03_bech32m_checksum_flaw`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Bech32m and the insertion flaw in Bech32 (BIP350, 2020)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/wallets/addresses/plot_01_base58check_addresses
+   /api/gallery/wallets/addresses/plot_02_bech32_addresses
+   /api/gallery/wallets/addresses/plot_03_bech32m_checksum_flaw
+

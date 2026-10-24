@@ -1,0 +1,104 @@
+
+
+.. _sphx_glr_api_gallery_wallets_custody:
+
+Shared control
+--------------
+
+Removing the single point of failure: multisig, threshold signatures, guardians and smart accounts.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="One key is one point of failure. A coin locked to 2 of 3 keys survives the loss or theft of one, but before 2012 the payer had to write the whole locking script, and pay for its size. Gavin Andresen&#x27;s BIP16 locks a coin to the hash of a redeem script instead,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/custody/images/thumb/sphx_glr_plot_01_p2sh_multisig_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/custody/plot_01_p2sh_multisig`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Pay-to-script-hash and multisig (BIP16, 2012)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A multisig script shows its policy on chain and needs a signature per signer. A threshold signature is one ordinary signature under one key, made by any t of n parties holding Shamir shares of a private key that no one ever assembles. Schnorr responses add, but ECDSA&#x27;s">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/custody/images/thumb/sphx_glr_plot_02_threshold_ecdsa_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/custody/plot_02_threshold_ecdsa`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Threshold ECDSA (Gennaro and Goldfeder, 2018)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Vitalik Buterin argued in January 2021 for wallets that need no seed-phrase backup. A social-recovery wallet is a contract with one signing key for daily use and n guardians, any m of whom can replace that key. Losing the key no longer loses the coins, and a thief with the key alone can be locked out. If each guardian is independently lost with probability p_l or corrupt with probability p_c,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/custody/images/thumb/sphx_glr_plot_03_social_recovery_wallets_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/custody/plot_03_social_recovery_wallets`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Social-recovery wallets (2021)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="An Ethereum key-pair account can start transactions but follows fixed rules: one ECDSA key, gas paid in ether. A contract account can follow any rule but cannot start a transaction. ERC-4337, proposed in 2021 by Vitalik Buterin, Yoav Weiss and others and deployed in 2023, lets contract accounts act on their own without a protocol change. Owners sign user operations; a bundler submits them to an EntryPoint contract, which asks each account to validate its operation and pay its fee, then runs it. The owner signs">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/custody/images/thumb/sphx_glr_plot_04_erc4337_account_abstraction_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/custody/plot_04_erc4337_account_abstraction`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Account abstraction with ERC-4337 (2021)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/wallets/custody/plot_01_p2sh_multisig
+   /api/gallery/wallets/custody/plot_02_threshold_ecdsa
+   /api/gallery/wallets/custody/plot_03_social_recovery_wallets
+   /api/gallery/wallets/custody/plot_04_erc4337_account_abstraction
+

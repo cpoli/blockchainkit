@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.615** total execution time for 6 files **from api/gallery/vm/foundations**:
+**00:02.709** total execution time for 6 files **from api/gallery/vm/foundations**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_04_busy_beaver.py` (``plot_04_busy_beaver.py``)
-     - 00:00.837
+     - 00:01.366
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_02_halting_problem.py` (``plot_02_halting_problem.py``)
-     - 00:00.637
+     - 00:01.090
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_01_reverse_polish.py` (``plot_01_reverse_polish.py``)
-     - 00:00.057
+     - 00:00.097
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_03_hardware_stack.py` (``plot_03_hardware_stack.py``)
-     - 00:00.031
-     - 0.0
-   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_06_forth.py` (``plot_06_forth.py``)
-     - 00:00.026
+     - 00:00.055
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_05_structured_programming.py` (``plot_05_structured_programming.py``)
-     - 00:00.026
+     - 00:00.052
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_vm_foundations_plot_06_forth.py` (``plot_06_forth.py``)
+     - 00:00.049
      - 0.0

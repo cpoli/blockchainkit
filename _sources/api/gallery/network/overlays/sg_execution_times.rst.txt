@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.622** total execution time for 3 files **from api/gallery/network/overlays**:
+**00:03.879** total execution time for 3 files **from api/gallery/network/overlays**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_network_overlays_plot_01_kademlia.py` (``plot_01_kademlia.py``)
-     - 00:02.357
+     - 00:03.408
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_overlays_plot_03_eclipse_attack.py` (``plot_03_eclipse_attack.py``)
-     - 00:00.171
+     - 00:00.294
      - 0.0
    * - :ref:`sphx_glr_api_gallery_network_overlays_plot_02_sybil_attack.py` (``plot_02_sybil_attack.py``)
-     - 00:00.094
+     - 00:00.178
      - 0.0

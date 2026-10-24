@@ -279,7 +279,7 @@ A worked solution is in :doc:`/exercises/structures`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.206 seconds)
+   **Total running time of the script:** (0 minutes 0.319 seconds)
 
 
 .. _sphx_glr_download_api_gallery_structures_chain_plot_01_payment_lifecycle.py:

@@ -1,0 +1,43 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.589710Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.669219Z",
+      "mimetype": null,
+      "name": "plot_01_chaum_mix_nets.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/networks/plot_01_chaum_mix_nets.ipynb",
+      "size": 4289,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.589906Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.669783Z",
+      "mimetype": null,
+      "name": "plot_02_tor_onion_routing.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/networks/plot_02_tor_onion_routing.ipynb",
+      "size": 4498,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.589906Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.589906Z",
+  "mimetype": null,
+  "name": "networks",
+  "path": "jupyterlite_contents/api/gallery/privacy/networks",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

@@ -194,7 +194,7 @@ A worked solution is in :doc:`/exercises/vm`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.075 seconds)
+   **Total running time of the script:** (0 minutes 0.127 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_ethereum_plot_01_gas.py:

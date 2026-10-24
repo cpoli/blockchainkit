@@ -150,7 +150,7 @@ replicas take the time from the log instead of their clocks.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.032 seconds)
+   **Total running time of the script:** (0 minutes 0.053 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_replication_plot_01_state_machine_replication.py:

@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Breakthroughs in Wallets and Key Handling" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://cpoli.github.io/blockchainkit/history/wallets_breakthroughs.html" />
+<meta property="og:site_name" content="blockchainkit" />
+<meta property="og:description" content="blockchainkit.wallets hub · History · Examples · API reference “Your keys, your bitcoin. Not your keys, not your bitcoin.” – Andreas M. Antonopoulos, 2017 A cryptocurrency is digital money. Its rec..." />
+<meta property="og:image" content="https://cpoli.github.io/blockchainkit/_static/images/blockchainkit_logo.png" />
+<meta property="og:image:alt" content="blockchainkit" />
+<meta name="description" content="blockchainkit.wallets hub · History · Examples · API reference “Your keys, your bitcoin. Not your keys, not your bitcoin.” – Andreas M. Antonopoulos, 2017 A cryptocurrency is digital money. Its rec..." />
+
+    <title>Breakthroughs in Wallets and Key Handling &#8212; blockchainkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Vibur" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyterlite_sphinx.css?v=f676e775" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=c83e6b79" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=865bd79b" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
+
+    <script src="../_static/documentation_options.js?v=f129cdf0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../_static/jupyterlite_sphinx.js?v=96e329c5"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'history/wallets_breakthroughs';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="canonical" href="https://cpoli.github.io/blockchainkit/history/wallets_breakthroughs.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Examples" href="../examples/index.html" />
+    <link rel="prev" title="Breakthroughs in Blockchain Privacy" href="privacy_breakthroughs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/blockchainkit_logo_transparent.png" class="logo__image only-light" alt="blockchainkit logo"/>
+    <img src="../_static/blockchainkit_logo_transparent.png" class="logo__image only-dark pst-js-only" alt="blockchainkit logo"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../subpackages/index.html">
+    Subpackages
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    History
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples/index.html">
+    Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/cpoli/blockchainkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://cpoli.github.io/" title="Charles Poli" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-user fa-lg" aria-hidden="true"></i><span class="visually-hidden">Charles Poli</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="crypto_breakthroughs.html">Breakthroughs in Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structures_breakthroughs.html">Breakthroughs in Authenticated Data Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="consensus_breakthroughs.html">Breakthroughs in Consensus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_breakthroughs.html">Breakthroughs in Peer-to-Peer Networking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vm_breakthroughs.html">Breakthroughs in Replicated Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contracts_breakthroughs.html">Breakthroughs in Smart Contracts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="economics_breakthroughs.html">Breakthroughs in Blockchain Economics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="channels_breakthroughs.html">Breakthroughs in Layer-2 Scaling and Interoperability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="proofs_breakthroughs.html">Breakthroughs in Proof Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fraud_breakthroughs.html">Breakthroughs in Blockchain Fraud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privacy_breakthroughs.html">Breakthroughs in Blockchain Privacy</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">Breakthroughs in Wallets and Key Handling</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">History</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Breakthroughs in Wallets and Key Handling</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="breakthroughs-in-wallets-and-key-handling">
+<h1>Breakthroughs in Wallets and Key Handling<a class="headerlink" href="#breakthroughs-in-wallets-and-key-handling" title="Link to this heading">#</a></h1>
+<div class="subpkg-nav docutils container">
+<p><a class="reference internal" href="../_generated/subpackages/wallets.html"><span class="doc">blockchainkit.wallets hub</span></a> · <a class="reference internal" href="#"><span class="doc">History</span></a> · <a class="reference internal" href="../api/gallery/wallets/index.html"><span class="doc">Examples</span></a> · <a class="reference internal" href="../api/wallets.html"><span class="doc">API reference</span></a></p>
+</div>
+<blockquote class="epigraph">
+<div><p>“Your keys, your bitcoin. Not your keys, not your bitcoin.”
+– Andreas M. Antonopoulos, 2017</p>
+</div></blockquote>
+<p>A <em>cryptocurrency</em> is digital money. Its record of who owns what is kept on a
+<em>blockchain</em>: a shared record, like a Python list of blocks of transactions.
+Many computers keep copies of it in step, and nobody can quietly edit an old
+entry. <em>Cryptography</em> is the mathematics of keeping and checking secrets.</p>
+<p>Whoever holds the right secret number can spend the coins. So most of the
+money lost in cryptocurrencies is not lost to broken cryptography. It is
+lost to the way people handle their secrets:</p>
+<ul class="simple">
+<li><p><strong>a typo</strong> in an address sends a payment nowhere, or to someone else;</p></li>
+<li><p><strong>a guessable secret</strong>, such as a passphrase from a song, is guessed;</p></li>
+<li><p><strong>a lost backup</strong> loses the coins for good;</p></li>
+<li><p><strong>a single point of failure</strong>, one key on one laptop, fails.</p></li>
+</ul>
+<p>A <em>wallet</em> is the program, or the habit, that holds a user’s secrets. This
+chronology follows how wallets learned to defend against each of these. It
+runs from the error-detecting codes behind addresses, through stretching
+passwords and deriving whole trees of keys from one backup, to sharing
+control of a key among several people or devices.</p>
+<p>A few terms recur on every page:</p>
+<ul class="simple">
+<li><p>A <em>key pair</em> is a secret number, the <em>private key</em>, and a public number
+computed from it, the <em>public key</em>. Here keys live on <em>secp256k1</em>, the
+elliptic curve of Bitcoin and Ethereum: the public key is the point
+<span class="math notranslate nohighlight">\(K = kG\)</span>, a fixed point <span class="math notranslate nohighlight">\(G\)</span> added to itself <span class="math notranslate nohighlight">\(k\)</span> times.
+Computing <span class="math notranslate nohighlight">\(K\)</span> from <span class="math notranslate nohighlight">\(k\)</span> is fast; the reverse is infeasible.</p></li>
+<li><p>A <em>digital signature</em> is a value only the private key could produce, but
+that anyone can check with the public key.</p></li>
+<li><p>A <em>hash function</em> is like Python’s <code class="docutils literal notranslate"><span class="pre">hash()</span></code>, but built so that nobody can
+find two inputs with the same output, or an input with a chosen output.
+SHA-256 is the standard one. <em>HMAC</em> is a hash keyed by a secret.</p></li>
+<li><p>An <em>address</em> is a short public name for a key or a script, like an account
+number: usually a hash of it, written in a form people can copy.</p></li>
+<li><p>A <em>smart contract</em> (or just <em>contract</em>) is a program stored on a
+blockchain at its own address. Anyone can call its functions by sending a
+transaction. <em>Ethereum</em> is the main blockchain for contracts, and <em>ether</em>
+is its currency.</p></li>
+</ul>
+<p>Several neighbours live elsewhere: Shamir’s and Feldman’s secret sharing
+and MuSig are in <a class="reference internal" href="crypto_breakthroughs.html"><span class="doc">Breakthroughs in Cryptography</span></a>, Bitcoin Script and P2PKH in
+<a class="reference internal" href="vm_breakthroughs.html"><span class="doc">Breakthroughs in Replicated Execution</span></a>, the Parity multisig wallets in
+<a class="reference internal" href="contracts_breakthroughs.html"><span class="doc">Breakthroughs in Smart Contracts</span></a>, and address poisoning in
+<a class="reference internal" href="fraud_breakthroughs.html"><span class="doc">Breakthroughs in Blockchain Fraud</span></a>. Those pages explain their own terms.</p>
+<p>The models in <a class="reference internal" href="../api/wallets.html#module-blockchainkit.wallets" title="blockchainkit.wallets"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.wallets</span></code></a> come in three kinds:</p>
+<ul class="simple">
+<li><p><em>pure functions</em>, whose output depends only on their input. Where a
+standard exists (Base58Check, Bech32, PBKDF2, scrypt, BIP32, BIP39’s seed
+derivation, ECDSA) they reproduce its published test vectors;</p></li>
+<li><p>small <em>seeded simulations</em>, random but reproducible, as after
+<code class="docutils literal notranslate"><span class="pre">random.seed(0)</span></code>;</p></li>
+<li><p>contracts on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a>, a
+Python model of Ethereum.</p></li>
+</ul>
+<p><a class="reference internal" href="../protocol.html"><span class="doc">Exact conventions and model boundaries</span></a> lists where the models depart from deployed systems.</p>
+<nav class="contents local" id="timeline">
+<p class="topic-title">Timeline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#bch-codes-correcting-errors-with-polynomials" id="id1">1959-1960 – BCH Codes: Correcting Errors with Polynomials</a></p></li>
+<li><p><a class="reference internal" href="#verhoeff-s-check-digit-and-detecting-transpositions" id="id2">1969 – Verhoeff’s Check Digit and Detecting Transpositions</a></p></li>
+<li><p><a class="reference internal" href="#pbkdf2-stretching-passwords-into-keys" id="id3">2000 – PBKDF2: Stretching Passwords into Keys</a></p></li>
+<li><p><a class="reference internal" href="#base58check-addresses" id="id4">2009 – Base58Check Addresses</a></p></li>
+<li><p><a class="reference internal" href="#scrypt-and-memory-hard-key-derivation" id="id5">2009 – scrypt and Memory-Hard Key Derivation</a></p></li>
+<li><p><a class="reference internal" href="#pay-to-script-hash-and-multisig-wallets" id="id6">2012 – Pay-to-Script-Hash and Multisig Wallets</a></p></li>
+<li><p><a class="reference internal" href="#hierarchical-deterministic-wallets-bip32" id="id7">2012 – Hierarchical Deterministic Wallets (BIP32)</a></p></li>
+<li><p><a class="reference internal" href="#mnemonic-seed-phrases-bip39" id="id8">2013 – Mnemonic Seed Phrases (BIP39)</a></p></li>
+<li><p><a class="reference internal" href="#multi-account-derivation-paths-bip44" id="id9">2014 – Multi-Account Derivation Paths (BIP44)</a></p></li>
+<li><p><a class="reference internal" href="#the-brain-wallet-drain" id="id10">2016 – The Brain-Wallet Drain</a></p></li>
+<li><p><a class="reference internal" href="#bech32-addresses-bip173" id="id11">2017 – Bech32 Addresses (BIP173)</a></p></li>
+<li><p><a class="reference internal" href="#threshold-ecdsa-gennaro-and-goldfeder" id="id12">2018 – Threshold ECDSA (Gennaro and Goldfeder)</a></p></li>
+<li><p><a class="reference internal" href="#bech32m-and-a-checksum-flaw-bip350" id="id13">2020 – Bech32m and a Checksum Flaw (BIP350)</a></p></li>
+<li><p><a class="reference internal" href="#social-recovery-wallets" id="id14">2021 – Social-Recovery Wallets</a></p></li>
+<li><p><a class="reference internal" href="#account-abstraction-erc-4337" id="id15">2021 – Account Abstraction (ERC-4337)</a></p></li>
+</ul>
+</nav>
+<section id="bch-codes-correcting-errors-with-polynomials">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">1959-1960 – BCH Codes: Correcting Errors with Polynomials</a><a class="headerlink" href="#bch-codes-correcting-errors-with-polynomials" title="Link to this heading">#</a></h2>
+<p>A message sent over a noisy line arrives with some bits flipped. An
+<em>error-correcting code</em> adds redundant bits, so that the receiver can find
+and undo the flips. Alexis Hocquenghem in 1959, and independently Raj
+Chandra Bose and Dijen Ray-Chaudhuri in 1960, found how to build binary
+codes that correct any chosen number <span class="math notranslate nohighlight">\(t\)</span> of flipped bits.</p>
+<p>The trick is to treat a word of bits as a polynomial, bit <span class="math notranslate nohighlight">\(i\)</span> being
+the coefficient of <span class="math notranslate nohighlight">\(x^i\)</span>:</p>
+<ol class="arabic simple">
+<li><p>Work in a finite field GF(<span class="math notranslate nohighlight">\(2^m\)</span>), a set of <span class="math notranslate nohighlight">\(2^m\)</span> numbers with
+addition and multiplication. One element, <span class="math notranslate nohighlight">\(\alpha\)</span>, generates all
+the others as its powers.</p></li>
+<li><p>Pick a <em>generator polynomial</em> <span class="math notranslate nohighlight">\(g(x)\)</span> whose roots include
+<span class="math notranslate nohighlight">\(\alpha, \alpha^2, \ldots, \alpha^{2t}\)</span>.</p></li>
+<li><p>The <em>codewords</em> are the multiples of <span class="math notranslate nohighlight">\(g(x)\)</span>, of length
+<span class="math notranslate nohighlight">\(n = 2^m - 1\)</span>. To encode, append to the message the remainder that
+makes it a multiple.</p></li>
+</ol>
+<p>Any two codewords then differ in at least</p>
+<div class="math notranslate nohighlight">
+\[d \ge 2t + 1\]</div>
+<p>bits (the BCH bound). So a received word with at most <span class="math notranslate nohighlight">\(t\)</span> errors is
+closer to its own codeword than to any other.</p>
+<ul class="simple">
+<li><p><strong>Decoding</strong> evaluates the received word at <span class="math notranslate nohighlight">\(\alpha^j\)</span>. A codeword
+gives zero; the nonzero values, the <em>syndromes</em>, depend only on where the
+errors are. The Berlekamp-Massey algorithm turns them into a polynomial
+whose roots name the error positions.</p></li>
+<li><p><strong>Beyond t errors</strong> the decoder may give up, or worse, “correct” the word
+to a different codeword.</p></li>
+<li><p>Bech32 addresses, in the 2017 entry, use a BCH code over GF(32) to detect,
+rather than correct, a person’s typos.</p></li>
+</ul>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.bch.BCHCode" title="blockchainkit.wallets.systems.bch.BCHCode"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.bch.BCHCode</span></code></a> builds
+narrow-sense binary BCH codes for <span class="math notranslate nohighlight">\(3 \le m \le 8\)</span> over
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.utils.galois.GaloisField" title="blockchainkit.wallets.utils.galois.GaloisField"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.wallets.utils.galois.GaloisField</span></code></a>, with systematic
+encoding, syndromes, Berlekamp-Massey and Chien’s search. Only binary codes
+are built; the Reed-Solomon codes of <a class="reference internal" href="channels_breakthroughs.html"><span class="doc">Breakthroughs in Layer-2 Scaling and Interoperability</span></a> are their
+non-binary cousins.</p>
+<p><em>References:</em> A. Hocquenghem, <em>Codes correcteurs d’erreurs</em>, Chiffres 2,
+147–156 (1959); R. C. Bose and D. K. Ray-Chaudhuri, <em>On a class of error
+correcting binary group codes</em>, Information and Control 3(1), 68–79 (1960).
+<a class="reference external" href="https://doi.org/10.1016/S0019-9958(60)90287-4">DOI</a>; J. L. Massey,
+<em>Shift-register synthesis and BCH decoding</em>, IEEE Transactions on
+Information Theory 15(1), 122–127 (1969).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Alexis Hocquenghem in 1959, and Raj Chandra Bose and Dijen Ray-Chaudhuri in 1960, found how to build binary codes that correct any chosen number t of flipped bits. A word of n = 2m - 1 bits is read as a polynomial, and the codewords are the multiples of a generator g(x) that vanishes at \alpha, \alpha^2, \dots, \alpha^{2t} in GF(2m). Any two codewords then differ in at least"><img alt="" src="../_images/sphx_glr_plot_01_bch_codes_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/codes/plot_01_bch_codes.html"><span class="doc">BCH error-correcting codes (1959-1960)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">BCH error-correcting codes (1959-1960)</div>
+</div></div></section>
+<section id="verhoeff-s-check-digit-and-detecting-transpositions">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">1969 – Verhoeff’s Check Digit and Detecting Transpositions</a><a class="headerlink" href="#verhoeff-s-check-digit-and-detecting-transpositions" title="Link to this heading">#</a></h2>
+<p>A <em>check digit</em> is one extra digit appended to a number, such as an
+account number, so that a number copied with a mistake fails a test.
+Jacobus Verhoeff studied the mistakes Dutch clerks actually made. Most were
+one wrong digit; most of the rest were two neighbouring digits swapped, as
+in 1243 for 1234.</p>
+<ul class="simple">
+<li><p><strong>Adding the digits</strong> modulo 10 catches every wrong digit, but no swap:
+addition does not care about order.</p></li>
+<li><p><strong>Luhn’s scheme</strong> (1954), still on payment cards, doubles every second
+digit. It catches every swap except 09 and 90.</p></li>
+<li><p><strong>Verhoeff’s scheme</strong> catches every wrong digit and every swap.</p></li>
+</ul>
+<p>Verhoeff’s insight was to compute in a group where order matters. The ten
+symmetries of a regular pentagon, five rotations and five reflections, form
+the <em>dihedral group</em> <span class="math notranslate nohighlight">\(D_5\)</span>. Composing two of them depends on the
+order: rotate then reflect is not reflect then rotate. Label them 0 to 9 and
+write <span class="math notranslate nohighlight">\(a * b\)</span> for their composition. Then:</p>
+<ol class="arabic simple">
+<li><p>Permute each digit by a fixed permutation <span class="math notranslate nohighlight">\(\sigma\)</span>, applied
+<span class="math notranslate nohighlight">\(i\)</span> times for the digit in position <span class="math notranslate nohighlight">\(i\)</span> from the right.</p></li>
+<li><p>Choose the check digit <span class="math notranslate nohighlight">\(a_0\)</span> so that</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\sigma^{0}(a_0) * \sigma^{1}(a_1) * \cdots * \sigma^{k}(a_k) = 0 .\]</div>
+<p>A swap of neighbours changes the product, because neither the group nor the
+permutation lets the two digits trade places unnoticed. Addresses, in the
+next entries, protect a whole string the same way, with a checksum.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.check_digits.verhoeff_digit" title="blockchainkit.wallets.systems.check_digits.verhoeff_digit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.check_digits.verhoeff_digit()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.check_digits.luhn_digit" title="blockchainkit.wallets.systems.check_digits.luhn_digit"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.check_digits.luhn_digit()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.check_digits.detection_rates" title="blockchainkit.wallets.systems.check_digits.detection_rates"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.check_digits.detection_rates()</span></code></a>, which
+measures each scheme against every single error and adjacent swap of
+every short number. The <span class="math notranslate nohighlight">\(D_5\)</span> table is computed from the
+pentagon’s symmetries rather than copied.</p>
+<p><em>References:</em> J. Verhoeff, <em>Error Detecting Decimal Codes</em>, Mathematical
+Centre Tracts 29, Mathematisch Centrum, Amsterdam (1969); H. P. Luhn,
+<em>Computer for verifying numbers</em>, US Patent 2,950,048 (filed 1954, granted
+1960).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Jacobus Verhoeff studied the errors Dutch clerks made when copying numbers: most were one wrong digit, and most of the rest were two neighbouring digits swapped. A check digit chosen so that the digit sum is a multiple of 10 catches every wrong digit but no swap, since addition commutes. Luhn&#x27;s scheme, used on payment cards, catches every swap but 09 and 90. Verhoeff catches all of them by computing in the dihedral group D5, where a  b \ne b  a, and permuting each digit by its position:"><img alt="" src="../_images/sphx_glr_plot_02_verhoeff_check_digit_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/codes/plot_02_verhoeff_check_digit.html"><span class="doc">Verhoeff’s check digit and detecting transpositions (1969)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Verhoeff's check digit and detecting transpositions (1969)</div>
+</div></div></section>
+<section id="pbkdf2-stretching-passwords-into-keys">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">2000 – PBKDF2: Stretching Passwords into Keys</a><a class="headerlink" href="#pbkdf2-stretching-passwords-into-keys" title="Link to this heading">#</a></h2>
+<p>A password makes a poor key. People choose a few thousand likely
+passwords, and an attacker who can test guesses offline simply tries them
+all. Burt Kaliski’s PBKDF2, published as RFC 2898, cannot make a password
+less guessable, but it can make every guess expensive:</p>
+<ol class="arabic simple">
+<li><p>Mix in a <em>salt</em>, a random value stored with the result. Two users with
+the same password get different keys, and the attacker cannot reuse one
+table of precomputed guesses for everyone.</p></li>
+<li><p>Iterate a keyed hash <span class="math notranslate nohighlight">\(c\)</span> times, adding up the results with XOR:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[U_1 = \mathrm{HMAC}(P, S \,\|\, 1), \quad
+U_j = \mathrm{HMAC}(P, U_{j-1}), \quad
+T = U_1 \oplus U_2 \oplus \cdots \oplus U_c .\]</div>
+<p>The honest user pays <span class="math notranslate nohighlight">\(c\)</span> HMAC calls once, at login. An attacker
+trying <span class="math notranslate nohighlight">\(N\)</span> passwords pays <span class="math notranslate nohighlight">\(N c\)</span>.</p>
+<ul class="simple">
+<li><p><strong>Stretching buys a fixed factor.</strong> 100,000 iterations make a six-digit
+PIN as costly as an unstretched eleven-digit one; it does not make a
+six-digit PIN safe.</p></li>
+<li><p><strong>It needs almost no memory</strong>, so a graphics card or custom chip runs
+thousands of guesses side by side. scrypt, in the second 2009 entry,
+attacks that.</p></li>
+<li><p>BIP39 seed phrases, in the 2013 entry, are stretched with PBKDF2.</p></li>
+</ul>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.stretching.pbkdf2" title="blockchainkit.wallets.systems.stretching.pbkdf2"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.stretching.pbkdf2()</span></code></a>
+(HMAC with SHA-1, SHA-256 or SHA-512, checked against RFC 6070’s vectors and
+<code class="docutils literal notranslate"><span class="pre">hashlib</span></code>) and <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.stretching.crack_pin" title="blockchainkit.wallets.systems.stretching.crack_pin"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.stretching.crack_pin()</span></code></a>,
+which counts the attacker’s HMAC calls.</p>
+<p><em>References:</em> B. Kaliski, <em>PKCS #5: Password-Based Cryptography
+Specification Version 2.0</em>, RFC 2898 (September 2000); S. Josefsson,
+<em>PKCS #5: PBKDF2 Test Vectors</em>, RFC 6070 (January 2011).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A key derived from a password is only as hard to find as the password. Burt Kaliski&#x27;s PBKDF2, in RFC 2898, cannot add entropy, but it makes every guess expensive: it iterates HMAC c times, and mixes in a salt so that one precomputed table cannot serve every user,"><img alt="" src="../_images/sphx_glr_plot_01_pbkdf2_key_stretching_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/stretching/plot_01_pbkdf2_key_stretching.html"><span class="doc">PBKDF2 key stretching (2000)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">PBKDF2 key stretching (2000)</div>
+</div></div></section>
+<section id="base58check-addresses">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">2009 – Base58Check Addresses</a><a class="headerlink" href="#base58check-addresses" title="Link to this heading">#</a></h2>
+<p>In Bitcoin’s first release, an address names a public key by its hash,
+written so that people can copy it. Its parts are:</p>
+<ol class="arabic simple">
+<li><p>a <em>version byte</em>, 0 for an ordinary Bitcoin address;</p></li>
+<li><p>the 20-byte <code class="docutils literal notranslate"><span class="pre">HASH160</span></code> of the public key, which is
+<span class="math notranslate nohighlight">\(\mathrm{RIPEMD160}(\mathrm{SHA256}(K))\)</span>;</p></li>
+<li><p>a 4-byte <em>checksum</em>: the first bytes of SHA-256 applied twice to the
+first two parts.</p></li>
+</ol>
+<p>The result is written in <em>base 58</em>: the digits and letters, without 0, O, I
+and l, which are easily confused. Each leading zero byte is written as a
+leading <code class="docutils literal notranslate"><span class="pre">1</span></code>, so ordinary addresses start with 1.</p>
+<p>A wallet refuses an address whose checksum fails. A typo slips through only
+if the changed address happens to match its own checksum, with probability</p>
+<div class="math notranslate nohighlight">
+\[2^{-32} \approx 2.3 \times 10^{-10} .\]</div>
+<ul class="simple">
+<li><p><strong>Without a checksum</strong>, every typo is a valid address. The account names
+of <a class="reference internal" href="../api/structures.html#module-blockchainkit.structures" title="blockchainkit.structures"><code class="xref py py-mod docutils literal notranslate"><span class="pre">blockchainkit.structures</span></code></a> are bare SHA-256 hex digests, where a
+typo silently pays a stranger, or nobody.</p></li>
+<li><p><strong>A hash promises nothing in particular.</strong> It catches most errors, but no
+class of errors is guaranteed, and it cannot say where a typo is. Bech32
+will improve on both.</p></li>
+<li><p>Base58Check also writes private keys and the extended keys of the 2012
+entry.</p></li>
+</ul>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.base58.base58check_encode" title="blockchainkit.wallets.systems.base58.base58check_encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.base58.base58check_encode()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.base58.base58check_decode" title="blockchainkit.wallets.systems.base58.base58check_decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.base58.base58check_decode()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.base58.p2pkh_address" title="blockchainkit.wallets.systems.base58.p2pkh_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.base58.p2pkh_address()</span></code></a>, with
+RIPEMD-160 written out in <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.utils.ripemd160.hash160" title="blockchainkit.wallets.utils.ripemd160.hash160"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.utils.ripemd160.hash160()</span></code></a>
+since <code class="docutils literal notranslate"><span class="pre">hashlib</span></code> does not always provide it. Addresses match Bitcoin’s:
+private key 1 gives <code class="docutils literal notranslate"><span class="pre">1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH</span></code>.</p>
+<p><em>References:</em> S. Nakamoto, Bitcoin v0.1 source code, <code class="docutils literal notranslate"><span class="pre">base58.h</span></code> (January
+2009); H. Dobbertin, A. Bosselaers and B. Preneel, <em>RIPEMD-160: A
+strengthened version of RIPEMD</em>, Fast Software Encryption, LNCS 1039,
+71–82 (1996).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Bitcoin&#x27;s first release wrote an address as a version byte, the 20-byte HASH160 of a public key and a 4-byte checksum, in base 58: the digits and letters without 0, O, I and l, which are easily confused. A wallet refuses to pay an address whose checksum fails, so a typo is caught unless it happens to match the checksum, with probability"><img alt="" src="../_images/sphx_glr_plot_01_base58check_addresses_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/addresses/plot_01_base58check_addresses.html"><span class="doc">Base58Check addresses (2009)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Base58Check addresses (2009)</div>
+</div></div></section>
+<section id="scrypt-and-memory-hard-key-derivation">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">2009 – scrypt and Memory-Hard Key Derivation</a><a class="headerlink" href="#scrypt-and-memory-hard-key-derivation" title="Link to this heading">#</a></h2>
+<p>PBKDF2 makes a guess slow, but a guess fits in a few hundred bytes. So an
+attacker builds a chip with thousands of tiny guessing circuits. Colin
+Percival’s scrypt makes each guess need a large amount of memory as well.
+Memory costs chip area, so parallel guessing gets expensive.</p>
+<p>Its core, ROMix, works on a block <span class="math notranslate nohighlight">\(B\)</span> and a table of <span class="math notranslate nohighlight">\(N\)</span>
+entries:</p>
+<ol class="arabic simple">
+<li><p>Fill the table: each entry is a scrambled version of the last,
+<span class="math notranslate nohighlight">\(V_i = \mathrm{BlockMix}^{\,i}(B)\)</span>.</p></li>
+<li><p>Then make <span class="math notranslate nohighlight">\(N\)</span> reads, each at an address that depends on the
+current value:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[X \leftarrow \mathrm{BlockMix}(X \oplus V_{\mathrm{Integerify}(X) \bmod N}).\]</div>
+<p>The attacker cannot know in advance which entries will be needed.</p>
+<ul class="simple">
+<li><p><strong>Keeping the whole table</strong> costs <span class="math notranslate nohighlight">\(N\)</span> entries of memory and
+<span class="math notranslate nohighlight">\(2N\)</span> BlockMix calls.</p></li>
+<li><p><strong>Keeping only every k-th entry</strong> saves memory, but each missing entry
+must be recomputed from the last kept one, about <span class="math notranslate nohighlight">\(k/2\)</span> calls a
+read. Memory times time stays roughly constant.</p></li>
+<li><p>Percival proved that no strategy does much better. So an attack’s cost,
+in chip area times time, grows with <span class="math notranslate nohighlight">\(N^2\)</span> rather than <span class="math notranslate nohighlight">\(N\)</span>.
+Litecoin and many wallets adopted scrypt.</p></li>
+</ul>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.scrypt.scrypt" title="blockchainkit.wallets.systems.scrypt.scrypt"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.scrypt.scrypt()</span></code></a>
+implements RFC 7914 exactly, from
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.scrypt.salsa20_8" title="blockchainkit.wallets.systems.scrypt.salsa20_8"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.scrypt.salsa20_8()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.scrypt.block_mix" title="blockchainkit.wallets.systems.scrypt.block_mix"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.scrypt.block_mix()</span></code></a>;
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.scrypt.romix" title="blockchainkit.wallets.systems.scrypt.romix"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.scrypt.romix()</span></code></a> adds a <code class="docutils literal notranslate"><span class="pre">keep_every</span></code>
+parameter that stores fewer entries and counts the cost. Parameters are
+small enough to run in pure Python.</p>
+<p><em>References:</em> C. Percival, <em>Stronger key derivation via sequential
+memory-hard functions</em>, BSDCan (2009); C. Percival and S. Josefsson, <em>The
+scrypt Password-Based Key Derivation Function</em>, RFC 7914 (August 2016).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="PBKDF2 makes each guess slow but needs almost no memory, so custom chips run millions of guesses in parallel. Colin Percival&#x27;s scrypt makes each guess need a large table as well. Its core, ROMix, fills a table of N blocks and then reads it at N data-dependent addresses,"><img alt="" src="../_images/sphx_glr_plot_02_scrypt_memory_hardness_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/stretching/plot_02_scrypt_memory_hardness.html"><span class="doc">scrypt and memory-hard key derivation (2009)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">scrypt and memory-hard key derivation (2009)</div>
+</div></div></section>
+<section id="pay-to-script-hash-and-multisig-wallets">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">2012 – Pay-to-Script-Hash and Multisig Wallets</a><a class="headerlink" href="#pay-to-script-hash-and-multisig-wallets" title="Link to this heading">#</a></h2>
+<p>One key on one device is one point of failure: lose it, or let it be
+copied, and the coins are gone. A coin locked to <em>2 of 3</em> keys survives
+either. Bitcoin could do this from the start, with a locking script listing
+all three keys. But the payer had to write that script into the payment,
+and pay a fee for its size, for a policy that was the payee’s business.</p>
+<p>Gavin Andresen’s BIP16, <em>pay to script hash</em> (P2SH), moved the script to
+the spender:</p>
+<ol class="arabic simple">
+<li><p>The payee writes a <em>redeem script</em>, say “2 of these 3 keys”, and gives
+out only its hash, as an address starting with 3.</p></li>
+<li><p>The coin is locked by a short script that only checks that hash:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\texttt{OP\_HASH160}\ \langle H(\text{redeem}) \rangle\ \texttt{OP\_EQUAL} .\]</div>
+<ol class="arabic simple">
+<li><p>To spend, the owners reveal the redeem script and their signatures.
+Validation runs in two stages: first the revealed script must hash to
+the locked value, then it runs on the signatures.</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>The policy stays private</strong> until the coin is spent, and the payer’s
+fee no longer depends on it.</p></li>
+<li><p><strong>Multisig became routine</strong>: exchanges’ cold storage, escrow, and
+wallets that split keys between a phone and a server.</p></li>
+<li><p><strong>The redeem script is capped</strong> at 520 bytes, the largest data push,
+which bounds how many keys it can list.</p></li>
+</ul>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.p2sh.verify_p2sh" title="blockchainkit.wallets.systems.p2sh.verify_p2sh"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.p2sh.verify_p2sh()</span></code></a>
+(the two stages, over <a class="reference internal" href="../api/vm.html#blockchainkit.vm.systems.script.verify_script" title="blockchainkit.vm.systems.script.verify_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.vm.systems.script.verify_script()</span></code></a>),
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.p2sh.multisig_redeem_script" title="blockchainkit.wallets.systems.p2sh.multisig_redeem_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.p2sh.multisig_redeem_script()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.p2sh.serialize_script" title="blockchainkit.wallets.systems.p2sh.serialize_script"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.p2sh.serialize_script()</span></code></a> (Bitcoin’s opcode
+bytes and push prefixes). The teaching Script has no <code class="docutils literal notranslate"><span class="pre">OP_HASH160</span></code> or
+<code class="docutils literal notranslate"><span class="pre">OP_CHECKMULTISIG</span></code>, so the hash is <code class="docutils literal notranslate"><span class="pre">OP_HASH256</span></code> and m-of-n is one
+<code class="docutils literal notranslate"><span class="pre">OP_IF</span></code> branch per set of m signers; 2-of-3 fits in 520 bytes, 2-of-4 does
+not.</p>
+<p><em>References:</em> G. Andresen, <em>BIP 16: Pay to Script Hash</em> (January 2012);
+G. Andresen, <em>BIP 11: M-of-N Standard Transactions</em> (2011).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="One key is one point of failure. A coin locked to 2 of 3 keys survives the loss or theft of one, but before 2012 the payer had to write the whole locking script, and pay for its size. Gavin Andresen&#x27;s BIP16 locks a coin to the hash of a redeem script instead,"><img alt="" src="../_images/sphx_glr_plot_01_p2sh_multisig_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/custody/plot_01_p2sh_multisig.html"><span class="doc">Pay-to-script-hash and multisig (BIP16, 2012)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pay-to-script-hash and multisig (BIP16, 2012)</div>
+</div></div></section>
+<section id="hierarchical-deterministic-wallets-bip32">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">2012 – Hierarchical Deterministic Wallets (BIP32)</a><a class="headerlink" href="#hierarchical-deterministic-wallets-bip32" title="Link to this heading">#</a></h2>
+<p>Early Bitcoin wallets drew each new key at random. A backup held only the
+keys made so far, so a backup from last month could miss this week’s
+payments. Pieter Wuille’s BIP32 derives a whole tree of keys from one seed,
+so one backup, made once, covers every key the wallet will ever use.</p>
+<p>An <em>extended key</em> is a private key <span class="math notranslate nohighlight">\(k\)</span> together with 32 extra bytes,
+its <em>chain code</em> <span class="math notranslate nohighlight">\(c\)</span>. Child number <span class="math notranslate nohighlight">\(i\)</span> is made by hashing:</p>
+<div class="math notranslate nohighlight">
+\[I = \mathrm{HMAC\text{-}SHA512}(c,\ K \,\|\, i), \qquad
+k_i = I_L + k \bmod n, \qquad c_i = I_R ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_L\)</span> and <span class="math notranslate nohighlight">\(I_R\)</span> are the two halves of the 64-byte
+result, and <span class="math notranslate nohighlight">\(K = kG\)</span> is the parent’s public key.</p>
+<ul class="simple">
+<li><p><strong>Public derivation.</strong> Since <span class="math notranslate nohighlight">\(k_i G = I_L G + K\)</span>, anyone with the
+parent’s public key and chain code, its <em>extended public key</em> or <em>xpub</em>,
+can compute every child’s public key, but no private key. A shop’s web
+server can hand out a fresh address per order and hold nothing worth
+stealing.</p></li>
+<li><p><strong>The catch.</strong> The xpub and the private key of any one such child give
+away the parent: <span class="math notranslate nohighlight">\(k = k_i - I_L\)</span>. Then every sibling falls too.</p></li>
+<li><p><strong>Hardened children</strong>, numbered from <span class="math notranslate nohighlight">\(2^{31}\)</span> and written
+<span class="math notranslate nohighlight">\(i'\)</span>, hash the parent’s <em>private</em> key instead. They cannot be
+derived from an xpub, and do not leak their parent. Accounts are
+hardened for that reason.</p></li>
+</ul>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.hd.master_key" title="blockchainkit.wallets.systems.hd.master_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.hd.master_key()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.hd.derive_private" title="blockchainkit.wallets.systems.hd.derive_private"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.hd.derive_private()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.hd.derive_public" title="blockchainkit.wallets.systems.hd.derive_public"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.hd.derive_public()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.hd.serialize_extended_key" title="blockchainkit.wallets.systems.hd.serialize_extended_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.hd.serialize_extended_key()</span></code></a> (<code class="docutils literal notranslate"><span class="pre">xprv</span></code> and
+<code class="docutils literal notranslate"><span class="pre">xpub</span></code> strings) and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.hd.recover_parent_private" title="blockchainkit.wallets.systems.hd.recover_parent_private"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.hd.recover_parent_private()</span></code></a>, the leaked
+xpub attack. It reproduces BIP32’s first test vector on secp256k1.</p>
+<p><em>References:</em> P. Wuille, <em>BIP 32: Hierarchical Deterministic Wallets</em>
+(February 2012).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Early Bitcoin wallets drew each key at random, so a backup went stale with the next payment. Pieter Wuille&#x27;s BIP32 derives a tree of keys from one seed. An extended key is a key k and a chain code c, and child i is"><img alt="" src="../_images/sphx_glr_plot_01_bip32_hd_wallets_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/derivation/plot_01_bip32_hd_wallets.html"><span class="doc">Hierarchical deterministic wallets (BIP32, 2012)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hierarchical deterministic wallets (BIP32, 2012)</div>
+</div></div></section>
+<section id="mnemonic-seed-phrases-bip39">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">2013 – Mnemonic Seed Phrases (BIP39)</a><a class="headerlink" href="#mnemonic-seed-phrases-bip39" title="Link to this heading">#</a></h2>
+<p>A 128-bit seed written in hexadecimal is 32 characters such as
+<code class="docutils literal notranslate"><span class="pre">0c1e24e5917779d2...</span></code>, which people miscopy. Marek Palatinus, Pavol
+Rusnak, Aaron Voisine and Sean Bowe proposed writing it as words:</p>
+<ol class="arabic simple">
+<li><p>Take 128 to 256 bits of random <em>entropy</em>.</p></li>
+<li><p>Append a checksum: the first ENT/32 bits of its SHA-256.</p></li>
+<li><p>Cut the bits into groups of 11. Each group is a number from 0 to 2047,
+and picks a word from a fixed list of 2048.</p></li>
+</ol>
+<p>So</p>
+<div class="math notranslate nohighlight">
+\[\frac{ENT + ENT/32}{11} \text{ words}: \qquad
+128 \text{ bits} \to 12 \text{ words}, \quad 256 \text{ bits} \to 24 .\]</div>
+<ul class="simple">
+<li><p><strong>A miscopied word</strong> changes 11 bits, and the 4-bit checksum of a 12-word
+phrase catches it 15 times in 16.</p></li>
+<li><p><strong>The seed</strong> for BIP32 comes from stretching the phrase with PBKDF2
+(HMAC-SHA512, 2048 iterations), salted with <code class="docutils literal notranslate"><span class="pre">&quot;mnemonic&quot;</span></code> plus an
+optional passphrase.</p></li>
+<li><p><strong>Every passphrase is valid</strong> and gives a different wallet. That allows
+a decoy wallet under duress, but a mistyped passphrase opens an empty
+wallet without any error.</p></li>
+</ul>
+<p>The phrase is the whole wallet. Written on paper it is safe from hackers
+and exposed to fire, burglars and heirs who do not know what it is.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.mnemonics.entropy_to_mnemonic" title="blockchainkit.wallets.systems.mnemonics.entropy_to_mnemonic"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.mnemonics.entropy_to_mnemonic()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.mnemonics.mnemonic_to_entropy" title="blockchainkit.wallets.systems.mnemonics.mnemonic_to_entropy"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.mnemonics.mnemonic_to_entropy()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.mnemonics.mnemonic_to_seed" title="blockchainkit.wallets.systems.mnemonics.mnemonic_to_seed"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.mnemonics.mnemonic_to_seed()</span></code></a>. The word
+list is 2048 four-letter words generated by a rule, not BIP39’s English
+list, so phrases differ from real wallets’; the seed derivation is BIP39’s
+own and reproduces its test vectors for English phrases.</p>
+<p><em>References:</em> M. Palatinus, P. Rusnak, A. Voisine and S. Bowe, <em>BIP 39:
+Mnemonic code for generating deterministic keys</em> (September 2013).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Marek Palatinus, Pavol Rusnak, Aaron Voisine and Sean Bowe proposed writing a wallet&#x27;s seed as words. The entropy gets a checksum, the first ENT/32 bits of its SHA-256, and the bits are cut into 11-bit indices into a list of 2048 words,"><img alt="" src="../_images/sphx_glr_plot_02_bip39_mnemonic_seed_phrases_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/derivation/plot_02_bip39_mnemonic_seed_phrases.html"><span class="doc">Mnemonic seed phrases (BIP39, 2013)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Mnemonic seed phrases (BIP39, 2013)</div>
+</div></div></section>
+<section id="multi-account-derivation-paths-bip44">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">2014 – Multi-Account Derivation Paths (BIP44)</a><a class="headerlink" href="#multi-account-derivation-paths-bip44" title="Link to this heading">#</a></h2>
+<p>BIP32 allows any tree of keys. So a seed backed up from one wallet program
+could restore an empty-looking wallet in another, which looked in other
+branches. Marek Palatinus and Pavol Rusnak fixed where keys sit, with five
+levels:</p>
+<div class="math notranslate nohighlight">
+\[m / 44' / \text{coin}' / \text{account}' / \text{change} / \text{index}\]</div>
+<ul class="simple">
+<li><p><strong>purpose</strong> 44, hardened, names this scheme;</p></li>
+<li><p><strong>coin type</strong>, hardened: 0 for Bitcoin, 60 for Ether;</p></li>
+<li><p><strong>account</strong>, hardened, like separate bank accounts;</p></li>
+<li><p><strong>change</strong>: 0 for addresses given out to receive payments, 1 for the
+wallet’s own change;</p></li>
+<li><p><strong>index</strong>, counting addresses from 0.</p></li>
+</ul>
+<p>A restoring wallet cannot know how many addresses were used, so it scans:</p>
+<ol class="arabic simple">
+<li><p>On each account’s receiving chain, derive addresses in order until 20 in
+a row have never been used. That number is the <em>gap limit</em>.</p></li>
+<li><p>Stop at the first account with no used address at all.</p></li>
+</ol>
+<p>A wallet that handed out more than 20 unpaid addresses in a row has made
+later payments invisible to any other wallet restoring the seed. The coins
+are safe, but nobody looks for them.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.paths.derive_path" title="blockchainkit.wallets.systems.paths.derive_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.paths.derive_path()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.paths.parse_path" title="blockchainkit.wallets.systems.paths.parse_path"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.paths.parse_path()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.paths.discover_accounts" title="blockchainkit.wallets.systems.paths.discover_accounts"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.paths.discover_accounts()</span></code></a>, which scans
+P2PKH addresses with a chosen gap limit. Only the receiving chain is
+scanned, as BIP44 specifies.</p>
+<p><em>References:</em> M. Palatinus and P. Rusnak, <em>BIP 44: Multi-Account Hierarchy
+for Deterministic Wallets</em> (April 2014).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="BIP32 allows any tree of keys, so one wallet program could not restore another&#x27;s from the same seed. Marek Palatinus and Pavol Rusnak fixed five levels,"><img alt="" src="../_images/sphx_glr_plot_03_bip44_derivation_paths_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/derivation/plot_03_bip44_derivation_paths.html"><span class="doc">Multi-account derivation paths (BIP44, 2014)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Multi-account derivation paths (BIP44, 2014)</div>
+</div></div></section>
+<section id="the-brain-wallet-drain">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">2016 – The Brain-Wallet Drain</a><a class="headerlink" href="#the-brain-wallet-drain" title="Link to this heading">#</a></h2>
+<p>A <em>brain wallet</em> keeps no file. Its private key is the hash of a passphrase
+the owner remembers:</p>
+<div class="math notranslate nohighlight">
+\[k = \mathrm{SHA256}(\text{passphrase}) .\]</div>
+<p>The appeal is that the coins can be carried across a border in one’s head.
+The flaw is that anyone can hash the same passphrase. Marie Vasek, Joseph
+Bonneau, Ryan Castellucci, Cameron Keith and Tyler Moore searched the
+Bitcoin blockchain for brain wallets by hashing billions of candidate
+phrases. They found that:</p>
+<ul class="simple">
+<li><p><strong>thieves had done the same</strong>, hashing dictionaries, quotations, lyrics
+and leaked passwords, and keeping a table from address to key;</p></li>
+<li><p><strong>most funded brain wallets were emptied</strong>, many within minutes of the
+first deposit;</p></li>
+<li><p><strong>thieves raced one another</strong> to sweep the same wallets.</p></li>
+</ul>
+<p>Nothing slows the thieves. There is no salt, so one table serves every
+victim, and no stretching. And a phrase a person picks, even an obscure
+one, has far less entropy than the 128 bits of a random key.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.brainwallets.brain_wallet_key" title="blockchainkit.wallets.systems.brainwallets.brain_wallet_key"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.brainwallets.brain_wallet_key()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.brainwallets.crack_brain_wallet" title="blockchainkit.wallets.systems.brainwallets.crack_brain_wallet"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.brainwallets.crack_brain_wallet()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.brainwallets.simulate_brain_drain" title="blockchainkit.wallets.systems.brainwallets.simulate_brain_drain"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.brainwallets.simulate_brain_drain()</span></code></a>, a
+seeded race of thieves with precomputed tables of a small
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.brainwallets.PHRASEBOOK" title="blockchainkit.wallets.systems.brainwallets.PHRASEBOOK"><code class="xref py py-data docutils literal notranslate"><span class="pre">PHRASEBOOK</span></code></a>. Keys and
+addresses are real (<code class="docutils literal notranslate"><span class="pre">&quot;password&quot;</span></code> gives
+<code class="docutils literal notranslate"><span class="pre">16ga2uqnF1NqpAuQeeg7sTCAdtDUwDyJav</span></code>); the population and the thieves’
+delays are invented.</p>
+<p><em>References:</em> M. Vasek, J. Bonneau, R. Castellucci, C. Keith and T. Moore,
+<em>The Bitcoin brain drain: examining the use and abuse of bitcoin brain
+wallets</em>, Financial Cryptography and Data Security 2016, LNCS 9603
+(2017).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A brain wallet&#x27;s private key is the SHA-256 of a passphrase,"><img alt="" src="../_images/sphx_glr_plot_03_brain_wallet_drain_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/stretching/plot_03_brain_wallet_drain.html"><span class="doc">The brain-wallet drain (Vasek et al., 2016)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">The brain-wallet drain (Vasek et al., 2016)</div>
+</div></div></section>
+<section id="bech32-addresses-bip173">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">2017 – Bech32 Addresses (BIP173)</a><a class="headerlink" href="#bech32-addresses-bip173" title="Link to this heading">#</a></h2>
+<p>Segregated witness, activated in 2017, needed a new address format, and
+Pieter Wuille and Gregory Maxwell took the chance to design one for people
+rather than computers. A <em>Bech32</em> string is:</p>
+<ol class="arabic simple">
+<li><p>a human-readable part such as <code class="docutils literal notranslate"><span class="pre">bc</span></code> for Bitcoin;</p></li>
+<li><p>the separator <code class="docutils literal notranslate"><span class="pre">1</span></code>;</p></li>
+<li><p>data in 32 characters, all lower case, chosen to avoid look-alikes;</p></li>
+<li><p>a 6-character checksum.</p></li>
+</ol>
+<p>The checksum is a BCH code over GF(32), as in the 1959-1960 entry. Read the
+characters as the coefficients of a polynomial; a valid string leaves a
+fixed remainder modulo a generator of degree 6:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{polymod}(\mathrm{expand}(hrp) \,\|\, data \,\|\, checksum) = 1 .\]</div>
+<ul class="simple">
+<li><p><strong>The code was searched for.</strong> Of 159,605 candidate generators, the one
+chosen detects every error in up to 4 characters, in strings of up to 89
+characters. Base58Check’s hash only makes errors unlikely to pass.</p></li>
+<li><p><strong>One case</strong> makes addresses easier to read aloud and to fit in QR codes.</p></li>
+<li><p><strong>Errors can be located</strong>, though wallets are asked not to correct them:
+a corrected address may be a different, valid one.</p></li>
+</ul>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.bech32.bech32_encode" title="blockchainkit.wallets.systems.bech32.bech32_encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.bech32.bech32_encode()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.bech32.bech32_decode" title="blockchainkit.wallets.systems.bech32.bech32_decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.bech32.bech32_decode()</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.bech32.segwit_encode" title="blockchainkit.wallets.systems.bech32.segwit_encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.bech32.segwit_encode()</span></code></a> and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.bech32.p2wpkh_address" title="blockchainkit.wallets.systems.bech32.p2wpkh_address"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.bech32.p2wpkh_address()</span></code></a>, which pass
+BIP173’s test vectors: private key 1 gives
+<code class="docutils literal notranslate"><span class="pre">bc1qw508d6qejxtdg4y5r3zarvary0c5xw7kv8f3t4</span></code>.</p>
+<p><em>References:</em> P. Wuille and G. Maxwell, <em>BIP 173: Base32 address format
+for native v0-16 witness outputs</em> (March 2017).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Pieter Wuille and Gregory Maxwell designed Bech32 for segregated-witness addresses. It uses one case and 32 characters chosen to avoid look-alikes, and a 6-character checksum that is a BCH code over GF(32): the string, read as a polynomial, must satisfy"><img alt="" src="../_images/sphx_glr_plot_02_bech32_addresses_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/addresses/plot_02_bech32_addresses.html"><span class="doc">Bech32 addresses (BIP173, 2017)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bech32 addresses (BIP173, 2017)</div>
+</div></div></section>
+<section id="threshold-ecdsa-gennaro-and-goldfeder">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">2018 – Threshold ECDSA (Gennaro and Goldfeder)</a><a class="headerlink" href="#threshold-ecdsa-gennaro-and-goldfeder" title="Link to this heading">#</a></h2>
+<p>A multisig script, as in the 2012 entry, shows its policy on the chain and
+needs one signature per signer. A <em>threshold signature</em> is a single,
+ordinary signature under a single public key. It is made jointly by any
+<span class="math notranslate nohighlight">\(t\)</span> of <span class="math notranslate nohighlight">\(n\)</span> parties, each holding a Shamir share of a private key
+that nobody ever puts together.</p>
+<p>For Schnorr signatures this is easy: responses add, so shares of the key
+give shares of the signature (MuSig, in <a class="reference internal" href="crypto_breakthroughs.html"><span class="doc">Breakthroughs in Cryptography</span></a>).
+Bitcoin and Ethereum use ECDSA, whose signature</p>
+<div class="math notranslate nohighlight">
+\[s = k^{-1}(z + r x)\]</div>
+<p>multiplies two secrets, the inverse of the nonce <span class="math notranslate nohighlight">\(k\)</span> and the key
+<span class="math notranslate nohighlight">\(x\)</span>. Rosario Gennaro and Steven Goldfeder gave a fast protocol for
+that:</p>
+<ol class="arabic simple">
+<li><p>Each party holds a share <span class="math notranslate nohighlight">\(k_i\)</span> of the nonce and a random mask
+<span class="math notranslate nohighlight">\(\gamma_i\)</span>.</p></li>
+<li><p>A two-party <em>multiplicative-to-additive</em> (MtA) step turns a product of
+secrets held by two parties into a sum, <span class="math notranslate nohighlight">\(\alpha + \beta = ab\)</span>,
+without revealing them.</p></li>
+<li><p>With MtA the parties get shares of <span class="math notranslate nohighlight">\(k\gamma\)</span> and of <span class="math notranslate nohighlight">\(kx\)</span>.
+Revealing <span class="math notranslate nohighlight">\(k\gamma\)</span> is safe, since <span class="math notranslate nohighlight">\(\gamma\)</span> hides
+<span class="math notranslate nohighlight">\(k\)</span>, and it lets them compute <span class="math notranslate nohighlight">\(R = k^{-1} G\)</span>.</p></li>
+<li><p>Each party’s <span class="math notranslate nohighlight">\(z k_i + r \sigma_i\)</span> adds up to
+<span class="math notranslate nohighlight">\(s = k(z + r x)\)</span>, an ECDSA signature with nonce <span class="math notranslate nohighlight">\(k^{-1}\)</span>.</p></li>
+</ol>
+<p>Exchanges and custody companies use threshold ECDSA so that no single
+server ever holds a whole key.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.threshold.threshold_keygen" title="blockchainkit.wallets.systems.threshold.threshold_keygen"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.threshold.threshold_keygen()</span></code></a>
+(each party deals a Shamir sharing with Feldman commitments on secp256k1)
+and <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.threshold.threshold_sign" title="blockchainkit.wallets.systems.threshold.threshold_sign"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.threshold.threshold_sign()</span></code></a>, whose
+signatures verify with
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.ecdsa.ecdsa_verify" title="blockchainkit.wallets.systems.ecdsa.ecdsa_verify"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.ecdsa.ecdsa_verify()</span></code></a>. MtA is an ideal
+function (<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.threshold.multiplicative_to_additive" title="blockchainkit.wallets.systems.threshold.multiplicative_to_additive"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.threshold.multiplicative_to_additive()</span></code></a>),
+not Paillier encryption with range proofs, and nothing checks a cheating
+party.</p>
+<p><em>References:</em> R. Gennaro and S. Goldfeder, <em>Fast multiparty threshold ECDSA
+with fast trustless setup</em>, ACM CCS 2018, 1179–1194.
+<a class="reference external" href="https://doi.org/10.1145/3243734.3243859">DOI</a></p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="A multisig script shows its policy on chain and needs a signature per signer. A threshold signature is one ordinary signature under one key, made by any t of n parties holding Shamir shares of a private key that no one ever assembles. Schnorr responses add, but ECDSA&#x27;s"><img alt="" src="../_images/sphx_glr_plot_02_threshold_ecdsa_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/custody/plot_02_threshold_ecdsa.html"><span class="doc">Threshold ECDSA (Gennaro and Goldfeder, 2018)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Threshold ECDSA (Gennaro and Goldfeder, 2018)</div>
+</div></div></section>
+<section id="bech32m-and-a-checksum-flaw-bip350">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">2020 – Bech32m and a Checksum Flaw (BIP350)</a><a class="headerlink" href="#bech32m-and-a-checksum-flaw-bip350" title="Link to this heading">#</a></h2>
+<p>In 2019 a blind spot was found in Bech32. When a string ends in <code class="docutils literal notranslate"><span class="pre">p</span></code>,
+inserting or deleting <code class="docutils literal notranslate"><span class="pre">q</span></code> characters just before that <code class="docutils literal notranslate"><span class="pre">p</span></code> leaves the
+checksum valid.</p>
+<p>The reason is algebraic:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">q</span></code> stands for the value 0, and <code class="docutils literal notranslate"><span class="pre">p</span></code> for 1.</p></li>
+<li><p>The checksum asks that the remainder equal 1, the very value <code class="docutils literal notranslate"><span class="pre">p</span></code> adds.</p></li>
+<li><p>Inserting zeros before the last value multiplies part of the polynomial by
+a power of <span class="math notranslate nohighlight">\(x\)</span> without changing the remainder.</p></li>
+</ul>
+<p>Segregated-witness version 0 was safe by luck: its programs must be exactly
+20 or 32 bytes, so an inserted character makes a wrong length. But Taproot,
+witness version 1, and later versions allow other lengths. Pieter Wuille’s
+<em>Bech32m</em> changes only the constant:</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{polymod}(\mathrm{expand}(hrp) \,\|\, data \,\|\, checksum) =
+\texttt{0x2bc830a3} .\]</div>
+<p>With an irregular constant, appended zeros change the remainder. Bech32m is
+required from witness version 1 on, and Bech32 stays for version 0.</p>
+<p><em>Implementation:</em> the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument of
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.bech32.bech32_encode" title="blockchainkit.wallets.systems.bech32.bech32_encode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.bech32.bech32_encode()</span></code></a>, and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.bech32.segwit_decode" title="blockchainkit.wallets.systems.bech32.segwit_decode"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.bech32.segwit_decode()</span></code></a>, which demands
+Bech32 for version 0 and Bech32m after, passing BIP350’s test vectors.</p>
+<p><em>References:</em> P. Wuille, <em>BIP 350: Bech32m format for v1+ witness
+addresses</em> (December 2020).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="In 2019 it was found that Bech32 has a blind spot: when a string ends in p, inserting or deleting q characters just before that p leaves the checksum valid. q is the value 0, and p is 1, the constant the checksum must leave, so the extra zeros multiply the polynomial by powers of x without changing its remainder. Witness version 0 survives, because its programs must be 20 or 32 bytes, but Taproot&#x27;s version 1 and later allow other lengths. Pieter Wuille&#x27;s Bech32m changes only the constant,"><img alt="" src="../_images/sphx_glr_plot_03_bech32m_checksum_flaw_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/addresses/plot_03_bech32m_checksum_flaw.html"><span class="doc">Bech32m and the insertion flaw in Bech32 (BIP350, 2020)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Bech32m and the insertion flaw in Bech32 (BIP350, 2020)</div>
+</div></div></section>
+<section id="social-recovery-wallets">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">2021 – Social-Recovery Wallets</a><a class="headerlink" href="#social-recovery-wallets" title="Link to this heading">#</a></h2>
+<p>A single seed phrase fails twice over: lose it and the coins are gone; let
+it be copied and they are stolen. Vitalik Buterin argued for wallets that
+need no seed-phrase backup at all. A <em>social-recovery wallet</em> is a contract
+with:</p>
+<ul class="simple">
+<li><p>one <em>signing key</em>, for everyday payments;</p></li>
+<li><p>a set of <span class="math notranslate nohighlight">\(n\)</span> <em>guardians</em>: friends, family, the owner’s other
+devices, or institutions;</p></li>
+<li><p>a rule that any <span class="math notranslate nohighlight">\(m\)</span> guardians together can replace the signing
+key.</p></li>
+</ul>
+<p>If the owner loses the key, the guardians move the wallet to a new one. If
+a thief copies the key, the guardians move it away from the thief. Changes
+to the guardians themselves are delayed, so that a thief with the key
+cannot replace them first.</p>
+<p>How to choose <span class="math notranslate nohighlight">\(m\)</span>? Say each guardian is independently lost with
+probability <span class="math notranslate nohighlight">\(p_l\)</span>, or corrupt with probability <span class="math notranslate nohighlight">\(p_c\)</span>. The
+wallet is stolen when <span class="math notranslate nohighlight">\(m\)</span> guardians are corrupt:</p>
+<div class="math notranslate nohighlight">
+\[P(\text{theft}) = \sum_{j \ge m} \binom{n}{j} p_c^{\,j} (1 - p_c)^{n-j} .\]</div>
+<p>It is locked for good when fewer than <span class="math notranslate nohighlight">\(m\)</span> are honest and reachable. A
+higher threshold lowers the risk of theft and raises the risk of lockout.
+With 5 guardians and a threshold of 3, both risks can be far below those of
+one seed phrase.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.social_recovery.SocialRecoveryWallet" title="blockchainkit.wallets.systems.social_recovery.SocialRecoveryWallet"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.social_recovery.SocialRecoveryWallet</span></code></a>,
+a contract on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World" title="blockchainkit.contracts.systems.world.World"><code class="xref py py-class docutils literal notranslate"><span class="pre">World</span></code></a> with a
+delay on guardian changes, and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.social_recovery.recovery_risk" title="blockchainkit.wallets.systems.social_recovery.recovery_risk"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.social_recovery.recovery_risk()</span></code></a>. Guardians
+vote by sending transactions rather than signing messages, and the wallet
+holds only ether.</p>
+<p><em>References:</em> V. Buterin, <em>Why we need wide adoption of social recovery
+wallets</em>, vitalik.ca (11 January 2021).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Vitalik Buterin argued in January 2021 for wallets that need no seed-phrase backup. A social-recovery wallet is a contract with one signing key for daily use and n guardians, any m of whom can replace that key. Losing the key no longer loses the coins, and a thief with the key alone can be locked out. If each guardian is independently lost with probability p_l or corrupt with probability p_c,"><img alt="" src="../_images/sphx_glr_plot_03_social_recovery_wallets_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/custody/plot_03_social_recovery_wallets.html"><span class="doc">Social-recovery wallets (2021)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Social-recovery wallets (2021)</div>
+</div></div></section>
+<section id="account-abstraction-erc-4337">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">2021 – Account Abstraction (ERC-4337)</a><a class="headerlink" href="#account-abstraction-erc-4337" title="Link to this heading">#</a></h2>
+<p>Ethereum has two kinds of account:</p>
+<ul class="simple">
+<li><p>an account controlled by a key pair can start transactions, but its
+rules are fixed: one ECDSA key, and fees paid in ether;</p></li>
+<li><p>a contract account can follow any rule written in code, but cannot start
+a transaction.</p></li>
+</ul>
+<p>So a social-recovery or multisig wallet needed a separate key-pair account
+to pay its fees. Changing the protocol to merge the two was proposed many
+times. ERC-4337, by Vitalik Buterin, Yoav Weiss and others, does it with
+contracts alone:</p>
+<ol class="arabic simple">
+<li><p>The owner signs a <em>user operation</em>, saying what the account should do,
+and sends it to a separate pool.</p></li>
+<li><p>A <em>bundler</em> collects operations and submits them in one ordinary
+transaction to a single <em>EntryPoint</em> contract.</p></li>
+<li><p>For each operation the EntryPoint asks the account’s own code to
+<em>validate</em> it, checking the signature and nonce by whatever rule the
+account chooses, and to pay its fee.</p></li>
+<li><p>Then it runs each operation, and pays the fees to the bundler.</p></li>
+</ol>
+<p>The owner signs a hash that names the EntryPoint and the chain,</p>
+<div class="math notranslate nohighlight">
+\[h = \mathrm{SHA256}(\text{domain} \,\|\, \text{EntryPoint} \,\|\,
+\text{chain} \,\|\, \text{operation}),\]</div>
+<p>so an operation cannot be replayed elsewhere. A failing validation would
+revert the whole bundle at the bundler’s cost, so bundlers simulate each
+operation first and drop the failures. Since validation is code, an
+account can rotate its key, batch payments, or plug in social recovery. The
+EntryPoint went live on Ethereum in March 2023.</p>
+<p><em>Implementation:</em> <a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.account_abstraction.EntryPoint" title="blockchainkit.wallets.systems.account_abstraction.EntryPoint"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.account_abstraction.EntryPoint</span></code></a>,
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.account_abstraction.SmartAccount" title="blockchainkit.wallets.systems.account_abstraction.SmartAccount"><code class="xref py py-class docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.account_abstraction.SmartAccount</span></code></a>
+(Schnorr-signed, with key rotation and batches) and
+<a class="reference internal" href="../api/wallets.html#blockchainkit.wallets.systems.account_abstraction.bundle" title="blockchainkit.wallets.systems.account_abstraction.bundle"><code class="xref py py-func docutils literal notranslate"><span class="pre">blockchainkit.wallets.systems.account_abstraction.bundle()</span></code></a>, which
+simulates on <a class="reference internal" href="../api/contracts.html#blockchainkit.contracts.systems.world.World.fork" title="blockchainkit.contracts.systems.world.World.fork"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fork()</span></code></a>. Fees
+are fixed amounts rather than gas times price, and there are no paymasters,
+aggregators or account factories.</p>
+<p><em>References:</em> V. Buterin, Y. Weiss, D. Tirosh, S. Nacson, A. Forshtat,
+K. Gazso and T. Hess, <em>ERC-4337: Account Abstraction Using Alt Mempool</em>,
+Ethereum Improvement Proposals (September 2021).</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="An Ethereum key-pair account can start transactions but follows fixed rules: one ECDSA key, gas paid in ether. A contract account can follow any rule but cannot start a transaction. ERC-4337, proposed in 2021 by Vitalik Buterin, Yoav Weiss and others and deployed in 2023, lets contract accounts act on their own without a protocol change. Owners sign user operations; a bundler submits them to an EntryPoint contract, which asks each account to validate its operation and pay its fee, then runs it. The owner signs"><img alt="" src="../_images/sphx_glr_plot_04_erc4337_account_abstraction_thumb.png" />
+<p><a class="reference internal" href="../api/gallery/wallets/custody/plot_04_erc4337_account_abstraction.html"><span class="doc">Account abstraction with ERC-4337 (2021)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Account abstraction with ERC-4337 (2021)</div>
+</div></div></section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="privacy_breakthroughs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Breakthroughs in Blockchain Privacy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../examples/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bch-codes-correcting-errors-with-polynomials">1959-1960 – BCH Codes: Correcting Errors with Polynomials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verhoeff-s-check-digit-and-detecting-transpositions">1969 – Verhoeff’s Check Digit and Detecting Transpositions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pbkdf2-stretching-passwords-into-keys">2000 – PBKDF2: Stretching Passwords into Keys</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base58check-addresses">2009 – Base58Check Addresses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scrypt-and-memory-hard-key-derivation">2009 – scrypt and Memory-Hard Key Derivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pay-to-script-hash-and-multisig-wallets">2012 – Pay-to-Script-Hash and Multisig Wallets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-deterministic-wallets-bip32">2012 – Hierarchical Deterministic Wallets (BIP32)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mnemonic-seed-phrases-bip39">2013 – Mnemonic Seed Phrases (BIP39)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-account-derivation-paths-bip44">2014 – Multi-Account Derivation Paths (BIP44)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-brain-wallet-drain">2016 – The Brain-Wallet Drain</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bech32-addresses-bip173">2017 – Bech32 Addresses (BIP173)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#threshold-ecdsa-gennaro-and-goldfeder">2018 – Threshold ECDSA (Gennaro and Goldfeder)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bech32m-and-a-checksum-flaw-bip350">2020 – Bech32m and a Checksum Flaw (BIP350)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#social-recovery-wallets">2021 – Social-Recovery Wallets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#account-abstraction-erc-4337">2021 – Account Abstraction (ERC-4337)</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/history/wallets_breakthroughs.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Charles Poli.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

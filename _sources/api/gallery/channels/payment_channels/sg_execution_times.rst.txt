@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:03.512** total execution time for 6 files **from api/gallery/channels/payment_channels**:
+**00:04.225** total execution time for 6 files **from api/gallery/channels/payment_channels**:
 
 .. container::
 
@@ -33,20 +33,20 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_03_lightning_revocation.py` (``plot_03_lightning_revocation.py``)
-     - 00:01.318
+     - 00:01.635
      - 0.0
    * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_05_eltoo.py` (``plot_05_eltoo.py``)
-     - 00:00.884
+     - 00:01.044
      - 0.0
    * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_01_spilman_channels.py` (``plot_01_spilman_channels.py``)
-     - 00:00.671
+     - 00:00.865
      - 0.0
    * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_06_pisa_watchtowers.py` (``plot_06_pisa_watchtowers.py``)
-     - 00:00.341
+     - 00:00.372
      - 0.0
    * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_02_duplex_channels.py` (``plot_02_duplex_channels.py``)
-     - 00:00.195
+     - 00:00.168
      - 0.0
    * - :ref:`sphx_glr_api_gallery_channels_payment_channels_plot_04_sprites_state_channels.py` (``plot_04_sprites_state_channels.py``)
-     - 00:00.103
+     - 00:00.141
      - 0.0

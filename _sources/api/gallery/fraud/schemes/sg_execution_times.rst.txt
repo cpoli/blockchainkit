@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.257** total execution time for 3 files **from api/gallery/fraud/schemes**:
+**00:00.491** total execution time for 3 files **from api/gallery/fraud/schemes**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fraud_schemes_plot_03_bitconnect_lending_ponzi.py` (``plot_03_bitconnect_lending_ponzi.py``)
-     - 00:00.146
+     - 00:00.274
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_schemes_plot_01_ponzi_scheme.py` (``plot_01_ponzi_scheme.py``)
-     - 00:00.075
+     - 00:00.136
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_schemes_plot_02_bartoletti_ponzi_contracts.py` (``plot_02_bartoletti_ponzi_contracts.py``)
-     - 00:00.036
+     - 00:00.081
      - 0.0

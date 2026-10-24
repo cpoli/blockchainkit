@@ -138,7 +138,7 @@ than half the hashrate win more often?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.030 seconds)
+   **Total running time of the script:** (0 minutes 0.051 seconds)
 
 
 .. _sphx_glr_download_api_gallery_consensus_nakamoto_plot_02_ghost.py:

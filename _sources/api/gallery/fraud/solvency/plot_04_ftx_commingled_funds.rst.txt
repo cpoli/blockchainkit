@@ -175,7 +175,7 @@ A worked solution is in :doc:`/exercises/fraud`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.034 seconds)
+   **Total running time of the script:** (0 minutes 0.063 seconds)
 
 
 .. _sphx_glr_download_api_gallery_fraud_solvency_plot_04_ftx_commingled_funds.py:

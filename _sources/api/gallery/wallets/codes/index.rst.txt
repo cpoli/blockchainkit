@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_wallets_codes:
+
+Error-detecting codes
+---------------------
+
+Catching the mistakes people make when they copy a number.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Alexis Hocquenghem in 1959, and Raj Chandra Bose and Dijen Ray-Chaudhuri in 1960, found how to build binary codes that correct any chosen number t of flipped bits. A word of n = 2m - 1 bits is read as a polynomial, and the codewords are the multiples of a generator g(x) that vanishes at \alpha, \alpha^2, \dots, \alpha^{2t} in GF(2m). Any two codewords then differ in at least">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/codes/images/thumb/sphx_glr_plot_01_bch_codes_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/codes/plot_01_bch_codes`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">BCH error-correcting codes (1959-1960)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Jacobus Verhoeff studied the errors Dutch clerks made when copying numbers: most were one wrong digit, and most of the rest were two neighbouring digits swapped. A check digit chosen so that the digit sum is a multiple of 10 catches every wrong digit but no swap, since addition commutes. Luhn&#x27;s scheme, used on payment cards, catches every swap but 09 and 90. Verhoeff catches all of them by computing in the dihedral group D5, where a  b \ne b  a, and permuting each digit by its position:">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/codes/images/thumb/sphx_glr_plot_02_verhoeff_check_digit_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/codes/plot_02_verhoeff_check_digit`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Verhoeff's check digit and detecting transpositions (1969)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/wallets/codes/plot_01_bch_codes
+   /api/gallery/wallets/codes/plot_02_verhoeff_check_digit
+

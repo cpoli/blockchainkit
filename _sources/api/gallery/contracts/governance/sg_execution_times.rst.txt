@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.069** total execution time for 1 file **from api/gallery/contracts/governance**:
+**00:00.084** total execution time for 1 file **from api/gallery/contracts/governance**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_contracts_governance_plot_01_beanstalk_flash_loan.py` (``plot_01_beanstalk_flash_loan.py``)
-     - 00:00.069
+     - 00:00.084
      - 0.0

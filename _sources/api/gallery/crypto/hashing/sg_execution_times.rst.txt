@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:01.042** total execution time for 4 files **from api/gallery/crypto/hashing**:
+**00:01.896** total execution time for 4 files **from api/gallery/crypto/hashing**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_01_birthday_attack.py` (``plot_01_birthday_attack.py``)
-     - 00:00.934
+     - 00:01.703
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_04_sha256_avalanche.py` (``plot_04_sha256_avalanche.py``)
-     - 00:00.043
+     - 00:00.076
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_03_hmac.py` (``plot_03_hmac.py``)
-     - 00:00.034
+     - 00:00.065
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_hashing_plot_02_merkle_damgard.py` (``plot_02_merkle_damgard.py``)
-     - 00:00.030
+     - 00:00.051
      - 0.0

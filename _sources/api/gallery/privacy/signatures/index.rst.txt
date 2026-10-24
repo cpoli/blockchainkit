@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_privacy_signatures:
+
+Ring signatures and stealth addresses
+-------------------------------------
+
+Signing for a group without saying who, spending only once, and paying a fresh key every time.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Rivest, Shamir and Tauman titled their paper How to Leak a Secret: a cabinet member wants to prove a leak comes from the cabinet without saying who leaked it. A ring signature does that. The signer lists any public keys, its own among them, and signs so that the signature checks against the whole list but not against any one key.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/signatures/images/thumb/sphx_glr_plot_01_ring_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/signatures/plot_01_ring_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Ring signatures: leaking a secret for a group (2001)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A ring signature is too anonymous for money: a spender could sign twice with the same coin and nobody could tell. Liu, Wei and Wong added a key image I = H_p(P)^x, fixed by the signer&#x27;s key pair but revealing nothing about which key it is. Every signature by the key carries the same image, and the same response proves both">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/signatures/images/thumb/sphx_glr_plot_02_linkable_ring_signatures_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/signatures/plot_02_linkable_ring_signatures`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Linkable ring signatures and key images (2004)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="A reused address links every payment it receives. CryptoNote let a payee publish one address (A, B) = (g^a, g^b) from which each payer derives a fresh one-time key. The payer picks r, publishes R = g^r, and pays to">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/signatures/images/thumb/sphx_glr_plot_03_cryptonote_stealth_addresses_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/signatures/plot_03_cryptonote_stealth_addresses`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">CryptoNote stealth addresses: a fresh key for every payment (2013)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/privacy/signatures/plot_01_ring_signatures
+   /api/gallery/privacy/signatures/plot_02_linkable_ring_signatures
+   /api/gallery/privacy/signatures/plot_03_cryptonote_stealth_addresses
+

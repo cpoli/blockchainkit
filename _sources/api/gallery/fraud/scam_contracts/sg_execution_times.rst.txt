@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.155** total execution time for 5 files **from api/gallery/fraud/scam_contracts**:
+**00:00.280** total execution time for 5 files **from api/gallery/fraud/scam_contracts**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_05_squid_game_rug_pull.py` (``plot_05_squid_game_rug_pull.py``)
-     - 00:00.040
+     - 00:00.082
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_02_ico_exit_scams_daico.py` (``plot_02_ico_exit_scams_daico.py``)
-     - 00:00.036
+     - 00:00.063
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_04_torres_solidity_quirks.py` (``plot_04_torres_solidity_quirks.py``)
-     - 00:00.030
+     - 00:00.051
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_03_torres_evm_honeypots.py` (``plot_03_torres_evm_honeypots.py``)
-     - 00:00.026
+     - 00:00.045
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_scam_contracts_plot_01_verified_source_deception.py` (``plot_01_verified_source_deception.py``)
-     - 00:00.022
+     - 00:00.039
      - 0.0

@@ -145,7 +145,7 @@ do auditors still recommend checks-effects-interactions as well?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.068 seconds)
+   **Total running time of the script:** (0 minutes 0.130 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_ethereum_plot_03_reentrancy.py:

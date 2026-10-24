@@ -1,0 +1,57 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.589453Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.668859Z",
+      "mimetype": null,
+      "name": "plot_03_tornado_cash.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/mixing/plot_03_tornado_cash.ipynb",
+      "size": 5163,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.589074Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.667909Z",
+      "mimetype": null,
+      "name": "plot_01_coinjoin.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/mixing/plot_01_coinjoin.ipynb",
+      "size": 4367,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.589269Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.668173Z",
+      "mimetype": null,
+      "name": "plot_02_tumblebit.ipynb",
+      "path": "jupyterlite_contents/api/gallery/privacy/mixing/plot_02_tumblebit.ipynb",
+      "size": 3801,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.589453Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.589453Z",
+  "mimetype": null,
+  "name": "mixing",
+  "path": "jupyterlite_contents/api/gallery/privacy/mixing",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

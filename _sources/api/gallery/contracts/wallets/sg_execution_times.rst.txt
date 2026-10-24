@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.200** total execution time for 2 files **from api/gallery/contracts/wallets**:
+**00:00.234** total execution time for 2 files **from api/gallery/contracts/wallets**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_contracts_wallets_plot_01_parity_multisig_hack.py` (``plot_01_parity_multisig_hack.py``)
-     - 00:00.117
+     - 00:00.133
      - 0.0
    * - :ref:`sphx_glr_api_gallery_contracts_wallets_plot_02_parity_library_freeze.py` (``plot_02_parity_library_freeze.py``)
-     - 00:00.083
+     - 00:00.102
      - 0.0

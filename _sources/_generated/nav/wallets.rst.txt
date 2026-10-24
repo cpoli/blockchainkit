@@ -1,0 +1,3 @@
+.. container:: subpkg-nav
+
+   :doc:`blockchainkit.wallets hub </_generated/subpackages/wallets>` · :doc:`History </history/wallets_breakthroughs>` · :doc:`Examples </api/gallery/wallets/index>` · :doc:`API reference </api/wallets>`

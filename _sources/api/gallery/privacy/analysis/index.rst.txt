@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_privacy_analysis:
+
+Measuring anonymity
+-------------------
+
+What a public record reveals: anonymity sets, address clusters, and traceable rings.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Latanya Sweeney showed that a ZIP code, a birth date and a sex single out most Americans. A table is k-anonymous if every combination of these quasi-identifiers appears at least k times, so each person hides among k. Generalising values, a ZIP to its first three digits or a date to a year, merges rows until k is reached.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/analysis/images/thumb/sphx_glr_plot_01_k_anonymity_anonymity_sets_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/analysis/plot_01_k_anonymity_anonymity_sets`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">k-anonymity and anonymity sets: hiding among k (2002)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Meiklejohn, Pomarole, Jordan, Levchenko, McCoy, Voelker and Savage showed that fresh addresses hide much less than they seem. Two heuristics group addresses that one user controls:">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/analysis/images/thumb/sphx_glr_plot_02_fistful_of_bitcoins_clustering_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/analysis/plot_02_fistful_of_bitcoins_clustering`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">A Fistful of Bitcoins: clustering addresses by owner (2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Möser, Soska, Heilman, Lee, Heffan, Srivastava, Hogan, Hennessey, Miller, Narayanan and Christin, and independently Kumar, Fischer, Tople and Saxena, showed that most early Monero inputs could be traced.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/analysis/images/thumb/sphx_glr_plot_03_monero_traceability_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/analysis/plot_03_monero_traceability`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Traceability in Monero: when decoys fail (2018)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/privacy/analysis/plot_01_k_anonymity_anonymity_sets
+   /api/gallery/privacy/analysis/plot_02_fistful_of_bitcoins_clustering
+   /api/gallery/privacy/analysis/plot_03_monero_traceability
+

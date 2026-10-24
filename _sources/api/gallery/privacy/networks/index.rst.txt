@@ -1,0 +1,68 @@
+
+
+.. _sphx_glr_api_gallery_privacy_networks:
+
+Anonymous networks
+------------------
+
+Hiding who talks to whom: mixes that batch and shuffle, and low-latency onion routing.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="David Chaum wanted to hide who writes to whom, even from someone watching every wire. A sender wraps its message in one layer of encryption per mix, innermost for the last. Each mix collects a batch, removes one layer from every message, and sends them on in a random order. The bytes change at every hop and so does the order, so an observer cannot match what goes in to what comes out.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/networks/images/thumb/sphx_glr_plot_01_chaum_mix_nets_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/networks/plot_01_chaum_mix_nets`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Chaum's mix-nets: untraceable mail (1981)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Tor wraps traffic in layers like a mix-net, through a circuit of three relays, but forwards each packet at once: no batching, no reordering. That makes browsing fast enough to use. The design paper states the price: an adversary that watches both ends of a circuit can match the packet timing going in to the timing coming out. Delays shift every packet alike, so the gaps between packets survive the trip.">
+
+.. only:: html
+
+  .. image:: /api/gallery/privacy/networks/images/thumb/sphx_glr_plot_02_tor_onion_routing_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/privacy/networks/plot_02_tor_onion_routing`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Onion routing in Tor: fast, but exposed end to end (2004)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/privacy/networks/plot_01_chaum_mix_nets
+   /api/gallery/privacy/networks/plot_02_tor_onion_routing
+

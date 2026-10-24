@@ -24,3 +24,5 @@ prerequisites rather than dates, see :doc:`/tutorials/course`.
    channels_breakthroughs
    proofs_breakthroughs
    fraud_breakthroughs
+   privacy_breakthroughs
+   wallets_breakthroughs

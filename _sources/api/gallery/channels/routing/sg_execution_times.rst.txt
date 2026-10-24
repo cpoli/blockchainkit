@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.093** total execution time for 1 file **from api/gallery/channels/routing**:
+**00:00.135** total execution time for 1 file **from api/gallery/channels/routing**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_channels_routing_plot_01_balance_probing.py` (``plot_01_balance_probing.py``)
-     - 00:00.093
+     - 00:00.135
      - 0.0

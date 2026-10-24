@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:03.997** total execution time for 4 files **from api/gallery/economics/rewards**:
+**00:07.521** total execution time for 4 files **from api/gallery/economics/rewards**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_04_kiayias_mining_games.py` (``plot_04_kiayias_mining_games.py``)
-     - 00:03.711
+     - 00:07.017
      - 0.0
    * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_03_carlsten_fee_only_instability.py` (``plot_03_carlsten_fee_only_instability.py``)
-     - 00:00.126
+     - 00:00.227
      - 0.0
    * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_01_nakamoto_incentives.py` (``plot_01_nakamoto_incentives.py``)
-     - 00:00.092
+     - 00:00.149
      - 0.0
    * - :ref:`sphx_glr_api_gallery_economics_rewards_plot_02_halving_schedule.py` (``plot_02_halving_schedule.py``)
-     - 00:00.068
+     - 00:00.128
      - 0.0

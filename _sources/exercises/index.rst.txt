@@ -81,6 +81,20 @@ run by every documentation build.
       A skimming Ponzi operator, multiples of seven, a fake negative balance,
       a shared reserve address, window dressing, and the cost of a look-alike.
 
+   .. grid-item-card:: Privacy
+      :link: privacy
+      :link-type: doc
+
+      Quiet mixes, entry guards, intersecting rings, view keys, l-diversity,
+      CoinJoin change, waiting at a mixer, and splitting a Mimblewimble block.
+
+   .. grid-item-card:: Wallets
+      :link: wallets
+      :link-type: doc
+
+      Three-error codes, Luhn's blind spot, deleting a q, scrypt's partial
+      tables, 24-word phrases, the gap limit, multisig sizes, and guardians.
+
 .. toctree::
    :hidden:
 
@@ -94,3 +108,5 @@ run by every documentation build.
    channels
    proofs
    fraud
+   privacy
+   wallets

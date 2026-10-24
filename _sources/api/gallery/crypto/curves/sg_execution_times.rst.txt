@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.034** total execution time for 1 file **from api/gallery/crypto/curves**:
+**00:00.065** total execution time for 1 file **from api/gallery/crypto/curves**:
 
 .. container::
 
@@ -33,5 +33,5 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_crypto_curves_plot_01_elliptic_curves.py` (``plot_01_elliptic_curves.py``)
-     - 00:00.034
+     - 00:00.065
      - 0.0

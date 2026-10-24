@@ -1,0 +1,71 @@
+{
+  "content": [
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.602433Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.691113Z",
+      "mimetype": null,
+      "name": "plot_01_p2sh_multisig.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/custody/plot_01_p2sh_multisig.ipynb",
+      "size": 4777,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.602641Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.691349Z",
+      "mimetype": null,
+      "name": "plot_02_threshold_ecdsa.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/custody/plot_02_threshold_ecdsa.ipynb",
+      "size": 4441,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.603015Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.692365Z",
+      "mimetype": null,
+      "name": "plot_04_erc4337_account_abstraction.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/custody/plot_04_erc4337_account_abstraction.ipynb",
+      "size": 4940,
+      "type": "notebook",
+      "writable": true
+    },
+    {
+      "content": null,
+      "created": "2026-10-24T12:25:05.602826Z",
+      "format": null,
+      "hash": null,
+      "hash_algorithm": null,
+      "last_modified": "2026-10-24T12:25:02.691970Z",
+      "mimetype": null,
+      "name": "plot_03_social_recovery_wallets.ipynb",
+      "path": "jupyterlite_contents/api/gallery/wallets/custody/plot_03_social_recovery_wallets.ipynb",
+      "size": 4315,
+      "type": "notebook",
+      "writable": true
+    }
+  ],
+  "created": "2026-10-24T12:25:05.603015Z",
+  "format": "json",
+  "hash": null,
+  "hash_algorithm": null,
+  "last_modified": "2026-10-24T12:25:05.603015Z",
+  "mimetype": null,
+  "name": "custody",
+  "path": "jupyterlite_contents/api/gallery/wallets/custody",
+  "size": null,
+  "type": "directory",
+  "writable": true
+}

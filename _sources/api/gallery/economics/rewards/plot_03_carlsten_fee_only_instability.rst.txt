@@ -189,7 +189,7 @@ everyone undercuts?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.126 seconds)
+   **Total running time of the script:** (0 minutes 0.227 seconds)
 
 
 .. _sphx_glr_download_api_gallery_economics_rewards_plot_03_carlsten_fee_only_instability.py:

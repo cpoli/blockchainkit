@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:02.707** total execution time for 4 files **from api/gallery/fraud/solvency**:
+**00:03.857** total execution time for 4 files **from api/gallery/fraud/solvency**:
 
 .. container::
 
@@ -33,14 +33,14 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_02_mtgox_malleability_excuse.py` (``plot_02_mtgox_malleability_excuse.py``)
-     - 00:01.905
+     - 00:02.434
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_01_maxwell_proof_of_reserves.py` (``plot_01_maxwell_proof_of_reserves.py``)
-     - 00:00.726
+     - 00:01.289
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_03_provisions_proof_of_solvency.py` (``plot_03_provisions_proof_of_solvency.py``)
-     - 00:00.042
+     - 00:00.070
      - 0.0
    * - :ref:`sphx_glr_api_gallery_fraud_solvency_plot_04_ftx_commingled_funds.py` (``plot_04_ftx_commingled_funds.py``)
-     - 00:00.034
+     - 00:00.063
      - 0.0

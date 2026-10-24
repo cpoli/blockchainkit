@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.113** total execution time for 2 files **from api/gallery/vm/replication**:
+**00:00.172** total execution time for 2 files **from api/gallery/vm/replication**:
 
 .. container::
 
@@ -33,8 +33,8 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_vm_replication_plot_02_atomic_transactions.py` (``plot_02_atomic_transactions.py``)
-     - 00:00.081
+     - 00:00.119
      - 0.0
    * - :ref:`sphx_glr_api_gallery_vm_replication_plot_01_state_machine_replication.py` (``plot_01_state_machine_replication.py``)
-     - 00:00.032
+     - 00:00.053
      - 0.0

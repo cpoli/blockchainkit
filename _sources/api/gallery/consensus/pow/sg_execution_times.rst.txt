@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.240** total execution time for 3 files **from api/gallery/consensus/pow**:
+**00:00.447** total execution time for 3 files **from api/gallery/consensus/pow**:
 
 .. container::
 
@@ -33,11 +33,11 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_02_hashcash.py` (``plot_02_hashcash.py``)
-     - 00:00.140
+     - 00:00.258
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_03_difficulty_retargeting.py` (``plot_03_difficulty_retargeting.py``)
-     - 00:00.053
+     - 00:00.098
      - 0.0
    * - :ref:`sphx_glr_api_gallery_consensus_pow_plot_01_pricing_via_processing.py` (``plot_01_pricing_via_processing.py``)
-     - 00:00.047
+     - 00:00.091
      - 0.0

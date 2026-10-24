@@ -1,0 +1,43 @@
+
+:orphan:
+
+.. _sphx_glr_api_gallery_wallets_stretching_sg_execution_times:
+
+
+Computation times
+=================
+**00:06.541** total execution time for 3 files **from api/gallery/wallets/stretching**:
+
+.. container::
+
+  .. raw:: html
+
+    <style scoped>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script type="text/javascript" class="init">
+    $(document).ready( function () {
+        $('table.sg-datatable').DataTable({order: [[1, 'desc']]});
+    } );
+    </script>
+
+  .. list-table::
+   :header-rows: 1
+   :class: table table-striped sg-datatable
+
+   * - Example
+     - Time
+     - Mem (MB)
+   * - :ref:`sphx_glr_api_gallery_wallets_stretching_plot_02_scrypt_memory_hardness.py` (``plot_02_scrypt_memory_hardness.py``)
+     - 00:04.008
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_wallets_stretching_plot_03_brain_wallet_drain.py` (``plot_03_brain_wallet_drain.py``)
+     - 00:02.324
+     - 0.0
+   * - :ref:`sphx_glr_api_gallery_wallets_stretching_plot_01_pbkdf2_key_stretching.py` (``plot_01_pbkdf2_key_stretching.py``)
+     - 00:00.209
+     - 0.0

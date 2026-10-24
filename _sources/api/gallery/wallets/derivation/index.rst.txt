@@ -1,0 +1,86 @@
+
+
+.. _sphx_glr_api_gallery_wallets_derivation:
+
+Key derivation
+--------------
+
+One seed, written as words, for a whole tree of keys that every wallet can find again.
+
+
+.. raw:: html
+
+  <div id='sg-tag-list' class='sphx-glr-tag-list'></div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Early Bitcoin wallets drew each key at random, so a backup went stale with the next payment. Pieter Wuille&#x27;s BIP32 derives a tree of keys from one seed. An extended key is a key k and a chain code c, and child i is">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/derivation/images/thumb/sphx_glr_plot_01_bip32_hd_wallets_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/derivation/plot_01_bip32_hd_wallets`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Hierarchical deterministic wallets (BIP32, 2012)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Marek Palatinus, Pavol Rusnak, Aaron Voisine and Sean Bowe proposed writing a wallet&#x27;s seed as words. The entropy gets a checksum, the first ENT/32 bits of its SHA-256, and the bits are cut into 11-bit indices into a list of 2048 words,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/derivation/images/thumb/sphx_glr_plot_02_bip39_mnemonic_seed_phrases_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/derivation/plot_02_bip39_mnemonic_seed_phrases`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Mnemonic seed phrases (BIP39, 2013)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="BIP32 allows any tree of keys, so one wallet program could not restore another&#x27;s from the same seed. Marek Palatinus and Pavol Rusnak fixed five levels,">
+
+.. only:: html
+
+  .. image:: /api/gallery/wallets/derivation/images/thumb/sphx_glr_plot_03_bip44_derivation_paths_thumb.png
+    :alt:
+
+  :doc:`/api/gallery/wallets/derivation/plot_03_bip44_derivation_paths`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Multi-account derivation paths (BIP44, 2014)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /api/gallery/wallets/derivation/plot_01_bip32_hd_wallets
+   /api/gallery/wallets/derivation/plot_02_bip39_mnemonic_seed_phrases
+   /api/gallery/wallets/derivation/plot_03_bip44_derivation_paths
+

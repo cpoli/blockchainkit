@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.284** total execution time for 5 files **from api/gallery/crypto/signatures**:
+**00:00.451** total execution time for 5 files **from api/gallery/crypto/signatures**:
 
 .. container::
 
@@ -33,17 +33,17 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_05_musig.py` (``plot_05_musig.py``)
-     - 00:00.107
+     - 00:00.167
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_03_schnorr_signatures.py` (``plot_03_schnorr_signatures.py``)
-     - 00:00.090
+     - 00:00.133
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_04_nonce_reuse.py` (``plot_04_nonce_reuse.py``)
-     - 00:00.033
+     - 00:00.063
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_02_fiat_shamir.py` (``plot_02_fiat_shamir.py``)
-     - 00:00.030
+     - 00:00.053
      - 0.0
    * - :ref:`sphx_glr_api_gallery_crypto_signatures_plot_01_zero_knowledge.py` (``plot_01_zero_knowledge.py``)
-     - 00:00.023
+     - 00:00.034
      - 0.0

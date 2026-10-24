@@ -159,7 +159,7 @@ A worked solution is in :doc:`/exercises/network`.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.171 seconds)
+   **Total running time of the script:** (0 minutes 0.294 seconds)
 
 
 .. _sphx_glr_download_api_gallery_network_overlays_plot_03_eclipse_attack.py:

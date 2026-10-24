@@ -156,7 +156,7 @@ hashing twice, H(H(m)), as Bitcoin does, also stop length extension?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.030 seconds)
+   **Total running time of the script:** (0 minutes 0.051 seconds)
 
 
 .. _sphx_glr_download_api_gallery_crypto_hashing_plot_02_merkle_damgard.py:

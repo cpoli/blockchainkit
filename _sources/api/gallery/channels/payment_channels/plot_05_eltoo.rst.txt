@@ -147,7 +147,7 @@ does the hash chain of per-commitment secrets keep that small?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.884 seconds)
+   **Total running time of the script:** (0 minutes 1.044 seconds)
 
 
 .. _sphx_glr_download_api_gallery_channels_payment_channels_plot_05_eltoo.py:

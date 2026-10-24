@@ -172,7 +172,7 @@ alone, with a 3.125 BTC reward and six confirmations?
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.092 seconds)
+   **Total running time of the script:** (0 minutes 0.149 seconds)
 
 
 .. _sphx_glr_download_api_gallery_economics_rewards_plot_01_nakamoto_incentives.py:

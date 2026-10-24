@@ -122,7 +122,7 @@ using only the opcodes available (hint: ``OP_CHECKSIG`` then
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.046 seconds)
+   **Total running time of the script:** (0 minutes 0.073 seconds)
 
 
 .. _sphx_glr_download_api_gallery_vm_script_plot_01_p2pkh.py:
