@@ -93,6 +93,52 @@
   a "Fraud models" section, and `blockchainkit.constants` the
   `SUM_LEAF_DOMAIN`, `SUM_NODE_DOMAIN`, `SOLVENCY_DOMAIN` and
   `LOOKALIKE_DOMAIN` tags.
+- `blockchainkit.privacy`, an eleventh subpackage on anonymity and
+  confidentiality on public ledgers, with a history page of 15
+  breakthroughs, each with its own gallery example, from Chaum's mix-nets
+  (1981) to Tornado Cash (2019), and an exercise page. New APIs: `MixNode`,
+  `seal`, `wrap` and `mix_cascade`; `circuit_compromise_rate`,
+  `simulate_flows` and `match_flows`; `k_anonymity`, `equivalence_classes`
+  and `effective_anonymity_set`; `ring_sign` and `ring_verify`;
+  `lsag_sign`, `mlsag_sign`, `key_image` and `linked`; `simulate_payments`,
+  `cluster_addresses` and `score_clusters`; `stealth_keys`,
+  `stealth_payment`, `owns_output` and `one_time_secret`; `coinjoin` and
+  `link_change`; the RSA accumulator, `ZerocoinPool` and
+  `prove_zerocoin_spend`; ring-signature range proofs and
+  `verify_confidential`; `ringct_spend` and `verify_ringct`;
+  `mimblewimble_transaction`, `aggregate` and `cut_through`; the TumbleBit
+  `Tumbler` with `run_tumbler`; `simulate_rings`, `chain_reaction` and
+  `trace_rings`; and the `Mixer` contract with `prove_withdrawal` and
+  `mixer_report`, proving with the Zerocash circuit of `proofs`. Plots:
+  `plot_cluster_sizes`, `plot_ring_positions` and `plot_anonymity_sets`.
+  The model boundaries page gains a "Privacy models" section, and
+  `blockchainkit.constants` the `MIX_DOMAIN`, `RING_DOMAIN`,
+  `KEY_IMAGE_DOMAIN`, `STEALTH_DOMAIN`, `KERNEL_DOMAIN`,
+  `ACCUMULATOR_DOMAIN` and `TUMBLER_DOMAIN` tags.
+- `blockchainkit.wallets`, a twelfth subpackage on keys as users actually
+  hold them, with a history page of 15 breakthroughs, each with its own
+  gallery example, from BCH codes (1959-1960) to ERC-4337 account
+  abstraction (2021), and an exercise page. New APIs: `BCHCode` and
+  `minimal_polynomial`; `verhoeff_digit`, `luhn_digit` and
+  `detection_rates`; `pbkdf2` and `crack_pin`; `scrypt`, `salsa20_8`,
+  `block_mix` and `romix` with a memory-time trade-off; Base58Check,
+  `p2pkh_address` and `is_valid_address`; `bech32_encode`,
+  `bech32_decode`, `segwit_encode`, `segwit_decode` and `p2wpkh_address`
+  for Bech32 and Bech32m; `serialize_script`, `multisig_redeem_script`
+  and `verify_p2sh`; BIP32's `master_key`, `derive_private`,
+  `derive_public`, `serialize_extended_key` and `recover_parent_private`;
+  BIP39's `entropy_to_mnemonic` and `mnemonic_to_seed`; BIP44's
+  `derive_path` and `discover_accounts`; `brain_wallet_key` and
+  `simulate_brain_drain`; `ecdsa_sign` and `ecdsa_verify`;
+  `threshold_keygen` and `threshold_sign`; the `SocialRecoveryWallet`
+  contract with `recovery_risk`; and ERC-4337's `EntryPoint`,
+  `SmartAccount` and `bundle`. Utilities: RIPEMD-160 and `hash160`,
+  compressed secp256k1 keys, and GF(2**m). Plots:
+  `plot_detection_rates`, `plot_memory_tradeoff` and `plot_recovery_risk`.
+  The model boundaries page gains a "Wallet models" section, and
+  `blockchainkit.constants` the `HARDENED_OFFSET`, `BIP32_SEED_KEY`,
+  `BIP39_SALT_PREFIX`, `MAX_SCRIPT_ELEMENT_SIZE` and
+  `USER_OPERATION_DOMAIN` constants.
 - `World.fork()` in `blockchainkit.contracts`: an independent copy of the
   world state on which to try transactions, as a wallet simulates one
   before sending it.
@@ -127,6 +173,13 @@
   gallery link. The "In plain language", "Reading the experiment" and
   "Experiment" blocks, the admonitions and the in-entry doctests are folded
   in or removed. The history index is reduced to its overview.
+- The history pages of `crypto`, `consensus`, `network`, `vm`, `contracts`,
+  `economics`, `channels`, `proofs` and `fraud` are rewritten for readers new
+  to the field: each introduction and entry opens with the problem the
+  breakthrough solved, defines its terms in plain language, and spells out
+  algorithms as numbered steps.
+- The documentation's landing page is titled "Learn How Blockchains Work in
+  Python" and links the sibling toolkits.
 - Gallery examples follow mathematicskit's layout: raw docstrings without
   section headings or trailing links, one import cell, and `plt.show()`. The
   Merkle-proof example's exercise moved to the end, and the capstone is now

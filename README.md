@@ -3,11 +3,11 @@
 | | |
 |:--|:-:|
 | Package | [![PyPI version](https://badgen.net/pypi/v/blockchainkit)](https://pypi.org/project/blockchainkit/) [![Python versions](https://badgen.net/pypi/python/blockchainkit)](https://pypi.org/project/blockchainkit/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23134958.svg)](https://doi.org/10.5281/zenodo.23134958) |
-| Quality | [![License](https://badgen.net/github/license/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit/blob/main/LICENSE) [![CI](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml/badge.svg)](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml) [![Coverage](https://badgen.net/badge/coverage/100%25/green)](#development) |
+| Quality | [![License](https://img.shields.io/github/license/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit/blob/main/LICENSE) [![CI](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml/badge.svg)](https://github.com/cpoli/blockchainkit/actions/workflows/ci.yml) [![Coverage](https://badgen.net/badge/coverage/100%25/green)](#development) |
 | Documentation | [![Docs](https://badgen.net/badge/docs/cpoli.github.io%2Fblockchainkit/blue)](https://cpoli.github.io/blockchainkit/) |
 | Code style | [![Ruff](https://badgen.net/badge/code%20style/ruff/purple)](https://github.com/astral-sh/ruff) |
 | Downloads | [![Downloads](https://static.pepy.tech/badge/blockchainkit)](https://pepy.tech/project/blockchainkit) [![Downloads/Month](https://static.pepy.tech/badge/blockchainkit/month)](https://pepy.tech/project/blockchainkit) |
-| Community | [![GitHub Stars](https://badgen.net/github/stars/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit) [![GitHub Forks](https://badgen.net/github/forks/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit) [![Contributors](https://badgen.net/github/contributors/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit/graphs/contributors) [![Last Commit](https://badgen.net/github/last-commit/cpoli/blockchainkit/main)](https://github.com/cpoli/blockchainkit/commits/main) |
+| Community | [![GitHub Stars](https://img.shields.io/github/stars/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit) [![GitHub Forks](https://img.shields.io/github/forks/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit) [![Contributors](https://img.shields.io/github/contributors/cpoli/blockchainkit)](https://github.com/cpoli/blockchainkit/graphs/contributors) [![Last Commit](https://img.shields.io/github/last-commit/cpoli/blockchainkit/main)](https://github.com/cpoli/blockchainkit/commits/main) |
 | Try it online | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cpoli/blockchainkit/blob/main/notebooks/quickstart.ipynb) [![JupyterLite](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://cpoli.github.io/blockchainkit/lite/lab/) |
 
 **Cryptography and blockchains, understood through experiments.**
@@ -141,6 +141,21 @@ Open it in Colab using the badge above.
   ice phishing, FTX, and address poisoning. 17 breakthroughs.
 
   ![A Ponzi scheme's deposits and payouts until its collapse, invented amounts against Benford's law, and a pump-and-dump flagged by its spike](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_fraud.png)
+
+- [`blockchainkit.privacy`](https://cpoli.github.io/blockchainkit/api/gallery/privacy/) -- anonymity and
+  confidentiality on public ledgers: Chaum's mix-nets, ring signatures, k-anonymity and anonymity sets, Tor,
+  linkable ring signatures and key images, address clustering, CryptoNote stealth addresses, CoinJoin,
+  Zerocoin, confidential transactions, RingCT, Mimblewimble, TumbleBit, Monero's traceability, and Tornado
+  Cash. 15 breakthroughs.
+
+  ![Address clusters merged by the change heuristic, how often the newest ring member is the real spend, and a mixer's anonymity sets](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_privacy.png)
+
+- [`blockchainkit.wallets`](https://cpoli.github.io/blockchainkit/api/gallery/wallets/) -- keys as users
+  actually hold them: BCH codes, Verhoeff's check digit, PBKDF2, scrypt, Base58Check addresses, P2SH
+  multisig, BIP32 HD wallets, BIP39 seed phrases, BIP44 paths, the brain-wallet drain, Bech32, threshold
+  ECDSA, Bech32m, social-recovery wallets, and ERC-4337 account abstraction. 15 breakthroughs.
+
+  ![Check digits against single errors and swaps, scrypt's memory-time trade-off, and social-recovery risk against one seed phrase](https://raw.githubusercontent.com/cpoli/blockchainkit/main/docs/source/_static/images/readme_wallets.png)
 
 ## Learn
 

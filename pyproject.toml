@@ -58,6 +58,8 @@ docs = [
   "pydata-sphinx-theme>=0.15",
   "sphinx-gallery>=0.17",
   "sphinx-design>=0.6",
+  "sphinx-sitemap>=2.6",
+  "sphinxext-opengraph>=0.9",
   "myst-parser>=2",
   "jupyterlite-sphinx>=0.17",
   "jupyterlite-pyodide-kernel>=0.4",
@@ -100,6 +102,8 @@ testpaths = [
     "blockchainkit/channels/tests",
     "blockchainkit/proofs/tests",
     "blockchainkit/fraud/tests",
+    "blockchainkit/wallets/tests",
+    "blockchainkit/privacy/tests",
     "blockchainkit/tests",
 ]
 addopts = "--strict-markers"

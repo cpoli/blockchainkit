@@ -124,3 +124,39 @@ SOLVENCY_DOMAIN = b"blockchainkit:solvency:v1"
 
 LOOKALIKE_DOMAIN = b"blockchainkit:lookalike:v1"
 """bytes: Domain tag for the candidate addresses ground out by an address poisoner."""
+
+MIX_DOMAIN = b"blockchainkit:mix:v1"
+"""bytes: Domain tag for the keystream of each layer of a mix-net or onion-routing message."""
+
+RING_DOMAIN = b"blockchainkit:ring:v1"
+"""bytes: Domain tag for the chained challenges of ring signatures."""
+
+KEY_IMAGE_DOMAIN = b"blockchainkit:key-image:v1"
+"""bytes: Domain tag for hashing a public key into the group to form its key image."""
+
+STEALTH_DOMAIN = b"blockchainkit:stealth:v1"
+"""bytes: Domain tag for hashing a stealth payment's shared secret to a scalar."""
+
+KERNEL_DOMAIN = b"blockchainkit:kernel:v1"
+"""bytes: Domain tag for the Schnorr challenges of Mimblewimble transaction kernels."""
+
+ACCUMULATOR_DOMAIN = b"blockchainkit:accumulator:v1"
+"""bytes: Domain tag for hashing a coin into a prime for the RSA accumulator."""
+
+TUMBLER_DOMAIN = b"blockchainkit:tumbler:v1"
+"""bytes: Domain tag for the key that a TumbleBit puzzle solution derives."""
+
+HARDENED_OFFSET = 2**31
+"""int: The first hardened child index of BIP32 key derivation, written ``0'`` or ``0h``."""
+
+BIP32_SEED_KEY = b"Bitcoin seed"
+"""bytes: The HMAC-SHA512 key that turns a seed into a BIP32 master key."""
+
+BIP39_SALT_PREFIX = "mnemonic"
+"""str: Prefixed to the passphrase to salt BIP39's seed derivation."""
+
+MAX_SCRIPT_ELEMENT_SIZE = 520
+"""int: The largest data push Script allows, and so the largest P2SH redeem script (bytes)."""
+
+USER_OPERATION_DOMAIN = b"blockchainkit:user-operation:v1"
+"""bytes: Domain tag for the hash that an ERC-4337 account owner signs."""

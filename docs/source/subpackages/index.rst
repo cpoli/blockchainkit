@@ -20,3 +20,5 @@ reference, all linked from a single page.
    /_generated/subpackages/channels
    /_generated/subpackages/proofs
    /_generated/subpackages/fraud
+   /_generated/subpackages/privacy
+   /_generated/subpackages/wallets

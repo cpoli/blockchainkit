@@ -18,6 +18,8 @@ SUBPACKAGES = [
     "channels",
     "proofs",
     "fraud",
+    "privacy",
+    "wallets",
 ]
 
 

@@ -367,6 +367,58 @@ def fraud(axes):
     ax3.set_title("A pump-and-dump, flagged by its spike")
 
 
+def privacy(axes):
+    import random
+
+    from blockchainkit.privacy.visualizers import (
+        plot_anonymity_sets,
+        plot_cluster_sizes,
+        plot_ring_positions,
+    )
+
+    ax1, ax2, ax3 = axes
+    history = bk.privacy.simulate_payments(150, 1_500, reuse=0.9, seed=13)
+    plot_cluster_sizes(bk.privacy.cluster_addresses(history.transactions), ax=ax1, label="inputs")
+    plot_cluster_sizes(
+        bk.privacy.cluster_addresses(history.transactions, change=True), ax=ax1, label="and change"
+    )
+    ax1.set_title("Clustering Bitcoin addresses by owner")
+
+    rings = bk.privacy.simulate_rings(5_000, 1_000, ring_size=5, seed=7)
+    plot_ring_positions(rings, ax=ax2)
+    ax2.set_title("Monero's uniform decoys: the newest is real")
+
+    rng = random.Random(3)
+    deposits = [(f"user{i}", rng.randrange(0, 200)) for i in range(40)]
+    withdrawals = sorted(
+        ((f"fresh{i}", b + rng.randrange(1, 60)) for i, (_, b) in enumerate(deposits)),
+        key=lambda w: w[1],
+    )
+    plot_anonymity_sets(bk.privacy.mixer_report(deposits, withdrawals).anonymity_sets, ax=ax3)
+    ax3.set_title("A mixer's anonymity set per withdrawal")
+
+
+def wallets(axes):
+    from blockchainkit.wallets.visualizers import (
+        plot_detection_rates,
+        plot_memory_tradeoff,
+        plot_recovery_risk,
+    )
+
+    ax1, ax2, ax3 = axes
+    rates = [bk.wallets.detection_rates(s, 3) for s in ("sum", "luhn", "verhoeff")]
+    plot_detection_rates(rates, ax=ax1)
+    ax1.set_title("Check digits: only Verhoeff's catches every swap")
+
+    block = bk.wallets.pbkdf2(b"password", b"NaCl", 1, 128)
+    costs = [bk.wallets.romix(block, 128, keep_every=k)[1] for k in (1, 2, 4, 8, 16, 32, 64, 128)]
+    plot_memory_tradeoff(costs, ax=ax2)
+    ax2.set_title("scrypt: saving memory costs time")
+
+    plot_recovery_risk(5, lost=0.1, corrupt=0.05, ax=ax3)
+    ax3.set_title("Social recovery: 5 guardians against one seed phrase")
+
+
 FIGURES = {
     "crypto": crypto,
     "structures": structures,
@@ -378,6 +430,8 @@ FIGURES = {
     "channels": channels,
     "proofs": proofs,
     "fraud": fraud,
+    "privacy": privacy,
+    "wallets": wallets,
 }
 
 if __name__ == "__main__":

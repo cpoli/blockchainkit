@@ -39,6 +39,8 @@ extensions = [
     "sphinx_gallery.gen_gallery",
     "sphinx_design",
     "jupyterlite_sphinx",
+    "sphinx_sitemap",
+    "sphinxext.opengraph",
 ]
 
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "api/gallery/**/*.ipynb"]
@@ -198,6 +200,44 @@ napoleon_type_aliases = {
     "WashReport": "blockchainkit.fraud.core.base.WashReport",
     "LookalikeAddress": "blockchainkit.fraud.core.base.LookalikeAddress",
     "MerkleSumTree": "blockchainkit.fraud.utils.merkle_sum.MerkleSumTree",
+    "MixRun": "blockchainkit.privacy.core.base.MixRun",
+    "FlowObservation": "blockchainkit.privacy.core.base.FlowObservation",
+    "RingSignature": "blockchainkit.privacy.core.base.RingSignature",
+    "LinkableRingSignature": "blockchainkit.privacy.core.base.LinkableRingSignature",
+    "TransactionRecord": "blockchainkit.privacy.core.base.TransactionRecord",
+    "PaymentHistory": "blockchainkit.privacy.core.base.PaymentHistory",
+    "ClusterScore": "blockchainkit.privacy.core.base.ClusterScore",
+    "StealthKeys": "blockchainkit.privacy.core.base.StealthKeys",
+    "StealthOutput": "blockchainkit.privacy.core.base.StealthOutput",
+    "CoinJoinRound": "blockchainkit.privacy.core.base.CoinJoinRound",
+    "ZerocoinSpend": "blockchainkit.privacy.core.base.ZerocoinSpend",
+    "RingRangeProof": "blockchainkit.privacy.core.base.RingRangeProof",
+    "ConfidentialOutput": "blockchainkit.privacy.core.base.ConfidentialOutput",
+    "RingCTTransaction": "blockchainkit.privacy.core.base.RingCTTransaction",
+    "Kernel": "blockchainkit.privacy.core.base.Kernel",
+    "MimblewimbleTransaction": "blockchainkit.privacy.core.base.MimblewimbleTransaction",
+    "PuzzlePromise": "blockchainkit.privacy.core.base.PuzzlePromise",
+    "TumblerRun": "blockchainkit.privacy.core.base.TumblerRun",
+    "RingInput": "blockchainkit.privacy.core.base.RingInput",
+    "TraceReport": "blockchainkit.privacy.core.base.TraceReport",
+    "MixerReport": "blockchainkit.privacy.core.base.MixerReport",
+    "Withdrawal": "blockchainkit.privacy.core.base.Withdrawal",
+    "MixNode": "blockchainkit.privacy.systems.mixnets.MixNode",
+    "BCHDecoding": "blockchainkit.wallets.core.base.BCHDecoding",
+    "DetectionRates": "blockchainkit.wallets.core.base.DetectionRates",
+    "CrackResult": "blockchainkit.wallets.core.base.CrackResult",
+    "RomixCost": "blockchainkit.wallets.core.base.RomixCost",
+    "ExtendedKey": "blockchainkit.wallets.core.base.ExtendedKey",
+    "AccountScan": "blockchainkit.wallets.core.base.AccountScan",
+    "BrainDrain": "blockchainkit.wallets.core.base.BrainDrain",
+    "Bech32Decoding": "blockchainkit.wallets.core.base.Bech32Decoding",
+    "WitnessProgram": "blockchainkit.wallets.core.base.WitnessProgram",
+    "EcdsaSignature": "blockchainkit.wallets.core.base.EcdsaSignature",
+    "KeyShares": "blockchainkit.wallets.core.base.KeyShares",
+    "ThresholdSigning": "blockchainkit.wallets.core.base.ThresholdSigning",
+    "RecoveryRisk": "blockchainkit.wallets.core.base.RecoveryRisk",
+    "UserOperation": "blockchainkit.wallets.core.base.UserOperation",
+    "GaloisField": "blockchainkit.wallets.utils.galois.GaloisField",
 }
 
 autodoc_default_options = {
@@ -250,6 +290,7 @@ nitpick_ignore = [
     ("py:class", "blockchainkit.contracts.systems.wallets.PublicKey"),
     ("py:class", "PublicKey"),
     ("py:class", "blockchainkit.contracts.systems.design_by_contract.F"),
+    ("py:class", "blockchainkit.wallets.utils.keys.PublicKey"),
 ]
 
 source_suffix = {
@@ -325,6 +366,20 @@ SUBPACKAGES = [
         "blurb": "Ponzi schemes, Benford's law, proofs of reserves and solvency, honeypots "
         "and rug pulls, pump-and-dumps, wash trading, and phishing.",
     },
+    {
+        "name": "privacy",
+        "category": "Cryptography",
+        "blurb": "Anonymity on public ledgers: mix-nets and Tor, ring signatures and stealth "
+        "addresses, address clustering, CoinJoin and mixers, and hidden amounts from "
+        "confidential transactions to Mimblewimble.",
+    },
+    {
+        "name": "wallets",
+        "category": "Ledgers",
+        "blurb": "Keys as users hold them: check digits, Base58Check and Bech32 addresses, "
+        "PBKDF2 and scrypt, brain wallets, HD keys and seed phrases, multisig and threshold "
+        "ECDSA, social recovery, and ERC-4337 accounts.",
+    },
 ]
 
 for _s in SUBPACKAGES:
@@ -375,10 +430,40 @@ sphinx_gallery_conf = {
 doctest_global_setup = "import blockchainkit as bk"
 
 html_theme = "pydata_sphinx_theme"
+
+# Search-engine metadata: sphinx-sitemap writes sitemap.xml with absolute
+# URLs from html_baseurl, and sphinxext-opengraph adds a <meta
+# name="description"> plus og:* link-preview tags from each page's text.
+# html_baseurl also gives every page a <link rel="canonical">.
+html_baseurl = "https://cpoli.github.io/blockchainkit/"
+sitemap_url_scheme = "{link}"
+sitemap_excludes = [
+    "search.html",
+    "genindex.html",
+    "py-modindex.html",
+    "*sg_execution_times.html",
+    "_modules/*",
+    # Include-only fragments (card grids, nav strips), not standalone pages.
+    "_generated/grid_*",
+    "_generated/vars.html",
+    "_generated/nav/*",
+]
+ogp_site_url = html_baseurl
+ogp_site_name = project
+ogp_image = html_baseurl + "_static/images/blockchainkit_logo.png"
+ogp_social_cards = {"enable": False}
 html_title = "blockchainkit"
 html_logo = "_static/images/blockchainkit_logo_transparent.png"
 html_theme_options = {
     "github_url": "https://github.com/cpoli/blockchainkit",
+    "icon_links": [
+        {
+            "name": "Charles Poli",
+            "url": "https://cpoli.github.io/",
+            "icon": "fa-solid fa-user",
+            "type": "fontawesome",
+        },
+    ],
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     "show_toc_level": 2,
     "navigation_with_keys": True,

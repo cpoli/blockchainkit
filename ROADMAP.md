@@ -8,9 +8,10 @@ broken and verified in a sixth, `contracts`; and incentives, fees and
 markets in a seventh, `economics`; layer-2 scaling and
 interoperability in an eighth, `channels`; and zero-knowledge and succinct
 proof systems in a ninth, `proofs`; and financial fraud in a tenth,
-`fraud`, with 15 to 22 history breakthroughs each, every one with its own
-gallery example. Items 1 and 2 are smaller and could instead become modules
-in `crypto` and `structures`.
+`fraud`; anonymity and confidentiality in an eleventh, `privacy`; and keys
+as users actually hold them in a twelfth, `wallets`, with 15 to 22 history
+breakthroughs each, every one with its own gallery example. Every planned
+item is done; new items go above **Done**.
 
 Each item lists why it matters, the current state, and a sketch of the
 approach. The candidate breakthroughs are a draft: verify each date against
@@ -32,73 +33,6 @@ The project conventions apply to every new subpackage:
 - a history page with at least 15 breakthroughs, each with its own gallery
   example, and an exercise page.
 
-## 1. `privacy`: anonymity and confidentiality on public ledgers
-
-**Why.** A public ledger is a permanent record of who paid whom. Users need
-to know what it reveals, and which techniques hide senders, receivers and
-amounts.
-
-**Now.** Pieces are spread across the package: blind signatures and Pedersen
-commitments in `crypto`, Dandelion in `network`. The history pages should
-cross-link these rather than duplicate them.
-
-**Approach.** Address-clustering heuristics on a simulated transaction
-graph; CoinJoin and its anonymity set; ring signatures over the teaching
-curve; stealth addresses; and confidential amounts from Pedersen
-commitments. Candidate breakthroughs:
-
-1. 1981: Chaum's mix-nets
-2. 2001: ring signatures (Rivest, Shamir and Tauman)
-3. 2002: k-anonymity (Sweeney) and anonymity sets
-4. 2004: onion routing in Tor
-5. 2004: linkable ring signatures and key images
-6. 2013: Meiklejohn et al., *A Fistful of Bitcoins*: clustering addresses
-7. 2013: CryptoNote stealth addresses
-8. 2013: CoinJoin
-9. 2013: Zerocoin
-10. 2015: confidential transactions
-11. 2016: RingCT
-12. 2016: Mimblewimble and transaction cut-through
-13. 2017: TumbleBit, an untrusted payment hub
-14. 2018: traceability in Monero (Möser et al.)
-15. 2019: Tornado Cash and mixer contracts
-
-Could instead be a `privacy` module in `crypto` plus history entries spread
-across existing pages, if a sixth to eighth subpackage is too many.
-
-## 2. `wallets`: keys as users actually hold them
-
-**Why.** Most lost funds are lost through key handling, not broken
-cryptography: weak brain wallets, mistyped addresses, lost backups, a single
-point of failure. The package derives keys from integers and never shows
-encodings, derivation or recovery.
-
-**Now.** `crypto` has key generation from integers, Shamir and Feldman
-sharing, and MuSig. `structures.address` is a plain SHA-256 hex digest.
-
-**Approach.** Address encodings with checksums; key stretching; BIP32 child
-key derivation on secp256k1; mnemonic encoding with a small word list;
-multisig and threshold signing built on `crypto`. Candidate breakthroughs:
-
-1. 1959-1960: BCH error-correcting codes, the basis of Bech32
-2. 1969: Verhoeff's check digit and detecting transpositions
-3. 2000: PBKDF2 key stretching
-4. 2009: scrypt and memory-hard key derivation
-5. 2009: Base58Check addresses
-6. 2012: pay-to-script-hash and multisig
-7. 2012: hierarchical deterministic wallets (BIP32)
-8. 2013: mnemonic seed phrases (BIP39)
-9. 2014: multi-account derivation paths (BIP44)
-10. 2016: the brain-wallet drain (Vasek et al.)
-11. 2017: Bech32 addresses (BIP173)
-12. 2018: threshold ECDSA (Gennaro and Goldfeder)
-13. 2020: Bech32m (BIP350) and a checksum flaw
-14. 2021: social-recovery wallets
-15. 2021: account abstraction (ERC-4337)
-
-Could instead be modules in `crypto` (key derivation, threshold signing) and
-`structures` (address encodings).
-
 ## Done
 
 Finished items move here with the release they shipped in, as in
@@ -106,6 +40,36 @@ CHANGELOG.md.
 
 ### Unreleased
 
+- `wallets`: keys as users actually hold them, with 15 history
+  breakthroughs from BCH codes to ERC-4337, each with its own gallery
+  example, and an exercise page. Standards are reproduced to their
+  published test vectors: Base58Check and P2PKH addresses (with a
+  pure-Python RIPEMD-160), Bech32 and Bech32m, PBKDF2 and scrypt, BIP32
+  extended keys and BIP39's seed derivation, and RFC 6979 ECDSA on
+  secp256k1. BIP39's English word list is replaced by 2048 generated
+  four-letter words; P2SH runs on `vm.script`, so it hashes with
+  `OP_HASH256` and writes m-of-n as one `OP_IF` branch per signer set;
+  threshold ECDSA follows Gennaro and Goldfeder with an ideal MtA in place
+  of Paillier; and the social-recovery wallet and ERC-4337's EntryPoint and
+  smart account are contracts on `contracts.World`. The history page
+  cross-links Shamir, Feldman and MuSig in `crypto`, Script in `vm`, the
+  Parity wallets in `contracts`, and address poisoning in `fraud`.
+- `privacy`: anonymity and confidentiality on public ledgers, with 15
+  history breakthroughs from Chaum's mix-nets to Tornado Cash, each with its
+  own gallery example, and an exercise page. Everything works in
+  `crypto.TEACHING_GROUP`: hashed-ElGamal mix and onion layers, AOS ring
+  signatures (standing in for Rivest, Shamir and Tauman's RSA rings), LSAG
+  and MLSAG with CryptoNote's key images, stealth addresses, bitwise
+  ring-signature range proofs for confidential amounts, RingCT with one
+  input, and Mimblewimble with kernel offsets. Zerocoin's spend proves
+  membership with a ring signature over every coin rather than against its
+  RSA accumulator; TumbleBit keeps the blinded RSA puzzles but not the
+  on-chain fair exchange; and the Tornado-style `Mixer` contract proves
+  with the Zerocash circuit of `proofs`, binding the recipient through the
+  new-note commitment. Clustering, traceability and the mixer's anonymity
+  sets run on seeded simulations. The history page cross-links Chaum's
+  blind signatures and Pedersen commitments in `crypto`, Dandelion in
+  `network`, and Zerocash and Bulletproofs in `proofs`.
 - `fraud`: financial fraud on and around blockchains, with 17 history
   breakthroughs from Ponzi's scheme to address poisoning, each with its own
   gallery example, and an exercise page. Scam contracts (a chain Ponzi,

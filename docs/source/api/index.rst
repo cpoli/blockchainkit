@@ -23,4 +23,6 @@ The constants shared by every subpackage are documented in :doc:`constants`.
    channels
    proofs
    fraud
+   privacy
+   wallets
    constants

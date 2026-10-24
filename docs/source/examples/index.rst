@@ -23,3 +23,5 @@ Jupyter notebook, or run it in the browser with JupyterLite. The guided
    blockchainkit.channels </api/gallery/channels/index>
    blockchainkit.proofs </api/gallery/proofs/index>
    blockchainkit.fraud </api/gallery/fraud/index>
+   blockchainkit.privacy </api/gallery/privacy/index>
+   blockchainkit.wallets </api/gallery/wallets/index>

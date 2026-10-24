@@ -371,3 +371,86 @@ simulated transfers, trades and prices.
 - **Look-alike addresses.** Candidates are the last 20 bytes of
   ``SHA256(LOOKALIKE_DOMAIN || canonical_json([seed, index]))``, not
   addresses derived from key pairs.
+
+Privacy models
+--------------
+
+:mod:`blockchainkit.privacy` adds no consensus rule. Every construction works
+in the 62-bit ``TEACHING_GROUP``, written multiplicatively: a public key is
+``g**x mod p``. Hashes into the group are framed as
+``canonical_json([p, q, g, ...])`` after a domain tag; scalars are reduced
+modulo ``q``, and group elements are squared into the order-``q`` subgroup.
+
+- **Layers.** A mix or onion layer is ``R || plaintext XOR keystream``, with
+  an 8-byte ``R = g**k`` and the keystream
+  ``SHA256(MIX_DOMAIN || f"{R**x}:{i}")``; the plaintext is a two-byte
+  length, the next hop's name and the inner layer. There is no padding and
+  no authentication tag.
+- **Ring signatures.** Abe-Ohkubo-Suzuki rings with challenges
+  ``H(RING_DOMAIN, message.hex(), ring, commitment) mod q``. LSAG and MLSAG
+  hash the ring, the key image and every column's commitment, and the key
+  image is ``hash_to_group(KEY_IMAGE_DOMAIN, P)**x``, CryptoNote's form,
+  rather than Liu, Wei and Wong's hash of the ring.
+- **Stealth addresses.** The one-time key is
+  ``g**H(STEALTH_DOMAIN, A**r, index) * B``.
+- **Hidden amounts.** Pedersen commitments with
+  :func:`~blockchainkit.crypto.systems.commitments.pedersen_generators`.
+  Range proofs commit to each bit and sign a two-member ring over base ``h``
+  per bit, not Borromean signatures over base-4 digits. RingCT has one input
+  and no pseudo-outputs. Mimblewimble kernels are Schnorr signatures over
+  ``h`` with challenge ``H(KERNEL_DOMAIN, E, R, fee)``; outputs carry no
+  range proofs, and offsets add modulo ``q``.
+- **Zerocoin.** The accumulator's modulus is a fixed 63-bit product of
+  primes with base 4, and coins are hashed to 32-bit primes with
+  ``ACCUMULATOR_DOMAIN``. Spends prove membership with a ring signature over
+  every coin, not against the accumulator.
+- **TumbleBit.** Puzzles use a 62-bit textbook RSA key with ``e = 65537``;
+  tokens are encrypted with ``TUMBLER_DOMAIN`` keystreams. No escrow, fair
+  exchange or cut-and-choose is modelled.
+- **Mixer contract.** Withdrawals reuse the Zerocash spend circuit on the toy
+  pairing. The recipient is bound by requiring the new-note commitment to
+  be that of ``Note(H(recipient) mod FIELD_PRIME, 0, 0, 0)``.
+- **Simulations.** Clustering uses a toy economy that spends largest coins
+  first; traceability creates one output per step, with geometric spending
+  ages.
+
+Wallet models
+-------------
+
+:mod:`blockchainkit.wallets` adds no consensus rule. Where a standard
+exists, it is followed byte for byte and checked against the standard's
+published test vectors: Base58Check, P2PKH addresses with ``HASH160`` (a
+pure-Python RIPEMD-160), Bech32 and Bech32m with segregated-witness
+programs, PBKDF2, scrypt (RFC 7914), BIP32 extended keys and their
+``xprv``/``xpub`` serialization, BIP39's seed derivation, and ECDSA on
+secp256k1 with RFC 6979 nonces and low ``s``. The departures:
+
+- **Word list.** BIP39 phrases use 2048 four-letter words generated as
+  consonant, vowel, consonant, vowel, in sorted order, not BIP39's English
+  list. Entropy, checksum and seed derivation follow BIP39, so
+  :func:`~blockchainkit.wallets.systems.mnemonics.mnemonic_to_seed`
+  reproduces BIP39's seeds for English phrases.
+- **P2SH.** Spends run on :func:`~blockchainkit.vm.systems.script.verify_script`
+  in BIP16's two stages, with Bitcoin's opcode bytes and push prefixes
+  (:func:`~blockchainkit.wallets.systems.p2sh.serialize_script`). The
+  locking script commits with ``OP_HASH256`` (that Script has no
+  ``OP_HASH160``), signatures are this package's Schnorr signatures over
+  an explicit message, and m-of-n is one ``OP_IF`` branch per set of m
+  signers (it has no ``OP_CHECKMULTISIG``). Redeem scripts above
+  ``MAX_SCRIPT_ELEMENT_SIZE`` (520) bytes are refused. The P2SH address is
+  BIP16's, ``HASH160`` of the script with version 5.
+- **Threshold ECDSA.** Keys are generated jointly with Feldman commitments
+  on secp256k1; signing follows Gennaro and Goldfeder's shares of
+  :math:`k\gamma` and :math:`kx`, but the multiplicative-to-additive step is
+  an ideal function rather than Paillier encryption with range proofs, and
+  no step checks for a cheating party.
+- **Brain wallets.** Keys and addresses are real (uncompressed P2PKH); the
+  population of owners and the thieves' tables and delays are invented.
+- **Social recovery.** Guardians vote with transactions, not off-chain
+  signatures; guardian changes wait ``GUARDIAN_DELAY`` (100) blocks, and a
+  recovery cancels a pending change.
+- **ERC-4337.** A user operation is signed with a Schnorr signature over
+  ``SHA256(USER_OPERATION_DOMAIN || canonical_json([entry_point, chain_id,
+  sender, nonce, function, args, fee]))``. The fee is a fixed amount, not
+  gas used times a gas price; there are no paymasters, aggregators or
+  factories, and validation may touch any storage.

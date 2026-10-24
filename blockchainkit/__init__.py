@@ -14,9 +14,11 @@ from blockchainkit import (
     economics,
     fraud,
     network,
+    privacy,
     proofs,
     structures,
     vm,
+    wallets,
 )
 
 __version__ = "0.2.0"
@@ -31,7 +33,9 @@ __all__ = [
     "economics",
     "fraud",
     "network",
+    "privacy",
     "proofs",
     "structures",
     "vm",
+    "wallets",
 ]

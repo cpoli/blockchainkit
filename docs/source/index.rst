@@ -1,5 +1,5 @@
-blockchainkit
-=============
+blockchainkit: Learn How Blockchains Work in Python
+===================================================
 
 .. include:: /_generated/vars.rst
 
@@ -139,6 +139,24 @@ breakthrough links to runnable gallery code.
      :alt: A Ponzi scheme's deposits and payouts until its collapse, invented amounts against Benford's law, and a pump-and-dump flagged by its spike
      :width: 100%
 
+- :mod:`blockchainkit.privacy` -- Chaum's mix-nets and Tor; ring signatures,
+  key images and stealth addresses; k-anonymity, address clustering and
+  Monero's traceability; CoinJoin, TumbleBit and Tornado Cash; Zerocoin,
+  confidential transactions, RingCT and Mimblewimble.
+
+  .. image:: _static/images/readme_privacy.png
+     :alt: Address clusters merged by the change heuristic, how often the newest ring member is the real spend, and a mixer's anonymity sets
+     :width: 100%
+
+- :mod:`blockchainkit.wallets` -- BCH codes and Verhoeff's check digit;
+  Base58Check, Bech32 and Bech32m addresses; PBKDF2, scrypt and the
+  brain-wallet drain; BIP32 HD keys, BIP39 seed phrases and BIP44 paths;
+  P2SH multisig, threshold ECDSA, social recovery and ERC-4337.
+
+  .. image:: _static/images/readme_wallets.png
+     :alt: Check digits against single errors and swaps, scrypt's memory-time trade-off, and social-recovery risk against one seed phrase
+     :width: 100%
+
 
 **blockchainkit** is part of a family of packages --
 `physicskit <https://cpoli.github.io/physicskit/>`_,
@@ -204,3 +222,14 @@ Conventionally imported as ``bk``:
    :hidden:
 
    api/index
+
+.. rubric:: Related toolkits
+
+Sibling Python toolkits for learning and teaching, built the same way:
+
+- `chemistrykit <https://cpoli.github.io/chemistrykit/>`__ -- computational chemistry
+- `engineeringkit <https://cpoli.github.io/engineeringkit/>`__ -- computational engineering
+- `financialkit <https://cpoli.github.io/financialkit/>`__ -- quantitative finance
+- `mathematicskit <https://cpoli.github.io/mathematicskit/>`__ -- computational mathematics
+- `physicskit <https://cpoli.github.io/physicskit/>`__ -- computational physics
+- `tbkit <https://cpoli.github.io/tbkit/>`__ -- tight-binding models, band topology and quantum transport

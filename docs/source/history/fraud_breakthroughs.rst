@@ -8,27 +8,73 @@ Breakthroughs in Blockchain Fraud
    "Trust, but verify."
    -- Russian proverb, as quoted by Ronald Reagan, 1987
 
-Most of the money lost in cryptocurrencies is lost to fraud, not to broken
-cryptography or consensus: Ponzi schemes, pump-and-dumps, rug pulls,
-phishing, and custodians that lose or lend their customers' coins. The
-schemes are old; the blockchain changes how they run and what evidence they
-leave. A public ledger makes fraud measurable, and some honesty provable:
-an exchange can prove what it holds and what it owes. This chronology
-follows both sides, from Ponzi's scheme and Benford's law to proofs of
-solvency, the contracts whose source deceives the reader who checks it, and
-the manipulation and phishing of the last few years.
+A *cryptocurrency* is digital money. Its record of who owns what is kept on a
+*blockchain*: a shared record, like a Python list of blocks of transactions.
+Many computers keep copies of it in step, and nobody can quietly edit an old
+entry. The rules by which those computers agree on one copy are called
+*consensus*. *Cryptography* is the mathematics of keeping and checking
+secrets.
+
+Most of the money lost in cryptocurrencies is lost to fraud. Little of it is
+lost to broken cryptography or broken consensus. The usual culprits are:
+
+- **Ponzi schemes**, which pay old investors with new investors' money;
+- **pump-and-dumps**, which push a price up and sell into the rush;
+- **rug pulls**, where the creators of a coin run off with the buyers' money;
+- **phishing**, which tricks a victim into handing over control;
+- **custodians** that lose or lend their customers' coins. A custodian is
+  anyone who holds coins for someone else. The commonest is an *exchange*: a
+  company that holds customers' coins and lets them trade, as a bank holds
+  deposits.
+
+The schemes are old. The blockchain changes how they run and what evidence
+they leave. Anyone can read the blockchain's *ledger*, its list of every
+transaction ever made. So fraud on it can be measured. Some honesty can even
+be proved: an exchange can prove what it holds and what it owes. This
+chronology follows both sides. It runs from Ponzi's scheme and Benford's law
+to *proofs of solvency* (proofs that an exchange holds at least what it
+owes), to contracts whose source code deceives the reader who checks it, and
+to the manipulation and phishing of the last few years.
+
+A few terms recur on every page:
+
+- A *key pair* is a secret number, the *private key*, and a public number
+  computed from it, the *public key*. The owner proves a payment is theirs
+  with a *digital signature*: a value that only the private key could
+  produce, but that anyone can check with the public key. An *address* is a
+  short public name for a key, like an account number.
+- A *hash function* is like Python's ``hash()``, but built so that nobody can
+  find two inputs with the same output, or an input with a chosen output.
+  SHA-256 is the standard one; its output is 256 bits. The best known way to
+  find two inputs with the same SHA-256 output takes about :math:`2^{128}`
+  tries. That is far more than every computer on Earth could do in the age of
+  the universe.
+- A *smart contract* (or just *contract*) is a program stored on a blockchain
+  at its own address. Anyone can call its functions by sending a
+  transaction. It keeps its own *storage*, like an object's attributes, and
+  its own coins. *Ethereum* is the main blockchain for contracts, and *ether*
+  is its currency. *Solidity* is the language most contracts are written in.
+- A *token* is a currency built on top of a blockchain by a contract. At
+  heart it is a dict from address to balance, with functions to move
+  balances. *ERC-20* is Ethereum's standard interface for tokens.
 
 Several neighbours live elsewhere: the GovernMental Ponzi game and ERC-20's
 approve race are in :doc:`contracts_breakthroughs`, transaction
 malleability itself in :doc:`structures_breakthroughs`, and flash loans,
 oracle manipulation and front-running in :doc:`economics_breakthroughs`.
+Those pages explain their own terms.
 
-The models in :mod:`blockchainkit.fraud` are pure functions, small seeded
-simulations, and contracts on
-:class:`~blockchainkit.contracts.systems.world.World`. Solidity appears only
-as what a victim reads: each scam contract's example shows the source, then
-reproduces its behavior in Python. :doc:`/protocol` lists where the models
-depart from deployed systems.
+The models in :mod:`blockchainkit.fraud` come in three kinds:
+
+- *pure functions*, whose output depends only on their input;
+- small *seeded simulations*, random but reproducible, as after
+  ``random.seed(0)``;
+- contracts on :class:`~blockchainkit.contracts.systems.world.World`, a
+  Python model of Ethereum.
+
+Solidity appears only as what a victim reads. Each scam contract's example
+shows the source, then reproduces its behavior in Python. :doc:`/protocol`
+lists where the models depart from deployed systems.
 
 .. contents:: Timeline
    :local:
@@ -37,26 +83,40 @@ depart from deployed systems.
 1920 -- Ponzi's Scheme: Paying Old Investors with New Money
 -----------------------------------------------------------
 
-Charles Ponzi promised Boston investors a 50% return in 45 days, supposedly
-from buying international reply coupons cheaply abroad and redeeming them
-in the United States. He bought almost none: every payout came from later
-deposits. Such a scheme meets its promises only while new money grows fast
-enough. A deposit :math:`D` made :math:`\tau` periods ago is owed
-:math:`(1 + r)D` today, and must be paid from today's deposits, of which
-the operator keeps a fraction :math:`s`. If deposits grow by :math:`g` per
-period, today's are :math:`(1 + g)^\tau D`, so the scheme keeps up exactly
-when
+Charles Ponzi promised Boston investors a 50% return in 45 days. The profit
+was supposed to come from international reply coupons: vouchers bought in
+one country and swapped for postage stamps in another. They were cheaper
+abroad, so he claimed to buy them there and redeem them in the United
+States. He bought almost none. Every payout came from later deposits.
+
+Such a scheme keeps its promises only while new money grows fast enough. It
+is like paying off one credit card with another: it works until the next card
+is not big enough.
+
+#. An investor deposits :math:`D`.
+#. After :math:`\tau` periods the investor is owed :math:`(1 + r)D`.
+#. The operator pays this from the deposits arriving that period. It first
+   keeps a fraction :math:`s` of them for itself.
+#. Deposits grow by a fraction :math:`g` per period. So today's deposits are
+   :math:`(1 + g)^\tau D`.
+
+The scheme keeps up exactly when
 
 .. math::
 
    (1 - s)(1 + g)^\tau \ge 1 + r .
 
-On Ponzi's terms, with one 45-day period and nothing kept, deposits must
-grow by half every 45 days, and no pool of investors grows like that for
-long. Once growth falls below that rate, each payout is larger than the
-deposits that fund it, the cash runs out, and the latest investors lose
-what they paid in. Ponzi collapsed
-within eight months, in August 1920.
+In words: what is left of today's deposits, after the operator's cut, must
+cover what is owed on the old deposit.
+
+- **Ponzi's own terms** were one 45-day period, :math:`r = 0.5`, and nothing
+  kept. So deposits had to grow by half every 45 days. Over a year, about
+  eight periods, that is :math:`1.5^8 \approx 26` times as much new money. No
+  pool of investors grows like that for long.
+- **Once growth falls below that rate**, each payout is larger than the
+  deposits that fund it. The cash runs out. The latest investors lose what
+  they paid in.
+- Ponzi collapsed within eight months, in August 1920.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.ponzi.simulate_ponzi`
 and :func:`blockchainkit.fraud.systems.ponzi.breakeven_growth`. Every
@@ -72,27 +132,49 @@ schemes*, Mathematical Social Sciences 58(2), 190–201 (2009).
 1938 -- Benford's Law: Detecting Fabricated Figures
 ---------------------------------------------------
 
-Simon Newcomb noticed in 1881 that the first pages of books of logarithms
-were dirtier than the last. Frank Benford tested the observation on 20,229
-numbers, from river areas to street addresses, and found the same law: in
-data spread over several orders of magnitude, the leading digit is
-:math:`d` with probability
+An auditor wants to spot invented figures without checking every one.
+
+Before calculators, people multiplied using printed books of logarithms.
+Simon Newcomb noticed in 1881 that the first pages of these books were
+dirtier than the last. People looked up numbers starting with 1 more often
+than numbers starting with 9. Frank Benford tested the observation on 20,229
+numbers, from river areas to street addresses, and found the same law. Take
+data spread over several *orders of magnitude* (powers of ten, say from 10
+to 100,000). Then the leading digit is :math:`d` with probability
 
 .. math::
 
    P(d) = \log_{10}\left(1 + \frac{1}{d}\right),
 
-30.1% for 1 and 4.6% for 9. The reason is logarithmic: a number has
-leading digit :math:`d` exactly when the fractional part of its base-10
-logarithm lies between :math:`\log_{10} d` and :math:`\log_{10}(d + 1)`, an
-interval of length :math:`P(d)`. If that fractional part is spread evenly,
-as it is for data covering several orders of magnitude, each digit occurs
-in proportion to its interval. Products of many random factors, such as
-payments and prices, have logarithms that are sums of many terms and so
-spread widely. People inventing numbers instead spread the first digit far
-more evenly. That difference is why auditors, following Nigrini, test
-reported figures against the law, and why it has been used to question the
-volumes cryptocurrency exchanges report.
+That is 30.1% for 1 and only 4.6% for 9. The reason is logarithmic:
+
+#. Write a positive number as :math:`x = 10^{n + f}`, where :math:`n` is a
+   whole number and :math:`f`, between 0 and 1, is the fractional part of
+   :math:`\log_{10} x` (``math.log10(x) % 1``).
+#. The leading digit of :math:`x` is :math:`d` exactly when :math:`f` lies
+   between :math:`\log_{10} d` and :math:`\log_{10}(d + 1)`.
+#. That interval has length :math:`P(d)`.
+#. If :math:`f` is spread evenly between 0 and 1, each digit occurs in
+   proportion to its interval.
+
+When does that hold, and when does it fail?
+
+- **Data covering several orders of magnitude** has an evenly spread
+  :math:`f`.
+- **Products of many random factors**, such as payments and prices, spread
+  widely too. The logarithm of a product is a sum of many terms, and sums of
+  many random terms spread out.
+- **People inventing numbers** spread the first digit far more evenly.
+
+That difference is why auditors, following Mark Nigrini, test reported
+figures against the law. It has been used to question the trading volumes
+that cryptocurrency exchanges report. A test measures how far the observed
+digit counts are from the law. *Pearson's chi-square statistic* adds up
+:math:`(\text{observed} - \text{expected})^2 / \text{expected}` over the nine
+digits. Its *p-value* is the probability that honest data would give a value
+at least that large by chance. A small p-value is evidence against the data.
+Nigrini's *mean absolute deviation* is the average gap
+``abs(observed_share - expected_share)`` over the digits.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.benford.benford_test`,
 which returns Pearson's chi-square statistic with its exact p-value
@@ -113,28 +195,53 @@ Wiley (2012).
 2013 -- Maxwell's Merkle-Sum-Tree Proof of Reserves
 ---------------------------------------------------
 
-An exchange can prove that it holds coins by moving them or signing with
-their keys, but holdings mean nothing without the debts they must cover.
-Gregory Maxwell proposed that the exchange also prove its liabilities, by
-publishing the root of a Merkle tree over its customer balances in which
-every node carries the sum of the balances below it, and every hash covers
-both children's sums:
+An exchange can prove that it holds coins. It moves them, or signs a message
+with their keys. That is a *proof of reserves*. But holdings mean nothing
+without the debts they must cover: the *liabilities*, what the exchange owes
+its customers.
+
+Gregory Maxwell proposed that the exchange also prove its liabilities. The
+tool is a *Merkle tree*: a tree of hashes. Each leaf is the hash of one
+record, each parent is the hash of its two children, and the top hash, the
+*root*, depends on every leaf. Change any leaf and the root changes. It works
+like a checksum of a whole list that can also prove one item is in it.
+Maxwell's version is a *Merkle sum tree*: every node also carries the sum of
+the balances below it.
+
+#. The exchange puts each customer's balance in a leaf.
+#. It builds each parent from its children's hashes :math:`h_L, h_R` and
+   sums :math:`s_L, s_R`, as below. The symbol :math:`\|` joins byte strings,
+   like ``a + b`` on ``bytes``.
+#. It publishes the root: a hash and a sum. The sum is the declared total
+   liabilities.
+#. The public compares that total with the reserves.
+#. Each customer asks for a proof that its balance is counted. The proof is
+   the sibling hashes and sums on the path from its leaf to the root. There
+   are about :math:`\log_2 n` of them for :math:`n` customers: 20 for a
+   million.
+#. The customer recomputes the path and checks that it reaches the published
+   root.
+
+Each node is
 
 .. math::
 
    \text{node} = \big(H(s_L \,\|\, s_R \,\|\, h_L \,\|\, h_R),\; s_L + s_R\big).
 
-Because the sums are hashed, the root fixes every sum in the tree, and the
-exchange cannot show different customers different totals. The root's sum
-is the declared total liabilities, which the public compares with the
-reserves; each customer checks a proof of logarithmic size, the sibling
-hashes and sums on its path, that its balance is counted. The exchange can
-lower the declared total in only two ways. It can leave customers out, but
-those left out can notice: if each checks independently with probability
-:math:`f`, cheating :math:`k` of them goes unnoticed with probability
-:math:`(1 - f)^k`. Or it can add a fake account with a negative balance to
-cancel real ones; customers reject any negative sibling sum on their path,
-so such an account is caught by those whose proofs include it.
+In words: a node's hash covers both children's sums and hashes, and its sum
+is their total.
+
+- **Because the sums are hashed**, the root fixes every sum in the tree. The
+  exchange cannot show different customers different totals.
+- **Leaving customers out** lowers the declared total. But those left out can
+  notice. Suppose each customer checks independently with probability
+  :math:`f`. Then cheating :math:`k` of them goes unnoticed with probability
+  :math:`(1 - f)^k`. With :math:`f = 0.05` and :math:`k = 100` that is about
+  0.006.
+- **Adding a fake account with a negative balance** would cancel real ones.
+  But customers reject any negative sibling sum on their path. So such an
+  account is caught by those whose proofs include it.
+- These are the only two ways to lower the declared total.
 
 *Implementation:* :class:`blockchainkit.fraud.utils.merkle_sum.MerkleSumTree`,
 :func:`blockchainkit.fraud.utils.merkle_sum.verify_sum_proof`,
@@ -154,24 +261,50 @@ reserves side, signing with the exchange's keys, is not modelled.
 --------------------------------------------------------
 
 On 7 February 2014 Mt. Gox, the largest bitcoin exchange, halted
-withdrawals and blamed transaction malleability: an attacker could alter a
-withdrawal's signature in flight, so that it confirmed under a different
-txid; the exchange, which looked for its withdrawals by txid, would believe
-them failed and pay again. Within three weeks it filed for bankruptcy,
-about 850,000 bitcoins short. An exchange losing to malleability loses
-exactly the withdrawals it re-sends, those whose original txid never
-appears on the chain:
+withdrawals. It blamed *transaction malleability*. Each bitcoin transaction
+is named by its *txid*, a hash of the whole transaction, signature included.
+Anyone could re-encode a transaction's signature in a different but still
+valid form, without the private key. That changes the bytes, so it changes
+the txid. But the payment is the same.
+
+The claimed attack went like this:
+
+#. The exchange signs a withdrawal :math:`w`, *broadcasts* it (sends it to
+   the network), and records :math:`\mathrm{txid}(w)`.
+#. An attacker sees it in flight, alters the signature's encoding, and
+   broadcasts the copy.
+#. Miners *confirm* the copy, that is, put it in a block on the chain. The
+   coins arrive. The original is now invalid, since it spends the same coins.
+#. The exchange looks for :math:`\mathrm{txid}(w)`, does not find it, and
+   believes the withdrawal failed.
+#. The exchange pays again.
+
+Within three weeks it filed for bankruptcy, about 850,000 bitcoins short. An
+exchange losing to malleability loses exactly the withdrawals it re-sends:
+those whose original txid never appears on the chain.
 
 .. math::
 
    \text{loss} = \sum_{w \,:\, \mathrm{txid}(w) \notin \text{chain}} a_w .
 
-Each such loss therefore requires a malleated copy of the withdrawal to
-have been broadcast and confirmed, and broadcasts are public. Decker and
-Wattenhofer had been recording the network's transactions and counted the
-malleated ones: before the announcement, they could account for at most 386
-bitcoins, a tiny fraction of the shortfall. The coins had been leaving for
-years; the excuse covered a long insolvency.
+In words: add up the amounts :math:`a_w` of every withdrawal whose original
+txid is missing from the chain.
+
+The excuse failed on the evidence:
+
+- **Each such loss leaves a trace.** A malleated copy of the withdrawal must
+  have been broadcast and confirmed, and broadcasts are public.
+- **Someone was watching.** Decker and Wattenhofer had been recording the
+  network's transactions and counted the malleated ones. Before the
+  announcement they could account for at most 386 bitcoins. That is under
+  0.05% of the shortfall.
+- **The coins had been leaving for years.** The excuse covered a long
+  *insolvency*: owing more than it held.
+
+The lasting fix was *segregated witness* (SegWit), activated in 2017. It
+computes a transaction's txid without its signature, so altering the
+signature no longer changes it.
+This package signs with *Schnorr signatures*, a different signature scheme.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.custody.reissue_missing`
 on :class:`~blockchainkit.structures.systems.transaction.Transaction`.
@@ -189,29 +322,72 @@ malleability and MtGox*, ESORICS 2014, LNCS 8713, 313–326.
 2015 -- Provisions: Privacy-Preserving Proofs of Solvency
 ---------------------------------------------------------
 
-Maxwell's proof reveals the total liabilities, and a proof of reserves
-reveals which addresses the exchange owns; few exchanges were willing to
-publish either. Dagher, Bünz, Bonneau, Clark and Boneh hid both behind
-Pedersen commitments :math:`C(v, r) = g^v h^r`, which hide :math:`v` behind
-the random :math:`r` and multiply into a commitment to the sum. For every
-address :math:`i` of a large public set, with public balance :math:`b_i`,
-the exchange commits to :math:`s_i b_i`, where :math:`s_i` is 1 if it owns
-the address and 0 if not, so the set hides which addresses are its own. It
-also commits to every customer balance :math:`\ell_j`, and the quotient
+Maxwell's proof reveals the total liabilities. A proof of reserves reveals
+which addresses the exchange owns. Few exchanges were willing to publish
+either.
+
+Dagher, Bünz, Bonneau, Clark and Boneh hid both behind *commitments*. A
+commitment is like a sealed envelope. You fix a value now and keep it hidden.
+Later you cannot change it. They used *Pedersen commitments*:
+
+- :math:`C(v, r) = g^v h^r \bmod p`, in Python
+  ``pow(g, v, p) * pow(h, r, p) % p``. Here :math:`p` is a large prime, and
+  :math:`g` and :math:`h` are fixed public numbers.
+- The random :math:`r`, the *blinding factor*, hides :math:`v`. Every value
+  is equally consistent with what you see.
+- Nobody knows the power :math:`x` with :math:`h = g^x`. Finding it is the
+  *discrete logarithm problem*. That is what stops the committer from
+  opening :math:`C` to a different value.
+- **Multiplying commitments adds the hidden values:**
+  :math:`C(a, r)\,C(b, t) = C(a + b, r + t)`. Dividing subtracts them. The
+  values add *modulo* a large number :math:`q`, so a negative result wraps
+  around to a huge positive one.
+
+They also used *zero-knowledge proofs*. Such a proof convinces a checker that
+a statement is true, and reveals nothing beyond that.
+
+#. The public sees a large set of addresses. Address :math:`i` has public
+   balance :math:`b_i`, which anyone can read on the chain.
+#. For each address the exchange commits to :math:`s_i b_i`. Here
+   :math:`s_i` is 1 if it owns the address and 0 if not. So the set hides
+   which addresses are its own.
+#. It commits to every customer balance :math:`\ell_j`, with blinding factor
+   :math:`t_j`. It sends each customer that blinding factor privately.
+#. Each customer opens its own commitment and checks its balance.
+#. Anyone multiplies the asset commitments and divides by the liability
+   commitments.
+#. The exchange attaches zero-knowledge proofs (below) that close the
+   remaining gaps.
+
+Step 5 gives
 
 .. math::
 
    \frac{\prod_i C(s_i b_i, r_i)}{\prod_j C(\ell_j, t_j)}
    = C\Big(\sum_i s_i b_i - \sum_j \ell_j,\; \sum_i r_i - \sum_j t_j\Big)
 
-commits to its surplus, reserves minus liabilities. Commitments alone
-would let the exchange cheat, so zero-knowledge proofs close each gap: each
-asset commitment holds 0 or the public balance, so assets cannot be
-inflated; and every liability and the surplus lie in a range
-:math:`[0, 2^n)`, so no fake negative balance cancels real ones and the
-surplus is not negative. A range proof commits to each bit and proves it
-is 0 or 1. Customers check their own commitment with a blinding factor
-sent to them privately. Nothing else is revealed.
+In words: the product of the asset commitments, divided by the product of
+the liability commitments, is a commitment to the *surplus*, reserves minus
+liabilities.
+
+Commitments alone would let the exchange cheat. The zero-knowledge proofs
+close each gap:
+
+- **Each asset commitment holds 0 or the public balance.** An *OR proof*
+  shows "this holds 0, or this holds :math:`b_i`" without saying which. So
+  assets cannot be inflated.
+- **Every liability and the surplus lie in a range** :math:`[0, 2^n)`. So no
+  fake negative balance cancels real ones, and the surplus is not negative
+  (a negative one would wrap around to a huge number, outside the range).
+- **A range proof** commits to each bit of the number and proves each bit is
+  0 or 1. The bit commitments combine into a commitment to the number, as
+  ``sum(bit << k for k, bit in enumerate(bits))`` rebuilds an int.
+- Nothing else is revealed.
+
+The binding rests on the discrete logarithm being hard to find. In the
+62-bit group used here, a search with a lookup table (baby-step giant-step)
+takes about :math:`2^{31}` steps, within reach of one computer. Real systems
+use groups where the best known attack takes about :math:`2^{128}` steps.
 
 *Implementation:* :class:`blockchainkit.fraud.systems.provisions.SolvencyProver`
 and :func:`blockchainkit.fraud.systems.provisions.verify_solvency`, with
@@ -234,24 +410,49 @@ and simplified design of witness hiding protocols*, CRYPTO 1994, LNCS 839,
 2016 -- Verified Source Code, and Why a Verified Source Can Still Deceive
 -------------------------------------------------------------------------
 
-Contracts are deployed as bytecode. Block explorers let authors publish the
-source and *verify* it by recompiling it and comparing the result with the
-code at the address; Solidity's metadata hash, added in version 0.4.7 in
-December 2016, pins the compiler and settings so that the match is exact.
+Contracts are deployed as *bytecode*: low-level instructions for Ethereum's
+virtual machine, the *EVM*, much as Python compiles source to ``.pyc``
+files. Nobody can read bytecode easily. *Block explorers*, websites that
+display the blockchain, let authors publish the source and *verify* it. The
+explorer recompiles the source and compares the result with the code at the
+address. Solidity's *metadata hash*, added in version 0.4.7 in December
+2016, records the compiler version and settings so that the match is exact.
+
 Users came to read the "verified" badge as "safe". It certifies only which
-code sits at one address. A proxy's verified source shows that every call
-is forwarded, by ``DELEGATECALL``, to an implementation address held in
-storage, which its admin may change at any time, so the behavior that runs
-is
+code sits at one address. A *proxy* shows the gap:
+
+- A proxy is a contract that forwards every call to another contract, the
+  *implementation*.
+- It keeps the implementation's address in its storage, in a numbered
+  *slot*. Its admin may change that address at any time.
+- It forwards with ``DELEGATECALL``, which runs the other contract's code on
+  the proxy's own storage and coins. It is like calling a function from
+  another module but passing your own ``self``.
+
+The attack:
+
+#. The admin deploys a proxy and a harmless implementation, and verifies
+   both.
+#. Users read the source, trust it, and deposit.
+#. The admin writes a new implementation address into the proxy's slot.
+#. Every later call runs the new code, which can, for example, take any
+   balance.
+
+So the behavior that runs is
 
 .. math::
 
    \text{code}(\text{proxy}) \circ \text{code}\big(\text{storage}_{\text{proxy}}[\text{slot}]\big),
 
-and only the first factor was verified: the admin can swap the second after
-users have read the source. The same holds for code reached
-through a constructor argument, an external library, or a parent contract
-the reader skips.
+In words: the proxy's code, combined with whatever code sits at the address
+stored in its slot right now. Only the first factor was verified. The admin
+can swap the second after users have read the source. The same holds for
+code reached through:
+
+- a *constructor* argument (the constructor runs once at deployment, like
+  ``__init__``);
+- an external library;
+- a parent contract the reader skips.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.verification.verify_source`
 compares the class at an address, and
@@ -270,26 +471,49 @@ Proxy storage slots* (2019). `URL <https://eips.ethereum.org/EIPS/eip-1967>`__.
 2017 -- Bartoletti et al.: Dissecting Ponzi Schemes on Ethereum
 ---------------------------------------------------------------
 
+Ponzi schemes moved onto Ethereum as contracts. There the rules are written
+in code that anyone can read, and every payment is on the public ledger.
+
 Bartoletti, Carta, Cimoli and Saia collected 184 Ponzi schemes running as
-Ethereum contracts, most of them with public source code, and classified
-them by how they pay: *chain-shaped*, where each deposit is queued and paid
-a multiple of itself out of later deposits in order of arrival;
-*tree-shaped*, paying the investor who referred each newcomer;
-*waterfall*, pouring each deposit down the list of earlier investors from
-the first; and *handover*, passing each newcomer's payment to the investor
-before. In a chain paying :math:`m` times every deposit, with an owner's
-fee :math:`f`, all payouts come from the :math:`1 - f` of deposits left
-after the fee. With :math:`N` equal deposits, at most
-:math:`(1 - f)N/m` investors can be paid, so at least a fraction
+Ethereum contracts. Most had public source code. They classified them by how
+they pay:
+
+- **chain-shaped**: each deposit joins a queue, like a
+  ``collections.deque``. It is paid a multiple of itself out of later
+  deposits, in order of arrival;
+- **tree-shaped**: each newcomer's money pays the investor who referred them;
+- **waterfall**: each deposit is poured down the list of earlier investors,
+  starting from the first;
+- **handover**: each newcomer's payment goes to the investor just before.
+
+A chain scheme works like this:
+
+#. An investor deposits; the deposit joins the back of the queue.
+#. The owner takes a fee, a fraction :math:`f` of the deposit.
+#. The rest goes to the investor at the front of the queue.
+#. Once that investor has received :math:`m` times their deposit, they leave
+   the queue.
+
+All payouts come from the :math:`1 - f` of deposits left after the fee. With
+:math:`N` equal deposits, at most :math:`(1 - f)N/m` investors can be paid.
+So at least a fraction
 
 .. math::
 
    1 - \frac{1 - f}{m}
 
-of the investors is unpaid when deposits stop. Their transactions show the
-mechanism: payouts leave in the same transactions as newer deposits, and
-most investors end below what they paid. They found that such schemes had
-taken about 10 million dollars from thousands of users.
+of the investors is unpaid when deposits stop. For example, with a 10% fee
+and a promise to double (:math:`f = 0.1`, :math:`m = 2`), at least 55% of
+investors are never paid.
+
+- **The transactions show the mechanism**: payouts leave in the same
+  transactions as newer deposits.
+- **Most investors end below** what they paid.
+- **The scale**: such schemes had taken about 10 million dollars from
+  thousands of users.
+
+Later detectors used *classifiers*, models that learn to label a contract
+"Ponzi" or "not Ponzi" from examples.
 
 *Implementation:* :class:`blockchainkit.fraud.systems.ponzi.ChainPonzi`,
 with :func:`blockchainkit.fraud.systems.ponzi.value_flows`, which lists
@@ -308,21 +532,36 @@ Generation Computer Systems 102, 259–277 (2020); arXiv:1703.03779 (2017).
 2017-2018 -- ICO Exit Scams and the DAICO
 -----------------------------------------
 
-Initial coin offerings raised billions of dollars in 2017 for projects that
-existed only as white papers, and nothing tied the team to the money. An
-*exit scam* takes the proceeds and disappears; in December 2017 the SEC's
-new Cyber Unit obtained an emergency freeze of the PlexCoin sale, whose
-promoters had promised a 1,354% return in under a month. Buterin's DAICO
-proposal of January 2018 keeps the ether in the sale contract, releases it
-to the team at a capped *tap* rate :math:`\tau`, and lets contributors vote
-to refund the rest. Since the team can withdraw no faster than the tap, a
-team that vanishes after time :math:`t` takes at most
+An *initial coin offering* (ICO) sells a new token for ether to fund a
+project. It is like crowdfunding in which backers receive tokens. ICOs
+raised billions of dollars in 2017 for projects that existed only as *white
+papers*, documents describing a plan. Nothing tied the team to the money. An
+*exit scam* takes the proceeds and disappears. In December 2017 the SEC's new
+Cyber Unit got an emergency freeze of the PlexCoin sale. Its promoters had
+promised a 1,354% return in under a month.
+
+Vitalik Buterin's DAICO proposal of January 2018 limits what a team can take:
+
+#. Contributors send ether to the sale contract and receive tokens.
+#. The contract keeps the ether.
+#. The team may withdraw it only at a capped *tap* rate :math:`\tau`, in
+   ether per second.
+#. Contributors can vote to refund the rest. If the vote passes, each
+   contributor gets a share in proportion to their tokens.
+
+Since the team can withdraw no faster than the tap, a team that vanishes
+after time :math:`t` takes at most
 
 .. math::
 
    \min(\tau t,\ \text{raised}),
 
-and contributors recover the remainder in proportion to their tokens.
+In words: the tap rate times the time elapsed, or everything raised if that
+is smaller.
+
+- Contributors recover the remainder in proportion to their tokens.
+- The longer the team stays, the more it can take, so contributors must keep
+  watching and vote in time.
 
 *Implementation:* :class:`blockchainkit.fraud.systems.token_sales.TokenSale`,
 with ``tap = 0`` for an ordinary sale. Tokens are a per-contributor count
@@ -342,23 +581,43 @@ Scam*, press release (4 December 2017).
 
 Between February and November 2013, two accounts on Mt. Gox, later dubbed
 the Markus and Willy bots, bought about 600,000 bitcoins without paying for
-them, credited with dollars the exchange did not have. Over the same months
-the price rose from about 150 to over 1,000 dollars. Gandal, Hamrick, Moore
-and Oberman used the leaked Mt. Gox trade records to compare the price
-change on days the bots traded with the other days: about 4% a day against
-a slight fall. In a thin market buying moves the price; with a net purchase
-:math:`q_t` on day :math:`t`, a linear impact :math:`\lambda` and random
-noise :math:`\sigma \varepsilon_t`,
+them. The exchange credited them with dollars it did not have. Over the same
+months the price rose from about 150 to over 1,000 dollars.
+
+Gandal, Hamrick, Moore and Oberman used the leaked Mt. Gox trade records.
+They compared the price change on days the bots traded with the other days:
+about 4% a day against a slight fall.
+
+The idea: in a *thin market*, one with few traders, buying moves the price.
+A simple model of daily prices :math:`p_t`:
+
+- :math:`q_t` is the net purchase on day :math:`t`: coins bought minus coins
+  sold.
+- :math:`\lambda` is the *price impact*: how far the log price moves per coin
+  bought.
+- :math:`\sigma \varepsilon_t` is random noise. :math:`\varepsilon_t` is a
+  standard normal random number (``random.gauss(0, 1)``) and :math:`\sigma`
+  sets its size.
 
 .. math::
 
    \log p_{t+1} = \log p_t + \lambda q_t + \sigma \varepsilon_t .
 
-A genuine buyer is limited by its money; a buyer who need not pay for
-:math:`q_t` can raise the price as far as it likes. The noise averages out
-across days, so the bots' effect shows up as a higher mean return on the
-days they traded and none on the others, which is the pattern Gandal et
-al. found.
+In words: each day the log of the price moves by an amount proportional to
+the net buying, plus noise. A change in log price is close to a percentage
+change, so this is the day's *return*.
+
+- **A genuine buyer is limited by its money.** A buyer who need not pay for
+  :math:`q_t` can raise the price as far as it likes.
+- **The noise averages out across days.** So the bots' effect shows up as a
+  higher mean return on the days they traded, and none on the others. That
+  is the pattern Gandal et al. found.
+
+This model is a *random walk*: each day adds a random step. Because it is
+the logarithm that walks, the price itself is *log-normal*. The
+:math:`\lambda q_t` term comes from Albert Kyle's 1985 model of trading. To
+*regress* returns on activity is to fit a line through them; *controls* are
+other factors included in the fit.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.manipulation.simulate_bot_market`
 and :func:`blockchainkit.fraud.systems.manipulation.return_by_activity`.
@@ -374,23 +633,36 @@ manipulation in the Bitcoin ecosystem*, Journal of Monetary Economics 95,
 2018 -- BitConnect and Lending-Platform Ponzis
 ----------------------------------------------
 
-BitConnect took bitcoin deposits into a "lending program" said to earn
-around 1% a day from a trading bot, and paid recruiters commissions down
-several levels of the investors they brought in. Nothing was traded:
-interest and withdrawals came from new deposits. Credited balances
-compound at the daily rate :math:`i`, so with deposits :math:`D_t` and
-withdrawals :math:`W_t` the liabilities grow as
+BitConnect took bitcoin deposits into a "lending program". It claimed to earn
+around 1% a day from a trading bot. It also paid recruiters commissions on
+the investors they brought in, and on those investors' recruits, several
+levels down. Nothing was traded. Interest and withdrawals came from new
+deposits.
+
+The trick is *compound interest*: interest is paid on interest. Each day
+:math:`t`:
+
+#. Every credited balance grows by the daily rate :math:`i`.
+#. New deposits :math:`D_t` are added to balances and to the cash.
+#. Withdrawals :math:`W_t` are taken from balances and from the cash.
+
+So the liabilities grow as
 
 .. math::
 
    L_t = L_{t-1}(1 + i) + D_t - W_t, \qquad (1.01)^{365} \approx 38,
 
-while the cash grows only by :math:`D_t - W_t`. A balance left for a year
-is owed 38 times over, so the gap between what is owed and what is held
-widens every day, and only ever-faster deposits can hide it. In January
-2018 the Texas and North Carolina securities regulators ordered it to stop;
-deposits dried up and the lending platform closed on 16 January. The SEC later charged its
-founder and promoters with a fraud of about two billion dollars.
+In words: what is owed grows by the interest plus the net deposits. At 1% a
+day, a balance multiplies by about 38 in a year. Meanwhile the cash grows
+only by :math:`D_t - W_t`.
+
+- **A balance left for a year is owed 38 times over.**
+- **The gap widens every day.** What is owed outruns what is held, and only
+  ever-faster deposits can hide it.
+- **The end:** in January 2018 the Texas and North Carolina securities
+  regulators ordered it to stop. Deposits dried up, and the lending platform
+  closed on 16 January. The SEC later charged its founder and promoters with
+  a fraud of about two billion dollars.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.ponzi.simulate_lending_ponzi`
 and :func:`blockchainkit.fraud.systems.ponzi.referral_commissions`.
@@ -408,25 +680,48 @@ emergency cease and desist order against BitConnect (4 January 2018).
 2019 -- Torres et al.: Honeypots That Trap Would-Be Thieves
 -----------------------------------------------------------
 
-A honeypot is a contract that holds ether and seems to leak it to anyone
-who reads its source closely enough to spot a flaw. The reader sends ether
-to exploit it, and the flaw is a trap: the ether stays in the contract,
-where only its creator can reach it. Torres, Steichen and State found 690
-honeypots and classified eight techniques. Four rest on EVM semantics or on
-what the explorer shows. In *balance disorder*, the source seems to pay
-anyone who sends at least the contract's balance :math:`b`; but by the time
-the check runs, ``this.balance`` already includes the sender's
-:math:`v`, so the condition becomes :math:`v \ge b + v`, which fails for
-any bait :math:`b > 0`. A *hidden state update* changes the contract
-through a call carrying no ether, which the explorer did not list, so the
-reader judges stale state. A *hidden transfer* is pushed out of sight past
-the right edge of the explorer's code view by whitespace. The *straw man
-contract* is given, in its constructor, an address holding different code
-from the source shown. The other four are quirks of Solidity:
-*inheritance disorder*, an *uninitialised storage struct* overwriting slot
-0, *type deduction overflow* of a ``var`` loop counter in ``uint8``, and
-the *skipped empty string literal* of compilers before 0.4.12. Their tool,
-HoneyBadger, finds them by symbolic execution of the bytecode.
+A *honeypot* is a contract that holds ether and seems to leak it. It targets
+anyone who reads its source closely enough to spot a flaw.
+
+#. The creator deploys the contract with some ether as bait.
+#. A reader studies the source and spots what looks like a flaw.
+#. The reader sends ether to exploit it.
+#. The flaw is a trap. The ether stays in the contract, where only its
+   creator can reach it.
+
+Torres, Steichen and State found 690 honeypots and classified eight
+techniques. Four rest on the exact rules by which the EVM runs code, or on
+what the explorer shows:
+
+- **Balance disorder.** The source seems to pay anyone who sends at least
+  the contract's balance :math:`b`. But by the time the check runs,
+  ``this.balance`` already includes the sender's :math:`v`. So the condition
+  becomes :math:`v \ge b + v`, which fails for any bait :math:`b > 0`.
+- **Hidden state update.** The contract is changed through a call carrying
+  no ether. The explorer did not list such calls, so the reader judges stale
+  state.
+- **Hidden transfer.** Whitespace pushes a line of code past the right edge
+  of the explorer's code view, out of sight.
+- **Straw man contract.** The constructor is given an address holding
+  different code from the source shown.
+
+The other four are quirks of Solidity:
+
+- **Inheritance disorder.** A child contract's ``owner`` is a different
+  variable from its parent's.
+- **Uninitialised storage struct.** A contract's storage is a numbered array
+  of slots. A local struct declared without the ``memory`` keyword points at slot 0 and
+  overwrites what is stored there.
+- **Type deduction overflow.** A loop counter declared with ``var`` becomes a
+  ``uint8``, an 8-bit number from 0 to 255. So it wraps around, like
+  ``i = (i + 1) % 256``.
+- **Skipped empty string literal.** Compilers before 0.4.12 dropped an empty
+  string ``""`` argument and shifted the others into the wrong places.
+
+Their tool, HoneyBadger, finds them by *symbolic execution* of the bytecode.
+It runs the program with unknown inputs kept as symbols. Along each path it
+records the conditions those inputs must meet. Then it asks whether any input
+could really reach a payout.
 
 *Implementation:* the contracts in :mod:`blockchainkit.fraud.systems.honeypots`.
 Three of the EVM and explorer techniques are modelled directly:
@@ -455,28 +750,49 @@ Demystifying honeypots in Ethereum smart contracts*, USENIX Security 2019,
 2019 -- Xu and Livshits: The Anatomy of a Pump-and-Dump
 -------------------------------------------------------
 
-Telegram groups with tens of thousands of members announce a coin at a set
-minute; members rush to buy, and the price jumps within seconds. The
-organizers bought beforehand and sell into the rush. Xu and Livshits
-studied 412 such pumps between June 2018 and February 2019, measured who
-gained, and predicted which coin would be pumped from its market's
-features. On a constant-product market with :math:`x` coins against
-:math:`y` of the quote currency, a buyer paying :math:`\Delta y` gets
-:math:`x\,\Delta y / (y + \Delta y)` coins, and each purchase raises the
-price for the next. A fee-free pool neither gains nor loses on a round
-trip: once every coin bought has been sold back, :math:`x` and :math:`y`
-are where they started. The traders' profits therefore sum to zero, so
-whoever buys early and sells first, above all the organizers, wins exactly
-what the late buyers lose:
+A pump-and-dump runs in a chat group, often on Telegram, with tens of
+thousands of members:
+
+#. The organizers quietly buy a coin.
+#. They announce the coin to the group at a set minute.
+#. Members rush to buy. The price jumps within seconds.
+#. The organizers sell into the rush.
+#. The price falls back, and the late buyers lose.
+
+Xu and Livshits studied 412 such pumps between June 2018 and February 2019.
+They measured who gained. They also predicted which coin would be pumped
+from its market's features.
+
+Why must someone lose? Take a *constant-product market*: a pool holding
+:math:`x` coins and :math:`y` of the *quote currency*, the currency prices
+are given in. Every trade keeps :math:`xy` fixed.
+
+- A buyer paying :math:`\Delta y` gets :math:`x\,\Delta y / (y + \Delta y)`
+  coins. (Solve :math:`(x - \Delta x)(y + \Delta y) = xy` for
+  :math:`\Delta x`.)
+- Each purchase raises the price for the next buyer.
+- A fee-free pool neither gains nor loses on a round trip. Its product
+  :math:`xy = k` never changes, so :math:`y = k/x` depends only on
+  :math:`x`. Once every coin bought has been sold back, :math:`x` and
+  :math:`y` are where they started.
+- So the traders' profits sum to zero. Whoever buys early and sells first,
+  above all the organizers, wins exactly what the late buyers lose:
 
 .. math::
 
    \pi_{\text{organizers}} + \sum_i \pi_i \approx 0 ,
 
-approximately only because some late buyers are still holding coins.
+In words: the organizers' profit plus every other trader's profit is about
+zero. It is only approximately zero because some late buyers are still
+holding coins.
 
 The pump leaves a spike in both price and volume far above their recent
 averages, which simple anomaly rules catch.
+
+The pumps Xu and Livshits studied ran on *centralized exchanges*, run by a
+company. These match trades through *order books*: lists of buy and sell
+offers. A *random forest* is a kind of classifier built from many decision
+trees.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.manipulation.simulate_pump_and_dump`
 on a fee-free constant-product market, and
@@ -496,27 +812,52 @@ pump-and-dumps*, Crime Science 7, 18 (2018).
 2021 -- Rug Pulls and Hidden-Mint Tokens: the Squid Game Token
 --------------------------------------------------------------
 
-Anyone can issue a token and open a market for it on a decentralized
-exchange, and many do so to take the buyers' money: by withdrawing the
-liquidity they supplied, by minting themselves tokens through a function
-with an innocent name, or by blocking everyone else from selling. Xia et
-al. found that a large share of the tokens listed on Uniswap were scams. In
-November 2021 a token named after the Squid Game series rose from a cent to
-2,861 dollars in a week while its holders could not sell; its creators sold
-and vanished, and the price fell to nothing in minutes. On a
-constant-product market :math:`xy = k`, with :math:`x` tokens against
+Anyone can issue a token and open a market for it on a *decentralized
+exchange* (DEX). A DEX is an exchange run by a contract, such as a
+constant-product pool, rather than by a company. To open a market, the
+creator supplies *liquidity*: it deposits both the token and the quote
+currency into the pool so that others can trade. Many creators do this only
+to take the buyers' money. They can:
+
+- withdraw the liquidity they supplied;
+- *mint* themselves new tokens out of nothing, through a function with an
+  innocent name;
+- block everyone else from selling.
+
+Xia et al. found that a large share of the tokens listed on Uniswap, the
+largest DEX on Ethereum, were scams. In November 2021 a token named after the
+Squid Game series rose from a cent to 2,861 dollars in a week. Its holders
+could not sell. Its creators sold and vanished, and the price fell to
+nothing in minutes.
+
+A hidden-mint rug pull:
+
+#. The creator opens a pool for the token.
+#. Buyers pay quote currency into the pool. If the token also blocks
+   selling, nobody can take it out again.
+#. The creator mints itself a huge amount :math:`\Delta x` of tokens.
+#. The creator sells them all to the pool.
+
+On a constant-product market :math:`xy = k`, with :math:`x` tokens against
 :math:`y` of the quote currency, selling :math:`\Delta x` tokens returns
 
 .. math::
 
    \frac{y\,\Delta x}{x + \Delta x} \to y \quad \text{as } \Delta x \to \infty .
 
-Blocking other sellers keeps the buyers' money in the pool, and a hidden
-mint lets the creator make :math:`\Delta x` as large as it likes, so the
-creator's sale takes almost the whole quote reserve. Neither trap is
-visible when buying; it shows only on selling. The defence is therefore to
-buy a little and sell it back on a fork of the chain, which costs nothing,
-before buying for real.
+In words: a seller always gets less than the whole quote reserve :math:`y`,
+but with enough tokens gets almost all of it.
+
+- **Blocking other sellers** keeps the buyers' money in the pool.
+- **A hidden mint** lets the creator make :math:`\Delta x` as large as it
+  likes. So the creator's sale takes almost the whole quote reserve.
+- **Neither trap is visible when buying.** It shows only on selling.
+- **The defence** is to buy a little and sell it back on a *fork* of the
+  chain before buying for real. A fork here is a private copy of the current
+  state, like ``copy.deepcopy(world)``, where trades are not real and cost
+  nothing.
+
+BNB Chain is another blockchain, and PancakeSwap its Uniswap-like DEX.
 
 *Implementation:* :class:`blockchainkit.fraud.systems.rug_pulls.SellBlockToken`,
 :class:`blockchainkit.fraud.systems.rug_pulls.HiddenMintToken` and
@@ -536,20 +877,43 @@ and Analysis of Computing Systems 5(3) (2021).
 2022 -- Von Wachter et al.: Wash Trading in NFT Markets
 -------------------------------------------------------
 
-A wash trade is a sale between parties who are really one. On NFT markets
-it fakes a price history for a token or earns trading rewards: in early
-2022 LooksRare paid its own token to traders in proportion to volume, and
-most of that volume was washed. Von Wachter, Jensen, Regner and Ross looked
-for the shape such trading leaves on a public ledger, a token passing
-through a few accounts and returning to one that held it,
+An *NFT* (non-fungible token) is a token whose units are each unique. Instead
+of a dict from address to balance, it keeps a dict from token ID to owner.
+NFTs are used for digital art and collectibles.
+
+A *wash trade* is a sale between parties who are really one. On NFT markets
+it serves two ends:
+
+- **faking a price history** for a token, so that it looks valuable;
+- **earning trading rewards.** In early 2022 the LooksRare market paid its
+  own token to traders in proportion to their volume. Most of that volume
+  was washed.
+
+Von Wachter, Jensen, Regner and Ross looked for the shape such trading
+leaves on a public ledger:
+
+#. Treat each account as a node of a graph, and each sale as an edge from
+   seller to buyer.
+#. Follow each token through its sales.
+#. Flag any token that passes through a few accounts and returns to one that
+   held it before.
+
+That shape is a *cycle*:
 
 .. math::
 
    a_1 \to a_2 \to \cdots \to a_\ell \to a_1 ,
 
-which changes nobody's holdings, only the volume. They found suspicious
-activity in a few percent of the collections they studied, accounting for
-a far larger share of their volume.
+In words: the token goes from account :math:`a_1` through
+:math:`\ell - 1` other accounts and back to :math:`a_1`.
+
+- **A cycle changes nobody's holdings**, only the volume.
+- **The findings**: suspicious activity in a few percent of the collections
+  they studied, accounting for a far larger share of their volume.
+
+Their method also used *strongly connected components*: groups of accounts
+in which each can reach every other along sales. *Common funding* means
+accounts whose ether came from the same source.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.wash_trading.find_wash_trades`
 flags every trade on a cycle of at most ``max_length`` sales and groups
@@ -569,21 +933,38 @@ Cryptography and Data Security workshops (2022); arXiv:2202.03866.
 2022 -- Approval ("Ice") Phishing on ERC-20 Allowances
 ------------------------------------------------------
 
-An ERC-20 ``approve`` lets a spender move the owner's tokens later without
-asking again, and exchanges ask once for an unlimited allowance to spare
-their users a transaction per trade. In February 2022 Microsoft named *ice
-phishing* the attack that exploits the habit: a fake airdrop or mint page
-asks the victim to approve the attacker's contract, which can then call
-``transferFrom`` to empty the wallet whenever the attacker likes, months
-later if need be. No key is stolen. Each token can be taken up to the
-total its spenders are allowed, but no more than the wallet holds, so what
-a wallet stands to lose is
+An ERC-20 token's ``approve`` function lets a *spender* move the owner's tokens later without asking again.
+The token stores the limit as an *allowance*, like a nested dict
+``allowance[owner][spender]``. The spender then calls ``transferFrom`` to
+move up to that amount. Exchanges ask once for an unlimited allowance, to
+spare their users a transaction per trade.
+
+In February 2022 Microsoft named the attack that exploits this habit *ice
+phishing*:
+
+#. The attacker builds a fake *airdrop* (free token giveaway) or mint page.
+#. The page asks the victim to approve the attacker's contract. The victim
+   signs and sends the approval.
+#. Whenever the attacker likes, months later if need be, its contract calls
+   ``transferFrom`` and empties the wallet.
+
+No key is stolen. Each token can be taken up to the total its spenders are
+allowed, but no more than the wallet holds. So what a wallet stands to lose
+is
 
 .. math::
 
    \sum_{\text{tokens}} \min\Big(\text{balance},\; \sum_{\text{spenders}} \text{allowance}\Big),
 
-and revoking an approval, setting it to 0, removes that spender's share.
+In words: for each token, the smaller of the balance and the total
+allowance, added up over all tokens.
+
+- **Revoking an approval**, setting it to 0, removes that spender's share.
+- **Approvals are public.** Each ``approve`` writes an ``Approval`` *event*,
+  a log entry that anyone can read later. So a wallet's standing allowances
+  can be listed.
+- A newer route, ``permit``, grants an approval by signing a message rather
+  than sending a transaction.
 
 *Implementation:* :class:`blockchainkit.fraud.systems.phishing.Drainer`,
 :func:`blockchainkit.fraud.systems.phishing.open_approvals`, which reads a
@@ -601,23 +982,37 @@ blockchain*, Microsoft Security Blog (16 February 2022).
 2022 -- FTX, Commingled Customer Funds, and Proof of Liabilities
 ----------------------------------------------------------------
 
-In November 2022 FTX, one of the largest exchanges, could not meet a rush
-of withdrawals and filed for bankruptcy. Its affiliated trading firm,
-Alameda Research, had been exempt from the exchange's liquidation engine
-and allowed a negative balance, and had spent billions of dollars of
-customer deposits. The books still showed every customer's balance; the
-coins were gone. With reserves :math:`R` and liabilities :math:`L`, a run
-on an exchange whose reserve ratio is below one pays the first customers
-in full until the reserves run out, and the rest nothing:
+In November 2022 FTX, one of the largest exchanges, could not meet a rush of
+withdrawals and filed for bankruptcy. Its affiliated trading firm was
+Alameda Research. FTX had a *liquidation engine*: a system that
+automatically sells a trader's positions when their balance runs too low.
+Alameda was exempt from it and allowed a negative balance. It had spent
+billions of dollars of customer deposits. The books still showed every
+customer's balance; the coins were gone.
+
+A rush of withdrawals is a *run*, as on a bank. Write :math:`R` for the
+reserves and :math:`L` for the liabilities. If the *reserve ratio* :math:`R/L`
+is below one, the run goes like this:
+
+#. Customers withdraw one after another.
+#. Each is paid in full while the reserves last.
+#. When the reserves run out, the rest get nothing.
 
 .. math::
 
    \rho = \frac{R}{L} < 1, \qquad \text{paid} = \min(R, L) = \rho L .
 
-Solvency depends on :math:`R` and :math:`L` together. A proof of reserves
-shows only :math:`R`, and FTX's reserves were real and large; the shortfall
-appears only beside the liabilities. Weeks after the collapse, exchanges began publishing Merkle-sum
-proofs of liabilities beside their reserves.
+In words: the total paid out is the reserves, a fraction :math:`\rho` of
+what was owed.
+
+- **Solvency depends on** :math:`R` **and** :math:`L` **together.**
+- **A proof of reserves shows only** :math:`R`. FTX's reserves were real and
+  large. The shortfall appears only beside the liabilities.
+- **The response:** weeks after the collapse, exchanges began publishing
+  Merkle-sum proofs of liabilities beside their reserves.
+
+FTX also issued its own token, FTT. Alameda pledged it as *collateral*:
+assets handed over as security for a loan.
 
 *Implementation:* :class:`blockchainkit.fraud.systems.custody.Custodian`,
 whose operator may lend deposits to an affiliate up to a credit line, with
@@ -635,23 +1030,39 @@ FTX Trading Ltd., No. 22-11068 (Bankr. D. Del., 9 April 2023).
 2022-2023 -- Address Poisoning with Look-Alike Addresses
 --------------------------------------------------------
 
-An Ethereum address is 40 hexadecimal digits, and wallets show only the
-first and last few. From late 2022, poisoners watched for payments, ground
-out an address matching the ends of the payee's, and sent the payer a
-worthless transfer from it, so that the look-alike sat in the payer's
-history next to the real one; the next payment copied from there went to
-the poisoner. Tsuchiya, Dong, Soska and Christin measured hundreds of
-millions of such attempts on Ethereum and BNB Chain. The attack is cheap
-because the poisoner need match only the digits users look at. Each random
-candidate address matches :math:`k` chosen hex digits with probability
-:math:`16^{-k}`, so the number of candidates to try is geometric with mean
+An Ethereum address is 40 hexadecimal digits (0-9 and a-f), like
+``0x52908400098527886E0F7030069857D2E4169EE7``. *Wallets*, the apps that hold
+keys and send payments, show only the first and last few digits. From late
+2022, *poisoners* exploited this:
+
+#. The poisoner watches the chain for a payment from a payer to a payee.
+#. It *grinds* out a look-alike address: a brute-force loop over random
+   candidates until one matches the ends of the payee's address.
+#. It sends the payer a worthless transfer from the look-alike. Now the
+   look-alike sits in the payer's history next to the real one.
+#. The payer copies an address from the history for the next payment, picks
+   the look-alike, and pays the poisoner.
+
+Tsuchiya, Dong, Soska and Christin measured hundreds of millions of such
+attempts on Ethereum and BNB Chain.
+
+The attack is cheap because the poisoner need match only the digits users
+look at. Each random candidate matches :math:`k` chosen hex digits with
+probability :math:`16^{-k}`. So the number of candidates to try is
+*geometric*, like the number of rolls of a :math:`16^k`-sided die until a
+chosen face comes up. Its mean is
 
 .. math::
 
    \mathbb{E}[\text{trials}] = 16^{k},
 
-about four billion for the eight digits a hurried user checks: seconds on a
-graphics card.
+In words: on average the poisoner tries :math:`16^k` candidates.
+
+- **Eight digits**, as a hurried user checks, need about
+  :math:`16^8 \approx 4.3` billion trials: seconds on a graphics card.
+- **All 40 digits** would need :math:`16^{40} = 2^{160}` trials. That is far
+  more than every computer on Earth could do in the age of the universe.
+- So the defence is to check the whole address, not just its ends.
 
 *Implementation:* :func:`blockchainkit.fraud.systems.poisoning.grind_lookalike`
 over hash-derived candidates
