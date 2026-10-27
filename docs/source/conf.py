@@ -1,5 +1,6 @@
 """Sphinx configuration for blockchainkit."""
 
+import os
 import re
 import sys
 from importlib.metadata import PackageNotFoundError
@@ -425,6 +426,9 @@ sphinx_gallery_conf = {
         "use_jupyter_lab": True,
         "notebook_modification_function": _jupyterlite_install_cell,
     },
+    # Run the examples in one worker process per core; BLOCKCHAINKIT_GALLERY_JOBS=1
+    # runs them one at a time in the Sphinx process instead.
+    "parallel": int(os.environ.get("BLOCKCHAINKIT_GALLERY_JOBS", os.cpu_count() or 1)),
 }
 
 doctest_global_setup = "import blockchainkit as bk"
